@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.test.Dao.TtDao" >
+
+  <resultMap id="BaseResultMap" type="com.test.Model.Tt" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="t1" property="t1" jdbcType="VARCHAR" />
+    <result column="t2" property="t2" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <sql id="Base_Column_List" >
+    id, t1, t2
+  </sql>
+
+  <sql id="table_name">
+    tt
+  </sql>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="long" >
+    select
+    <include refid="Base_Column_List" />
+    from <include refid="table_name" />
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="long" >
+    delete from <include refid="table_name" />
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+
+  <insert id="insert" parameterType="com.test.Model.Tt" >
+    insert into <include refid="table_name" /> (id,t1,t2)
+    values (#{id,jdbcType=BIGINT}, #{t1,jdbcType=VARCHAR}, #{t2,jdbcType=VARCHAR})
+  </insert>
+
+  <insert id="insertSelective" parameterType="com.test.Model.Tt" >
+    insert into <include refid="table_name" />
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="t1 != null" >
+        t1,
+      </if>
+      <if test="t2 != null" >
+        t2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="t1 != null" >
+        #{t1,jdbcType=VARCHAR},
+      </if>
+      <if test="t2 != null" >
+        #{t2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.test.Model.Tt" >
+    update <include refid="table_name" />
+    <set >
+      <if test="t1 != null" >
+        t1 = #{t1,jdbcType=VARCHAR},
+      </if>
+      <if test="t2 != null" >
+        t2 = #{t2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <update id="updateByPrimaryKey" parameterType="com.test.Model.Tt" >
+    update <include refid="table_name" />
+    set t1 = #{t1,jdbcType=VARCHAR},
+      t2 = #{t2,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

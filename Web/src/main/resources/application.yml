@@ -1,0 +1,50 @@
+server:
+  port: 8080
+  tomcat:
+    uri-encoding: utf-8
+
+spring:
+    datasource:
+        name: test
+        url: jdbc:mysql://127.0.0.1:3306/test1
+        username: sh1
+        password: 123456
+        driver-class-name: com.mysql.jdbc.Driver
+    thymeleaf:
+      mode: LEGACYHTML5
+    redis:
+      host: 127.0.0.1
+      port: 6379
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 8
+        min-idle: 0
+    session:
+          store-type: redis
+
+additional:
+    datasource:
+        names: test2,test3
+        test2:
+            url:  jdbc:mysql://127.0.0.1:3306/test2
+            username: sh2
+            password: 123456
+            driver-class-name: com.mysql.jdbc.Driver
+        test3:
+            url: jdbc:mysql://127.0.0.1:3306/test3
+            username: sh3
+            password: 123456
+            driver-class-name: com.mysql.jdbc.Driver
+
+
+
+logging:
+  path: log/logging.log
+  level: info
+mybatis:
+  type-aliases-package: com.test.model
+  mapper-locations: mapping/*.xml
+
+
+
