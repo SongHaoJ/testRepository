@@ -12,6 +12,9 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Import;
 
 
+import java.util.Date;
+
+
 @MapperScan("com.test.Dao")
 @SpringBootApplication
 @Import({DynamicDataSourceRegister.class})
@@ -25,6 +28,10 @@ public class SpringbootApplication extends SpringBootServletInitializer {
 
     public static void main(String args[]){
         logger.debug("SpringBootWeb开始启动");
+
+        logger.info(new Date().toString());
+        logger.info(new Date().toString().substring(8,12));
+
         SpringApplication.run(SpringbootApplication.class,args);
     }
 }
