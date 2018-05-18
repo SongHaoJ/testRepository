@@ -6,10 +6,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @Aspect
 @Order(-1)
@@ -39,6 +43,15 @@ public class DynamicDataSourceAspect {
     }
 */
 
+    @Pointcut("@annotation(org.springframework.web.bind.annotation.GetMapping)")
+    public void pointGetRequset(){
+
+    }
+
+
+
+
+
     @Before("@annotation(ds)")
     public void changeDataSource(JoinPoint joinPoint, TargetDataSource ds) throws Throwable {
         String dsId = ds.name();
@@ -50,9 +63,22 @@ public class DynamicDataSourceAspect {
         }
     }
 
+    @Before("@annotation(gm)")
+    public void testAnnotation(JoinPoint joinpoint, GetMapping gm){
+        logger.info("before");
+        logger.info("testname:"+gm.name()+"====value:"+gm.value().length+"====path:"+gm.path().length+"====params:"+gm.params().length);
+    }
+
+    @AfterReturning( pointcut = "@annotation(gm)",returning = "response")
+    public void testAnnotationResponse(JoinPoint joinpoint, GetMapping gm,String response){
+        logger.info("response");
+        logger.info(response.getClass()+"");
+    }
     @After("@annotation(ds)")
     public void restoreDataSource(JoinPoint joinPoint, TargetDataSource ds) {
         logger.debug("Revert DataSource : {} > {}", ds.name(), joinPoint.getSignature());
         DynamicDataSourceContextHolder.clearDataSourceType();
     }
+
+
 }

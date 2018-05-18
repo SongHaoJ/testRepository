@@ -1,5 +1,6 @@
 package com.test.Controller;
 
+import com.test.DataSource.TargetDataSource;
 import com.test.Service.TestService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -86,5 +87,23 @@ public class TestController {
         attributeMap.put("message", request.getRequestURI());
         log.info("sessionID:" + request.getSession().getId());
         return attributeMap;
+    }
+
+    @ResponseBody
+    @GetMapping("/readtable")
+    public String getTable(int n1){
+        String result  = "";
+        switch (n1){
+            case 1:
+                result= service.t1();
+                break;
+            case 2:
+                result=service.t2();
+                break;
+            case 3:
+                result=service.t3();
+                break;
+        }
+        return result;
     }
 }
