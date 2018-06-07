@@ -2,7 +2,7 @@ package com.start;
 
 
 
-import com.test.DataSource.DynamicDataSourceRegister;
+import com.bean.DataSource.DynamicDataSourceRegister;
 import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,7 +13,7 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Import;
 
 
-@MapperScan("com.test.Dao")
+@MapperScan("com.bean.dao")
 @SpringBootApplication
 @Import({DynamicDataSourceRegister.class})
 public class SpringbootApplication extends SpringBootServletInitializer {
