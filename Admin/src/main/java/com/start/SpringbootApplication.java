@@ -11,11 +11,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Import;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 
 @MapperScan("com.bean.dao")
 @SpringBootApplication
 @Import({DynamicDataSourceRegister.class})
+@EnableScheduling
 public class SpringbootApplication extends SpringBootServletInitializer {
     public static final Logger logger = LoggerFactory.getLogger(SpringbootApplication.class);
 
@@ -25,7 +27,6 @@ public class SpringbootApplication extends SpringBootServletInitializer {
     }
 
     public static void main(String args[]){
-        logger.debug("SpringBootAdmin开始启动");
         SpringApplication.run(SpringbootApplication.class,args);
     }
 }

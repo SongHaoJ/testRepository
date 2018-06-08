@@ -109,7 +109,7 @@
     <result column="CLOBTRANSLATE" jdbcType="LONGVARCHAR" property="clobtranslate" />
     <result column="ALERTDESCR" jdbcType="LONGVARCHAR" property="alertdescr" />
     <result column="PACKAGINGNAME" jdbcType="LONGVARCHAR" property="packagingname" />
-    <result column="CLASS" jdbcType="LONGVARCHAR" property="dbClass" />
+    <result column="CLASS" jdbcType="LONGVARCHAR" property="class" />
     <result column="ERRORINFO" jdbcType="LONGVARCHAR" property="errorinfo" />
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
@@ -195,7 +195,7 @@
       #{translate3,jdbcType=LONGVARCHAR}, #{translate4,jdbcType=LONGVARCHAR}, #{othercontent,jdbcType=LONGVARCHAR}, 
       #{shoptype,jdbcType=LONGVARCHAR}, #{salesource,jdbcType=LONGVARCHAR}, #{clobcontent,jdbcType=LONGVARCHAR}, 
       #{clobdescr,jdbcType=LONGVARCHAR}, #{clobtranslate,jdbcType=LONGVARCHAR}, #{alertdescr,jdbcType=LONGVARCHAR}, 
-      #{packagingname,jdbcType=LONGVARCHAR}, #{dbClass,jdbcType=LONGVARCHAR}, #{errorinfo,jdbcType=LONGVARCHAR}
+      #{packagingname,jdbcType=LONGVARCHAR}, #{class,jdbcType=LONGVARCHAR}, #{errorinfo,jdbcType=LONGVARCHAR}
       )
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.bean.model.DbProductTemp">
@@ -306,7 +306,7 @@
       CLOBTRANSLATE = #{clobtranslate,jdbcType=LONGVARCHAR},
       ALERTDESCR = #{alertdescr,jdbcType=LONGVARCHAR},
       PACKAGINGNAME = #{packagingname,jdbcType=LONGVARCHAR},
-      'CLASS' = #{dbClass,jdbcType=LONGVARCHAR},
+      'CLASS' = #{class,jdbcType=LONGVARCHAR},
       ERRORINFO = #{errorinfo,jdbcType=LONGVARCHAR}
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </update>

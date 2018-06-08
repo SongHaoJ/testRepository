@@ -8,7 +8,7 @@
     -->
     <id column="SID" jdbcType="VARCHAR" property="sid" />
     <result column="EXPRESSTYPE" jdbcType="VARCHAR" property="expresstype" />
-    <result column="PACKAGE" jdbcType="VARCHAR" property="dbPackage" />
+    <result column="PACKAGE" jdbcType="VARCHAR" property="package" />
     <result column="CURRENCY" jdbcType="VARCHAR" property="currency" />
     <result column="A4" jdbcType="DECIMAL" property="a4" />
     <result column="A6" jdbcType="DECIMAL" property="a6" />
@@ -32,7 +32,7 @@
     insert into db_ywexpresstype (SID, EXPRESSTYPE, 'PACKAGE', 
       CURRENCY, A4, A6, A7, 
       CNMINIPARCEL10X10, LABELSTR)
-    values (#{sid,jdbcType=VARCHAR}, #{expresstype,jdbcType=VARCHAR}, #{dbPackage,jdbcType=VARCHAR},
+    values (#{sid,jdbcType=VARCHAR}, #{expresstype,jdbcType=VARCHAR}, #{package,jdbcType=VARCHAR}, 
       #{currency,jdbcType=VARCHAR}, #{a4,jdbcType=DECIMAL}, #{a6,jdbcType=DECIMAL}, #{a7,jdbcType=DECIMAL}, 
       #{cnminiparcel10x10,jdbcType=DECIMAL}, #{labelstr,jdbcType=LONGVARCHAR})
   </insert>
@@ -43,7 +43,7 @@
     -->
     update db_ywexpresstype
     set EXPRESSTYPE = #{expresstype,jdbcType=VARCHAR},
-      'PACKAGE' = #{dbPackage,jdbcType=VARCHAR},
+      'PACKAGE' = #{package,jdbcType=VARCHAR},
       CURRENCY = #{currency,jdbcType=VARCHAR},
       A4 = #{a4,jdbcType=DECIMAL},
       A6 = #{a6,jdbcType=DECIMAL},
