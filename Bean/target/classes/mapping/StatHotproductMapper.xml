@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.StatHotproductMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.StatHotproduct">
+    <id column="YYYYMMDD" jdbcType="VARCHAR" property="yyyymmdd" />
+    <id column="SHOPTYPEID" jdbcType="VARCHAR" property="shoptypeid" />
+    <id column="PRODUCTID" jdbcType="VARCHAR" property="productid" />
+    <result column="SHOPTYPENAME" jdbcType="VARCHAR" property="shoptypename" />
+    <result column="PRODUCTNAME" jdbcType="VARCHAR" property="productname" />
+    <result column="ORDERNUM" jdbcType="DECIMAL" property="ordernum" />
+    <result column="CATEGORYID" jdbcType="VARCHAR" property="categoryid" />
+    <result column="CATEGORYNAME" jdbcType="VARCHAR" property="categoryname" />
+    <result column="SELLOPER" jdbcType="VARCHAR" property="selloper" />
+    <result column="PURCHASEOPER" jdbcType="VARCHAR" property="purchaseoper" />
+    <result column="RESERVE1" jdbcType="DECIMAL" property="reserve1" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
+    <result column="RESERVE4" jdbcType="VARCHAR" property="reserve4" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    YYYYMMDD, SHOPTYPEID, PRODUCTID, SHOPTYPENAME, PRODUCTNAME, ORDERNUM, CATEGORYID, 
+    CATEGORYNAME, SELLOPER, PURCHASEOPER, RESERVE1, RESERVE2, RESERVE3, RESERVE4
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from stat_hotproduct
+    where YYYYMMDD = #{yyyymmdd,jdbcType=VARCHAR}
+      and SHOPTYPEID = #{shoptypeid,jdbcType=VARCHAR}
+      and PRODUCTID = #{productid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from stat_hotproduct
+    where YYYYMMDD = #{yyyymmdd,jdbcType=VARCHAR}
+      and SHOPTYPEID = #{shoptypeid,jdbcType=VARCHAR}
+      and PRODUCTID = #{productid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bean.model.StatHotproduct">
+    insert into stat_hotproduct (YYYYMMDD, SHOPTYPEID, PRODUCTID, 
+      SHOPTYPENAME, PRODUCTNAME, ORDERNUM, 
+      CATEGORYID, CATEGORYNAME, SELLOPER, 
+      PURCHASEOPER, RESERVE1, RESERVE2, 
+      RESERVE3, RESERVE4)
+    values (#{yyyymmdd,jdbcType=VARCHAR}, #{shoptypeid,jdbcType=VARCHAR}, #{productid,jdbcType=VARCHAR}, 
+      #{shoptypename,jdbcType=VARCHAR}, #{productname,jdbcType=VARCHAR}, #{ordernum,jdbcType=DECIMAL}, 
+      #{categoryid,jdbcType=VARCHAR}, #{categoryname,jdbcType=VARCHAR}, #{selloper,jdbcType=VARCHAR}, 
+      #{purchaseoper,jdbcType=VARCHAR}, #{reserve1,jdbcType=DECIMAL}, #{reserve2,jdbcType=VARCHAR}, 
+      #{reserve3,jdbcType=VARCHAR}, #{reserve4,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.StatHotproduct">
+    insert into stat_hotproduct
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="yyyymmdd != null">
+        YYYYMMDD,
+      </if>
+      <if test="shoptypeid != null">
+        SHOPTYPEID,
+      </if>
+      <if test="productid != null">
+        PRODUCTID,
+      </if>
+      <if test="shoptypename != null">
+        SHOPTYPENAME,
+      </if>
+      <if test="productname != null">
+        PRODUCTNAME,
+      </if>
+      <if test="ordernum != null">
+        ORDERNUM,
+      </if>
+      <if test="categoryid != null">
+        CATEGORYID,
+      </if>
+      <if test="categoryname != null">
+        CATEGORYNAME,
+      </if>
+      <if test="selloper != null">
+        SELLOPER,
+      </if>
+      <if test="purchaseoper != null">
+        PURCHASEOPER,
+      </if>
+      <if test="reserve1 != null">
+        RESERVE1,
+      </if>
+      <if test="reserve2 != null">
+        RESERVE2,
+      </if>
+      <if test="reserve3 != null">
+        RESERVE3,
+      </if>
+      <if test="reserve4 != null">
+        RESERVE4,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="yyyymmdd != null">
+        #{yyyymmdd,jdbcType=VARCHAR},
+      </if>
+      <if test="shoptypeid != null">
+        #{shoptypeid,jdbcType=VARCHAR},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="shoptypename != null">
+        #{shoptypename,jdbcType=VARCHAR},
+      </if>
+      <if test="productname != null">
+        #{productname,jdbcType=VARCHAR},
+      </if>
+      <if test="ordernum != null">
+        #{ordernum,jdbcType=DECIMAL},
+      </if>
+      <if test="categoryid != null">
+        #{categoryid,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryname != null">
+        #{categoryname,jdbcType=VARCHAR},
+      </if>
+      <if test="selloper != null">
+        #{selloper,jdbcType=VARCHAR},
+      </if>
+      <if test="purchaseoper != null">
+        #{purchaseoper,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve1 != null">
+        #{reserve1,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve2 != null">
+        #{reserve2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve3 != null">
+        #{reserve3,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve4 != null">
+        #{reserve4,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.StatHotproduct">
+    update stat_hotproduct
+    <set>
+      <if test="shoptypename != null">
+        SHOPTYPENAME = #{shoptypename,jdbcType=VARCHAR},
+      </if>
+      <if test="productname != null">
+        PRODUCTNAME = #{productname,jdbcType=VARCHAR},
+      </if>
+      <if test="ordernum != null">
+        ORDERNUM = #{ordernum,jdbcType=DECIMAL},
+      </if>
+      <if test="categoryid != null">
+        CATEGORYID = #{categoryid,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryname != null">
+        CATEGORYNAME = #{categoryname,jdbcType=VARCHAR},
+      </if>
+      <if test="selloper != null">
+        SELLOPER = #{selloper,jdbcType=VARCHAR},
+      </if>
+      <if test="purchaseoper != null">
+        PURCHASEOPER = #{purchaseoper,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve1 != null">
+        RESERVE1 = #{reserve1,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve2 != null">
+        RESERVE2 = #{reserve2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve3 != null">
+        RESERVE3 = #{reserve3,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve4 != null">
+        RESERVE4 = #{reserve4,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where YYYYMMDD = #{yyyymmdd,jdbcType=VARCHAR}
+      and SHOPTYPEID = #{shoptypeid,jdbcType=VARCHAR}
+      and PRODUCTID = #{productid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bean.model.StatHotproduct">
+    update stat_hotproduct
+    set SHOPTYPENAME = #{shoptypename,jdbcType=VARCHAR},
+      PRODUCTNAME = #{productname,jdbcType=VARCHAR},
+      ORDERNUM = #{ordernum,jdbcType=DECIMAL},
+      CATEGORYID = #{categoryid,jdbcType=VARCHAR},
+      CATEGORYNAME = #{categoryname,jdbcType=VARCHAR},
+      SELLOPER = #{selloper,jdbcType=VARCHAR},
+      PURCHASEOPER = #{purchaseoper,jdbcType=VARCHAR},
+      RESERVE1 = #{reserve1,jdbcType=DECIMAL},
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR},
+      RESERVE3 = #{reserve3,jdbcType=VARCHAR},
+      RESERVE4 = #{reserve4,jdbcType=VARCHAR}
+    where YYYYMMDD = #{yyyymmdd,jdbcType=VARCHAR}
+      and SHOPTYPEID = #{shoptypeid,jdbcType=VARCHAR}
+      and PRODUCTID = #{productid,jdbcType=VARCHAR}
+  </update>
+</mapper>

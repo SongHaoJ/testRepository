@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbExpressblackMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbExpressblack">
+    <result column="SEQUENCEID" jdbcType="DECIMAL" property="sequenceid" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE4" jdbcType="DECIMAL" property="reserve4" />
+    <result column="TRACKNUMBERLENGTH" jdbcType="DECIMAL" property="tracknumberlength" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="RESERVE3" jdbcType="DECIMAL" property="reserve3" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="KEYWORD" jdbcType="VARCHAR" property="keyword" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbExpressblack">
+    <result column="TITLE" jdbcType="LONGVARCHAR" property="title" />
+    <result column="RESERVE5" jdbcType="LONGVARCHAR" property="reserve5" />
+  </resultMap>
+  <sql id="Blob_Column_List">
+    TITLE, RESERVE5
+  </sql>
+  <insert id="insert" parameterType="com.bean.model.DbExpressblack">
+    insert into db_expressblack (SEQUENCEID, OPER, RESERVE1, 
+      RESERVE4, TRACKNUMBERLENGTH, OPERTIME, 
+      RESERVE3, RESERVE2, KEYWORD, 
+      TITLE, RESERVE5)
+    values (#{sequenceid,jdbcType=DECIMAL}, #{oper,jdbcType=VARCHAR}, #{reserve1,jdbcType=VARCHAR}, 
+      #{reserve4,jdbcType=DECIMAL}, #{tracknumberlength,jdbcType=DECIMAL}, #{opertime,jdbcType=TIMESTAMP}, 
+      #{reserve3,jdbcType=DECIMAL}, #{reserve2,jdbcType=VARCHAR}, #{keyword,jdbcType=VARCHAR}, 
+      #{title,jdbcType=LONGVARCHAR}, #{reserve5,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbExpressblack">
+    insert into db_expressblack
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        SEQUENCEID,
+      </if>
+      <if test="oper != null">
+        OPER,
+      </if>
+      <if test="reserve1 != null">
+        RESERVE1,
+      </if>
+      <if test="reserve4 != null">
+        RESERVE4,
+      </if>
+      <if test="tracknumberlength != null">
+        TRACKNUMBERLENGTH,
+      </if>
+      <if test="opertime != null">
+        OPERTIME,
+      </if>
+      <if test="reserve3 != null">
+        RESERVE3,
+      </if>
+      <if test="reserve2 != null">
+        RESERVE2,
+      </if>
+      <if test="keyword != null">
+        KEYWORD,
+      </if>
+      <if test="title != null">
+        TITLE,
+      </if>
+      <if test="reserve5 != null">
+        RESERVE5,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        #{sequenceid,jdbcType=DECIMAL},
+      </if>
+      <if test="oper != null">
+        #{oper,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve1 != null">
+        #{reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve4 != null">
+        #{reserve4,jdbcType=DECIMAL},
+      </if>
+      <if test="tracknumberlength != null">
+        #{tracknumberlength,jdbcType=DECIMAL},
+      </if>
+      <if test="opertime != null">
+        #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reserve3 != null">
+        #{reserve3,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve2 != null">
+        #{reserve2,jdbcType=VARCHAR},
+      </if>
+      <if test="keyword != null">
+        #{keyword,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reserve5 != null">
+        #{reserve5,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

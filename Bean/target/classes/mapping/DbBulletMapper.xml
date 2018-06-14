@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbBulletMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbBullet">
+    <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
+    <result column="SPCODE" jdbcType="VARCHAR" property="spcode" />
+    <result column="TARGET" jdbcType="DECIMAL" property="target" />
+    <result column="SMSDATE" jdbcType="TIMESTAMP" property="smsdate" />
+    <result column="BULLETTYPE" jdbcType="DECIMAL" property="bullettype" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
+    <result column="MYID" jdbcType="DECIMAL" property="myid" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbBullet">
+    <result column="BTITLE" jdbcType="LONGVARCHAR" property="btitle" />
+    <result column="CONTENT" jdbcType="LONGVARCHAR" property="content" />
+    <result column="BOPER" jdbcType="LONGVARCHAR" property="boper" />
+    <result column="BGROUP" jdbcType="LONGVARCHAR" property="bgroup" />
+    <result column="BCLASS" jdbcType="LONGVARCHAR" property="bclass" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SEQUENCEID, SPCODE, TARGET, SMSDATE, BULLETTYPE, OPER, OPERTIME, OPENFLAG, MYID
+  </sql>
+  <sql id="Blob_Column_List">
+    BTITLE, CONTENT, BOPER, BGROUP, BCLASS
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from db_bullet
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from db_bullet
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bean.model.DbBullet">
+    insert into db_bullet (SEQUENCEID, SPCODE, TARGET, 
+      SMSDATE, BULLETTYPE, OPER, 
+      OPERTIME, OPENFLAG, MYID, 
+      BTITLE, CONTENT, BOPER, 
+      BGROUP, BCLASS)
+    values (#{sequenceid,jdbcType=VARCHAR}, #{spcode,jdbcType=VARCHAR}, #{target,jdbcType=DECIMAL}, 
+      #{smsdate,jdbcType=TIMESTAMP}, #{bullettype,jdbcType=DECIMAL}, #{oper,jdbcType=VARCHAR}, 
+      #{opertime,jdbcType=TIMESTAMP}, #{openflag,jdbcType=VARCHAR}, #{myid,jdbcType=DECIMAL}, 
+      #{btitle,jdbcType=LONGVARCHAR}, #{content,jdbcType=LONGVARCHAR}, #{boper,jdbcType=LONGVARCHAR}, 
+      #{bgroup,jdbcType=LONGVARCHAR}, #{bclass,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbBullet">
+    insert into db_bullet
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        SEQUENCEID,
+      </if>
+      <if test="spcode != null">
+        SPCODE,
+      </if>
+      <if test="target != null">
+        TARGET,
+      </if>
+      <if test="smsdate != null">
+        SMSDATE,
+      </if>
+      <if test="bullettype != null">
+        BULLETTYPE,
+      </if>
+      <if test="oper != null">
+        OPER,
+      </if>
+      <if test="opertime != null">
+        OPERTIME,
+      </if>
+      <if test="openflag != null">
+        OPENFLAG,
+      </if>
+      <if test="myid != null">
+        MYID,
+      </if>
+      <if test="btitle != null">
+        BTITLE,
+      </if>
+      <if test="content != null">
+        CONTENT,
+      </if>
+      <if test="boper != null">
+        BOPER,
+      </if>
+      <if test="bgroup != null">
+        BGROUP,
+      </if>
+      <if test="bclass != null">
+        BCLASS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        #{sequenceid,jdbcType=VARCHAR},
+      </if>
+      <if test="spcode != null">
+        #{spcode,jdbcType=VARCHAR},
+      </if>
+      <if test="target != null">
+        #{target,jdbcType=DECIMAL},
+      </if>
+      <if test="smsdate != null">
+        #{smsdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bullettype != null">
+        #{bullettype,jdbcType=DECIMAL},
+      </if>
+      <if test="oper != null">
+        #{oper,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null">
+        #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="openflag != null">
+        #{openflag,jdbcType=VARCHAR},
+      </if>
+      <if test="myid != null">
+        #{myid,jdbcType=DECIMAL},
+      </if>
+      <if test="btitle != null">
+        #{btitle,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="boper != null">
+        #{boper,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="bgroup != null">
+        #{bgroup,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="bclass != null">
+        #{bclass,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbBullet">
+    update db_bullet
+    <set>
+      <if test="spcode != null">
+        SPCODE = #{spcode,jdbcType=VARCHAR},
+      </if>
+      <if test="target != null">
+        TARGET = #{target,jdbcType=DECIMAL},
+      </if>
+      <if test="smsdate != null">
+        SMSDATE = #{smsdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bullettype != null">
+        BULLETTYPE = #{bullettype,jdbcType=DECIMAL},
+      </if>
+      <if test="oper != null">
+        OPER = #{oper,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null">
+        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="openflag != null">
+        OPENFLAG = #{openflag,jdbcType=VARCHAR},
+      </if>
+      <if test="myid != null">
+        MYID = #{myid,jdbcType=DECIMAL},
+      </if>
+      <if test="btitle != null">
+        BTITLE = #{btitle,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="content != null">
+        CONTENT = #{content,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="boper != null">
+        BOPER = #{boper,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="bgroup != null">
+        BGROUP = #{bgroup,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="bclass != null">
+        BCLASS = #{bclass,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbBullet">
+    update db_bullet
+    set SPCODE = #{spcode,jdbcType=VARCHAR},
+      TARGET = #{target,jdbcType=DECIMAL},
+      SMSDATE = #{smsdate,jdbcType=TIMESTAMP},
+      BULLETTYPE = #{bullettype,jdbcType=DECIMAL},
+      OPER = #{oper,jdbcType=VARCHAR},
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      OPENFLAG = #{openflag,jdbcType=VARCHAR},
+      MYID = #{myid,jdbcType=DECIMAL},
+      BTITLE = #{btitle,jdbcType=LONGVARCHAR},
+      CONTENT = #{content,jdbcType=LONGVARCHAR},
+      BOPER = #{boper,jdbcType=LONGVARCHAR},
+      BGROUP = #{bgroup,jdbcType=LONGVARCHAR},
+      BCLASS = #{bclass,jdbcType=LONGVARCHAR}
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbBullet">
+    update db_bullet
+    set SPCODE = #{spcode,jdbcType=VARCHAR},
+      TARGET = #{target,jdbcType=DECIMAL},
+      SMSDATE = #{smsdate,jdbcType=TIMESTAMP},
+      BULLETTYPE = #{bullettype,jdbcType=DECIMAL},
+      OPER = #{oper,jdbcType=VARCHAR},
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      OPENFLAG = #{openflag,jdbcType=VARCHAR},
+      MYID = #{myid,jdbcType=DECIMAL}
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </update>
+</mapper>

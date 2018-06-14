@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbUnionlogMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbUnionlog">
+    <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
+    <result column="UNIONORDERID" jdbcType="VARCHAR" property="unionorderid" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="SOURCEORDERID" jdbcType="VARCHAR" property="sourceorderid" />
+    <result column="FLAG" jdbcType="DECIMAL" property="flag" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbUnionlog">
+    <result column="SOURCESELLID" jdbcType="LONGVARCHAR" property="sourcesellid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SEQUENCEID, UNIONORDERID, OPER, RESERVE1, OPERTIME, SOURCEORDERID, FLAG
+  </sql>
+  <sql id="Blob_Column_List">
+    SOURCESELLID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from db_unionlog
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from db_unionlog
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bean.model.DbUnionlog">
+    insert into db_unionlog (SEQUENCEID, UNIONORDERID, OPER, 
+      RESERVE1, OPERTIME, SOURCEORDERID, 
+      FLAG, SOURCESELLID)
+    values (#{sequenceid,jdbcType=VARCHAR}, #{unionorderid,jdbcType=VARCHAR}, #{oper,jdbcType=VARCHAR}, 
+      #{reserve1,jdbcType=VARCHAR}, #{opertime,jdbcType=TIMESTAMP}, #{sourceorderid,jdbcType=VARCHAR}, 
+      #{flag,jdbcType=DECIMAL}, #{sourcesellid,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbUnionlog">
+    insert into db_unionlog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        SEQUENCEID,
+      </if>
+      <if test="unionorderid != null">
+        UNIONORDERID,
+      </if>
+      <if test="oper != null">
+        OPER,
+      </if>
+      <if test="reserve1 != null">
+        RESERVE1,
+      </if>
+      <if test="opertime != null">
+        OPERTIME,
+      </if>
+      <if test="sourceorderid != null">
+        SOURCEORDERID,
+      </if>
+      <if test="flag != null">
+        FLAG,
+      </if>
+      <if test="sourcesellid != null">
+        SOURCESELLID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        #{sequenceid,jdbcType=VARCHAR},
+      </if>
+      <if test="unionorderid != null">
+        #{unionorderid,jdbcType=VARCHAR},
+      </if>
+      <if test="oper != null">
+        #{oper,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve1 != null">
+        #{reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null">
+        #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sourceorderid != null">
+        #{sourceorderid,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=DECIMAL},
+      </if>
+      <if test="sourcesellid != null">
+        #{sourcesellid,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbUnionlog">
+    update db_unionlog
+    <set>
+      <if test="unionorderid != null">
+        UNIONORDERID = #{unionorderid,jdbcType=VARCHAR},
+      </if>
+      <if test="oper != null">
+        OPER = #{oper,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve1 != null">
+        RESERVE1 = #{reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null">
+        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sourceorderid != null">
+        SOURCEORDERID = #{sourceorderid,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        FLAG = #{flag,jdbcType=DECIMAL},
+      </if>
+      <if test="sourcesellid != null">
+        SOURCESELLID = #{sourcesellid,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbUnionlog">
+    update db_unionlog
+    set UNIONORDERID = #{unionorderid,jdbcType=VARCHAR},
+      OPER = #{oper,jdbcType=VARCHAR},
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      SOURCEORDERID = #{sourceorderid,jdbcType=VARCHAR},
+      FLAG = #{flag,jdbcType=DECIMAL},
+      SOURCESELLID = #{sourcesellid,jdbcType=LONGVARCHAR}
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbUnionlog">
+    update db_unionlog
+    set UNIONORDERID = #{unionorderid,jdbcType=VARCHAR},
+      OPER = #{oper,jdbcType=VARCHAR},
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      SOURCEORDERID = #{sourceorderid,jdbcType=VARCHAR},
+      FLAG = #{flag,jdbcType=DECIMAL}
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </update>
+</mapper>

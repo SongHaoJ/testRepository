@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbCountryMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbCountry">
+    <id column="COUNTRYID" jdbcType="VARCHAR" property="countryid" />
+    <result column="COUNTRYNAME" jdbcType="VARCHAR" property="countryname" />
+    <result column="COUNTRYNAMEEN" jdbcType="VARCHAR" property="countrynameen" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    COUNTRYID, COUNTRYNAME, COUNTRYNAMEEN, RESERVE1, RESERVE2, RESERVE3
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from db_country
+    where COUNTRYID = #{countryid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from db_country
+    where COUNTRYID = #{countryid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bean.model.DbCountry">
+    insert into db_country (COUNTRYID, COUNTRYNAME, COUNTRYNAMEEN, 
+      RESERVE1, RESERVE2, RESERVE3
+      )
+    values (#{countryid,jdbcType=VARCHAR}, #{countryname,jdbcType=VARCHAR}, #{countrynameen,jdbcType=VARCHAR}, 
+      #{reserve1,jdbcType=VARCHAR}, #{reserve2,jdbcType=VARCHAR}, #{reserve3,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbCountry">
+    insert into db_country
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="countryid != null">
+        COUNTRYID,
+      </if>
+      <if test="countryname != null">
+        COUNTRYNAME,
+      </if>
+      <if test="countrynameen != null">
+        COUNTRYNAMEEN,
+      </if>
+      <if test="reserve1 != null">
+        RESERVE1,
+      </if>
+      <if test="reserve2 != null">
+        RESERVE2,
+      </if>
+      <if test="reserve3 != null">
+        RESERVE3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="countryid != null">
+        #{countryid,jdbcType=VARCHAR},
+      </if>
+      <if test="countryname != null">
+        #{countryname,jdbcType=VARCHAR},
+      </if>
+      <if test="countrynameen != null">
+        #{countrynameen,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve1 != null">
+        #{reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve2 != null">
+        #{reserve2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve3 != null">
+        #{reserve3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbCountry">
+    update db_country
+    <set>
+      <if test="countryname != null">
+        COUNTRYNAME = #{countryname,jdbcType=VARCHAR},
+      </if>
+      <if test="countrynameen != null">
+        COUNTRYNAMEEN = #{countrynameen,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve1 != null">
+        RESERVE1 = #{reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve2 != null">
+        RESERVE2 = #{reserve2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve3 != null">
+        RESERVE3 = #{reserve3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where COUNTRYID = #{countryid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbCountry">
+    update db_country
+    set COUNTRYNAME = #{countryname,jdbcType=VARCHAR},
+      COUNTRYNAMEEN = #{countrynameen,jdbcType=VARCHAR},
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR},
+      RESERVE3 = #{reserve3,jdbcType=VARCHAR}
+    where COUNTRYID = #{countryid,jdbcType=VARCHAR}
+  </update>
+</mapper>

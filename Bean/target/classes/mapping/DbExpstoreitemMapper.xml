@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbExpstoreitemMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbExpstoreitem">
+    <id column="SEQUENCEID" jdbcType="DECIMAL" property="sequenceid" />
+    <result column="EXPSTOREID" jdbcType="DECIMAL" property="expstoreid" />
+    <result column="SKU" jdbcType="VARCHAR" property="sku" />
+    <result column="ORDERNUM" jdbcType="DECIMAL" property="ordernum" />
+    <result column="PRICE" jdbcType="DECIMAL" property="price" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbExpstoreitem">
+    <result column="SAVELOG" jdbcType="LONGVARCHAR" property="savelog" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SEQUENCEID, EXPSTOREID, SKU, ORDERNUM, PRICE
+  </sql>
+  <sql id="Blob_Column_List">
+    SAVELOG
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from db_expstoreitem
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
+    delete from db_expstoreitem
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.bean.model.DbExpstoreitem">
+    insert into db_expstoreitem (SEQUENCEID, EXPSTOREID, SKU, 
+      ORDERNUM, PRICE, SAVELOG
+      )
+    values (#{sequenceid,jdbcType=DECIMAL}, #{expstoreid,jdbcType=DECIMAL}, #{sku,jdbcType=VARCHAR}, 
+      #{ordernum,jdbcType=DECIMAL}, #{price,jdbcType=DECIMAL}, #{savelog,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbExpstoreitem">
+    insert into db_expstoreitem
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        SEQUENCEID,
+      </if>
+      <if test="expstoreid != null">
+        EXPSTOREID,
+      </if>
+      <if test="sku != null">
+        SKU,
+      </if>
+      <if test="ordernum != null">
+        ORDERNUM,
+      </if>
+      <if test="price != null">
+        PRICE,
+      </if>
+      <if test="savelog != null">
+        SAVELOG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        #{sequenceid,jdbcType=DECIMAL},
+      </if>
+      <if test="expstoreid != null">
+        #{expstoreid,jdbcType=DECIMAL},
+      </if>
+      <if test="sku != null">
+        #{sku,jdbcType=VARCHAR},
+      </if>
+      <if test="ordernum != null">
+        #{ordernum,jdbcType=DECIMAL},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="savelog != null">
+        #{savelog,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbExpstoreitem">
+    update db_expstoreitem
+    <set>
+      <if test="expstoreid != null">
+        EXPSTOREID = #{expstoreid,jdbcType=DECIMAL},
+      </if>
+      <if test="sku != null">
+        SKU = #{sku,jdbcType=VARCHAR},
+      </if>
+      <if test="ordernum != null">
+        ORDERNUM = #{ordernum,jdbcType=DECIMAL},
+      </if>
+      <if test="price != null">
+        PRICE = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="savelog != null">
+        SAVELOG = #{savelog,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbExpstoreitem">
+    update db_expstoreitem
+    set EXPSTOREID = #{expstoreid,jdbcType=DECIMAL},
+      SKU = #{sku,jdbcType=VARCHAR},
+      ORDERNUM = #{ordernum,jdbcType=DECIMAL},
+      PRICE = #{price,jdbcType=DECIMAL},
+      SAVELOG = #{savelog,jdbcType=LONGVARCHAR}
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbExpstoreitem">
+    update db_expstoreitem
+    set EXPSTOREID = #{expstoreid,jdbcType=DECIMAL},
+      SKU = #{sku,jdbcType=VARCHAR},
+      ORDERNUM = #{ordernum,jdbcType=DECIMAL},
+      PRICE = #{price,jdbcType=DECIMAL}
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </update>
+</mapper>

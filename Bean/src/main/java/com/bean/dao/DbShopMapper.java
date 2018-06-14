@@ -8,19 +8,15 @@ import java.util.Map;
 
 @Repository
 public interface DbShopMapper {
-    int deleteByPrimaryKey(String sid);
+    int deleteByPrimaryKey(String sid) throws Exception;
 
-    int insert(DbShop record);
+    int insert(DbShop record) throws Exception;
 
-    int insertSelective(DbShop record);
+    int insertSelective(DbShop record) throws Exception;
 
-    DbShop selectByPrimaryKey(String sid);
+    DbShop selectByPrimaryKey(String sid) throws Exception;
 
-    int updateByPrimaryKeySelective(DbShop record);
+    int updateByPrimaryKeySelective(DbShop record) throws Exception;
 
-    int updateByPrimaryKeyWithBLOBs(DbShop record);
-
-    int updateByPrimaryKey(DbShop record);
-
-    List<DbShop> selectShopForOrder(Map<String,String> paramMap);
+    List<DbShop> selectShopForOrder(Map<String,String> paramMap) throws Exception;
 }

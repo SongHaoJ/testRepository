@@ -1,4 +1,4 @@
-﻿package com.bean.util;
+package com.bean.util;
 
 import java.security.MessageDigest;
 import java.text.DateFormat;
@@ -18,12 +18,12 @@ public class Sys {
         }else{
             StringBuffer hexString = new StringBuffer();
             try{
-                
+
                 MessageDigest md = MessageDigest.getInstance("MD5");
                 md.update(text.getBytes(encoding));
-                
+
                 byte[] digest = md.digest();
-                
+
                 for(int i = 0;i <digest.length;i++){
                     text = Integer.toHexString(0xFF&digest[i]);
                     if(text.length()<2){
@@ -37,7 +37,7 @@ public class Sys {
             return hexString.toString();
         }
     }
-    
+
     public static String getYearMonth() {
         Calendar dt = Calendar.getInstance();
         dt.setTime(new Date());
@@ -381,7 +381,7 @@ public class Sys {
         }
         return false;
     }
-    
+
     public static boolean isNull(Double str) {//判定是否为空值
         //		System.out.println("!!!");
         if (null == str || str.equals("null")) {
@@ -397,7 +397,7 @@ public class Sys {
         }
         return true;
     }
-    
+
     public static String isCheckNull(String str) {//判定是否为空值
         //      System.out.println("!!!");
         if (null == str || str.length() <= 0 || str.equals("null") || str.equals("NULL")) {
@@ -406,7 +406,7 @@ public class Sys {
         str = str.trim();
         return str;
     }
-    
+
     public static String isCheckNull2(String str) {//判定是否为空值,如果是空，则返回一个空格
         //      System.out.println("!!!");
         if (null == str || str.length() <= 0 || str.equals("null") || str.equals("NULL")) {
@@ -414,7 +414,7 @@ public class Sys {
         }
         return str;
     }
-    
+
     public static Double isCheckNull(Double str) {//判定是否为空值
         //      System.out.println("!!!");
         if (null == str) {
@@ -422,7 +422,7 @@ public class Sys {
         }
         return str;
     }
-    
+
     public static Long isCheckNull(Long str) {//判定是否为空值
         //      System.out.println("!!!");
         if (null == str) {
@@ -430,7 +430,7 @@ public class Sys {
         }
         return str;
     }
-    
+
     public static Integer isCheckNull(Integer str) {//判定是否为空值
         //      System.out.println("!!!");
         if (null == str) {
@@ -544,14 +544,14 @@ public class Sys {
     }
     //获取stime晚hours小时后的时间
     public static Date getTimeAfterHours(Date time1,int hoursdiff){
-    	try{
-    		Calendar time2 = Calendar.getInstance();
-        	time2.setTime(time1);
-        	time2.add(Calendar.HOUR_OF_DAY, hoursdiff);
-        	return time2.getTime();
-    	}catch(Exception e){
-    		return new Date();
-    	}
+        try{
+            Calendar time2 = Calendar.getInstance();
+            time2.setTime(time1);
+            time2.add(Calendar.HOUR_OF_DAY, hoursdiff);
+            return time2.getTime();
+        }catch(Exception e){
+            return new Date();
+        }
     }
 
     public static Date TransStrToDate(String timestr) {//将14位字符串时间转成Date类型
@@ -702,7 +702,7 @@ public class Sys {
 
         return date;
     }
-    
+
     public static Date stringToDate(String StringDate) {
         if (StringDate == null) {
             return null;
@@ -796,9 +796,9 @@ public class Sys {
     }
 
     public static String getDateBefore(String date, int days){//获取指定日期days后的日期
-    	String result = "";
-    	try{
-    		Calendar dt = Calendar.getInstance();
+        String result = "";
+        try{
+            Calendar dt = Calendar.getInstance();
             String pattern = "MMdd";
             if (date.length() == 8)
                 pattern = "yyyyMMdd";
@@ -823,10 +823,10 @@ public class Sys {
                 return yyyy + mm + dd;
             else
                 return mm + dd;
-    	}catch(Exception e){
-    		result = Sys.getCtime().substring(0,8);
-    		return result;
-    	}
+        }catch(Exception e){
+            result = Sys.getCtime().substring(0,8);
+            return result;
+        }
     }
 
     /**
@@ -836,7 +836,7 @@ public class Sys {
      * @return　
      */
     public static String getSysLogContent(String content, Long operType) {
-        
+
         StringBuffer buf = new StringBuffer();
 
         if (operType.equals(1L)) {
@@ -852,7 +852,7 @@ public class Sys {
             buf.append("查询－");
             buf.append(content);
         }
-        
+
         return buf.toString();
 
     }
@@ -875,7 +875,7 @@ public class Sys {
             return "日期输入有误:" + stock1;
         return "ok";
     }
-   
+
     public static String getBeforeYYYYMM(int beforem){//获得beforem月前的日期,如果beforem=0则返回当前月
         Calendar dt = Calendar.getInstance();
         dt.setTime(new Date());
@@ -895,12 +895,12 @@ public class Sys {
         //时分秒都用默认的
         return tmp + mm;
     }
-    
+
     public static String getTimeBeforeMinite(int diffmin){//获得diffmin分钟前的yyyymmddhhmmss
         if(diffmin <= 0){diffmin = 0;}
         Date stime = new Date();
         stime.setMinutes(stime.getMinutes()-diffmin);//提前diffmin分钟
-        
+
         Calendar dt = Calendar.getInstance();
         dt.setTime(stime);
         String tmp = String.valueOf(dt.get(Calendar.YEAR));
@@ -936,12 +936,12 @@ public class Sys {
 
         return tmp + mm + dd + hh + minute + ss;
     }
-    
+
     public static Long dateDiff(Date time1,Date time2){
         SimpleDateFormat df = new SimpleDateFormat( "yyyy-MM-dd" );
         if(time1 == null){time1 = new Date();}
         if(time2 == null){time2 = new Date();}
-        
+
         Long datediff = 0L;
         try {
             Long DAY = 24L * 60L * 60L * 1000L;
@@ -949,16 +949,15 @@ public class Sys {
             Date d2 = df.parse(df.format(time2));
             datediff = (d1.getTime()-d2.getTime())/DAY;
         } catch (ParseException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         return datediff;
     }
-    
+
     public static String getNexttime(String stime,int hoursdiff){
-		String nexttime = null;
-		DateFormat df = new SimpleDateFormat("yyyyMMddHHmmss");
-		Date d = null;
+        String nexttime = null;
+        DateFormat df = new SimpleDateFormat("yyyyMMddHHmmss");
+        Date d = null;
         try {
             d = df.parse(stime);
         } catch (ParseException e) {
@@ -968,9 +967,9 @@ public class Sys {
         System.out.println(d);
         SimpleDateFormat format1 = new SimpleDateFormat("yyyyMMddHHmmss");
         nexttime = format1.format(d);
-		return nexttime;
-	}
-    
+        return nexttime;
+    }
+
     public static String transCalendarToString(Calendar dt) {
         if(dt == null){return null;}
         String tmp = String.valueOf(dt.get(Calendar.YEAR));
@@ -1008,7 +1007,7 @@ public class Sys {
     }
     //转换Calendar类型为字符串,14位格式为YYYYMMDDHHMMSS
     public static String getTimeFromCalendar(Calendar dt) {
-    	if(dt == null){return "";}
+        if(dt == null){return "";}
         String tmp = String.valueOf(dt.get(Calendar.YEAR));
         int m = dt.get(Calendar.MONTH) + 1;
         String mm = "";
@@ -1042,116 +1041,116 @@ public class Sys {
 
         return tmp + mm + dd + hh + minute + "00";
     }
-    
+
     public static String sortStr(String str) {
-    	String result = ",";
-    	try{
-    		str = str.replace("，", ",");
+        String result = ",";
+        try{
+            str = str.replace("，", ",");
             while(str.indexOf(",,")>=0){
-            	str = str.replace(",,", ",");
+                str = str.replace(",,", ",");
             }
-            
+
             if(",".equals(str) == true)return ",";
-            
+
             if(str.indexOf(",") == 0){
                 str = str.substring(1);
             }
-            
+
             if(str.lastIndexOf(",") == (str.length() -1)){
                 str = str.substring(0,str.length()-1);
             }
-            
+
             if(str.length() > 0){
                 String[] strs = str.split(",");
                 Arrays.sort(strs);
                 for(int i = 0;i < strs.length;i++){
                     if(Sys.isNull(strs[i]) == false){
-                    	if(result.indexOf(","+strs[i]+",")<0){
-                    		result = result + strs[i] +",";
-                    	}else{
-                    		;//已存在
-                    	}
+                        if(result.indexOf(","+strs[i]+",")<0){
+                            result = result + strs[i] +",";
+                        }else{
+                            ;//已存在
+                        }
                     }
                 }
             }
             if(result.length()>=100){result = result.substring(0,99);}//不超过99字节
-    	}catch(Exception e){
-    		;
-    	}
-        
+        }catch(Exception e){
+            ;
+        }
+
         return result;
     }
-    
-  //如果遇到@#,则截取第1个@#之前的字符串为sku
+
+    //如果遇到@#,则截取第1个@#之前的字符串为sku
     public static String findSku(String sku){
-    	String result = sku;
-    	try{
-    		if(result.lastIndexOf("@#")>=0){
-        		result = result.substring(0,result.lastIndexOf("@#"));
-        		if(result.lastIndexOf("@#")>=0){
-        			//result = result.substring(result.lastIndexOf("@#")+2);
-        			result = result.substring(0,result.indexOf("@#"));
-        		}
-        	}
-    	}catch(Exception e){
-    		result = sku;
-    	}
-    	
-    	return result;
+        String result = sku;
+        try{
+            if(result.lastIndexOf("@#")>=0){
+                result = result.substring(0,result.lastIndexOf("@#"));
+                if(result.lastIndexOf("@#")>=0){
+                    //result = result.substring(result.lastIndexOf("@#")+2);
+                    result = result.substring(0,result.indexOf("@#"));
+                }
+            }
+        }catch(Exception e){
+            result = sku;
+        }
+
+        return result;
     }
     //如果遇到@#,则截取第1个@#之后的字符串为sku(如果后面还有第2个@#,那么取第2个之前的) by qinli 20131222
     public static String findSkuFromMid(String sku){
-    	String result = sku;
-    	try{
-    		if(result.indexOf("@#")>=0){//如果有@#,则截取@#后面的后半部分
-        		result = result.substring(result.indexOf("@#")+2);
-        		if(result.indexOf("@#")>=0){//如果截取的后半部分还有@#,则截取后半部分的前半部分
-        			result = result.substring(0,result.indexOf("@#"));
-        		}
-        		if(result == null || result.length()<=0){//出现这种情况sku可能是ABC@#或ABC@#@#123,如果是这种情况,那sku就等于ABC吧
-        			result = sku.substring(0,sku.indexOf("@#"));
-        		}
-        	}
-    	}catch(Exception e){
-    		result = sku;
-    	}
-    	
-    	return result;
+        String result = sku;
+        try{
+            if(result.indexOf("@#")>=0){//如果有@#,则截取@#后面的后半部分
+                result = result.substring(result.indexOf("@#")+2);
+                if(result.indexOf("@#")>=0){//如果截取的后半部分还有@#,则截取后半部分的前半部分
+                    result = result.substring(0,result.indexOf("@#"));
+                }
+                if(result == null || result.length()<=0){//出现这种情况sku可能是ABC@#或ABC@#@#123,如果是这种情况,那sku就等于ABC吧
+                    result = sku.substring(0,sku.indexOf("@#"));
+                }
+            }
+        }catch(Exception e){
+            result = sku;
+        }
+
+        return result;
     }
     //粗略验证是否手机号码
     //基本上就是验证一下telephone串中包含几个数字,如果数字超过6位,那基本可以认定是电话号码
     public static boolean isCheckPhone(String telephone){
-    	if(Sys.isNull(telephone) == true || telephone.length()<=4){return false;}//如果长度小于等于4位,肯定不是真电话号码
-    	int originLength = telephone.length();//整个串的个数
-    	int charLength = 0;//字符的个数
-    	String tel = telephone;
-    	try{
-    		tel = tel.replace("0", "");
-    		tel = tel.replace("1", "");
-    		tel = tel.replace("2", "");
-    		tel = tel.replace("3", "");
-    		tel = tel.replace("4", "");
-    		tel = tel.replace("5", "");
-    		tel = tel.replace("6", "");
-    		tel = tel.replace("7", "");
-    		tel = tel.replace("8", "");
-    		tel = tel.replace("9", "");
-    	}catch(Exception e){
-    		return true;//如果出现异常,返回true
-    	}
-    	
-    	charLength = tel.length();
-    	if(originLength-charLength>=5){//如果至少包含5个以上的数字,那证明号码可能是真的
-    		return true;
-    	}else{
-    		return false;
-    	}
+        if(Sys.isNull(telephone) == true || telephone.length()<=4){return false;}//如果长度小于等于4位,肯定不是真电话号码
+        int originLength = telephone.length();//整个串的个数
+        int charLength = 0;//字符的个数
+        String tel = telephone;
+        try{
+            tel = tel.replace("0", "");
+            tel = tel.replace("1", "");
+            tel = tel.replace("2", "");
+            tel = tel.replace("3", "");
+            tel = tel.replace("4", "");
+            tel = tel.replace("5", "");
+            tel = tel.replace("6", "");
+            tel = tel.replace("7", "");
+            tel = tel.replace("8", "");
+            tel = tel.replace("9", "");
+        }catch(Exception e){
+            return true;//如果出现异常,返回true
+        }
+
+        charLength = tel.length();
+        if(originLength-charLength>=5){//如果至少包含5个以上的数字,那证明号码可能是真的
+            return true;
+        }else{
+            return false;
+        }
     }
-    
-  //根据英文国家简称,获取英文国家全称
+
+    //根据英文国家简称,获取英文国家全称
     public static String getCountry(String countrycode) {
-    	if(Sys.isNull(countrycode) == true){countrycode = "";}
-    	if(countrycode != null && countrycode.length()>0){countrycode = countrycode.toUpperCase();}//转换成大写
+        if(Sys.isNull(countrycode) == true){countrycode = "";}
+        if(countrycode != null && countrycode.length()>0){countrycode = countrycode.toUpperCase();}//转换成大写
         if("UK".equals(countrycode) == true){return "united kingdom";}
         if("BL".equals(countrycode) == true){return "palestine";}
         if("BA".equals(countrycode) == true){return "bosnia herzegovina";}
@@ -1352,8 +1351,8 @@ public class Sys {
     }
     //根据英文国家简称获取国家中文名
     public static String getCountryCNByJc(String countrycode) {
-    	if(Sys.isNull(countrycode) == true){countrycode = "";}
-    	if(countrycode != null && countrycode.length()>0){countrycode = countrycode.toUpperCase();}//转换成大写
+        if(Sys.isNull(countrycode) == true){countrycode = "";}
+        if(countrycode != null && countrycode.length()>0){countrycode = countrycode.toUpperCase();}//转换成大写
         if("UK".equals(countrycode) == true){return "英国";}
         if("BA".equals(countrycode) == true){return "波黑";}
         if("CZ".equals(countrycode) == true){return "捷克";}
@@ -1550,16 +1549,15 @@ public class Sys {
         if("ZM".equals(countrycode) == true){return "赞比亚";}
         if("ZR".equals(countrycode) == true){return "扎伊尔";}
         if("ZW".equals(countrycode) == true){return "津巴布韦";}
-        
+
         return "未知国家";
     }
-    
-    
+
+
     /**
      * @param args
      */
     public static void main(String[] args) {
-        // TODO Auto-generated method stub
         //		System.out.print(Sys.str2YMD("200703201430") + "\n");
         //		System.out.print(Sys.str2YM("20070") + "\n");
         //		System.out.print(Sys.str2YMD("2007032014") + "\n");
@@ -1575,49 +1573,55 @@ public class Sys {
         //		System.out.println(Sys.checkPayDay("20071910"));
         System.out.println(Sys.StringToDate("2007-01-01 00:00:00") + "ss");
     }
-    
+    public static Date getDateAfter(int days) {//获取当前时间之前days的日期,返回date格式
+        Calendar dt = Calendar.getInstance();
+        dt.setTime(new Date());
+        dt.add(Calendar.DAY_OF_MONTH, days);
+
+        return dt.getTime();
+    }
     //获取几天后的时间
-    public static Date getDateAfter(Date d, int day) {  
-        Calendar now = Calendar.getInstance();  
-        now.setTime(d);  
-        now.set(Calendar.DATE, now.get(Calendar.DATE) + day);  
-        return now.getTime();  
+    public static Date getDateAfter(Date d, int day) {
+        Calendar now = Calendar.getInstance();
+        now.setTime(d);
+        now.set(Calendar.DATE, now.get(Calendar.DATE) + day);
+        return now.getTime();
     }
     //获取几天前的时间
-    public static Date getDateBefore(Date d, int day) {  
-        Calendar now = Calendar.getInstance();  
+    public static Date getDateBefore(Date d, int day) {
+        Calendar now = Calendar.getInstance();
         now.setTime(d);
-        now.set(Calendar.DATE, now.get(Calendar.DATE) - day);  
-        return now.getTime();  
+        now.set(Calendar.DATE, now.get(Calendar.DATE) - day);
+        return now.getTime();
     }
-    
+
     //获取几 小时后的时间
-    public static Date getHourAfter(Date d, int hour) {  
-        Calendar now = Calendar.getInstance();  
-        now.setTime(d);  
-        now.set(Calendar.HOUR_OF_DAY, now.get(Calendar.HOUR_OF_DAY) + hour);  
-        return now.getTime();  
+    public static Date getHourAfter(Date d, int hour) {
+        Calendar now = Calendar.getInstance();
+        now.setTime(d);
+        now.set(Calendar.HOUR_OF_DAY, now.get(Calendar.HOUR_OF_DAY) + hour);
+        return now.getTime();
     }
     //获取几小时前的时间
-    public static Date getHourBefore(Date d, int hour) {  
-        Calendar now = Calendar.getInstance();  
-        now.setTime(d);  
-        now.set(Calendar.HOUR_OF_DAY, now.get(Calendar.HOUR_OF_DAY) - hour);  
-        return now.getTime();  
+    public static Date getHourBefore(Date d, int hour) {
+        Calendar now = Calendar.getInstance();
+        now.setTime(d);
+        now.set(Calendar.HOUR_OF_DAY, now.get(Calendar.HOUR_OF_DAY) - hour);
+        return now.getTime();
     }
-    
+
     //获取几 分钟后的时间
-    public static Date getMinAfter(Date d, int min) {  
-        Calendar now = Calendar.getInstance();  
-        now.setTime(d);  
-        now.set(Calendar.MINUTE, now.get(Calendar.MINUTE) + min);  
-        return now.getTime();  
+    public static Date getMinAfter(Date d, int min) {
+        Calendar now = Calendar.getInstance();
+        now.setTime(d);
+        now.set(Calendar.MINUTE, now.get(Calendar.MINUTE) + min);
+        return now.getTime();
     }
     //获取几分钟前的时间
-    public static Date getMinBefore(Date d, int min) {  
-        Calendar now = Calendar.getInstance();  
-        now.setTime(d);  
-        now.set(Calendar.MINUTE, now.get(Calendar.MINUTE) - min);  
-        return now.getTime();  
+    public static Date getMinBefore(Date d, int min) {
+        Calendar now = Calendar.getInstance();
+        now.setTime(d);
+        now.set(Calendar.MINUTE, now.get(Calendar.MINUTE) - min);
+        return now.getTime();
     }
 }

@@ -13,7 +13,5 @@ public interface DbEbayapilogMapper {
 
     int updateByPrimaryKeySelective(DbEbayapilog record);
 
-    int updateByPrimaryKeyWithBLOBs(DbEbayapilog record);
 
-    int updateByPrimaryKey(DbEbayapilog record);
 }

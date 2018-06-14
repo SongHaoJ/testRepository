@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbShoppingitemMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbShoppingitem">
+    <result column="ITEMID" jdbcType="DECIMAL" property="itemid" />
+    <result column="QUANTITYSOLD56" jdbcType="DECIMAL" property="quantitysold56" />
+    <result column="RUNTIME" jdbcType="DECIMAL" property="runtime" />
+    <result column="AVGALL" jdbcType="DECIMAL" property="avgall" />
+    <result column="STORENAME" jdbcType="VARCHAR" property="storename" />
+    <result column="HITCOUNT7" jdbcType="DECIMAL" property="hitcount7" />
+    <result column="RETURNSACCEPTED" jdbcType="VARCHAR" property="returnsaccepted" />
+    <result column="USERID" jdbcType="VARCHAR" property="userid" />
+    <result column="AVG30" jdbcType="DECIMAL" property="avg30" />
+    <result column="SHIPPINGTYPE" jdbcType="VARCHAR" property="shippingtype" />
+    <result column="HITCOUNT28" jdbcType="DECIMAL" property="hitcount28" />
+    <result column="HITCOUNT21" jdbcType="DECIMAL" property="hitcount21" />
+    <result column="REFUND" jdbcType="VARCHAR" property="refund" />
+    <result column="HITCOUNTTOTAL" jdbcType="DECIMAL" property="hitcounttotal" />
+    <result column="SHIPPINGCOSTTYPE" jdbcType="VARCHAR" property="shippingcosttype" />
+    <result column="SHIPPINGCOSTPAIDBY" jdbcType="VARCHAR" property="shippingcostpaidby" />
+    <result column="AVG7" jdbcType="DECIMAL" property="avg7" />
+    <result column="RETURNSWITHIN" jdbcType="VARCHAR" property="returnswithin" />
+    <result column="LISTINGFLAG" jdbcType="DECIMAL" property="listingflag" />
+    <result column="QUANTITYSOLD" jdbcType="DECIMAL" property="quantitysold" />
+    <result column="LISTSHIPPINGCOST" jdbcType="DECIMAL" property="listshippingcost" />
+    <result column="PAYMENTMETHOD" jdbcType="VARCHAR" property="paymentmethod" />
+    <result column="LISTSHIPPINGCOSTTYPE" jdbcType="VARCHAR" property="listshippingcosttype" />
+    <result column="STARTTIME" jdbcType="TIMESTAMP" property="starttime" />
+    <result column="FEEDBACKSCORE" jdbcType="DECIMAL" property="feedbackscore" />
+    <result column="QUANTIRY" jdbcType="DECIMAL" property="quantiry" />
+    <result column="QUANTITYSOLD28" jdbcType="DECIMAL" property="quantitysold28" />
+    <result column="ITEMURL" jdbcType="VARCHAR" property="itemurl" />
+    <result column="AVG15" jdbcType="DECIMAL" property="avg15" />
+    <result column="QUANTITYSOLD7" jdbcType="DECIMAL" property="quantitysold7" />
+    <result column="CATEGORYID" jdbcType="VARCHAR" property="categoryid" />
+    <result column="QUANTITYSOLDTOTAL" jdbcType="DECIMAL" property="quantitysoldtotal" />
+    <result column="LASTRUNTIME" jdbcType="DECIMAL" property="lastruntime" />
+    <result column="CURRENTPRICE" jdbcType="DECIMAL" property="currentprice" />
+    <result column="TASKID" jdbcType="DECIMAL" property="taskid" />
+    <result column="ITEMFLAG" jdbcType="DECIMAL" property="itemflag" />
+    <result column="HITCOUNT14" jdbcType="DECIMAL" property="hitcount14" />
+    <result column="LOCATION" jdbcType="VARCHAR" property="location" />
+    <result column="CATEGORYNAME" jdbcType="VARCHAR" property="categoryname" />
+    <result column="TIMELIFT" jdbcType="VARCHAR" property="timelift" />
+    <result column="LISTINGTYPE" jdbcType="VARCHAR" property="listingtype" />
+    <result column="QUANTITYSOLD3" jdbcType="DECIMAL" property="quantitysold3" />
+    <result column="QUANTITYSOLD1" jdbcType="DECIMAL" property="quantitysold1" />
+    <result column="QUANTITYSOLD21" jdbcType="DECIMAL" property="quantitysold21" />
+    <result column="SITE" jdbcType="VARCHAR" property="site" />
+    <result column="HITCOUNT1" jdbcType="DECIMAL" property="hitcount1" />
+    <result column="HITCOUNT56" jdbcType="DECIMAL" property="hitcount56" />
+    <result column="ENDTIME" jdbcType="TIMESTAMP" property="endtime" />
+    <result column="QUANTITYSOLD14" jdbcType="DECIMAL" property="quantitysold14" />
+    <result column="FEEDBACKRATE" jdbcType="DECIMAL" property="feedbackrate" />
+    <result column="BIDCOUNT" jdbcType="DECIMAL" property="bidcount" />
+    <result column="CURRENTPRICETYPE" jdbcType="VARCHAR" property="currentpricetype" />
+    <result column="HITCOUNT3" jdbcType="DECIMAL" property="hitcount3" />
+    <result column="SHIPTOLOCATIONS" jdbcType="VARCHAR" property="shiptolocations" />
+    <result column="HITCOUNT" jdbcType="DECIMAL" property="hitcount" />
+    <result column="UPDATETIME" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="COUNTRY" jdbcType="VARCHAR" property="country" />
+    <result column="STOREURL" jdbcType="VARCHAR" property="storeurl" />
+    <result column="SHIPPINGCOST" jdbcType="DECIMAL" property="shippingcost" />
+    <result column="LISTINGSTATUS" jdbcType="VARCHAR" property="listingstatus" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbShoppingitem">
+    <result column="TITLE" jdbcType="LONGVARCHAR" property="title" />
+  </resultMap>
+  <sql id="Blob_Column_List">
+    TITLE
+  </sql>
+  <insert id="insert" parameterType="com.bean.model.DbShoppingitem">
+    insert into db_shoppingitem (ITEMID, QUANTITYSOLD56, RUNTIME, 
+      AVGALL, STORENAME, HITCOUNT7, 
+      RETURNSACCEPTED, USERID, AVG30, 
+      SHIPPINGTYPE, HITCOUNT28, HITCOUNT21, 
+      REFUND, HITCOUNTTOTAL, SHIPPINGCOSTTYPE, 
+      SHIPPINGCOSTPAIDBY, AVG7, RETURNSWITHIN, 
+      LISTINGFLAG, QUANTITYSOLD, LISTSHIPPINGCOST, 
+      PAYMENTMETHOD, LISTSHIPPINGCOSTTYPE, STARTTIME, 
+      FEEDBACKSCORE, QUANTIRY, QUANTITYSOLD28, 
+      ITEMURL, AVG15, QUANTITYSOLD7, 
+      CATEGORYID, QUANTITYSOLDTOTAL, LASTRUNTIME, 
+      CURRENTPRICE, TASKID, ITEMFLAG, 
+      HITCOUNT14, 'LOCATION', CATEGORYNAME, 
+      TIMELIFT, LISTINGTYPE, QUANTITYSOLD3, 
+      QUANTITYSOLD1, QUANTITYSOLD21, SITE, 
+      HITCOUNT1, HITCOUNT56, ENDTIME, 
+      QUANTITYSOLD14, FEEDBACKRATE, BIDCOUNT, 
+      CURRENTPRICETYPE, HITCOUNT3, SHIPTOLOCATIONS, 
+      HITCOUNT, UPDATETIME, COUNTRY, 
+      STOREURL, SHIPPINGCOST, LISTINGSTATUS, 
+      TITLE)
+    values (#{itemid,jdbcType=DECIMAL}, #{quantitysold56,jdbcType=DECIMAL}, #{runtime,jdbcType=DECIMAL}, 
+      #{avgall,jdbcType=DECIMAL}, #{storename,jdbcType=VARCHAR}, #{hitcount7,jdbcType=DECIMAL}, 
+      #{returnsaccepted,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, #{avg30,jdbcType=DECIMAL}, 
+      #{shippingtype,jdbcType=VARCHAR}, #{hitcount28,jdbcType=DECIMAL}, #{hitcount21,jdbcType=DECIMAL}, 
+      #{refund,jdbcType=VARCHAR}, #{hitcounttotal,jdbcType=DECIMAL}, #{shippingcosttype,jdbcType=VARCHAR}, 
+      #{shippingcostpaidby,jdbcType=VARCHAR}, #{avg7,jdbcType=DECIMAL}, #{returnswithin,jdbcType=VARCHAR}, 
+      #{listingflag,jdbcType=DECIMAL}, #{quantitysold,jdbcType=DECIMAL}, #{listshippingcost,jdbcType=DECIMAL}, 
+      #{paymentmethod,jdbcType=VARCHAR}, #{listshippingcosttype,jdbcType=VARCHAR}, #{starttime,jdbcType=TIMESTAMP}, 
+      #{feedbackscore,jdbcType=DECIMAL}, #{quantiry,jdbcType=DECIMAL}, #{quantitysold28,jdbcType=DECIMAL}, 
+      #{itemurl,jdbcType=VARCHAR}, #{avg15,jdbcType=DECIMAL}, #{quantitysold7,jdbcType=DECIMAL}, 
+      #{categoryid,jdbcType=VARCHAR}, #{quantitysoldtotal,jdbcType=DECIMAL}, #{lastruntime,jdbcType=DECIMAL}, 
+      #{currentprice,jdbcType=DECIMAL}, #{taskid,jdbcType=DECIMAL}, #{itemflag,jdbcType=DECIMAL}, 
+      #{hitcount14,jdbcType=DECIMAL}, #{location,jdbcType=VARCHAR}, #{categoryname,jdbcType=VARCHAR}, 
+      #{timelift,jdbcType=VARCHAR}, #{listingtype,jdbcType=VARCHAR}, #{quantitysold3,jdbcType=DECIMAL}, 
+      #{quantitysold1,jdbcType=DECIMAL}, #{quantitysold21,jdbcType=DECIMAL}, #{site,jdbcType=VARCHAR}, 
+      #{hitcount1,jdbcType=DECIMAL}, #{hitcount56,jdbcType=DECIMAL}, #{endtime,jdbcType=TIMESTAMP}, 
+      #{quantitysold14,jdbcType=DECIMAL}, #{feedbackrate,jdbcType=DECIMAL}, #{bidcount,jdbcType=DECIMAL}, 
+      #{currentpricetype,jdbcType=VARCHAR}, #{hitcount3,jdbcType=DECIMAL}, #{shiptolocations,jdbcType=VARCHAR}, 
+      #{hitcount,jdbcType=DECIMAL}, #{updatetime,jdbcType=TIMESTAMP}, #{country,jdbcType=VARCHAR}, 
+      #{storeurl,jdbcType=VARCHAR}, #{shippingcost,jdbcType=DECIMAL}, #{listingstatus,jdbcType=VARCHAR}, 
+      #{title,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbShoppingitem">
+    insert into db_shoppingitem
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="itemid != null">
+        ITEMID,
+      </if>
+      <if test="quantitysold56 != null">
+        QUANTITYSOLD56,
+      </if>
+      <if test="runtime != null">
+        RUNTIME,
+      </if>
+      <if test="avgall != null">
+        AVGALL,
+      </if>
+      <if test="storename != null">
+        STORENAME,
+      </if>
+      <if test="hitcount7 != null">
+        HITCOUNT7,
+      </if>
+      <if test="returnsaccepted != null">
+        RETURNSACCEPTED,
+      </if>
+      <if test="userid != null">
+        USERID,
+      </if>
+      <if test="avg30 != null">
+        AVG30,
+      </if>
+      <if test="shippingtype != null">
+        SHIPPINGTYPE,
+      </if>
+      <if test="hitcount28 != null">
+        HITCOUNT28,
+      </if>
+      <if test="hitcount21 != null">
+        HITCOUNT21,
+      </if>
+      <if test="refund != null">
+        REFUND,
+      </if>
+      <if test="hitcounttotal != null">
+        HITCOUNTTOTAL,
+      </if>
+      <if test="shippingcosttype != null">
+        SHIPPINGCOSTTYPE,
+      </if>
+      <if test="shippingcostpaidby != null">
+        SHIPPINGCOSTPAIDBY,
+      </if>
+      <if test="avg7 != null">
+        AVG7,
+      </if>
+      <if test="returnswithin != null">
+        RETURNSWITHIN,
+      </if>
+      <if test="listingflag != null">
+        LISTINGFLAG,
+      </if>
+      <if test="quantitysold != null">
+        QUANTITYSOLD,
+      </if>
+      <if test="listshippingcost != null">
+        LISTSHIPPINGCOST,
+      </if>
+      <if test="paymentmethod != null">
+        PAYMENTMETHOD,
+      </if>
+      <if test="listshippingcosttype != null">
+        LISTSHIPPINGCOSTTYPE,
+      </if>
+      <if test="starttime != null">
+        STARTTIME,
+      </if>
+      <if test="feedbackscore != null">
+        FEEDBACKSCORE,
+      </if>
+      <if test="quantiry != null">
+        QUANTIRY,
+      </if>
+      <if test="quantitysold28 != null">
+        QUANTITYSOLD28,
+      </if>
+      <if test="itemurl != null">
+        ITEMURL,
+      </if>
+      <if test="avg15 != null">
+        AVG15,
+      </if>
+      <if test="quantitysold7 != null">
+        QUANTITYSOLD7,
+      </if>
+      <if test="categoryid != null">
+        CATEGORYID,
+      </if>
+      <if test="quantitysoldtotal != null">
+        QUANTITYSOLDTOTAL,
+      </if>
+      <if test="lastruntime != null">
+        LASTRUNTIME,
+      </if>
+      <if test="currentprice != null">
+        CURRENTPRICE,
+      </if>
+      <if test="taskid != null">
+        TASKID,
+      </if>
+      <if test="itemflag != null">
+        ITEMFLAG,
+      </if>
+      <if test="hitcount14 != null">
+        HITCOUNT14,
+      </if>
+      <if test="location != null">
+        'LOCATION',
+      </if>
+      <if test="categoryname != null">
+        CATEGORYNAME,
+      </if>
+      <if test="timelift != null">
+        TIMELIFT,
+      </if>
+      <if test="listingtype != null">
+        LISTINGTYPE,
+      </if>
+      <if test="quantitysold3 != null">
+        QUANTITYSOLD3,
+      </if>
+      <if test="quantitysold1 != null">
+        QUANTITYSOLD1,
+      </if>
+      <if test="quantitysold21 != null">
+        QUANTITYSOLD21,
+      </if>
+      <if test="site != null">
+        SITE,
+      </if>
+      <if test="hitcount1 != null">
+        HITCOUNT1,
+      </if>
+      <if test="hitcount56 != null">
+        HITCOUNT56,
+      </if>
+      <if test="endtime != null">
+        ENDTIME,
+      </if>
+      <if test="quantitysold14 != null">
+        QUANTITYSOLD14,
+      </if>
+      <if test="feedbackrate != null">
+        FEEDBACKRATE,
+      </if>
+      <if test="bidcount != null">
+        BIDCOUNT,
+      </if>
+      <if test="currentpricetype != null">
+        CURRENTPRICETYPE,
+      </if>
+      <if test="hitcount3 != null">
+        HITCOUNT3,
+      </if>
+      <if test="shiptolocations != null">
+        SHIPTOLOCATIONS,
+      </if>
+      <if test="hitcount != null">
+        HITCOUNT,
+      </if>
+      <if test="updatetime != null">
+        UPDATETIME,
+      </if>
+      <if test="country != null">
+        COUNTRY,
+      </if>
+      <if test="storeurl != null">
+        STOREURL,
+      </if>
+      <if test="shippingcost != null">
+        SHIPPINGCOST,
+      </if>
+      <if test="listingstatus != null">
+        LISTINGSTATUS,
+      </if>
+      <if test="title != null">
+        TITLE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="itemid != null">
+        #{itemid,jdbcType=DECIMAL},
+      </if>
+      <if test="quantitysold56 != null">
+        #{quantitysold56,jdbcType=DECIMAL},
+      </if>
+      <if test="runtime != null">
+        #{runtime,jdbcType=DECIMAL},
+      </if>
+      <if test="avgall != null">
+        #{avgall,jdbcType=DECIMAL},
+      </if>
+      <if test="storename != null">
+        #{storename,jdbcType=VARCHAR},
+      </if>
+      <if test="hitcount7 != null">
+        #{hitcount7,jdbcType=DECIMAL},
+      </if>
+      <if test="returnsaccepted != null">
+        #{returnsaccepted,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="avg30 != null">
+        #{avg30,jdbcType=DECIMAL},
+      </if>
+      <if test="shippingtype != null">
+        #{shippingtype,jdbcType=VARCHAR},
+      </if>
+      <if test="hitcount28 != null">
+        #{hitcount28,jdbcType=DECIMAL},
+      </if>
+      <if test="hitcount21 != null">
+        #{hitcount21,jdbcType=DECIMAL},
+      </if>
+      <if test="refund != null">
+        #{refund,jdbcType=VARCHAR},
+      </if>
+      <if test="hitcounttotal != null">
+        #{hitcounttotal,jdbcType=DECIMAL},
+      </if>
+      <if test="shippingcosttype != null">
+        #{shippingcosttype,jdbcType=VARCHAR},
+      </if>
+      <if test="shippingcostpaidby != null">
+        #{shippingcostpaidby,jdbcType=VARCHAR},
+      </if>
+      <if test="avg7 != null">
+        #{avg7,jdbcType=DECIMAL},
+      </if>
+      <if test="returnswithin != null">
+        #{returnswithin,jdbcType=VARCHAR},
+      </if>
+      <if test="listingflag != null">
+        #{listingflag,jdbcType=DECIMAL},
+      </if>
+      <if test="quantitysold != null">
+        #{quantitysold,jdbcType=DECIMAL},
+      </if>
+      <if test="listshippingcost != null">
+        #{listshippingcost,jdbcType=DECIMAL},
+      </if>
+      <if test="paymentmethod != null">
+        #{paymentmethod,jdbcType=VARCHAR},
+      </if>
+      <if test="listshippingcosttype != null">
+        #{listshippingcosttype,jdbcType=VARCHAR},
+      </if>
+      <if test="starttime != null">
+        #{starttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="feedbackscore != null">
+        #{feedbackscore,jdbcType=DECIMAL},
+      </if>
+      <if test="quantiry != null">
+        #{quantiry,jdbcType=DECIMAL},
+      </if>
+      <if test="quantitysold28 != null">
+        #{quantitysold28,jdbcType=DECIMAL},
+      </if>
+      <if test="itemurl != null">
+        #{itemurl,jdbcType=VARCHAR},
+      </if>
+      <if test="avg15 != null">
+        #{avg15,jdbcType=DECIMAL},
+      </if>
+      <if test="quantitysold7 != null">
+        #{quantitysold7,jdbcType=DECIMAL},
+      </if>
+      <if test="categoryid != null">
+        #{categoryid,jdbcType=VARCHAR},
+      </if>
+      <if test="quantitysoldtotal != null">
+        #{quantitysoldtotal,jdbcType=DECIMAL},
+      </if>
+      <if test="lastruntime != null">
+        #{lastruntime,jdbcType=DECIMAL},
+      </if>
+      <if test="currentprice != null">
+        #{currentprice,jdbcType=DECIMAL},
+      </if>
+      <if test="taskid != null">
+        #{taskid,jdbcType=DECIMAL},
+      </if>
+      <if test="itemflag != null">
+        #{itemflag,jdbcType=DECIMAL},
+      </if>
+      <if test="hitcount14 != null">
+        #{hitcount14,jdbcType=DECIMAL},
+      </if>
+      <if test="location != null">
+        #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryname != null">
+        #{categoryname,jdbcType=VARCHAR},
+      </if>
+      <if test="timelift != null">
+        #{timelift,jdbcType=VARCHAR},
+      </if>
+      <if test="listingtype != null">
+        #{listingtype,jdbcType=VARCHAR},
+      </if>
+      <if test="quantitysold3 != null">
+        #{quantitysold3,jdbcType=DECIMAL},
+      </if>
+      <if test="quantitysold1 != null">
+        #{quantitysold1,jdbcType=DECIMAL},
+      </if>
+      <if test="quantitysold21 != null">
+        #{quantitysold21,jdbcType=DECIMAL},
+      </if>
+      <if test="site != null">
+        #{site,jdbcType=VARCHAR},
+      </if>
+      <if test="hitcount1 != null">
+        #{hitcount1,jdbcType=DECIMAL},
+      </if>
+      <if test="hitcount56 != null">
+        #{hitcount56,jdbcType=DECIMAL},
+      </if>
+      <if test="endtime != null">
+        #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="quantitysold14 != null">
+        #{quantitysold14,jdbcType=DECIMAL},
+      </if>
+      <if test="feedbackrate != null">
+        #{feedbackrate,jdbcType=DECIMAL},
+      </if>
+      <if test="bidcount != null">
+        #{bidcount,jdbcType=DECIMAL},
+      </if>
+      <if test="currentpricetype != null">
+        #{currentpricetype,jdbcType=VARCHAR},
+      </if>
+      <if test="hitcount3 != null">
+        #{hitcount3,jdbcType=DECIMAL},
+      </if>
+      <if test="shiptolocations != null">
+        #{shiptolocations,jdbcType=VARCHAR},
+      </if>
+      <if test="hitcount != null">
+        #{hitcount,jdbcType=DECIMAL},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="country != null">
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="storeurl != null">
+        #{storeurl,jdbcType=VARCHAR},
+      </if>
+      <if test="shippingcost != null">
+        #{shippingcost,jdbcType=DECIMAL},
+      </if>
+      <if test="listingstatus != null">
+        #{listingstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbAllocateTempMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbAllocateTemp">
+    <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
+    <result column="PRODUCTID" jdbcType="VARCHAR" property="productid" />
+    <result column="INPORTTIME" jdbcType="TIMESTAMP" property="inporttime" />
+    <result column="ORPER" jdbcType="VARCHAR" property="orper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
+    <result column="RESERVE4" jdbcType="VARCHAR" property="reserve4" />
+    <result column="RESERVE5" jdbcType="VARCHAR" property="reserve5" />
+    <result column="ALLOCATENUM" jdbcType="DECIMAL" property="allocatenum" />
+    <result column="SONALLOCATENUM" jdbcType="DECIMAL" property="sonallocatenum" />
+    <result column="WEIGHT" jdbcType="DECIMAL" property="weight" />
+    <result column="QUESTIONSID" jdbcType="VARCHAR" property="questionsid" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbAllocateTemp">
+    <result column="TITLE" jdbcType="LONGVARCHAR" property="title" />
+    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SEQUENCEID, PRODUCTID, INPORTTIME, ORPER, OPERTIME, RESERVE1, RESERVE2, RESERVE3, 
+    RESERVE4, RESERVE5, ALLOCATENUM, SONALLOCATENUM, WEIGHT, QUESTIONSID
+  </sql>
+  <sql id="Blob_Column_List">
+    TITLE, DESCR
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from db_allocate_temp
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from db_allocate_temp
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bean.model.DbAllocateTemp">
+    insert into db_allocate_temp (SEQUENCEID, PRODUCTID, INPORTTIME, 
+      ORPER, OPERTIME, RESERVE1, 
+      RESERVE2, RESERVE3, RESERVE4, 
+      RESERVE5, ALLOCATENUM, SONALLOCATENUM, 
+      WEIGHT, QUESTIONSID, TITLE, 
+      DESCR)
+    values (#{sequenceid,jdbcType=VARCHAR}, #{productid,jdbcType=VARCHAR}, #{inporttime,jdbcType=TIMESTAMP}, 
+      #{orper,jdbcType=VARCHAR}, #{opertime,jdbcType=TIMESTAMP}, #{reserve1,jdbcType=VARCHAR}, 
+      #{reserve2,jdbcType=VARCHAR}, #{reserve3,jdbcType=VARCHAR}, #{reserve4,jdbcType=VARCHAR}, 
+      #{reserve5,jdbcType=VARCHAR}, #{allocatenum,jdbcType=DECIMAL}, #{sonallocatenum,jdbcType=DECIMAL}, 
+      #{weight,jdbcType=DECIMAL}, #{questionsid,jdbcType=VARCHAR}, #{title,jdbcType=LONGVARCHAR}, 
+      #{descr,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbAllocateTemp">
+    insert into db_allocate_temp
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        SEQUENCEID,
+      </if>
+      <if test="productid != null">
+        PRODUCTID,
+      </if>
+      <if test="inporttime != null">
+        INPORTTIME,
+      </if>
+      <if test="orper != null">
+        ORPER,
+      </if>
+      <if test="opertime != null">
+        OPERTIME,
+      </if>
+      <if test="reserve1 != null">
+        RESERVE1,
+      </if>
+      <if test="reserve2 != null">
+        RESERVE2,
+      </if>
+      <if test="reserve3 != null">
+        RESERVE3,
+      </if>
+      <if test="reserve4 != null">
+        RESERVE4,
+      </if>
+      <if test="reserve5 != null">
+        RESERVE5,
+      </if>
+      <if test="allocatenum != null">
+        ALLOCATENUM,
+      </if>
+      <if test="sonallocatenum != null">
+        SONALLOCATENUM,
+      </if>
+      <if test="weight != null">
+        WEIGHT,
+      </if>
+      <if test="questionsid != null">
+        QUESTIONSID,
+      </if>
+      <if test="title != null">
+        TITLE,
+      </if>
+      <if test="descr != null">
+        DESCR,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        #{sequenceid,jdbcType=VARCHAR},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="inporttime != null">
+        #{inporttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orper != null">
+        #{orper,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null">
+        #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reserve1 != null">
+        #{reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve2 != null">
+        #{reserve2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve3 != null">
+        #{reserve3,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve4 != null">
+        #{reserve4,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve5 != null">
+        #{reserve5,jdbcType=VARCHAR},
+      </if>
+      <if test="allocatenum != null">
+        #{allocatenum,jdbcType=DECIMAL},
+      </if>
+      <if test="sonallocatenum != null">
+        #{sonallocatenum,jdbcType=DECIMAL},
+      </if>
+      <if test="weight != null">
+        #{weight,jdbcType=DECIMAL},
+      </if>
+      <if test="questionsid != null">
+        #{questionsid,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="descr != null">
+        #{descr,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbAllocateTemp">
+    update db_allocate_temp
+    <set>
+      <if test="productid != null">
+        PRODUCTID = #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="inporttime != null">
+        INPORTTIME = #{inporttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orper != null">
+        ORPER = #{orper,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null">
+        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reserve1 != null">
+        RESERVE1 = #{reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve2 != null">
+        RESERVE2 = #{reserve2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve3 != null">
+        RESERVE3 = #{reserve3,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve4 != null">
+        RESERVE4 = #{reserve4,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve5 != null">
+        RESERVE5 = #{reserve5,jdbcType=VARCHAR},
+      </if>
+      <if test="allocatenum != null">
+        ALLOCATENUM = #{allocatenum,jdbcType=DECIMAL},
+      </if>
+      <if test="sonallocatenum != null">
+        SONALLOCATENUM = #{sonallocatenum,jdbcType=DECIMAL},
+      </if>
+      <if test="weight != null">
+        WEIGHT = #{weight,jdbcType=DECIMAL},
+      </if>
+      <if test="questionsid != null">
+        QUESTIONSID = #{questionsid,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        TITLE = #{title,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="descr != null">
+        DESCR = #{descr,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbAllocateTemp">
+    update db_allocate_temp
+    set PRODUCTID = #{productid,jdbcType=VARCHAR},
+      INPORTTIME = #{inporttime,jdbcType=TIMESTAMP},
+      ORPER = #{orper,jdbcType=VARCHAR},
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR},
+      RESERVE3 = #{reserve3,jdbcType=VARCHAR},
+      RESERVE4 = #{reserve4,jdbcType=VARCHAR},
+      RESERVE5 = #{reserve5,jdbcType=VARCHAR},
+      ALLOCATENUM = #{allocatenum,jdbcType=DECIMAL},
+      SONALLOCATENUM = #{sonallocatenum,jdbcType=DECIMAL},
+      WEIGHT = #{weight,jdbcType=DECIMAL},
+      QUESTIONSID = #{questionsid,jdbcType=VARCHAR},
+      TITLE = #{title,jdbcType=LONGVARCHAR},
+      DESCR = #{descr,jdbcType=LONGVARCHAR}
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbAllocateTemp">
+    update db_allocate_temp
+    set PRODUCTID = #{productid,jdbcType=VARCHAR},
+      INPORTTIME = #{inporttime,jdbcType=TIMESTAMP},
+      ORPER = #{orper,jdbcType=VARCHAR},
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR},
+      RESERVE3 = #{reserve3,jdbcType=VARCHAR},
+      RESERVE4 = #{reserve4,jdbcType=VARCHAR},
+      RESERVE5 = #{reserve5,jdbcType=VARCHAR},
+      ALLOCATENUM = #{allocatenum,jdbcType=DECIMAL},
+      SONALLOCATENUM = #{sonallocatenum,jdbcType=DECIMAL},
+      WEIGHT = #{weight,jdbcType=DECIMAL},
+      QUESTIONSID = #{questionsid,jdbcType=VARCHAR}
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </update>
+</mapper>

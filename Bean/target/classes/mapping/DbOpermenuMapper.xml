@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbOpermenuMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbOpermenu">
+    <id column="OPER" jdbcType="VARCHAR" property="oper" />
+    <id column="MENUID" jdbcType="VARCHAR" property="menuid" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from db_opermenu
+    where OPER = #{oper,jdbcType=VARCHAR}
+      and MENUID = #{menuid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bean.model.DbOpermenu">
+    insert into db_opermenu (OPER, MENUID)
+    values (#{oper,jdbcType=VARCHAR}, #{menuid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbOpermenu">
+    insert into db_opermenu
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="oper != null">
+        OPER,
+      </if>
+      <if test="menuid != null">
+        MENUID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="oper != null">
+        #{oper,jdbcType=VARCHAR},
+      </if>
+      <if test="menuid != null">
+        #{menuid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

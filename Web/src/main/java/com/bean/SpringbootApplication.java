@@ -1,7 +1,7 @@
 package com.bean;
 
 
-import com.bean.DataSource.DynamicDataSourceRegister;
+import com.bean.dataSource.DynamicDataSourceRegister;
 import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

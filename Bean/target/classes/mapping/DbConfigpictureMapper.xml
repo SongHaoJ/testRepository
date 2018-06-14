@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbConfigpictureMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbConfigpicture">
+    <result column="SEQUENCEID" jdbcType="DECIMAL" property="sequenceid" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="POSTFIX" jdbcType="VARCHAR" property="postfix" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbConfigpicture">
+    <result column="PICTUREURL" jdbcType="LONGVARCHAR" property="pictureurl" />
+  </resultMap>
+  <sql id="Blob_Column_List">
+    PICTUREURL
+  </sql>
+  <insert id="insert" parameterType="com.bean.model.DbConfigpicture">
+    insert into db_configpicture (SEQUENCEID, OPER, 'POSTFIX', 
+      OPERTIME, PICTUREURL)
+    values (#{sequenceid,jdbcType=DECIMAL}, #{oper,jdbcType=VARCHAR}, #{postfix,jdbcType=VARCHAR}, 
+      #{opertime,jdbcType=TIMESTAMP}, #{pictureurl,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbConfigpicture">
+    insert into db_configpicture
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        SEQUENCEID,
+      </if>
+      <if test="oper != null">
+        OPER,
+      </if>
+      <if test="postfix != null">
+        'POSTFIX',
+      </if>
+      <if test="opertime != null">
+        OPERTIME,
+      </if>
+      <if test="pictureurl != null">
+        PICTUREURL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        #{sequenceid,jdbcType=DECIMAL},
+      </if>
+      <if test="oper != null">
+        #{oper,jdbcType=VARCHAR},
+      </if>
+      <if test="postfix != null">
+        #{postfix,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null">
+        #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pictureurl != null">
+        #{pictureurl,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

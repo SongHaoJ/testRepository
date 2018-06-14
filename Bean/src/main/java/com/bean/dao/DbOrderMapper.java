@@ -1,19 +1,25 @@
 package com.bean.dao;
 
 import com.bean.model.DbOrder;
+import org.springframework.stereotype.Repository;
 
+import java.util.List;
+import java.util.Map;
+
+@Repository
 public interface DbOrderMapper {
-    int deleteByPrimaryKey(String orderid);
+    int deleteByPrimaryKey(String orderid) throws Exception;
 
-    int insert(DbOrder record);
+    int insert(DbOrder record) throws Exception;
 
-    int insertSelective(DbOrder record);
+    int insertSelective(DbOrder record) throws Exception;
 
-    DbOrder selectByPrimaryKey(String orderid);
+    DbOrder selectByPrimaryKey(String orderid) throws Exception;
 
-    int updateByPrimaryKeySelective(DbOrder record);
+    int updateByPrimaryKeySelective(DbOrder record) throws Exception;
 
-    int updateByPrimaryKeyWithBLOBs(DbOrder record);
+    List<String> selectOrderIdByShopId(Map<String,String> params) throws Exception;
 
-    int updateByPrimaryKey(DbOrder record);
+    int updateRefundOrderStatus(Map<String,String> params) throws Exception;
+
 }

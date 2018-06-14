@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbExpresstyperuleMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbExpresstyperule">
+    <id column="SID" jdbcType="DECIMAL" property="sid" />
+    <result column="LENGTH" jdbcType="DECIMAL" property="length" />
+    <result column="WIDTH" jdbcType="DECIMAL" property="width" />
+    <result column="HEIGHT" jdbcType="DECIMAL" property="height" />
+    <result column="WEIGHT" jdbcType="DECIMAL" property="weight" />
+    <result column="VOLUMEWEIGHT" jdbcType="DECIMAL" property="volumeweight" />
+    <result column="VOLUME" jdbcType="DECIMAL" property="volume" />
+    <result column="BOTTOMPERIMETER" jdbcType="DECIMAL" property="bottomperimeter" />
+    <result column="ADDITIONALCHARGE" jdbcType="DECIMAL" property="additionalcharge" />
+    <result column="EXPRESSTYPEID" jdbcType="VARCHAR" property="expresstypeid" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbExpresstyperule">
+    <result column="SQLFILTER" jdbcType="LONGVARCHAR" property="sqlfilter" />
+    <result column="FORMULA" jdbcType="LONGVARCHAR" property="formula" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SID, 'LENGTH', WIDTH, HEIGHT, WEIGHT, VOLUMEWEIGHT, VOLUME, BOTTOMPERIMETER, ADDITIONALCHARGE, 
+    EXPRESSTYPEID
+  </sql>
+  <sql id="Blob_Column_List">
+    SQLFILTER, FORMULA
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from db_expresstyperule
+    where SID = #{sid,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
+    delete from db_expresstyperule
+    where SID = #{sid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.bean.model.DbExpresstyperule">
+    insert into db_expresstyperule (SID, 'LENGTH', WIDTH, 
+      HEIGHT, WEIGHT, VOLUMEWEIGHT, 
+      VOLUME, BOTTOMPERIMETER, ADDITIONALCHARGE, 
+      EXPRESSTYPEID, SQLFILTER, FORMULA
+      )
+    values (#{sid,jdbcType=DECIMAL}, #{length,jdbcType=DECIMAL}, #{width,jdbcType=DECIMAL}, 
+      #{height,jdbcType=DECIMAL}, #{weight,jdbcType=DECIMAL}, #{volumeweight,jdbcType=DECIMAL}, 
+      #{volume,jdbcType=DECIMAL}, #{bottomperimeter,jdbcType=DECIMAL}, #{additionalcharge,jdbcType=DECIMAL}, 
+      #{expresstypeid,jdbcType=VARCHAR}, #{sqlfilter,jdbcType=LONGVARCHAR}, #{formula,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbExpresstyperule">
+    insert into db_expresstyperule
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        SID,
+      </if>
+      <if test="length != null">
+        'LENGTH',
+      </if>
+      <if test="width != null">
+        WIDTH,
+      </if>
+      <if test="height != null">
+        HEIGHT,
+      </if>
+      <if test="weight != null">
+        WEIGHT,
+      </if>
+      <if test="volumeweight != null">
+        VOLUMEWEIGHT,
+      </if>
+      <if test="volume != null">
+        VOLUME,
+      </if>
+      <if test="bottomperimeter != null">
+        BOTTOMPERIMETER,
+      </if>
+      <if test="additionalcharge != null">
+        ADDITIONALCHARGE,
+      </if>
+      <if test="expresstypeid != null">
+        EXPRESSTYPEID,
+      </if>
+      <if test="sqlfilter != null">
+        SQLFILTER,
+      </if>
+      <if test="formula != null">
+        FORMULA,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        #{sid,jdbcType=DECIMAL},
+      </if>
+      <if test="length != null">
+        #{length,jdbcType=DECIMAL},
+      </if>
+      <if test="width != null">
+        #{width,jdbcType=DECIMAL},
+      </if>
+      <if test="height != null">
+        #{height,jdbcType=DECIMAL},
+      </if>
+      <if test="weight != null">
+        #{weight,jdbcType=DECIMAL},
+      </if>
+      <if test="volumeweight != null">
+        #{volumeweight,jdbcType=DECIMAL},
+      </if>
+      <if test="volume != null">
+        #{volume,jdbcType=DECIMAL},
+      </if>
+      <if test="bottomperimeter != null">
+        #{bottomperimeter,jdbcType=DECIMAL},
+      </if>
+      <if test="additionalcharge != null">
+        #{additionalcharge,jdbcType=DECIMAL},
+      </if>
+      <if test="expresstypeid != null">
+        #{expresstypeid,jdbcType=VARCHAR},
+      </if>
+      <if test="sqlfilter != null">
+        #{sqlfilter,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="formula != null">
+        #{formula,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbExpresstyperule">
+    update db_expresstyperule
+    <set>
+      <if test="length != null">
+        'LENGTH' = #{length,jdbcType=DECIMAL},
+      </if>
+      <if test="width != null">
+        WIDTH = #{width,jdbcType=DECIMAL},
+      </if>
+      <if test="height != null">
+        HEIGHT = #{height,jdbcType=DECIMAL},
+      </if>
+      <if test="weight != null">
+        WEIGHT = #{weight,jdbcType=DECIMAL},
+      </if>
+      <if test="volumeweight != null">
+        VOLUMEWEIGHT = #{volumeweight,jdbcType=DECIMAL},
+      </if>
+      <if test="volume != null">
+        VOLUME = #{volume,jdbcType=DECIMAL},
+      </if>
+      <if test="bottomperimeter != null">
+        BOTTOMPERIMETER = #{bottomperimeter,jdbcType=DECIMAL},
+      </if>
+      <if test="additionalcharge != null">
+        ADDITIONALCHARGE = #{additionalcharge,jdbcType=DECIMAL},
+      </if>
+      <if test="expresstypeid != null">
+        EXPRESSTYPEID = #{expresstypeid,jdbcType=VARCHAR},
+      </if>
+      <if test="sqlfilter != null">
+        SQLFILTER = #{sqlfilter,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="formula != null">
+        FORMULA = #{formula,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where SID = #{sid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbExpresstyperule">
+    update db_expresstyperule
+    set 'LENGTH' = #{length,jdbcType=DECIMAL},
+      WIDTH = #{width,jdbcType=DECIMAL},
+      HEIGHT = #{height,jdbcType=DECIMAL},
+      WEIGHT = #{weight,jdbcType=DECIMAL},
+      VOLUMEWEIGHT = #{volumeweight,jdbcType=DECIMAL},
+      VOLUME = #{volume,jdbcType=DECIMAL},
+      BOTTOMPERIMETER = #{bottomperimeter,jdbcType=DECIMAL},
+      ADDITIONALCHARGE = #{additionalcharge,jdbcType=DECIMAL},
+      EXPRESSTYPEID = #{expresstypeid,jdbcType=VARCHAR},
+      SQLFILTER = #{sqlfilter,jdbcType=LONGVARCHAR},
+      FORMULA = #{formula,jdbcType=LONGVARCHAR}
+    where SID = #{sid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbExpresstyperule">
+    update db_expresstyperule
+    set 'LENGTH' = #{length,jdbcType=DECIMAL},
+      WIDTH = #{width,jdbcType=DECIMAL},
+      HEIGHT = #{height,jdbcType=DECIMAL},
+      WEIGHT = #{weight,jdbcType=DECIMAL},
+      VOLUMEWEIGHT = #{volumeweight,jdbcType=DECIMAL},
+      VOLUME = #{volume,jdbcType=DECIMAL},
+      BOTTOMPERIMETER = #{bottomperimeter,jdbcType=DECIMAL},
+      ADDITIONALCHARGE = #{additionalcharge,jdbcType=DECIMAL},
+      EXPRESSTYPEID = #{expresstypeid,jdbcType=VARCHAR}
+    where SID = #{sid,jdbcType=DECIMAL}
+  </update>
+</mapper>

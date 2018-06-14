@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbCkyorderMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbCkyorder">
+    <id column="SID" jdbcType="VARCHAR" property="sid" />
+    <result column="ORDERID" jdbcType="VARCHAR" property="orderid" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SID, ORDERID, OPERTIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from db_ckyorder
+    where SID = #{sid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from db_ckyorder
+    where SID = #{sid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bean.model.DbCkyorder">
+    insert into db_ckyorder (SID, ORDERID, OPERTIME
+      )
+    values (#{sid,jdbcType=VARCHAR}, #{orderid,jdbcType=VARCHAR}, #{opertime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbCkyorder">
+    insert into db_ckyorder
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        SID,
+      </if>
+      <if test="orderid != null">
+        ORDERID,
+      </if>
+      <if test="opertime != null">
+        OPERTIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        #{sid,jdbcType=VARCHAR},
+      </if>
+      <if test="orderid != null">
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null">
+        #{opertime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbCkyorder">
+    update db_ckyorder
+    <set>
+      <if test="orderid != null">
+        ORDERID = #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null">
+        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where SID = #{sid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbCkyorder">
+    update db_ckyorder
+    set ORDERID = #{orderid,jdbcType=VARCHAR},
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP}
+    where SID = #{sid,jdbcType=VARCHAR}
+  </update>
+</mapper>

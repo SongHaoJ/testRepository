@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbEubprovinceMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbEubprovince">
+    <id column="PROVINCEID" jdbcType="VARCHAR" property="provinceid" />
+    <result column="PROVINCENAME" jdbcType="VARCHAR" property="provincename" />
+    <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
+    <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
+    <result column="PROVINCEEN" jdbcType="VARCHAR" property="provinceen" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PROVINCEID, PROVINCENAME, CORPID, OPENFLAG, PROVINCEEN
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from db_eubprovince
+    where PROVINCEID = #{provinceid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from db_eubprovince
+    where PROVINCEID = #{provinceid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bean.model.DbEubprovince">
+    insert into db_eubprovince (PROVINCEID, PROVINCENAME, CORPID, 
+      OPENFLAG, PROVINCEEN)
+    values (#{provinceid,jdbcType=VARCHAR}, #{provincename,jdbcType=VARCHAR}, #{corpid,jdbcType=VARCHAR}, 
+      #{openflag,jdbcType=VARCHAR}, #{provinceen,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbEubprovince">
+    insert into db_eubprovince
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="provinceid != null">
+        PROVINCEID,
+      </if>
+      <if test="provincename != null">
+        PROVINCENAME,
+      </if>
+      <if test="corpid != null">
+        CORPID,
+      </if>
+      <if test="openflag != null">
+        OPENFLAG,
+      </if>
+      <if test="provinceen != null">
+        PROVINCEEN,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="provinceid != null">
+        #{provinceid,jdbcType=VARCHAR},
+      </if>
+      <if test="provincename != null">
+        #{provincename,jdbcType=VARCHAR},
+      </if>
+      <if test="corpid != null">
+        #{corpid,jdbcType=VARCHAR},
+      </if>
+      <if test="openflag != null">
+        #{openflag,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceen != null">
+        #{provinceen,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbEubprovince">
+    update db_eubprovince
+    <set>
+      <if test="provincename != null">
+        PROVINCENAME = #{provincename,jdbcType=VARCHAR},
+      </if>
+      <if test="corpid != null">
+        CORPID = #{corpid,jdbcType=VARCHAR},
+      </if>
+      <if test="openflag != null">
+        OPENFLAG = #{openflag,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceen != null">
+        PROVINCEEN = #{provinceen,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PROVINCEID = #{provinceid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbEubprovince">
+    update db_eubprovince
+    set PROVINCENAME = #{provincename,jdbcType=VARCHAR},
+      CORPID = #{corpid,jdbcType=VARCHAR},
+      OPENFLAG = #{openflag,jdbcType=VARCHAR},
+      PROVINCEEN = #{provinceen,jdbcType=VARCHAR}
+    where PROVINCEID = #{provinceid,jdbcType=VARCHAR}
+  </update>
+</mapper>

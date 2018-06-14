@@ -1,7 +1,9 @@
 package com.bean.dao;
 
 import com.bean.model.DbLazadaexpresstype;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface DbLazadaexpresstypeMapper {
     int deleteByPrimaryKey(String sid);
 

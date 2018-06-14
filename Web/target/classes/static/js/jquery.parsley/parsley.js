@@ -134,7 +134,7 @@
                 return false;
             }
 
-            // test regExp if not null
+            // bean regExp if not null
             return '' !== val ? regExp.test( val ) : false;
           }
           , priority: 256

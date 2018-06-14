@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbProductdevelopgroupidMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbProductdevelopgroupid">
+    <result column="GROUPID" jdbcType="VARCHAR" property="groupid" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="NUM" jdbcType="DECIMAL" property="num" />
+    <result column="APPLYOPER" jdbcType="VARCHAR" property="applyoper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bean.model.DbProductdevelopgroupid">
+    insert into db_productdevelopgroupid (GROUPID, OPER, NUM, 
+      APPLYOPER, OPERTIME)
+    values (#{groupid,jdbcType=VARCHAR}, #{oper,jdbcType=VARCHAR}, #{num,jdbcType=DECIMAL}, 
+      #{applyoper,jdbcType=VARCHAR}, #{opertime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbProductdevelopgroupid">
+    insert into db_productdevelopgroupid
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="groupid != null">
+        GROUPID,
+      </if>
+      <if test="oper != null">
+        OPER,
+      </if>
+      <if test="num != null">
+        NUM,
+      </if>
+      <if test="applyoper != null">
+        APPLYOPER,
+      </if>
+      <if test="opertime != null">
+        OPERTIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="groupid != null">
+        #{groupid,jdbcType=VARCHAR},
+      </if>
+      <if test="oper != null">
+        #{oper,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null">
+        #{num,jdbcType=DECIMAL},
+      </if>
+      <if test="applyoper != null">
+        #{applyoper,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null">
+        #{opertime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

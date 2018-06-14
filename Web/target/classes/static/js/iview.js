@@ -5871,7 +5871,7 @@ function range(rule, value, source, errors, options) {
   }
   // if the value is not of a supported type for range validation
   // the validation rule rule should use the
-  // type property to also test for a particular type
+  // type property to also bean for a particular type
   if (!key) {
     return false;
   }
