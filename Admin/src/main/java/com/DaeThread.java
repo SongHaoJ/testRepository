@@ -15,7 +15,7 @@ public class DaeThread extends Thread {
 
     @Override
     public void run() {
-        //TODO
+        //TODO 处理不急需进行的数据库操作与其他线程状态的修改
 
     }
 

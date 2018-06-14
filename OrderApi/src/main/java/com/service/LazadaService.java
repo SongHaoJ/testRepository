@@ -1,8 +1,8 @@
-package com.service;
+package com.Service;
 
 import com.bean.model.DbLazadaorderinfo;
-import com.bean.model.DbMoneyrate;
 import com.bean.model.DbProduct;
+import com.bean.model.DbShop;
 import com.bean.util.RetCode;
 
 public interface LazadaService {
@@ -16,7 +16,14 @@ public interface LazadaService {
     RetCode findLazadanewproduct(String shopid);
 
     /**
-     * 查找lazada店铺
+     * 刷新令牌
+     * @param dbShop
+     * @return
+     */
+    RetCode getrefreshAccess_token(DbShop dbShop);
+
+    /**
+     * 查找需要下载的店铺
      *
      * @param shopId 店铺id
      * @return
@@ -90,27 +97,5 @@ public interface LazadaService {
      */
     RetCode updateCalcuSellAlertflag(DbProduct obj);
 
-    /**
-     * 获取汇率
-     *
-     * @param obj
-     * @return
-     */
-    RetCode findMoneyrate(DbMoneyrate obj);
 
-    /**
-     * 保存新币种
-     *
-     * @param currencyId
-     * @param moneyrate
-     */
-    void saveMoneyrate(String currencyId, double moneyrate);
-
-    /**
-     * 查询需要分配paypalfee的订单(入参,订单数量或要单独计算的orderid)
-     * @param rownumber
-     * @param orderid
-     * @return
-     */
-    RetCode updateSplitPaypalFee(int rownumber, String orderid);
 }

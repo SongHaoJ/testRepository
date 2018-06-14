@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.ProductMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.Product">
+    <id column="pid" jdbcType="INTEGER" property="pid" />
+    <result column="picurl" jdbcType="VARCHAR" property="picurl" />
+    <result column="stockid" jdbcType="INTEGER" property="stockid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    pid, picurl, stockid
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from product
+    where pid = #{pid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from product
+    where pid = #{pid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.bean.model.Product">
+    insert into product (pid, picurl, stockid
+      )
+    values (#{pid,jdbcType=INTEGER}, #{picurl,jdbcType=VARCHAR}, #{stockid,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.Product">
+    insert into product
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pid != null">
+        pid,
+      </if>
+      <if test="picurl != null">
+        picurl,
+      </if>
+      <if test="stockid != null">
+        stockid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pid != null">
+        #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="picurl != null">
+        #{picurl,jdbcType=VARCHAR},
+      </if>
+      <if test="stockid != null">
+        #{stockid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.Product">
+    update product
+    <set>
+      <if test="picurl != null">
+        picurl = #{picurl,jdbcType=VARCHAR},
+      </if>
+      <if test="stockid != null">
+        stockid = #{stockid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where pid = #{pid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bean.model.Product">
+    update product
+    set picurl = #{picurl,jdbcType=VARCHAR},
+      stockid = #{stockid,jdbcType=INTEGER}
+    where pid = #{pid,jdbcType=INTEGER}
+  </update>
+</mapper>
