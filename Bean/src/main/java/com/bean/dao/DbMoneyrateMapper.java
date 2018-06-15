@@ -1,7 +1,11 @@
 package com.bean.dao;
 
 import com.bean.model.DbMoneyrate;
+import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
+@Repository
 public interface DbMoneyrateMapper {
     int deleteByPrimaryKey(String sequenceid);
 
@@ -11,9 +15,10 @@ public interface DbMoneyrateMapper {
 
     DbMoneyrate selectByPrimaryKey(String sequenceid);
 
+    List<DbMoneyrate> selectByCriteria(DbMoneyrate moneyrate);
+
     int updateByPrimaryKeySelective(DbMoneyrate record);
 
-    int updateByPrimaryKeyWithBLOBs(DbMoneyrate record);
+    int selectMaxId();
 
-    int updateByPrimaryKey(DbMoneyrate record);
 }

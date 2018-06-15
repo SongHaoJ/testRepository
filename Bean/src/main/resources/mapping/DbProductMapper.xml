@@ -188,6 +188,491 @@
     HJRESERVE6, OUTERNORMS, OUTERLEVEL, RESERVE15, RESERVE16, RESERVE17, RESERVE18, PRODUCTNAME, 
     PURCHASEREMARK, CUSTOMSDETAILS
   </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=VARCHAR} and
+    </if>
+    <if test="corpid != null">
+      CORPID = #{corpid,jdbcType=VARCHAR} and
+    </if>
+    <if test="projectid != null">
+      PROJECTID = #{projectid,jdbcType=VARCHAR} and
+    </if>
+    <if test="categoryid != null">
+      CATEGORYID = #{categoryid,jdbcType=VARCHAR} and
+    </if>
+    <if test="unit != null">
+      UNIT = #{unit,jdbcType=VARCHAR} and
+    </if>
+    <if test="status != null">
+      'STATUS' = #{status,jdbcType=VARCHAR} and
+    </if>
+    <if test="brandid != null">
+      BRANDID = #{brandid,jdbcType=VARCHAR} and
+    </if>
+    <if test="brand != null">
+      BRAND = #{brand,jdbcType=VARCHAR} and
+    </if>
+    <if test="manufactureid != null">
+      MANUFACTUREID = #{manufactureid,jdbcType=VARCHAR} and
+    </if>
+    <if test="manufacture != null">
+      MANUFACTURE = #{manufacture,jdbcType=VARCHAR} and
+    </if>
+    <if test="origin != null">
+      ORIGIN = #{origin,jdbcType=VARCHAR} and
+    </if>
+    <if test="originarea != null">
+      ORIGINAREA = #{originarea,jdbcType=VARCHAR} and
+    </if>
+    <if test="stockprice != null">
+      STOCKPRICE = #{stockprice,jdbcType=DECIMAL} and
+    </if>
+    <if test="costprice != null">
+      COSTPRICE = #{costprice,jdbcType=DECIMAL} and
+    </if>
+    <if test="sellprice != null">
+      SELLPRICE = #{sellprice,jdbcType=DECIMAL} and
+    </if>
+    <if test="batchprice1 != null">
+      BATCHPRICE1 = #{batchprice1,jdbcType=DECIMAL} and
+    </if>
+    <if test="batchprice2 != null">
+      BATCHPRICE2 = #{batchprice2,jdbcType=DECIMAL} and
+    </if>
+    <if test="batchprice3 != null">
+      BATCHPRICE3 = #{batchprice3,jdbcType=DECIMAL} and
+    </if>
+    <if test="batchprice4 != null">
+      BATCHPRICE4 = #{batchprice4,jdbcType=DECIMAL} and
+    </if>
+    <if test="storageid != null">
+      STORAGEID = #{storageid,jdbcType=VARCHAR} and
+    </if>
+    <if test="storage != null">
+      'STORAGE' = #{storage,jdbcType=VARCHAR} and
+    </if>
+    <if test="locationid != null">
+      LOCATIONID = #{locationid,jdbcType=VARCHAR} and
+    </if>
+    <if test="location != null">
+      'LOCATION' = #{location,jdbcType=VARCHAR} and
+    </if>
+    <if test="weight != null">
+      WEIGHT = #{weight,jdbcType=DECIMAL} and
+    </if>
+    <if test="sizes != null">
+      SIZES = #{sizes,jdbcType=VARCHAR} and
+    </if>
+    <if test="color != null">
+      COLOR = #{color,jdbcType=VARCHAR} and
+    </if>
+    <if test="barcode != null">
+      BARCODE = #{barcode,jdbcType=VARCHAR} and
+    </if>
+    <if test="availtime != null">
+      AVAILTIME = #{availtime,jdbcType=VARCHAR} and
+    </if>
+    <if test="picture1 != null">
+      PICTURE1 = #{picture1,jdbcType=VARCHAR} and
+    </if>
+    <if test="picture2 != null">
+      PICTURE2 = #{picture2,jdbcType=VARCHAR} and
+    </if>
+    <if test="picture4 != null">
+      PICTURE4 = #{picture4,jdbcType=VARCHAR} and
+    </if>
+    <if test="buyflag != null">
+      BUYFLAG = #{buyflag,jdbcType=VARCHAR} and
+    </if>
+    <if test="buynum != null">
+      BUYNUM = #{buynum,jdbcType=DECIMAL} and
+    </if>
+    <if test="savenum != null">
+      SAVENUM = #{savenum,jdbcType=DECIMAL} and
+    </if>
+    <if test="ordernum != null">
+      ORDERNUM = #{ordernum,jdbcType=DECIMAL} and
+    </if>
+    <if test="alertnum != null">
+      ALERTNUM = #{alertnum,jdbcType=DECIMAL} and
+    </if>
+    <if test="levels != null">
+      LEVELS = #{levels,jdbcType=VARCHAR} and
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=VARCHAR} and
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and
+    </if>
+    <if test="translateflag != null">
+      TRANSLATEFLAG = #{translateflag,jdbcType=VARCHAR} and
+    </if>
+    <if test="priceflag != null">
+      PRICEFLAG = #{priceflag,jdbcType=VARCHAR} and
+    </if>
+    <if test="contentflag != null">
+      CONTENTFLAG = #{contentflag,jdbcType=VARCHAR} and
+    </if>
+    <if test="picflag != null">
+      PICFLAG = #{picflag,jdbcType=VARCHAR} and
+    </if>
+    <if test="designflag != null">
+      DESIGNFLAG = #{designflag,jdbcType=VARCHAR} and
+    </if>
+    <if test="publicflag != null">
+      PUBLICFLAG = #{publicflag,jdbcType=VARCHAR} and
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and
+    </if>
+    <if test="reserve3 != null">
+      RESERVE3 = #{reserve3,jdbcType=VARCHAR} and
+    </if>
+    <if test="reserve4 != null">
+      RESERVE4 = #{reserve4,jdbcType=VARCHAR} and
+    </if>
+    <if test="reserve5 != null">
+      RESERVE5 = #{reserve5,jdbcType=VARCHAR} and
+    </if>
+    <if test="reserve6 != null">
+      RESERVE6 = #{reserve6,jdbcType=VARCHAR} and
+    </if>
+    <if test="reserve7 != null">
+      RESERVE7 = #{reserve7,jdbcType=VARCHAR} and
+    </if>
+    <if test="reserve8 != null">
+      RESERVE8 = #{reserve8,jdbcType=VARCHAR} and
+    </if>
+    <if test="reserve9 != null">
+      RESERVE9 = #{reserve9,jdbcType=VARCHAR} and
+    </if>
+    <if test="reserve10 != null">
+      RESERVE10 = #{reserve10,jdbcType=VARCHAR} and
+    </if>
+    <if test="manufactureid2 != null">
+      MANUFACTUREID2 = #{manufactureid2,jdbcType=VARCHAR} and
+    </if>
+    <if test="manufacture2 != null">
+      MANUFACTURE2 = #{manufacture2,jdbcType=VARCHAR} and
+    </if>
+    <if test="manufactureid3 != null">
+      MANUFACTUREID3 = #{manufactureid3,jdbcType=VARCHAR} and
+    </if>
+    <if test="manufacture3 != null">
+      MANUFACTURE3 = #{manufacture3,jdbcType=VARCHAR} and
+    </if>
+    <if test="checkstockoper != null">
+      CHECKSTOCKOPER = #{checkstockoper,jdbcType=VARCHAR} and
+    </if>
+    <if test="checkstocktime != null">
+      CHECKSTOCKTIME = #{checkstocktime,jdbcType=TIMESTAMP} and
+    </if>
+    <if test="price1 != null">
+      PRICE1 = #{price1,jdbcType=DECIMAL} and
+    </if>
+    <if test="price2 != null">
+      PRICE2 = #{price2,jdbcType=DECIMAL} and
+    </if>
+    <if test="price3 != null">
+      PRICE3 = #{price3,jdbcType=DECIMAL} and
+    </if>
+    <if test="price4 != null">
+      PRICE4 = #{price4,jdbcType=DECIMAL} and
+    </if>
+    <if test="price5 != null">
+      PRICE5 = #{price5,jdbcType=DECIMAL} and
+    </if>
+    <if test="price6 != null">
+      PRICE6 = #{price6,jdbcType=DECIMAL} and
+    </if>
+    <if test="price7 != null">
+      PRICE7 = #{price7,jdbcType=DECIMAL} and
+    </if>
+    <if test="price8 != null">
+      PRICE8 = #{price8,jdbcType=DECIMAL} and
+    </if>
+    <if test="itemno != null">
+      ITEMNO = #{itemno,jdbcType=VARCHAR} and
+    </if>
+    <if test="oper1 != null">
+      OPER1 = #{oper1,jdbcType=VARCHAR} and
+    </if>
+    <if test="oper2 != null">
+      OPER2 = #{oper2,jdbcType=VARCHAR} and
+    </if>
+    <if test="oper3 != null">
+      OPER3 = #{oper3,jdbcType=VARCHAR} and
+    </if>
+    <if test="oper4 != null">
+      OPER4 = #{oper4,jdbcType=VARCHAR} and
+    </if>
+    <if test="oper5 != null">
+      OPER5 = #{oper5,jdbcType=VARCHAR} and
+    </if>
+    <if test="oper6 != null">
+      OPER6 = #{oper6,jdbcType=VARCHAR} and
+    </if>
+    <if test="alertflag != null">
+      ALERTFLAG = #{alertflag,jdbcType=VARCHAR} and
+    </if>
+    <if test="packagingid != null">
+      PACKAGINGID = #{packagingid,jdbcType=VARCHAR} and
+    </if>
+    <if test="packagingname != null">
+      PACKAGINGNAME = #{packagingname,jdbcType=VARCHAR} and
+    </if>
+    <if test="packagingweight != null">
+      PACKAGINGWEIGHT = #{packagingweight,jdbcType=DECIMAL} and
+    </if>
+    <if test="minalernum != null">
+      MINALERNUM = #{minalernum,jdbcType=DECIMAL} and
+    </if>
+    <if test="savedate != null">
+      SAVEDATE = #{savedate,jdbcType=DECIMAL} and
+    </if>
+    <if test="savestar != null">
+      SAVESTAR = #{savestar,jdbcType=TIMESTAMP} and
+    </if>
+    <if test="nextsavetime != null">
+      NEXTSAVETIME = #{nextsavetime,jdbcType=TIMESTAMP} and
+    </if>
+    <if test="declaredvalue != null">
+      DECLAREDVALUE = #{declaredvalue,jdbcType=DECIMAL} and
+    </if>
+    <if test="manufactureprice != null">
+      MANUFACTUREPRICE = #{manufactureprice,jdbcType=DECIMAL} and
+    </if>
+    <if test="manufactureprice1 != null">
+      MANUFACTUREPRICE1 = #{manufactureprice1,jdbcType=DECIMAL} and
+    </if>
+    <if test="manufactureprice2 != null">
+      MANUFACTUREPRICE2 = #{manufactureprice2,jdbcType=DECIMAL} and
+    </if>
+    <if test="tort != null">
+      TORT = #{tort,jdbcType=VARCHAR} and
+    </if>
+    <if test="hjreserve7 != null">
+      HJRESERVE7 = #{hjreserve7,jdbcType=DECIMAL} and
+    </if>
+    <if test="hjreserve8 != null">
+      HJRESERVE8 = #{hjreserve8,jdbcType=DECIMAL} and
+    </if>
+    <if test="hjreserve9 != null">
+      HJRESERVE9 = #{hjreserve9,jdbcType=DECIMAL} and
+    </if>
+    <if test="hjreserve10 != null">
+      HJRESERVE10 = #{hjreserve10,jdbcType=DECIMAL} and
+    </if>
+    <if test="createoper != null">
+      CREATEOPER = #{createoper,jdbcType=VARCHAR} and
+    </if>
+    <if test="createdate != null">
+      CREATEDATE = #{createdate,jdbcType=TIMESTAMP} and
+    </if>
+    <if test="packagingfee != null">
+      PACKAGINGFEE = #{packagingfee,jdbcType=DECIMAL} and
+    </if>
+    <if test="storagebinflag != null">
+      STORAGEBINFLAG = #{storagebinflag,jdbcType=VARCHAR} and
+    </if>
+    <if test="mainsku != null">
+      MAINSKU = #{mainsku,jdbcType=VARCHAR} and
+    </if>
+    <if test="length != null">
+      'LENGTH' = #{length,jdbcType=DECIMAL} and
+    </if>
+    <if test="width != null">
+      WIDTH = #{width,jdbcType=DECIMAL} and
+    </if>
+    <if test="high != null">
+      HIGH = #{high,jdbcType=DECIMAL} and
+    </if>
+    <if test="volume != null">
+      VOLUME = #{volume,jdbcType=DECIMAL} and
+    </if>
+    <if test="outerlength != null">
+      OUTERLENGTH = #{outerlength,jdbcType=DECIMAL} and
+    </if>
+    <if test="outerwidth != null">
+      OUTERWIDTH = #{outerwidth,jdbcType=DECIMAL} and
+    </if>
+    <if test="outerhigh != null">
+      OUTERHIGH = #{outerhigh,jdbcType=DECIMAL} and
+    </if>
+    <if test="outervolume != null">
+      OUTERVOLUME = #{outervolume,jdbcType=DECIMAL} and
+    </if>
+    <if test="outergrossweight != null">
+      OUTERGROSSWEIGHT = #{outergrossweight,jdbcType=DECIMAL} and
+    </if>
+    <if test="outernetweight != null">
+      OUTERNETWEIGHT = #{outernetweight,jdbcType=DECIMAL} and
+    </if>
+    <if test="grossweight != null">
+      GROSSWEIGHT = #{grossweight,jdbcType=DECIMAL} and
+    </if>
+    <if test="reserve11 != null">
+      RESERVE11 = #{reserve11,jdbcType=DECIMAL} and
+    </if>
+    <if test="reserve12 != null">
+      RESERVE12 = #{reserve12,jdbcType=DECIMAL} and
+    </if>
+    <if test="reserve13 != null">
+      RESERVE13 = #{reserve13,jdbcType=DECIMAL} and
+    </if>
+    <if test="reserve14 != null">
+      RESERVE14 = #{reserve14,jdbcType=DECIMAL} and
+    </if>
+    <if test="reserve19 != null">
+      RESERVE19 = #{reserve19,jdbcType=DECIMAL} and
+    </if>
+    <if test="reserve20 != null">
+      RESERVE20 = #{reserve20,jdbcType=DECIMAL} and
+    </if>
+    <if test="indexfordevelop != null">
+      INDEXFORDEVELOP = #{indexfordevelop,jdbcType=VARCHAR} and
+    </if>
+    <if test="purchaseflag != null">
+      PURCHASEFLAG = #{purchaseflag,jdbcType=DECIMAL} and
+    </if>
+    <if test="grossprofit != null">
+      GROSSPROFIT = #{grossprofit,jdbcType=DECIMAL} and
+    </if>
+    <if test="rateofmargin != null">
+      RATEOFMARGIN = #{rateofmargin,jdbcType=DECIMAL} and
+    </if>
+    <if test="purchasinglink3 != null">
+      PURCHASINGLINK3 = #{purchasinglink3,jdbcType=VARCHAR} and
+    </if>
+    <if test="purchasinglink2 != null">
+      PURCHASINGLINK2 = #{purchasinglink2,jdbcType=VARCHAR} and
+    </if>
+    <if test="name != null">
+      'NAME' = #{name,jdbcType=LONGVARCHAR} and
+    </if>
+    <if test="content != null">
+      CONTENT = #{content,jdbcType=LONGVARCHAR} and
+    </if>
+    <if test="descr != null">
+      DESCR = #{descr,jdbcType=LONGVARCHAR} and
+    </if>
+    <if test="translate1 != null">
+      TRANSLATE1 = #{translate1,jdbcType=LONGVARCHAR} and
+    </if>
+    <if test="translate2 != null">
+      TRANSLATE2 = #{translate2,jdbcType=LONGVARCHAR} and
+    </if>
+    <if test="translate3 != null">
+      TRANSLATE3 = #{translate3,jdbcType=LONGVARCHAR} and
+    </if>
+    <if test="translate4 != null">
+      TRANSLATE4 = #{translate4,jdbcType=LONGVARCHAR} and
+    </if>
+    <if test="othercontent != null">
+      OTHERCONTENT = #{othercontent,jdbcType=LONGVARCHAR} and
+    </if>
+    <if test="alias1 != null">
+      ALIAS1 = #{alias1,jdbcType=LONGVARCHAR} and
+    </if>
+    <if test="alias2 != null">
+      ALIAS2 = #{alias2,jdbcType=LONGVARCHAR} and
+    </if>
+    <if test="alias3 != null">
+      ALIAS3 = #{alias3,jdbcType=LONGVARCHAR} and
+    </if>
+    <if test="picture3 != null">
+      PICTURE3 = #{picture3,jdbcType=LONGVARCHAR} and
+    </if>
+    <if test="shoptype != null">
+      SHOPTYPE = #{shoptype,jdbcType=LONGVARCHAR} and
+    </if>
+    <if test="salesource != null">
+      SALESOURCE = #{salesource,jdbcType=LONGVARCHAR} and
+    </if>
+    <if test="clobcontent != null">
+      CLOBCONTENT = #{clobcontent,jdbcType=LONGVARCHAR} and
+    </if>
+    <if test="clobdescr != null">
+      CLOBDESCR = #{clobdescr,jdbcType=LONGVARCHAR} and
+    </if>
+    <if test="clobtranslate != null">
+      CLOBTRANSLATE = #{clobtranslate,jdbcType=LONGVARCHAR} and
+    </if>
+    <if test="alertdescr != null">
+      ALERTDESCR = #{alertdescr,jdbcType=LONGVARCHAR} and
+    </if>
+    <if test="iclass != null">
+      ICLASS = #{iclass,jdbcType=LONGVARCHAR} and
+    </if>
+    <if test="nameen != null">
+      NAMEEN = #{nameen,jdbcType=LONGVARCHAR} and
+    </if>
+    <if test="hjreserve1 != null">
+      HJRESERVE1 = #{hjreserve1,jdbcType=LONGVARCHAR} and
+    </if>
+    <if test="hjreserve2 != null">
+      HJRESERVE2 = #{hjreserve2,jdbcType=LONGVARCHAR} and
+    </if>
+    <if test="hjreserve3 != null">
+      HJRESERVE3 = #{hjreserve3,jdbcType=LONGVARCHAR} and
+    </if>
+    <if test="hjreserve4 != null">
+      HJRESERVE4 = #{hjreserve4,jdbcType=LONGVARCHAR} and
+    </if>
+    <if test="hjreserve5 != null">
+      HJRESERVE5 = #{hjreserve5,jdbcType=LONGVARCHAR} and
+    </if>
+    <if test="hjreserve6 != null">
+      HJRESERVE6 = #{hjreserve6,jdbcType=LONGVARCHAR} and
+    </if>
+    <if test="outernorms != null">
+      OUTERNORMS = #{outernorms,jdbcType=LONGVARCHAR} and
+    </if>
+    <if test="outerlevel != null">
+      OUTERLEVEL = #{outerlevel,jdbcType=LONGVARCHAR} and
+    </if>
+    <if test="reserve15 != null">
+      RESERVE15 = #{reserve15,jdbcType=LONGVARCHAR} and
+    </if>
+    <if test="reserve16 != null">
+      RESERVE16 = #{reserve16,jdbcType=LONGVARCHAR} and
+    </if>
+    <if test="reserve17 != null">
+      RESERVE17 = #{reserve17,jdbcType=LONGVARCHAR} and
+    </if>
+    <if test="reserve18 != null">
+      RESERVE18 = #{reserve18,jdbcType=LONGVARCHAR} and
+    </if>
+    <if test="productname != null">
+      PRODUCTNAME = #{productname,jdbcType=LONGVARCHAR} and
+    </if>
+    <if test="purchaseremark != null">
+      PURCHASEREMARK = #{purchaseremark,jdbcType=LONGVARCHAR} and
+    </if>
+    <if test="customsdetails != null">
+      CUSTOMSDETAILS = #{customsdetails,jdbcType=LONGVARCHAR} and
+    </if>
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and
+    </if>
+  </sql>
+  <select id="selectSidAndAliasBySid" parameterType="list" resultType="map">
+
+    select sid,alias1 from db_product where sid in
+    (
+    <foreach collection="skus" separator="," item="sku">
+      #{sku}
+    </foreach>
+    )
+  </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
     select 
     <include refid="Base_Column_List" />
@@ -1738,293 +2223,6 @@
         CUSTOMSDETAILS = #{customsdetails,jdbcType=LONGVARCHAR},
       </if>
     </set>
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbProduct">
-    update db_product
-    set SID = #{sid,jdbcType=VARCHAR},
-      CORPID = #{corpid,jdbcType=VARCHAR},
-      PROJECTID = #{projectid,jdbcType=VARCHAR},
-      CATEGORYID = #{categoryid,jdbcType=VARCHAR},
-      UNIT = #{unit,jdbcType=VARCHAR},
-      'STATUS' = #{status,jdbcType=VARCHAR},
-      BRANDID = #{brandid,jdbcType=VARCHAR},
-      BRAND = #{brand,jdbcType=VARCHAR},
-      MANUFACTUREID = #{manufactureid,jdbcType=VARCHAR},
-      MANUFACTURE = #{manufacture,jdbcType=VARCHAR},
-      ORIGIN = #{origin,jdbcType=VARCHAR},
-      ORIGINAREA = #{originarea,jdbcType=VARCHAR},
-      STOCKPRICE = #{stockprice,jdbcType=DECIMAL},
-      COSTPRICE = #{costprice,jdbcType=DECIMAL},
-      SELLPRICE = #{sellprice,jdbcType=DECIMAL},
-      BATCHPRICE1 = #{batchprice1,jdbcType=DECIMAL},
-      BATCHPRICE2 = #{batchprice2,jdbcType=DECIMAL},
-      BATCHPRICE3 = #{batchprice3,jdbcType=DECIMAL},
-      BATCHPRICE4 = #{batchprice4,jdbcType=DECIMAL},
-      STORAGEID = #{storageid,jdbcType=VARCHAR},
-      'STORAGE' = #{storage,jdbcType=VARCHAR},
-      LOCATIONID = #{locationid,jdbcType=VARCHAR},
-      'LOCATION' = #{location,jdbcType=VARCHAR},
-      WEIGHT = #{weight,jdbcType=DECIMAL},
-      SIZES = #{sizes,jdbcType=VARCHAR},
-      COLOR = #{color,jdbcType=VARCHAR},
-      BARCODE = #{barcode,jdbcType=VARCHAR},
-      AVAILTIME = #{availtime,jdbcType=VARCHAR},
-      PICTURE1 = #{picture1,jdbcType=VARCHAR},
-      PICTURE2 = #{picture2,jdbcType=VARCHAR},
-      PICTURE4 = #{picture4,jdbcType=VARCHAR},
-      BUYFLAG = #{buyflag,jdbcType=VARCHAR},
-      BUYNUM = #{buynum,jdbcType=DECIMAL},
-      SAVENUM = #{savenum,jdbcType=DECIMAL},
-      ORDERNUM = #{ordernum,jdbcType=DECIMAL},
-      ALERTNUM = #{alertnum,jdbcType=DECIMAL},
-      LEVELS = #{levels,jdbcType=VARCHAR},
-      OPENFLAG = #{openflag,jdbcType=VARCHAR},
-      OPER = #{oper,jdbcType=VARCHAR},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      TRANSLATEFLAG = #{translateflag,jdbcType=VARCHAR},
-      PRICEFLAG = #{priceflag,jdbcType=VARCHAR},
-      CONTENTFLAG = #{contentflag,jdbcType=VARCHAR},
-      PICFLAG = #{picflag,jdbcType=VARCHAR},
-      DESIGNFLAG = #{designflag,jdbcType=VARCHAR},
-      PUBLICFLAG = #{publicflag,jdbcType=VARCHAR},
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR},
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR},
-      RESERVE4 = #{reserve4,jdbcType=VARCHAR},
-      RESERVE5 = #{reserve5,jdbcType=VARCHAR},
-      RESERVE6 = #{reserve6,jdbcType=VARCHAR},
-      RESERVE7 = #{reserve7,jdbcType=VARCHAR},
-      RESERVE8 = #{reserve8,jdbcType=VARCHAR},
-      RESERVE9 = #{reserve9,jdbcType=VARCHAR},
-      RESERVE10 = #{reserve10,jdbcType=VARCHAR},
-      MANUFACTUREID2 = #{manufactureid2,jdbcType=VARCHAR},
-      MANUFACTURE2 = #{manufacture2,jdbcType=VARCHAR},
-      MANUFACTUREID3 = #{manufactureid3,jdbcType=VARCHAR},
-      MANUFACTURE3 = #{manufacture3,jdbcType=VARCHAR},
-      CHECKSTOCKOPER = #{checkstockoper,jdbcType=VARCHAR},
-      CHECKSTOCKTIME = #{checkstocktime,jdbcType=TIMESTAMP},
-      PRICE1 = #{price1,jdbcType=DECIMAL},
-      PRICE2 = #{price2,jdbcType=DECIMAL},
-      PRICE3 = #{price3,jdbcType=DECIMAL},
-      PRICE4 = #{price4,jdbcType=DECIMAL},
-      PRICE5 = #{price5,jdbcType=DECIMAL},
-      PRICE6 = #{price6,jdbcType=DECIMAL},
-      PRICE7 = #{price7,jdbcType=DECIMAL},
-      PRICE8 = #{price8,jdbcType=DECIMAL},
-      ITEMNO = #{itemno,jdbcType=VARCHAR},
-      OPER1 = #{oper1,jdbcType=VARCHAR},
-      OPER2 = #{oper2,jdbcType=VARCHAR},
-      OPER3 = #{oper3,jdbcType=VARCHAR},
-      OPER4 = #{oper4,jdbcType=VARCHAR},
-      OPER5 = #{oper5,jdbcType=VARCHAR},
-      OPER6 = #{oper6,jdbcType=VARCHAR},
-      ALERTFLAG = #{alertflag,jdbcType=VARCHAR},
-      PACKAGINGID = #{packagingid,jdbcType=VARCHAR},
-      PACKAGINGNAME = #{packagingname,jdbcType=VARCHAR},
-      PACKAGINGWEIGHT = #{packagingweight,jdbcType=DECIMAL},
-      MINALERNUM = #{minalernum,jdbcType=DECIMAL},
-      SAVEDATE = #{savedate,jdbcType=DECIMAL},
-      SAVESTAR = #{savestar,jdbcType=TIMESTAMP},
-      NEXTSAVETIME = #{nextsavetime,jdbcType=TIMESTAMP},
-      DECLAREDVALUE = #{declaredvalue,jdbcType=DECIMAL},
-      MANUFACTUREPRICE = #{manufactureprice,jdbcType=DECIMAL},
-      MANUFACTUREPRICE1 = #{manufactureprice1,jdbcType=DECIMAL},
-      MANUFACTUREPRICE2 = #{manufactureprice2,jdbcType=DECIMAL},
-      TORT = #{tort,jdbcType=VARCHAR},
-      HJRESERVE7 = #{hjreserve7,jdbcType=DECIMAL},
-      HJRESERVE8 = #{hjreserve8,jdbcType=DECIMAL},
-      HJRESERVE9 = #{hjreserve9,jdbcType=DECIMAL},
-      HJRESERVE10 = #{hjreserve10,jdbcType=DECIMAL},
-      CREATEOPER = #{createoper,jdbcType=VARCHAR},
-      CREATEDATE = #{createdate,jdbcType=TIMESTAMP},
-      PACKAGINGFEE = #{packagingfee,jdbcType=DECIMAL},
-      STORAGEBINFLAG = #{storagebinflag,jdbcType=VARCHAR},
-      MAINSKU = #{mainsku,jdbcType=VARCHAR},
-      'LENGTH' = #{length,jdbcType=DECIMAL},
-      WIDTH = #{width,jdbcType=DECIMAL},
-      HIGH = #{high,jdbcType=DECIMAL},
-      VOLUME = #{volume,jdbcType=DECIMAL},
-      OUTERLENGTH = #{outerlength,jdbcType=DECIMAL},
-      OUTERWIDTH = #{outerwidth,jdbcType=DECIMAL},
-      OUTERHIGH = #{outerhigh,jdbcType=DECIMAL},
-      OUTERVOLUME = #{outervolume,jdbcType=DECIMAL},
-      OUTERGROSSWEIGHT = #{outergrossweight,jdbcType=DECIMAL},
-      OUTERNETWEIGHT = #{outernetweight,jdbcType=DECIMAL},
-      GROSSWEIGHT = #{grossweight,jdbcType=DECIMAL},
-      RESERVE11 = #{reserve11,jdbcType=DECIMAL},
-      RESERVE12 = #{reserve12,jdbcType=DECIMAL},
-      RESERVE13 = #{reserve13,jdbcType=DECIMAL},
-      RESERVE14 = #{reserve14,jdbcType=DECIMAL},
-      RESERVE19 = #{reserve19,jdbcType=DECIMAL},
-      RESERVE20 = #{reserve20,jdbcType=DECIMAL},
-      INDEXFORDEVELOP = #{indexfordevelop,jdbcType=VARCHAR},
-      PURCHASEFLAG = #{purchaseflag,jdbcType=DECIMAL},
-      GROSSPROFIT = #{grossprofit,jdbcType=DECIMAL},
-      RATEOFMARGIN = #{rateofmargin,jdbcType=DECIMAL},
-      PURCHASINGLINK3 = #{purchasinglink3,jdbcType=VARCHAR},
-      PURCHASINGLINK2 = #{purchasinglink2,jdbcType=VARCHAR},
-      'NAME' = #{name,jdbcType=LONGVARCHAR},
-      CONTENT = #{content,jdbcType=LONGVARCHAR},
-      DESCR = #{descr,jdbcType=LONGVARCHAR},
-      TRANSLATE1 = #{translate1,jdbcType=LONGVARCHAR},
-      TRANSLATE2 = #{translate2,jdbcType=LONGVARCHAR},
-      TRANSLATE3 = #{translate3,jdbcType=LONGVARCHAR},
-      TRANSLATE4 = #{translate4,jdbcType=LONGVARCHAR},
-      OTHERCONTENT = #{othercontent,jdbcType=LONGVARCHAR},
-      ALIAS1 = #{alias1,jdbcType=LONGVARCHAR},
-      ALIAS2 = #{alias2,jdbcType=LONGVARCHAR},
-      ALIAS3 = #{alias3,jdbcType=LONGVARCHAR},
-      PICTURE3 = #{picture3,jdbcType=LONGVARCHAR},
-      SHOPTYPE = #{shoptype,jdbcType=LONGVARCHAR},
-      SALESOURCE = #{salesource,jdbcType=LONGVARCHAR},
-      CLOBCONTENT = #{clobcontent,jdbcType=LONGVARCHAR},
-      CLOBDESCR = #{clobdescr,jdbcType=LONGVARCHAR},
-      CLOBTRANSLATE = #{clobtranslate,jdbcType=LONGVARCHAR},
-      ALERTDESCR = #{alertdescr,jdbcType=LONGVARCHAR},
-      ICLASS = #{iclass,jdbcType=LONGVARCHAR},
-      NAMEEN = #{nameen,jdbcType=LONGVARCHAR},
-      HJRESERVE1 = #{hjreserve1,jdbcType=LONGVARCHAR},
-      HJRESERVE2 = #{hjreserve2,jdbcType=LONGVARCHAR},
-      HJRESERVE3 = #{hjreserve3,jdbcType=LONGVARCHAR},
-      HJRESERVE4 = #{hjreserve4,jdbcType=LONGVARCHAR},
-      HJRESERVE5 = #{hjreserve5,jdbcType=LONGVARCHAR},
-      HJRESERVE6 = #{hjreserve6,jdbcType=LONGVARCHAR},
-      OUTERNORMS = #{outernorms,jdbcType=LONGVARCHAR},
-      OUTERLEVEL = #{outerlevel,jdbcType=LONGVARCHAR},
-      RESERVE15 = #{reserve15,jdbcType=LONGVARCHAR},
-      RESERVE16 = #{reserve16,jdbcType=LONGVARCHAR},
-      RESERVE17 = #{reserve17,jdbcType=LONGVARCHAR},
-      RESERVE18 = #{reserve18,jdbcType=LONGVARCHAR},
-      PRODUCTNAME = #{productname,jdbcType=LONGVARCHAR},
-      PURCHASEREMARK = #{purchaseremark,jdbcType=LONGVARCHAR},
-      CUSTOMSDETAILS = #{customsdetails,jdbcType=LONGVARCHAR}
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbProduct">
-    update db_product
-    set SID = #{sid,jdbcType=VARCHAR},
-      CORPID = #{corpid,jdbcType=VARCHAR},
-      PROJECTID = #{projectid,jdbcType=VARCHAR},
-      CATEGORYID = #{categoryid,jdbcType=VARCHAR},
-      UNIT = #{unit,jdbcType=VARCHAR},
-      'STATUS' = #{status,jdbcType=VARCHAR},
-      BRANDID = #{brandid,jdbcType=VARCHAR},
-      BRAND = #{brand,jdbcType=VARCHAR},
-      MANUFACTUREID = #{manufactureid,jdbcType=VARCHAR},
-      MANUFACTURE = #{manufacture,jdbcType=VARCHAR},
-      ORIGIN = #{origin,jdbcType=VARCHAR},
-      ORIGINAREA = #{originarea,jdbcType=VARCHAR},
-      STOCKPRICE = #{stockprice,jdbcType=DECIMAL},
-      COSTPRICE = #{costprice,jdbcType=DECIMAL},
-      SELLPRICE = #{sellprice,jdbcType=DECIMAL},
-      BATCHPRICE1 = #{batchprice1,jdbcType=DECIMAL},
-      BATCHPRICE2 = #{batchprice2,jdbcType=DECIMAL},
-      BATCHPRICE3 = #{batchprice3,jdbcType=DECIMAL},
-      BATCHPRICE4 = #{batchprice4,jdbcType=DECIMAL},
-      STORAGEID = #{storageid,jdbcType=VARCHAR},
-      'STORAGE' = #{storage,jdbcType=VARCHAR},
-      LOCATIONID = #{locationid,jdbcType=VARCHAR},
-      'LOCATION' = #{location,jdbcType=VARCHAR},
-      WEIGHT = #{weight,jdbcType=DECIMAL},
-      SIZES = #{sizes,jdbcType=VARCHAR},
-      COLOR = #{color,jdbcType=VARCHAR},
-      BARCODE = #{barcode,jdbcType=VARCHAR},
-      AVAILTIME = #{availtime,jdbcType=VARCHAR},
-      PICTURE1 = #{picture1,jdbcType=VARCHAR},
-      PICTURE2 = #{picture2,jdbcType=VARCHAR},
-      PICTURE4 = #{picture4,jdbcType=VARCHAR},
-      BUYFLAG = #{buyflag,jdbcType=VARCHAR},
-      BUYNUM = #{buynum,jdbcType=DECIMAL},
-      SAVENUM = #{savenum,jdbcType=DECIMAL},
-      ORDERNUM = #{ordernum,jdbcType=DECIMAL},
-      ALERTNUM = #{alertnum,jdbcType=DECIMAL},
-      LEVELS = #{levels,jdbcType=VARCHAR},
-      OPENFLAG = #{openflag,jdbcType=VARCHAR},
-      OPER = #{oper,jdbcType=VARCHAR},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      TRANSLATEFLAG = #{translateflag,jdbcType=VARCHAR},
-      PRICEFLAG = #{priceflag,jdbcType=VARCHAR},
-      CONTENTFLAG = #{contentflag,jdbcType=VARCHAR},
-      PICFLAG = #{picflag,jdbcType=VARCHAR},
-      DESIGNFLAG = #{designflag,jdbcType=VARCHAR},
-      PUBLICFLAG = #{publicflag,jdbcType=VARCHAR},
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR},
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR},
-      RESERVE4 = #{reserve4,jdbcType=VARCHAR},
-      RESERVE5 = #{reserve5,jdbcType=VARCHAR},
-      RESERVE6 = #{reserve6,jdbcType=VARCHAR},
-      RESERVE7 = #{reserve7,jdbcType=VARCHAR},
-      RESERVE8 = #{reserve8,jdbcType=VARCHAR},
-      RESERVE9 = #{reserve9,jdbcType=VARCHAR},
-      RESERVE10 = #{reserve10,jdbcType=VARCHAR},
-      MANUFACTUREID2 = #{manufactureid2,jdbcType=VARCHAR},
-      MANUFACTURE2 = #{manufacture2,jdbcType=VARCHAR},
-      MANUFACTUREID3 = #{manufactureid3,jdbcType=VARCHAR},
-      MANUFACTURE3 = #{manufacture3,jdbcType=VARCHAR},
-      CHECKSTOCKOPER = #{checkstockoper,jdbcType=VARCHAR},
-      CHECKSTOCKTIME = #{checkstocktime,jdbcType=TIMESTAMP},
-      PRICE1 = #{price1,jdbcType=DECIMAL},
-      PRICE2 = #{price2,jdbcType=DECIMAL},
-      PRICE3 = #{price3,jdbcType=DECIMAL},
-      PRICE4 = #{price4,jdbcType=DECIMAL},
-      PRICE5 = #{price5,jdbcType=DECIMAL},
-      PRICE6 = #{price6,jdbcType=DECIMAL},
-      PRICE7 = #{price7,jdbcType=DECIMAL},
-      PRICE8 = #{price8,jdbcType=DECIMAL},
-      ITEMNO = #{itemno,jdbcType=VARCHAR},
-      OPER1 = #{oper1,jdbcType=VARCHAR},
-      OPER2 = #{oper2,jdbcType=VARCHAR},
-      OPER3 = #{oper3,jdbcType=VARCHAR},
-      OPER4 = #{oper4,jdbcType=VARCHAR},
-      OPER5 = #{oper5,jdbcType=VARCHAR},
-      OPER6 = #{oper6,jdbcType=VARCHAR},
-      ALERTFLAG = #{alertflag,jdbcType=VARCHAR},
-      PACKAGINGID = #{packagingid,jdbcType=VARCHAR},
-      PACKAGINGNAME = #{packagingname,jdbcType=VARCHAR},
-      PACKAGINGWEIGHT = #{packagingweight,jdbcType=DECIMAL},
-      MINALERNUM = #{minalernum,jdbcType=DECIMAL},
-      SAVEDATE = #{savedate,jdbcType=DECIMAL},
-      SAVESTAR = #{savestar,jdbcType=TIMESTAMP},
-      NEXTSAVETIME = #{nextsavetime,jdbcType=TIMESTAMP},
-      DECLAREDVALUE = #{declaredvalue,jdbcType=DECIMAL},
-      MANUFACTUREPRICE = #{manufactureprice,jdbcType=DECIMAL},
-      MANUFACTUREPRICE1 = #{manufactureprice1,jdbcType=DECIMAL},
-      MANUFACTUREPRICE2 = #{manufactureprice2,jdbcType=DECIMAL},
-      TORT = #{tort,jdbcType=VARCHAR},
-      HJRESERVE7 = #{hjreserve7,jdbcType=DECIMAL},
-      HJRESERVE8 = #{hjreserve8,jdbcType=DECIMAL},
-      HJRESERVE9 = #{hjreserve9,jdbcType=DECIMAL},
-      HJRESERVE10 = #{hjreserve10,jdbcType=DECIMAL},
-      CREATEOPER = #{createoper,jdbcType=VARCHAR},
-      CREATEDATE = #{createdate,jdbcType=TIMESTAMP},
-      PACKAGINGFEE = #{packagingfee,jdbcType=DECIMAL},
-      STORAGEBINFLAG = #{storagebinflag,jdbcType=VARCHAR},
-      MAINSKU = #{mainsku,jdbcType=VARCHAR},
-      'LENGTH' = #{length,jdbcType=DECIMAL},
-      WIDTH = #{width,jdbcType=DECIMAL},
-      HIGH = #{high,jdbcType=DECIMAL},
-      VOLUME = #{volume,jdbcType=DECIMAL},
-      OUTERLENGTH = #{outerlength,jdbcType=DECIMAL},
-      OUTERWIDTH = #{outerwidth,jdbcType=DECIMAL},
-      OUTERHIGH = #{outerhigh,jdbcType=DECIMAL},
-      OUTERVOLUME = #{outervolume,jdbcType=DECIMAL},
-      OUTERGROSSWEIGHT = #{outergrossweight,jdbcType=DECIMAL},
-      OUTERNETWEIGHT = #{outernetweight,jdbcType=DECIMAL},
-      GROSSWEIGHT = #{grossweight,jdbcType=DECIMAL},
-      RESERVE11 = #{reserve11,jdbcType=DECIMAL},
-      RESERVE12 = #{reserve12,jdbcType=DECIMAL},
-      RESERVE13 = #{reserve13,jdbcType=DECIMAL},
-      RESERVE14 = #{reserve14,jdbcType=DECIMAL},
-      RESERVE19 = #{reserve19,jdbcType=DECIMAL},
-      RESERVE20 = #{reserve20,jdbcType=DECIMAL},
-      INDEXFORDEVELOP = #{indexfordevelop,jdbcType=VARCHAR},
-      PURCHASEFLAG = #{purchaseflag,jdbcType=DECIMAL},
-      GROSSPROFIT = #{grossprofit,jdbcType=DECIMAL},
-      RATEOFMARGIN = #{rateofmargin,jdbcType=DECIMAL},
-      PURCHASINGLINK3 = #{purchasinglink3,jdbcType=VARCHAR},
-      PURCHASINGLINK2 = #{purchasinglink2,jdbcType=VARCHAR}
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </update>
 </mapper>

@@ -1,7 +1,11 @@
 package com.bean.dao;
 
 import com.bean.model.DbMultiWarehouse;
+import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
+@Repository
 public interface DbMultiWarehouseMapper {
     int deleteByPrimaryKey(String sequenceid);
 
@@ -13,7 +17,5 @@ public interface DbMultiWarehouseMapper {
 
     int updateByPrimaryKeySelective(DbMultiWarehouse record);
 
-    int updateByPrimaryKeyWithBLOBs(DbMultiWarehouse record);
-
-    int updateByPrimaryKey(DbMultiWarehouse record);
+    List<String> selectDistinctMainSku();
 }

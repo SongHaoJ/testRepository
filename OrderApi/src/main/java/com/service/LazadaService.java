@@ -1,9 +1,19 @@
 package com.service;
 
+import com.bean.model.DbLazadaorderinfo;
 import com.bean.model.DbShop;
 import com.bean.util.RetCode;
 
 public interface LazadaService {
+
+
+
+    void setManyStorageflag(boolean manyStorageflag);
+
+    void setManyStorageSku(String manyStorageSku);
+
+
+
 
     /**
      * 查询需要跟新的Lazada产品
@@ -52,4 +62,33 @@ public interface LazadaService {
      * 计算缺货
      */
     void calcuOrder();
+    /**
+     * 订单存入临时表
+     * @param recordId
+     * @param obj
+     * @param manyStorageflag
+     * @param manyStorageSku
+     * @param holdSpace
+     * @param skuPosition
+     * @param moneyrate
+     * @param platformFeeRate
+     * @return
+     */
+    RetCode saveOrderInfoFromLazadatemp(int recordId, DbLazadaorderinfo obj, boolean manyStorageflag,
+                                               String manyStorageSku, boolean holdSpace, String skuPosition, double moneyrate, double platformFeeRate);
+    /**
+     * 清理临时表
+     * @param groupId
+     * @param shop
+     */
+    void clearDataFromLazadaTemp(long groupId, DbShop shop);
+
+    /**
+     * 查询临时表
+     * @param obj
+     * @return
+     */
+    RetCode findLazadaorderinfo(DbLazadaorderinfo obj);
+
+    RetCode findManyStorageSkuFlag();
 }

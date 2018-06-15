@@ -1,7 +1,13 @@
 package com.bean.dao;
 
 import com.bean.model.DbSell;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+import java.util.List;
+import java.util.Map;
+
+@Repository
 public interface DbSellMapper {
     int deleteByPrimaryKey(String sid);
 
@@ -13,7 +19,8 @@ public interface DbSellMapper {
 
     int updateByPrimaryKeySelective(DbSell record);
 
-    int updateByPrimaryKeyWithBLOBs(DbSell record);
+    List<Map<String,String>> selectSumOrderNumByGroup(@Param("groupid")Long groupid,@Param("flagList")List<String> flagList);
 
-    int updateByPrimaryKey(DbSell record);
+    List<Map<String,String>> calculateorder(@Param("groupid")Long groupid);
+
 }

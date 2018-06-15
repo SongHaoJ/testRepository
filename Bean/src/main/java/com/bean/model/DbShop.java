@@ -175,7 +175,7 @@ public class DbShop implements Serializable {
     private String marketplaceid;
 
     //批量操作使用字段,不存
-    private List<String> shopIdList;
+private List<String> shopIdList;
 
     private static final long serialVersionUID = 1L;
 

@@ -1,7 +1,12 @@
 package com.bean.dao;
 
 import com.bean.model.DbProduct;
+import org.springframework.stereotype.Repository;
 
+import java.util.List;
+import java.util.Map;
+
+@Repository
 public interface DbProductMapper {
     int deleteByPrimaryKey(String sequenceid);
 
@@ -13,7 +18,6 @@ public interface DbProductMapper {
 
     int updateByPrimaryKeySelective(DbProduct record);
 
-    int updateByPrimaryKeyWithBLOBs(DbProduct record);
+    List<Map<String,String>> selectSidAndAliasBySid(List<String> skus);
 
-    int updateByPrimaryKey(DbProduct record);
 }

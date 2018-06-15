@@ -24,6 +24,49 @@
   <sql id="Blob_Column_List">
     COUNTRYJC
   </sql>
+  <sql id="Criteria">
+    <if test="mainsku != null">
+      MAINSKU = #{mainsku,jdbcType=VARCHAR} and
+    </if>
+    <if test="productid != null">
+      PRODUCTID = #{productid,jdbcType=VARCHAR} and
+    </if>
+    <if test="storageid != null">
+      STORAGEID = #{storageid,jdbcType=VARCHAR} and
+    </if>
+    <if test="storagename != null">
+      STORAGENAME = #{storagename,jdbcType=VARCHAR} and
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=VARCHAR} and
+    </if>
+    <if test="defaultflag != null">
+      DEFAULTFLAG = #{defaultflag,jdbcType=VARCHAR} and
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and
+    </if>
+    <if test="countryjc != null">
+      COUNTRYJC = #{countryjc,jdbcType=LONGVARCHAR} and
+    </if>
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and
+    </if>
+  </sql>
+
+<select id="selectDistinctMainSku">
+  select distinct mainsku from DB_MULTI_WAREHOUSE
+</select>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
     select 
     <include refid="Base_Column_List" />
@@ -164,35 +207,6 @@
         COUNTRYJC = #{countryjc,jdbcType=LONGVARCHAR},
       </if>
     </set>
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbMultiWarehouse">
-    update db_multi_warehouse
-    set MAINSKU = #{mainsku,jdbcType=VARCHAR},
-      PRODUCTID = #{productid,jdbcType=VARCHAR},
-      STORAGEID = #{storageid,jdbcType=VARCHAR},
-      STORAGENAME = #{storagename,jdbcType=VARCHAR},
-      OPENFLAG = #{openflag,jdbcType=VARCHAR},
-      DEFAULTFLAG = #{defaultflag,jdbcType=VARCHAR},
-      OPER = #{oper,jdbcType=VARCHAR},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR},
-      COUNTRYJC = #{countryjc,jdbcType=LONGVARCHAR}
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbMultiWarehouse">
-    update db_multi_warehouse
-    set MAINSKU = #{mainsku,jdbcType=VARCHAR},
-      PRODUCTID = #{productid,jdbcType=VARCHAR},
-      STORAGEID = #{storageid,jdbcType=VARCHAR},
-      STORAGENAME = #{storagename,jdbcType=VARCHAR},
-      OPENFLAG = #{openflag,jdbcType=VARCHAR},
-      DEFAULTFLAG = #{defaultflag,jdbcType=VARCHAR},
-      OPER = #{oper,jdbcType=VARCHAR},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR}
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </update>
 </mapper>
