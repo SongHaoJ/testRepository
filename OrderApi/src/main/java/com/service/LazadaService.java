@@ -76,12 +76,7 @@ public interface LazadaService {
      */
     RetCode saveOrderInfoFromLazadatemp(int recordId, DbLazadaorderinfo obj, boolean manyStorageflag,
                                                String manyStorageSku, boolean holdSpace, String skuPosition, double moneyrate, double platformFeeRate);
-    /**
-     * 清理临时表
-     * @param groupId
-     * @param shop
-     */
-    void clearDataFromLazadaTemp(long groupId, DbShop shop);
+
 
     /**
      * 查询临时表

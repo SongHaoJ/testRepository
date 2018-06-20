@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.bean.dao.DbOrderMapper;
 import com.bean.model.DbLazadaorderinfo;
+import com.bean.model.DbOrder;
 import com.bean.model.DbShop;
 import com.bean.orderUtil.LazadaUtil;
 import com.bean.util.RetCode;
@@ -19,6 +20,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.*;
@@ -966,4 +968,118 @@ public class LazadaAnalysis {
         }
         return rt;
     }
+
+
+
+
+    // 保存Db_Order订单基本信息
+    public void saveOrder(DbLazadaorderinfo obj, String skuPosition, double moneyrate, double platformFeeRate) {
+        DbOrder order = new DbOrder();
+
+        order.setOrderid(obj.getOrderid());
+        order.setCorpid(obj.getCorpid());
+        order.setTradeid(obj.getTradeid());// 注意这里保存的是主交易ID,DbLazadaorderinfo.tradeid里保存的是子交易ID
+        order.setGroupid("" + obj.getGroupid());
+        order.setCustomerid(obj.getCustomerid());
+        order.setCustomername(obj.getCustomername());
+        order.setCustomerfirstname(obj.getFirstname());
+        order.setCustomerlastname(obj.getLastname());
+        order.setCustomertype(obj.getShopname());
+        order.setCustomertel1(obj.getPhone1());
+        order.setCustomertel2(obj.getPhone2());
+        order.setCustomeremail("");// Lazada无买家邮箱
+        order.setCustomercountry(obj.getCountry());
+        order.setCustomerprovince(obj.getProvince());
+        order.setCustomercity(obj.getCity());
+        String address = obj.getAddress1();
+        if (!Sys.isNull(obj.getAddress2())) {// 有地址2
+            if (!Sys.isNull(address)) {
+                address = address + " , " + obj.getAddress2();
+            } else {
+                address = obj.getAddress2();
+            }
+        }
+        if (!Sys.isNull(obj.getAddress3())) {// 有地址3
+            if (!Sys.isNull(address)) {
+                address = address + " , " + obj.getAddress3();
+            } else {
+                address = obj.getAddress3();
+            }
+        }
+        order.setCustomeraddress(Sys.isCheckNull(address).trim());
+
+        order.setCustomerzipcode(obj.getPostcode());
+        order.setCustomerqq(obj.getCountrycode());// 保存的国家英文简称,如美国是US.
+        order.setCustomerreserve2(Sys.getCountryCNByJc(obj.getCountrycode()));// 国家中文
+        order.setCustomerreserve9("0");// 0表示未交运
+        order.setCustomerreserve10("未交运");
+        order.setShoptypeid(obj.getShopid());
+        order.setShoptype(obj.getShopname());
+        order.setMoneytype(obj.getCurrencyid());
+        order.setMoneyask(LazadaUtil.mul(0));// 后期自动算
+        order.setMoneyaction(LazadaUtil.mul(0));// 后期自动算
+        order.setMoneyaction(LazadaUtil.mul(0));// 后期自动算
+        order.setMoneyexpressask(new BigDecimal(obj.getShippingamount().doubleValue() * moneyrate));// 快递费
+        order.setOrdertime(obj.getCreateddate());// 付款时间就是创建时间
+        order.setAlertflag("0");// 告警标志
+        order.setUploadtime(new Date());
+        order.setExpressweight(LazadaUtil.mul(0));// 后期自动算
+        order.setOper("sys");
+        order.setOpertime(new Date());
+        order.setReserve4("");// 买家对商品的备注信息
+        order.setInsurance(LazadaUtil.mul(0));// 保险费
+        order.setPayid("");// PayPal交易ID
+        order.setReserve8("");// PayPal收款Email地址
+        order.setMoneyrate(LazadaUtil.mul(moneyrate));// 汇率
+        order.setOriginexpressmoney(obj.getShippingamount());// 原始运费
+        order.setOriginfinalvaluefee(LazadaUtil.mul(obj.getPaidprice(),obj.getQuantity(),platformFeeRate));// 原始交易费用
+        order.setFinalvaluefee(LazadaUtil.mul(order.getOriginfinalvaluefee(),moneyrate));// 转换后的交易费用
+        // System.out.println(obj.getOriginfinalvaluefee());
+        order.setNotestoyourself(Sys.isCheckNull(obj.getRemarks()));// 买家对卖家留言
+        order.setOrigininsurance(LazadaUtil.mul(0));// 原始保险费
+
+        order.setOriginordermoney(LazadaUtil.mul(obj.getPaidprice(),obj.getQuantity(),obj.getShippingamount()));// 原始订单费=产品费用+运费
+        order.setOrdermoney(LazadaUtil.mul(order.getOriginordermoney(),moneyrate));// 转换后的订单费
+        String tempsku = Sys.findSku(obj.getSku());
+        if ("1".equals(skuPosition)) {// 如果是取@#后面的字符串
+            tempsku = Sys.findSkuFromMid(obj.getSku());
+        }
+        order.setQlreserve2("," + tempsku + ",");// 将第1个商品的SKU保存在订单里
+        order.setPostageservice(Sys.isCheckNull(obj.getShippingtype()).replace("'", "'").replace(";", "_"));// Lazada发货方式
+        order.setQlreserve5(LazadaUtil.mul(0));
+        order.setQlreserve6(LazadaUtil.mul(0));
+        order.setQlreserve7(LazadaUtil.mul(0));
+        order.setQlreserve8(LazadaUtil.mul(0));
+        order.setCalculateflag("0");// 未计算过运费
+        // order.setCustomerreserve5(obj.getOrderreserve1());//此订单编号后期在交运时用的着-注:被作废,ebay真实订单ID目前保存在db_sell.reserve8而不是db_order.customerreserve1,因为sell会比合并到其他订单下,这样关联就出错了
+        // 拼用户信息
+        StringBuffer ebayadress = new StringBuffer();
+        ebayadress.append("Name :" + Sys.isCheckNull(obj.getCustomername()) + "\r\n");
+        ebayadress.append("Address :" + Sys.isCheckNull(order.getCustomeraddress()) + "\r\n");
+        ebayadress.append("City :" + Sys.isCheckNull(order.getCustomercity()) + "\r\n");
+        ebayadress.append("State :" + Sys.isCheckNull(order.getCustomerprovince()) + "\r\n");
+        ebayadress.append("Country ：" + Sys.isCheckNull(order.getCustomercountry()) + "\r\n");
+        ebayadress.append("Postal code :" + Sys.isCheckNull(order.getCustomerzipcode()) + "\r\n");
+        ebayadress.append("Tel:" + Sys.isCheckNull(order.getCustomertel1()) + "\r\n");
+        ebayadress.append("Email:" + Sys.isCheckNull(order.getCustomeremail()));
+        order.setXbreserve3("0");// 费用拆分标志,0未拆分
+        order.setEbaycustomeraddress(ebayadress.toString());// 保存合起来的ebay地址
+        order.setCustomerreserve9("0");// 未交运
+        order.setQlreserve4("1");// 默认排序1
+
+        if (!Sys.isNull(order.getCustomerqq())&& order.getCustomerqq().length() == 2) {
+            order.setCustomercountry(Sys.getCountry(order.getCustomerqq()));// 国家英文全称
+            order.setCustomerreserve2(Sys.getCountryCNByJc(order.getCustomerqq()));// 国家中文
+        }
+        order.setStatus("已支付");// 既然要保存的直接就是已支付的订单
+       try{
+           orderMapper.insertSelective(order);
+       }catch(Exception e){
+            System.out.println(e.getMessage());
+       }
+    }
+
+
+
+
 }

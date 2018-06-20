@@ -7,7 +7,7 @@ import com.bean.dao.*;
 import com.bean.model.*;
 import com.bean.orderUtil.LazadaUtil;
 import com.bean.yml.LazadaYml;
-import com.gourpBean.BaseOrderBean;
+import com.gourpBean.BaseOrderIncludeSellBean;
 import com.gourpBean.ItemBean;
 import com.service.LazadaService;
 import com.bean.util.RetCode;
@@ -35,6 +35,7 @@ public class LazadaServiceImpl implements LazadaService {
     //TODO yml读取
     private String appkey = "";
     private String appSecret = "";
+    private static Boolean syncLocationFlag = true;
     private static final Logger log = LoggerFactory.getLogger(LazadaServiceImpl.class);
     private Map<String, BigDecimal> moneyMap = new HashMap<>();
     private boolean manyStorageflag = false;// 用户是否有使用多仓,默认是false
@@ -399,7 +400,7 @@ public class LazadaServiceImpl implements LazadaService {
                                     try {
 
                                         int successCount = 0;
-                                        ArrayList<BaseOrderBean> orderbeanlist = new ArrayList<BaseOrderBean>();
+                                        ArrayList<BaseOrderIncludeSellBean> orderbeanlist = new ArrayList<BaseOrderIncludeSellBean>();
                                         pageNum = jo_os.size();
                                         //TODO 遍历解析订单
                                         for (int i = 0; i < pageNum; i++) {
@@ -487,13 +488,6 @@ public class LazadaServiceImpl implements LazadaService {
 
     }
 
-    /**
-     * 计算缺货
-     */
-    @Override
-    public void calcuOrder() {
-
-    }
 
     /**
      * 改变时间格式
@@ -516,7 +510,7 @@ public class LazadaServiceImpl implements LazadaService {
      * @param shop
      * @return
      */
-/*    private String doOrder(long groupId, DbShop shop) {
+    private String doOrder(long groupId, DbShop shop) {
         String result = "默认失败";
         try {
             // 专门找出异常类的,做处理
@@ -524,7 +518,7 @@ public class LazadaServiceImpl implements LazadaService {
 
             // 首先剔除重复订单
             System.out.println("删除重复订单开始:" + Sys.getCtime());
-            this.clearDataFromLazadaTemp(groupId, shop);
+            clearDataFromLazadaTemp(groupId, shop);
             System.out.println("删除重复订单结束:" + Sys.getCtime());
 
             // 找出Db_lazadaorderinfo里checkflag=0的订单往正式Db_order,Db_sell里插入
@@ -576,56 +570,53 @@ public class LazadaServiceImpl implements LazadaService {
                                 description = (String) rt.getObj();
                             } catch (Exception e) {
                             }
-                            if (Sys.isNull(description) == true) {
+                            if (Sys.isNull(description)) {
                                 description = "";
                             }
                             o.setCheckflag(2);
                             o.setCheckdescr("保存成功");
                             RetCode rtSucc = updateLazadaorderinfo(o);
-                            *//*log.info("导入第" + i + "/" + ordertotal + "个订单成功" + "----订单信息:OrderID=" + o.getOrderid()
+                            log.info("导入第" + i + "个订单成功" + "----订单信息:OrderID=" + o.getOrderid()
                                     + ",主交易ID=" + o.getTradeid() + ",买家ID=" + o.getCustomerid() + ",买家地址="
                                     + o.getAddress1() + ",产品名=" + o.getProductname() + ",SKU=" + o.getSku()
                                     + ",运费=" + o.getShippingamount() + ",订单金额="
-                                    + (o.getPaidprice() * o.getQuantity()) + ",订单量=" + o.getQuantity() + "处理结果"
-                                    + rt.getDesc() + "," + description);*//*
+                                    + (o.getPaidprice().intValue() * o.getQuantity()) + ",订单量=" + o.getQuantity() + "处理结果"
+                                    + rt.getDesc() + "," + description);
                         } else {
                             o.setCheckflag(1);
                             o.setCheckdescr(rt.getDesc().replace("'", ""));// 失败原因
                             RetCode rtErr = updateLazadaorderinfo(o);
-                            *//*log.info("导入第" + i + "/" + ordertotal + "个订单失败," + rt.getDesc() + "," + rt.getDesc()
+                            log.info("导入第" + i + "个订单失败," + rt.getDesc() + "," + rt.getDesc()
                                     + "----订单信息:OrderID=" + o.getOrderid() + ",主交易ID=" + o.getTradeid()
                                     + ",买家ID=" + o.getCustomerid() + ",买家地址=" + o.getAddress1() + ",产品名="
                                     + o.getProductname() + ",SKU=" + o.getSku() + ",运费=" + o.getShippingamount()
-                                    + ",订单金额=" + (o.getPaidprice() * o.getQuantity()) + ",订单量="
-                                    + o.getQuantity());*//*
+                                    + ",订单金额=" + (o.getPaidprice().intValue() * o.getQuantity()) + ",订单量="
+                                    + o.getQuantity());
                         }
                     } catch (Exception e) {// 出现异常
                         o.setCheckflag(1);
                         o.setCheckdescr(e.getMessage().replace("'", ""));// 失败原因
                         RetCode rtErr = updateLazadaorderinfo(o);
-                        *//*log.info("导入第" + i + "/" + ordertotal + "个订单异常," + e.getMessage() + "----订单信息:OrderID="
+                        log.info("导入第" + i + "个订单异常," + e.getMessage() + "----订单信息:OrderID="
                                 + o.getOrderid() + ",主交易ID=" + o.getTradeid() + ",买家ID=" + o.getCustomerid()
                                 + ",买家地址=" + o.getAddress1() + ",产品名=" + o.getProductname() + ",SKU="
                                 + o.getSku() + ",运费=" + o.getShippingamount() + ",订单金额="
-                                + (o.getPaidprice() * o.getQuantity()) + ",订单量=" + o.getQuantity());
-*//*
+                                + (o.getPaidprice().intValue() * o.getQuantity()) + ",订单量=" + o.getQuantity());
+
                     }
                 }
                 System.out.println("后期整理订单开始:" + groupId);
                 // 计算商品的总订单量和订单的总金额等
                 updateCalculateNew(groupId);
                 // 拼接locationid和categoryid
-                RetCode rt30 = lazadaMgr.updateLoacationandStorage(syncLocationFlag);
+                RetCode rt30 = updateLoacationandStorage(syncLocationFlag);
                 syncLocationFlag = false;// 以后都传入false,只查询最近6小时的,否则查询最近20天的
                 if (rt30.getObj() != null) {
                     ArrayList<DbOrder> orderlist = (ArrayList<DbOrder>) rt30.getObj();
                     int m = 0;
                     for (DbOrder o : orderlist) {
                         m++;
-                        String updateSQL = "update db_order set locationid='" + o.getLocationid() + "',location='"
-                                + o.getLocation() + "',storageid='" + o.getStorageid() + "' where orderid='"
-                                + o.getOrderid() + "'";
-                        lazadaMgr.updateExecuteSQL(updateSQL);
+                        orderMapper.updateByPrimaryKeySelective(o);
                     }
                 }
                 System.out.println("后期整理订单结束:" + groupId);
@@ -639,9 +630,9 @@ public class LazadaServiceImpl implements LazadaService {
             System.out.println("生成最终处理结果");
             DbLazadaorderinfo lazadaorderinfo = new DbLazadaorderinfo();
             lazadaorderinfo.setGroupid(groupId);
-            RetCode rtorder2 = lazadaMgr.findLazadaorderinfo(lazadaorderinfo);
+            RetCode rtorder2 = findLazadaorderinfo(lazadaorderinfo);
             int sellnum = 0;// 商品明细条数
-            successOrdernum = 0L;
+            int successOrdernum = 0;
             if (rtorder2.getObj() != null) {
                 ArrayList<DbLazadaorderinfo> list = (ArrayList<DbLazadaorderinfo>) rtorder2.getObj();
                 sellnum = list.size();
@@ -653,25 +644,25 @@ public class LazadaServiceImpl implements LazadaService {
                                 + o.getSequenceid() + ",OrderID=" + o.getTradeid() + ",交易ID=" + o.getTradeid()
                                 + ",买家ID=" + o.getCustomerid() + ",买家地址=" + o.getAddress1() + ",产品名="
                                 + o.getProductname() + ",SKU=" + o.getSku() + ",运费=" + o.getShippingamount()
-                                + ",订单金额=" + o.getPaidprice() * o.getQuantity() + ",订单量=" + o.getQuantity());
+                                + ",订单金额=" + o.getPaidprice().intValue() * o.getQuantity() + ",订单量=" + o.getQuantity());
                     } else if (2 == o.getCheckflag()) {
                         successOrdernum++;
                         log.info("导入第" + xx + "/" + list.size() + "个商品导入成功----临时订单信息:SeqID=" + o.getSequenceid()
                                 + ",OrderID=" + o.getTradeid() + ",交易ID=" + o.getTradeid() + ",买家ID="
                                 + o.getCustomerid() + ",买家地址=" + o.getAddress1() + ",产品名=" + o.getProductname()
                                 + ",SKU=" + o.getSku() + ",运费=" + o.getShippingamount() + ",订单金额="
-                                + o.getPaidprice() * o.getQuantity() + ",订单量=" + o.getQuantity());
+                                + o.getPaidprice().intValue() * o.getQuantity() + ",订单量=" + o.getQuantity());
                     } else {// errorflag=0的情况,应该不可能发生
                         log.info("导入第" + xx + "/" + list.size() + "个商品导入失败,原因:未执行操作----临时订单信息:SeqID=" + o.getSequenceid()
                                 + ",OrderID=" + o.getTradeid() + ",交易ID=" + o.getTradeid() + ",买家ID="
                                 + o.getCustomerid() + ",买家地址=" + o.getAddress1() + ",产品名=" + o.getProductname()
                                 + ",SKU=" + o.getSku() + ",运费=" + o.getShippingamount() + ",订单金额="
-                                + o.getPaidprice() * o.getQuantity() + ",订单量=" + o.getQuantity());
+                                + o.getPaidprice().intValue() * o.getQuantity() + ",订单量=" + o.getQuantity());
                     }
                 }
             }
 
-            result = "0导入订单批次:" + groupId + ",共读取" + ordertotal + "条订单," + sellnum + "个商品,导入成功" + successOrdernum
+            result = "0导入订单批次:" + groupId + "," + sellnum + "个商品,导入成功" + successOrdernum
                     + "个商品,失败" + (sellnum - successOrdernum) + "条商品";
 
             System.out.println(result);
@@ -682,7 +673,7 @@ public class LazadaServiceImpl implements LazadaService {
         }
 
         return result;
-    }*/
+    }
 
 
     /**
@@ -703,14 +694,14 @@ public class LazadaServiceImpl implements LazadaService {
                                                String manyStorageSku, boolean holdSpace, String skuPosition, double moneyrate, double platformFeeRate) {
         RetCode rt = new RetCode(1001, "无记录0/0", "");
         String originsku = "";// 原始sku,不做任何改变
-        if (obj != null && Sys.isNull(obj.getSku()) == false) {
+        if (obj != null && !Sys.isNull(obj.getSku())) {
             String sku = Sys.findSku(obj.getSku());
-            if ("1".equals(skuPosition) == true) {// 如果是取@#后面的字符串
+            if ("1".equals(skuPosition)) {// 如果是取@#后面的字符串
                 sku = Sys.findSkuFromMid(obj.getSku());
             }
             originsku = obj.getSku();
             sku = sku.trim();// 剔除前后空格
-            if (false == holdSpace) {// 如果不保留空格,那么就自动剔除掉,默认都是剔除的
+            if (holdSpace) {// 如果不保留空格,那么就自动剔除掉,默认都是剔除的
                 sku = sku.replace(" ", "");// 空格,注:不剔除中间的空格,因为有用户的sku中间就是带有空格,不希望被剔除掉
             }
             sku = sku.replace("	", "");// tab
@@ -721,313 +712,304 @@ public class LazadaServiceImpl implements LazadaService {
         int orderflag = 0;
         int sellflag = 0;
         try {
-            Connection conn = lazadaorderinfoDAO.getSessionFactory().getCurrentSession().connection();
-            if (Sys.isNull(obj.getCustomerid()) == true || Sys.isNull(obj.getSku()) == true
-                    || Sys.isNull(obj.getTradeid()) == true) {
+            if (Sys.isNull(obj.getCustomerid()) || Sys.isNull(obj.getSku())
+                    || Sys.isNull(obj.getTradeid())) {
                 rt.setCode(1000);
                 rt.setDesc("资料不全" + orderflag + "/" + sellflag);
                 return rt;
             }
             // 第0步:
-            if (true == manyStorageflag) {// 如果有manyStorageflag=true,表示该用户至少有使用多仓功能
+            if (manyStorageflag) {// 如果有manyStorageflag=true,表示该用户至少有使用多仓功能
                 // 根据sku和买家国籍缩写来找sku
                 try {
-                    if (manyStorageSku.indexOf("," + obj.getSku() + ",") >= 0) {// 下载的sku包含在多仓的主sku中,那么去获取对应的某仓库的子sku
+                    if (manyStorageSku.contains("," + obj.getSku() + ",")) {// 下载的sku包含在多仓的主sku中,那么去获取对应的某仓库的子sku
                         rt.setObj("多仓SKU切换");
-                        String sqlSearch1 = "select productid from DB_MULTI_WAREHOUSE where mainsku='" + obj.getSku()
-                                + "' and countryjc like '%;" + obj.getCountrycode() + ";%'";
-                        System.out.println(obj.getSku() + "属于多仓sku,查询对应海外仓sku-SQL=" + sqlSearch1);
-                        Statement stmSearch1 = conn.createStatement();
-                        ResultSet rs1 = stmSearch1.executeQuery(sqlSearch1);
-                        if (rs1.next()) {
-                            rt.setObj("多仓SKU切换:" + obj.getSku() + "->" + rs1.getString("productid"));
-                            obj.setSku(rs1.getString("productid"));// 如果有对应的多仓指定sku
-                            System.out.println(obj.getSku() + "属于多仓sku>" + rs1.getString("productid"));
+                        Map<String, String> params = new HashMap<>();
+                        params.put("mainsku", obj.getSku());
+                        params.put("countryjc", obj.getCountrycode());
+                        List<String> list = multiWarehouseMapper.selectByMainSku(params);
+                        Iterator<String> iterator = list.iterator();
+                        System.out.println(obj.getSku() + "属于多仓sku,查询对应海外仓sku=" + list);
+                        if (iterator.hasNext()) {
+                            String productid = iterator.next();
+                            rt.setObj("多仓SKU切换:" + obj.getSku() + "->" + productid);
+                            obj.setSku(productid);// 如果有对应的多仓指定sku
+                            System.out.println(obj.getSku() + "属于多仓sku>" + productid);
                         } else {
-                            String sqlSearch2 = "select productid from DB_MULTI_WAREHOUSE where mainsku in(select sequenceid from db_product where alias1 like'%,"
-                                    + obj.getSku() + ",%') and countryjc like '%;" + obj.getCountrycode() + ";%'";
-                            Statement stmSearch2 = conn.createStatement();
-                            ResultSet rs2 = stmSearch2.executeQuery(sqlSearch2);
-                            if (rs2.next()) {
-                                rt.setObj("多仓SKU切换:" + obj.getSku() + "->" + rs2.getString("productid"));
-                                obj.setSku(rs2.getString("productid"));// 如果有对应的多仓指定sku
+                            params.clear();
+                            params.put("mainsku", obj.getSku());
+                            params.put("countryjc", obj.getCountrycode());
+                            List<String> list2 = multiWarehouseMapper.selectMoreSkuByProductSku(params);
+                            if (list2 != null && !list2.isEmpty()) {
+                                rt.setObj("多仓SKU切换:" + obj.getSku() + "->" + list2.get(0));
+                                obj.setSku(list2.get(0));// 如果有对应的多仓指定sku
                                 System.out.println(
-                                        obj.getSku() + "属于多仓sku>" + rs2.getString("productid") + ",根据alias1找到");
+                                        obj.getSku() + "属于多仓sku>" + list2.get(0) + ",根据alias1找到");
                             } else {
-                                System.out.println(obj.getSku() + "竟然没找到对应多仓sku:sql=" + sqlSearch2);
+                                System.out.println(obj.getSku() + "没找到对应多仓sku");
                             }
-                            rs2.close();
-                            stmSearch2.close();
                         }
-                        rs1.close();
-                        stmSearch1.close();
                     }
                 } catch (Exception e) {
-                    ;
+                    System.out.println(e.getMessage());
                 }
             }
+        } catch (Exception e) {
 
-            // 第一步.判断db_order订单是否存在,如果不存在,则保存,否则更新---------------------
-            Statement stmSearchOrder = conn.createStatement();
-            // 根据主交易编号maintradeid是否已经存在来判断订单是否创建
-            String sql_order = "select orderid,tradeid,status,reserve20 from db_order where tradeid='"
-                    + obj.getTradeid() + "' and shoptypeid='" + obj.getShopid() + "'";
-            ResultSet rsOrder = stmSearchOrder.executeQuery(sql_order);
-            if (rsOrder.next()) {//
-                // 这句很重要,因为单笔订单,从外面传入的入参对象中orderid是空的!!!!切记,而下面在插入dbSell时需要用到orderid
-                obj.setOrderid(Sys.isCheckNull(rsOrder.getString("orderid")));
-                String reserve20 = Sys.isCheckNull(rsOrder.getString("reserve20"));
-                if ("Lazada".equals(reserve20) == true) {// 如果是手动导入的订单,则不再执行后面操作
-                    rt.setCode(1000);
-                    rt.setDesc("该订单曾被手动导入过");
-                    return rt;
-                }
-            } else {// 如果记录不存在,则保存
-                this.saveOrder(obj, skuPosition, moneyrate, platformFeeRate);
-                orderflag = 1;
-                rt.setDesc("插入Db_orde成功");
-            }
-            rsOrder.close();
-            stmSearchOrder.close();
+        }
+        // 第一步.判断db_order订单是否存在,如果不存在,则保存,否则更新---------------------
+        // 根据主交易编号maintradeid是否已经存在来判断订单是否创建
 
-            // 第二步:保存用户资料------------------------------------------------------
-            // this.saveCustomer(obj);
-            // System.out.println("SQL第三部分:"+Sys.getCtime());
 
-            // 第三步:查询是否正常商品,如果是,(系统稳定运行后,90%以上的订单都走此流程,所以速度比原来先查询捆绑商品要快很多)
-            String tempsku = Sys.findSku(obj.getSku());
-            if ("1".equals(skuPosition) == true) {// 如果是取@#后面的字符串
-                tempsku = Sys.findSkuFromMid(obj.getSku());
-            }
-            DbProduct product = productDAO.findById(tempsku);// 注意是按sequenceid来查,而不是sid,虽然sequenceid=sid
-            if (product != null) {
-                // 由于是Lazada的产品itemid,所以不将itemid保存到产品中,避免与ebay的冲突
-                /*
-                 * if(Sys.isNull(product.getOriginarea()) == true ||
-                 * Sys.isCheckNull(obj.getEbayitemid()).equals(product.getOriginarea()) ==
-                 * false){product.setOriginarea(obj.getEbayitemid());}
-                 */
-                DbSell sell = new DbSell();
-                sell.setSid(obj.getOrderid() + Sys.getRand(4) + recordId);// 编号为交易号+4位随机数,理论上应该是唯一的
-                sell.setDescr3(originsku);// 原始sku
-                sell.setReserve9("" + obj.getQuantity());// 原始采购量
-                sell.setCorpid(obj.getCorpid());
-                sell.setOrderid(obj.getOrderid());
-                sell.setProductid(product.getSid());// 真实的sku
-                sell.setProductname(product.getName());
-                sell.setOrdernum(Long.valueOf(obj.getQuantity()));
-                sell.setCostprice(product.getCostprice());
-                sell.setSellprice(obj.getPaidprice() * moneyrate);// 付款金额
-                sell.setAmount(sell.getSellprice() * sell.getOrdernum());
-                sell.setCustomerid(obj.getCustomerid());
-                sell.setReserve2("");// 保存商品的单位如lots/piece by qinli 20140314
-                sell.setOrdertime(obj.getCreateddate());
-                sell.setAlertflag("0");
-                sell.setShoptype(obj.getShopname());
-                sell.setProductpic1(Sys.isCheckNull(product.getPicture3()));
-                sell.setShoptypeid(obj.getShopid());
-                sell.setOper("sys");
-                sell.setOpertime(new Date());
-                sell.setFlag("1");
-                sell.setReserve7(obj.getProvince());// 保存省份,原因未知
-                sell.setMoneyrate(moneyrate);// 汇率
-                sell.setFlag("1");
-                sell.setDescr2("");// 多物品选择
-                sell.setXbtime1(new Date());// 订单下载时间
-                sell.setTradeid(obj.getTradeid());
-                sell.setTransactionid(obj.getOrderid());
-                sell.setOriginsellprice(obj.getPaidprice());
-                sell.setMoneytype(obj.getCurrencyid());// 比重
-                sell.setGroupid("" + obj.getGroupid());
-                sell.setEbayitemid(obj.getOrderitemid());// Lazada的商品ID
-                sell.setPackagingid(product.getPackagingid());// 包材id
-                sell.setPackagingname(product.getPackagingname());// 包材名称
-                sell.setPackagingweight(product.getPackagingweight());// 包材重量
-                sell.setPackagingclass(product.getIclass());// 包材级别
-                sell.setWeight(product.getWeight().doubleValue());// 商品重量
-                if (sell.getWeight() == null) {
-                    sell.setWeight(0D);
-                }
-                sell.setWeightamount(sell.getWeight() * sell.getOrdernum());// 商品的总重量
+        Map<String,String> params = new HashMap<>();
+        params.put("shoptypeid",obj.getShopid());
+        params.put("tradeid",obj.getTradeid());
+        Map<String,String> map = orderMapper.selectIsSave(params);
 
-                sell.setStorage(product.getStorage());// 仓库
-                sell.setStorageid(product.getStorageid());
-                sell.setLocation(product.getLocation());// 仓位
-                sell.setLocationid(product.getLocationid());
-
-                sell.setFinalvaluefee(obj.getPaidprice() * obj.getQuantity() * platformFeeRate * moneyrate);// 最终Lazada交易费=订单原始金额*汇率*百分比
-                sell.setOriginfinalvaluefee(obj.getPaidprice() * obj.getQuantity() * platformFeeRate);// Lazada原始交易费
-                sell.setOriginexpressmoney(obj.getShippingamount());// Lazada原始运费
-                sell.setMoneyrate(moneyrate);// 汇率
-                if (sell.getOriginexpressmoney() != null && sell.getOriginexpressmoney() > 0) {
-                    sell.setMoneyexpressask(sell.getOriginexpressmoney() * sell.getMoneyrate());// 如果有收取运费
-                } else {
-                    sell.setMoneyexpressask(0D);// 如果没有收取运费
-                }
-                sell.setOrigininsurance(0.0);// Lazada原始保险费
-                sell.setFeedback("20");// Lazada订单,评价状态为20
-                sell.setReserve4("Lazada订单");
-                sell.setUpdateflag("0");// Lazada订单,同步状态为20
-                sell.setReserve5("Lazada订单");
-                sell.setOper1(Sys.isCheckNull(product.getOper2()));// 产品的配货员
-                sell.setOper2(Sys.isCheckNull(product.getOper1()));// 产品的采购员
-                sell.setSelloper(Sys.isCheckNull(product.getOper3()));// 产品的销售员
-                sell.setEnglishname(obj.getProductname());// 产品在Lazada上的名称
-
-                sell.setPaypalfee(0D);
-                sell.setOriginsku(product.getReserve7());// 原厂sku
-                sellDAO.save(sell);
-                sellflag = 1;
-
-                rt.setCode(0);
-                rt.setDesc("保存成功!" + orderflag + "/" + sellflag);
-                rt.setDetail(obj.getOrderid());// 将订单ID返回到调用方法,有用
+        if (map!=null&&!map.isEmpty()) {//
+            // 这句很重要,因为单笔订单,从外面传入的入参对象中orderid是空的!!!!切记,而下面在插入dbSell时需要用到orderid
+            /*orderid,tradeid,status,reserve20*/
+            obj.setOrderid(Sys.isCheckNull(map.get("orderid")));
+            String reserve20 = Sys.isCheckNull(map.get("reserve20"));
+            if ("Lazada".equals(reserve20)) {// 如果是手动导入的订单,则不再执行后面操作
+                rt.setCode(1000);
+                rt.setDesc("该订单曾被手动导入过");
                 return rt;
-            } else {// 否则再去查询是否捆绑商品,如果都不是,则创建商品(这种概率已经比较小了)
-                boolean Bindflag = false;
-                Statement stmCount = conn.createStatement();
-                int bindC = 0;
-                int bindCount = 0;
-                String sqlCount = "select count(*) as scount from db_bindlist where bindid='" + tempsku + "'";
-                ResultSet rsCount = stmCount.executeQuery(sqlCount);
-                if (rsCount.next()) {
-                    bindC = rsCount.getInt("scount");
-                } else {
-                    bindC = 0;
-                }
-                rsCount.close();
-                stmCount.close();
+            }
+        } else {// 如果记录不存在,则保存
+            analysis.saveOrder(obj, skuPosition, moneyrate, platformFeeRate);
+            orderflag = 1;
+            rt.setDesc("插入Db_orde成功");
+        }
 
-                if (bindC < 1) {
-                    Bindflag = false;// 无捆绑商品
-                } else {
-                    // Statement stmBind =
-                    // conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);//注意要加上此参数,否则后面使用rs.last()会报异常
-                    Statement stmBind = conn.createStatement();
-                    String sqlBind = "select a.alias1,a.num,b.name,b.costprice,b.oper2,b.oper1,b.packagingid,b.packagingname,b.packagingweight,b.iclass,b.weight,b.storageid,b.storage,b.locationid,b.location,b.reserve7,b.picture3 from db_bindlist a left join db_product b on a.alias1= b.sid where a.bindid='"
-                            + tempsku + "'";
-                    ResultSet rsBind = stmBind.executeQuery(sqlBind);
-                    while (rsBind.next()) {
-                        rt.setDesc("找到捆绑商品1111");
+        // 第二步:保存用户资料------------------------------------------------------
+        // this.saveCustomer(obj);
+        // System.out.println("SQL第三部分:"+Sys.getCtime());
 
-                        Bindflag = true;
-                        bindCount++;// 绑定计数,当bindCount>2时,即第2件以上的绑定商品的售价为0
-                        String bindProductid = Sys.isCheckNull(rsBind.getString("alias1"));// 被绑定的商品编号
-                        String bindProductname = Sys.isCheckNull(rsBind.getString("name"));// 被绑定的商品名称
-                        String pickupoper = Sys.isCheckNull(rsBind.getString("oper2"));// 该产品的配货员
-                        String purchaseoper = Sys.isCheckNull(rsBind.getString("oper1"));// 该产品的采购员
-                        String packagingid = Sys.isCheckNull(rsBind.getString("packagingid"));// 包材id
-                        String packagingname = Sys.isCheckNull(rsBind.getString("packagingname"));// 包材名称
-                        Double packagingweight = rsBind.getDouble("packagingweight");// 包材重量
-                        String picture3 = Sys.isCheckNull(rsBind.getString("picture3"));// 获取橱窗小图片
-                        if (packagingweight == null) {
-                            packagingweight = 0D;
-                        }
-                        String packagingclass = Sys.isCheckNull(rsBind.getString("iclass"));// 包材级别
-                        Double weight = rsBind.getDouble("weight");// 商品重量
-                        if (weight == null) {
-                            weight = 0D;
-                        }
-                        rt.setDesc("找到捆绑商品2222");
-                        String storageid = Sys.isCheckNull(rsBind.getString("storageid"));
-                        String storage = Sys.isCheckNull(rsBind.getString("storage"));
-                        String locationid = Sys.isCheckNull(rsBind.getString("locationid"));
-                        String location = Sys.isCheckNull(rsBind.getString("location"));
-                        String yuanchangSku = Sys.isCheckNull(rsBind.getString("reserve7"));// 原厂sku
+        // 第三步:查询是否正常商品,如果是,(系统稳定运行后,90%以上的订单都走此流程,所以速度比原来先查询捆绑商品要快很多)
+        String tempsku = Sys.findSku(obj.getSku());
+        if ("1".equals(skuPosition)) {// 如果是取@#后面的字符串
+            tempsku = Sys.findSkuFromMid(obj.getSku());
+        }
+        //TODO product
+        DbProduct product = null;//productDAO.findById(tempsku);// 注意是按sequenceid来查,而不是sid,虽然sequenceid=sid
+        if (product != null) {
+            // 由于是Lazada的产品itemid,所以不将itemid保存到产品中,避免与ebay的冲突
 
-                        // 这里还要判断被捆绑商品是否也是多仓概念
-                        if (true == manyStorageflag) {// 如果有manyStorageflag=true,表示该用户至少有使用多仓功能
-                            // 根据sku和买家国籍缩写来找sku
-                            try {
-                                if (manyStorageSku.indexOf("," + bindProductid + ",") >= 0) {// 被捆绑的sku包含在多仓的主sku中,那么去获取对应的某仓库的子sku
-                                    String sqlSearch91 = "select sid,name,costprice,oper2,oper1,packagingid,packagingname,packagingweight,iclass,weight,storageid,storage,locationid,location,reserve7 from db_product where sid in(select productid from DB_MULTI_WAREHOUSE where mainsku='"
-                                            + bindProductid + "' and countryjc like '%;" + obj.getCountrycode()
-                                            + ";%')";
-                                    Statement stmSearch91 = conn.createStatement();
-                                    ResultSet rs91 = stmSearch91.executeQuery(sqlSearch91);
-                                    if (rs91.next()) {
-                                        bindProductid = Sys.isCheckNull(rs91.getString("sid"));// 被绑定的商品编号
-                                        bindProductname = Sys.isCheckNull(rs91.getString("name"));// 被绑定的商品名称
-                                        pickupoper = Sys.isCheckNull(rs91.getString("oper2"));// 该产品的配货员
-                                        purchaseoper = Sys.isCheckNull(rs91.getString("oper1"));// 该产品的采购员
-                                        packagingid = Sys.isCheckNull(rs91.getString("packagingid"));// 包材id
-                                        packagingname = Sys.isCheckNull(rs91.getString("packagingname"));// 包材名称
-                                        packagingweight = rs91.getDouble("packagingweight");// 包材重量
-                                        if (packagingweight == null) {
-                                            packagingweight = 0D;
-                                        }
-                                        packagingclass = Sys.isCheckNull(rs91.getString("iclass"));// 包材级别
-                                        weight = rs91.getDouble("weight");// 商品重量
-                                        if (weight == null) {
-                                            weight = 0D;
-                                        }
-                                        storageid = Sys.isCheckNull(rs91.getString("storageid"));
-                                        storage = Sys.isCheckNull(rs91.getString("storage"));
-                                        locationid = Sys.isCheckNull(rs91.getString("locationid"));
-                                        location = Sys.isCheckNull(rs91.getString("location"));
-                                        yuanchangSku = Sys.isCheckNull(rs91.getString("reserve7"));// 原厂sku
+            DbSell sell = new DbSell();
+            sell.setSid(obj.getOrderid() + Sys.getRand(4) + recordId);// 编号为交易号+4位随机数,理论上应该是唯一的
+            sell.setDescr3(originsku);// 原始sku
+            sell.setReserve9("" + obj.getQuantity());// 原始采购量
+            sell.setCorpid(obj.getCorpid());
+            sell.setOrderid(obj.getOrderid());
+            sell.setProductid(product.getSid());// 真实的sku
+            sell.setProductname(product.getName());
+            sell.setOrdernum(LazadaUtil.mul(obj.getQuantity()));
+            sell.setCostprice(product.getCostprice());
+            sell.setSellprice(LazadaUtil.mul(obj.getPaidprice(),moneyrate));// 付款金额
+            sell.setAmount(LazadaUtil.mul(sell.getSellprice(),sell.getOrdernum()));
+            sell.setCustomerid(obj.getCustomerid());
+            sell.setReserve2("");// 保存商品的单位如lots/piece by qinli 20140314
+            sell.setOrdertime(obj.getCreateddate());
+            sell.setAlertflag("0");
+            sell.setShoptype(obj.getShopname());
+            sell.setProductpic1(Sys.isCheckNull(product.getPicture3()));
+            sell.setShoptypeid(obj.getShopid());
+            sell.setOper("sys");
+            sell.setOpertime(new Date());
+            sell.setFlag("1");
+            sell.setReserve7(obj.getProvince());// 保存省份,原因未知
+            sell.setMoneyrate(LazadaUtil.mul(moneyrate));// 汇率
+            sell.setFlag("1");
+            sell.setDescr2("");// 多物品选择
+            sell.setXbtime1(new Date());// 订单下载时间
+            sell.setTradeid(obj.getTradeid());
+            sell.setTransactionid(obj.getOrderid());
+            sell.setOriginsellprice(obj.getPaidprice());
+            sell.setMoneytype(obj.getCurrencyid());// 比重
+            sell.setGroupid("" + obj.getGroupid());
+            sell.setEbayitemid(obj.getOrderitemid());// Lazada的商品ID
+            sell.setPackagingid(product.getPackagingid());// 包材id
+            sell.setPackagingname(product.getPackagingname());// 包材名称
+            sell.setPackagingweight(product.getPackagingweight());// 包材重量
+            sell.setPackagingclass(product.getIclass());// 包材级别
+            sell.setWeight(LazadaUtil.mul(product.getWeight().doubleValue()));// 商品重量
+            if (sell.getWeight() == null) {
+                sell.setWeight(LazadaUtil.mul(0));
+            }
+            sell.setWeightamount(LazadaUtil.mul(sell.getWeight(),sell.getOrdernum()));// 商品的总重量
 
-                                        rt.setObj("(捆绑商品)多仓SKU切换:" + rsBind.getString("alias1") + "->"
-                                                + Sys.isCheckNull(rs91.getString("alias1")));
-                                    } else {
-                                        ;// 如果没有,也不用根据alias1去查别名了->找到主sku-->再找到多仓的子sku了.因为db_bindlist里的alias1被捆绑的sku肯定是db_product.sid,不可能存在于db_product.alias1
+            sell.setStorage(product.getStorage());// 仓库
+            sell.setStorageid(product.getStorageid());
+            sell.setLocation(product.getLocation());// 仓位
+            sell.setLocationid(product.getLocationid());
+
+            sell.setFinalvaluefee(LazadaUtil.mul(obj.getPaidprice(),obj.getQuantity(),platformFeeRate,moneyrate));// 最终Lazada交易费=订单原始金额*汇率*百分比
+            sell.setOriginfinalvaluefee(LazadaUtil.mul(obj.getPaidprice(),obj.getQuantity(),platformFeeRate));// Lazada原始交易费
+            sell.setOriginexpressmoney(obj.getShippingamount());// Lazada原始运费
+            sell.setMoneyrate(LazadaUtil.mul(moneyrate));// 汇率
+            if (sell.getOriginexpressmoney() != null && sell.getOriginexpressmoney().intValue() > 0) {
+                sell.setMoneyexpressask(LazadaUtil.mul(sell.getOriginexpressmoney(),sell.getMoneyrate()));// 如果有收取运费
+            } else {
+                sell.setMoneyexpressask(LazadaUtil.mul(0));// 如果没有收取运费
+            }
+            sell.setOrigininsurance(LazadaUtil.mul(0));// Lazada原始保险费
+            sell.setFeedback("20");// Lazada订单,评价状态为20
+            sell.setReserve4("Lazada订单");
+            sell.setUpdateflag("0");// Lazada订单,同步状态为20
+            sell.setReserve5("Lazada订单");
+            sell.setOper1(Sys.isCheckNull(product.getOper2()));// 产品的配货员
+            sell.setOper2(Sys.isCheckNull(product.getOper1()));// 产品的采购员
+            sell.setSelloper(Sys.isCheckNull(product.getOper3()));// 产品的销售员
+            sell.setEnglishname(obj.getProductname());// 产品在Lazada上的名称
+
+            sell.setPaypalfee(LazadaUtil.mul(0));
+            sell.setOriginsku(product.getReserve7());// 原厂sku
+ /*           sellDAO.save(sell);*/
+            sellflag = 1;
+
+            rt.setCode(0);
+            rt.setDesc("保存成功!" + orderflag + "/" + sellflag);
+            rt.setDetail(obj.getOrderid());// 将订单ID返回到调用方法,有用
+            return rt;
+        } else {// 否则再去查询是否捆绑商品,如果都不是,则创建商品(这种概率已经比较小了)
+            boolean Bindflag = false;
+            int bindC = 0;
+            int bindCount = 0;
+            String sqlCount = "select count(*) as scount from db_bindlist where bindid='" + tempsku + "'";
+            ResultSet rsCount = stmCount.executeQuery(sqlCount);
+            if (rsCount.next()) {
+                bindC = rsCount.getInt("scount");
+            } else {
+                bindC = 0;
+            }
+            if (bindC < 1) {
+                Bindflag = false;// 无捆绑商品
+            } else {
+                // Statement stmBind =
+                // conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);//注意要加上此参数,否则后面使用rs.last()会报异常
+                String sqlBind = "select a.alias1,a.num,b.name,b.costprice,b.oper2,b.oper1,b.packagingid,b.packagingname,b.packagingweight,b.iclass,b.weight,b.storageid,b.storage,b.locationid,b.location,b.reserve7,b.picture3 from db_bindlist a left join db_product b on a.alias1= b.sid where a.bindid='"
+                        + tempsku + "'";
+                while (rsBind.next()) {
+                    rt.setDesc("找到捆绑商品1111");
+
+                    Bindflag = true;
+                    bindCount++;// 绑定计数,当bindCount>2时,即第2件以上的绑定商品的售价为0
+                    String bindProductid = Sys.isCheckNull(rsBind.getString("alias1"));// 被绑定的商品编号
+                    String bindProductname = Sys.isCheckNull(rsBind.getString("name"));// 被绑定的商品名称
+                    String pickupoper = Sys.isCheckNull(rsBind.getString("oper2"));// 该产品的配货员
+                    String purchaseoper = Sys.isCheckNull(rsBind.getString("oper1"));// 该产品的采购员
+                    String packagingid = Sys.isCheckNull(rsBind.getString("packagingid"));// 包材id
+                    String packagingname = Sys.isCheckNull(rsBind.getString("packagingname"));// 包材名称
+                    Double packagingweight = rsBind.getDouble("packagingweight");// 包材重量
+                    String picture3 = Sys.isCheckNull(rsBind.getString("picture3"));// 获取橱窗小图片
+                    if (packagingweight == null) {
+                        packagingweight = 0D;
+                    }
+                    String packagingclass = Sys.isCheckNull(rsBind.getString("iclass"));// 包材级别
+                    Double weight = rsBind.getDouble("weight");// 商品重量
+                    if (weight == null) {
+                        weight = 0D;
+                    }
+                    rt.setDesc("找到捆绑商品2222");
+                    String storageid = Sys.isCheckNull(rsBind.getString("storageid"));
+                    String storage = Sys.isCheckNull(rsBind.getString("storage"));
+                    String locationid = Sys.isCheckNull(rsBind.getString("locationid"));
+                    String location = Sys.isCheckNull(rsBind.getString("location"));
+                    String yuanchangSku = Sys.isCheckNull(rsBind.getString("reserve7"));// 原厂sku
+
+                    // 这里还要判断被捆绑商品是否也是多仓概念
+                    if (manyStorageflag) {// 如果有manyStorageflag=true,表示该用户至少有使用多仓功能
+                        // 根据sku和买家国籍缩写来找sku
+                        try {
+                            if (manyStorageSku.contains("," + bindProductid + ",")) {// 被捆绑的sku包含在多仓的主sku中,那么去获取对应的某仓库的子sku
+                                String sqlSearch91 = "select sid,name,costprice,oper2,oper1,packagingid,packagingname,packagingweight,iclass,weight,storageid,storage,locationid,location,reserve7 from db_product where sid in(select productid from DB_MULTI_WAREHOUSE where mainsku='"
+                                        + bindProductid + "' and countryjc like '%;" + obj.getCountrycode()
+                                        + ";%')";
+                                ResultSet rs91 = stmSearch91.executeQuery(sqlSearch91);
+                                if (rs91.next()) {
+                                    bindProductid = Sys.isCheckNull(rs91.getString("sid"));// 被绑定的商品编号
+                                    bindProductname = Sys.isCheckNull(rs91.getString("name"));// 被绑定的商品名称
+                                    pickupoper = Sys.isCheckNull(rs91.getString("oper2"));// 该产品的配货员
+                                    purchaseoper = Sys.isCheckNull(rs91.getString("oper1"));// 该产品的采购员
+                                    packagingid = Sys.isCheckNull(rs91.getString("packagingid"));// 包材id
+                                    packagingname = Sys.isCheckNull(rs91.getString("packagingname"));// 包材名称
+                                    packagingweight = rs91.getDouble("packagingweight");// 包材重量
+                                    if (packagingweight == null) {
+                                        packagingweight = 0D;
                                     }
-                                    rs91.close();
-                                    stmSearch91.close();
+                                    packagingclass = Sys.isCheckNull(rs91.getString("iclass"));// 包材级别
+                                    weight = rs91.getDouble("weight");// 商品重量
+                                    if (weight == null) {
+                                        weight = 0D;
+                                    }
+                                    storageid = Sys.isCheckNull(rs91.getString("storageid"));
+                                    storage = Sys.isCheckNull(rs91.getString("storage"));
+                                    locationid = Sys.isCheckNull(rs91.getString("locationid"));
+                                    location = Sys.isCheckNull(rs91.getString("location"));
+                                    yuanchangSku = Sys.isCheckNull(rs91.getString("reserve7"));// 原厂sku
+
+                                    rt.setObj("(捆绑商品)多仓SKU切换:" + rsBind.getString("alias1") + "->"
+                                            + Sys.isCheckNull(rs91.getString("alias1")));
+                                } else {
+                                    ;// 如果没有,也不用根据alias1去查别名了->找到主sku-->再找到多仓的子sku了.因为db_bindlist里的alias1被捆绑的sku肯定是db_product.sid,不可能存在于db_product.alias1
                                 }
-                            } catch (Exception e) {// 出现异常则不匹配
-                                ;
                             }
+                        } catch (Exception e) {// 出现异常则不匹配
+                            ;
+                        }
+                    }
+
+                    Double bindProductcostprice = rsBind.getDouble("costprice");// 被绑定的商品的成本
+                    Long bindNum = rsBind.getLong("num");// 绑定销售的数量
+                    if (Sys.isNull(bindProductid) == false && Sys.isNull(bindProductname) == false && bindNum > 0) {// bindProductname不为空表示在db_product里有对应产品
+                        rt.setDesc("找到捆绑商品3333");
+                        DbSell sell = new DbSell();
+                        sell.setSid(obj.getOrderid() + bindCount + Sys.getRand(4) + recordId);// 编号为交易号+绑定序列号+2位随机数,理论上应该是唯一的
+                        sell.setDescr3(originsku);// 原始sku
+                        sell.setReserve9("" + obj.getQuantity());
+                        sell.setCorpid(obj.getCorpid());
+                        sell.setOrderid(obj.getOrderid());
+                        sell.setProductid(bindProductid);
+                        sell.setProductname(bindProductname);
+                        sell.setOrdernum(LazadaUtil.mul(obj.getQuantity(),bindNum));// 实际订购量=订单的订购量*绑定商品数量
+                        sell.setCostprice(LazadaUtil.mul(bindProductcostprice));
+                        sell.setSellprice(LazadaUtil.div(LazadaUtil.mul(obj.getPaidprice(),moneyrate),LazadaUtil.mul(bindNum,bindC)));// 实际销售价格为订单上的单价除以绑定商品数量,除以捆绑sku个数
+                        // by qinli 20140331
+                        sell.setAmount(LazadaUtil.mul(sell.getSellprice(),sell.getOrdernum()));
+                        sell.setFinalvaluefee(LazadaUtil.div(LazadaUtil.mul(obj.getPaidprice(),obj.getQuantity(),moneyrate,platformFeeRate),LazadaUtil.mul(bindC)));// 最终Lazada交易费(根据捆绑商品数量均分)
+
+                        if (bindCount > 1) {//如果bindCount>1,表示是第2件以上的绑定商品,则售价为0,因为价格全部赋予给第1件商品了
+                            sell.setSellprice(LazadaUtil.mul(0));
+                            sell.setAmount(LazadaUtil.mul(0));
                         }
 
-                        Double bindProductcostprice = rsBind.getDouble("costprice");// 被绑定的商品的成本
-                        Long bindNum = rsBind.getLong("num");// 绑定销售的数量
-                        if (Sys.isNull(bindProductid) == false && Sys.isNull(bindProductname) == false && bindNum > 0) {// bindProductname不为空表示在db_product里有对应产品
-                            rt.setDesc("找到捆绑商品3333");
-                            DbSell sell = new DbSell();
-                            sell.setSid(obj.getOrderid() + bindCount + Sys.getRand(4) + recordId);// 编号为交易号+绑定序列号+2位随机数,理论上应该是唯一的
-                            sell.setDescr3(originsku);// 原始sku
-                            sell.setReserve9("" + obj.getQuantity());
-                            sell.setCorpid(obj.getCorpid());
-                            sell.setOrderid(obj.getOrderid());
-                            sell.setProductid(bindProductid);
-                            sell.setProductname(bindProductname);
-                            sell.setOrdernum(obj.getQuantity() * bindNum);// 实际订购量=订单的订购量*绑定商品数量
-                            sell.setCostprice(bindProductcostprice);
-                            sell.setSellprice(obj.getPaidprice() * moneyrate / bindNum / bindC);// 实际销售价格为订单上的单价除以绑定商品数量,除以捆绑sku个数
-                            // by qinli 20140331
-                            sell.setAmount(sell.getSellprice() * sell.getOrdernum());
-                            sell.setFinalvaluefee(
-                                    obj.getPaidprice() * obj.getQuantity() * moneyrate * platformFeeRate / bindC);// 最终Lazada交易费(根据捆绑商品数量均分)
-                            /*
-                             * if(bindCount > 1){//如果bindCount>1,表示是第2件以上的绑定商品,则售价为0,因为价格全部赋予给第1件商品了
-                             * sell.setSellprice(0D); sell.setAmount(0D); }
-                             */
-                            sell.setCustomerid(obj.getCustomerid());
-                            sell.setOrdertime(new Date());
-                            sell.setAlertflag("0");
-                            sell.setShoptype(obj.getShopname());
-                            sell.setShoptypeid(obj.getShopid());
-                            sell.setFeedback("20");// Lazada订单,评价状态为20
-                            sell.setReserve4("Lazada订单");
-                            sell.setUpdateflag("0");// Lazada订单,同步状态为20
-                            sell.setReserve5("Lazada订单");
-                            sell.setOper("sys");
-                            sell.setOpertime(new Date());
-                            sell.setProductpic1(Sys.isCheckNull(picture3));// Orderreserve3被用来临时保存XML中解析的产品橱窗图片
-                            sell.setReserve7(obj.getProvince());// 保存省份,原因未知
-                            sell.setFlag("1");
-                            sell.setMoneyrate(moneyrate);// 汇率
-                            sell.setXbtime1(new Date());// 订单下载时间
-                            sell.setGroupid("" + obj.getGroupid());// 批次
-                            sell.setDescr2("");// 多物品选择,如加大码等买家要求的信息
-                            sell.setDescr1("此商品属捆绑商品");
-                            sell.setTradeid(obj.getTradeid());
-                            sell.setTransactionid(obj.getOrderid());// 交易ID
-                            sell.setOriginsellprice(obj.getPaidprice() * obj.getQuantity() / bindNum / bindC);// 原始售价全部给第1个商品
-                            /*
-                             * if(bindCount > 1){ sell.setOriginsellprice(0D);//第2个商品无原始售价 }
-                             */
+                        sell.setCustomerid(obj.getCustomerid());
+                        sell.setOrdertime(new Date());
+                        sell.setAlertflag("0");
+                        sell.setShoptype(obj.getShopname());
+                        sell.setShoptypeid(obj.getShopid());
+                        sell.setFeedback("20");// Lazada订单,评价状态为20
+                        sell.setReserve4("Lazada订单");
+                        sell.setUpdateflag("0");// Lazada订单,同步状态为20
+                        sell.setReserve5("Lazada订单");
+                        sell.setOper("sys");
+                        sell.setOpertime(new Date());
+                        sell.setProductpic1(Sys.isCheckNull(picture3));// Orderreserve3被用来临时保存XML中解析的产品橱窗图片
+                        sell.setReserve7(obj.getProvince());// 保存省份,原因未知
+                        sell.setFlag("1");
+                        sell.setMoneyrate(LazadaUtil.mul(moneyrate));// 汇率
+                        sell.setXbtime1(new Date());// 订单下载时间
+                        sell.setGroupid("" + obj.getGroupid());// 批次
+                        sell.setDescr2("");// 多物品选择,如加大码等买家要求的信息
+                        sell.setDescr1("此商品属捆绑商品");
+                        sell.setTradeid(obj.getTradeid());
+                        sell.setTransactionid(obj.getOrderid());// 交易ID
+                        sell.setOriginsellprice(LazadaUtil.div(LazadaUtil.mul(obj.getPaidprice(),obj.getQuantity()),LazadaUtil.mul(bindNum,bindC)));// 原始售价全部给第1个商品
+
+                        if (bindCount > 1) {
+                            sell.setOriginsellprice(LazadaUtil.mul(0));//第2个商品无原始售价 }
+
                             sell.setReserve2("");// 保存商品的单位如lots/piece by qinli 20140314
                             sell.setMoneytype(obj.getCurrencyid());// 货币符号
                             sell.setEbayitemid(obj.getOrderitemid());
@@ -1035,28 +1017,27 @@ public class LazadaServiceImpl implements LazadaService {
                             sell.setOper2(purchaseoper);// 采购员
                             sell.setPackagingid(packagingid);// 包材id
                             sell.setPackagingname(packagingname);// 包材名称
-                            sell.setPackagingweight(packagingweight);// 包材重量
+                            sell.setPackagingweight(LazadaUtil.mul(packagingweight));// 包材重量
                             sell.setPackagingclass(packagingclass);// 包材级别
-                            sell.setWeight(weight);// 商品重量
-                            sell.setWeightamount(sell.getWeight() * sell.getOrdernum());// 商品总重量
+                            sell.setWeight(LazadaUtil.mul(weight));// 商品重量
+                            sell.setWeightamount(LazadaUtil.mul(sell.getWeight(),sell.getOrdernum()));// 商品总重量
 
                             sell.setStorage(storage);
                             sell.setStorageid(storageid);
                             sell.setLocation(location);
                             sell.setLocationid(locationid);
-                            sell.setOriginfinalvaluefee(
-                                    obj.getPaidprice() * obj.getQuantity() * platformFeeRate / bindC);
-                            sell.setOriginexpressmoney(obj.getShippingamount() / bindC);// eBay原始运费
-                            sell.setOrigininsurance(0.0);// eBay原始保险费
-                            sell.setMoneyrate(moneyrate);// 汇率
-                            sell.setMoneyexpressask(sell.getOrigininsurance() * sell.getMoneyrate());// 运费
+                            sell.setOriginfinalvaluefee(LazadaUtil.div(LazadaUtil.mul(obj.getPaidprice(),obj.getQuantity(),platformFeeRate),bindC));
+                            sell.setOriginexpressmoney(LazadaUtil.div(obj.getShippingamount(),bindC));// eBay原始运费
+                            sell.setOrigininsurance(LazadaUtil.mul(0));// eBay原始保险费
+                            sell.setMoneyrate(LazadaUtil.mul(moneyrate));// 汇率
+                            sell.setMoneyexpressask(LazadaUtil.mul(sell.getOrigininsurance(),sell.getMoneyrate()));// 运费
                             sell.setEnglishname(obj.getProductname());// 产品在ebay上的名称
-                            sell.setPaypalfee(0D);
+                            sell.setPaypalfee(LazadaUtil.mul(0));
                             sell.setOriginsku(yuanchangSku);// 原厂sku
                             try {
                                 System.out.println("处理绑定商品,父商品ID=" + obj.getSku() + ",子商品ID为:" + bindProductid
                                         + ",处理时间:" + Sys.getCtime());
-                                sellDAO.save(sell);
+                                                           sellDAO.save(sell);
                                 sellflag = 1;
                                 System.out.println("处理绑定商品完:" + Sys.getCtime());
                             } catch (Exception e) {
@@ -1066,10 +1047,8 @@ public class LazadaServiceImpl implements LazadaService {
                             }
                         }
                     }
-                    stmBind.close();
                 }
-
-                if (Bindflag == true) {// 如果是绑定商品,上面已经处理过了
+                if (Bindflag) {// 如果是绑定商品,上面已经处理过了
                     rt.setCode(0);
                     rt.setDesc("导入成功!" + orderflag + "/" + sellflag);
                     rt.setDetail(obj.getOrderid());// orderid返回调用方法,有用
@@ -1083,10 +1062,10 @@ public class LazadaServiceImpl implements LazadaService {
                     dp.setOriginarea(obj.getOrderitemid());// EbayItemID保存在Originarea字段中
                     dp.setCorpid(obj.getCorpid());
                     dp.setOper("sys");
-                    dp.setSellprice(obj.getPaidprice() * moneyrate);
+                    dp.setSellprice(LazadaUtil.mul(obj.getPaidprice(),moneyrate));
                     dp.setPicture3("");// Lazada图片地址
-                    RetCode rtdp = this.saveAndfindProduct(dp);// 查找该产品，如果找不到就创建
-                    dp = (DbProduct) rtdp.getObj();
+                    /*                   RetCode rtdp = this.saveAndfindProduct(dp);*/// 查找该产品，如果找不到就创建
+                    /*                  dp = (DbProduct) rtdp.getObj();*/
                     // ----验证订单订单完--------------------------------------------------
                     // System.out.println("SQL第五部分:"+Sys.getCtime());
                     DbSell sell = new DbSell();
@@ -1097,10 +1076,10 @@ public class LazadaServiceImpl implements LazadaService {
                     sell.setOrderid(obj.getOrderid());
                     sell.setProductid(dp.getSid());
                     sell.setProductname(dp.getName());
-                    sell.setOrdernum(Long.valueOf(obj.getQuantity()));
+                    sell.setOrdernum(LazadaUtil.mul(obj.getQuantity()));
                     sell.setCostprice(dp.getCostprice());
-                    sell.setSellprice(obj.getPaidprice() * moneyrate);
-                    sell.setAmount(sell.getSellprice() * sell.getOrdernum());
+                    sell.setSellprice(LazadaUtil.mul(obj.getPaidprice(),moneyrate));
+                    sell.setAmount(LazadaUtil.mul(sell.getSellprice(),sell.getOrdernum()));
                     sell.setCustomerid(obj.getCustomerid());
                     sell.setOrdertime(obj.getCreateddate());
                     sell.setAlertflag("0");
@@ -1115,7 +1094,7 @@ public class LazadaServiceImpl implements LazadaService {
                     sell.setOpertime(new Date());
                     sell.setFlag("1");
                     sell.setReserve7(obj.getProvince());// 保存省份,原因未知
-                    sell.setMoneyrate(moneyrate);// 汇率
+                    sell.setMoneyrate(LazadaUtil.mul(moneyrate));// 汇率
                     sell.setDescr2("");// 多物品选择
                     sell.setTradeid(obj.getTradeid());
                     sell.setTransactionid(obj.getOrderid());
@@ -1127,11 +1106,11 @@ public class LazadaServiceImpl implements LazadaService {
                     sell.setPackagingname(dp.getPackagingname());// 包材名称
                     sell.setPackagingweight(dp.getPackagingweight());// 包材重量
                     sell.setPackagingclass(dp.getIclass());// 包材级别
-                    sell.setWeight(dp.getWeight().doubleValue());// 商品重量
+                    sell.setWeight(dp.getWeight());// 商品重量
                     if (sell.getWeight() == null) {
-                        sell.setWeight(0D);
+                        sell.setWeight(LazadaUtil.mul(0));
                     }
-                    sell.setWeightamount(sell.getWeight() * sell.getOrdernum());// 商品的总重量
+                    sell.setWeightamount(LazadaUtil.mul(sell.getWeight(),sell.getOrdernum()));// 商品的总重量
 
                     sell.setStorage(dp.getStorage());// 仓库
                     sell.setStorageid(dp.getStorageid());
@@ -1139,18 +1118,18 @@ public class LazadaServiceImpl implements LazadaService {
                     sell.setLocation(dp.getLocation());// 仓位
                     sell.setLocationid(dp.getLocationid());
                     sell.setReserve2("");// 保存商品的单位如lots/piece by qinli 20140314
-                    sell.setFinalvaluefee(obj.getPaidprice() * obj.getQuantity() * moneyrate * platformFeeRate);// 最终Lazada交易费
+                    sell.setFinalvaluefee(LazadaUtil.mul(obj.getPaidprice(),obj.getQuantity(),moneyrate,platformFeeRate));// 最终Lazada交易费
                     sell.setOper1(Sys.isCheckNull(dp.getOper2()));// 产品的配货员
                     sell.setOper2(Sys.isCheckNull(dp.getOper1()));// 采购员
-                    sell.setOriginfinalvaluefee(obj.getPaidprice() * obj.getQuantity() * platformFeeRate);// Lazada原始交易费
+                    sell.setOriginfinalvaluefee(LazadaUtil.mul(obj.getPaidprice(),obj.getQuantity(),platformFeeRate));// Lazada原始交易费
                     sell.setOriginexpressmoney(obj.getShippingamount());// Lazada原始运费
-                    sell.setMoneyexpressask(sell.getOriginexpressmoney() * sell.getMoneyrate());// 人民币运费
-                    sell.setOrigininsurance(0.0);// Lazada原始保险费
+                    sell.setMoneyexpressask(LazadaUtil.mul(sell.getOriginexpressmoney(),sell.getMoneyrate()));// 人民币运费
+                    sell.setOrigininsurance(LazadaUtil.mul(0));// Lazada原始保险费
                     sell.setEnglishname(obj.getProductname());// 产品在Lazada上的名称
-                    sell.setMoneyrate(moneyrate);
-                    sell.setPaypalfee(0D);
+                    sell.setMoneyrate(LazadaUtil.mul(moneyrate));
+                    sell.setPaypalfee(LazadaUtil.mul(0));
                     sell.setOriginsku(dp.getReserve7());// 原厂sku
-                    sellDAO.save(sell);
+                    /*                    sellDAO.save(sell);*/
                     sellflag = 1;
 
                     rt.setCode(0);
@@ -1159,21 +1138,16 @@ public class LazadaServiceImpl implements LazadaService {
                     return rt;
                 }
             }
-        } catch (Exception e) {
-            System.out.println("订单处理异常aaaaa:" + e.getMessage());
-            rt.setCode(1000);
-            rt.setDesc("保存订单异常:" + e.getMessage());
         }
         return rt;
     }
 
-
     /**
      * 清理临时表
+     *
      * @param groupId
      * @param shop
      */
-    /*@Override
     public void clearDataFromLazadaTemp(long groupId, DbShop shop) {
         int hh = Integer.valueOf(Sys.getCtime().substring(8, 10));// 获取当前系统时间的小时数值
         if (hh <= 8 || hh >= 20) {// 只有当非工作时间才执行这个语句,避免锁表
@@ -1223,7 +1197,6 @@ public class LazadaServiceImpl implements LazadaService {
                 + groupId + "'";
         RetCode rt5 = lazadaMgr.updateExecuteSQL(sql5);
     }
-*/
 
     /**
      * 查询临时表
@@ -1266,42 +1239,6 @@ public class LazadaServiceImpl implements LazadaService {
         return rt;
     }
 
-    /**
-     * 保存新币种
-     *
-     * @param currencyId
-     * @param moneyrate
-     */
-    public void saveMoneyrate(String currencyId, double moneyrate) {
-        try {
-            boolean continueFlag = true;
-            DbMoneyrate moneyRate = new DbMoneyrate();
-            List<DbMoneyrate> list = moneyrateMapper.selectByCriteria(moneyRate);
-            if (!list.isEmpty()) {
-                continueFlag = false;
-            }
-
-            if (continueFlag) {
-                // 获取最大的币种数字编号
-                Integer mId = moneyrateMapper.selectMaxId();
-                int nextId = 1;
-
-                nextId = mId + 1;
-
-                moneyRate.setSequenceid(nextId + "");
-                moneyRate.setName(currencyId);
-                moneyRate.setOper("sys");
-                moneyRate.setOpertime(new Date());
-                moneyRate.setFiled8(new BigDecimal(moneyrate));
-                moneyRate.setCorpid("1");
-                moneyRate.setOpenflag("1");
-                // 插入新汇率
-                moneyrateMapper.insertSelective(moneyRate);
-            }
-        } catch (Exception e) {
-            System.out.println("保存新币种Exception异常:" + e.getMessage());
-        }
-    }
 
     /**
      * 更新lazada订单信息
@@ -1362,16 +1299,16 @@ public class LazadaServiceImpl implements LazadaService {
         return rt;
     }
 
-   /* public void updateCalculateNew(long groupid) {
+    private void updateCalculateNew(long groupid) {
         try {
             int orderCount = 0;
             List<String> flagList = new ArrayList<>();
             flagList.add("1");
             flagList.add("0");
             // 第一步,计算每个商品的订单量,更新到db_product.ordernum
-          List<Map<String,String>> resultList = sellMapper.selectSumOrderNumByGroup(groupid,flagList);
+            List<Map<String, String>> resultList = sellMapper.selectSumOrderNumByGroup(groupid, flagList);
 
-            for(Map<String,String> map:resultList) {
+            for (Map<String, String> map : resultList) {
                 try {
                     String productid = map.get("productid");
                     int ordernum = Integer.getInteger(map.get("ordernum"));
@@ -1389,30 +1326,30 @@ public class LazadaServiceImpl implements LazadaService {
             System.out.println("整理完该批订单的各商品订单量");
 
             // 第二步:计算出每个订单的总金额,总重量,总成本,更新到db_order表
-            List<Map<String,String>> resList = sellMapper.calculateorder(groupid);
-            Iterator<Map<String,String>> iterator = resList.iterator();
+            List<Map<String, String>> resList = sellMapper.calculateorder(groupid);
+            Iterator<Map<String, String>> iterator = resList.iterator();
             while (iterator.hasNext()) {
-                Map<String,String> rs2 = iterator.next();
+                Map<String, String> rs2 = iterator.next();
                 try {
                     orderCount++;
 
                     String orderid = rs2.get("orderid");
-                    Double moneyask = rs2.get("moneyask");// 总金额
+                    Double moneyask = Double.parseDouble(rs2.get("moneyask"));// 总金额
 
-                    Double originordermoney = rs2.get("originordermoney");// 增加总金额原始币种周平20150812
+                    Double originordermoney = Double.parseDouble(rs2.get("originordermoney"));// 增加总金额原始币种周平20150812
                     if (moneyask == null || moneyask <= 0D) {
                         moneyask = 0D;
                     }
-                    Double moneyaction = rs2.get("moneyaction");// 总成本
-                    Double originexpressask = rs2.get("originexpressask");// 原始总运费
+                    Double moneyaction = Double.parseDouble(rs2.get("moneyaction"));// 总成本
+                    Double originexpressask = Double.parseDouble(rs2.get("originexpressask"));// 原始总运费
                     if (originexpressask == null || originexpressask <= 0D) {
                         originexpressask = 0D;
                     }
-                    Double moneyexpressask = rs2.get("moneyexpressask");// 人民币运费
+                    Double moneyexpressask = Double.parseDouble(rs2.get("moneyexpressask"));// 人民币运费
                     if (moneyexpressask == null || moneyexpressask <= 0D) {
                         moneyexpressask = 0D;
                     }
-                    double moneyrate = rs2.get("moneyrate");
+                    double moneyrate = Double.parseDouble(rs2.get("moneyrate"));
                     if (moneyexpressask == 0D && originexpressask > 0) {// 如果有原始运费,但是人民币运费是0,那是计算出了问题
                         moneyexpressask = originexpressask * moneyrate;// 汇率默认是6,因为是人民币,换成实际汇率，怪不得老是有部分订单费用有问题，20160705
                         // 周平
@@ -1420,24 +1357,23 @@ public class LazadaServiceImpl implements LazadaService {
                     if (moneyaction == null || moneyaction <= 0D) {
                         moneyaction = 0D;
                     }
-                    Double expressweight = rs2.getDouble("expressweight");// 总商品重量
+                    Double expressweight = Double.parseDouble(rs2.get("expressweight"));// 总商品重量
                     if (expressweight == null || expressweight <= 0D) {
                         expressweight = 0D;
                     }
 
-                    int sellnum = rs2.getInt("sellnum");// 订单明细笔数
-                    int ordernum = rs2.getInt("ordernum");// 订单明细总采购量
-                    String storageid = "," + Sys.isCheckNull(rs2.getString("storageid")) + ",";// 仓库编号
-                    String storage = Sys.isCheckNull(rs2.getString("storage"));// 仓库
-                    String locationid = "," + Sys.isCheckNull(rs2.getString("locationid")) + ",";// 仓位编号
-                    String location = Sys.isCheckNull(rs2.getString("location"));// 仓位
-                    String purchaseoper = Sys.isCheckNull(rs2.getString("purchaseoper"));// 采购员
-                    String pickupoper = Sys.isCheckNull(rs2.getString("pickupoper"));// 配货员
-                    String originsku = Sys.isCheckNull(rs2.getString("originsku"));// 原厂sku
-                    if (rs2.getInt("sellnum") > 1) {// 如果是多sku订单，则需要查询所有的仓库和仓位合起来
+                    int sellnum = Integer.parseInt(rs2.get("sellnum"));// 订单明细笔数
+                    int ordernum = Integer.parseInt(rs2.get("ordernum"));// 订单明细总采购量
+                    String storageid = "," + Sys.isCheckNull(rs2.get("storageid")) + ",";// 仓库编号
+                    String storage = Sys.isCheckNull(rs2.get("storage"));// 仓库
+                    String locationid = "," + Sys.isCheckNull(rs2.get("locationid")) + ",";// 仓位编号
+                    String location = Sys.isCheckNull(rs2.get("location"));// 仓位
+                    String purchaseoper = Sys.isCheckNull(rs2.get("purchaseoper"));// 采购员
+                    String pickupoper = Sys.isCheckNull(rs2.get("pickupoper"));// 配货员
+                    String originsku = Sys.isCheckNull(rs2.get("originsku"));// 原厂sku
+                    if (Integer.parseInt(rs2.get("sellnum")) > 1) {// 如果是多sku订单，则需要查询所有的仓库和仓位合起来
                         String sqlSearch5 = "select * from db_sell where orderid = '" + orderid + "'";
-                        Statement stm5 = conn.createStatement();
-                        ResultSet rs5 = stm5.executeQuery(sqlSearch5);
+                        ResultSet rs5 = null;
                         storageid = ",";
                         locationid = ",";
                         location = ",";
@@ -1448,13 +1384,13 @@ public class LazadaServiceImpl implements LazadaService {
                             storageid = storageid + rs5.getString("storageid") + ",";
                             locationid = locationid + rs5.getString("locationid") + ",";
                             location = location + rs5.getString("location") + ",";
-                            if (Sys.isNull(rs5.getString("oper1")) == false) {
+                            if (!Sys.isNull(rs5.getString("oper1"))) {
                                 pickupoper = pickupoper + rs5.getString("oper1") + ",";
                             }
-                            if (Sys.isNull(rs5.getString("oper2")) == false) {
+                            if (!Sys.isNull(rs5.getString("oper2"))) {
                                 purchaseoper = purchaseoper + rs5.getString("oper2") + ",";
                             }
-                            if (Sys.isNull(rs5.getString("originsku")) == false) {// 如果有原厂sku,则拼接
+                            if (!Sys.isNull(rs5.getString("originsku"))) {// 如果有原厂sku,则拼接
                                 if (originsku.indexOf("," + rs5.getString("originsku") + ",") < 0) {// 如果未包含
                                     originsku = originsku + rs5.getString("originsku") + ",";
                                 } else {// 如果已经包含
@@ -1466,10 +1402,8 @@ public class LazadaServiceImpl implements LazadaService {
                         storageid = Sys.sortStr(storageid);
                         locationid = Sys.sortStr(locationid);
                         location = Sys.sortStr(location);
-                        rs5.close();
-                        stm5.close();
                     }
-                    int skunumber = rs2.getInt("skunumber");// 该订单下有多少个不同的sku(不同的商品)数,便于满足广东陈文平的智能配货功能
+                    int skunumber = rs2.get("skunumber");// 该订单下有多少个不同的sku(不同的商品)数,便于满足广东陈文平的智能配货功能
                     Double originFinalvaluefee = rs2.getDouble("originFinalvaluefee");// ebay收取费用(原始)
                     Double Finalvaluefee = rs2.getDouble("Finalvaluefee");// ebay收取费用(人民币)
                     if (originFinalvaluefee == null || originFinalvaluefee < 0) {
@@ -1484,10 +1418,10 @@ public class LazadaServiceImpl implements LazadaService {
 
                     String sqlExtendUpdate = "";// 扩展更新
                     if (sellnum == 1) {// 如果为单详单，则需要将仓库和仓位更新到db_order表中
-                        if (Sys.isNull(purchaseoper) == true) {
+                        if (Sys.isNull(purchaseoper)) {
                             purchaseoper = "-";
                         } // 如果无采购员,则默认为-
-                        if (Sys.isNull(pickupoper) == true) {
+                        if (Sys.isNull(pickupoper)) {
                             pickupoper = "-";
                         } // 如果无配货员,则默认为-
                         sqlExtendUpdate = ",storageid='" + storageid + "',storage='" + storage + "',locationid='"
@@ -1506,7 +1440,6 @@ public class LazadaServiceImpl implements LazadaService {
                             + moneyexpressask + ",sellnum='" + sellnum + "',ordernum='" + ordernum + "',qlreserve3='"
                             + skunumber + "',originsku='" + originsku + "' " + sqlExtendUpdate + " where orderid='"
                             + orderid + "'";
-                    stmExecute.executeUpdate(sqlE);
                     // this.WriteWeightLog(groupid,sqlE);
                 } catch (SQLException e) {
                     System.out.println("updateCalculateNew方法SQLException异常:" + e.getMessage());
@@ -1514,12 +1447,9 @@ public class LazadaServiceImpl implements LazadaService {
                     System.out.println("Exception异常:" + e.getMessage());
                 }
             }
-            rs2.close();
-            stm2.close();
             System.out.println("整理完该批订单的各订单总金额,总重量,总成本");
 
             // 第三步:迭加多物品选择,更新到db_order.reserve4中
-            Statement stm3 = conn.createStatement();
             String orderidTemp = "";
             String descr2Str = "";
             String sqlSearch3 = "select orderid,descr2 from db_sell where descr2 is not null and groupid='" + groupid
@@ -1541,11 +1471,6 @@ public class LazadaServiceImpl implements LazadaService {
                         if (orderidTemp.length() > 0 && descr2Str.length() > 0) {
                             String sqlE = "update db_order set reserve4='" + descr2Str.replace("'", "’")
                                     + "' where orderid='" + orderidTemp + "'";
-                            try {
-                                stmExecute.executeUpdate(sqlE);
-                            } catch (SQLException e) {
-                                System.out.println("SQL=" + sqlE + "执行异常:" + e.getMessage());
-                            }
                         }
                         orderidTemp = orderid;// orderidTemp等于新的ID
                         descr2Str = descr2;// 重新迭加多物品选择
@@ -1554,33 +1479,18 @@ public class LazadaServiceImpl implements LazadaService {
                     ;
                 }
             }
-            rs3.close();
-            stm3.close();
             // 最后再更新1次
             if (orderidTemp.length() > 0 && descr2Str.length() > 0) {
                 String sqlE = "update db_order set reserve4='" + descr2Str + "' where orderid='" + orderidTemp + "'";
-                stmExecute.executeUpdate(sqlE);
             }
             System.out.println("整理完该批订单的多物品选择");
 
             // 第四步:遍历各订单id,调验证缺货子过程PROC_CALCULATION
             // 本过程速度有些慢,基本上每笔订单需要花1~3秒时间,如果某一批次下载有1000单,则要花大约半小时,因此放到EbayNote线程去执行updateOrderAlertflag(groupid)方法
-            stmExecute.close();
-        } catch (SQLException e) {
-            // e.printStackTrace();
-            System.out.println("SQL执行异常:" + e.getMessage());
         } catch (Exception e) {
             System.out.println("异常" + e.getMessage());
-        } finally {
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (SQLException e) {
-                    ;
-                }
-            }
         }
-    }*/
+    }
 
 
     private Double stringToDouble(String str) {
@@ -1593,4 +1503,138 @@ public class LazadaServiceImpl implements LazadaService {
         }
         return 0d;
     }
+
+
+    /**
+     * 保存新币种
+     *
+     * @param currencyId
+     * @param moneyrate
+     */
+    private void saveMoneyrate(String currencyId, double moneyrate) {
+        try {
+            boolean continueFlag = true;
+            DbMoneyrate moneyRate = new DbMoneyrate();
+            List<DbMoneyrate> list = moneyrateMapper.selectByCriteria(moneyRate);
+            if (!list.isEmpty()) {
+                continueFlag = false;
+            }
+
+            if (continueFlag) {
+                // 获取最大的币种数字编号
+                Integer mId = moneyrateMapper.selectMaxId();
+                int nextId = 1;
+
+                nextId = mId + 1;
+
+                moneyRate.setSequenceid(nextId + "");
+                moneyRate.setName(currencyId);
+                moneyRate.setOper("sys");
+                moneyRate.setOpertime(new Date());
+                moneyRate.setFiled8(new BigDecimal(moneyrate));
+                moneyRate.setCorpid("1");
+                moneyRate.setOpenflag("1");
+                // 插入新汇率
+                moneyrateMapper.insertSelective(moneyRate);
+            }
+        } catch (Exception e) {
+            System.out.println("保存新币种Exception异常:" + e.getMessage());
+        }
+    }
+
+
+    // 拼接订单locationid和storageid
+    private RetCode updateLoacationandStorage(boolean firstRun) {// firstRun=true表示第一次运行,则查找最近20天的订单,否则只查找最近半天
+        RetCode rt = new RetCode(1000, "查询为空", "查询为空");
+        // String sql = "select orderid from db_order where ordertime>sysdate-10 and
+        // (locationid is null or locationid=',' or storageid is null or storageid =','
+        // or location is null or location=',' or storage is null or storage =',')";
+
+        try {
+            int num = 6;
+            if (firstRun) {
+                num = 20;
+            }
+            List<String> orderIds = orderMapper.selectOrderByDate(num);
+
+            if (orderIds != null && !orderIds.isEmpty()) {
+                List<DbOrder> list = new ArrayList<>();
+                List<Map<String, String>> maps = productMapper.selectLocationIdAndStorageIdByOrderids(orderIds);
+                for (Map<String, String> map : maps) {
+                    if (Sys.isNull(map.get("orderid"))) {
+                        continue;
+                    }
+                    DbOrder order = new DbOrder();
+                    String locationid = ",";
+                    String location = ",";
+                    String storageid = ",";
+                    String storage = ",";
+                    String productid = ",";
+                    /* p.locationid,p.location,p.storageid,p.storage,p.sid,s.orderid */
+                    if (!Sys.isNull(map.get("locationid"))) {
+                        locationid = locationid + map.get("locationid") + ",";
+                        locationid = Sys.sortStr(locationid);
+                        if (locationid.length() >= 400) {
+                            locationid = locationid.substring(0, 400);
+                        }
+                    }
+                    if (!Sys.isNull(map.get("location"))) {
+                        location = location + map.get("location") + ",";
+                        location = Sys.sortStr(location);
+                        if (location.length() >= 400) {
+                            location = location.substring(0, 400);
+                        }
+                    }
+                    if (!Sys.isNull(map.get("storageid"))) {
+                        storageid = storageid + map.get("storageid") + ",";
+                        storageid = Sys.sortStr(storageid);
+                        if (storageid.length() >= 400) {
+                            storageid = storageid.substring(0, 400);
+                        }
+                    }
+                    if (!Sys.isNull(map.get("storage"))) {
+                        storage = storage + map.get("storage") + ",";
+                    }
+                    if (!Sys.isNull(map.get("sid"))) {
+                        productid = productid + map.get("sid") + ",";
+                        if (productid.length() >= 400) {
+                            productid = productid.substring(0, 250);
+                        }
+                    }
+                    if (locationid.length() <= 0 || ",".equals(locationid)) {
+                        locationid = ",-,";
+                    } // 否则保存的值是一个逗号,而本方法就是查询locationid是空或一个逗号的记录，会陷入死循环
+                    if (storageid.length() <= 0 || ",".equals(storageid)) {
+                        storageid = ",-,";
+                    } // 否则保存的值是一个逗号,而本方法就是查询storageid是空或一个逗号的记录，会陷入死循环
+                    if (location.length() <= 0 || ",".equals(location)) {
+                        location = ",-,";
+                    } // 否则保存的值是一个逗号,而本方法就是查询location是空或一个逗号的记录，会陷入死循环
+                    if (storage.length() <= 0 || ",".equals(storage)) {
+                        storage = ",-,";
+                    } // 否则保存的值是一个逗号,而本方法就是查询storage是空或一个逗号的记录，会陷入死循环
+                    order.setOrderid(map.get("orderid"));
+                    order.setLocation(("," + location + ",").replace(",,", ","));
+                    order.setLocationid(("," + locationid + ",").replace(",,", ","));
+                    order.setStorageid(("," + storageid + ",").replace(",,", ","));
+                    order.setStorage(("," + storage + ",").replace(",,", ","));
+                    productid = "," + productid + ",";
+                    productid = productid.replace(",,", ",");
+                    order.setQlreserve2(productid);
+                    list.add(order);
+                }
+                if (list.size() > 0) {
+                    rt.setCode(0);
+                    rt.setDesc("操作成功");
+                    rt.setObj(list);
+                }
+            }
+        } catch (Exception e) {
+            rt.setCode(1000);
+            rt.setDesc("异常:" + e.getMessage());
+        }
+        return rt;
+    }
+
+
 }

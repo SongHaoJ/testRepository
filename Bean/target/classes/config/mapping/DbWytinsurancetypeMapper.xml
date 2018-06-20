@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbWytinsurancetypeMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbWytinsurancetype">
+    <id column="INSURANCETYPE" jdbcType="VARCHAR" property="insurancetype" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="CATEGORYID" jdbcType="VARCHAR" property="categoryid" />
+    <result column="EXPRESSID" jdbcType="VARCHAR" property="expressid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    INSURANCETYPE, 'NAME', CATEGORYID, EXPRESSID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from db_wytinsurancetype
+    where INSURANCETYPE = #{insurancetype,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from db_wytinsurancetype
+    where INSURANCETYPE = #{insurancetype,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bean.model.DbWytinsurancetype">
+    insert into db_wytinsurancetype (INSURANCETYPE, 'NAME', CATEGORYID, 
+      EXPRESSID)
+    values (#{insurancetype,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{categoryid,jdbcType=VARCHAR}, 
+      #{expressid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbWytinsurancetype">
+    insert into db_wytinsurancetype
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="insurancetype != null">
+        INSURANCETYPE,
+      </if>
+      <if test="name != null">
+        'NAME',
+      </if>
+      <if test="categoryid != null">
+        CATEGORYID,
+      </if>
+      <if test="expressid != null">
+        EXPRESSID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="insurancetype != null">
+        #{insurancetype,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryid != null">
+        #{categoryid,jdbcType=VARCHAR},
+      </if>
+      <if test="expressid != null">
+        #{expressid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbWytinsurancetype">
+    update db_wytinsurancetype
+    <set>
+      <if test="name != null">
+        'NAME' = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryid != null">
+        CATEGORYID = #{categoryid,jdbcType=VARCHAR},
+      </if>
+      <if test="expressid != null">
+        EXPRESSID = #{expressid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where INSURANCETYPE = #{insurancetype,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbWytinsurancetype">
+    update db_wytinsurancetype
+    set 'NAME' = #{name,jdbcType=VARCHAR},
+      CATEGORYID = #{categoryid,jdbcType=VARCHAR},
+      EXPRESSID = #{expressid,jdbcType=VARCHAR}
+    where INSURANCETYPE = #{insurancetype,jdbcType=VARCHAR}
+  </update>
+</mapper>

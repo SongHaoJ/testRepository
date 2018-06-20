@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbProductebayfeeMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbProductebayfee">
+    <id column="SID" jdbcType="DECIMAL" property="sid" />
+    <result column="USCUSTOMSNAME" jdbcType="VARCHAR" property="uscustomsname" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="CACUSTOMSNAME" jdbcType="VARCHAR" property="cacustomsname" />
+    <result column="DERATE" jdbcType="DECIMAL" property="derate" />
+    <result column="USCOSTPRICE" jdbcType="DECIMAL" property="uscostprice" />
+    <result column="OPENFLAG" jdbcType="DECIMAL" property="openflag" />
+    <result column="AUCUSTOMSNAME" jdbcType="VARCHAR" property="aucustomsname" />
+    <result column="ITCOSTPRICE" jdbcType="DECIMAL" property="itcostprice" />
+    <result column="AUCOSTPRICE" jdbcType="DECIMAL" property="aucostprice" />
+    <result column="ESCOSTPRICE" jdbcType="DECIMAL" property="escostprice" />
+    <result column="FRCOSTPRICE" jdbcType="DECIMAL" property="frcostprice" />
+    <result column="CAFEE" jdbcType="DECIMAL" property="cafee" />
+    <result column="ITCUSTOMSFEE" jdbcType="DECIMAL" property="itcustomsfee" />
+    <result column="DECOSTPRICE" jdbcType="DECIMAL" property="decostprice" />
+    <result column="ITRATE" jdbcType="DECIMAL" property="itrate" />
+    <result column="FRCUSTOMSNAME" jdbcType="VARCHAR" property="frcustomsname" />
+    <result column="FRRATE" jdbcType="DECIMAL" property="frrate" />
+    <result column="DECUSTOMSNAME" jdbcType="VARCHAR" property="decustomsname" />
+    <result column="ITFEE" jdbcType="DECIMAL" property="itfee" />
+    <result column="UKRATE" jdbcType="DECIMAL" property="ukrate" />
+    <result column="USRATE" jdbcType="DECIMAL" property="usrate" />
+    <result column="ESFEE" jdbcType="DECIMAL" property="esfee" />
+    <result column="ESRATE" jdbcType="DECIMAL" property="esrate" />
+    <result column="UKCUSTOMSNAME" jdbcType="VARCHAR" property="ukcustomsname" />
+    <result column="UKCUSTOMSFEE" jdbcType="DECIMAL" property="ukcustomsfee" />
+    <result column="CACUSTOMSFEE" jdbcType="DECIMAL" property="cacustomsfee" />
+    <result column="ITCUSTOMSNAME" jdbcType="VARCHAR" property="itcustomsname" />
+    <result column="ESCUSTOMSFEE" jdbcType="DECIMAL" property="escustomsfee" />
+    <result column="CACOSTPRICE" jdbcType="DECIMAL" property="cacostprice" />
+    <result column="AUCUSTOMSFEE" jdbcType="DECIMAL" property="aucustomsfee" />
+    <result column="AURATE" jdbcType="DECIMAL" property="aurate" />
+    <result column="FRFEE" jdbcType="DECIMAL" property="frfee" />
+    <result column="CARATE" jdbcType="DECIMAL" property="carate" />
+    <result column="FRCUSTOMSFEE" jdbcType="DECIMAL" property="frcustomsfee" />
+    <result column="USFEE" jdbcType="DECIMAL" property="usfee" />
+    <result column="DEFEE" jdbcType="DECIMAL" property="defee" />
+    <result column="AUFEE" jdbcType="DECIMAL" property="aufee" />
+    <result column="ESCUSTOMSNAME" jdbcType="VARCHAR" property="escustomsname" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="UKFEE" jdbcType="DECIMAL" property="ukfee" />
+    <result column="DECUSTOMSFEE" jdbcType="DECIMAL" property="decustomsfee" />
+    <result column="USCUSTOMSFEE" jdbcType="DECIMAL" property="uscustomsfee" />
+    <result column="UKCOSTPRICE" jdbcType="DECIMAL" property="ukcostprice" />
+    <result column="SKU" jdbcType="VARCHAR" property="sku" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SID, USCUSTOMSNAME, OPER, CACUSTOMSNAME, DERATE, USCOSTPRICE, OPENFLAG, AUCUSTOMSNAME, 
+    ITCOSTPRICE, AUCOSTPRICE, ESCOSTPRICE, FRCOSTPRICE, CAFEE, ITCUSTOMSFEE, DECOSTPRICE, 
+    ITRATE, FRCUSTOMSNAME, FRRATE, DECUSTOMSNAME, ITFEE, UKRATE, USRATE, ESFEE, ESRATE, 
+    UKCUSTOMSNAME, UKCUSTOMSFEE, CACUSTOMSFEE, ITCUSTOMSNAME, ESCUSTOMSFEE, CACOSTPRICE, 
+    AUCUSTOMSFEE, AURATE, FRFEE, CARATE, FRCUSTOMSFEE, USFEE, DEFEE, AUFEE, ESCUSTOMSNAME, 
+    OPERTIME, UKFEE, DECUSTOMSFEE, USCUSTOMSFEE, UKCOSTPRICE, SKU
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from db_productebayfee
+    where SID = #{sid,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
+    delete from db_productebayfee
+    where SID = #{sid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.bean.model.DbProductebayfee">
+    insert into db_productebayfee (SID, USCUSTOMSNAME, OPER, 
+      CACUSTOMSNAME, DERATE, USCOSTPRICE, 
+      OPENFLAG, AUCUSTOMSNAME, ITCOSTPRICE, 
+      AUCOSTPRICE, ESCOSTPRICE, FRCOSTPRICE, 
+      CAFEE, ITCUSTOMSFEE, DECOSTPRICE, 
+      ITRATE, FRCUSTOMSNAME, FRRATE, 
+      DECUSTOMSNAME, ITFEE, UKRATE, 
+      USRATE, ESFEE, ESRATE, 
+      UKCUSTOMSNAME, UKCUSTOMSFEE, CACUSTOMSFEE, 
+      ITCUSTOMSNAME, ESCUSTOMSFEE, CACOSTPRICE, 
+      AUCUSTOMSFEE, AURATE, FRFEE, 
+      CARATE, FRCUSTOMSFEE, USFEE, 
+      DEFEE, AUFEE, ESCUSTOMSNAME, 
+      OPERTIME, UKFEE, DECUSTOMSFEE, 
+      USCUSTOMSFEE, UKCOSTPRICE, SKU
+      )
+    values (#{sid,jdbcType=DECIMAL}, #{uscustomsname,jdbcType=VARCHAR}, #{oper,jdbcType=VARCHAR}, 
+      #{cacustomsname,jdbcType=VARCHAR}, #{derate,jdbcType=DECIMAL}, #{uscostprice,jdbcType=DECIMAL}, 
+      #{openflag,jdbcType=DECIMAL}, #{aucustomsname,jdbcType=VARCHAR}, #{itcostprice,jdbcType=DECIMAL}, 
+      #{aucostprice,jdbcType=DECIMAL}, #{escostprice,jdbcType=DECIMAL}, #{frcostprice,jdbcType=DECIMAL}, 
+      #{cafee,jdbcType=DECIMAL}, #{itcustomsfee,jdbcType=DECIMAL}, #{decostprice,jdbcType=DECIMAL}, 
+      #{itrate,jdbcType=DECIMAL}, #{frcustomsname,jdbcType=VARCHAR}, #{frrate,jdbcType=DECIMAL}, 
+      #{decustomsname,jdbcType=VARCHAR}, #{itfee,jdbcType=DECIMAL}, #{ukrate,jdbcType=DECIMAL}, 
+      #{usrate,jdbcType=DECIMAL}, #{esfee,jdbcType=DECIMAL}, #{esrate,jdbcType=DECIMAL}, 
+      #{ukcustomsname,jdbcType=VARCHAR}, #{ukcustomsfee,jdbcType=DECIMAL}, #{cacustomsfee,jdbcType=DECIMAL}, 
+      #{itcustomsname,jdbcType=VARCHAR}, #{escustomsfee,jdbcType=DECIMAL}, #{cacostprice,jdbcType=DECIMAL}, 
+      #{aucustomsfee,jdbcType=DECIMAL}, #{aurate,jdbcType=DECIMAL}, #{frfee,jdbcType=DECIMAL}, 
+      #{carate,jdbcType=DECIMAL}, #{frcustomsfee,jdbcType=DECIMAL}, #{usfee,jdbcType=DECIMAL}, 
+      #{defee,jdbcType=DECIMAL}, #{aufee,jdbcType=DECIMAL}, #{escustomsname,jdbcType=VARCHAR}, 
+      #{opertime,jdbcType=TIMESTAMP}, #{ukfee,jdbcType=DECIMAL}, #{decustomsfee,jdbcType=DECIMAL}, 
+      #{uscustomsfee,jdbcType=DECIMAL}, #{ukcostprice,jdbcType=DECIMAL}, #{sku,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbProductebayfee">
+    insert into db_productebayfee
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        SID,
+      </if>
+      <if test="uscustomsname != null">
+        USCUSTOMSNAME,
+      </if>
+      <if test="oper != null">
+        OPER,
+      </if>
+      <if test="cacustomsname != null">
+        CACUSTOMSNAME,
+      </if>
+      <if test="derate != null">
+        DERATE,
+      </if>
+      <if test="uscostprice != null">
+        USCOSTPRICE,
+      </if>
+      <if test="openflag != null">
+        OPENFLAG,
+      </if>
+      <if test="aucustomsname != null">
+        AUCUSTOMSNAME,
+      </if>
+      <if test="itcostprice != null">
+        ITCOSTPRICE,
+      </if>
+      <if test="aucostprice != null">
+        AUCOSTPRICE,
+      </if>
+      <if test="escostprice != null">
+        ESCOSTPRICE,
+      </if>
+      <if test="frcostprice != null">
+        FRCOSTPRICE,
+      </if>
+      <if test="cafee != null">
+        CAFEE,
+      </if>
+      <if test="itcustomsfee != null">
+        ITCUSTOMSFEE,
+      </if>
+      <if test="decostprice != null">
+        DECOSTPRICE,
+      </if>
+      <if test="itrate != null">
+        ITRATE,
+      </if>
+      <if test="frcustomsname != null">
+        FRCUSTOMSNAME,
+      </if>
+      <if test="frrate != null">
+        FRRATE,
+      </if>
+      <if test="decustomsname != null">
+        DECUSTOMSNAME,
+      </if>
+      <if test="itfee != null">
+        ITFEE,
+      </if>
+      <if test="ukrate != null">
+        UKRATE,
+      </if>
+      <if test="usrate != null">
+        USRATE,
+      </if>
+      <if test="esfee != null">
+        ESFEE,
+      </if>
+      <if test="esrate != null">
+        ESRATE,
+      </if>
+      <if test="ukcustomsname != null">
+        UKCUSTOMSNAME,
+      </if>
+      <if test="ukcustomsfee != null">
+        UKCUSTOMSFEE,
+      </if>
+      <if test="cacustomsfee != null">
+        CACUSTOMSFEE,
+      </if>
+      <if test="itcustomsname != null">
+        ITCUSTOMSNAME,
+      </if>
+      <if test="escustomsfee != null">
+        ESCUSTOMSFEE,
+      </if>
+      <if test="cacostprice != null">
+        CACOSTPRICE,
+      </if>
+      <if test="aucustomsfee != null">
+        AUCUSTOMSFEE,
+      </if>
+      <if test="aurate != null">
+        AURATE,
+      </if>
+      <if test="frfee != null">
+        FRFEE,
+      </if>
+      <if test="carate != null">
+        CARATE,
+      </if>
+      <if test="frcustomsfee != null">
+        FRCUSTOMSFEE,
+      </if>
+      <if test="usfee != null">
+        USFEE,
+      </if>
+      <if test="defee != null">
+        DEFEE,
+      </if>
+      <if test="aufee != null">
+        AUFEE,
+      </if>
+      <if test="escustomsname != null">
+        ESCUSTOMSNAME,
+      </if>
+      <if test="opertime != null">
+        OPERTIME,
+      </if>
+      <if test="ukfee != null">
+        UKFEE,
+      </if>
+      <if test="decustomsfee != null">
+        DECUSTOMSFEE,
+      </if>
+      <if test="uscustomsfee != null">
+        USCUSTOMSFEE,
+      </if>
+      <if test="ukcostprice != null">
+        UKCOSTPRICE,
+      </if>
+      <if test="sku != null">
+        SKU,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        #{sid,jdbcType=DECIMAL},
+      </if>
+      <if test="uscustomsname != null">
+        #{uscustomsname,jdbcType=VARCHAR},
+      </if>
+      <if test="oper != null">
+        #{oper,jdbcType=VARCHAR},
+      </if>
+      <if test="cacustomsname != null">
+        #{cacustomsname,jdbcType=VARCHAR},
+      </if>
+      <if test="derate != null">
+        #{derate,jdbcType=DECIMAL},
+      </if>
+      <if test="uscostprice != null">
+        #{uscostprice,jdbcType=DECIMAL},
+      </if>
+      <if test="openflag != null">
+        #{openflag,jdbcType=DECIMAL},
+      </if>
+      <if test="aucustomsname != null">
+        #{aucustomsname,jdbcType=VARCHAR},
+      </if>
+      <if test="itcostprice != null">
+        #{itcostprice,jdbcType=DECIMAL},
+      </if>
+      <if test="aucostprice != null">
+        #{aucostprice,jdbcType=DECIMAL},
+      </if>
+      <if test="escostprice != null">
+        #{escostprice,jdbcType=DECIMAL},
+      </if>
+      <if test="frcostprice != null">
+        #{frcostprice,jdbcType=DECIMAL},
+      </if>
+      <if test="cafee != null">
+        #{cafee,jdbcType=DECIMAL},
+      </if>
+      <if test="itcustomsfee != null">
+        #{itcustomsfee,jdbcType=DECIMAL},
+      </if>
+      <if test="decostprice != null">
+        #{decostprice,jdbcType=DECIMAL},
+      </if>
+      <if test="itrate != null">
+        #{itrate,jdbcType=DECIMAL},
+      </if>
+      <if test="frcustomsname != null">
+        #{frcustomsname,jdbcType=VARCHAR},
+      </if>
+      <if test="frrate != null">
+        #{frrate,jdbcType=DECIMAL},
+      </if>
+      <if test="decustomsname != null">
+        #{decustomsname,jdbcType=VARCHAR},
+      </if>
+      <if test="itfee != null">
+        #{itfee,jdbcType=DECIMAL},
+      </if>
+      <if test="ukrate != null">
+        #{ukrate,jdbcType=DECIMAL},
+      </if>
+      <if test="usrate != null">
+        #{usrate,jdbcType=DECIMAL},
+      </if>
+      <if test="esfee != null">
+        #{esfee,jdbcType=DECIMAL},
+      </if>
+      <if test="esrate != null">
+        #{esrate,jdbcType=DECIMAL},
+      </if>
+      <if test="ukcustomsname != null">
+        #{ukcustomsname,jdbcType=VARCHAR},
+      </if>
+      <if test="ukcustomsfee != null">
+        #{ukcustomsfee,jdbcType=DECIMAL},
+      </if>
+      <if test="cacustomsfee != null">
+        #{cacustomsfee,jdbcType=DECIMAL},
+      </if>
+      <if test="itcustomsname != null">
+        #{itcustomsname,jdbcType=VARCHAR},
+      </if>
+      <if test="escustomsfee != null">
+        #{escustomsfee,jdbcType=DECIMAL},
+      </if>
+      <if test="cacostprice != null">
+        #{cacostprice,jdbcType=DECIMAL},
+      </if>
+      <if test="aucustomsfee != null">
+        #{aucustomsfee,jdbcType=DECIMAL},
+      </if>
+      <if test="aurate != null">
+        #{aurate,jdbcType=DECIMAL},
+      </if>
+      <if test="frfee != null">
+        #{frfee,jdbcType=DECIMAL},
+      </if>
+      <if test="carate != null">
+        #{carate,jdbcType=DECIMAL},
+      </if>
+      <if test="frcustomsfee != null">
+        #{frcustomsfee,jdbcType=DECIMAL},
+      </if>
+      <if test="usfee != null">
+        #{usfee,jdbcType=DECIMAL},
+      </if>
+      <if test="defee != null">
+        #{defee,jdbcType=DECIMAL},
+      </if>
+      <if test="aufee != null">
+        #{aufee,jdbcType=DECIMAL},
+      </if>
+      <if test="escustomsname != null">
+        #{escustomsname,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null">
+        #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ukfee != null">
+        #{ukfee,jdbcType=DECIMAL},
+      </if>
+      <if test="decustomsfee != null">
+        #{decustomsfee,jdbcType=DECIMAL},
+      </if>
+      <if test="uscustomsfee != null">
+        #{uscustomsfee,jdbcType=DECIMAL},
+      </if>
+      <if test="ukcostprice != null">
+        #{ukcostprice,jdbcType=DECIMAL},
+      </if>
+      <if test="sku != null">
+        #{sku,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbProductebayfee">
+    update db_productebayfee
+    <set>
+      <if test="uscustomsname != null">
+        USCUSTOMSNAME = #{uscustomsname,jdbcType=VARCHAR},
+      </if>
+      <if test="oper != null">
+        OPER = #{oper,jdbcType=VARCHAR},
+      </if>
+      <if test="cacustomsname != null">
+        CACUSTOMSNAME = #{cacustomsname,jdbcType=VARCHAR},
+      </if>
+      <if test="derate != null">
+        DERATE = #{derate,jdbcType=DECIMAL},
+      </if>
+      <if test="uscostprice != null">
+        USCOSTPRICE = #{uscostprice,jdbcType=DECIMAL},
+      </if>
+      <if test="openflag != null">
+        OPENFLAG = #{openflag,jdbcType=DECIMAL},
+      </if>
+      <if test="aucustomsname != null">
+        AUCUSTOMSNAME = #{aucustomsname,jdbcType=VARCHAR},
+      </if>
+      <if test="itcostprice != null">
+        ITCOSTPRICE = #{itcostprice,jdbcType=DECIMAL},
+      </if>
+      <if test="aucostprice != null">
+        AUCOSTPRICE = #{aucostprice,jdbcType=DECIMAL},
+      </if>
+      <if test="escostprice != null">
+        ESCOSTPRICE = #{escostprice,jdbcType=DECIMAL},
+      </if>
+      <if test="frcostprice != null">
+        FRCOSTPRICE = #{frcostprice,jdbcType=DECIMAL},
+      </if>
+      <if test="cafee != null">
+        CAFEE = #{cafee,jdbcType=DECIMAL},
+      </if>
+      <if test="itcustomsfee != null">
+        ITCUSTOMSFEE = #{itcustomsfee,jdbcType=DECIMAL},
+      </if>
+      <if test="decostprice != null">
+        DECOSTPRICE = #{decostprice,jdbcType=DECIMAL},
+      </if>
+      <if test="itrate != null">
+        ITRATE = #{itrate,jdbcType=DECIMAL},
+      </if>
+      <if test="frcustomsname != null">
+        FRCUSTOMSNAME = #{frcustomsname,jdbcType=VARCHAR},
+      </if>
+      <if test="frrate != null">
+        FRRATE = #{frrate,jdbcType=DECIMAL},
+      </if>
+      <if test="decustomsname != null">
+        DECUSTOMSNAME = #{decustomsname,jdbcType=VARCHAR},
+      </if>
+      <if test="itfee != null">
+        ITFEE = #{itfee,jdbcType=DECIMAL},
+      </if>
+      <if test="ukrate != null">
+        UKRATE = #{ukrate,jdbcType=DECIMAL},
+      </if>
+      <if test="usrate != null">
+        USRATE = #{usrate,jdbcType=DECIMAL},
+      </if>
+      <if test="esfee != null">
+        ESFEE = #{esfee,jdbcType=DECIMAL},
+      </if>
+      <if test="esrate != null">
+        ESRATE = #{esrate,jdbcType=DECIMAL},
+      </if>
+      <if test="ukcustomsname != null">
+        UKCUSTOMSNAME = #{ukcustomsname,jdbcType=VARCHAR},
+      </if>
+      <if test="ukcustomsfee != null">
+        UKCUSTOMSFEE = #{ukcustomsfee,jdbcType=DECIMAL},
+      </if>
+      <if test="cacustomsfee != null">
+        CACUSTOMSFEE = #{cacustomsfee,jdbcType=DECIMAL},
+      </if>
+      <if test="itcustomsname != null">
+        ITCUSTOMSNAME = #{itcustomsname,jdbcType=VARCHAR},
+      </if>
+      <if test="escustomsfee != null">
+        ESCUSTOMSFEE = #{escustomsfee,jdbcType=DECIMAL},
+      </if>
+      <if test="cacostprice != null">
+        CACOSTPRICE = #{cacostprice,jdbcType=DECIMAL},
+      </if>
+      <if test="aucustomsfee != null">
+        AUCUSTOMSFEE = #{aucustomsfee,jdbcType=DECIMAL},
+      </if>
+      <if test="aurate != null">
+        AURATE = #{aurate,jdbcType=DECIMAL},
+      </if>
+      <if test="frfee != null">
+        FRFEE = #{frfee,jdbcType=DECIMAL},
+      </if>
+      <if test="carate != null">
+        CARATE = #{carate,jdbcType=DECIMAL},
+      </if>
+      <if test="frcustomsfee != null">
+        FRCUSTOMSFEE = #{frcustomsfee,jdbcType=DECIMAL},
+      </if>
+      <if test="usfee != null">
+        USFEE = #{usfee,jdbcType=DECIMAL},
+      </if>
+      <if test="defee != null">
+        DEFEE = #{defee,jdbcType=DECIMAL},
+      </if>
+      <if test="aufee != null">
+        AUFEE = #{aufee,jdbcType=DECIMAL},
+      </if>
+      <if test="escustomsname != null">
+        ESCUSTOMSNAME = #{escustomsname,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null">
+        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ukfee != null">
+        UKFEE = #{ukfee,jdbcType=DECIMAL},
+      </if>
+      <if test="decustomsfee != null">
+        DECUSTOMSFEE = #{decustomsfee,jdbcType=DECIMAL},
+      </if>
+      <if test="uscustomsfee != null">
+        USCUSTOMSFEE = #{uscustomsfee,jdbcType=DECIMAL},
+      </if>
+      <if test="ukcostprice != null">
+        UKCOSTPRICE = #{ukcostprice,jdbcType=DECIMAL},
+      </if>
+      <if test="sku != null">
+        SKU = #{sku,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where SID = #{sid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbProductebayfee">
+    update db_productebayfee
+    set USCUSTOMSNAME = #{uscustomsname,jdbcType=VARCHAR},
+      OPER = #{oper,jdbcType=VARCHAR},
+      CACUSTOMSNAME = #{cacustomsname,jdbcType=VARCHAR},
+      DERATE = #{derate,jdbcType=DECIMAL},
+      USCOSTPRICE = #{uscostprice,jdbcType=DECIMAL},
+      OPENFLAG = #{openflag,jdbcType=DECIMAL},
+      AUCUSTOMSNAME = #{aucustomsname,jdbcType=VARCHAR},
+      ITCOSTPRICE = #{itcostprice,jdbcType=DECIMAL},
+      AUCOSTPRICE = #{aucostprice,jdbcType=DECIMAL},
+      ESCOSTPRICE = #{escostprice,jdbcType=DECIMAL},
+      FRCOSTPRICE = #{frcostprice,jdbcType=DECIMAL},
+      CAFEE = #{cafee,jdbcType=DECIMAL},
+      ITCUSTOMSFEE = #{itcustomsfee,jdbcType=DECIMAL},
+      DECOSTPRICE = #{decostprice,jdbcType=DECIMAL},
+      ITRATE = #{itrate,jdbcType=DECIMAL},
+      FRCUSTOMSNAME = #{frcustomsname,jdbcType=VARCHAR},
+      FRRATE = #{frrate,jdbcType=DECIMAL},
+      DECUSTOMSNAME = #{decustomsname,jdbcType=VARCHAR},
+      ITFEE = #{itfee,jdbcType=DECIMAL},
+      UKRATE = #{ukrate,jdbcType=DECIMAL},
+      USRATE = #{usrate,jdbcType=DECIMAL},
+      ESFEE = #{esfee,jdbcType=DECIMAL},
+      ESRATE = #{esrate,jdbcType=DECIMAL},
+      UKCUSTOMSNAME = #{ukcustomsname,jdbcType=VARCHAR},
+      UKCUSTOMSFEE = #{ukcustomsfee,jdbcType=DECIMAL},
+      CACUSTOMSFEE = #{cacustomsfee,jdbcType=DECIMAL},
+      ITCUSTOMSNAME = #{itcustomsname,jdbcType=VARCHAR},
+      ESCUSTOMSFEE = #{escustomsfee,jdbcType=DECIMAL},
+      CACOSTPRICE = #{cacostprice,jdbcType=DECIMAL},
+      AUCUSTOMSFEE = #{aucustomsfee,jdbcType=DECIMAL},
+      AURATE = #{aurate,jdbcType=DECIMAL},
+      FRFEE = #{frfee,jdbcType=DECIMAL},
+      CARATE = #{carate,jdbcType=DECIMAL},
+      FRCUSTOMSFEE = #{frcustomsfee,jdbcType=DECIMAL},
+      USFEE = #{usfee,jdbcType=DECIMAL},
+      DEFEE = #{defee,jdbcType=DECIMAL},
+      AUFEE = #{aufee,jdbcType=DECIMAL},
+      ESCUSTOMSNAME = #{escustomsname,jdbcType=VARCHAR},
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      UKFEE = #{ukfee,jdbcType=DECIMAL},
+      DECUSTOMSFEE = #{decustomsfee,jdbcType=DECIMAL},
+      USCUSTOMSFEE = #{uscustomsfee,jdbcType=DECIMAL},
+      UKCOSTPRICE = #{ukcostprice,jdbcType=DECIMAL},
+      SKU = #{sku,jdbcType=VARCHAR}
+    where SID = #{sid,jdbcType=DECIMAL}
+  </update>
+</mapper>

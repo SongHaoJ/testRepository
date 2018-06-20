@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbShoppingpicsMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbShoppingpics">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="ITEMID" jdbcType="DECIMAL" property="itemid" />
+    <result column="SKU" jdbcType="VARCHAR" property="sku" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbShoppingpics">
+    <result column="PIC" jdbcType="LONGVARCHAR" property="pic" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, ITEMID, SKU
+  </sql>
+  <sql id="Blob_Column_List">
+    PIC
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from db_shoppingpics
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
+    delete from db_shoppingpics
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.bean.model.DbShoppingpics">
+    insert into db_shoppingpics (ID, ITEMID, SKU, 
+      PIC)
+    values (#{id,jdbcType=DECIMAL}, #{itemid,jdbcType=DECIMAL}, #{sku,jdbcType=VARCHAR}, 
+      #{pic,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbShoppingpics">
+    insert into db_shoppingpics
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="itemid != null">
+        ITEMID,
+      </if>
+      <if test="sku != null">
+        SKU,
+      </if>
+      <if test="pic != null">
+        PIC,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="itemid != null">
+        #{itemid,jdbcType=DECIMAL},
+      </if>
+      <if test="sku != null">
+        #{sku,jdbcType=VARCHAR},
+      </if>
+      <if test="pic != null">
+        #{pic,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbShoppingpics">
+    update db_shoppingpics
+    <set>
+      <if test="itemid != null">
+        ITEMID = #{itemid,jdbcType=DECIMAL},
+      </if>
+      <if test="sku != null">
+        SKU = #{sku,jdbcType=VARCHAR},
+      </if>
+      <if test="pic != null">
+        PIC = #{pic,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbShoppingpics">
+    update db_shoppingpics
+    set ITEMID = #{itemid,jdbcType=DECIMAL},
+      SKU = #{sku,jdbcType=VARCHAR},
+      PIC = #{pic,jdbcType=LONGVARCHAR}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbShoppingpics">
+    update db_shoppingpics
+    set ITEMID = #{itemid,jdbcType=DECIMAL},
+      SKU = #{sku,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+</mapper>

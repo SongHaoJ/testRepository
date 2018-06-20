@@ -13,7 +13,4 @@ public interface DbBindlistMapper {
 
     int updateByPrimaryKeySelective(DbBindlist record);
 
-    int updateByPrimaryKeyWithBLOBs(DbBindlist record);
-
-    int updateByPrimaryKey(DbBindlist record);
 }

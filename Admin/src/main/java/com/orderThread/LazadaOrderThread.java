@@ -117,12 +117,12 @@ public class LazadaOrderThread implements Runnable {
             for (DbShop o : list) {
                 calcuCount++;
                 // 下载某个店铺的的订单
-                service.downloadLazadaOrderNew(o, "pending");
+                /*service.downloadLazadaOrderNew(o, "pending");*/
                 String hour = ",8,9,10,11,12,13,14,15,16,17,18,";// 这里的意思是白天就只下载已支付订单。以防对数据库访问过多
                 // 周平
                 String hournew = Sys.getCtime().substring(8, 10);
                 if (hour.indexOf("," + hournew + ",") <= 0) {
-                    service.downloadLazadaOrderNew(o, "ready_to_ship");
+                  /*  service.downloadLazadaOrderNew(o, "ready_to_ship");*/
                 }
 
                 // 计算订单(如包裹重量,详单重量，订单重量，最佳包材,缺货详单)

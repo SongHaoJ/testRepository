@@ -20,4 +20,5 @@ public interface DbProductMapper {
 
     List<Map<String,String>> selectSidAndAliasBySid(List<String> skus);
 
+    List<Map<String,String>> selectLocationIdAndStorageIdByOrderids(List<String> ids);
 }

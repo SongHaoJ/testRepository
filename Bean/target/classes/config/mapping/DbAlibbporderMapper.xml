@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbAlibbporderMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbAlibbporder">
+    <id column="ORDERID" jdbcType="VARCHAR" property="orderid" />
+    <result column="REMARKS" jdbcType="VARCHAR" property="remarks" />
+    <result column="PURCHASE" jdbcType="VARCHAR" property="purchase" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="MODIFYTIME" jdbcType="TIMESTAMP" property="modifytime" />
+    <result column="LOGISTICSID" jdbcType="VARCHAR" property="logisticsid" />
+    <result column="FLAG" jdbcType="DECIMAL" property="flag" />
+    <result column="SUPPORTPRINT" jdbcType="VARCHAR" property="supportprint" />
+    <result column="COMPANYPHONE" jdbcType="VARCHAR" property="companyphone" />
+    <result column="COMPANYNO" jdbcType="VARCHAR" property="companyno" />
+    <result column="COMPANYNAME" jdbcType="VARCHAR" property="companyname" />
+    <result column="COMPANYID" jdbcType="VARCHAR" property="companyid" />
+    <result column="CONTET" jdbcType="VARCHAR" property="contet" />
+    <result column="ALISHOPID" jdbcType="VARCHAR" property="alishopid" />
+    <result column="LOGISTICSORDERNO" jdbcType="VARCHAR" property="logisticsorderno" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbAlibbporder">
+    <result column="LOGISTICSTRACE" jdbcType="LONGVARCHAR" property="logisticstrace" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ORDERID, REMARKS, PURCHASE, OPERTIME, CREATETIME, MODIFYTIME, LOGISTICSID, FLAG, 
+    SUPPORTPRINT, COMPANYPHONE, COMPANYNO, COMPANYNAME, COMPANYID, CONTET, ALISHOPID, 
+    LOGISTICSORDERNO, 'STATUS'
+  </sql>
+  <sql id="Blob_Column_List">
+    LOGISTICSTRACE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from db_alibbporder
+    where ORDERID = #{orderid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from db_alibbporder
+    where ORDERID = #{orderid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bean.model.DbAlibbporder">
+    insert into db_alibbporder (ORDERID, REMARKS, PURCHASE, 
+      OPERTIME, CREATETIME, MODIFYTIME, 
+      LOGISTICSID, FLAG, SUPPORTPRINT, 
+      COMPANYPHONE, COMPANYNO, COMPANYNAME, 
+      COMPANYID, CONTET, ALISHOPID, 
+      LOGISTICSORDERNO, 'STATUS', LOGISTICSTRACE
+      )
+    values (#{orderid,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, #{purchase,jdbcType=VARCHAR}, 
+      #{opertime,jdbcType=TIMESTAMP}, #{createtime,jdbcType=TIMESTAMP}, #{modifytime,jdbcType=TIMESTAMP}, 
+      #{logisticsid,jdbcType=VARCHAR}, #{flag,jdbcType=DECIMAL}, #{supportprint,jdbcType=VARCHAR}, 
+      #{companyphone,jdbcType=VARCHAR}, #{companyno,jdbcType=VARCHAR}, #{companyname,jdbcType=VARCHAR}, 
+      #{companyid,jdbcType=VARCHAR}, #{contet,jdbcType=VARCHAR}, #{alishopid,jdbcType=VARCHAR}, 
+      #{logisticsorderno,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{logisticstrace,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbAlibbporder">
+    insert into db_alibbporder
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderid != null">
+        ORDERID,
+      </if>
+      <if test="remarks != null">
+        REMARKS,
+      </if>
+      <if test="purchase != null">
+        PURCHASE,
+      </if>
+      <if test="opertime != null">
+        OPERTIME,
+      </if>
+      <if test="createtime != null">
+        CREATETIME,
+      </if>
+      <if test="modifytime != null">
+        MODIFYTIME,
+      </if>
+      <if test="logisticsid != null">
+        LOGISTICSID,
+      </if>
+      <if test="flag != null">
+        FLAG,
+      </if>
+      <if test="supportprint != null">
+        SUPPORTPRINT,
+      </if>
+      <if test="companyphone != null">
+        COMPANYPHONE,
+      </if>
+      <if test="companyno != null">
+        COMPANYNO,
+      </if>
+      <if test="companyname != null">
+        COMPANYNAME,
+      </if>
+      <if test="companyid != null">
+        COMPANYID,
+      </if>
+      <if test="contet != null">
+        CONTET,
+      </if>
+      <if test="alishopid != null">
+        ALISHOPID,
+      </if>
+      <if test="logisticsorderno != null">
+        LOGISTICSORDERNO,
+      </if>
+      <if test="status != null">
+        'STATUS',
+      </if>
+      <if test="logisticstrace != null">
+        LOGISTICSTRACE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderid != null">
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="purchase != null">
+        #{purchase,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null">
+        #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifytime != null">
+        #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="logisticsid != null">
+        #{logisticsid,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=DECIMAL},
+      </if>
+      <if test="supportprint != null">
+        #{supportprint,jdbcType=VARCHAR},
+      </if>
+      <if test="companyphone != null">
+        #{companyphone,jdbcType=VARCHAR},
+      </if>
+      <if test="companyno != null">
+        #{companyno,jdbcType=VARCHAR},
+      </if>
+      <if test="companyname != null">
+        #{companyname,jdbcType=VARCHAR},
+      </if>
+      <if test="companyid != null">
+        #{companyid,jdbcType=VARCHAR},
+      </if>
+      <if test="contet != null">
+        #{contet,jdbcType=VARCHAR},
+      </if>
+      <if test="alishopid != null">
+        #{alishopid,jdbcType=VARCHAR},
+      </if>
+      <if test="logisticsorderno != null">
+        #{logisticsorderno,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="logisticstrace != null">
+        #{logisticstrace,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbAlibbporder">
+    update db_alibbporder
+    <set>
+      <if test="remarks != null">
+        REMARKS = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="purchase != null">
+        PURCHASE = #{purchase,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null">
+        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createtime != null">
+        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifytime != null">
+        MODIFYTIME = #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="logisticsid != null">
+        LOGISTICSID = #{logisticsid,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        FLAG = #{flag,jdbcType=DECIMAL},
+      </if>
+      <if test="supportprint != null">
+        SUPPORTPRINT = #{supportprint,jdbcType=VARCHAR},
+      </if>
+      <if test="companyphone != null">
+        COMPANYPHONE = #{companyphone,jdbcType=VARCHAR},
+      </if>
+      <if test="companyno != null">
+        COMPANYNO = #{companyno,jdbcType=VARCHAR},
+      </if>
+      <if test="companyname != null">
+        COMPANYNAME = #{companyname,jdbcType=VARCHAR},
+      </if>
+      <if test="companyid != null">
+        COMPANYID = #{companyid,jdbcType=VARCHAR},
+      </if>
+      <if test="contet != null">
+        CONTET = #{contet,jdbcType=VARCHAR},
+      </if>
+      <if test="alishopid != null">
+        ALISHOPID = #{alishopid,jdbcType=VARCHAR},
+      </if>
+      <if test="logisticsorderno != null">
+        LOGISTICSORDERNO = #{logisticsorderno,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        'STATUS' = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="logisticstrace != null">
+        LOGISTICSTRACE = #{logisticstrace,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where ORDERID = #{orderid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbAlibbporder">
+    update db_alibbporder
+    set REMARKS = #{remarks,jdbcType=VARCHAR},
+      PURCHASE = #{purchase,jdbcType=VARCHAR},
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      MODIFYTIME = #{modifytime,jdbcType=TIMESTAMP},
+      LOGISTICSID = #{logisticsid,jdbcType=VARCHAR},
+      FLAG = #{flag,jdbcType=DECIMAL},
+      SUPPORTPRINT = #{supportprint,jdbcType=VARCHAR},
+      COMPANYPHONE = #{companyphone,jdbcType=VARCHAR},
+      COMPANYNO = #{companyno,jdbcType=VARCHAR},
+      COMPANYNAME = #{companyname,jdbcType=VARCHAR},
+      COMPANYID = #{companyid,jdbcType=VARCHAR},
+      CONTET = #{contet,jdbcType=VARCHAR},
+      ALISHOPID = #{alishopid,jdbcType=VARCHAR},
+      LOGISTICSORDERNO = #{logisticsorderno,jdbcType=VARCHAR},
+      'STATUS' = #{status,jdbcType=VARCHAR},
+      LOGISTICSTRACE = #{logisticstrace,jdbcType=LONGVARCHAR}
+    where ORDERID = #{orderid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbAlibbporder">
+    update db_alibbporder
+    set REMARKS = #{remarks,jdbcType=VARCHAR},
+      PURCHASE = #{purchase,jdbcType=VARCHAR},
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      MODIFYTIME = #{modifytime,jdbcType=TIMESTAMP},
+      LOGISTICSID = #{logisticsid,jdbcType=VARCHAR},
+      FLAG = #{flag,jdbcType=DECIMAL},
+      SUPPORTPRINT = #{supportprint,jdbcType=VARCHAR},
+      COMPANYPHONE = #{companyphone,jdbcType=VARCHAR},
+      COMPANYNO = #{companyno,jdbcType=VARCHAR},
+      COMPANYNAME = #{companyname,jdbcType=VARCHAR},
+      COMPANYID = #{companyid,jdbcType=VARCHAR},
+      CONTET = #{contet,jdbcType=VARCHAR},
+      ALISHOPID = #{alishopid,jdbcType=VARCHAR},
+      LOGISTICSORDERNO = #{logisticsorderno,jdbcType=VARCHAR},
+      'STATUS' = #{status,jdbcType=VARCHAR}
+    where ORDERID = #{orderid,jdbcType=VARCHAR}
+  </update>
+</mapper>

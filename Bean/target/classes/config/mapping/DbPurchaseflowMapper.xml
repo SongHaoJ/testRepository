@@ -1,0 +1,1424 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbPurchaseflowMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbPurchaseflow">
+    <id column="SEQUENCEID" jdbcType="DECIMAL" property="sequenceid" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPENFLAG" jdbcType="DECIMAL" property="openflag" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
+    <result column="ARRIVEDATE" jdbcType="TIMESTAMP" property="arrivedate" />
+    <result column="FOLLOWUPOPER" jdbcType="VARCHAR" property="followupoper" />
+    <result column="POORDERFLAG" jdbcType="VARCHAR" property="poorderflag" />
+    <result column="PRODUCTID" jdbcType="VARCHAR" property="productid" />
+    <result column="PAYMENT" jdbcType="VARCHAR" property="payment" />
+    <result column="ALLMONEY" jdbcType="DECIMAL" property="allmoney" />
+    <result column="DEPOSIT" jdbcType="DECIMAL" property="deposit" />
+    <result column="STATUS" jdbcType="DECIMAL" property="status" />
+    <result column="DOLLAR" jdbcType="DECIMAL" property="dollar" />
+    <result column="POSURE" jdbcType="VARCHAR" property="posure" />
+    <result column="PHOTOQCDATE" jdbcType="TIMESTAMP" property="photoqcdate" />
+    <result column="SAMPLENUM" jdbcType="DECIMAL" property="samplenum" />
+    <result column="SAMPLEARRIVEDATE" jdbcType="TIMESTAMP" property="samplearrivedate" />
+    <result column="FTCBM" jdbcType="DECIMAL" property="ftcbm" />
+    <result column="DELIVERYDATE" jdbcType="TIMESTAMP" property="deliverydate" />
+    <result column="FINISHORDERDATE" jdbcType="TIMESTAMP" property="finishorderdate" />
+    <result column="DRAWBACKDATE" jdbcType="TIMESTAMP" property="drawbackdate" />
+    <result column="EXPRESSDATE" jdbcType="TIMESTAMP" property="expressdate" />
+    <result column="CKY" jdbcType="VARCHAR" property="cky" />
+    <result column="FPX" jdbcType="VARCHAR" property="fpx" />
+    <result column="EXPRESSID" jdbcType="VARCHAR" property="expressid" />
+    <result column="PONUM" jdbcType="VARCHAR" property="ponum" />
+    <result column="LOADDATE" jdbcType="TIMESTAMP" property="loaddate" />
+    <result column="ETAHARBOURDATE" jdbcType="TIMESTAMP" property="etaharbourdate" />
+    <result column="ETAARRIVEDATE" jdbcType="TIMESTAMP" property="etaarrivedate" />
+    <result column="ARRIVESTOREDATE" jdbcType="TIMESTAMP" property="arrivestoredate" />
+    <result column="AUGARNEREDDATE" jdbcType="TIMESTAMP" property="augarnereddate" />
+    <result column="BILLOFLADING" jdbcType="VARCHAR" property="billoflading" />
+    <result column="CLOSEDATE" jdbcType="TIMESTAMP" property="closedate" />
+    <result column="GROUPID" jdbcType="VARCHAR" property="groupid" />
+    <result column="DEPOSITDATE" jdbcType="TIMESTAMP" property="depositdate" />
+    <result column="EXPRESSTYPE" jdbcType="VARCHAR" property="expresstype" />
+    <result column="CREATEOPER" jdbcType="VARCHAR" property="createoper" />
+    <result column="CREATEDATE" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="DRAWBACKFLAG" jdbcType="VARCHAR" property="drawbackflag" />
+    <result column="SHIPMENTDATE" jdbcType="TIMESTAMP" property="shipmentdate" />
+    <result column="ARRIVALDATE" jdbcType="TIMESTAMP" property="arrivaldate" />
+    <result column="FINALDATE" jdbcType="TIMESTAMP" property="finaldate" />
+    <result column="SHIPMENTMONEY" jdbcType="DECIMAL" property="shipmentmoney" />
+    <result column="ARRIVALMONEY" jdbcType="DECIMAL" property="arrivalmoney" />
+    <result column="FINALMONEY" jdbcType="DECIMAL" property="finalmoney" />
+    <result column="URGENT" jdbcType="VARCHAR" property="urgent" />
+    <result column="PICTURE1" jdbcType="VARCHAR" property="picture1" />
+    <result column="RESERVE5" jdbcType="VARCHAR" property="reserve5" />
+    <result column="RESERVE6" jdbcType="DECIMAL" property="reserve6" />
+    <result column="INPORTTIME" jdbcType="TIMESTAMP" property="inporttime" />
+    <result column="STOCKTIME" jdbcType="TIMESTAMP" property="stocktime" />
+    <result column="RESERVE9" jdbcType="DECIMAL" property="reserve9" />
+    <result column="RESERVE10" jdbcType="DECIMAL" property="reserve10" />
+    <result column="RESERVE11" jdbcType="DECIMAL" property="reserve11" />
+    <result column="RESERVE12" jdbcType="DECIMAL" property="reserve12" />
+    <result column="RESERVE13" jdbcType="DECIMAL" property="reserve13" />
+    <result column="RESERVE14" jdbcType="DECIMAL" property="reserve14" />
+    <result column="OUTERLENGTH" jdbcType="DECIMAL" property="outerlength" />
+    <result column="OUTERWIDTH" jdbcType="DECIMAL" property="outerwidth" />
+    <result column="OUTERHIGH" jdbcType="DECIMAL" property="outerhigh" />
+    <result column="OUTERVOLUME" jdbcType="DECIMAL" property="outervolume" />
+    <result column="OUTERGROSSWEIGHT" jdbcType="DECIMAL" property="outergrossweight" />
+    <result column="OUTERNETWEIGHT" jdbcType="DECIMAL" property="outernetweight" />
+    <result column="GROSSWEIGHT" jdbcType="DECIMAL" property="grossweight" />
+    <result column="LENGTH" jdbcType="DECIMAL" property="length" />
+    <result column="WIDTH" jdbcType="DECIMAL" property="width" />
+    <result column="HIGH" jdbcType="DECIMAL" property="high" />
+    <result column="VOLUME" jdbcType="DECIMAL" property="volume" />
+    <result column="ORDERNUM" jdbcType="DECIMAL" property="ordernum" />
+    <result column="MANUFACTURE" jdbcType="VARCHAR" property="manufacture" />
+    <result column="MANUFACTUREID" jdbcType="VARCHAR" property="manufactureid" />
+    <result column="PAYMENTTYPE" jdbcType="VARCHAR" property="paymenttype" />
+    <result column="INPORTPRICE" jdbcType="DECIMAL" property="inportprice" />
+    <result column="AMOUNT" jdbcType="DECIMAL" property="amount" />
+    <result column="WEIGHT" jdbcType="DECIMAL" property="weight" />
+    <result column="DEVELOPSID" jdbcType="DECIMAL" property="developsid" />
+    <result column="STOCKPRICE" jdbcType="DECIMAL" property="stockprice" />
+    <result column="QUANTITIES" jdbcType="VARCHAR" property="quantities" />
+    <result column="PICTURE2" jdbcType="VARCHAR" property="picture2" />
+    <result column="PICTURE3" jdbcType="VARCHAR" property="picture3" />
+    <result column="PICTURE4" jdbcType="VARCHAR" property="picture4" />
+    <result column="COSTPRICE" jdbcType="DECIMAL" property="costprice" />
+    <result column="SEVEN" jdbcType="DECIMAL" property="seven" />
+    <result column="THIRTY" jdbcType="DECIMAL" property="thirty" />
+    <result column="NINETY" jdbcType="DECIMAL" property="ninety" />
+    <result column="AVERAGEDAILYSALES" jdbcType="VARCHAR" property="averagedailysales" />
+    <result column="OEMNO" jdbcType="VARCHAR" property="oemno" />
+    <result column="PRODUCTSTATUS" jdbcType="VARCHAR" property="productstatus" />
+    <result column="SAVENUM" jdbcType="DECIMAL" property="savenum" />
+    <result column="SELLPRICE" jdbcType="DECIMAL" property="sellprice" />
+    <result column="DELAY" jdbcType="DECIMAL" property="delay" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbPurchaseflow">
+    <result column="POSITION" jdbcType="LONGVARCHAR" property="position" />
+    <result column="COMPANY" jdbcType="LONGVARCHAR" property="company" />
+    <result column="PRODUCTNAME" jdbcType="LONGVARCHAR" property="productname" />
+    <result column="CONTENT" jdbcType="LONGVARCHAR" property="content" />
+    <result column="NOTE" jdbcType="LONGVARCHAR" property="note" />
+    <result column="CITY" jdbcType="LONGVARCHAR" property="city" />
+    <result column="CONTAINERNOTE" jdbcType="LONGVARCHAR" property="containernote" />
+    <result column="PACKINGLIST" jdbcType="LONGVARCHAR" property="packinglist" />
+    <result column="SHIPMENTUPDATEINVENTORY" jdbcType="LONGVARCHAR" property="shipmentupdateinventory" />
+    <result column="GARNEREDUPDATEINVENTORY" jdbcType="LONGVARCHAR" property="garneredupdateinventory" />
+    <result column="MONEYNOTE" jdbcType="LONGVARCHAR" property="moneynote" />
+    <result column="RESERVE1" jdbcType="LONGVARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="LONGVARCHAR" property="reserve2" />
+    <result column="RESERVE3" jdbcType="LONGVARCHAR" property="reserve3" />
+    <result column="RESERVE4" jdbcType="LONGVARCHAR" property="reserve4" />
+    <result column="OUTERNORMS" jdbcType="LONGVARCHAR" property="outernorms" />
+    <result column="OUTERLEVEL" jdbcType="LONGVARCHAR" property="outerlevel" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SEQUENCEID, OPER, OPENFLAG, OPERTIME, CORPID, ARRIVEDATE, FOLLOWUPOPER, POORDERFLAG, 
+    PRODUCTID, PAYMENT, ALLMONEY, DEPOSIT, 'STATUS', DOLLAR, POSURE, PHOTOQCDATE, SAMPLENUM, 
+    SAMPLEARRIVEDATE, FTCBM, DELIVERYDATE, FINISHORDERDATE, DRAWBACKDATE, EXPRESSDATE, 
+    CKY, FPX, EXPRESSID, PONUM, LOADDATE, ETAHARBOURDATE, ETAARRIVEDATE, ARRIVESTOREDATE, 
+    AUGARNEREDDATE, BILLOFLADING, CLOSEDATE, GROUPID, DEPOSITDATE, EXPRESSTYPE, CREATEOPER, 
+    CREATEDATE, DRAWBACKFLAG, SHIPMENTDATE, ARRIVALDATE, FINALDATE, SHIPMENTMONEY, ARRIVALMONEY, 
+    FINALMONEY, URGENT, PICTURE1, RESERVE5, RESERVE6, INPORTTIME, STOCKTIME, RESERVE9, 
+    RESERVE10, RESERVE11, RESERVE12, RESERVE13, RESERVE14, OUTERLENGTH, OUTERWIDTH, OUTERHIGH, 
+    OUTERVOLUME, OUTERGROSSWEIGHT, OUTERNETWEIGHT, GROSSWEIGHT, 'LENGTH', WIDTH, HIGH, 
+    VOLUME, ORDERNUM, MANUFACTURE, MANUFACTUREID, PAYMENTTYPE, INPORTPRICE, AMOUNT, WEIGHT, 
+    DEVELOPSID, STOCKPRICE, QUANTITIES, PICTURE2, PICTURE3, PICTURE4, COSTPRICE, SEVEN, 
+    THIRTY, NINETY, AVERAGEDAILYSALES, OEMNO, PRODUCTSTATUS, SAVENUM, SELLPRICE, DELAY
+  </sql>
+  <sql id="Blob_Column_List">
+    'POSITION', COMPANY, PRODUCTNAME, CONTENT, NOTE, CITY, CONTAINERNOTE, PACKINGLIST, 
+    SHIPMENTUPDATEINVENTORY, GARNEREDUPDATEINVENTORY, MONEYNOTE, RESERVE1, RESERVE2, 
+    RESERVE3, RESERVE4, OUTERNORMS, OUTERLEVEL
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from db_purchaseflow
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
+    delete from db_purchaseflow
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.bean.model.DbPurchaseflow">
+    insert into db_purchaseflow (SEQUENCEID, OPER, OPENFLAG, 
+      OPERTIME, CORPID, ARRIVEDATE, 
+      FOLLOWUPOPER, POORDERFLAG, PRODUCTID, 
+      PAYMENT, ALLMONEY, DEPOSIT, 
+      'STATUS', DOLLAR, POSURE, 
+      PHOTOQCDATE, SAMPLENUM, SAMPLEARRIVEDATE, 
+      FTCBM, DELIVERYDATE, FINISHORDERDATE, 
+      DRAWBACKDATE, EXPRESSDATE, CKY, 
+      FPX, EXPRESSID, PONUM, 
+      LOADDATE, ETAHARBOURDATE, ETAARRIVEDATE, 
+      ARRIVESTOREDATE, AUGARNEREDDATE, BILLOFLADING, 
+      CLOSEDATE, GROUPID, DEPOSITDATE, 
+      EXPRESSTYPE, CREATEOPER, CREATEDATE, 
+      DRAWBACKFLAG, SHIPMENTDATE, ARRIVALDATE, 
+      FINALDATE, SHIPMENTMONEY, ARRIVALMONEY, 
+      FINALMONEY, URGENT, PICTURE1, 
+      RESERVE5, RESERVE6, INPORTTIME, 
+      STOCKTIME, RESERVE9, RESERVE10, 
+      RESERVE11, RESERVE12, RESERVE13, 
+      RESERVE14, OUTERLENGTH, OUTERWIDTH, 
+      OUTERHIGH, OUTERVOLUME, OUTERGROSSWEIGHT, 
+      OUTERNETWEIGHT, GROSSWEIGHT, 'LENGTH', 
+      WIDTH, HIGH, VOLUME, 
+      ORDERNUM, MANUFACTURE, MANUFACTUREID, 
+      PAYMENTTYPE, INPORTPRICE, AMOUNT, 
+      WEIGHT, DEVELOPSID, STOCKPRICE, 
+      QUANTITIES, PICTURE2, PICTURE3, 
+      PICTURE4, COSTPRICE, SEVEN, 
+      THIRTY, NINETY, AVERAGEDAILYSALES, 
+      OEMNO, PRODUCTSTATUS, SAVENUM, 
+      SELLPRICE, DELAY, 'POSITION', 
+      COMPANY, PRODUCTNAME, CONTENT, 
+      NOTE, CITY, CONTAINERNOTE, 
+      PACKINGLIST, SHIPMENTUPDATEINVENTORY, 
+      GARNEREDUPDATEINVENTORY, MONEYNOTE, 
+      RESERVE1, RESERVE2, RESERVE3, 
+      RESERVE4, OUTERNORMS, OUTERLEVEL
+      )
+    values (#{sequenceid,jdbcType=DECIMAL}, #{oper,jdbcType=VARCHAR}, #{openflag,jdbcType=DECIMAL}, 
+      #{opertime,jdbcType=TIMESTAMP}, #{corpid,jdbcType=VARCHAR}, #{arrivedate,jdbcType=TIMESTAMP}, 
+      #{followupoper,jdbcType=VARCHAR}, #{poorderflag,jdbcType=VARCHAR}, #{productid,jdbcType=VARCHAR}, 
+      #{payment,jdbcType=VARCHAR}, #{allmoney,jdbcType=DECIMAL}, #{deposit,jdbcType=DECIMAL}, 
+      #{status,jdbcType=DECIMAL}, #{dollar,jdbcType=DECIMAL}, #{posure,jdbcType=VARCHAR}, 
+      #{photoqcdate,jdbcType=TIMESTAMP}, #{samplenum,jdbcType=DECIMAL}, #{samplearrivedate,jdbcType=TIMESTAMP}, 
+      #{ftcbm,jdbcType=DECIMAL}, #{deliverydate,jdbcType=TIMESTAMP}, #{finishorderdate,jdbcType=TIMESTAMP}, 
+      #{drawbackdate,jdbcType=TIMESTAMP}, #{expressdate,jdbcType=TIMESTAMP}, #{cky,jdbcType=VARCHAR}, 
+      #{fpx,jdbcType=VARCHAR}, #{expressid,jdbcType=VARCHAR}, #{ponum,jdbcType=VARCHAR}, 
+      #{loaddate,jdbcType=TIMESTAMP}, #{etaharbourdate,jdbcType=TIMESTAMP}, #{etaarrivedate,jdbcType=TIMESTAMP}, 
+      #{arrivestoredate,jdbcType=TIMESTAMP}, #{augarnereddate,jdbcType=TIMESTAMP}, #{billoflading,jdbcType=VARCHAR}, 
+      #{closedate,jdbcType=TIMESTAMP}, #{groupid,jdbcType=VARCHAR}, #{depositdate,jdbcType=TIMESTAMP}, 
+      #{expresstype,jdbcType=VARCHAR}, #{createoper,jdbcType=VARCHAR}, #{createdate,jdbcType=TIMESTAMP}, 
+      #{drawbackflag,jdbcType=VARCHAR}, #{shipmentdate,jdbcType=TIMESTAMP}, #{arrivaldate,jdbcType=TIMESTAMP}, 
+      #{finaldate,jdbcType=TIMESTAMP}, #{shipmentmoney,jdbcType=DECIMAL}, #{arrivalmoney,jdbcType=DECIMAL}, 
+      #{finalmoney,jdbcType=DECIMAL}, #{urgent,jdbcType=VARCHAR}, #{picture1,jdbcType=VARCHAR}, 
+      #{reserve5,jdbcType=VARCHAR}, #{reserve6,jdbcType=DECIMAL}, #{inporttime,jdbcType=TIMESTAMP}, 
+      #{stocktime,jdbcType=TIMESTAMP}, #{reserve9,jdbcType=DECIMAL}, #{reserve10,jdbcType=DECIMAL}, 
+      #{reserve11,jdbcType=DECIMAL}, #{reserve12,jdbcType=DECIMAL}, #{reserve13,jdbcType=DECIMAL}, 
+      #{reserve14,jdbcType=DECIMAL}, #{outerlength,jdbcType=DECIMAL}, #{outerwidth,jdbcType=DECIMAL}, 
+      #{outerhigh,jdbcType=DECIMAL}, #{outervolume,jdbcType=DECIMAL}, #{outergrossweight,jdbcType=DECIMAL}, 
+      #{outernetweight,jdbcType=DECIMAL}, #{grossweight,jdbcType=DECIMAL}, #{length,jdbcType=DECIMAL}, 
+      #{width,jdbcType=DECIMAL}, #{high,jdbcType=DECIMAL}, #{volume,jdbcType=DECIMAL}, 
+      #{ordernum,jdbcType=DECIMAL}, #{manufacture,jdbcType=VARCHAR}, #{manufactureid,jdbcType=VARCHAR}, 
+      #{paymenttype,jdbcType=VARCHAR}, #{inportprice,jdbcType=DECIMAL}, #{amount,jdbcType=DECIMAL}, 
+      #{weight,jdbcType=DECIMAL}, #{developsid,jdbcType=DECIMAL}, #{stockprice,jdbcType=DECIMAL}, 
+      #{quantities,jdbcType=VARCHAR}, #{picture2,jdbcType=VARCHAR}, #{picture3,jdbcType=VARCHAR}, 
+      #{picture4,jdbcType=VARCHAR}, #{costprice,jdbcType=DECIMAL}, #{seven,jdbcType=DECIMAL}, 
+      #{thirty,jdbcType=DECIMAL}, #{ninety,jdbcType=DECIMAL}, #{averagedailysales,jdbcType=VARCHAR}, 
+      #{oemno,jdbcType=VARCHAR}, #{productstatus,jdbcType=VARCHAR}, #{savenum,jdbcType=DECIMAL}, 
+      #{sellprice,jdbcType=DECIMAL}, #{delay,jdbcType=DECIMAL}, #{position,jdbcType=LONGVARCHAR}, 
+      #{company,jdbcType=LONGVARCHAR}, #{productname,jdbcType=LONGVARCHAR}, #{content,jdbcType=LONGVARCHAR}, 
+      #{note,jdbcType=LONGVARCHAR}, #{city,jdbcType=LONGVARCHAR}, #{containernote,jdbcType=LONGVARCHAR}, 
+      #{packinglist,jdbcType=LONGVARCHAR}, #{shipmentupdateinventory,jdbcType=LONGVARCHAR}, 
+      #{garneredupdateinventory,jdbcType=LONGVARCHAR}, #{moneynote,jdbcType=LONGVARCHAR}, 
+      #{reserve1,jdbcType=LONGVARCHAR}, #{reserve2,jdbcType=LONGVARCHAR}, #{reserve3,jdbcType=LONGVARCHAR}, 
+      #{reserve4,jdbcType=LONGVARCHAR}, #{outernorms,jdbcType=LONGVARCHAR}, #{outerlevel,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbPurchaseflow">
+    insert into db_purchaseflow
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        SEQUENCEID,
+      </if>
+      <if test="oper != null">
+        OPER,
+      </if>
+      <if test="openflag != null">
+        OPENFLAG,
+      </if>
+      <if test="opertime != null">
+        OPERTIME,
+      </if>
+      <if test="corpid != null">
+        CORPID,
+      </if>
+      <if test="arrivedate != null">
+        ARRIVEDATE,
+      </if>
+      <if test="followupoper != null">
+        FOLLOWUPOPER,
+      </if>
+      <if test="poorderflag != null">
+        POORDERFLAG,
+      </if>
+      <if test="productid != null">
+        PRODUCTID,
+      </if>
+      <if test="payment != null">
+        PAYMENT,
+      </if>
+      <if test="allmoney != null">
+        ALLMONEY,
+      </if>
+      <if test="deposit != null">
+        DEPOSIT,
+      </if>
+      <if test="status != null">
+        'STATUS',
+      </if>
+      <if test="dollar != null">
+        DOLLAR,
+      </if>
+      <if test="posure != null">
+        POSURE,
+      </if>
+      <if test="photoqcdate != null">
+        PHOTOQCDATE,
+      </if>
+      <if test="samplenum != null">
+        SAMPLENUM,
+      </if>
+      <if test="samplearrivedate != null">
+        SAMPLEARRIVEDATE,
+      </if>
+      <if test="ftcbm != null">
+        FTCBM,
+      </if>
+      <if test="deliverydate != null">
+        DELIVERYDATE,
+      </if>
+      <if test="finishorderdate != null">
+        FINISHORDERDATE,
+      </if>
+      <if test="drawbackdate != null">
+        DRAWBACKDATE,
+      </if>
+      <if test="expressdate != null">
+        EXPRESSDATE,
+      </if>
+      <if test="cky != null">
+        CKY,
+      </if>
+      <if test="fpx != null">
+        FPX,
+      </if>
+      <if test="expressid != null">
+        EXPRESSID,
+      </if>
+      <if test="ponum != null">
+        PONUM,
+      </if>
+      <if test="loaddate != null">
+        LOADDATE,
+      </if>
+      <if test="etaharbourdate != null">
+        ETAHARBOURDATE,
+      </if>
+      <if test="etaarrivedate != null">
+        ETAARRIVEDATE,
+      </if>
+      <if test="arrivestoredate != null">
+        ARRIVESTOREDATE,
+      </if>
+      <if test="augarnereddate != null">
+        AUGARNEREDDATE,
+      </if>
+      <if test="billoflading != null">
+        BILLOFLADING,
+      </if>
+      <if test="closedate != null">
+        CLOSEDATE,
+      </if>
+      <if test="groupid != null">
+        GROUPID,
+      </if>
+      <if test="depositdate != null">
+        DEPOSITDATE,
+      </if>
+      <if test="expresstype != null">
+        EXPRESSTYPE,
+      </if>
+      <if test="createoper != null">
+        CREATEOPER,
+      </if>
+      <if test="createdate != null">
+        CREATEDATE,
+      </if>
+      <if test="drawbackflag != null">
+        DRAWBACKFLAG,
+      </if>
+      <if test="shipmentdate != null">
+        SHIPMENTDATE,
+      </if>
+      <if test="arrivaldate != null">
+        ARRIVALDATE,
+      </if>
+      <if test="finaldate != null">
+        FINALDATE,
+      </if>
+      <if test="shipmentmoney != null">
+        SHIPMENTMONEY,
+      </if>
+      <if test="arrivalmoney != null">
+        ARRIVALMONEY,
+      </if>
+      <if test="finalmoney != null">
+        FINALMONEY,
+      </if>
+      <if test="urgent != null">
+        URGENT,
+      </if>
+      <if test="picture1 != null">
+        PICTURE1,
+      </if>
+      <if test="reserve5 != null">
+        RESERVE5,
+      </if>
+      <if test="reserve6 != null">
+        RESERVE6,
+      </if>
+      <if test="inporttime != null">
+        INPORTTIME,
+      </if>
+      <if test="stocktime != null">
+        STOCKTIME,
+      </if>
+      <if test="reserve9 != null">
+        RESERVE9,
+      </if>
+      <if test="reserve10 != null">
+        RESERVE10,
+      </if>
+      <if test="reserve11 != null">
+        RESERVE11,
+      </if>
+      <if test="reserve12 != null">
+        RESERVE12,
+      </if>
+      <if test="reserve13 != null">
+        RESERVE13,
+      </if>
+      <if test="reserve14 != null">
+        RESERVE14,
+      </if>
+      <if test="outerlength != null">
+        OUTERLENGTH,
+      </if>
+      <if test="outerwidth != null">
+        OUTERWIDTH,
+      </if>
+      <if test="outerhigh != null">
+        OUTERHIGH,
+      </if>
+      <if test="outervolume != null">
+        OUTERVOLUME,
+      </if>
+      <if test="outergrossweight != null">
+        OUTERGROSSWEIGHT,
+      </if>
+      <if test="outernetweight != null">
+        OUTERNETWEIGHT,
+      </if>
+      <if test="grossweight != null">
+        GROSSWEIGHT,
+      </if>
+      <if test="length != null">
+        'LENGTH',
+      </if>
+      <if test="width != null">
+        WIDTH,
+      </if>
+      <if test="high != null">
+        HIGH,
+      </if>
+      <if test="volume != null">
+        VOLUME,
+      </if>
+      <if test="ordernum != null">
+        ORDERNUM,
+      </if>
+      <if test="manufacture != null">
+        MANUFACTURE,
+      </if>
+      <if test="manufactureid != null">
+        MANUFACTUREID,
+      </if>
+      <if test="paymenttype != null">
+        PAYMENTTYPE,
+      </if>
+      <if test="inportprice != null">
+        INPORTPRICE,
+      </if>
+      <if test="amount != null">
+        AMOUNT,
+      </if>
+      <if test="weight != null">
+        WEIGHT,
+      </if>
+      <if test="developsid != null">
+        DEVELOPSID,
+      </if>
+      <if test="stockprice != null">
+        STOCKPRICE,
+      </if>
+      <if test="quantities != null">
+        QUANTITIES,
+      </if>
+      <if test="picture2 != null">
+        PICTURE2,
+      </if>
+      <if test="picture3 != null">
+        PICTURE3,
+      </if>
+      <if test="picture4 != null">
+        PICTURE4,
+      </if>
+      <if test="costprice != null">
+        COSTPRICE,
+      </if>
+      <if test="seven != null">
+        SEVEN,
+      </if>
+      <if test="thirty != null">
+        THIRTY,
+      </if>
+      <if test="ninety != null">
+        NINETY,
+      </if>
+      <if test="averagedailysales != null">
+        AVERAGEDAILYSALES,
+      </if>
+      <if test="oemno != null">
+        OEMNO,
+      </if>
+      <if test="productstatus != null">
+        PRODUCTSTATUS,
+      </if>
+      <if test="savenum != null">
+        SAVENUM,
+      </if>
+      <if test="sellprice != null">
+        SELLPRICE,
+      </if>
+      <if test="delay != null">
+        DELAY,
+      </if>
+      <if test="position != null">
+        'POSITION',
+      </if>
+      <if test="company != null">
+        COMPANY,
+      </if>
+      <if test="productname != null">
+        PRODUCTNAME,
+      </if>
+      <if test="content != null">
+        CONTENT,
+      </if>
+      <if test="note != null">
+        NOTE,
+      </if>
+      <if test="city != null">
+        CITY,
+      </if>
+      <if test="containernote != null">
+        CONTAINERNOTE,
+      </if>
+      <if test="packinglist != null">
+        PACKINGLIST,
+      </if>
+      <if test="shipmentupdateinventory != null">
+        SHIPMENTUPDATEINVENTORY,
+      </if>
+      <if test="garneredupdateinventory != null">
+        GARNEREDUPDATEINVENTORY,
+      </if>
+      <if test="moneynote != null">
+        MONEYNOTE,
+      </if>
+      <if test="reserve1 != null">
+        RESERVE1,
+      </if>
+      <if test="reserve2 != null">
+        RESERVE2,
+      </if>
+      <if test="reserve3 != null">
+        RESERVE3,
+      </if>
+      <if test="reserve4 != null">
+        RESERVE4,
+      </if>
+      <if test="outernorms != null">
+        OUTERNORMS,
+      </if>
+      <if test="outerlevel != null">
+        OUTERLEVEL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        #{sequenceid,jdbcType=DECIMAL},
+      </if>
+      <if test="oper != null">
+        #{oper,jdbcType=VARCHAR},
+      </if>
+      <if test="openflag != null">
+        #{openflag,jdbcType=DECIMAL},
+      </if>
+      <if test="opertime != null">
+        #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="corpid != null">
+        #{corpid,jdbcType=VARCHAR},
+      </if>
+      <if test="arrivedate != null">
+        #{arrivedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="followupoper != null">
+        #{followupoper,jdbcType=VARCHAR},
+      </if>
+      <if test="poorderflag != null">
+        #{poorderflag,jdbcType=VARCHAR},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="payment != null">
+        #{payment,jdbcType=VARCHAR},
+      </if>
+      <if test="allmoney != null">
+        #{allmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="deposit != null">
+        #{deposit,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="dollar != null">
+        #{dollar,jdbcType=DECIMAL},
+      </if>
+      <if test="posure != null">
+        #{posure,jdbcType=VARCHAR},
+      </if>
+      <if test="photoqcdate != null">
+        #{photoqcdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="samplenum != null">
+        #{samplenum,jdbcType=DECIMAL},
+      </if>
+      <if test="samplearrivedate != null">
+        #{samplearrivedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ftcbm != null">
+        #{ftcbm,jdbcType=DECIMAL},
+      </if>
+      <if test="deliverydate != null">
+        #{deliverydate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="finishorderdate != null">
+        #{finishorderdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="drawbackdate != null">
+        #{drawbackdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expressdate != null">
+        #{expressdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cky != null">
+        #{cky,jdbcType=VARCHAR},
+      </if>
+      <if test="fpx != null">
+        #{fpx,jdbcType=VARCHAR},
+      </if>
+      <if test="expressid != null">
+        #{expressid,jdbcType=VARCHAR},
+      </if>
+      <if test="ponum != null">
+        #{ponum,jdbcType=VARCHAR},
+      </if>
+      <if test="loaddate != null">
+        #{loaddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="etaharbourdate != null">
+        #{etaharbourdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="etaarrivedate != null">
+        #{etaarrivedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="arrivestoredate != null">
+        #{arrivestoredate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="augarnereddate != null">
+        #{augarnereddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="billoflading != null">
+        #{billoflading,jdbcType=VARCHAR},
+      </if>
+      <if test="closedate != null">
+        #{closedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="groupid != null">
+        #{groupid,jdbcType=VARCHAR},
+      </if>
+      <if test="depositdate != null">
+        #{depositdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expresstype != null">
+        #{expresstype,jdbcType=VARCHAR},
+      </if>
+      <if test="createoper != null">
+        #{createoper,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="drawbackflag != null">
+        #{drawbackflag,jdbcType=VARCHAR},
+      </if>
+      <if test="shipmentdate != null">
+        #{shipmentdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="arrivaldate != null">
+        #{arrivaldate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="finaldate != null">
+        #{finaldate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="shipmentmoney != null">
+        #{shipmentmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="arrivalmoney != null">
+        #{arrivalmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="finalmoney != null">
+        #{finalmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="urgent != null">
+        #{urgent,jdbcType=VARCHAR},
+      </if>
+      <if test="picture1 != null">
+        #{picture1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve5 != null">
+        #{reserve5,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve6 != null">
+        #{reserve6,jdbcType=DECIMAL},
+      </if>
+      <if test="inporttime != null">
+        #{inporttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stocktime != null">
+        #{stocktime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reserve9 != null">
+        #{reserve9,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve10 != null">
+        #{reserve10,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve11 != null">
+        #{reserve11,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve12 != null">
+        #{reserve12,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve13 != null">
+        #{reserve13,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve14 != null">
+        #{reserve14,jdbcType=DECIMAL},
+      </if>
+      <if test="outerlength != null">
+        #{outerlength,jdbcType=DECIMAL},
+      </if>
+      <if test="outerwidth != null">
+        #{outerwidth,jdbcType=DECIMAL},
+      </if>
+      <if test="outerhigh != null">
+        #{outerhigh,jdbcType=DECIMAL},
+      </if>
+      <if test="outervolume != null">
+        #{outervolume,jdbcType=DECIMAL},
+      </if>
+      <if test="outergrossweight != null">
+        #{outergrossweight,jdbcType=DECIMAL},
+      </if>
+      <if test="outernetweight != null">
+        #{outernetweight,jdbcType=DECIMAL},
+      </if>
+      <if test="grossweight != null">
+        #{grossweight,jdbcType=DECIMAL},
+      </if>
+      <if test="length != null">
+        #{length,jdbcType=DECIMAL},
+      </if>
+      <if test="width != null">
+        #{width,jdbcType=DECIMAL},
+      </if>
+      <if test="high != null">
+        #{high,jdbcType=DECIMAL},
+      </if>
+      <if test="volume != null">
+        #{volume,jdbcType=DECIMAL},
+      </if>
+      <if test="ordernum != null">
+        #{ordernum,jdbcType=DECIMAL},
+      </if>
+      <if test="manufacture != null">
+        #{manufacture,jdbcType=VARCHAR},
+      </if>
+      <if test="manufactureid != null">
+        #{manufactureid,jdbcType=VARCHAR},
+      </if>
+      <if test="paymenttype != null">
+        #{paymenttype,jdbcType=VARCHAR},
+      </if>
+      <if test="inportprice != null">
+        #{inportprice,jdbcType=DECIMAL},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="weight != null">
+        #{weight,jdbcType=DECIMAL},
+      </if>
+      <if test="developsid != null">
+        #{developsid,jdbcType=DECIMAL},
+      </if>
+      <if test="stockprice != null">
+        #{stockprice,jdbcType=DECIMAL},
+      </if>
+      <if test="quantities != null">
+        #{quantities,jdbcType=VARCHAR},
+      </if>
+      <if test="picture2 != null">
+        #{picture2,jdbcType=VARCHAR},
+      </if>
+      <if test="picture3 != null">
+        #{picture3,jdbcType=VARCHAR},
+      </if>
+      <if test="picture4 != null">
+        #{picture4,jdbcType=VARCHAR},
+      </if>
+      <if test="costprice != null">
+        #{costprice,jdbcType=DECIMAL},
+      </if>
+      <if test="seven != null">
+        #{seven,jdbcType=DECIMAL},
+      </if>
+      <if test="thirty != null">
+        #{thirty,jdbcType=DECIMAL},
+      </if>
+      <if test="ninety != null">
+        #{ninety,jdbcType=DECIMAL},
+      </if>
+      <if test="averagedailysales != null">
+        #{averagedailysales,jdbcType=VARCHAR},
+      </if>
+      <if test="oemno != null">
+        #{oemno,jdbcType=VARCHAR},
+      </if>
+      <if test="productstatus != null">
+        #{productstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="savenum != null">
+        #{savenum,jdbcType=DECIMAL},
+      </if>
+      <if test="sellprice != null">
+        #{sellprice,jdbcType=DECIMAL},
+      </if>
+      <if test="delay != null">
+        #{delay,jdbcType=DECIMAL},
+      </if>
+      <if test="position != null">
+        #{position,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="company != null">
+        #{company,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="productname != null">
+        #{productname,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="note != null">
+        #{note,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="containernote != null">
+        #{containernote,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="packinglist != null">
+        #{packinglist,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="shipmentupdateinventory != null">
+        #{shipmentupdateinventory,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="garneredupdateinventory != null">
+        #{garneredupdateinventory,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="moneynote != null">
+        #{moneynote,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reserve1 != null">
+        #{reserve1,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reserve2 != null">
+        #{reserve2,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reserve3 != null">
+        #{reserve3,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reserve4 != null">
+        #{reserve4,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="outernorms != null">
+        #{outernorms,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="outerlevel != null">
+        #{outerlevel,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbPurchaseflow">
+    update db_purchaseflow
+    <set>
+      <if test="oper != null">
+        OPER = #{oper,jdbcType=VARCHAR},
+      </if>
+      <if test="openflag != null">
+        OPENFLAG = #{openflag,jdbcType=DECIMAL},
+      </if>
+      <if test="opertime != null">
+        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="corpid != null">
+        CORPID = #{corpid,jdbcType=VARCHAR},
+      </if>
+      <if test="arrivedate != null">
+        ARRIVEDATE = #{arrivedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="followupoper != null">
+        FOLLOWUPOPER = #{followupoper,jdbcType=VARCHAR},
+      </if>
+      <if test="poorderflag != null">
+        POORDERFLAG = #{poorderflag,jdbcType=VARCHAR},
+      </if>
+      <if test="productid != null">
+        PRODUCTID = #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="payment != null">
+        PAYMENT = #{payment,jdbcType=VARCHAR},
+      </if>
+      <if test="allmoney != null">
+        ALLMONEY = #{allmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="deposit != null">
+        DEPOSIT = #{deposit,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        'STATUS' = #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="dollar != null">
+        DOLLAR = #{dollar,jdbcType=DECIMAL},
+      </if>
+      <if test="posure != null">
+        POSURE = #{posure,jdbcType=VARCHAR},
+      </if>
+      <if test="photoqcdate != null">
+        PHOTOQCDATE = #{photoqcdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="samplenum != null">
+        SAMPLENUM = #{samplenum,jdbcType=DECIMAL},
+      </if>
+      <if test="samplearrivedate != null">
+        SAMPLEARRIVEDATE = #{samplearrivedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ftcbm != null">
+        FTCBM = #{ftcbm,jdbcType=DECIMAL},
+      </if>
+      <if test="deliverydate != null">
+        DELIVERYDATE = #{deliverydate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="finishorderdate != null">
+        FINISHORDERDATE = #{finishorderdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="drawbackdate != null">
+        DRAWBACKDATE = #{drawbackdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expressdate != null">
+        EXPRESSDATE = #{expressdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cky != null">
+        CKY = #{cky,jdbcType=VARCHAR},
+      </if>
+      <if test="fpx != null">
+        FPX = #{fpx,jdbcType=VARCHAR},
+      </if>
+      <if test="expressid != null">
+        EXPRESSID = #{expressid,jdbcType=VARCHAR},
+      </if>
+      <if test="ponum != null">
+        PONUM = #{ponum,jdbcType=VARCHAR},
+      </if>
+      <if test="loaddate != null">
+        LOADDATE = #{loaddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="etaharbourdate != null">
+        ETAHARBOURDATE = #{etaharbourdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="etaarrivedate != null">
+        ETAARRIVEDATE = #{etaarrivedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="arrivestoredate != null">
+        ARRIVESTOREDATE = #{arrivestoredate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="augarnereddate != null">
+        AUGARNEREDDATE = #{augarnereddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="billoflading != null">
+        BILLOFLADING = #{billoflading,jdbcType=VARCHAR},
+      </if>
+      <if test="closedate != null">
+        CLOSEDATE = #{closedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="groupid != null">
+        GROUPID = #{groupid,jdbcType=VARCHAR},
+      </if>
+      <if test="depositdate != null">
+        DEPOSITDATE = #{depositdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expresstype != null">
+        EXPRESSTYPE = #{expresstype,jdbcType=VARCHAR},
+      </if>
+      <if test="createoper != null">
+        CREATEOPER = #{createoper,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        CREATEDATE = #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="drawbackflag != null">
+        DRAWBACKFLAG = #{drawbackflag,jdbcType=VARCHAR},
+      </if>
+      <if test="shipmentdate != null">
+        SHIPMENTDATE = #{shipmentdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="arrivaldate != null">
+        ARRIVALDATE = #{arrivaldate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="finaldate != null">
+        FINALDATE = #{finaldate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="shipmentmoney != null">
+        SHIPMENTMONEY = #{shipmentmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="arrivalmoney != null">
+        ARRIVALMONEY = #{arrivalmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="finalmoney != null">
+        FINALMONEY = #{finalmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="urgent != null">
+        URGENT = #{urgent,jdbcType=VARCHAR},
+      </if>
+      <if test="picture1 != null">
+        PICTURE1 = #{picture1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve5 != null">
+        RESERVE5 = #{reserve5,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve6 != null">
+        RESERVE6 = #{reserve6,jdbcType=DECIMAL},
+      </if>
+      <if test="inporttime != null">
+        INPORTTIME = #{inporttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stocktime != null">
+        STOCKTIME = #{stocktime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reserve9 != null">
+        RESERVE9 = #{reserve9,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve10 != null">
+        RESERVE10 = #{reserve10,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve11 != null">
+        RESERVE11 = #{reserve11,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve12 != null">
+        RESERVE12 = #{reserve12,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve13 != null">
+        RESERVE13 = #{reserve13,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve14 != null">
+        RESERVE14 = #{reserve14,jdbcType=DECIMAL},
+      </if>
+      <if test="outerlength != null">
+        OUTERLENGTH = #{outerlength,jdbcType=DECIMAL},
+      </if>
+      <if test="outerwidth != null">
+        OUTERWIDTH = #{outerwidth,jdbcType=DECIMAL},
+      </if>
+      <if test="outerhigh != null">
+        OUTERHIGH = #{outerhigh,jdbcType=DECIMAL},
+      </if>
+      <if test="outervolume != null">
+        OUTERVOLUME = #{outervolume,jdbcType=DECIMAL},
+      </if>
+      <if test="outergrossweight != null">
+        OUTERGROSSWEIGHT = #{outergrossweight,jdbcType=DECIMAL},
+      </if>
+      <if test="outernetweight != null">
+        OUTERNETWEIGHT = #{outernetweight,jdbcType=DECIMAL},
+      </if>
+      <if test="grossweight != null">
+        GROSSWEIGHT = #{grossweight,jdbcType=DECIMAL},
+      </if>
+      <if test="length != null">
+        'LENGTH' = #{length,jdbcType=DECIMAL},
+      </if>
+      <if test="width != null">
+        WIDTH = #{width,jdbcType=DECIMAL},
+      </if>
+      <if test="high != null">
+        HIGH = #{high,jdbcType=DECIMAL},
+      </if>
+      <if test="volume != null">
+        VOLUME = #{volume,jdbcType=DECIMAL},
+      </if>
+      <if test="ordernum != null">
+        ORDERNUM = #{ordernum,jdbcType=DECIMAL},
+      </if>
+      <if test="manufacture != null">
+        MANUFACTURE = #{manufacture,jdbcType=VARCHAR},
+      </if>
+      <if test="manufactureid != null">
+        MANUFACTUREID = #{manufactureid,jdbcType=VARCHAR},
+      </if>
+      <if test="paymenttype != null">
+        PAYMENTTYPE = #{paymenttype,jdbcType=VARCHAR},
+      </if>
+      <if test="inportprice != null">
+        INPORTPRICE = #{inportprice,jdbcType=DECIMAL},
+      </if>
+      <if test="amount != null">
+        AMOUNT = #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="weight != null">
+        WEIGHT = #{weight,jdbcType=DECIMAL},
+      </if>
+      <if test="developsid != null">
+        DEVELOPSID = #{developsid,jdbcType=DECIMAL},
+      </if>
+      <if test="stockprice != null">
+        STOCKPRICE = #{stockprice,jdbcType=DECIMAL},
+      </if>
+      <if test="quantities != null">
+        QUANTITIES = #{quantities,jdbcType=VARCHAR},
+      </if>
+      <if test="picture2 != null">
+        PICTURE2 = #{picture2,jdbcType=VARCHAR},
+      </if>
+      <if test="picture3 != null">
+        PICTURE3 = #{picture3,jdbcType=VARCHAR},
+      </if>
+      <if test="picture4 != null">
+        PICTURE4 = #{picture4,jdbcType=VARCHAR},
+      </if>
+      <if test="costprice != null">
+        COSTPRICE = #{costprice,jdbcType=DECIMAL},
+      </if>
+      <if test="seven != null">
+        SEVEN = #{seven,jdbcType=DECIMAL},
+      </if>
+      <if test="thirty != null">
+        THIRTY = #{thirty,jdbcType=DECIMAL},
+      </if>
+      <if test="ninety != null">
+        NINETY = #{ninety,jdbcType=DECIMAL},
+      </if>
+      <if test="averagedailysales != null">
+        AVERAGEDAILYSALES = #{averagedailysales,jdbcType=VARCHAR},
+      </if>
+      <if test="oemno != null">
+        OEMNO = #{oemno,jdbcType=VARCHAR},
+      </if>
+      <if test="productstatus != null">
+        PRODUCTSTATUS = #{productstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="savenum != null">
+        SAVENUM = #{savenum,jdbcType=DECIMAL},
+      </if>
+      <if test="sellprice != null">
+        SELLPRICE = #{sellprice,jdbcType=DECIMAL},
+      </if>
+      <if test="delay != null">
+        DELAY = #{delay,jdbcType=DECIMAL},
+      </if>
+      <if test="position != null">
+        'POSITION' = #{position,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="company != null">
+        COMPANY = #{company,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="productname != null">
+        PRODUCTNAME = #{productname,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="content != null">
+        CONTENT = #{content,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="note != null">
+        NOTE = #{note,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="city != null">
+        CITY = #{city,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="containernote != null">
+        CONTAINERNOTE = #{containernote,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="packinglist != null">
+        PACKINGLIST = #{packinglist,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="shipmentupdateinventory != null">
+        SHIPMENTUPDATEINVENTORY = #{shipmentupdateinventory,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="garneredupdateinventory != null">
+        GARNEREDUPDATEINVENTORY = #{garneredupdateinventory,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="moneynote != null">
+        MONEYNOTE = #{moneynote,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reserve1 != null">
+        RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reserve2 != null">
+        RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reserve3 != null">
+        RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reserve4 != null">
+        RESERVE4 = #{reserve4,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="outernorms != null">
+        OUTERNORMS = #{outernorms,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="outerlevel != null">
+        OUTERLEVEL = #{outerlevel,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbPurchaseflow">
+    update db_purchaseflow
+    set OPER = #{oper,jdbcType=VARCHAR},
+      OPENFLAG = #{openflag,jdbcType=DECIMAL},
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      CORPID = #{corpid,jdbcType=VARCHAR},
+      ARRIVEDATE = #{arrivedate,jdbcType=TIMESTAMP},
+      FOLLOWUPOPER = #{followupoper,jdbcType=VARCHAR},
+      POORDERFLAG = #{poorderflag,jdbcType=VARCHAR},
+      PRODUCTID = #{productid,jdbcType=VARCHAR},
+      PAYMENT = #{payment,jdbcType=VARCHAR},
+      ALLMONEY = #{allmoney,jdbcType=DECIMAL},
+      DEPOSIT = #{deposit,jdbcType=DECIMAL},
+      'STATUS' = #{status,jdbcType=DECIMAL},
+      DOLLAR = #{dollar,jdbcType=DECIMAL},
+      POSURE = #{posure,jdbcType=VARCHAR},
+      PHOTOQCDATE = #{photoqcdate,jdbcType=TIMESTAMP},
+      SAMPLENUM = #{samplenum,jdbcType=DECIMAL},
+      SAMPLEARRIVEDATE = #{samplearrivedate,jdbcType=TIMESTAMP},
+      FTCBM = #{ftcbm,jdbcType=DECIMAL},
+      DELIVERYDATE = #{deliverydate,jdbcType=TIMESTAMP},
+      FINISHORDERDATE = #{finishorderdate,jdbcType=TIMESTAMP},
+      DRAWBACKDATE = #{drawbackdate,jdbcType=TIMESTAMP},
+      EXPRESSDATE = #{expressdate,jdbcType=TIMESTAMP},
+      CKY = #{cky,jdbcType=VARCHAR},
+      FPX = #{fpx,jdbcType=VARCHAR},
+      EXPRESSID = #{expressid,jdbcType=VARCHAR},
+      PONUM = #{ponum,jdbcType=VARCHAR},
+      LOADDATE = #{loaddate,jdbcType=TIMESTAMP},
+      ETAHARBOURDATE = #{etaharbourdate,jdbcType=TIMESTAMP},
+      ETAARRIVEDATE = #{etaarrivedate,jdbcType=TIMESTAMP},
+      ARRIVESTOREDATE = #{arrivestoredate,jdbcType=TIMESTAMP},
+      AUGARNEREDDATE = #{augarnereddate,jdbcType=TIMESTAMP},
+      BILLOFLADING = #{billoflading,jdbcType=VARCHAR},
+      CLOSEDATE = #{closedate,jdbcType=TIMESTAMP},
+      GROUPID = #{groupid,jdbcType=VARCHAR},
+      DEPOSITDATE = #{depositdate,jdbcType=TIMESTAMP},
+      EXPRESSTYPE = #{expresstype,jdbcType=VARCHAR},
+      CREATEOPER = #{createoper,jdbcType=VARCHAR},
+      CREATEDATE = #{createdate,jdbcType=TIMESTAMP},
+      DRAWBACKFLAG = #{drawbackflag,jdbcType=VARCHAR},
+      SHIPMENTDATE = #{shipmentdate,jdbcType=TIMESTAMP},
+      ARRIVALDATE = #{arrivaldate,jdbcType=TIMESTAMP},
+      FINALDATE = #{finaldate,jdbcType=TIMESTAMP},
+      SHIPMENTMONEY = #{shipmentmoney,jdbcType=DECIMAL},
+      ARRIVALMONEY = #{arrivalmoney,jdbcType=DECIMAL},
+      FINALMONEY = #{finalmoney,jdbcType=DECIMAL},
+      URGENT = #{urgent,jdbcType=VARCHAR},
+      PICTURE1 = #{picture1,jdbcType=VARCHAR},
+      RESERVE5 = #{reserve5,jdbcType=VARCHAR},
+      RESERVE6 = #{reserve6,jdbcType=DECIMAL},
+      INPORTTIME = #{inporttime,jdbcType=TIMESTAMP},
+      STOCKTIME = #{stocktime,jdbcType=TIMESTAMP},
+      RESERVE9 = #{reserve9,jdbcType=DECIMAL},
+      RESERVE10 = #{reserve10,jdbcType=DECIMAL},
+      RESERVE11 = #{reserve11,jdbcType=DECIMAL},
+      RESERVE12 = #{reserve12,jdbcType=DECIMAL},
+      RESERVE13 = #{reserve13,jdbcType=DECIMAL},
+      RESERVE14 = #{reserve14,jdbcType=DECIMAL},
+      OUTERLENGTH = #{outerlength,jdbcType=DECIMAL},
+      OUTERWIDTH = #{outerwidth,jdbcType=DECIMAL},
+      OUTERHIGH = #{outerhigh,jdbcType=DECIMAL},
+      OUTERVOLUME = #{outervolume,jdbcType=DECIMAL},
+      OUTERGROSSWEIGHT = #{outergrossweight,jdbcType=DECIMAL},
+      OUTERNETWEIGHT = #{outernetweight,jdbcType=DECIMAL},
+      GROSSWEIGHT = #{grossweight,jdbcType=DECIMAL},
+      'LENGTH' = #{length,jdbcType=DECIMAL},
+      WIDTH = #{width,jdbcType=DECIMAL},
+      HIGH = #{high,jdbcType=DECIMAL},
+      VOLUME = #{volume,jdbcType=DECIMAL},
+      ORDERNUM = #{ordernum,jdbcType=DECIMAL},
+      MANUFACTURE = #{manufacture,jdbcType=VARCHAR},
+      MANUFACTUREID = #{manufactureid,jdbcType=VARCHAR},
+      PAYMENTTYPE = #{paymenttype,jdbcType=VARCHAR},
+      INPORTPRICE = #{inportprice,jdbcType=DECIMAL},
+      AMOUNT = #{amount,jdbcType=DECIMAL},
+      WEIGHT = #{weight,jdbcType=DECIMAL},
+      DEVELOPSID = #{developsid,jdbcType=DECIMAL},
+      STOCKPRICE = #{stockprice,jdbcType=DECIMAL},
+      QUANTITIES = #{quantities,jdbcType=VARCHAR},
+      PICTURE2 = #{picture2,jdbcType=VARCHAR},
+      PICTURE3 = #{picture3,jdbcType=VARCHAR},
+      PICTURE4 = #{picture4,jdbcType=VARCHAR},
+      COSTPRICE = #{costprice,jdbcType=DECIMAL},
+      SEVEN = #{seven,jdbcType=DECIMAL},
+      THIRTY = #{thirty,jdbcType=DECIMAL},
+      NINETY = #{ninety,jdbcType=DECIMAL},
+      AVERAGEDAILYSALES = #{averagedailysales,jdbcType=VARCHAR},
+      OEMNO = #{oemno,jdbcType=VARCHAR},
+      PRODUCTSTATUS = #{productstatus,jdbcType=VARCHAR},
+      SAVENUM = #{savenum,jdbcType=DECIMAL},
+      SELLPRICE = #{sellprice,jdbcType=DECIMAL},
+      DELAY = #{delay,jdbcType=DECIMAL},
+      'POSITION' = #{position,jdbcType=LONGVARCHAR},
+      COMPANY = #{company,jdbcType=LONGVARCHAR},
+      PRODUCTNAME = #{productname,jdbcType=LONGVARCHAR},
+      CONTENT = #{content,jdbcType=LONGVARCHAR},
+      NOTE = #{note,jdbcType=LONGVARCHAR},
+      CITY = #{city,jdbcType=LONGVARCHAR},
+      CONTAINERNOTE = #{containernote,jdbcType=LONGVARCHAR},
+      PACKINGLIST = #{packinglist,jdbcType=LONGVARCHAR},
+      SHIPMENTUPDATEINVENTORY = #{shipmentupdateinventory,jdbcType=LONGVARCHAR},
+      GARNEREDUPDATEINVENTORY = #{garneredupdateinventory,jdbcType=LONGVARCHAR},
+      MONEYNOTE = #{moneynote,jdbcType=LONGVARCHAR},
+      RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR},
+      RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR},
+      RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR},
+      RESERVE4 = #{reserve4,jdbcType=LONGVARCHAR},
+      OUTERNORMS = #{outernorms,jdbcType=LONGVARCHAR},
+      OUTERLEVEL = #{outerlevel,jdbcType=LONGVARCHAR}
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbPurchaseflow">
+    update db_purchaseflow
+    set OPER = #{oper,jdbcType=VARCHAR},
+      OPENFLAG = #{openflag,jdbcType=DECIMAL},
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      CORPID = #{corpid,jdbcType=VARCHAR},
+      ARRIVEDATE = #{arrivedate,jdbcType=TIMESTAMP},
+      FOLLOWUPOPER = #{followupoper,jdbcType=VARCHAR},
+      POORDERFLAG = #{poorderflag,jdbcType=VARCHAR},
+      PRODUCTID = #{productid,jdbcType=VARCHAR},
+      PAYMENT = #{payment,jdbcType=VARCHAR},
+      ALLMONEY = #{allmoney,jdbcType=DECIMAL},
+      DEPOSIT = #{deposit,jdbcType=DECIMAL},
+      'STATUS' = #{status,jdbcType=DECIMAL},
+      DOLLAR = #{dollar,jdbcType=DECIMAL},
+      POSURE = #{posure,jdbcType=VARCHAR},
+      PHOTOQCDATE = #{photoqcdate,jdbcType=TIMESTAMP},
+      SAMPLENUM = #{samplenum,jdbcType=DECIMAL},
+      SAMPLEARRIVEDATE = #{samplearrivedate,jdbcType=TIMESTAMP},
+      FTCBM = #{ftcbm,jdbcType=DECIMAL},
+      DELIVERYDATE = #{deliverydate,jdbcType=TIMESTAMP},
+      FINISHORDERDATE = #{finishorderdate,jdbcType=TIMESTAMP},
+      DRAWBACKDATE = #{drawbackdate,jdbcType=TIMESTAMP},
+      EXPRESSDATE = #{expressdate,jdbcType=TIMESTAMP},
+      CKY = #{cky,jdbcType=VARCHAR},
+      FPX = #{fpx,jdbcType=VARCHAR},
+      EXPRESSID = #{expressid,jdbcType=VARCHAR},
+      PONUM = #{ponum,jdbcType=VARCHAR},
+      LOADDATE = #{loaddate,jdbcType=TIMESTAMP},
+      ETAHARBOURDATE = #{etaharbourdate,jdbcType=TIMESTAMP},
+      ETAARRIVEDATE = #{etaarrivedate,jdbcType=TIMESTAMP},
+      ARRIVESTOREDATE = #{arrivestoredate,jdbcType=TIMESTAMP},
+      AUGARNEREDDATE = #{augarnereddate,jdbcType=TIMESTAMP},
+      BILLOFLADING = #{billoflading,jdbcType=VARCHAR},
+      CLOSEDATE = #{closedate,jdbcType=TIMESTAMP},
+      GROUPID = #{groupid,jdbcType=VARCHAR},
+      DEPOSITDATE = #{depositdate,jdbcType=TIMESTAMP},
+      EXPRESSTYPE = #{expresstype,jdbcType=VARCHAR},
+      CREATEOPER = #{createoper,jdbcType=VARCHAR},
+      CREATEDATE = #{createdate,jdbcType=TIMESTAMP},
+      DRAWBACKFLAG = #{drawbackflag,jdbcType=VARCHAR},
+      SHIPMENTDATE = #{shipmentdate,jdbcType=TIMESTAMP},
+      ARRIVALDATE = #{arrivaldate,jdbcType=TIMESTAMP},
+      FINALDATE = #{finaldate,jdbcType=TIMESTAMP},
+      SHIPMENTMONEY = #{shipmentmoney,jdbcType=DECIMAL},
+      ARRIVALMONEY = #{arrivalmoney,jdbcType=DECIMAL},
+      FINALMONEY = #{finalmoney,jdbcType=DECIMAL},
+      URGENT = #{urgent,jdbcType=VARCHAR},
+      PICTURE1 = #{picture1,jdbcType=VARCHAR},
+      RESERVE5 = #{reserve5,jdbcType=VARCHAR},
+      RESERVE6 = #{reserve6,jdbcType=DECIMAL},
+      INPORTTIME = #{inporttime,jdbcType=TIMESTAMP},
+      STOCKTIME = #{stocktime,jdbcType=TIMESTAMP},
+      RESERVE9 = #{reserve9,jdbcType=DECIMAL},
+      RESERVE10 = #{reserve10,jdbcType=DECIMAL},
+      RESERVE11 = #{reserve11,jdbcType=DECIMAL},
+      RESERVE12 = #{reserve12,jdbcType=DECIMAL},
+      RESERVE13 = #{reserve13,jdbcType=DECIMAL},
+      RESERVE14 = #{reserve14,jdbcType=DECIMAL},
+      OUTERLENGTH = #{outerlength,jdbcType=DECIMAL},
+      OUTERWIDTH = #{outerwidth,jdbcType=DECIMAL},
+      OUTERHIGH = #{outerhigh,jdbcType=DECIMAL},
+      OUTERVOLUME = #{outervolume,jdbcType=DECIMAL},
+      OUTERGROSSWEIGHT = #{outergrossweight,jdbcType=DECIMAL},
+      OUTERNETWEIGHT = #{outernetweight,jdbcType=DECIMAL},
+      GROSSWEIGHT = #{grossweight,jdbcType=DECIMAL},
+      'LENGTH' = #{length,jdbcType=DECIMAL},
+      WIDTH = #{width,jdbcType=DECIMAL},
+      HIGH = #{high,jdbcType=DECIMAL},
+      VOLUME = #{volume,jdbcType=DECIMAL},
+      ORDERNUM = #{ordernum,jdbcType=DECIMAL},
+      MANUFACTURE = #{manufacture,jdbcType=VARCHAR},
+      MANUFACTUREID = #{manufactureid,jdbcType=VARCHAR},
+      PAYMENTTYPE = #{paymenttype,jdbcType=VARCHAR},
+      INPORTPRICE = #{inportprice,jdbcType=DECIMAL},
+      AMOUNT = #{amount,jdbcType=DECIMAL},
+      WEIGHT = #{weight,jdbcType=DECIMAL},
+      DEVELOPSID = #{developsid,jdbcType=DECIMAL},
+      STOCKPRICE = #{stockprice,jdbcType=DECIMAL},
+      QUANTITIES = #{quantities,jdbcType=VARCHAR},
+      PICTURE2 = #{picture2,jdbcType=VARCHAR},
+      PICTURE3 = #{picture3,jdbcType=VARCHAR},
+      PICTURE4 = #{picture4,jdbcType=VARCHAR},
+      COSTPRICE = #{costprice,jdbcType=DECIMAL},
+      SEVEN = #{seven,jdbcType=DECIMAL},
+      THIRTY = #{thirty,jdbcType=DECIMAL},
+      NINETY = #{ninety,jdbcType=DECIMAL},
+      AVERAGEDAILYSALES = #{averagedailysales,jdbcType=VARCHAR},
+      OEMNO = #{oemno,jdbcType=VARCHAR},
+      PRODUCTSTATUS = #{productstatus,jdbcType=VARCHAR},
+      SAVENUM = #{savenum,jdbcType=DECIMAL},
+      SELLPRICE = #{sellprice,jdbcType=DECIMAL},
+      DELAY = #{delay,jdbcType=DECIMAL}
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </update>
+</mapper>

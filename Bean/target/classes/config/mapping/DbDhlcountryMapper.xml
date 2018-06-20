@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbDhlcountryMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbDhlcountry">
+    <result column="COUNTRYCODE" jdbcType="VARCHAR" property="countrycode" />
+    <result column="WEIGHTUNIT" jdbcType="VARCHAR" property="weightunit" />
+    <result column="COUNTRY" jdbcType="VARCHAR" property="country" />
+    <result column="DIMENSIONALUNIT" jdbcType="VARCHAR" property="dimensionalunit" />
+    <result column="CURRENCYNAME" jdbcType="VARCHAR" property="currencyname" />
+    <result column="CURRENCYCODE" jdbcType="VARCHAR" property="currencycode" />
+    <result column="COUNTRYLOCATIONTYPE" jdbcType="VARCHAR" property="countrylocationtype" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bean.model.DbDhlcountry">
+    insert into db_dhlcountry (COUNTRYCODE, WEIGHTUNIT, COUNTRY, 
+      DIMENSIONALUNIT, CURRENCYNAME, CURRENCYCODE, 
+      COUNTRYLOCATIONTYPE)
+    values (#{countrycode,jdbcType=VARCHAR}, #{weightunit,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, 
+      #{dimensionalunit,jdbcType=VARCHAR}, #{currencyname,jdbcType=VARCHAR}, #{currencycode,jdbcType=VARCHAR}, 
+      #{countrylocationtype,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbDhlcountry">
+    insert into db_dhlcountry
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="countrycode != null">
+        COUNTRYCODE,
+      </if>
+      <if test="weightunit != null">
+        WEIGHTUNIT,
+      </if>
+      <if test="country != null">
+        COUNTRY,
+      </if>
+      <if test="dimensionalunit != null">
+        DIMENSIONALUNIT,
+      </if>
+      <if test="currencyname != null">
+        CURRENCYNAME,
+      </if>
+      <if test="currencycode != null">
+        CURRENCYCODE,
+      </if>
+      <if test="countrylocationtype != null">
+        COUNTRYLOCATIONTYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="countrycode != null">
+        #{countrycode,jdbcType=VARCHAR},
+      </if>
+      <if test="weightunit != null">
+        #{weightunit,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null">
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="dimensionalunit != null">
+        #{dimensionalunit,jdbcType=VARCHAR},
+      </if>
+      <if test="currencyname != null">
+        #{currencyname,jdbcType=VARCHAR},
+      </if>
+      <if test="currencycode != null">
+        #{currencycode,jdbcType=VARCHAR},
+      </if>
+      <if test="countrylocationtype != null">
+        #{countrylocationtype,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

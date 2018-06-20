@@ -153,31 +153,8 @@
     </set>
     where SID = #{sid,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbBindlist">
-    update db_bindlist
-    set BINDID = #{bindid,jdbcType=VARCHAR},
-      NUM = #{num,jdbcType=DECIMAL},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      CORPID = #{corpid,jdbcType=VARCHAR},
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR},
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR},
-      RESERVE4 = #{reserve4,jdbcType=DECIMAL},
-      RESERVE5 = #{reserve5,jdbcType=DECIMAL},
-      ALIAS1 = #{alias1,jdbcType=LONGVARCHAR}
-    where SID = #{sid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbBindlist">
-    update db_bindlist
-    set BINDID = #{bindid,jdbcType=VARCHAR},
-      NUM = #{num,jdbcType=DECIMAL},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      CORPID = #{corpid,jdbcType=VARCHAR},
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR},
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR},
-      RESERVE4 = #{reserve4,jdbcType=DECIMAL},
-      RESERVE5 = #{reserve5,jdbcType=DECIMAL}
-    where SID = #{sid,jdbcType=VARCHAR}
-  </update>
+
+  <select id="calcByBindId">
+    select count(1) as scount from db_bindlist where bindid=#{bind}
+  </select>
 </mapper>

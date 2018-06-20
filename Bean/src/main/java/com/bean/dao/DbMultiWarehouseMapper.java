@@ -4,6 +4,7 @@ import com.bean.model.DbMultiWarehouse;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public interface DbMultiWarehouseMapper {
@@ -18,4 +19,8 @@ public interface DbMultiWarehouseMapper {
     int updateByPrimaryKeySelective(DbMultiWarehouse record);
 
     List<String> selectDistinctMainSku();
+
+    List<String> selectByMainSku(Map<String,String> params);
+
+    List<String> selectMoreSkuByProductSku(Map<String,String> params);
 }

@@ -22,4 +22,9 @@ public interface DbOrderMapper {
 
     int updateRefundOrderStatus(Map<String,String> params) throws Exception;
 
+    List<String> selectOrderByDate(int num)throws Exception;
+
+    List<DbOrder> selectAllByCriteria(DbOrder order);
+
+    Map<String,String> selectIsSave(Map<String,String> params);
 }

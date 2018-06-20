@@ -2225,4 +2225,18 @@
     </set>
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </update>
+
+  <!--查询locationid和storageid-->
+  <select id="selectLocationIdAndStorageIdByOrderids" parameterType="list" resultType="map">
+    /*select locationid,location,storageid,storage,sid from db_product where sid in(select distinct productid from db_sell where flag !='3' and orderid='"
+    + order.getOrderid() + "')*/
+    select p.locationid,p.location,p.storageid,p.storage,p.sid,s.orderid from db_product p
+    inner join db_sell s on p.sid=s.productid
+    where s.flag !='3' and s.orderid in (
+    <foreach collection="ids" separator="," item="id">
+      #{id}
+    </foreach>
+    )
+  </select>
+
 </mapper>
