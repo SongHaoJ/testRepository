@@ -23,4 +23,6 @@ public interface DbSellMapper {
 
     List<Map<String,String>> calculateorder(@Param("groupid")Long groupid);
 
+    void updateErrFlagByOrderId();
+
 }

@@ -2239,4 +2239,14 @@
     )
   </select>
 
+  <select id="selectChildSku" parameterType="map" resultMap="ResultMapWithBLOBs">
+    select sid,name,costprice,oper2,oper1,packagingid,packagingname,
+    packagingweight,iclass,weight,storageid,storage,locationid,location,
+    reserve7 from db_product where sid in(select productid
+    from DB_MULTI_WAREHOUSE where mainsku=#{mainsku} and countryjc like concat('%',#{countryjc},'%'))
+  </select>
+
+  <select id="selectSequenceId" parameterType="map" resultType="string">
+    select sequenceid from db_product where corpid=#{corpid} and alias1 like concat('%',#{alias1},'%')
+  </select>
 </mapper>

@@ -1155,4 +1155,8 @@ where groupid=#{groupid} and  flag != '3' group by orderid
     </set>
     where SID = #{sid,jdbcType=VARCHAR}
   </update>
+
+  <update id="updateErrFlagByOrderId">
+    update db_sell set flag='1' where flag='0' and orderid in(select orderid from db_order where status in('已支付','配货中'))
+  </update>
 </mapper>

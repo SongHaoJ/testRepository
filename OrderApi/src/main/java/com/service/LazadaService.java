@@ -61,7 +61,7 @@ public interface LazadaService {
     /**
      * 计算缺货
      */
-    void calcuOrder();
+    String calcuOrder();
     /**
      * 订单存入临时表
      * @param recordId
@@ -86,4 +86,6 @@ public interface LazadaService {
     RetCode findLazadaorderinfo(DbLazadaorderinfo obj);
 
     RetCode findManyStorageSkuFlag();
+
+    void updateSell();
 }

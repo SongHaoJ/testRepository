@@ -3010,5 +3010,8 @@
     select orderid from db_order where ordertime > (TO_DAYS(now())-#{day}) and (locationid=',' or locationis=',-,');
   </select>
 
-
+    <!--测试关联-->
+    <select id="orderAndSell" parameterType="string" resultMap="orderIncludeSellMap">
+        select o.orderid,s.orderid S_ORDERID from db_order o inner join db_sell s on o.orderid=s.orderid where o.orderid=#{orderid}
+    </select>
 </mapper>

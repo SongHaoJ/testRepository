@@ -1,7 +1,12 @@
 package com.bean.dao;
 
 import com.bean.model.DbBindlist;
+import com.gourpBean.BindListIncludeProduct;
+import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
+@Repository
 public interface DbBindlistMapper {
     int deleteByPrimaryKey(String sid);
 
@@ -13,4 +18,7 @@ public interface DbBindlistMapper {
 
     int updateByPrimaryKeySelective(DbBindlist record);
 
+    Integer calcByBindId(String bindid);
+
+    List<BindListIncludeProduct> selectIncludeProduct(String bindid);
 }
