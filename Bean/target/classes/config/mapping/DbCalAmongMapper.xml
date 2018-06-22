@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbCalAmongMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbCalAmong">
+    <result column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
+    <result column="SID" jdbcType="VARCHAR" property="sid" />
+    <result column="WEIGHT" jdbcType="DECIMAL" property="weight" />
+    <result column="COSTPRICE" jdbcType="DECIMAL" property="costprice" />
+    <result column="CURRENCY" jdbcType="VARCHAR" property="currency" />
+    <result column="EXCHANGERATE" jdbcType="DECIMAL" property="exchangerate" />
+    <result column="DEFAULTRATE" jdbcType="DECIMAL" property="defaultrate" />
+    <result column="PAYPALCOST" jdbcType="DECIMAL" property="paypalcost" />
+    <result column="PAGECHARGE" jdbcType="DECIMAL" property="pagecharge" />
+    <result column="FIXEDCHARGE" jdbcType="DECIMAL" property="fixedcharge" />
+    <result column="EXPRESSTYPEFEEID" jdbcType="VARCHAR" property="expresstypefeeid" />
+    <result column="EXPRESSTYPEFILED8" jdbcType="DECIMAL" property="expresstypefiled8" />
+    <result column="PACKWEIGHT" jdbcType="DECIMAL" property="packweight" />
+    <result column="PACKCOST" jdbcType="DECIMAL" property="packcost" />
+    <result column="MAOLI" jdbcType="DECIMAL" property="maoli" />
+    <result column="TOCOUNTRY" jdbcType="VARCHAR" property="tocountry" />
+    <result column="CID" jdbcType="DECIMAL" property="cid" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="FREIGHT" jdbcType="DECIMAL" property="freight" />
+    <result column="TOTALPRICE" jdbcType="DECIMAL" property="totalprice" />
+    <result column="BASEMONEY" jdbcType="DECIMAL" property="basemoney" />
+    <result column="BASEWEIGHT" jdbcType="DECIMAL" property="baseweight" />
+    <result column="UNITMONEY" jdbcType="DECIMAL" property="unitmoney" />
+    <result column="UNITWEIGHT" jdbcType="DECIMAL" property="unitweight" />
+    <result column="FIXEDMONEY1" jdbcType="DECIMAL" property="fixedmoney1" />
+    <result column="FIXEDMONEY2" jdbcType="DECIMAL" property="fixedmoney2" />
+    <result column="XBRESERVE8" jdbcType="DECIMAL" property="xbreserve8" />
+    <result column="XBRESERVE7" jdbcType="DECIMAL" property="xbreserve7" />
+    <result column="CALCULATEFLAG" jdbcType="VARCHAR" property="calculateflag" />
+    <result column="SLRESERVE7" jdbcType="DECIMAL" property="slreserve7" />
+    <result column="EBAYFEE" jdbcType="DECIMAL" property="ebayfee" />
+    <result column="PAYPALFEE" jdbcType="DECIMAL" property="paypalfee" />
+    <result column="FINALCOST" jdbcType="DECIMAL" property="finalcost" />
+    <result column="FINALCOSTRMB" jdbcType="DECIMAL" property="finalcostrmb" />
+    <result column="COSTFILED8" jdbcType="DECIMAL" property="costfiled8" />
+    <result column="COSTFILED9" jdbcType="DECIMAL" property="costfiled9" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bean.model.DbCalAmong">
+    insert into db_cal_among (SEQUENCEID, SID, WEIGHT, 
+      COSTPRICE, CURRENCY, EXCHANGERATE, 
+      DEFAULTRATE, PAYPALCOST, PAGECHARGE, 
+      FIXEDCHARGE, EXPRESSTYPEFEEID, EXPRESSTYPEFILED8, 
+      PACKWEIGHT, PACKCOST, MAOLI, 
+      TOCOUNTRY, CID, 'NAME', 
+      FREIGHT, TOTALPRICE, BASEMONEY, 
+      BASEWEIGHT, UNITMONEY, UNITWEIGHT, 
+      FIXEDMONEY1, FIXEDMONEY2, XBRESERVE8, 
+      XBRESERVE7, CALCULATEFLAG, SLRESERVE7, 
+      EBAYFEE, PAYPALFEE, FINALCOST, 
+      FINALCOSTRMB, COSTFILED8, COSTFILED9
+      )
+    values (#{sequenceid,jdbcType=VARCHAR}, #{sid,jdbcType=VARCHAR}, #{weight,jdbcType=DECIMAL}, 
+      #{costprice,jdbcType=DECIMAL}, #{currency,jdbcType=VARCHAR}, #{exchangerate,jdbcType=DECIMAL}, 
+      #{defaultrate,jdbcType=DECIMAL}, #{paypalcost,jdbcType=DECIMAL}, #{pagecharge,jdbcType=DECIMAL}, 
+      #{fixedcharge,jdbcType=DECIMAL}, #{expresstypefeeid,jdbcType=VARCHAR}, #{expresstypefiled8,jdbcType=DECIMAL}, 
+      #{packweight,jdbcType=DECIMAL}, #{packcost,jdbcType=DECIMAL}, #{maoli,jdbcType=DECIMAL}, 
+      #{tocountry,jdbcType=VARCHAR}, #{cid,jdbcType=DECIMAL}, #{name,jdbcType=VARCHAR}, 
+      #{freight,jdbcType=DECIMAL}, #{totalprice,jdbcType=DECIMAL}, #{basemoney,jdbcType=DECIMAL}, 
+      #{baseweight,jdbcType=DECIMAL}, #{unitmoney,jdbcType=DECIMAL}, #{unitweight,jdbcType=DECIMAL}, 
+      #{fixedmoney1,jdbcType=DECIMAL}, #{fixedmoney2,jdbcType=DECIMAL}, #{xbreserve8,jdbcType=DECIMAL}, 
+      #{xbreserve7,jdbcType=DECIMAL}, #{calculateflag,jdbcType=VARCHAR}, #{slreserve7,jdbcType=DECIMAL}, 
+      #{ebayfee,jdbcType=DECIMAL}, #{paypalfee,jdbcType=DECIMAL}, #{finalcost,jdbcType=DECIMAL}, 
+      #{finalcostrmb,jdbcType=DECIMAL}, #{costfiled8,jdbcType=DECIMAL}, #{costfiled9,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbCalAmong">
+    insert into db_cal_among
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        SEQUENCEID,
+      </if>
+      <if test="sid != null">
+        SID,
+      </if>
+      <if test="weight != null">
+        WEIGHT,
+      </if>
+      <if test="costprice != null">
+        COSTPRICE,
+      </if>
+      <if test="currency != null">
+        CURRENCY,
+      </if>
+      <if test="exchangerate != null">
+        EXCHANGERATE,
+      </if>
+      <if test="defaultrate != null">
+        DEFAULTRATE,
+      </if>
+      <if test="paypalcost != null">
+        PAYPALCOST,
+      </if>
+      <if test="pagecharge != null">
+        PAGECHARGE,
+      </if>
+      <if test="fixedcharge != null">
+        FIXEDCHARGE,
+      </if>
+      <if test="expresstypefeeid != null">
+        EXPRESSTYPEFEEID,
+      </if>
+      <if test="expresstypefiled8 != null">
+        EXPRESSTYPEFILED8,
+      </if>
+      <if test="packweight != null">
+        PACKWEIGHT,
+      </if>
+      <if test="packcost != null">
+        PACKCOST,
+      </if>
+      <if test="maoli != null">
+        MAOLI,
+      </if>
+      <if test="tocountry != null">
+        TOCOUNTRY,
+      </if>
+      <if test="cid != null">
+        CID,
+      </if>
+      <if test="name != null">
+        'NAME',
+      </if>
+      <if test="freight != null">
+        FREIGHT,
+      </if>
+      <if test="totalprice != null">
+        TOTALPRICE,
+      </if>
+      <if test="basemoney != null">
+        BASEMONEY,
+      </if>
+      <if test="baseweight != null">
+        BASEWEIGHT,
+      </if>
+      <if test="unitmoney != null">
+        UNITMONEY,
+      </if>
+      <if test="unitweight != null">
+        UNITWEIGHT,
+      </if>
+      <if test="fixedmoney1 != null">
+        FIXEDMONEY1,
+      </if>
+      <if test="fixedmoney2 != null">
+        FIXEDMONEY2,
+      </if>
+      <if test="xbreserve8 != null">
+        XBRESERVE8,
+      </if>
+      <if test="xbreserve7 != null">
+        XBRESERVE7,
+      </if>
+      <if test="calculateflag != null">
+        CALCULATEFLAG,
+      </if>
+      <if test="slreserve7 != null">
+        SLRESERVE7,
+      </if>
+      <if test="ebayfee != null">
+        EBAYFEE,
+      </if>
+      <if test="paypalfee != null">
+        PAYPALFEE,
+      </if>
+      <if test="finalcost != null">
+        FINALCOST,
+      </if>
+      <if test="finalcostrmb != null">
+        FINALCOSTRMB,
+      </if>
+      <if test="costfiled8 != null">
+        COSTFILED8,
+      </if>
+      <if test="costfiled9 != null">
+        COSTFILED9,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        #{sequenceid,jdbcType=VARCHAR},
+      </if>
+      <if test="sid != null">
+        #{sid,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null">
+        #{weight,jdbcType=DECIMAL},
+      </if>
+      <if test="costprice != null">
+        #{costprice,jdbcType=DECIMAL},
+      </if>
+      <if test="currency != null">
+        #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="exchangerate != null">
+        #{exchangerate,jdbcType=DECIMAL},
+      </if>
+      <if test="defaultrate != null">
+        #{defaultrate,jdbcType=DECIMAL},
+      </if>
+      <if test="paypalcost != null">
+        #{paypalcost,jdbcType=DECIMAL},
+      </if>
+      <if test="pagecharge != null">
+        #{pagecharge,jdbcType=DECIMAL},
+      </if>
+      <if test="fixedcharge != null">
+        #{fixedcharge,jdbcType=DECIMAL},
+      </if>
+      <if test="expresstypefeeid != null">
+        #{expresstypefeeid,jdbcType=VARCHAR},
+      </if>
+      <if test="expresstypefiled8 != null">
+        #{expresstypefiled8,jdbcType=DECIMAL},
+      </if>
+      <if test="packweight != null">
+        #{packweight,jdbcType=DECIMAL},
+      </if>
+      <if test="packcost != null">
+        #{packcost,jdbcType=DECIMAL},
+      </if>
+      <if test="maoli != null">
+        #{maoli,jdbcType=DECIMAL},
+      </if>
+      <if test="tocountry != null">
+        #{tocountry,jdbcType=VARCHAR},
+      </if>
+      <if test="cid != null">
+        #{cid,jdbcType=DECIMAL},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="freight != null">
+        #{freight,jdbcType=DECIMAL},
+      </if>
+      <if test="totalprice != null">
+        #{totalprice,jdbcType=DECIMAL},
+      </if>
+      <if test="basemoney != null">
+        #{basemoney,jdbcType=DECIMAL},
+      </if>
+      <if test="baseweight != null">
+        #{baseweight,jdbcType=DECIMAL},
+      </if>
+      <if test="unitmoney != null">
+        #{unitmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="unitweight != null">
+        #{unitweight,jdbcType=DECIMAL},
+      </if>
+      <if test="fixedmoney1 != null">
+        #{fixedmoney1,jdbcType=DECIMAL},
+      </if>
+      <if test="fixedmoney2 != null">
+        #{fixedmoney2,jdbcType=DECIMAL},
+      </if>
+      <if test="xbreserve8 != null">
+        #{xbreserve8,jdbcType=DECIMAL},
+      </if>
+      <if test="xbreserve7 != null">
+        #{xbreserve7,jdbcType=DECIMAL},
+      </if>
+      <if test="calculateflag != null">
+        #{calculateflag,jdbcType=VARCHAR},
+      </if>
+      <if test="slreserve7 != null">
+        #{slreserve7,jdbcType=DECIMAL},
+      </if>
+      <if test="ebayfee != null">
+        #{ebayfee,jdbcType=DECIMAL},
+      </if>
+      <if test="paypalfee != null">
+        #{paypalfee,jdbcType=DECIMAL},
+      </if>
+      <if test="finalcost != null">
+        #{finalcost,jdbcType=DECIMAL},
+      </if>
+      <if test="finalcostrmb != null">
+        #{finalcostrmb,jdbcType=DECIMAL},
+      </if>
+      <if test="costfiled8 != null">
+        #{costfiled8,jdbcType=DECIMAL},
+      </if>
+      <if test="costfiled9 != null">
+        #{costfiled9,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+</mapper>

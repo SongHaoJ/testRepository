@@ -20,27 +20,36 @@ spring:
 #        min-idle: 0
     session:
       store-type: none
-additional:
-    datasource:
-        names: test2,test3
-        test2:
-            url:  jdbc:mysql://127.0.0.1:3306/db2
-            username: sh2
-            password: 123456
-            driver-class-name: com.mysql.jdbc.Driver
-        test3:
-            url: jdbc:mysql://127.0.0.1:3306/db3
-            username: sh3
-            password: 123456
-            driver-class-name: com.mysql.jdbc.Driver
-
 
 
 logging:
   path: log/logging.log
-  level: info
+  level:
+    com.xxx: debug
 mybatis:
   type-aliases-package: com.bean.model
   mapper-locations: mapping/*.xml
+
+#前缀首字母小写，多单词‘-’分隔
+is-open:
+    lazadaFlag: 1
+
+
+
+
+
+
+
+
+
+lazada:
+    appkey: 1
+    secret: 1
+    fershHost: 1
+    skuPosition: 1
+    multiFlag: 1
+    holdSpace: false
+    platformFeeRate: 0.01
+
 
 

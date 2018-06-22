@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbProductandmanufactureMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbProductandmanufacture">
+    <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
+    <result column="INDEXID" jdbcType="VARCHAR" property="indexid" />
+    <result column="MANUFACTUREID" jdbcType="VARCHAR" property="manufactureid" />
+    <result column="MANUFACTURENAME" jdbcType="VARCHAR" property="manufacturename" />
+    <result column="QUOTE" jdbcType="DECIMAL" property="quote" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
+    <result column="ADDRESS" jdbcType="VARCHAR" property="address" />
+    <result column="TEL" jdbcType="VARCHAR" property="tel" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="RESERVE3" jdbcType="DECIMAL" property="reserve3" />
+    <result column="RESERVE4" jdbcType="DECIMAL" property="reserve4" />
+    <result column="QQ" jdbcType="VARCHAR" property="qq" />
+    <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="TYPE" jdbcType="VARCHAR" property="type" />
+    <result column="PRODUCTID" jdbcType="VARCHAR" property="productid" />
+    <result column="MINNUM" jdbcType="DECIMAL" property="minnum" />
+    <result column="REPAIRRATE" jdbcType="VARCHAR" property="repairrate" />
+    <result column="PACKAGING" jdbcType="VARCHAR" property="packaging" />
+    <result column="IMPORTRIGHT" jdbcType="VARCHAR" property="importright" />
+    <result column="SERVE" jdbcType="VARCHAR" property="serve" />
+    <result column="EVALUATION" jdbcType="VARCHAR" property="evaluation" />
+    <result column="LINKMAN" jdbcType="VARCHAR" property="linkman" />
+    <result column="PERSONNUM" jdbcType="DECIMAL" property="personnum" />
+    <result column="PROFESSIONAL" jdbcType="VARCHAR" property="professional" />
+    <result column="PRICEFIXING" jdbcType="VARCHAR" property="pricefixing" />
+    <result column="RESERVE5" jdbcType="VARCHAR" property="reserve5" />
+    <result column="RESERVE6" jdbcType="VARCHAR" property="reserve6" />
+    <result column="RESERVE7" jdbcType="VARCHAR" property="reserve7" />
+    <result column="RESERVE8" jdbcType="VARCHAR" property="reserve8" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbProductandmanufacture">
+    <result column="WANGWANG" jdbcType="LONGVARCHAR" property="wangwang" />
+    <result column="NOTE" jdbcType="LONGVARCHAR" property="note" />
+    <result column="INFORMATION" jdbcType="LONGVARCHAR" property="information" />
+    <result column="STYLE" jdbcType="LONGVARCHAR" property="style" />
+    <result column="ATTESTATION" jdbcType="LONGVARCHAR" property="attestation" />
+    <result column="MANAGEPRODUCT" jdbcType="LONGVARCHAR" property="manageproduct" />
+    <result column="SURVEYTABLE" jdbcType="LONGVARCHAR" property="surveytable" />
+    <result column="MAINMARKET" jdbcType="LONGVARCHAR" property="mainmarket" />
+    <result column="RESTS" jdbcType="LONGVARCHAR" property="rests" />
+    <result column="MANUFACTUREURL" jdbcType="LONGVARCHAR" property="manufactureurl" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SEQUENCEID, INDEXID, MANUFACTUREID, MANUFACTURENAME, 'QUOTE', OPER, CORPID, OPERTIME, 
+    OPENFLAG, ADDRESS, TEL, RESERVE1, RESERVE2, RESERVE3, RESERVE4, QQ, CREATETIME, 'TYPE', 
+    PRODUCTID, MINNUM, REPAIRRATE, PACKAGING, IMPORTRIGHT, SERVE, EVALUATION, LINKMAN, 
+    PERSONNUM, PROFESSIONAL, PRICEFIXING, RESERVE5, RESERVE6, RESERVE7, RESERVE8
+  </sql>
+  <sql id="Blob_Column_List">
+    WANGWANG, NOTE, INFORMATION, 'STYLE', ATTESTATION, MANAGEPRODUCT, SURVEYTABLE, MAINMARKET, 
+    RESTS, MANUFACTUREURL
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from db_productandmanufacture
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from db_productandmanufacture
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bean.model.DbProductandmanufacture">
+    insert into db_productandmanufacture (SEQUENCEID, INDEXID, MANUFACTUREID, 
+      MANUFACTURENAME, 'QUOTE', OPER, 
+      CORPID, OPERTIME, OPENFLAG, 
+      ADDRESS, TEL, RESERVE1, 
+      RESERVE2, RESERVE3, RESERVE4, 
+      QQ, CREATETIME, 'TYPE', 
+      PRODUCTID, MINNUM, REPAIRRATE, 
+      PACKAGING, IMPORTRIGHT, SERVE, 
+      EVALUATION, LINKMAN, PERSONNUM, 
+      PROFESSIONAL, PRICEFIXING, RESERVE5, 
+      RESERVE6, RESERVE7, RESERVE8, 
+      WANGWANG, NOTE, INFORMATION, 
+      'STYLE', ATTESTATION, MANAGEPRODUCT, 
+      SURVEYTABLE, MAINMARKET, RESTS, 
+      MANUFACTUREURL)
+    values (#{sequenceid,jdbcType=VARCHAR}, #{indexid,jdbcType=VARCHAR}, #{manufactureid,jdbcType=VARCHAR}, 
+      #{manufacturename,jdbcType=VARCHAR}, #{quote,jdbcType=DECIMAL}, #{oper,jdbcType=VARCHAR}, 
+      #{corpid,jdbcType=VARCHAR}, #{opertime,jdbcType=TIMESTAMP}, #{openflag,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, #{reserve1,jdbcType=VARCHAR}, 
+      #{reserve2,jdbcType=VARCHAR}, #{reserve3,jdbcType=DECIMAL}, #{reserve4,jdbcType=DECIMAL}, 
+      #{qq,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{type,jdbcType=VARCHAR}, 
+      #{productid,jdbcType=VARCHAR}, #{minnum,jdbcType=DECIMAL}, #{repairrate,jdbcType=VARCHAR}, 
+      #{packaging,jdbcType=VARCHAR}, #{importright,jdbcType=VARCHAR}, #{serve,jdbcType=VARCHAR}, 
+      #{evaluation,jdbcType=VARCHAR}, #{linkman,jdbcType=VARCHAR}, #{personnum,jdbcType=DECIMAL}, 
+      #{professional,jdbcType=VARCHAR}, #{pricefixing,jdbcType=VARCHAR}, #{reserve5,jdbcType=VARCHAR}, 
+      #{reserve6,jdbcType=VARCHAR}, #{reserve7,jdbcType=VARCHAR}, #{reserve8,jdbcType=VARCHAR}, 
+      #{wangwang,jdbcType=LONGVARCHAR}, #{note,jdbcType=LONGVARCHAR}, #{information,jdbcType=LONGVARCHAR}, 
+      #{style,jdbcType=LONGVARCHAR}, #{attestation,jdbcType=LONGVARCHAR}, #{manageproduct,jdbcType=LONGVARCHAR}, 
+      #{surveytable,jdbcType=LONGVARCHAR}, #{mainmarket,jdbcType=LONGVARCHAR}, #{rests,jdbcType=LONGVARCHAR}, 
+      #{manufactureurl,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbProductandmanufacture">
+    insert into db_productandmanufacture
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        SEQUENCEID,
+      </if>
+      <if test="indexid != null">
+        INDEXID,
+      </if>
+      <if test="manufactureid != null">
+        MANUFACTUREID,
+      </if>
+      <if test="manufacturename != null">
+        MANUFACTURENAME,
+      </if>
+      <if test="quote != null">
+        'QUOTE',
+      </if>
+      <if test="oper != null">
+        OPER,
+      </if>
+      <if test="corpid != null">
+        CORPID,
+      </if>
+      <if test="opertime != null">
+        OPERTIME,
+      </if>
+      <if test="openflag != null">
+        OPENFLAG,
+      </if>
+      <if test="address != null">
+        ADDRESS,
+      </if>
+      <if test="tel != null">
+        TEL,
+      </if>
+      <if test="reserve1 != null">
+        RESERVE1,
+      </if>
+      <if test="reserve2 != null">
+        RESERVE2,
+      </if>
+      <if test="reserve3 != null">
+        RESERVE3,
+      </if>
+      <if test="reserve4 != null">
+        RESERVE4,
+      </if>
+      <if test="qq != null">
+        QQ,
+      </if>
+      <if test="createtime != null">
+        CREATETIME,
+      </if>
+      <if test="type != null">
+        'TYPE',
+      </if>
+      <if test="productid != null">
+        PRODUCTID,
+      </if>
+      <if test="minnum != null">
+        MINNUM,
+      </if>
+      <if test="repairrate != null">
+        REPAIRRATE,
+      </if>
+      <if test="packaging != null">
+        PACKAGING,
+      </if>
+      <if test="importright != null">
+        IMPORTRIGHT,
+      </if>
+      <if test="serve != null">
+        SERVE,
+      </if>
+      <if test="evaluation != null">
+        EVALUATION,
+      </if>
+      <if test="linkman != null">
+        LINKMAN,
+      </if>
+      <if test="personnum != null">
+        PERSONNUM,
+      </if>
+      <if test="professional != null">
+        PROFESSIONAL,
+      </if>
+      <if test="pricefixing != null">
+        PRICEFIXING,
+      </if>
+      <if test="reserve5 != null">
+        RESERVE5,
+      </if>
+      <if test="reserve6 != null">
+        RESERVE6,
+      </if>
+      <if test="reserve7 != null">
+        RESERVE7,
+      </if>
+      <if test="reserve8 != null">
+        RESERVE8,
+      </if>
+      <if test="wangwang != null">
+        WANGWANG,
+      </if>
+      <if test="note != null">
+        NOTE,
+      </if>
+      <if test="information != null">
+        INFORMATION,
+      </if>
+      <if test="style != null">
+        'STYLE',
+      </if>
+      <if test="attestation != null">
+        ATTESTATION,
+      </if>
+      <if test="manageproduct != null">
+        MANAGEPRODUCT,
+      </if>
+      <if test="surveytable != null">
+        SURVEYTABLE,
+      </if>
+      <if test="mainmarket != null">
+        MAINMARKET,
+      </if>
+      <if test="rests != null">
+        RESTS,
+      </if>
+      <if test="manufactureurl != null">
+        MANUFACTUREURL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        #{sequenceid,jdbcType=VARCHAR},
+      </if>
+      <if test="indexid != null">
+        #{indexid,jdbcType=VARCHAR},
+      </if>
+      <if test="manufactureid != null">
+        #{manufactureid,jdbcType=VARCHAR},
+      </if>
+      <if test="manufacturename != null">
+        #{manufacturename,jdbcType=VARCHAR},
+      </if>
+      <if test="quote != null">
+        #{quote,jdbcType=DECIMAL},
+      </if>
+      <if test="oper != null">
+        #{oper,jdbcType=VARCHAR},
+      </if>
+      <if test="corpid != null">
+        #{corpid,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null">
+        #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="openflag != null">
+        #{openflag,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve1 != null">
+        #{reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve2 != null">
+        #{reserve2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve3 != null">
+        #{reserve3,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve4 != null">
+        #{reserve4,jdbcType=DECIMAL},
+      </if>
+      <if test="qq != null">
+        #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="minnum != null">
+        #{minnum,jdbcType=DECIMAL},
+      </if>
+      <if test="repairrate != null">
+        #{repairrate,jdbcType=VARCHAR},
+      </if>
+      <if test="packaging != null">
+        #{packaging,jdbcType=VARCHAR},
+      </if>
+      <if test="importright != null">
+        #{importright,jdbcType=VARCHAR},
+      </if>
+      <if test="serve != null">
+        #{serve,jdbcType=VARCHAR},
+      </if>
+      <if test="evaluation != null">
+        #{evaluation,jdbcType=VARCHAR},
+      </if>
+      <if test="linkman != null">
+        #{linkman,jdbcType=VARCHAR},
+      </if>
+      <if test="personnum != null">
+        #{personnum,jdbcType=DECIMAL},
+      </if>
+      <if test="professional != null">
+        #{professional,jdbcType=VARCHAR},
+      </if>
+      <if test="pricefixing != null">
+        #{pricefixing,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve5 != null">
+        #{reserve5,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve6 != null">
+        #{reserve6,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve7 != null">
+        #{reserve7,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve8 != null">
+        #{reserve8,jdbcType=VARCHAR},
+      </if>
+      <if test="wangwang != null">
+        #{wangwang,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="note != null">
+        #{note,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="information != null">
+        #{information,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="style != null">
+        #{style,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="attestation != null">
+        #{attestation,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="manageproduct != null">
+        #{manageproduct,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="surveytable != null">
+        #{surveytable,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="mainmarket != null">
+        #{mainmarket,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="rests != null">
+        #{rests,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="manufactureurl != null">
+        #{manufactureurl,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbProductandmanufacture">
+    update db_productandmanufacture
+    <set>
+      <if test="indexid != null">
+        INDEXID = #{indexid,jdbcType=VARCHAR},
+      </if>
+      <if test="manufactureid != null">
+        MANUFACTUREID = #{manufactureid,jdbcType=VARCHAR},
+      </if>
+      <if test="manufacturename != null">
+        MANUFACTURENAME = #{manufacturename,jdbcType=VARCHAR},
+      </if>
+      <if test="quote != null">
+        'QUOTE' = #{quote,jdbcType=DECIMAL},
+      </if>
+      <if test="oper != null">
+        OPER = #{oper,jdbcType=VARCHAR},
+      </if>
+      <if test="corpid != null">
+        CORPID = #{corpid,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null">
+        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="openflag != null">
+        OPENFLAG = #{openflag,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        ADDRESS = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        TEL = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve1 != null">
+        RESERVE1 = #{reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve2 != null">
+        RESERVE2 = #{reserve2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve3 != null">
+        RESERVE3 = #{reserve3,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve4 != null">
+        RESERVE4 = #{reserve4,jdbcType=DECIMAL},
+      </if>
+      <if test="qq != null">
+        QQ = #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="type != null">
+        'TYPE' = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="productid != null">
+        PRODUCTID = #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="minnum != null">
+        MINNUM = #{minnum,jdbcType=DECIMAL},
+      </if>
+      <if test="repairrate != null">
+        REPAIRRATE = #{repairrate,jdbcType=VARCHAR},
+      </if>
+      <if test="packaging != null">
+        PACKAGING = #{packaging,jdbcType=VARCHAR},
+      </if>
+      <if test="importright != null">
+        IMPORTRIGHT = #{importright,jdbcType=VARCHAR},
+      </if>
+      <if test="serve != null">
+        SERVE = #{serve,jdbcType=VARCHAR},
+      </if>
+      <if test="evaluation != null">
+        EVALUATION = #{evaluation,jdbcType=VARCHAR},
+      </if>
+      <if test="linkman != null">
+        LINKMAN = #{linkman,jdbcType=VARCHAR},
+      </if>
+      <if test="personnum != null">
+        PERSONNUM = #{personnum,jdbcType=DECIMAL},
+      </if>
+      <if test="professional != null">
+        PROFESSIONAL = #{professional,jdbcType=VARCHAR},
+      </if>
+      <if test="pricefixing != null">
+        PRICEFIXING = #{pricefixing,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve5 != null">
+        RESERVE5 = #{reserve5,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve6 != null">
+        RESERVE6 = #{reserve6,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve7 != null">
+        RESERVE7 = #{reserve7,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve8 != null">
+        RESERVE8 = #{reserve8,jdbcType=VARCHAR},
+      </if>
+      <if test="wangwang != null">
+        WANGWANG = #{wangwang,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="note != null">
+        NOTE = #{note,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="information != null">
+        INFORMATION = #{information,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="style != null">
+        'STYLE' = #{style,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="attestation != null">
+        ATTESTATION = #{attestation,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="manageproduct != null">
+        MANAGEPRODUCT = #{manageproduct,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="surveytable != null">
+        SURVEYTABLE = #{surveytable,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="mainmarket != null">
+        MAINMARKET = #{mainmarket,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="rests != null">
+        RESTS = #{rests,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="manufactureurl != null">
+        MANUFACTUREURL = #{manufactureurl,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbProductandmanufacture">
+    update db_productandmanufacture
+    set INDEXID = #{indexid,jdbcType=VARCHAR},
+      MANUFACTUREID = #{manufactureid,jdbcType=VARCHAR},
+      MANUFACTURENAME = #{manufacturename,jdbcType=VARCHAR},
+      'QUOTE' = #{quote,jdbcType=DECIMAL},
+      OPER = #{oper,jdbcType=VARCHAR},
+      CORPID = #{corpid,jdbcType=VARCHAR},
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      OPENFLAG = #{openflag,jdbcType=VARCHAR},
+      ADDRESS = #{address,jdbcType=VARCHAR},
+      TEL = #{tel,jdbcType=VARCHAR},
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR},
+      RESERVE3 = #{reserve3,jdbcType=DECIMAL},
+      RESERVE4 = #{reserve4,jdbcType=DECIMAL},
+      QQ = #{qq,jdbcType=VARCHAR},
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      'TYPE' = #{type,jdbcType=VARCHAR},
+      PRODUCTID = #{productid,jdbcType=VARCHAR},
+      MINNUM = #{minnum,jdbcType=DECIMAL},
+      REPAIRRATE = #{repairrate,jdbcType=VARCHAR},
+      PACKAGING = #{packaging,jdbcType=VARCHAR},
+      IMPORTRIGHT = #{importright,jdbcType=VARCHAR},
+      SERVE = #{serve,jdbcType=VARCHAR},
+      EVALUATION = #{evaluation,jdbcType=VARCHAR},
+      LINKMAN = #{linkman,jdbcType=VARCHAR},
+      PERSONNUM = #{personnum,jdbcType=DECIMAL},
+      PROFESSIONAL = #{professional,jdbcType=VARCHAR},
+      PRICEFIXING = #{pricefixing,jdbcType=VARCHAR},
+      RESERVE5 = #{reserve5,jdbcType=VARCHAR},
+      RESERVE6 = #{reserve6,jdbcType=VARCHAR},
+      RESERVE7 = #{reserve7,jdbcType=VARCHAR},
+      RESERVE8 = #{reserve8,jdbcType=VARCHAR},
+      WANGWANG = #{wangwang,jdbcType=LONGVARCHAR},
+      NOTE = #{note,jdbcType=LONGVARCHAR},
+      INFORMATION = #{information,jdbcType=LONGVARCHAR},
+      'STYLE' = #{style,jdbcType=LONGVARCHAR},
+      ATTESTATION = #{attestation,jdbcType=LONGVARCHAR},
+      MANAGEPRODUCT = #{manageproduct,jdbcType=LONGVARCHAR},
+      SURVEYTABLE = #{surveytable,jdbcType=LONGVARCHAR},
+      MAINMARKET = #{mainmarket,jdbcType=LONGVARCHAR},
+      RESTS = #{rests,jdbcType=LONGVARCHAR},
+      MANUFACTUREURL = #{manufactureurl,jdbcType=LONGVARCHAR}
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbProductandmanufacture">
+    update db_productandmanufacture
+    set INDEXID = #{indexid,jdbcType=VARCHAR},
+      MANUFACTUREID = #{manufactureid,jdbcType=VARCHAR},
+      MANUFACTURENAME = #{manufacturename,jdbcType=VARCHAR},
+      'QUOTE' = #{quote,jdbcType=DECIMAL},
+      OPER = #{oper,jdbcType=VARCHAR},
+      CORPID = #{corpid,jdbcType=VARCHAR},
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      OPENFLAG = #{openflag,jdbcType=VARCHAR},
+      ADDRESS = #{address,jdbcType=VARCHAR},
+      TEL = #{tel,jdbcType=VARCHAR},
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR},
+      RESERVE3 = #{reserve3,jdbcType=DECIMAL},
+      RESERVE4 = #{reserve4,jdbcType=DECIMAL},
+      QQ = #{qq,jdbcType=VARCHAR},
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      'TYPE' = #{type,jdbcType=VARCHAR},
+      PRODUCTID = #{productid,jdbcType=VARCHAR},
+      MINNUM = #{minnum,jdbcType=DECIMAL},
+      REPAIRRATE = #{repairrate,jdbcType=VARCHAR},
+      PACKAGING = #{packaging,jdbcType=VARCHAR},
+      IMPORTRIGHT = #{importright,jdbcType=VARCHAR},
+      SERVE = #{serve,jdbcType=VARCHAR},
+      EVALUATION = #{evaluation,jdbcType=VARCHAR},
+      LINKMAN = #{linkman,jdbcType=VARCHAR},
+      PERSONNUM = #{personnum,jdbcType=DECIMAL},
+      PROFESSIONAL = #{professional,jdbcType=VARCHAR},
+      PRICEFIXING = #{pricefixing,jdbcType=VARCHAR},
+      RESERVE5 = #{reserve5,jdbcType=VARCHAR},
+      RESERVE6 = #{reserve6,jdbcType=VARCHAR},
+      RESERVE7 = #{reserve7,jdbcType=VARCHAR},
+      RESERVE8 = #{reserve8,jdbcType=VARCHAR}
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbExpresscountryMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbExpresscountry">
+    <result column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
+    <result column="EXPRESSID" jdbcType="VARCHAR" property="expressid" />
+    <result column="COUNTRYID" jdbcType="VARCHAR" property="countryid" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbExpresscountry">
+    <result column="COUNTRYNAME" jdbcType="LONGVARCHAR" property="countryname" />
+    <result column="NAME" jdbcType="LONGVARCHAR" property="name" />
+  </resultMap>
+  <sql id="Blob_Column_List">
+    COUNTRYNAME, 'NAME'
+  </sql>
+  <insert id="insert" parameterType="com.bean.model.DbExpresscountry">
+    insert into db_expresscountry (SEQUENCEID, EXPRESSID, COUNTRYID, 
+      COUNTRYNAME, 'NAME')
+    values (#{sequenceid,jdbcType=VARCHAR}, #{expressid,jdbcType=VARCHAR}, #{countryid,jdbcType=VARCHAR}, 
+      #{countryname,jdbcType=LONGVARCHAR}, #{name,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbExpresscountry">
+    insert into db_expresscountry
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        SEQUENCEID,
+      </if>
+      <if test="expressid != null">
+        EXPRESSID,
+      </if>
+      <if test="countryid != null">
+        COUNTRYID,
+      </if>
+      <if test="countryname != null">
+        COUNTRYNAME,
+      </if>
+      <if test="name != null">
+        'NAME',
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        #{sequenceid,jdbcType=VARCHAR},
+      </if>
+      <if test="expressid != null">
+        #{expressid,jdbcType=VARCHAR},
+      </if>
+      <if test="countryid != null">
+        #{countryid,jdbcType=VARCHAR},
+      </if>
+      <if test="countryname != null">
+        #{countryname,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

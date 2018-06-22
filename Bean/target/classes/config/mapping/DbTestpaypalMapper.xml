@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbTestpaypalMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbTestpaypal">
+    <id column="SID" jdbcType="VARCHAR" property="sid" />
+    <result column="FLAG" jdbcType="DECIMAL" property="flag" />
+    <result column="TOTALMONEY" jdbcType="DECIMAL" property="totalmoney" />
+    <result column="REFUNDMONEY" jdbcType="DECIMAL" property="refundmoney" />
+    <result column="FEEMONEY" jdbcType="DECIMAL" property="feemoney" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SID, FLAG, TOTALMONEY, REFUNDMONEY, FEEMONEY, OPERTIME, 'STATUS'
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from db_testpaypal
+    where SID = #{sid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from db_testpaypal
+    where SID = #{sid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bean.model.DbTestpaypal">
+    insert into db_testpaypal (SID, FLAG, TOTALMONEY, 
+      REFUNDMONEY, FEEMONEY, OPERTIME, 
+      'STATUS')
+    values (#{sid,jdbcType=VARCHAR}, #{flag,jdbcType=DECIMAL}, #{totalmoney,jdbcType=DECIMAL}, 
+      #{refundmoney,jdbcType=DECIMAL}, #{feemoney,jdbcType=DECIMAL}, #{opertime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbTestpaypal">
+    insert into db_testpaypal
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        SID,
+      </if>
+      <if test="flag != null">
+        FLAG,
+      </if>
+      <if test="totalmoney != null">
+        TOTALMONEY,
+      </if>
+      <if test="refundmoney != null">
+        REFUNDMONEY,
+      </if>
+      <if test="feemoney != null">
+        FEEMONEY,
+      </if>
+      <if test="opertime != null">
+        OPERTIME,
+      </if>
+      <if test="status != null">
+        'STATUS',
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        #{sid,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=DECIMAL},
+      </if>
+      <if test="totalmoney != null">
+        #{totalmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="refundmoney != null">
+        #{refundmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="feemoney != null">
+        #{feemoney,jdbcType=DECIMAL},
+      </if>
+      <if test="opertime != null">
+        #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbTestpaypal">
+    update db_testpaypal
+    <set>
+      <if test="flag != null">
+        FLAG = #{flag,jdbcType=DECIMAL},
+      </if>
+      <if test="totalmoney != null">
+        TOTALMONEY = #{totalmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="refundmoney != null">
+        REFUNDMONEY = #{refundmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="feemoney != null">
+        FEEMONEY = #{feemoney,jdbcType=DECIMAL},
+      </if>
+      <if test="opertime != null">
+        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        'STATUS' = #{status,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where SID = #{sid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbTestpaypal">
+    update db_testpaypal
+    set FLAG = #{flag,jdbcType=DECIMAL},
+      TOTALMONEY = #{totalmoney,jdbcType=DECIMAL},
+      REFUNDMONEY = #{refundmoney,jdbcType=DECIMAL},
+      FEEMONEY = #{feemoney,jdbcType=DECIMAL},
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      'STATUS' = #{status,jdbcType=VARCHAR}
+    where SID = #{sid,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbCustomlableMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbCustomlable">
+    <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
+    <result column="LABLENAME" jdbcType="VARCHAR" property="lablename" />
+    <result column="DESCR" jdbcType="VARCHAR" property="descr" />
+    <result column="OPENFLAG" jdbcType="DECIMAL" property="openflag" />
+    <result column="STATUS" jdbcType="DECIMAL" property="status" />
+    <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="CORPID" jdbcType="DECIMAL" property="corpid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SEQUENCEID, LABLENAME, DESCR, OPENFLAG, 'STATUS', CREATETIME, OPERTIME, OPER, CORPID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from db_customlable
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from db_customlable
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bean.model.DbCustomlable">
+    insert into db_customlable (SEQUENCEID, LABLENAME, DESCR, 
+      OPENFLAG, 'STATUS', CREATETIME, 
+      OPERTIME, OPER, CORPID
+      )
+    values (#{sequenceid,jdbcType=VARCHAR}, #{lablename,jdbcType=VARCHAR}, #{descr,jdbcType=VARCHAR}, 
+      #{openflag,jdbcType=DECIMAL}, #{status,jdbcType=DECIMAL}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{opertime,jdbcType=TIMESTAMP}, #{oper,jdbcType=VARCHAR}, #{corpid,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbCustomlable">
+    insert into db_customlable
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        SEQUENCEID,
+      </if>
+      <if test="lablename != null">
+        LABLENAME,
+      </if>
+      <if test="descr != null">
+        DESCR,
+      </if>
+      <if test="openflag != null">
+        OPENFLAG,
+      </if>
+      <if test="status != null">
+        'STATUS',
+      </if>
+      <if test="createtime != null">
+        CREATETIME,
+      </if>
+      <if test="opertime != null">
+        OPERTIME,
+      </if>
+      <if test="oper != null">
+        OPER,
+      </if>
+      <if test="corpid != null">
+        CORPID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        #{sequenceid,jdbcType=VARCHAR},
+      </if>
+      <if test="lablename != null">
+        #{lablename,jdbcType=VARCHAR},
+      </if>
+      <if test="descr != null">
+        #{descr,jdbcType=VARCHAR},
+      </if>
+      <if test="openflag != null">
+        #{openflag,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="opertime != null">
+        #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oper != null">
+        #{oper,jdbcType=VARCHAR},
+      </if>
+      <if test="corpid != null">
+        #{corpid,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbCustomlable">
+    update db_customlable
+    <set>
+      <if test="lablename != null">
+        LABLENAME = #{lablename,jdbcType=VARCHAR},
+      </if>
+      <if test="descr != null">
+        DESCR = #{descr,jdbcType=VARCHAR},
+      </if>
+      <if test="openflag != null">
+        OPENFLAG = #{openflag,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        'STATUS' = #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="opertime != null">
+        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oper != null">
+        OPER = #{oper,jdbcType=VARCHAR},
+      </if>
+      <if test="corpid != null">
+        CORPID = #{corpid,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbCustomlable">
+    update db_customlable
+    set LABLENAME = #{lablename,jdbcType=VARCHAR},
+      DESCR = #{descr,jdbcType=VARCHAR},
+      OPENFLAG = #{openflag,jdbcType=DECIMAL},
+      'STATUS' = #{status,jdbcType=DECIMAL},
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      OPER = #{oper,jdbcType=VARCHAR},
+      CORPID = #{corpid,jdbcType=DECIMAL}
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -209,4 +209,17 @@
     </set>
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </update>
+
+  <select id="selectByMainSku" parameterType="map" resultType="string">
+    select PRODUCTID from db_multi_warehouse where MAINSKU=#{mainsku} and COUNTRYJC like concat('%',#{countryjc},'%')
+  </select>
+
+  <!--select productid from DB_MULTI_WAREHOUSE where mainsku in(select sequenceid from db_product where alias1 like'%,"
+                                    + obj.getSku() + ",%') and countryjc like '%;" + obj.getCountrycode() + ";%'";-->
+  <!--查询多仓sku-->
+  <select id="selectMoreSkuByProductSku" parameterType="map" resultType="string">
+    select productid from DB_MULTI_WAREHOUSE where mainsku in(select sequenceid from db_product where alias1 like concat('%',#{sku},'%'))
+    and countryjc like concat('%',#{countryCode},'%')
+  </select>
+
 </mapper>

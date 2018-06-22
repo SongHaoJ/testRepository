@@ -1,6 +1,8 @@
 package com.bean.dao;
 
 import com.bean.model.DbOrder;
+import com.gourpBean.BaseOrderIncludeSellBean;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -22,4 +24,11 @@ public interface DbOrderMapper {
 
     int updateRefundOrderStatus(Map<String,String> params) throws Exception;
 
+    List<String> selectOrderByDate(int num)throws Exception;
+
+    List<DbOrder> selectAllByCriteria(DbOrder order);
+
+    Map<String,String> selectIsSave(Map<String,String> params);
+
+    BaseOrderIncludeSellBean orderAndSell(String orderid);
 }

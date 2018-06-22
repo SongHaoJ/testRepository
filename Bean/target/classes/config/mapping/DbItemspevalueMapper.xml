@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbItemspevalueMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbItemspevalue">
+    <id column="SID" jdbcType="VARCHAR" property="sid" />
+    <result column="EBAYITEMSPEID" jdbcType="VARCHAR" property="ebayitemspeid" />
+    <result column="FLAG" jdbcType="VARCHAR" property="flag" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbItemspevalue">
+    <result column="EBAYITEMSPENAME" jdbcType="LONGVARCHAR" property="ebayitemspename" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SID, EBAYITEMSPEID, FLAG
+  </sql>
+  <sql id="Blob_Column_List">
+    EBAYITEMSPENAME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from db_itemspevalue
+    where SID = #{sid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from db_itemspevalue
+    where SID = #{sid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bean.model.DbItemspevalue">
+    insert into db_itemspevalue (SID, EBAYITEMSPEID, FLAG, 
+      EBAYITEMSPENAME)
+    values (#{sid,jdbcType=VARCHAR}, #{ebayitemspeid,jdbcType=VARCHAR}, #{flag,jdbcType=VARCHAR}, 
+      #{ebayitemspename,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbItemspevalue">
+    insert into db_itemspevalue
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        SID,
+      </if>
+      <if test="ebayitemspeid != null">
+        EBAYITEMSPEID,
+      </if>
+      <if test="flag != null">
+        FLAG,
+      </if>
+      <if test="ebayitemspename != null">
+        EBAYITEMSPENAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        #{sid,jdbcType=VARCHAR},
+      </if>
+      <if test="ebayitemspeid != null">
+        #{ebayitemspeid,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=VARCHAR},
+      </if>
+      <if test="ebayitemspename != null">
+        #{ebayitemspename,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbItemspevalue">
+    update db_itemspevalue
+    <set>
+      <if test="ebayitemspeid != null">
+        EBAYITEMSPEID = #{ebayitemspeid,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        FLAG = #{flag,jdbcType=VARCHAR},
+      </if>
+      <if test="ebayitemspename != null">
+        EBAYITEMSPENAME = #{ebayitemspename,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where SID = #{sid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbItemspevalue">
+    update db_itemspevalue
+    set EBAYITEMSPEID = #{ebayitemspeid,jdbcType=VARCHAR},
+      FLAG = #{flag,jdbcType=VARCHAR},
+      EBAYITEMSPENAME = #{ebayitemspename,jdbcType=LONGVARCHAR}
+    where SID = #{sid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbItemspevalue">
+    update db_itemspevalue
+    set EBAYITEMSPEID = #{ebayitemspeid,jdbcType=VARCHAR},
+      FLAG = #{flag,jdbcType=VARCHAR}
+    where SID = #{sid,jdbcType=VARCHAR}
+  </update>
+</mapper>

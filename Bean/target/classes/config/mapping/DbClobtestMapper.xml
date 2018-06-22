@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbClobtestMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbClobtest">
+    <id column="CID" jdbcType="VARCHAR" property="cid" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbClobtest">
+    <result column="CLOBVALUE" jdbcType="LONGVARCHAR" property="clobvalue" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    CID
+  </sql>
+  <sql id="Blob_Column_List">
+    CLOBVALUE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from db_clobtest
+    where CID = #{cid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from db_clobtest
+    where CID = #{cid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bean.model.DbClobtest">
+    insert into db_clobtest (CID, CLOBVALUE)
+    values (#{cid,jdbcType=VARCHAR}, #{clobvalue,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbClobtest">
+    insert into db_clobtest
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cid != null">
+        CID,
+      </if>
+      <if test="clobvalue != null">
+        CLOBVALUE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cid != null">
+        #{cid,jdbcType=VARCHAR},
+      </if>
+      <if test="clobvalue != null">
+        #{clobvalue,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbClobtest">
+    update db_clobtest
+    <set>
+      <if test="clobvalue != null">
+        CLOBVALUE = #{clobvalue,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where CID = #{cid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbClobtest">
+    update db_clobtest
+    set CLOBVALUE = #{clobvalue,jdbcType=LONGVARCHAR}
+    where CID = #{cid,jdbcType=VARCHAR}
+  </update>
+</mapper>

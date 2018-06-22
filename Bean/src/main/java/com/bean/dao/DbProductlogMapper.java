@@ -1,7 +1,9 @@
 package com.bean.dao;
 
 import com.bean.model.DbProductlog;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface DbProductlogMapper {
     int deleteByPrimaryKey(String sequenceid);
 
@@ -13,7 +15,4 @@ public interface DbProductlogMapper {
 
     int updateByPrimaryKeySelective(DbProductlog record);
 
-    int updateByPrimaryKeyWithBLOBs(DbProductlog record);
-
-    int updateByPrimaryKey(DbProductlog record);
 }

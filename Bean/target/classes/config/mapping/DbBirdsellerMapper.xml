@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbBirdsellerMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbBirdseller">
+    <id column="SID" jdbcType="VARCHAR" property="sid" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
+    <result column="ZIP5" jdbcType="VARCHAR" property="zip5" />
+    <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
+    <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
+    <result column="ZIP4" jdbcType="VARCHAR" property="zip4" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="ADDRESS1" jdbcType="VARCHAR" property="address1" />
+    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
+    <result column="ADDRESS2" jdbcType="VARCHAR" property="address2" />
+    <result column="USERNAME" jdbcType="VARCHAR" property="username" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE4" jdbcType="VARCHAR" property="reserve4" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="TOKENAPI" jdbcType="VARCHAR" property="tokenapi" />
+    <result column="CITY" jdbcType="VARCHAR" property="city" />
+    <result column="RESERVE5" jdbcType="VARCHAR" property="reserve5" />
+    <result column="PHONE" jdbcType="VARCHAR" property="phone" />
+    <result column="STATE" jdbcType="VARCHAR" property="state" />
+    <result column="SENDNAME" jdbcType="VARCHAR" property="sendname" />
+    <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SID, OPER, CORPID, ZIP5, OPENFLAG, RESERVE3, ZIP4, RESERVE2, ADDRESS1, EMAIL, ADDRESS2, 
+    USERNAME, RESERVE1, RESERVE4, OPERTIME, TOKENAPI, CITY, RESERVE5, PHONE, 'STATE', 
+    SENDNAME, 'PASSWORD'
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from db_birdseller
+    where SID = #{sid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from db_birdseller
+    where SID = #{sid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bean.model.DbBirdseller">
+    insert into db_birdseller (SID, OPER, CORPID, 
+      ZIP5, OPENFLAG, RESERVE3, 
+      ZIP4, RESERVE2, ADDRESS1, 
+      EMAIL, ADDRESS2, USERNAME, 
+      RESERVE1, RESERVE4, OPERTIME, 
+      TOKENAPI, CITY, RESERVE5, 
+      PHONE, 'STATE', SENDNAME, 
+      'PASSWORD')
+    values (#{sid,jdbcType=VARCHAR}, #{oper,jdbcType=VARCHAR}, #{corpid,jdbcType=VARCHAR}, 
+      #{zip5,jdbcType=VARCHAR}, #{openflag,jdbcType=VARCHAR}, #{reserve3,jdbcType=VARCHAR}, 
+      #{zip4,jdbcType=VARCHAR}, #{reserve2,jdbcType=VARCHAR}, #{address1,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{address2,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
+      #{reserve1,jdbcType=VARCHAR}, #{reserve4,jdbcType=VARCHAR}, #{opertime,jdbcType=TIMESTAMP}, 
+      #{tokenapi,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{reserve5,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{state,jdbcType=VARCHAR}, #{sendname,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbBirdseller">
+    insert into db_birdseller
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        SID,
+      </if>
+      <if test="oper != null">
+        OPER,
+      </if>
+      <if test="corpid != null">
+        CORPID,
+      </if>
+      <if test="zip5 != null">
+        ZIP5,
+      </if>
+      <if test="openflag != null">
+        OPENFLAG,
+      </if>
+      <if test="reserve3 != null">
+        RESERVE3,
+      </if>
+      <if test="zip4 != null">
+        ZIP4,
+      </if>
+      <if test="reserve2 != null">
+        RESERVE2,
+      </if>
+      <if test="address1 != null">
+        ADDRESS1,
+      </if>
+      <if test="email != null">
+        EMAIL,
+      </if>
+      <if test="address2 != null">
+        ADDRESS2,
+      </if>
+      <if test="username != null">
+        USERNAME,
+      </if>
+      <if test="reserve1 != null">
+        RESERVE1,
+      </if>
+      <if test="reserve4 != null">
+        RESERVE4,
+      </if>
+      <if test="opertime != null">
+        OPERTIME,
+      </if>
+      <if test="tokenapi != null">
+        TOKENAPI,
+      </if>
+      <if test="city != null">
+        CITY,
+      </if>
+      <if test="reserve5 != null">
+        RESERVE5,
+      </if>
+      <if test="phone != null">
+        PHONE,
+      </if>
+      <if test="state != null">
+        'STATE',
+      </if>
+      <if test="sendname != null">
+        SENDNAME,
+      </if>
+      <if test="password != null">
+        'PASSWORD',
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        #{sid,jdbcType=VARCHAR},
+      </if>
+      <if test="oper != null">
+        #{oper,jdbcType=VARCHAR},
+      </if>
+      <if test="corpid != null">
+        #{corpid,jdbcType=VARCHAR},
+      </if>
+      <if test="zip5 != null">
+        #{zip5,jdbcType=VARCHAR},
+      </if>
+      <if test="openflag != null">
+        #{openflag,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve3 != null">
+        #{reserve3,jdbcType=VARCHAR},
+      </if>
+      <if test="zip4 != null">
+        #{zip4,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve2 != null">
+        #{reserve2,jdbcType=VARCHAR},
+      </if>
+      <if test="address1 != null">
+        #{address1,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="address2 != null">
+        #{address2,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve1 != null">
+        #{reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve4 != null">
+        #{reserve4,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null">
+        #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tokenapi != null">
+        #{tokenapi,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve5 != null">
+        #{reserve5,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="sendname != null">
+        #{sendname,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbBirdseller">
+    update db_birdseller
+    <set>
+      <if test="oper != null">
+        OPER = #{oper,jdbcType=VARCHAR},
+      </if>
+      <if test="corpid != null">
+        CORPID = #{corpid,jdbcType=VARCHAR},
+      </if>
+      <if test="zip5 != null">
+        ZIP5 = #{zip5,jdbcType=VARCHAR},
+      </if>
+      <if test="openflag != null">
+        OPENFLAG = #{openflag,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve3 != null">
+        RESERVE3 = #{reserve3,jdbcType=VARCHAR},
+      </if>
+      <if test="zip4 != null">
+        ZIP4 = #{zip4,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve2 != null">
+        RESERVE2 = #{reserve2,jdbcType=VARCHAR},
+      </if>
+      <if test="address1 != null">
+        ADDRESS1 = #{address1,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        EMAIL = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="address2 != null">
+        ADDRESS2 = #{address2,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        USERNAME = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve1 != null">
+        RESERVE1 = #{reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve4 != null">
+        RESERVE4 = #{reserve4,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null">
+        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tokenapi != null">
+        TOKENAPI = #{tokenapi,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        CITY = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve5 != null">
+        RESERVE5 = #{reserve5,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        PHONE = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        'STATE' = #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="sendname != null">
+        SENDNAME = #{sendname,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        'PASSWORD' = #{password,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where SID = #{sid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbBirdseller">
+    update db_birdseller
+    set OPER = #{oper,jdbcType=VARCHAR},
+      CORPID = #{corpid,jdbcType=VARCHAR},
+      ZIP5 = #{zip5,jdbcType=VARCHAR},
+      OPENFLAG = #{openflag,jdbcType=VARCHAR},
+      RESERVE3 = #{reserve3,jdbcType=VARCHAR},
+      ZIP4 = #{zip4,jdbcType=VARCHAR},
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR},
+      ADDRESS1 = #{address1,jdbcType=VARCHAR},
+      EMAIL = #{email,jdbcType=VARCHAR},
+      ADDRESS2 = #{address2,jdbcType=VARCHAR},
+      USERNAME = #{username,jdbcType=VARCHAR},
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
+      RESERVE4 = #{reserve4,jdbcType=VARCHAR},
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      TOKENAPI = #{tokenapi,jdbcType=VARCHAR},
+      CITY = #{city,jdbcType=VARCHAR},
+      RESERVE5 = #{reserve5,jdbcType=VARCHAR},
+      PHONE = #{phone,jdbcType=VARCHAR},
+      'STATE' = #{state,jdbcType=VARCHAR},
+      SENDNAME = #{sendname,jdbcType=VARCHAR},
+      'PASSWORD' = #{password,jdbcType=VARCHAR}
+    where SID = #{sid,jdbcType=VARCHAR}
+  </update>
+</mapper>

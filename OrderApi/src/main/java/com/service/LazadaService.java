@@ -61,7 +61,7 @@ public interface LazadaService {
     /**
      * 计算缺货
      */
-    void calcuOrder();
+    String calcuOrder();
     /**
      * 订单存入临时表
      * @param recordId
@@ -76,12 +76,7 @@ public interface LazadaService {
      */
     RetCode saveOrderInfoFromLazadatemp(int recordId, DbLazadaorderinfo obj, boolean manyStorageflag,
                                                String manyStorageSku, boolean holdSpace, String skuPosition, double moneyrate, double platformFeeRate);
-    /**
-     * 清理临时表
-     * @param groupId
-     * @param shop
-     */
-    void clearDataFromLazadaTemp(long groupId, DbShop shop);
+
 
     /**
      * 查询临时表
@@ -91,4 +86,6 @@ public interface LazadaService {
     RetCode findLazadaorderinfo(DbLazadaorderinfo obj);
 
     RetCode findManyStorageSkuFlag();
+
+    void updateSell();
 }

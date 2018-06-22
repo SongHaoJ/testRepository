@@ -2225,4 +2225,28 @@
     </set>
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </update>
+
+  <!--查询locationid和storageid-->
+  <select id="selectLocationIdAndStorageIdByOrderids" parameterType="list" resultType="map">
+    /*select locationid,location,storageid,storage,sid from db_product where sid in(select distinct productid from db_sell where flag !='3' and orderid='"
+    + order.getOrderid() + "')*/
+    select p.locationid,p.location,p.storageid,p.storage,p.sid,s.orderid from db_product p
+    inner join db_sell s on p.sid=s.productid
+    where s.flag !='3' and s.orderid in (
+    <foreach collection="ids" separator="," item="id">
+      #{id}
+    </foreach>
+    )
+  </select>
+
+  <select id="selectChildSku" parameterType="map" resultMap="ResultMapWithBLOBs">
+    select sid,name,costprice,oper2,oper1,packagingid,packagingname,
+    packagingweight,iclass,weight,storageid,storage,locationid,location,
+    reserve7 from db_product where sid in(select productid
+    from DB_MULTI_WAREHOUSE where mainsku=#{mainsku} and countryjc like concat('%',#{countryjc},'%'))
+  </select>
+
+  <select id="selectSequenceId" parameterType="map" resultType="string">
+    select sequenceid from db_product where corpid=#{corpid} and alias1 like concat('%',#{alias1},'%')
+  </select>
 </mapper>

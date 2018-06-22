@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Data
 @Component
-@ConfigurationProperties(prefix = "Lazada")
+@ConfigurationProperties(prefix = "lazada")
 public class LazadaYml {
 
     private static String appkey;//开发者令牌
@@ -17,12 +17,12 @@ public class LazadaYml {
     private static String multiFlag;// 订单下载是否执行多仓规则,如果为0,即使配了多仓也不执行,那么这种用户的多仓基本上就只是用来调拨用,不用来匹配订单
     private static Boolean holdSpace;//是否保留sku中的空格,默认不保留
 
-    public static String getSecret() {
-        return secret;
-    }
-
     public static String getAppkey() {
         return appkey;
+    }
+
+    public static String getSecret() {
+        return secret;
     }
 
     public static String getFershHost() {
@@ -44,5 +44,4 @@ public class LazadaYml {
     public static Boolean getHoldSpace() {
         return holdSpace;
     }
-
 }

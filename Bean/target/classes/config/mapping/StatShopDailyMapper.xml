@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.StatShopDailyMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.StatShopDaily">
+    <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
+    <result column="YYYY" jdbcType="VARCHAR" property="yyyy" />
+    <result column="YYYYMM" jdbcType="VARCHAR" property="yyyymm" />
+    <result column="YYYYMMDD" jdbcType="VARCHAR" property="yyyymmdd" />
+    <result column="SHOPID" jdbcType="VARCHAR" property="shopid" />
+    <result column="SHOPNAME" jdbcType="VARCHAR" property="shopname" />
+    <result column="ORDERNUM" jdbcType="DECIMAL" property="ordernum" />
+    <result column="AMOUNT" jdbcType="DECIMAL" property="amount" />
+    <result column="COST" jdbcType="DECIMAL" property="cost" />
+    <result column="BADCOST" jdbcType="DECIMAL" property="badcost" />
+    <result column="EXPRESSCOST" jdbcType="DECIMAL" property="expresscost" />
+    <result column="NUMBER1" jdbcType="DECIMAL" property="number1" />
+    <result column="NUMBER2" jdbcType="DECIMAL" property="number2" />
+    <result column="NUMBER3" jdbcType="DECIMAL" property="number3" />
+    <result column="COST1" jdbcType="DECIMAL" property="cost1" />
+    <result column="COST2" jdbcType="DECIMAL" property="cost2" />
+    <result column="COST3" jdbcType="DECIMAL" property="cost3" />
+    <result column="FIELD1" jdbcType="VARCHAR" property="field1" />
+    <result column="FIELD2" jdbcType="VARCHAR" property="field2" />
+    <result column="FIELD3" jdbcType="VARCHAR" property="field3" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SEQUENCEID, YYYY, YYYYMM, YYYYMMDD, SHOPID, SHOPNAME, ORDERNUM, AMOUNT, COST, BADCOST, 
+    EXPRESSCOST, NUMBER1, NUMBER2, NUMBER3, COST1, COST2, COST3, FIELD1, FIELD2, FIELD3
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from stat_shop_daily
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from stat_shop_daily
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bean.model.StatShopDaily">
+    insert into stat_shop_daily (SEQUENCEID, YYYY, YYYYMM, 
+      YYYYMMDD, SHOPID, SHOPNAME, 
+      ORDERNUM, AMOUNT, COST, 
+      BADCOST, EXPRESSCOST, NUMBER1, 
+      NUMBER2, NUMBER3, COST1, 
+      COST2, COST3, FIELD1, 
+      FIELD2, FIELD3)
+    values (#{sequenceid,jdbcType=VARCHAR}, #{yyyy,jdbcType=VARCHAR}, #{yyyymm,jdbcType=VARCHAR}, 
+      #{yyyymmdd,jdbcType=VARCHAR}, #{shopid,jdbcType=VARCHAR}, #{shopname,jdbcType=VARCHAR}, 
+      #{ordernum,jdbcType=DECIMAL}, #{amount,jdbcType=DECIMAL}, #{cost,jdbcType=DECIMAL}, 
+      #{badcost,jdbcType=DECIMAL}, #{expresscost,jdbcType=DECIMAL}, #{number1,jdbcType=DECIMAL}, 
+      #{number2,jdbcType=DECIMAL}, #{number3,jdbcType=DECIMAL}, #{cost1,jdbcType=DECIMAL}, 
+      #{cost2,jdbcType=DECIMAL}, #{cost3,jdbcType=DECIMAL}, #{field1,jdbcType=VARCHAR}, 
+      #{field2,jdbcType=VARCHAR}, #{field3,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.StatShopDaily">
+    insert into stat_shop_daily
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        SEQUENCEID,
+      </if>
+      <if test="yyyy != null">
+        YYYY,
+      </if>
+      <if test="yyyymm != null">
+        YYYYMM,
+      </if>
+      <if test="yyyymmdd != null">
+        YYYYMMDD,
+      </if>
+      <if test="shopid != null">
+        SHOPID,
+      </if>
+      <if test="shopname != null">
+        SHOPNAME,
+      </if>
+      <if test="ordernum != null">
+        ORDERNUM,
+      </if>
+      <if test="amount != null">
+        AMOUNT,
+      </if>
+      <if test="cost != null">
+        COST,
+      </if>
+      <if test="badcost != null">
+        BADCOST,
+      </if>
+      <if test="expresscost != null">
+        EXPRESSCOST,
+      </if>
+      <if test="number1 != null">
+        NUMBER1,
+      </if>
+      <if test="number2 != null">
+        NUMBER2,
+      </if>
+      <if test="number3 != null">
+        NUMBER3,
+      </if>
+      <if test="cost1 != null">
+        COST1,
+      </if>
+      <if test="cost2 != null">
+        COST2,
+      </if>
+      <if test="cost3 != null">
+        COST3,
+      </if>
+      <if test="field1 != null">
+        FIELD1,
+      </if>
+      <if test="field2 != null">
+        FIELD2,
+      </if>
+      <if test="field3 != null">
+        FIELD3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        #{sequenceid,jdbcType=VARCHAR},
+      </if>
+      <if test="yyyy != null">
+        #{yyyy,jdbcType=VARCHAR},
+      </if>
+      <if test="yyyymm != null">
+        #{yyyymm,jdbcType=VARCHAR},
+      </if>
+      <if test="yyyymmdd != null">
+        #{yyyymmdd,jdbcType=VARCHAR},
+      </if>
+      <if test="shopid != null">
+        #{shopid,jdbcType=VARCHAR},
+      </if>
+      <if test="shopname != null">
+        #{shopname,jdbcType=VARCHAR},
+      </if>
+      <if test="ordernum != null">
+        #{ordernum,jdbcType=DECIMAL},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="cost != null">
+        #{cost,jdbcType=DECIMAL},
+      </if>
+      <if test="badcost != null">
+        #{badcost,jdbcType=DECIMAL},
+      </if>
+      <if test="expresscost != null">
+        #{expresscost,jdbcType=DECIMAL},
+      </if>
+      <if test="number1 != null">
+        #{number1,jdbcType=DECIMAL},
+      </if>
+      <if test="number2 != null">
+        #{number2,jdbcType=DECIMAL},
+      </if>
+      <if test="number3 != null">
+        #{number3,jdbcType=DECIMAL},
+      </if>
+      <if test="cost1 != null">
+        #{cost1,jdbcType=DECIMAL},
+      </if>
+      <if test="cost2 != null">
+        #{cost2,jdbcType=DECIMAL},
+      </if>
+      <if test="cost3 != null">
+        #{cost3,jdbcType=DECIMAL},
+      </if>
+      <if test="field1 != null">
+        #{field1,jdbcType=VARCHAR},
+      </if>
+      <if test="field2 != null">
+        #{field2,jdbcType=VARCHAR},
+      </if>
+      <if test="field3 != null">
+        #{field3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.StatShopDaily">
+    update stat_shop_daily
+    <set>
+      <if test="yyyy != null">
+        YYYY = #{yyyy,jdbcType=VARCHAR},
+      </if>
+      <if test="yyyymm != null">
+        YYYYMM = #{yyyymm,jdbcType=VARCHAR},
+      </if>
+      <if test="yyyymmdd != null">
+        YYYYMMDD = #{yyyymmdd,jdbcType=VARCHAR},
+      </if>
+      <if test="shopid != null">
+        SHOPID = #{shopid,jdbcType=VARCHAR},
+      </if>
+      <if test="shopname != null">
+        SHOPNAME = #{shopname,jdbcType=VARCHAR},
+      </if>
+      <if test="ordernum != null">
+        ORDERNUM = #{ordernum,jdbcType=DECIMAL},
+      </if>
+      <if test="amount != null">
+        AMOUNT = #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="cost != null">
+        COST = #{cost,jdbcType=DECIMAL},
+      </if>
+      <if test="badcost != null">
+        BADCOST = #{badcost,jdbcType=DECIMAL},
+      </if>
+      <if test="expresscost != null">
+        EXPRESSCOST = #{expresscost,jdbcType=DECIMAL},
+      </if>
+      <if test="number1 != null">
+        NUMBER1 = #{number1,jdbcType=DECIMAL},
+      </if>
+      <if test="number2 != null">
+        NUMBER2 = #{number2,jdbcType=DECIMAL},
+      </if>
+      <if test="number3 != null">
+        NUMBER3 = #{number3,jdbcType=DECIMAL},
+      </if>
+      <if test="cost1 != null">
+        COST1 = #{cost1,jdbcType=DECIMAL},
+      </if>
+      <if test="cost2 != null">
+        COST2 = #{cost2,jdbcType=DECIMAL},
+      </if>
+      <if test="cost3 != null">
+        COST3 = #{cost3,jdbcType=DECIMAL},
+      </if>
+      <if test="field1 != null">
+        FIELD1 = #{field1,jdbcType=VARCHAR},
+      </if>
+      <if test="field2 != null">
+        FIELD2 = #{field2,jdbcType=VARCHAR},
+      </if>
+      <if test="field3 != null">
+        FIELD3 = #{field3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bean.model.StatShopDaily">
+    update stat_shop_daily
+    set YYYY = #{yyyy,jdbcType=VARCHAR},
+      YYYYMM = #{yyyymm,jdbcType=VARCHAR},
+      YYYYMMDD = #{yyyymmdd,jdbcType=VARCHAR},
+      SHOPID = #{shopid,jdbcType=VARCHAR},
+      SHOPNAME = #{shopname,jdbcType=VARCHAR},
+      ORDERNUM = #{ordernum,jdbcType=DECIMAL},
+      AMOUNT = #{amount,jdbcType=DECIMAL},
+      COST = #{cost,jdbcType=DECIMAL},
+      BADCOST = #{badcost,jdbcType=DECIMAL},
+      EXPRESSCOST = #{expresscost,jdbcType=DECIMAL},
+      NUMBER1 = #{number1,jdbcType=DECIMAL},
+      NUMBER2 = #{number2,jdbcType=DECIMAL},
+      NUMBER3 = #{number3,jdbcType=DECIMAL},
+      COST1 = #{cost1,jdbcType=DECIMAL},
+      COST2 = #{cost2,jdbcType=DECIMAL},
+      COST3 = #{cost3,jdbcType=DECIMAL},
+      FIELD1 = #{field1,jdbcType=VARCHAR},
+      FIELD2 = #{field2,jdbcType=VARCHAR},
+      FIELD3 = #{field3,jdbcType=VARCHAR}
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </update>
+</mapper>

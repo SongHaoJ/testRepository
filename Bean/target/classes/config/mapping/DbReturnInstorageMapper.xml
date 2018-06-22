@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbReturnInstorageMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbReturnInstorage">
+    <id column="SEQUENCEID" jdbcType="DECIMAL" property="sequenceid" />
+    <result column="RETURNSID" jdbcType="DECIMAL" property="returnsid" />
+    <result column="ORDERID" jdbcType="VARCHAR" property="orderid" />
+    <result column="PRODUCTID" jdbcType="VARCHAR" property="productid" />
+    <result column="ORDERNUM" jdbcType="DECIMAL" property="ordernum" />
+    <result column="RETURNNUM" jdbcType="DECIMAL" property="returnnum" />
+    <result column="INNUM" jdbcType="DECIMAL" property="innum" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="FLAG" jdbcType="VARCHAR" property="flag" />
+    <result column="FLAGDESCR" jdbcType="VARCHAR" property="flagdescr" />
+    <result column="COSTPRICE" jdbcType="DECIMAL" property="costprice" />
+    <result column="AMOUNT" jdbcType="DECIMAL" property="amount" />
+    <result column="MANUFACTUREID" jdbcType="VARCHAR" property="manufactureid" />
+    <result column="MANUFACTURE" jdbcType="VARCHAR" property="manufacture" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbReturnInstorage">
+    <result column="PRODUCTNAME" jdbcType="LONGVARCHAR" property="productname" />
+    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SEQUENCEID, RETURNSID, ORDERID, PRODUCTID, ORDERNUM, RETURNNUM, INNUM, OPER, OPERTIME, 
+    FLAG, FLAGDESCR, COSTPRICE, AMOUNT, MANUFACTUREID, MANUFACTURE
+  </sql>
+  <sql id="Blob_Column_List">
+    PRODUCTNAME, DESCR
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from db_return_instorage
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
+    delete from db_return_instorage
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.bean.model.DbReturnInstorage">
+    insert into db_return_instorage (SEQUENCEID, RETURNSID, ORDERID, 
+      PRODUCTID, ORDERNUM, RETURNNUM, 
+      INNUM, OPER, OPERTIME, 
+      FLAG, FLAGDESCR, COSTPRICE, 
+      AMOUNT, MANUFACTUREID, MANUFACTURE, 
+      PRODUCTNAME, DESCR)
+    values (#{sequenceid,jdbcType=DECIMAL}, #{returnsid,jdbcType=DECIMAL}, #{orderid,jdbcType=VARCHAR}, 
+      #{productid,jdbcType=VARCHAR}, #{ordernum,jdbcType=DECIMAL}, #{returnnum,jdbcType=DECIMAL}, 
+      #{innum,jdbcType=DECIMAL}, #{oper,jdbcType=VARCHAR}, #{opertime,jdbcType=TIMESTAMP}, 
+      #{flag,jdbcType=VARCHAR}, #{flagdescr,jdbcType=VARCHAR}, #{costprice,jdbcType=DECIMAL}, 
+      #{amount,jdbcType=DECIMAL}, #{manufactureid,jdbcType=VARCHAR}, #{manufacture,jdbcType=VARCHAR}, 
+      #{productname,jdbcType=LONGVARCHAR}, #{descr,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbReturnInstorage">
+    insert into db_return_instorage
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        SEQUENCEID,
+      </if>
+      <if test="returnsid != null">
+        RETURNSID,
+      </if>
+      <if test="orderid != null">
+        ORDERID,
+      </if>
+      <if test="productid != null">
+        PRODUCTID,
+      </if>
+      <if test="ordernum != null">
+        ORDERNUM,
+      </if>
+      <if test="returnnum != null">
+        RETURNNUM,
+      </if>
+      <if test="innum != null">
+        INNUM,
+      </if>
+      <if test="oper != null">
+        OPER,
+      </if>
+      <if test="opertime != null">
+        OPERTIME,
+      </if>
+      <if test="flag != null">
+        FLAG,
+      </if>
+      <if test="flagdescr != null">
+        FLAGDESCR,
+      </if>
+      <if test="costprice != null">
+        COSTPRICE,
+      </if>
+      <if test="amount != null">
+        AMOUNT,
+      </if>
+      <if test="manufactureid != null">
+        MANUFACTUREID,
+      </if>
+      <if test="manufacture != null">
+        MANUFACTURE,
+      </if>
+      <if test="productname != null">
+        PRODUCTNAME,
+      </if>
+      <if test="descr != null">
+        DESCR,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        #{sequenceid,jdbcType=DECIMAL},
+      </if>
+      <if test="returnsid != null">
+        #{returnsid,jdbcType=DECIMAL},
+      </if>
+      <if test="orderid != null">
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="ordernum != null">
+        #{ordernum,jdbcType=DECIMAL},
+      </if>
+      <if test="returnnum != null">
+        #{returnnum,jdbcType=DECIMAL},
+      </if>
+      <if test="innum != null">
+        #{innum,jdbcType=DECIMAL},
+      </if>
+      <if test="oper != null">
+        #{oper,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null">
+        #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=VARCHAR},
+      </if>
+      <if test="flagdescr != null">
+        #{flagdescr,jdbcType=VARCHAR},
+      </if>
+      <if test="costprice != null">
+        #{costprice,jdbcType=DECIMAL},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="manufactureid != null">
+        #{manufactureid,jdbcType=VARCHAR},
+      </if>
+      <if test="manufacture != null">
+        #{manufacture,jdbcType=VARCHAR},
+      </if>
+      <if test="productname != null">
+        #{productname,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="descr != null">
+        #{descr,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbReturnInstorage">
+    update db_return_instorage
+    <set>
+      <if test="returnsid != null">
+        RETURNSID = #{returnsid,jdbcType=DECIMAL},
+      </if>
+      <if test="orderid != null">
+        ORDERID = #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="productid != null">
+        PRODUCTID = #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="ordernum != null">
+        ORDERNUM = #{ordernum,jdbcType=DECIMAL},
+      </if>
+      <if test="returnnum != null">
+        RETURNNUM = #{returnnum,jdbcType=DECIMAL},
+      </if>
+      <if test="innum != null">
+        INNUM = #{innum,jdbcType=DECIMAL},
+      </if>
+      <if test="oper != null">
+        OPER = #{oper,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null">
+        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="flag != null">
+        FLAG = #{flag,jdbcType=VARCHAR},
+      </if>
+      <if test="flagdescr != null">
+        FLAGDESCR = #{flagdescr,jdbcType=VARCHAR},
+      </if>
+      <if test="costprice != null">
+        COSTPRICE = #{costprice,jdbcType=DECIMAL},
+      </if>
+      <if test="amount != null">
+        AMOUNT = #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="manufactureid != null">
+        MANUFACTUREID = #{manufactureid,jdbcType=VARCHAR},
+      </if>
+      <if test="manufacture != null">
+        MANUFACTURE = #{manufacture,jdbcType=VARCHAR},
+      </if>
+      <if test="productname != null">
+        PRODUCTNAME = #{productname,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="descr != null">
+        DESCR = #{descr,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbReturnInstorage">
+    update db_return_instorage
+    set RETURNSID = #{returnsid,jdbcType=DECIMAL},
+      ORDERID = #{orderid,jdbcType=VARCHAR},
+      PRODUCTID = #{productid,jdbcType=VARCHAR},
+      ORDERNUM = #{ordernum,jdbcType=DECIMAL},
+      RETURNNUM = #{returnnum,jdbcType=DECIMAL},
+      INNUM = #{innum,jdbcType=DECIMAL},
+      OPER = #{oper,jdbcType=VARCHAR},
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      FLAG = #{flag,jdbcType=VARCHAR},
+      FLAGDESCR = #{flagdescr,jdbcType=VARCHAR},
+      COSTPRICE = #{costprice,jdbcType=DECIMAL},
+      AMOUNT = #{amount,jdbcType=DECIMAL},
+      MANUFACTUREID = #{manufactureid,jdbcType=VARCHAR},
+      MANUFACTURE = #{manufacture,jdbcType=VARCHAR},
+      PRODUCTNAME = #{productname,jdbcType=LONGVARCHAR},
+      DESCR = #{descr,jdbcType=LONGVARCHAR}
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbReturnInstorage">
+    update db_return_instorage
+    set RETURNSID = #{returnsid,jdbcType=DECIMAL},
+      ORDERID = #{orderid,jdbcType=VARCHAR},
+      PRODUCTID = #{productid,jdbcType=VARCHAR},
+      ORDERNUM = #{ordernum,jdbcType=DECIMAL},
+      RETURNNUM = #{returnnum,jdbcType=DECIMAL},
+      INNUM = #{innum,jdbcType=DECIMAL},
+      OPER = #{oper,jdbcType=VARCHAR},
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      FLAG = #{flag,jdbcType=VARCHAR},
+      FLAGDESCR = #{flagdescr,jdbcType=VARCHAR},
+      COSTPRICE = #{costprice,jdbcType=DECIMAL},
+      AMOUNT = #{amount,jdbcType=DECIMAL},
+      MANUFACTUREID = #{manufactureid,jdbcType=VARCHAR},
+      MANUFACTURE = #{manufacture,jdbcType=VARCHAR}
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </update>
+</mapper>

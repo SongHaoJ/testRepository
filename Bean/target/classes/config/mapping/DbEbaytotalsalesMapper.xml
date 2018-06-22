@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbEbaytotalsalesMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbEbaytotalsales">
+    <id column="SEQUENCEID" jdbcType="DECIMAL" property="sequenceid" />
+    <result column="EBAYMANAGEID" jdbcType="DECIMAL" property="ebaymanageid" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="STANDARDVALUE1" jdbcType="VARCHAR" property="standardvalue1" />
+    <result column="VALUE1" jdbcType="VARCHAR" property="value1" />
+    <result column="STANDARDVALUE2" jdbcType="VARCHAR" property="standardvalue2" />
+    <result column="VALUE2" jdbcType="VARCHAR" property="value2" />
+    <result column="STANDARDVALUE3" jdbcType="VARCHAR" property="standardvalue3" />
+    <result column="VALUE3" jdbcType="VARCHAR" property="value3" />
+    <result column="STANDARDVALUE4" jdbcType="VARCHAR" property="standardvalue4" />
+    <result column="VALUE4" jdbcType="VARCHAR" property="value4" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="OPENFLAG" jdbcType="DECIMAL" property="openflag" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="CORPID" jdbcType="DECIMAL" property="corpid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SEQUENCEID, EBAYMANAGEID, 'NAME', STANDARDVALUE1, VALUE1, STANDARDVALUE2, VALUE2, 
+    STANDARDVALUE3, VALUE3, STANDARDVALUE4, VALUE4, OPERTIME, OPENFLAG, OPER, CORPID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from db_ebaytotalsales
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
+    delete from db_ebaytotalsales
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.bean.model.DbEbaytotalsales">
+    insert into db_ebaytotalsales (SEQUENCEID, EBAYMANAGEID, 'NAME', 
+      STANDARDVALUE1, VALUE1, STANDARDVALUE2, 
+      VALUE2, STANDARDVALUE3, VALUE3, 
+      STANDARDVALUE4, VALUE4, OPERTIME, 
+      OPENFLAG, OPER, CORPID
+      )
+    values (#{sequenceid,jdbcType=DECIMAL}, #{ebaymanageid,jdbcType=DECIMAL}, #{name,jdbcType=VARCHAR}, 
+      #{standardvalue1,jdbcType=VARCHAR}, #{value1,jdbcType=VARCHAR}, #{standardvalue2,jdbcType=VARCHAR}, 
+      #{value2,jdbcType=VARCHAR}, #{standardvalue3,jdbcType=VARCHAR}, #{value3,jdbcType=VARCHAR}, 
+      #{standardvalue4,jdbcType=VARCHAR}, #{value4,jdbcType=VARCHAR}, #{opertime,jdbcType=TIMESTAMP}, 
+      #{openflag,jdbcType=DECIMAL}, #{oper,jdbcType=VARCHAR}, #{corpid,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbEbaytotalsales">
+    insert into db_ebaytotalsales
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        SEQUENCEID,
+      </if>
+      <if test="ebaymanageid != null">
+        EBAYMANAGEID,
+      </if>
+      <if test="name != null">
+        'NAME',
+      </if>
+      <if test="standardvalue1 != null">
+        STANDARDVALUE1,
+      </if>
+      <if test="value1 != null">
+        VALUE1,
+      </if>
+      <if test="standardvalue2 != null">
+        STANDARDVALUE2,
+      </if>
+      <if test="value2 != null">
+        VALUE2,
+      </if>
+      <if test="standardvalue3 != null">
+        STANDARDVALUE3,
+      </if>
+      <if test="value3 != null">
+        VALUE3,
+      </if>
+      <if test="standardvalue4 != null">
+        STANDARDVALUE4,
+      </if>
+      <if test="value4 != null">
+        VALUE4,
+      </if>
+      <if test="opertime != null">
+        OPERTIME,
+      </if>
+      <if test="openflag != null">
+        OPENFLAG,
+      </if>
+      <if test="oper != null">
+        OPER,
+      </if>
+      <if test="corpid != null">
+        CORPID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        #{sequenceid,jdbcType=DECIMAL},
+      </if>
+      <if test="ebaymanageid != null">
+        #{ebaymanageid,jdbcType=DECIMAL},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="standardvalue1 != null">
+        #{standardvalue1,jdbcType=VARCHAR},
+      </if>
+      <if test="value1 != null">
+        #{value1,jdbcType=VARCHAR},
+      </if>
+      <if test="standardvalue2 != null">
+        #{standardvalue2,jdbcType=VARCHAR},
+      </if>
+      <if test="value2 != null">
+        #{value2,jdbcType=VARCHAR},
+      </if>
+      <if test="standardvalue3 != null">
+        #{standardvalue3,jdbcType=VARCHAR},
+      </if>
+      <if test="value3 != null">
+        #{value3,jdbcType=VARCHAR},
+      </if>
+      <if test="standardvalue4 != null">
+        #{standardvalue4,jdbcType=VARCHAR},
+      </if>
+      <if test="value4 != null">
+        #{value4,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null">
+        #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="openflag != null">
+        #{openflag,jdbcType=DECIMAL},
+      </if>
+      <if test="oper != null">
+        #{oper,jdbcType=VARCHAR},
+      </if>
+      <if test="corpid != null">
+        #{corpid,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbEbaytotalsales">
+    update db_ebaytotalsales
+    <set>
+      <if test="ebaymanageid != null">
+        EBAYMANAGEID = #{ebaymanageid,jdbcType=DECIMAL},
+      </if>
+      <if test="name != null">
+        'NAME' = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="standardvalue1 != null">
+        STANDARDVALUE1 = #{standardvalue1,jdbcType=VARCHAR},
+      </if>
+      <if test="value1 != null">
+        VALUE1 = #{value1,jdbcType=VARCHAR},
+      </if>
+      <if test="standardvalue2 != null">
+        STANDARDVALUE2 = #{standardvalue2,jdbcType=VARCHAR},
+      </if>
+      <if test="value2 != null">
+        VALUE2 = #{value2,jdbcType=VARCHAR},
+      </if>
+      <if test="standardvalue3 != null">
+        STANDARDVALUE3 = #{standardvalue3,jdbcType=VARCHAR},
+      </if>
+      <if test="value3 != null">
+        VALUE3 = #{value3,jdbcType=VARCHAR},
+      </if>
+      <if test="standardvalue4 != null">
+        STANDARDVALUE4 = #{standardvalue4,jdbcType=VARCHAR},
+      </if>
+      <if test="value4 != null">
+        VALUE4 = #{value4,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null">
+        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="openflag != null">
+        OPENFLAG = #{openflag,jdbcType=DECIMAL},
+      </if>
+      <if test="oper != null">
+        OPER = #{oper,jdbcType=VARCHAR},
+      </if>
+      <if test="corpid != null">
+        CORPID = #{corpid,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbEbaytotalsales">
+    update db_ebaytotalsales
+    set EBAYMANAGEID = #{ebaymanageid,jdbcType=DECIMAL},
+      'NAME' = #{name,jdbcType=VARCHAR},
+      STANDARDVALUE1 = #{standardvalue1,jdbcType=VARCHAR},
+      VALUE1 = #{value1,jdbcType=VARCHAR},
+      STANDARDVALUE2 = #{standardvalue2,jdbcType=VARCHAR},
+      VALUE2 = #{value2,jdbcType=VARCHAR},
+      STANDARDVALUE3 = #{standardvalue3,jdbcType=VARCHAR},
+      VALUE3 = #{value3,jdbcType=VARCHAR},
+      STANDARDVALUE4 = #{standardvalue4,jdbcType=VARCHAR},
+      VALUE4 = #{value4,jdbcType=VARCHAR},
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      OPENFLAG = #{openflag,jdbcType=DECIMAL},
+      OPER = #{oper,jdbcType=VARCHAR},
+      CORPID = #{corpid,jdbcType=DECIMAL}
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </update>
+</mapper>

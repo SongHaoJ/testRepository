@@ -1,28 +1,36 @@
 package com.orderThread;
 
-import com.bean.util.Sys;
-import com.bean.yml.LazadaYml;
-import com.service.LazadaService;
 import com.bean.model.DbShop;
 import com.bean.util.RetCode;
+import com.bean.util.Sys;
+import com.bean.yml.LazadaYml;
+import com.controller.Priority;
+import com.service.GetService;
+import com.service.LazadaService;
+import com.threadModel.ThreadModel;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 
 import static java.lang.Thread.sleep;
 
+//lazada订单下载线程
+public class LazadaOrderThread extends ThreadModel {
 
-public class LazadaOrderThread implements Runnable {
-
+    private static final Logger log = LoggerFactory.getLogger(LazadaOrderThread.class);
     private Boolean freshShop = true;
     private int calcuOrderDiff = 4;//计算缺货计间隔
-    private int calcuCount= 0;//计算缺货计数器
+    private int calcuCount = 0;//计算缺货计数器
 
-
-/*    private static List<Map<String,String>> skuMap;//多仓sku暂存
-    private static boolean refreshSku;//多仓sku刷新标志*/
     @Autowired
     private LazadaService service;
+
+    /*    private static List<Map<String,String>> skuMap;//多仓sku暂存
+        private static boolean refreshSku;//多仓sku刷新标志*/ {
+        service = GetService.getService();
+    }
 
 /*
     public static List<Map<String, String>> getSkuMap() {
@@ -41,48 +49,63 @@ public class LazadaOrderThread implements Runnable {
 
     @Override
     public void run() {
+        Priority.changePriority();
 
-        while(freshShop) {
+        while (freshShop) {
 
-            RetCode rt = service.findLazadaShopForDownload(null);
+            try {
+                RetCode rt = service.findLazadaShopForDownload(null);
 
-            if (rt.getObj() != null) {
-                // 遍历
-                ArrayList<DbShop> list = (ArrayList<DbShop>) rt.getObj();
-                /*int i = 0;*/
-                String shopIds = "";
-                for (DbShop o : list) {
-                    try {
-                        // 下载某个店铺认可物流方式
 
-                        RetCode rc = service.getrefreshAccess_token(o);
-                        if (rc.getCode() == 999) {
-                            shopIds+="'" + o.getSid() + "',";
-                        } else {
-                            service.GetShipmentProviders(o);
+                if (rt.getObj() != null) {
+                    // 遍历
+                    ArrayList<DbShop> list = (ArrayList<DbShop>) rt.getObj();
+                    /*int i = 0;*/
+                    String shopIds = "";
+                    for (DbShop o : list) {
+                        try {
+                            // 下载某个店铺认可物流方式
+
+                            RetCode rc = service.getrefreshAccess_token(o);
+                            if (rc.getCode() == 999) {
+                                shopIds += "'" + o.getSid() + "',";
+                            } else {
+                                service.GetShipmentProviders(o);
+                            }
+
+                            /*  i++;*/
+                            // 获取完一个店铺休眠1秒,继续下一店铺
+                            sleep(1000);
+                        } catch (Exception e) {
+                            // 无Lazada店铺
+                            System.out.println("无Lazada店铺");
+                            freshShop = false;
                         }
-
-                      /*  i++;*/
-                        // 获取完一个店铺休眠3秒,继续下一店铺
-                        sleep(3000);
+                    }
+                    if (shopIds.length() > 0) {
+                        RetCode rc = service.updateShopStatus(shopIds);
+                        if (rc.getCode() == 0) {
+                            //修改成功
+                            System.out.println("");
+                        } else {
+                            //修改失败
+                            System.out.println("");
+                        }
+                    }
+                    freshShop = false;
+                } else {
+                    // 没有授权成功的Lazada店铺
+                    System.out.println("没有授权成功的Lazada店铺");
+                    freshShop = false;
+                    try {
+                        sleep(5*1000);
                     } catch (Exception e) {
-                        // 无Lazada店铺
+                        freshShop = false;
                     }
                 }
-                if (shopIds.length() > 0) {
-                    RetCode rc = service.updateShopStatus(shopIds);
-                    if (rc.getCode() == 0) {
-                        //修改成功
-                        System.out.println("");
-                    } else {
-                        //修改失败
-                        System.out.println("");
-                    }
-                }
+            } catch (Exception e) {
+                log.error("异常信息:" + e.getMessage(), e);
                 freshShop = false;
-            } else {
-                // 没有授权成功的Lazada店铺
-                System.out.println("");
             }
         }
 
@@ -117,12 +140,12 @@ public class LazadaOrderThread implements Runnable {
             for (DbShop o : list) {
                 calcuCount++;
                 // 下载某个店铺的的订单
-                service.downloadLazadaOrderNew(o, "pending");
+                /*service.downloadLazadaOrderNew(o, "pending");*/
                 String hour = ",8,9,10,11,12,13,14,15,16,17,18,";// 这里的意思是白天就只下载已支付订单。以防对数据库访问过多
                 // 周平
                 String hournew = Sys.getCtime().substring(8, 10);
                 if (hour.indexOf("," + hournew + ",") <= 0) {
-                    service.downloadLazadaOrderNew(o, "ready_to_ship");
+                    /*  service.downloadLazadaOrderNew(o, "ready_to_ship");*/
                 }
 
                 // 计算订单(如包裹重量,详单重量，订单重量，最佳包材,缺货详单)
@@ -136,20 +159,22 @@ public class LazadaOrderThread implements Runnable {
                         System.out.println("");
                     }
                 }
-             /*   i++;*/
+                /*   i++;*/
                 // 获取完一个店铺休眠20秒,继续下一店铺
             }
+            service.updateSell();
+            try {
+                sleep(1000);
+            } catch (Exception e) {
 
-            String sqlUptFlag = "update db_sell set flag='1' where flag='0' and orderid in(select orderid from db_order where status in('已支付','配货中'))";
-
-
-
+            }
         } else {// 无Lazada店铺需要下载订单
-            System.out.println("");
+            System.out.println("无Lazada店铺需要下载订单");
+            try {
+                sleep(1000);
+            } catch (Exception e) {
+
+            }
         }
-
-
-
-
     }
 }

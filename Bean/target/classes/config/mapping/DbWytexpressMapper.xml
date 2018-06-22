@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbWytexpressMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbWytexpress">
+    <id column="DELIVERYWAYID" jdbcType="VARCHAR" property="deliverywayid" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="CATEGROYID" jdbcType="VARCHAR" property="categroyid" />
+    <result column="CATEGORYID" jdbcType="VARCHAR" property="categoryid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    DELIVERYWAYID, 'NAME', CATEGROYID, CATEGORYID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from db_wytexpress
+    where DELIVERYWAYID = #{deliverywayid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from db_wytexpress
+    where DELIVERYWAYID = #{deliverywayid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bean.model.DbWytexpress">
+    insert into db_wytexpress (DELIVERYWAYID, 'NAME', CATEGROYID, 
+      CATEGORYID)
+    values (#{deliverywayid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{categroyid,jdbcType=VARCHAR}, 
+      #{categoryid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbWytexpress">
+    insert into db_wytexpress
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deliverywayid != null">
+        DELIVERYWAYID,
+      </if>
+      <if test="name != null">
+        'NAME',
+      </if>
+      <if test="categroyid != null">
+        CATEGROYID,
+      </if>
+      <if test="categoryid != null">
+        CATEGORYID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deliverywayid != null">
+        #{deliverywayid,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="categroyid != null">
+        #{categroyid,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryid != null">
+        #{categoryid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbWytexpress">
+    update db_wytexpress
+    <set>
+      <if test="name != null">
+        'NAME' = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="categroyid != null">
+        CATEGROYID = #{categroyid,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryid != null">
+        CATEGORYID = #{categoryid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where DELIVERYWAYID = #{deliverywayid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbWytexpress">
+    update db_wytexpress
+    set 'NAME' = #{name,jdbcType=VARCHAR},
+      CATEGROYID = #{categroyid,jdbcType=VARCHAR},
+      CATEGORYID = #{categoryid,jdbcType=VARCHAR}
+    where DELIVERYWAYID = #{deliverywayid,jdbcType=VARCHAR}
+  </update>
+</mapper>
