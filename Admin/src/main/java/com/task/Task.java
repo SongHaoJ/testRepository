@@ -1,6 +1,5 @@
 package com.task;
 
-import com.DaeThread;
 import com.demo.MakeMoneyTask;
 import com.orderThread.LazadaOrderThread;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -26,7 +25,6 @@ public class Task {
     /*  DaeThread dae = DaeThread.getDaeThread();
       dae.start();
 */
-
 
 
 

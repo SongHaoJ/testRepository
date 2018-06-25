@@ -24,7 +24,6 @@ public class LazadaOrderThread extends ThreadModel {
     private int calcuOrderDiff = 4;//计算缺货计间隔
     private int calcuCount = 0;//计算缺货计数器
 
-    @Autowired
     private LazadaService service;
 
     /*    private static List<Map<String,String>> skuMap;//多仓sku暂存
