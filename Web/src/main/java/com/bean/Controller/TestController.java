@@ -20,8 +20,7 @@ public class TestController {
     public static final Logger log = LoggerFactory.getLogger(TestController.class);
     @Autowired
     DbOrderMapper orderMapper;
-    @Autowired
-    LazadaService service;
+
 
 
     @ResponseBody
