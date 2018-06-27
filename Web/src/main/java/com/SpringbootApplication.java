@@ -31,8 +31,8 @@ public class SpringbootApplication extends SpringBootServletInitializer {
 
     public static void test() {
 
-     /*   BigDecimal d = new BigDecimal(2);
-        Number n = d;*/
+        BigDecimal d = new BigDecimal(2);
+        Number n = d;
      int i = 1;
      int m = 2;
         System.out.println(n.intValue());
