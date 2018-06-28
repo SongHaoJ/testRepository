@@ -1,29 +1,19 @@
 package com.bean.Controller;
 
-import com.bean.dao.DbOrderMapper;
-import com.gourpBean.BaseOrderIncludeSellBean;
-import com.service.LazadaService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
-import java.util.Map;
 
 @Controller
 public class TestController {
 
     public static final Logger log = LoggerFactory.getLogger(TestController.class);
-    @Autowired
+   /* @Autowired
     DbOrderMapper orderMapper;
+*/
 
 
-
-    @ResponseBody
+ /*   @ResponseBody
     @GetMapping("/test")
     public void useController(String orderid) {
         log.info("///////");
@@ -37,7 +27,7 @@ public class TestController {
         } catch (Exception e) {
             log.error("异常："+e.getMessage());
         }
-    }
+    }*/
 
  /*   @Autowired
     TestService service;*/
@@ -99,8 +89,7 @@ public class TestController {
         String s = service.testCache(key);
         return s;
     }*/
-
-    @GetMapping("/getseansession")
+ /*   @GetMapping("/getseansession")
     @ResponseBody
     public Map<String, String> getSession(HttpServletRequest request) {
         Map<String, String> attributeMap = new HashMap<String, String>();
@@ -108,7 +97,7 @@ public class TestController {
         attributeMap.put("message", request.getRequestURI());
         log.info("sessionID:" + request.getSession().getId());
         return attributeMap;
-    }
+    }*/
 /*
     @ResponseBody
     @GetMapping("/readtable")
