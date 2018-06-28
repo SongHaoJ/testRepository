@@ -1,6 +1,7 @@
 package com;
 
 
+import org.mybatis.generator.ant.GeneratorAntTask;
 import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,7 +26,7 @@ public class SpringbootApplication extends SpringBootServletInitializer {
     public static void main(String args[]) {
         logger.debug("SpringBootWeb开始启动");
         SpringApplication.run(SpringbootApplication.class, args);
-        test();
+        runGenerator();
     }
 
 
@@ -45,4 +46,21 @@ public class SpringbootApplication extends SpringBootServletInitializer {
         }
         return new String(ch);
     }
+
+    public static void runGenerator(){
+        try {
+            System.out.println("generator start");
+            GeneratorAntTask task = new GeneratorAntTask();
+            task.setOverwrite(true);
+            task.setConfigfile("D:/ideawork/test2/Web/src/main/resources/generatorConfig.xml");  //（配置文件具体path）
+
+            task.execute();
+            System.out.println("generator end");
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
+    }
+
 }
