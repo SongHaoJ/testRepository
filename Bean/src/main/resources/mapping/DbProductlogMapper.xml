@@ -43,10 +43,10 @@
   <sql id="Base_Column_List">
     SEQUENCEID, SID, OPER, OPERTIME, FILED8, FILED9, FILED10, CORPID, OPENFLAG, OPERTYPE, 
     STORAGEBINFLAG, OUTERLENGTH, OUTERWIDTH, OUTERHIGH, OUTERVOLUME, OUTERGROSSWEIGHT, 
-    OUTERNETWEIGHT, GROSSWEIGHT, 'LENGTH', WIDTH, HIGH, VOLUME, MAINSKU
+    OUTERNETWEIGHT, GROSSWEIGHT, LENGTH, WIDTH, HIGH, VOLUME, MAINSKU
   </sql>
   <sql id="Blob_Column_List">
-    'NAME', DESCR, FILED1, FILED2, FILED3, FILED4, FILED5, FILED6, FILED7, CONTENT, OUTERNORMS, 
+    NAME, DESCR, FILED1, FILED2, FILED3, FILED4, FILED5, FILED6, FILED7, CONTENT, OUTERNORMS,
     OUTERLEVEL
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
@@ -68,8 +68,8 @@
       OPERTYPE, STORAGEBINFLAG, OUTERLENGTH, 
       OUTERWIDTH, OUTERHIGH, OUTERVOLUME, 
       OUTERGROSSWEIGHT, OUTERNETWEIGHT, GROSSWEIGHT, 
-      'LENGTH', WIDTH, HIGH, 
-      VOLUME, MAINSKU, 'NAME', 
+      LENGTH, WIDTH, HIGH,
+      VOLUME, MAINSKU, NAME,
       DESCR, FILED1, FILED2, 
       FILED3, FILED4, FILED5, 
       FILED6, FILED7, CONTENT, 
@@ -145,7 +145,7 @@
         GROSSWEIGHT,
       </if>
       <if test="length != null">
-        'LENGTH',
+        LENGTH,
       </if>
       <if test="width != null">
         WIDTH,
@@ -160,7 +160,7 @@
         MAINSKU,
       </if>
       <if test="name != null">
-        'NAME',
+        NAME,
       </if>
       <if test="descr != null">
         DESCR,
@@ -359,7 +359,7 @@
         GROSSWEIGHT = #{grossweight,jdbcType=DECIMAL},
       </if>
       <if test="length != null">
-        'LENGTH' = #{length,jdbcType=DECIMAL},
+        LENGTH = #{length,jdbcType=DECIMAL},
       </if>
       <if test="width != null">
         WIDTH = #{width,jdbcType=DECIMAL},
@@ -374,7 +374,7 @@
         MAINSKU = #{mainsku,jdbcType=VARCHAR},
       </if>
       <if test="name != null">
-        'NAME' = #{name,jdbcType=LONGVARCHAR},
+        NAME = #{name,jdbcType=LONGVARCHAR},
       </if>
       <if test="descr != null">
         DESCR = #{descr,jdbcType=LONGVARCHAR},

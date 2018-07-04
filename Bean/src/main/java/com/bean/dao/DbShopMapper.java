@@ -18,5 +18,5 @@ public interface DbShopMapper {
 
     int updateByPrimaryKeySelective(DbShop record) throws Exception;
 
-    List<DbShop> selectShopForOrder(Map<String,String> paramMap) throws Exception;
+    List<DbShop> selectShopForOrder(Map<String,Object> paramMap) throws Exception;
 }

@@ -1,6 +1,8 @@
 package com.controller;
 
 import com.threadModel.ThreadModel;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
@@ -13,6 +15,7 @@ public class Priority {
      * (name为All，记录总数量)
      */
     private static HashMap<String, Long> orderThreadNumber;
+    private static final Logger log = LoggerFactory.getLogger(Priority.class);
 
     static {
         orderThreadNumber = new HashMap<>();
@@ -20,32 +23,29 @@ public class Priority {
     }
 
 
-    public static void changePriority() {
-        ThreadModel tm = (ThreadModel) Thread.currentThread();
+    public static void changePriority(ThreadModel tm) {
+        log.info("Thread:" + tm.getName() + "优先级分配");
+        System.out.println(tm.getType() + tm.getName());
         //status:1、start   2、end
         int status = tm.getStatus();
         if (status == 1) {
             //status==1,线程刚开始运行，需要设置优先级
             setPriority(tm);
-
         } else if (status == 2) {
             //status==2,,线程运行完毕，更新优先级数据
             updatePriority(tm);
-
         } else {
             //就俩状态，要是到这。。。。
             tm.setStop(true);
         }
-
-
     }
 
     private static void setPriority(ThreadModel tm) {
         String threadType = tm.getThreadType();
         String type = tm.getType();
-        Long all = orderThreadNumber.get("ALL");
+        Long all = orderThreadNumber.get("ALL") == 0L ? 1L : orderThreadNumber.get("ALL");
         if ("order".equals(threadType)) {
-            Long number = orderThreadNumber.get(type);
+            Long number = orderThreadNumber.get(type) == null ? 0L : orderThreadNumber.get(type);
             int pri = Integer.valueOf(Long.toString(number / all));
             if (pri < 1) {
                 tm.setPriority(Thread.MIN_PRIORITY);
@@ -64,7 +64,7 @@ public class Priority {
         String threadType = tm.getThreadType();
         String type = tm.getType();
         Long taskNumber = tm.getTaskNumber();
-        Long all = orderThreadNumber.get("ALL");
+        Long all = orderThreadNumber.get("ALL") == 0L ? 1L : orderThreadNumber.get("ALL");
         Long number = 0L;
         if ("order".equals(threadType)) {
             if (orderThreadNumber.get(type) != null) {
@@ -75,8 +75,5 @@ public class Priority {
         } else {
             //其他类型
         }
-
     }
-
-
 }

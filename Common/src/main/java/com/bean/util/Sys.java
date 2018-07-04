@@ -1147,6 +1147,200 @@ public class Sys {
         }
     }
 
+    //根据英文国家全称获取国家简称(用于解析Excel文件时将excel文件中的国家改成缩写)
+    public static String getCountryCodeFromCountryname(String countryname) {
+        if(Sys.isNull(countryname) == true){return "";}
+        if(countryname != null && countryname.length()>0){countryname = countryname.toLowerCase();}//转换成小写,便于比较
+        if("russian federation".equals(countryname) == true){return "RU";}
+        if("sweden".equals(countryname) == true){return "SE";}
+        if("sri lanka".equals(countryname) == true){return "LK";}
+        if("belarus".equals(countryname) == true){return "BY";}
+        if("ireland".equals(countryname) == true){return "IE";}
+        if("lithuania".equals(countryname) == true){return "LT";}
+        if("bosnia and herzegovina".equals(countryname) == true){return "BA";}
+        if("moldova".equals(countryname) == true){return "MD";}
+        if("fiji".equals(countryname) == true){return "FJ";}
+        if("andorra".equals(countryname) == true){return "AD";}
+        if("vietnam".equals(countryname) == true){return "VN";}
+        if("espa?a".equals(countryname) == true){return "ES";}
+        if("american samoa".equals(countryname) == true){return "AS";}
+        if("lettland".equals(countryname) == true){return "LV";}
+        if("guam".equals(countryname) == true){return "GU";}
+        if("algeria".equals(countryname) == true){return "DZ";}
+        if("土耳其".equals(countryname) == true){return "TR";}
+        if("großbritannien".equals(countryname) == true){return "GB";}
+        if("turkmenistan".equals(countryname) == true){return "TM";}
+        if("montenegro".equals(countryname) == true){return "ME";}
+        if("ru".equals(countryname) == true){return "RU";}
+        if("united states".equals(countryname) == true){return "US";}
+        if("ukraine".equals(countryname) == true){return "UA";}
+        if("?sterreich".equals(countryname) == true){return "AT";}
+        if("luxembourg".equals(countryname) == true){return "LU";}
+        if("serbia".equals(countryname) == true){return "RS";}
+        if("paraguay".equals(countryname) == true){return "PY";}
+        if("tschechische republik".equals(countryname) == true){return "CZ";}
+        if("kyrgyzstan".equals(countryname) == true){return "KG";}
+        if("ecuador".equals(countryname) == true){return "EC";}
+        if("hong kong".equals(countryname) == true){return "HK";}
+        if("griechenland".equals(countryname) == true){return "GR";}
+        if("taiwan".equals(countryname) == true){return "TW";}
+        if("frankreich".equals(countryname) == true){return "FR";}
+        if("méxico".equals(countryname) == true){return "MX";}
+        if("finlande".equals(countryname) == true){return "FI";}
+        if("bermuda".equals(countryname) == true){return "BM";}
+        if("spain".equals(countryname) == true){return "ES";}
+        if("czech republic".equals(countryname) == true){return "CZ";}
+        if("hungary".equals(countryname) == true){return "HU";}
+        if("singapore".equals(countryname) == true){return "SG";}
+        if("cyprus".equals(countryname) == true){return "CY";}
+        if("japan".equals(countryname) == true){return "JP";}
+        if("belgium".equals(countryname) == true){return "BE";}
+        if("oman".equals(countryname) == true){return "OM";}
+        if("united state".equals(countryname) == true){return "US";}
+        if("cambodia".equals(countryname) == true){return "KH";}
+        if("jordan".equals(countryname) == true){return "JO";}
+        if("yemen".equals(countryname) == true){return "YE";}
+        if("spanien".equals(countryname) == true){return "ES";}
+        if("finnland".equals(countryname) == true){return "FI";}
+        if("australien".equals(countryname) == true){return "AU";}
+        if("marshall islands".equals(countryname) == true){return "MH";}
+        if("uk".equals(countryname) == true){return "GB";}
+        if("tanzania".equals(countryname) == true){return "TZ";}
+        if("españa".equals(countryname) == true){return "ES";}
+        if("russische föderation".equals(countryname) == true){return "RU";}
+        if("hongrie".equals(countryname) == true){return "HU";}
+        if("norway".equals(countryname) == true){return "NO";}
+        if("united kingdom".equals(countryname) == true){return "GB";}
+        if("deutschland".equals(countryname) == true){return "DE";}
+        if("greece".equals(countryname) == true){return "GR";}
+        if("switzerland".equals(countryname) == true){return "CH";}
+        if("malaysia".equals(countryname) == true){return "MY";}
+        if("slovenia".equals(countryname) == true){return "SI";}
+        if("kazakhstan".equals(countryname) == true){return "KZ";}
+        if("armenia".equals(countryname) == true){return "AM";}
+        if("apo/fpo".equals(countryname) == true){return "AA";}
+        if("bolivia".equals(countryname) == true){return "BO";}
+        if("greenland".equals(countryname) == true){return "GL";}
+        if("belgique".equals(countryname) == true){return "BE";}
+        if("norwegen".equals(countryname) == true){return "NO";}
+        if("seychelles".equals(countryname) == true){return "SC";}
+        if("roumanie".equals(countryname) == true){return "RO";}
+        if("au".equals(countryname) == true){return "AU";}
+        if("états-unis".equals(countryname) == true){return "US";}
+        if("fr".equals(countryname) == true){return "FR";}
+        if("germany".equals(countryname) == true){return "DE";}
+        if("croatia, republic of".equals(countryname) == true){return "HR";}
+        if("mexico".equals(countryname) == true){return "MX";}
+        if("india".equals(countryname) == true){return "IN";}
+        if("italy".equals(countryname) == true){return "IT";}
+        if("france métropolitaine".equals(countryname) == true){return "FR";}
+        if("schweiz".equals(countryname) == true){return "CH";}
+        if("peru".equals(countryname) == true){return "PE";}
+        if("bahrain".equals(countryname) == true){return "BH";}
+        if("mauritius".equals(countryname) == true){return "MU";}
+        if("suisse".equals(countryname) == true){return "CH";}
+        if("nigeria".equals(countryname) == true){return "NG";}
+        if("italien".equals(countryname) == true){return "IT";}
+        if("virgin islands (u.s.)".equals(countryname) == true){return "VI";}
+        if("中国".equals(countryname) == true){return "CN";}
+        if("us".equals(countryname) == true){return "US";}
+        if("ca".equals(countryname) == true){return "CA";}
+        if("dänemark".equals(countryname) == true){return "DK";}
+        if("egypt".equals(countryname) == true){return "EG";}
+        if("saint lucia".equals(countryname) == true){return "LC";}
+        if("niederlande".equals(countryname) == true){return "NL";}
+        if("bhutan".equals(countryname) == true){return "BT";}
+        if("aruba".equals(countryname) == true){return "AW";}
+        if("russie".equals(countryname) == true){return "RU";}
+        if("российская федерация".equals(countryname) == true){return "RU";}
+        if("denmark".equals(countryname) == true){return "DK";}
+        if("finland".equals(countryname) == true){return "FI";}
+        if("canada".equals(countryname) == true){return "CA";}
+        if("bulgaria".equals(countryname) == true){return "BG";}
+        if("brunei darussalam".equals(countryname) == true){return "BN";}
+        if("indonesia".equals(countryname) == true){return "ID";}
+        if("de".equals(countryname) == true){return "DE";}
+        if("argentina".equals(countryname) == true){return "AR";}
+        if("uruguay".equals(countryname) == true){return "UY";}
+        if("maldives".equals(countryname) == true){return "MV";}
+        if("albania".equals(countryname) == true){return "AL";}
+        if("qatar".equals(countryname) == true){return "QA";}
+        if("usa".equals(countryname) == true){return "US";}
+        if("schweden".equals(countryname) == true){return "SE";}
+        if("united arab emirates".equals(countryname) == true){return "AE";}
+        if("brasilien".equals(countryname) == true){return "BR";}
+        if("bangladesh".equals(countryname) == true){return "BD";}
+        if("kuwait".equals(countryname) == true){return "KW";}
+        if("kroatien".equals(countryname) == true){return "HR";}
+        if("slowenien".equals(countryname) == true){return "SI";}
+        if("reunion".equals(countryname) == true){return "RE";}
+        if("norvège".equals(countryname) == true){return "NO";}
+        if("latvija".equals(countryname) == true){return "LV";}
+        if("united kindom".equals(countryname) == true){return "GB";}
+        if("croatia".equals(countryname) == true){return "HR";}
+        if("jamaica".equals(countryname) == true){return "JM";}
+        if("slowakei".equals(countryname) == true){return "SK";}
+        if("israël".equals(countryname) == true){return "IL";}
+        if("thailand".equals(countryname) == true){return "TH";}
+        if("puerto rico".equals(countryname) == true){return "PR";}
+        if("estonia".equals(countryname) == true){return "EE";}
+        if("portugal".equals(countryname) == true){return "PT";}
+        if("turkey".equals(countryname) == true){return "TR";}
+        if("france".equals(countryname) == true){return "FR";}
+        if("romania".equals(countryname) == true){return "RO";}
+        if("slovakia".equals(countryname) == true){return "SK";}
+        if("malta".equals(countryname) == true){return "MT";}
+        if("new zealand".equals(countryname) == true){return "NZ";}
+        if("austria".equals(countryname) == true){return "AT";}
+        if("chile".equals(countryname) == true){return "CL";}
+        if("vereinigte staaten von amerika".equals(countryname) == true){return "US";}
+        if("uzbekistan".equals(countryname) == true){return "UZ";}
+        if("d?nemark".equals(countryname) == true){return "DK";}
+        if("colombia".equals(countryname) == true){return "CO";}
+        if("mongolia".equals(countryname) == true){return "MN";}
+        if("russische f?deration".equals(countryname) == true){return "RU";}
+        if("macau".equals(countryname) == true){return "MO";}
+        if("polen".equals(countryname) == true){return "PL";}
+        if("guernsey".equals(countryname) == true){return "GG";}
+        if("kenya".equals(countryname) == true){return "KE";}
+        if("jersey".equals(countryname) == true){return "JE";}
+        if("netherlands antilles".equals(countryname) == true){return "AN";}
+        if("russia".equals(countryname) == true){return "RU";}
+        if("österreich".equals(countryname) == true){return "AT";}
+        if("papua new guinea".equals(countryname) == true){return "PG";}
+        if("australia".equals(countryname) == true){return "AU";}
+        if("israel".equals(countryname) == true){return "IL";}
+        if("latvia".equals(countryname) == true){return "LV";}
+        if("brazil".equals(countryname) == true){return "BR";}
+        if("poland".equals(countryname) == true){return "PL";}
+        if("netherlands".equals(countryname) == true){return "NL";}
+        if("saudi arabia".equals(countryname) == true){return "SA";}
+        if("south africa".equals(countryname) == true){return "ZA";}
+        if("azerbaijan republic".equals(countryname) == true){return "AZ";}
+        if("korea, south".equals(countryname) == true){return "KR";}
+        if("iceland".equals(countryname) == true){return "IS";}
+        if("macedonia".equals(countryname) == true){return "MK";}
+        if("philippines".equals(countryname) == true){return "PH";}
+        if("ungarn".equals(countryname) == true){return "HU";}
+        if("georgia".equals(countryname) == true){return "GE";}
+        if("el salvador".equals(countryname) == true){return "SV";}
+        if("pakistan".equals(countryname) == true){return "PK";}
+        if("belgien".equals(countryname) == true){return "BE";}
+        if("morocco".equals(countryname) == true){return "MA";}
+        if("barbados".equals(countryname) == true){return "BB";}
+        if("gibraltar".equals(countryname) == true){return "GI";}
+        if("venezuela".equals(countryname) == true){return "VE";}
+        if("zambia".equals(countryname) == true){return "ZM";}
+        if("costa rica".equals(countryname) == true){return "CR";}
+        if("tajikistan".equals(countryname) == true){return "TJ";}
+        if("laos".equals(countryname) == true){return "LA";}
+        if("ie".equals(countryname) == true){return "IE";}
+        if("sa".equals(countryname) == true){return "SA";}
+        if(countryname.length()>=8){countryname = countryname.substring(0,8);}
+        return countryname.toUpperCase();//如果实在不知道什么国家,就返回全称
+    }
+
+
     //根据英文国家简称,获取英文国家全称
     public static String getCountry(String countrycode) {
         if(Sys.isNull(countrycode) == true){countrycode = "";}

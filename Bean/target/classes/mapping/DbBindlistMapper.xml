@@ -316,7 +316,7 @@
     where SID = #{sid,jdbcType=VARCHAR}
   </update>
 
-  <select id="calcByBindId" parameterType="string">
+  <select id="calcByBindId" parameterType="string" resultType="int">
     select count(1) as scount from db_bindlist where bindid=#{bindid}
   </select>
 

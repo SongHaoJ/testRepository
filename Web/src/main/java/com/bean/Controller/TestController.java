@@ -1,13 +1,21 @@
 package com.bean.Controller;
 
+import com.bean.yml.LazadaYml;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class TestController {
 
     public static final Logger log = LoggerFactory.getLogger(TestController.class);
+    @Autowired
+    private LazadaYml dp;
+
+
    /* @Autowired
     DbOrderMapper orderMapper;
 */
@@ -98,22 +106,11 @@ public class TestController {
         log.info("sessionID:" + request.getSession().getId());
         return attributeMap;
     }*/
-/*
     @ResponseBody
-    @GetMapping("/readtable")
-    public String getTable(int n1){
-        String result  = "";
-        switch (n1){
-            case 1:
-                result= service.t1();
-                break;
-            case 2:
-                result=service.t2();
-                break;
-            case 3:
-                result=service.t3();
-                break;
-        }
+    @GetMapping("/params")
+    public String getTable(){
+        String result  = dp.getAppKey()+"=="+dp.getSecret();
+
         return result;
-    }*/
+    }
 }

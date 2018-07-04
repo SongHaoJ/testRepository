@@ -6,14 +6,9 @@ import com.bean.util.RetCode;
 
 public interface LazadaService {
 
-
-
     void setManyStorageflag(boolean manyStorageflag);
 
     void setManyStorageSku(String manyStorageSku);
-
-
-
 
     /**
      * 查询需要跟新的Lazada产品
@@ -34,9 +29,10 @@ public interface LazadaService {
      * 查找需要下载的店铺
      *
      * @param shopId 店铺id
+     * @param type 查询类型 1、授权店铺  2、下单店铺
      * @return
      */
-    RetCode findLazadaShopForDownload(String shopId);
+    RetCode findLazadaShopForDownload(String shopId,String type);
 
     /**
      * 拉取物流信息
@@ -56,12 +52,8 @@ public interface LazadaService {
      * @param shop
      * @param status
      */
-    void downloadLazadaOrderNew(DbShop shop,String status);
+    RetCode downloadLazadaOrderNew(DbShop shop,String status);
 
-    /**
-     * 计算缺货
-     */
-    String calcuOrder();
     /**
      * 订单存入临时表
      * @param recordId
@@ -75,15 +67,7 @@ public interface LazadaService {
      * @return
      */
     RetCode saveOrderInfoFromLazadatemp(int recordId, DbLazadaorderinfo obj, boolean manyStorageflag,
-                                               String manyStorageSku, boolean holdSpace, String skuPosition, double moneyrate, double platformFeeRate);
-
-
-    /**
-     * 查询临时表
-     * @param obj
-     * @return
-     */
-    RetCode findLazadaorderinfo(DbLazadaorderinfo obj);
+                                               String manyStorageSku, boolean holdSpace, String skuPosition, double moneyrate, double platformFeeRate) throws Exception;
 
     RetCode findManyStorageSkuFlag();
 
