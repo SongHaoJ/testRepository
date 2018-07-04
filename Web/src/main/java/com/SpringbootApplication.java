@@ -9,14 +9,17 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 import java.math.BigDecimal;
 
 
 @MapperScan("com.bean.dao")
 @SpringBootApplication
+@EnableScheduling
 public class SpringbootApplication extends SpringBootServletInitializer {
     private static final Logger logger = LoggerFactory.getLogger(SpringbootApplication.class);
+
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
@@ -26,7 +29,7 @@ public class SpringbootApplication extends SpringBootServletInitializer {
     public static void main(String args[]) {
         logger.debug("SpringBootWeb开始启动");
         SpringApplication.run(SpringbootApplication.class, args);
-        runGenerator();
+
     }
 
 
@@ -62,5 +65,6 @@ public class SpringbootApplication extends SpringBootServletInitializer {
 
         }
     }
+
 
 }

@@ -225,6 +225,7 @@
     <if test="address3 != null">
       ADDRESS3 = #{address3,jdbcType=LONGVARCHAR} and
     </if>
+     1=1
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
     select 
@@ -235,7 +236,7 @@
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
 
-  <select id="selectByCriteria" parameterType="com.bean.model.DbLazadaorderinfo">
+  <select id="selectByCriteria" parameterType="com.bean.model.DbLazadaorderinfo" resultMap="ResultMapWithBLOBs">
     select <include refid="Base_Column_List" />
     ,
     <include refid="Blob_Column_List" />

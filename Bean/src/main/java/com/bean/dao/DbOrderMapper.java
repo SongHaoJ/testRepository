@@ -2,7 +2,6 @@ package com.bean.dao;
 
 import com.bean.model.DbOrder;
 import com.gourpBean.BaseOrderIncludeSellBean;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -31,4 +30,6 @@ public interface DbOrderMapper {
     Map<String,String> selectIsSave(Map<String,String> params);
 
     BaseOrderIncludeSellBean orderAndSell(String orderid);
+
+    String orderIsExist(Map<String,String> params);
 }

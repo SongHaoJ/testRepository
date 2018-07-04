@@ -89,7 +89,7 @@
         <result column="MARKETPLACEID" jdbcType="LONGVARCHAR" property="marketplaceid"/>
     </resultMap>
     <sql id="Base_Column_List">
-    SID, CORPID, 'NAME', 'PASSWORD', SLEVEL, CREDIT1, CREDIT2, CREDIT3, MANAGER, TELE, 
+    SID, CORPID, NAME, PASSWORD, SLEVEL, CREDIT1, CREDIT2, CREDIT3, MANAGER, TELE,
     FAX, ORDERNUM, TEMPLETFILE, OPER, OPERTIME, RATE, RESERVE1, RESERVE2, RESERVE3, RESERVE4, 
     RESERVE5, RESERVE6, RESERVE7, RESERVE8, RESERVE9, RESERVE10, RESERVE11, RESERVE12, 
     RESERVE14, RESERVE15, RESERVE16, RESERVE17, RESERVE18, ITEMID, OPENFLAG, TOKENFLAG, 
@@ -116,8 +116,8 @@
     where SID = #{sid,jdbcType=VARCHAR}
   </delete>
     <insert id="insert" parameterType="com.bean.model.DbShop">
-    insert into db_shop (SID, CORPID, 'NAME', 
-      'PASSWORD', SLEVEL, CREDIT1, 
+    insert into db_shop (SID, CORPID, NAME,
+      PASSWORD, SLEVEL, CREDIT1,
       CREDIT2, CREDIT3, MANAGER, 
       TELE, FAX, ORDERNUM, 
       TEMPLETFILE, OPER, OPERTIME, 
@@ -183,10 +183,10 @@
                 CORPID,
             </if>
             <if test="name != null">
-                'NAME',
+                NAME,
             </if>
             <if test="password != null">
-                'PASSWORD',
+                PASSWORD,
             </if>
             <if test="slevel != null">
                 SLEVEL,
@@ -685,10 +685,10 @@
                 CORPID = #{corpid,jdbcType=VARCHAR},
             </if>
             <if test="name != null">
-                'NAME' = #{name,jdbcType=VARCHAR},
+                NAME = #{name,jdbcType=VARCHAR},
             </if>
             <if test="password != null">
-                'PASSWORD' = #{password,jdbcType=VARCHAR},
+                PASSWORD = #{password,jdbcType=VARCHAR},
             </if>
             <if test="slevel != null">
                 SLEVEL = #{slevel,jdbcType=VARCHAR},
@@ -938,9 +938,13 @@
 
     <!--查询需要下载订单的店铺-->
     <select id="selectShopForOrder" resultMap="ResultMapWithBLOBs">
-        select select sid,corpid,name,tokenid,reserve9,reserve18,reserve19,orderoper,selluserid,amazonurlname
-        from db_shop where openflag=#{openflag} and reserve11=#{shoptypeid} and tokenflag=#{tokenflag} and ((reserve9 IS
-        NOT NULL AND SYSDATE()-DATE_FORMAT(reserve9,'yyyyMMddHH24miss')>1/24) or reserve9 is null)
+        select sid,corpid,name,tokenid,reserve9,reserve18,reserve19,orderoper,selluserid,amazonurlname
+        from db_shop where openflag=#{openflag} and reserve11=#{shoptypeid} and tokenflag=#{tokenflag}
+        <if test="reserve9 !=null">
+            and ((reserve9 IS
+            NOT NULL AND SYSDATE()-DATE_FORMAT(reserve9,'yyyyMMddHH24miss')>1/24) or reserve9 is null)
+        </if>
+
         <if test="shopIdList!=null">and sid in (
             <foreach collection="shopIdList" separator="," item="shopid">
                 #{shopid}

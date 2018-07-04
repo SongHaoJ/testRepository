@@ -15,7 +15,7 @@
     <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
   </resultMap>
   <sql id="Base_Column_List">
-    SID, 'NAME', SHOWNAME, SERVICENAME, OPER, OPERTIME, OPENFLAG, DESCR, RESERVE1, RESERVE2, 
+    SID, NAME, SHOWNAME, SERVICENAME, OPER, OPERTIME, OPENFLAG, DESCR, RESERVE1, RESERVE2,
     RESERVE3
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
@@ -29,7 +29,7 @@
     where SID = #{sid,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.bean.model.DbLazadaexpresstype">
-    insert into db_lazadaexpresstype (SID, 'NAME', SHOWNAME, 
+    insert into db_lazadaexpresstype (SID, NAME, SHOWNAME,
       SERVICENAME, OPER, OPERTIME, 
       OPENFLAG, DESCR, RESERVE1, 
       RESERVE2, RESERVE3)
@@ -45,7 +45,7 @@
         SID,
       </if>
       <if test="name != null">
-        'NAME',
+        NAME,
       </if>
       <if test="showname != null">
         SHOWNAME,
@@ -115,7 +115,7 @@
     update db_lazadaexpresstype
     <set>
       <if test="name != null">
-        'NAME' = #{name,jdbcType=VARCHAR},
+        NAME = #{name,jdbcType=VARCHAR},
       </if>
       <if test="showname != null">
         SHOWNAME = #{showname,jdbcType=VARCHAR},
@@ -149,7 +149,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.bean.model.DbLazadaexpresstype">
     update db_lazadaexpresstype
-    set 'NAME' = #{name,jdbcType=VARCHAR},
+    set NAME = #{name,jdbcType=VARCHAR},
       SHOWNAME = #{showname,jdbcType=VARCHAR},
       SERVICENAME = #{servicename,jdbcType=VARCHAR},
       OPER = #{oper,jdbcType=VARCHAR},

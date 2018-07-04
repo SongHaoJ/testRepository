@@ -9,7 +9,6 @@ import com.bean.orderUtil.LazadaUtil;
 import com.bean.util.RetCode;
 import com.bean.util.Sys;
 import com.bean.yml.LazadaYml;
-import com.gourpBean.BaseOrderIncludeSellBean;
 import com.gourpBean.BindListIncludeProduct;
 import com.gourpBean.ItemBean;
 import com.lazada.lazop.api.LazopClient;
@@ -21,6 +20,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.sql.ResultSet;
@@ -31,9 +31,8 @@ import java.util.*;
 
 @Service
 public class LazadaServiceImpl implements LazadaService {
-    //TODO yml读取
-    private String appkey = "";
-    private String appSecret = "";
+    @Autowired
+    private LazadaYml yml;
     private static Boolean syncLocationFlag = true;
     private static final Logger log = LoggerFactory.getLogger(LazadaServiceImpl.class);
     private Map<String, BigDecimal> moneyMap = new HashMap<>();
@@ -57,8 +56,6 @@ public class LazadaServiceImpl implements LazadaService {
     @Autowired
     private DbMoneyrateMapper moneyrateMapper;
     @Autowired
-    private DbLazadaorderinfoMapper orderInfoMapper;
-    @Autowired
     private DbLazadaexpresstypeMapper expressMapper;
     @Autowired
     private DbMultiWarehouseMapper multiWarehouseMapper;
@@ -74,7 +71,6 @@ public class LazadaServiceImpl implements LazadaService {
     private DbProductlogMapper productlogMapper;
 
     private Calendar cld = Calendar.getInstance();
-
 
     @Override
     public RetCode findLazadanewproduct(String shopid) {
@@ -94,7 +90,6 @@ public class LazadaServiceImpl implements LazadaService {
         }
     }
 
-
     /**
      * 刷新令牌
      *
@@ -112,12 +107,11 @@ public class LazadaServiceImpl implements LazadaService {
             try {
                 String countryCode = "" + Sys.isCheckNull(shop.getAmazonurlname()).toLowerCase();
                 String scApiHost = LazadaUtil.getScApiHost(countryCode);
-                LazopClient client = new LazopClient(scApiHost, appkey, appSecret);
+                LazopClient client = new LazopClient(scApiHost, yml.getAppKey(), yml.getSecret());
                 LazopRequest request = new LazopRequest();
                 request.setApiName("/auth/token/refresh");
                 request.addApiParameter("refresh_token", shop.getReserve19());
                 LazopResponse response = client.execute(request);
-                response = client.execute(request);
                 if (response.isSuccess()) {
                     JSONObject re = JSONObject.parseObject(response.getBody());
                     shop.setTokenid(re.getString("access_token"));
@@ -127,7 +121,11 @@ public class LazadaServiceImpl implements LazadaService {
                     shop.setReserve18(new BigDecimal(refreshTime));
                     try {
                         //更新店铺信息
+                        List<String> shopIds = new ArrayList<>();
+                        shopIds.add(shop.getSid());
+                        shop.setShopIdList(shopIds);
                         shopMapper.updateByPrimaryKeySelective(shop);
+                        log.info("更新令牌成功");
                         rt.setCode(0);
                         rt.setDesc("更新令牌成功");
                         rt.setObj(shop);
@@ -135,38 +133,45 @@ public class LazadaServiceImpl implements LazadaService {
                     } catch (Exception e) {
                         rt.setCode(999);
                         rt.setDesc("更新异常：" + e.getMessage());
+                        log.info("更新异常：" + e.getMessage());
                     }
-
                 }
             } catch (ApiException e) {
                 rt.setCode(1000);
                 rt.setDesc("更新令牌异常：" + e.getMessage());
+                log.info("更新异常：" + e.getMessage());
             }
         } else {
             rt.setCode(999);
             rt.setDesc("令牌过期，请重新授权");
+            log.info("令牌过期，请重新授权");
         }
         return rt;
     }
 
     /**
-     * 查找需要下载订单的店铺
+     * 查找需要下载订单的店铺,或是授权成功的店铺
      *
      * @param shopId 店铺id
+     * @param type   查询类型 1、授权店铺  2、下单店铺
      * @return
      */
     @Override
-    public RetCode findLazadaShopForDownload(String shopId) {
+    public RetCode findLazadaShopForDownload(String shopId, String type) {
         RetCode rt = new RetCode(1000, "操作失败", "操作失败");
         try {
-            ArrayList<DbShop> list = new ArrayList<DbShop>();
-            Map<String, String> paramMap = new HashMap<String, String>();
+            Map<String, Object> paramMap = new HashMap<String, Object>();
             paramMap.put("openflag", "1");
             paramMap.put("shoptypeid", "18");
             paramMap.put("tokenflag", "40");
 
             if (!Sys.isNull(shopId)) {
-                paramMap.put("shopIdList", shopId);
+                List<String> shopIds = new ArrayList<>();
+                shopIds.add(shopId);
+                paramMap.put("shopIdList", shopIds);
+            }
+            if ("2".equals(type)) {
+                paramMap.put("reserve9", "1");
             }
 
             List<DbShop> shopList = shopMapper.selectShopForOrder(paramMap);
@@ -185,8 +190,8 @@ public class LazadaServiceImpl implements LazadaService {
             if (resultList.size() > 0) {// 如果有lazada的店铺需要下载
                 rt.setCode(0);
                 rt.setDesc("查询成功");
-                rt.setDetail("" + list.size());
-                rt.setObj(list);
+                rt.setDetail("" + resultList.size());
+                rt.setObj(resultList);
             } else {
                 rt.setCode(1000);
                 rt.setDesc("无店铺需要下载Lazada订单");
@@ -210,7 +215,7 @@ public class LazadaServiceImpl implements LazadaService {
         String apiKey = shop.getTokenid();
         String scApiHost = LazadaUtil.getScApiHost(countryCode);
 
-        LazopClient client = new LazopClient(scApiHost, appkey, appSecret);
+        LazopClient client = new LazopClient(scApiHost, yml.getAppKey(), yml.getSecret());
         LazopRequest request = new LazopRequest();
         request.setApiName("/shipment/providers/get");
         request.setHttpMethod("GET");
@@ -233,7 +238,7 @@ public class LazadaServiceImpl implements LazadaService {
                     try {
                         trackingUrl = shipmentProviderObject.getString("TrackingUrl");
                     } catch (Exception e) {
-                        System.out.println("1");
+                        log.info("1");
                     }
                     DbLazadaexpresstype let = new DbLazadaexpresstype();
                     let.setSid(name);
@@ -242,23 +247,25 @@ public class LazadaServiceImpl implements LazadaService {
                     let.setOpertime(new Date());
                     let.setReserve3("18");
                     int n = expressMapper.updateByPrimaryKeySelective(let);
+                    log.info("更新物流成功");
                     if (n != 1) {
                         let.setName(name);
                         let.setOper("sys");
                         let.setOpenflag("1");
                         try {
                             expressMapper.insertSelective(let);
+                            log.info("增加物流成功");
                         } catch (Exception e) {
-                            System.out.println("1");
+                            log.error("更新物流异常：" + e.getMessage(), e);
                         }
                     }
                 }
             } else {
                 //获取认可物流失败
-                System.out.println("1");
+                log.info("获取认可物流失败");
             }
         } catch (Exception e) {
-            System.out.println("Exception=" + e.getMessage());
+            log.error("获取认可物流异常：" + e.getMessage(), e);
         }
     }
 
@@ -311,11 +318,12 @@ public class LazadaServiceImpl implements LazadaService {
      * @param status
      */
     @Override
-    public void downloadLazadaOrderNew(DbShop shop, String status) {
-        Boolean tokenFail = true;
+    public RetCode downloadLazadaOrderNew(DbShop shop, String status) {
+        RetCode rt = new RetCode(1000, "默认失败", "");
+        Boolean tokenFail = false;
         final DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mmZ");
         long groupId = Long.valueOf(Sys.getCtime());
-        // 默认下载五天内的pending状态的订单，和ready to ship的订单
+        // 默认下载7天内的pending状态的订单，和ready to ship的订单
         Date startTime = Sys.getDateAfter(-7);// 默认开始时间是系统时间之前7天
         String desc = "";
         try {
@@ -332,16 +340,10 @@ public class LazadaServiceImpl implements LazadaService {
             String CreatedBefore = changeDateType(endTime);
 
             //
-            // System.out.println("开始时间："+df.format(starttime));
+            // log.info("开始时间："+df.format(starttime));
             // 接口操作方式
 
-            // 调接口的时间,需要把系统时间往前推8小时(7~9小时都可以)
-            // String timestampBefore8hours =
-            // Sys.getTimeBeforeMinite(8*60);//返回YYYYMMDDHHMISS
-            // String timestamp =
-            // timestampBefore8hours.substring(0,4)+"-"+timestampBefore8hours.substring(4,6)+"-"+timestampBefore8hours.substring(6,8)+"T"+timestampBefore8hours.substring(8,10)+":"+timestampBefore8hours.substring(10,12)+":"+timestampBefore8hours.substring(12,14)+"+00:00";
-
-            LazopClient client = new LazopClient(scApiHost, appkey, appSecret);
+            LazopClient client = new LazopClient(scApiHost, yml.getAppKey(), yml.getSecret());
             LazopRequest request = new LazopRequest();
             if (status.length() > 0) {
                 request.addApiParameter("status", status);// 设置后，将返回的一组订单限制为宽松的订单，只返回符合所提供状态的条目。
@@ -380,12 +382,10 @@ public class LazadaServiceImpl implements LazadaService {
                 Offset = (count - 1) * 100;
                 request.addApiParameter("offset", Offset + "");// 在列表开始处跳过的订单数量。
 
-                LazopResponse response = client.execute(request, apiKey);
-                System.out.println(response.getBody());
                 try {
-                    System.out.println("result=" + response);
+                    LazopResponse response = client.execute(request, apiKey);
                     log.info("返回订单数据.\r\n" + response.getBody());
-                    if (response.getBody() != null && response.getBody().indexOf("count") > 0) {
+                    if (response.getBody() != null && response.getBody().contains("count")) {
                         if (response.getBody().indexOf("orders") > 0) {
                             try {
                                 JSONObject jo_0 = JSON.parseObject(response.getBody());
@@ -393,45 +393,38 @@ public class LazadaServiceImpl implements LazadaService {
                                 JSONArray jo_os = jo_d.getJSONArray("orders");
 
                                 if (jo_os != null && jo_os.size() > 0) {
-                                    int totalCount = 0;
                                     try {
-                                        totalCount = jo_d.getInteger("count");
-                                    } catch (Exception e) {
-                                        System.out.println("1");
-                                    }
-                                    try {
-
-                                        int successCount = 0;
-                                        ArrayList<BaseOrderIncludeSellBean> orderbeanlist = new ArrayList<BaseOrderIncludeSellBean>();
                                         pageNum = jo_os.size();
                                         //TODO 遍历解析订单
                                         for (int i = 0; i < pageNum; i++) {
                                             JSONObject oneOrder = jo_os.getJSONObject(i);
-                                            LazadaAnalysis analysis = new LazadaAnalysis();
                                             RetCode rc = analysis.analysisOrderInfo(oneOrder, shop, groupId);
                                             if (rc.getCode() == 0) {
                                                 DbLazadaorderinfo order = (DbLazadaorderinfo) rc.getObj();
+                                                log.info("开始解析订单：" + order.getOrderid() + "商品列表");
                                                 // 开始解析ItemList
                                                 // TODO 解析商品列表
-                                                RetCode rtGetItem = analysis.getItem(i, jo_os.size(), order, shop);
+                                                RetCode rtGetItem = analysis.getItem(order, shop);
                                                 if (rtGetItem.getObj() != null) {
                                                     ArrayList<ItemBean> itemList = (ArrayList<ItemBean>) rtGetItem.getObj();
-                                                    // 保存进临时表
 
-                                                    RetCode rtSave = analysis.saveOrderIntoTemp(order, itemList);
-                                                    if (rtSave.getCode() == 0) {
-
-                                                        successCount++;
-                                                    } else {// 保存不成功或部分不成功
-                                                        log.info("保存失败" + rtSave.getDesc());
-                                                        desc = rtSave.getDesc();
+                                                    List<DbLazadaorderinfo> list = new ArrayList<>();
+                                                    try {
+                                                        list = analysis.saveOrderIntoTemp(order, itemList);
+                                                    } catch (Exception e) {
+                                                        log.error("整理订单出现异常，信息：" + e.getMessage(), e);
                                                     }
+                                                    // TODO 保存进正式表
+                                                    // 将订单从临时表保存进正式表的算法
+                                                    log.info("订单保存进正式表");
+                                                    String resultInfo = doOrder(groupId, shop, list);// 处理当前店铺的当前批次的订单
+                                                    // String downDate = format.format(starttime);
                                                 } else {
-                                                    System.out.println("1");
+                                                    log.info("获取订单商品为空");
                                                 }
                                             } else {
                                                 //订单已存在或信息异常
-                                                System.out.println("1");
+                                                log.info("订单已存在或信息异常:" + rc.getCode() + ":" + rc.getDetail());
                                             }
                                         }
                                     } catch (Exception e) {
@@ -450,19 +443,19 @@ public class LazadaServiceImpl implements LazadaService {
                             }
                         } else {
                             //"无订单Orders信息");
-                            System.out.println("1");
+                            log.info("3");
                         }
+                         updateShopTime(shop);
                     } else if (response.getBody() != null
                             && response.getBody().contains("The specified access token is invalid or expired")) {
                         RetCode rc = getrefreshAccess_token(shop);
-                        tokenFail = false;
                         //"令牌过期，刷新结果：" + rc.getDesc() + "稍后重新拉去订单");
                     } else {
                         //"返回数据格式错误,详情见日志文件");
-                        System.out.println("1");
+                        log.info("4");
                     }
                 } catch (Exception e) {
-                    System.out.println("Exception=" + e.getMessage());
+                    log.info("Exception=" + e.getMessage());
                     //"下载Exception异常:" + e.getMessage());
                     desc = e.getMessage();
                 }
@@ -471,93 +464,22 @@ public class LazadaServiceImpl implements LazadaService {
             //"" + e.getMessage());
             desc = e.getMessage();
         }
-        if (tokenFail) {
-            // 将订单从临时表保存进正式表的算法
-            String resultInfo = doOrder(groupId, shop);// 处理当前店铺的当前批次的订单
-            System.out.println(resultInfo);
-            SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
-            // String downDate = format.format(starttime);
-            String sqlUpt = "update DB_Shop set reserve9='" + Sys.getCtime() + "' where sid='" + shop.getSid() + "'";
-            // 插入日志
-            String sqlLog = "insert into db_ebayapilog ("
-                    + "sequenceid,sid,name,descr,oper,opertime,corpid,openflag,shoptypeid,shoptypename,apitime,lastapitime,reserve1,reserve2,daydiff"
-                    + ")values ('" + Sys.getCtime() + shop.getSid() + "','" + shop.getSid() + "','" + shop.getName()
-                    + "','" + desc + "','sys',sysdate,'1','1','" + shop.getSid() + "','" + shop.getName()
-                    + "','0000',sysdate,'" + groupId + "','1','1')";
-
-            String sqlDeleteOrderTemp = "delete db_lazadaorderinfo where groupid=" + groupId;
-        }
-
+        return rt;
     }
 
-    @Override
-    public String calcuOrder() {
-
-    /*    // 查看用户有没有ebay店铺,并且在db_ebayapi中有超过10条以上的记录,如果有,表示该用户即是ebay大卖家(至少有5个店铺),又不是Lazada卖家,那么calcuOrder算法这里就不计算,由ebayorder的downloadByHour和downloadByDay线程去算,避免锁表
-        RetCode rts = lazadaMgr.findEbayapiCount();
-        if (rts.getCode() == 0) {// 有超过5家ebay店铺,不执行以下算法,避免锁表
-            return "操作成功";
-        }
-        // 在张洁马帮测试环境中约10分钟内计算完一下所有的功能
-        lazadaMgr.updateMabangData();
-        // 修复db_product中有包材id,但无重量和包材级别的商品(否则后面算重量都是错的)
-        lazadaMgr.updatePackaginfoToProduct();
-
-        // 本方法是计算出详单中包材重量重量(从db_product中取出包材重量，同步到db_sell中)
-        RetCode rt = null;
-        rt = new RetCode(0, "开始执行", "开始执行");
-        while (0 == rt.getCode()) {
-            rt = lazadaMgr.updatePackagingWeight();
-        }
-
-        // 修复db_sell中商品重量=0,但对应的商品重量>0的记录,并计算出详单的总重量
-        rt = new RetCode(0, "开始执行", "开始执行");
-        while (0 == rt.getCode()) {
-            rt = lazadaMgr.updateCalcuSellWeight();
-        }
-
-        // ----------------------9---------------------------------
-        // 本方法是计算出订单明细的重量之和同步到db_order.expressweight中
-        rt = new RetCode(0, "开始执行", "开始执行");
-        while (0 == rt.getCode()) {
-            rt = lazadaMgr.updateCalcuOrderProductWeight();
-        }
-
-        // ----------------------10---------------------------------
-        // 本方法是计算出订单的最佳包材及其重量
-        rt = new RetCode(0, "开始执行", "开始执行");
-        while (0 == rt.getCode()) {
-            rt = lazadaMgr.updateCalcuOrderPackageWeight();
-        }
-
-        // ----------------------11---------------------------------
-        // 本方法是计算出整个订单包裹的重量
-        rt = lazadaMgr.updateCalcuOrderWeight();
-
-        // ----------------------12---------------------------------
+    private void updateShopTime(DbShop shop) {
+        DbShop shopUpdate = new DbShop();
+        shopUpdate.setReserve9(Sys.getCtime());
+        shopUpdate.setSid(shop.getSid());
+        List<String> shopIds = new ArrayList<>();
+        shopIds.add(shop.getSid());
+        shopUpdate.setShopIdList(shopIds);
         try {
-            // 计算订单是否能够发货(计算缺货模块)
-            // 1、查找出db_sell中需要计算缺货的所有的商品
-            RetCode dsrt = lazadaMgr.findProductForAlertflag();
-            if (dsrt.getObj() != null) {
-                ArrayList<DbProduct> dplist = (ArrayList<DbProduct>) dsrt.getObj();
-                for (int i = 0; i < dplist.size(); i++) {
-                    lazadaMgr.updateCalcuSellAlertflag(dplist.get(i));
-                    System.out.println("执行计算第" + i + "/" + dplist.size() + "个产品的缺货模块.请等待...");
-                    if (i % 10 == 0) {
-                    }
-                }
-                // 遍历完后,更新db_order(alertflag标志)
-                lazadaMgr.updateSyncOrderAlertflag();
-            }
+            int result = shopMapper.updateByPrimaryKeySelective(shopUpdate);
+            log.info("更新拉单时间结果：" + result);
         } catch (Exception e) {
+            log.error("时间更新失败", e);
         }
-
-        // 转换大小写
-        String sqlUpdateCountryname = "update db_order set customercountry=lower(customercountry) where ordertime>sysdate-2";
-        lazadaMgr.updateExecuteSQL(sqlUpdateCountryname);
-*/
-        return "操作成功";
     }
 
 
@@ -574,7 +496,6 @@ public class LazadaServiceImpl implements LazadaService {
                 + "+00:00";
     }
 
-
     /**
      * 下载订单
      *
@@ -582,24 +503,14 @@ public class LazadaServiceImpl implements LazadaService {
      * @param shop
      * @return
      */
-    private String doOrder(long groupId, DbShop shop) {
+    public String doOrder(long groupId, DbShop shop, List<DbLazadaorderinfo> list) {
         String result = "默认失败";
+        int success = 0;
+        int fail = 0;
         try {
-            // 专门找出异常类的,做处理
-            // 找出Db_lazadaorderinfo.ramarks里不为空的记录,遍历,将ramarks更新到db_order.content....
-
-            // 首先剔除重复订单
-            System.out.println("删除重复订单开始:" + Sys.getCtime());
-         /*   clearDataFromLazadaTemp(groupId, shop);*/
-            System.out.println("删除重复订单结束:" + Sys.getCtime());
 
             // 找出Db_lazadaorderinfo里checkflag=0的订单往正式Db_order,Db_sell里插入
-            DbLazadaorderinfo lazadaorder = new DbLazadaorderinfo();
-            lazadaorder.setGroupid(groupId);
-            lazadaorder.setCheckflag(0);// 0表示前期验证通过的
-            RetCode rtorder = findLazadaorderinfo(lazadaorder);
-            if (rtorder.getObj() != null) {// 如果有订单记录
-                ArrayList<DbLazadaorderinfo> list = (ArrayList<DbLazadaorderinfo>) rtorder.getObj();
+            if (list != null && !list.isEmpty()) {// 如果有订单记录
                 int i = 0;
                 for (DbLazadaorderinfo o : list) {
                     i++;
@@ -632,9 +543,16 @@ public class LazadaServiceImpl implements LazadaService {
                             saveMoneyrate(o.getCurrencyid(), moneyrate);
                             this.moneyMap.put(o.getCurrencyid(), new BigDecimal(moneyrate));
                         }
+                        RetCode rt = null;
+                        try {
+                            log.error("start save");
+                            rt = saveOrderInfoFromLazadatemp(i, o, manyStorageflag, manyStorageSku,
+                                    yml.getHoldSpace(), yml.getSkuPosition(), moneyrate, yml.getPlatformFeeRate());// 保存订单信息
+                            log.error("end save");
+                        } catch (Exception e) {
+                            log.error("保存订单异常", e);
+                        }
 
-                        RetCode rt = saveOrderInfoFromLazadatemp(i, o, manyStorageflag, manyStorageSku,
-                                LazadaYml.getHoldSpace(), LazadaYml.getSkuPosition(), moneyrate, LazadaYml.getPlatformFeeRate());// 保存订单信息
                         log.info("保存订单到正式表：订单号：" + o.getOrderid() + "订单信息：" + JSON.toJSONString(o));
                         if (rt.getCode() == 0) {
                             String description = "";// 第2种描述,一般是匹配多仓的信息
@@ -647,7 +565,7 @@ public class LazadaServiceImpl implements LazadaService {
                             }
                             o.setCheckflag(2);
                             o.setCheckdescr("保存成功");
-                            RetCode rtSucc = updateLazadaorderinfo(o);
+                            success++;
                             log.info("导入第" + i + "个订单成功" + "----订单信息:OrderID=" + o.getOrderid()
                                     + ",主交易ID=" + o.getTradeid() + ",买家ID=" + o.getCustomerid() + ",买家地址="
                                     + o.getAddress1() + ",产品名=" + o.getProductname() + ",SKU=" + o.getSku()
@@ -655,29 +573,28 @@ public class LazadaServiceImpl implements LazadaService {
                                     + (o.getPaidprice().intValue() * o.getQuantity()) + ",订单量=" + o.getQuantity() + "处理结果"
                                     + rt.getDesc() + "," + description);
                         } else {
+                            fail++;
                             o.setCheckflag(1);
                             o.setCheckdescr(rt.getDesc().replace("'", ""));// 失败原因
-                            RetCode rtErr = updateLazadaorderinfo(o);
-                            log.info("导入第" + i + "个订单失败," + rt.getDesc() + "," + rt.getDesc()
-                                    + "----订单信息:OrderID=" + o.getOrderid() + ",主交易ID=" + o.getTradeid()
+                            log.info("导入第" + i + "个订单失败," + rt.getDesc() +
+                                    "----订单信息:OrderID=" + o.getOrderid() + ",主交易ID=" + o.getTradeid()
                                     + ",买家ID=" + o.getCustomerid() + ",买家地址=" + o.getAddress1() + ",产品名="
                                     + o.getProductname() + ",SKU=" + o.getSku() + ",运费=" + o.getShippingamount()
                                     + ",订单金额=" + (o.getPaidprice().intValue() * o.getQuantity()) + ",订单量="
                                     + o.getQuantity());
                         }
                     } catch (Exception e) {// 出现异常
+                        fail++;
                         o.setCheckflag(1);
                         o.setCheckdescr(e.getMessage().replace("'", ""));// 失败原因
-                        RetCode rtErr = updateLazadaorderinfo(o);
                         log.info("导入第" + i + "个订单异常," + e.getMessage() + "----订单信息:OrderID="
                                 + o.getOrderid() + ",主交易ID=" + o.getTradeid() + ",买家ID=" + o.getCustomerid()
                                 + ",买家地址=" + o.getAddress1() + ",产品名=" + o.getProductname() + ",SKU="
                                 + o.getSku() + ",运费=" + o.getShippingamount() + ",订单金额="
                                 + (o.getPaidprice().intValue() * o.getQuantity()) + ",订单量=" + o.getQuantity());
-
                     }
                 }
-                System.out.println("后期整理订单开始:" + groupId);
+                log.info("后期整理订单开始:" + groupId);
                 // 计算商品的总订单量和订单的总金额等
                 updateCalculateNew(groupId);
                 // 拼接locationid和categoryid
@@ -691,65 +608,25 @@ public class LazadaServiceImpl implements LazadaService {
                         orderMapper.updateByPrimaryKeySelective(o);
                     }
                 }
-                System.out.println("后期整理订单结束:" + groupId);
+                log.info("后期整理订单结束:" + groupId);
                 result = "0无订单记录";
             } else {// 都被剔除重复了,没有剩余的新付款订单
                 result = "1无订单记录";
-                System.out.println(result + ",批次:" + groupId);
+                log.info(result + ",批次:" + groupId);
             }
 
-            // 生成最终处理文档
-            System.out.println("生成最终处理结果");
-            DbLazadaorderinfo lazadaorderinfo = new DbLazadaorderinfo();
-            lazadaorderinfo.setGroupid(groupId);
-            RetCode rtorder2 = findLazadaorderinfo(lazadaorderinfo);
-            int sellnum = 0;// 商品明细条数
-            int successOrdernum = 0;
-            if (rtorder2.getObj() != null) {
-                ArrayList<DbLazadaorderinfo> list = (ArrayList<DbLazadaorderinfo>) rtorder2.getObj();
-                sellnum = list.size();
-                int xx = 0;
-                for (DbLazadaorderinfo o : list) {
-                    xx++;
-                    if (1 == o.getCheckflag()) {
-                        log.info("导入第" + xx + "/" + list.size() + "个商品导入失败,原因:" + o.getCheckdescr() + "----临时订单信息:SeqID="
-                                + o.getSequenceid() + ",OrderID=" + o.getTradeid() + ",交易ID=" + o.getTradeid()
-                                + ",买家ID=" + o.getCustomerid() + ",买家地址=" + o.getAddress1() + ",产品名="
-                                + o.getProductname() + ",SKU=" + o.getSku() + ",运费=" + o.getShippingamount()
-                                + ",订单金额=" + o.getPaidprice().intValue() * o.getQuantity() + ",订单量=" + o.getQuantity());
-                    } else if (2 == o.getCheckflag()) {
-                        successOrdernum++;
-                        log.info("导入第" + xx + "/" + list.size() + "个商品导入成功----临时订单信息:SeqID=" + o.getSequenceid()
-                                + ",OrderID=" + o.getTradeid() + ",交易ID=" + o.getTradeid() + ",买家ID="
-                                + o.getCustomerid() + ",买家地址=" + o.getAddress1() + ",产品名=" + o.getProductname()
-                                + ",SKU=" + o.getSku() + ",运费=" + o.getShippingamount() + ",订单金额="
-                                + o.getPaidprice().intValue() * o.getQuantity() + ",订单量=" + o.getQuantity());
-                    } else {// errorflag=0的情况,应该不可能发生
-                        log.info("导入第" + xx + "/" + list.size() + "个商品导入失败,原因:未执行操作----临时订单信息:SeqID=" + o.getSequenceid()
-                                + ",OrderID=" + o.getTradeid() + ",交易ID=" + o.getTradeid() + ",买家ID="
-                                + o.getCustomerid() + ",买家地址=" + o.getAddress1() + ",产品名=" + o.getProductname()
-                                + ",SKU=" + o.getSku() + ",运费=" + o.getShippingamount() + ",订单金额="
-                                + o.getPaidprice().intValue() * o.getQuantity() + ",订单量=" + o.getQuantity());
-                    }
-                }
-            }
-
-            result = "0导入订单批次:" + groupId + "," + sellnum + "个商品,导入成功" + successOrdernum
-                    + "个商品,失败" + (sellnum - successOrdernum) + "条商品";
-
-            System.out.println(result);
+            log.info(result);
         } catch (Exception e) {
             // e.printStackTrace();
-            System.out.println("外部Exception异常:" + e.getMessage());
+            log.info("外部Exception异常:" + e.getMessage());
             result = "1" + e.getMessage();
         }
-
+        result = "导入订单" + list.size() + "个商品,导入成功" + success + "个商品,失败" + fail + "条商品";
         return result;
     }
 
-
     /**
-     * 订单存入临时表
+     * 订单存入正式表
      *
      * @param recordId
      * @param obj
@@ -762,9 +639,11 @@ public class LazadaServiceImpl implements LazadaService {
      * @return
      */
     @Override
+    @Transactional
     public RetCode saveOrderInfoFromLazadatemp(int recordId, DbLazadaorderinfo obj, boolean manyStorageflag,
-                                               String manyStorageSku, boolean holdSpace, String skuPosition, double moneyrate, double platformFeeRate) {
+                                               String manyStorageSku, boolean holdSpace, String skuPosition, double moneyrate, double platformFeeRate) throws Exception {
         RetCode rt = new RetCode(1001, "无记录0/0", "");
+        log.error("save1");
         String originsku = "";// 原始sku,不做任何改变
         if (obj != null && !Sys.isNull(obj.getSku())) {
             String sku = Sys.findSku(obj.getSku());
@@ -791,6 +670,7 @@ public class LazadaServiceImpl implements LazadaService {
                 return rt;
             }
             // 第0步:
+            log.error("save2");
             if (manyStorageflag) {// 如果有manyStorageflag=true,表示该用户至少有使用多仓功能
                 // 根据sku和买家国籍缩写来找sku
                 try {
@@ -801,12 +681,12 @@ public class LazadaServiceImpl implements LazadaService {
                         params.put("countryjc", obj.getCountrycode());
                         List<String> list = multiWarehouseMapper.selectByMainSku(params);
                         Iterator<String> iterator = list.iterator();
-                        System.out.println(obj.getSku() + "属于多仓sku,查询对应海外仓sku=" + list);
+                        log.info(obj.getSku() + "属于多仓sku,查询对应海外仓sku=" + list);
                         if (iterator.hasNext()) {
                             String productid = iterator.next();
                             rt.setObj("多仓SKU切换:" + obj.getSku() + "->" + productid);
                             obj.setSku(productid);// 如果有对应的多仓指定sku
-                            System.out.println(obj.getSku() + "属于多仓sku>" + productid);
+                            log.info(obj.getSku() + "属于多仓sku>" + productid);
                         } else {
                             params.clear();
                             params.put("mainsku", obj.getSku());
@@ -815,23 +695,22 @@ public class LazadaServiceImpl implements LazadaService {
                             if (list2 != null && !list2.isEmpty()) {
                                 rt.setObj("多仓SKU切换:" + obj.getSku() + "->" + list2.get(0));
                                 obj.setSku(list2.get(0));// 如果有对应的多仓指定sku
-                                System.out.println(
+                                log.info(
                                         obj.getSku() + "属于多仓sku>" + list2.get(0) + ",根据alias1找到");
                             } else {
-                                System.out.println(obj.getSku() + "没找到对应多仓sku");
+                                log.info(obj.getSku() + "没找到对应多仓sku");
                             }
                         }
                     }
                 } catch (Exception e) {
-                    System.out.println(e.getMessage());
+                    log.info(e.getMessage());
                 }
             }
         } catch (Exception e) {
-
         }
+        log.error("save3");
         // 第一步.判断db_order订单是否存在,如果不存在,则保存,否则更新---------------------
         // 根据主交易编号maintradeid是否已经存在来判断订单是否创建
-
 
         Map<String, String> params = new HashMap<>();
         params.put("shoptypeid", obj.getShopid());
@@ -854,15 +733,13 @@ public class LazadaServiceImpl implements LazadaService {
             rt.setDesc("插入Db_orde成功");
         }
 
-        // 第二步:保存用户资料------------------------------------------------------
-        // this.saveCustomer(obj);
-        // System.out.println("SQL第三部分:"+Sys.getCtime());
-
         // 第三步:查询是否正常商品,如果是,(系统稳定运行后,90%以上的订单都走此流程,所以速度比原来先查询捆绑商品要快很多)
         String tempsku = Sys.findSku(obj.getSku());
         if ("1".equals(skuPosition)) {// 如果是取@#后面的字符串
             tempsku = Sys.findSkuFromMid(obj.getSku());
         }
+        log.error("save4");
+
         //TODO product
         DbProduct product = productMapper.selectByPrimaryKey(tempsku);// 注意是按sequenceid来查,而不是sid,虽然sequenceid=sid
         if (product != null) {
@@ -937,9 +814,9 @@ public class LazadaServiceImpl implements LazadaService {
 
             sell.setPaypalfee(LazadaUtil.mul(0));
             sell.setOriginsku(product.getReserve7());// 原厂sku
-            /*           sellDAO.save(sell);*/
             sellflag = 1;
-
+            int result = sellMapper.insertSelective(sell);
+            log.info("sell保存成功1:" + result);
             rt.setCode(0);
             rt.setDesc("保存成功!" + orderflag + "/" + sellflag);
             rt.setDetail(obj.getOrderid());// 将订单ID返回到调用方法,有用
@@ -1042,8 +919,6 @@ public class LazadaServiceImpl implements LazadaService {
 b.weight,b.storageid,b.storage,b.locationid,b.location,b.reserve7,b.picture3 from
 db_bindlist a left join db_product b on a.alias1= b.sid where a.bindid='"
                         + tempsku + "'"*/
-
-
                                 Double bindProductcostprice = pro.getCostprice().doubleValue();// 被绑定的商品的成本
                                 Long bindNum = bip.getNum().longValue();// 绑定销售的数量
                                 if (!Sys.isNull(bindProductid) && !Sys.isNull(bindProductname) && bindNum > 0) {// bindProductname不为空表示在db_product里有对应产品
@@ -1119,240 +994,115 @@ db_bindlist a left join db_product b on a.alias1= b.sid where a.bindid='"
                                         sell.setPaypalfee(LazadaUtil.mul(0));
                                         sell.setOriginsku(yuanchangSku);// 原厂sku
                                         try {
-                                            System.out.println("处理绑定商品,父商品ID=" + obj.getSku() + ",子商品ID为:" + bindProductid
+                                            log.info("处理绑定商品,父商品ID=" + obj.getSku() + ",子商品ID为:" + bindProductid
                                                     + ",处理时间:" + Sys.getCtime());
-                                            sellMapper.updateByPrimaryKeySelective(sell);
+                                            int result = sellMapper.insertSelective(sell);
+                                            log.info("sell保存成功2:" + result);
                                             sellflag = 1;
-                                            System.out.println("处理绑定商品完:" + Sys.getCtime());
+                                            log.info("处理绑定商品完:" + Sys.getCtime());
                                         } catch (Exception e) {
-                                            System.out.println("订单处理异常bbbbbbbbb:" + e.getMessage());
+                                            log.info("订单处理异常bbbbbbbbb:" + e.getMessage());
                                             rt.setCode(1000);
                                             rt.setDesc("保存订单异常abc:" + e.getMessage());
                                         }
                                     }
                                 }
-
                             }
-
-
                         }
-
                     }
                 }
-                if (Bindflag) {// 如果是绑定商品,上面已经处理过了
-                    rt.setCode(0);
-                    rt.setDesc("导入成功!" + orderflag + "/" + sellflag);
-                    rt.setDetail(obj.getOrderid());// orderid返回调用方法,有用
-                    return rt;
-                } else {
-                    // 第五步:如果不是绑定商品,则只能再去查询sku是否是db_product里的子SKU,如果再不存在，只能创建
-                    // 5.1.查询商品是否存在,如不存在,则创建---------------------------
-                    DbProduct dp = new DbProduct();
-                    dp.setSid(tempsku);// 商品自定义标签就是sku
-                    dp.setName(obj.getProductname());// 产品名称
-                    dp.setOriginarea(obj.getOrderitemid());// EbayItemID保存在Originarea字段中
-                    dp.setCorpid(obj.getCorpid());
-                    dp.setOper("sys");
-                    dp.setSellprice(LazadaUtil.mul(obj.getPaidprice(), moneyrate));
-                    dp.setPicture3("");// Lazada图片地址
-                    RetCode rtdp = this.saveAndfindProduct(dp);// 查找该产品，如果找不到就创建
-                    dp = (DbProduct) rtdp.getObj();
-                    // ----验证订单订单完--------------------------------------------------
-                    // System.out.println("SQL第五部分:"+Sys.getCtime());
-                    DbSell sell = new DbSell();
-                    sell.setSid(obj.getOrderid() + Sys.getRand(4) + recordId);// 编号为订单号+交易号+2位随机数,理论上应该是唯一的
-                    sell.setDescr3(originsku);// 原始sku
-                    sell.setReserve9("" + obj.getQuantity());
-                    sell.setCorpid(obj.getCorpid());
-                    sell.setOrderid(obj.getOrderid());
-                    sell.setProductid(dp.getSid());
-                    sell.setProductname(dp.getName());
-                    sell.setOrdernum(LazadaUtil.mul(obj.getQuantity()));
-                    sell.setCostprice(dp.getCostprice());
-                    sell.setSellprice(LazadaUtil.mul(obj.getPaidprice(), moneyrate));
-                    sell.setAmount(LazadaUtil.mul(sell.getSellprice(), sell.getOrdernum()));
-                    sell.setCustomerid(obj.getCustomerid());
-                    sell.setOrdertime(obj.getCreateddate());
-                    sell.setAlertflag("0");
-                    sell.setShoptype(obj.getShopname());
-                    sell.setProductpic1("");
-                    sell.setShoptypeid(obj.getShopid());
-                    sell.setFeedback("20");// Lazada订单,评价状态为20
-                    sell.setReserve4("Lazada订单");
-                    sell.setUpdateflag("0");// Lazada订单,同步状态为20
-                    sell.setReserve5("Lazada订单");
-                    sell.setOper("sys");
-                    sell.setOpertime(new Date());
-                    sell.setFlag("1");
-                    sell.setReserve7(obj.getProvince());// 保存省份,原因未知
-                    sell.setMoneyrate(LazadaUtil.mul(moneyrate));// 汇率
-                    sell.setDescr2("");// 多物品选择
-                    sell.setTradeid(obj.getTradeid());
-                    sell.setTransactionid(obj.getOrderid());
-                    sell.setOriginsellprice(obj.getPaidprice());
-                    sell.setMoneytype(obj.getCurrencyid());
-                    sell.setGroupid("" + obj.getGroupid());
-                    sell.setEbayitemid(obj.getOrderitemid());
-                    sell.setPackagingid(dp.getPackagingid());// 包材id
-                    sell.setPackagingname(dp.getPackagingname());// 包材名称
-                    sell.setPackagingweight(dp.getPackagingweight());// 包材重量
-                    sell.setPackagingclass(dp.getIclass());// 包材级别
-                    sell.setWeight(dp.getWeight());// 商品重量
-                    if (sell.getWeight() == null) {
-                        sell.setWeight(LazadaUtil.mul(0));
-                    }
-                    sell.setWeightamount(LazadaUtil.mul(sell.getWeight(), sell.getOrdernum()));// 商品的总重量
-
-                    sell.setStorage(dp.getStorage());// 仓库
-                    sell.setStorageid(dp.getStorageid());
-                    sell.setXbtime1(new Date());// 订单下载时间
-                    sell.setLocation(dp.getLocation());// 仓位
-                    sell.setLocationid(dp.getLocationid());
-                    sell.setReserve2("");// 保存商品的单位如lots/piece by qinli 20140314
-                    sell.setFinalvaluefee(LazadaUtil.mul(obj.getPaidprice(), obj.getQuantity(), moneyrate, platformFeeRate));// 最终Lazada交易费
-                    sell.setOper1(Sys.isCheckNull(dp.getOper2()));// 产品的配货员
-                    sell.setOper2(Sys.isCheckNull(dp.getOper1()));// 采购员
-                    sell.setOriginfinalvaluefee(LazadaUtil.mul(obj.getPaidprice(), obj.getQuantity(), platformFeeRate));// Lazada原始交易费
-                    sell.setOriginexpressmoney(obj.getShippingamount());// Lazada原始运费
-                    sell.setMoneyexpressask(LazadaUtil.mul(sell.getOriginexpressmoney(), sell.getMoneyrate()));// 人民币运费
-                    sell.setOrigininsurance(LazadaUtil.mul(0));// Lazada原始保险费
-                    sell.setEnglishname(obj.getProductname());// 产品在Lazada上的名称
-                    sell.setMoneyrate(LazadaUtil.mul(moneyrate));
-                    sell.setPaypalfee(LazadaUtil.mul(0));
-                    sell.setOriginsku(dp.getReserve7());// 原厂sku
-                    sellMapper.updateByPrimaryKeySelective(sell);
-                    sellflag = 1;
-
-                    rt.setCode(0);
-                    rt.setDesc("保存成功!" + orderflag + "/" + sellflag);
-                    rt.setDetail(obj.getOrderid());// 将订单ID返回到调用方法,有用
-                    return rt;
+            }
+            if (Bindflag) {// 如果是绑定商品,上面已经处理过了
+                rt.setCode(0);
+                rt.setDesc("导入成功!" + orderflag + "/" + sellflag);
+                rt.setDetail(obj.getOrderid());// orderid返回调用方法,有用
+                return rt;
+            } else {
+                // 第五步:如果不是绑定商品,则只能再去查询sku是否是db_product里的子SKU,如果再不存在，只能创建
+                // 5.1.查询商品是否存在,如不存在,则创建---------------------------
+                DbProduct dp = new DbProduct();
+                dp.setSid(tempsku);// 商品自定义标签就是sku
+                dp.setName(obj.getProductname());// 产品名称
+                dp.setOriginarea(obj.getOrderitemid());// EbayItemID保存在Originarea字段中
+                dp.setCorpid(obj.getCorpid());
+                dp.setOper("sys");
+                dp.setSellprice(LazadaUtil.mul(obj.getPaidprice(), moneyrate));
+                dp.setPicture3("");// Lazada图片地址
+                RetCode rtdp = this.saveAndfindProduct(dp);// 查找该产品，如果找不到就创建
+                dp = (DbProduct) rtdp.getObj();
+                // ----验证订单订单完--------------------------------------------------
+                // log.info("SQL第五部分:"+Sys.getCtime());
+                DbSell sell = new DbSell();
+                sell.setSid(obj.getOrderid() + Sys.getRand(4) + recordId);// 编号为订单号+交易号+2位随机数,理论上应该是唯一的
+                sell.setDescr3(originsku);// 原始sku
+                sell.setReserve9("" + obj.getQuantity());
+                sell.setCorpid(obj.getCorpid());
+                sell.setOrderid(obj.getOrderid());
+                sell.setProductid(dp.getSid());
+                sell.setProductname(dp.getName());
+                sell.setOrdernum(LazadaUtil.mul(obj.getQuantity()));
+                sell.setCostprice(dp.getCostprice());
+                sell.setSellprice(LazadaUtil.mul(obj.getPaidprice(), moneyrate));
+                sell.setAmount(LazadaUtil.mul(sell.getSellprice(), sell.getOrdernum()));
+                sell.setCustomerid(obj.getCustomerid());
+                sell.setOrdertime(obj.getCreateddate());
+                sell.setAlertflag("0");
+                sell.setShoptype(obj.getShopname());
+                sell.setProductpic1("");
+                sell.setShoptypeid(obj.getShopid());
+                sell.setFeedback("20");// Lazada订单,评价状态为20
+                sell.setReserve4("Lazada订单");
+                sell.setUpdateflag("0");// Lazada订单,同步状态为20
+                sell.setReserve5("Lazada订单");
+                sell.setOper("sys");
+                sell.setOpertime(new Date());
+                sell.setFlag("1");
+                sell.setReserve7(obj.getProvince());// 保存省份,原因未知
+                sell.setMoneyrate(LazadaUtil.mul(moneyrate));// 汇率
+                sell.setDescr2("");// 多物品选择
+                sell.setTradeid(obj.getTradeid());
+                sell.setTransactionid(obj.getOrderid());
+                sell.setOriginsellprice(obj.getPaidprice());
+                sell.setMoneytype(obj.getCurrencyid());
+                sell.setGroupid("" + obj.getGroupid());
+                sell.setEbayitemid(obj.getOrderitemid());
+                sell.setPackagingid(dp.getPackagingid());// 包材id
+                sell.setPackagingname(dp.getPackagingname());// 包材名称
+                sell.setPackagingweight(dp.getPackagingweight());// 包材重量
+                sell.setPackagingclass(dp.getIclass());// 包材级别
+                sell.setWeight(dp.getWeight());// 商品重量
+                if (sell.getWeight() == null) {
+                    sell.setWeight(LazadaUtil.mul(0));
                 }
+                sell.setWeightamount(LazadaUtil.mul(sell.getWeight(), sell.getOrdernum()));// 商品的总重量
+
+                sell.setStorage(dp.getStorage());// 仓库
+                sell.setStorageid(dp.getStorageid());
+                sell.setXbtime1(new Date());// 订单下载时间
+                sell.setLocation(dp.getLocation());// 仓位
+                sell.setLocationid(dp.getLocationid());
+                sell.setReserve2("");// 保存商品的单位如lots/piece by qinli 20140314
+                sell.setFinalvaluefee(LazadaUtil.mul(obj.getPaidprice(), obj.getQuantity(), moneyrate, platformFeeRate));// 最终Lazada交易费
+                sell.setOper1(Sys.isCheckNull(dp.getOper2()));// 产品的配货员
+                sell.setOper2(Sys.isCheckNull(dp.getOper1()));// 采购员
+                sell.setOriginfinalvaluefee(LazadaUtil.mul(obj.getPaidprice(), obj.getQuantity(), platformFeeRate));// Lazada原始交易费
+                sell.setOriginexpressmoney(obj.getShippingamount());// Lazada原始运费
+                sell.setMoneyexpressask(LazadaUtil.mul(sell.getOriginexpressmoney(), sell.getMoneyrate()));// 人民币运费
+                sell.setOrigininsurance(LazadaUtil.mul(0));// Lazada原始保险费
+                sell.setEnglishname(obj.getProductname());// 产品在Lazada上的名称
+                sell.setMoneyrate(LazadaUtil.mul(moneyrate));
+                sell.setPaypalfee(LazadaUtil.mul(0));
+                sell.setOriginsku(dp.getReserve7());// 原厂sku
+                int result = sellMapper.insertSelective(sell);
+                log.info("sell保存成功3:" + result);
+                sellflag = 1;
+                rt.setCode(0);
+                rt.setDesc("保存成功!" + orderflag + "/" + sellflag);
+                rt.setDetail(obj.getOrderid());// 将订单ID返回到调用方法,有用
+                return rt;
             }
         }
-        return rt;
     }
-
-    /**
-     * 清理临时表
-     *
-     * @param groupId
-     * @param shop
-     */
-    /*public void clearDataFromLazadaTemp(long groupId, DbShop shop) {
-        int hh = Integer.valueOf(Sys.getCtime().substring(8, 10));// 获取当前系统时间的小时数值
-        if (hh <= 8 || hh >= 20) {// 只有当非工作时间才执行这个语句,避免锁表
-            String sqldeleteA = "update db_product set costprice='0' where costprice is null";
-            lazadaMgr.updateExecuteSQL(sqldeleteA);
-            String sqldeleteB = "update db_product set PACKAGINGWEIGHT='0' where PACKAGINGWEIGHT is null";
-            lazadaMgr.updateExecuteSQL(sqldeleteB);
-            String sqldeleteC = "update db_product set weight='0' where weight is null";
-            lazadaMgr.updateExecuteSQL(sqldeleteC);
-            String sqldeleteD = "update db_product set PACKAGINGFEE='0' where PACKAGINGFEE is null";
-            lazadaMgr.updateExecuteSQL(sqldeleteD);
-        }
-        // 删除临时表中3天前的数据
-        String sqldelete = "delete db_lazadaorderinfo where groupid <=" + (groupId - 300000);
-        RetCode rtd = lazadaMgr.updateExecuteSQL(sqldelete);
-        System.out.println("剔除3天前的数据:" + rtd.getDesc());
-
-        String sql0 = "update db_lazadaorderinfo set checkflag='1',checkdescr='重复导入订单(已存在于db_lazadaorderinfo中)' where checkflag='0' and groupid='"
-                + groupId + "' and orderid in(select orderid from db_lazadaorderinfo where shopid='" + shop.getSid()
-                + "' and groupid!='" + groupId + "' and checkflag='1')";
-        RetCode rt0 = lazadaMgr.updateExecuteSQL(sql0);
-        System.out.println("找出db_lazadaorderinfo中已存在订单:" + rt0.getDesc());
-
-        String sql1 = "update db_lazadaorderinfo set checkflag='1',checkdescr='重复导入订单(已存在于db_sell中)' where checkflag='0' and groupid='"
-                + groupId + "' and  tradeid in (select tradeid from db_sell where tradeid is not null and shoptypeid='"
-                + shop.getSid() + "')";
-        RetCode rt1 = lazadaMgr.updateExecuteSQL(sql1);
-        System.out.println("找出Db_sell中已存在订单:" + rt1.getDesc());
-
-        String sql2 = "update db_lazadaorderinfo set checkflag='1',checkdescr='重复导入订单(已存在于db_sell_history中)' where checkflag='0' and groupid='"
-                + groupId
-                + "' and  orderitemid in (select tradeid from db_sell_history where tradeid is not null and shoptypeid='"
-                + shop.getSid() + "')";
-        RetCode rt2 = lazadaMgr.updateExecuteSQL(sql2);
-
-        String sql3 = "update db_lazadaorderinfo set checkflag='1',checkdescr='重复导入订单(已存在于db_sell_bak中)' where checkflag='0' and groupid='"
-                + groupId
-                + "' and  orderitemid in (select tradeid from db_sell_bak where tradeid is not null and shoptypeid='"
-                + shop.getSid() + "')";
-        RetCode rt3 = lazadaMgr.updateExecuteSQL(sql3);
-        // Item是退货的不需要导入
-        String sql4 = "update db_lazadaorderinfo set checkflag=1,checkdescr='ItemStatus=returned,原因是:'||reason||reasondetail where itemstatus='returned' and checkflag='0' and groupid='"
-                + groupId + "'";
-        RetCode rt4 = lazadaMgr.updateExecuteSQL(sql4);
-        // Item状态是failed,不需要导入
-        String sql5 = "update db_lazadaorderinfo set checkflag=1,checkdescr='ItemStatus=failed,原因是:'||reason||reasondetail where itemstatus='failed' and checkflag='0' and groupid='"
-                + groupId + "'";
-        RetCode rt5 = lazadaMgr.updateExecuteSQL(sql5);
-    }
-*/
-    /**
-     * 查询临时表
-     *
-     * @param obj
-     * @return
-     */
-    @Override
-    public RetCode findLazadaorderinfo(DbLazadaorderinfo obj) {
-        RetCode rt = new RetCode(1000, "操作失败", "操作失败");
-        if (obj != null && obj.getSequenceid() != null) {
-            try {
-                DbLazadaorderinfo tmp = orderInfoMapper.selectByPrimaryKey(obj.getSequenceid());
-
-                if (tmp != null) {
-                    ArrayList<DbLazadaorderinfo> list = new ArrayList<DbLazadaorderinfo>();
-                    list.add(tmp);
-
-                    rt.setCode(0);
-                    rt.setDesc("查询成功");
-                    rt.setObj(list);
-                }
-            } catch (Exception e) {
-                log.error(e.getMessage());
-            }
-        } else {
-            try {
-                List<DbLazadaorderinfo> list = orderInfoMapper.selectByCriteria(obj);
-
-                if (list != null && list.size() > 0) {
-                    rt.setCode(0);
-                    rt.setDesc("查询成功");
-                    rt.setObj(list);
-                    return rt;
-                }
-            } catch (Exception e) {
-                log.error(e.getMessage());
-            }
-        }
-        return rt;
-    }
-
-
-    /**
-     * 更新lazada订单信息
-     *
-     * @param obj
-     * @return
-     */
-    private RetCode updateLazadaorderinfo(DbLazadaorderinfo obj) {
-        RetCode rt = new RetCode(1000, "操作失败", "操作失败");
-        if (obj != null && obj.getSequenceid() != null) {
-            if (Sys.isNull(obj.getCheckdescr())) {
-                obj.setCheckdescr("");
-            }
-            try {
-                obj.setCheckdescr(obj.getCheckdescr().replace("'", "‘"));
-                orderInfoMapper.updateByPrimaryKeySelective(obj);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return rt;
-    }
-
 
     // 查询用户是否有使用多仓,即查看DB_MULTI_WAREHOUSE表里有无记录
     @Override
@@ -1382,7 +1132,7 @@ db_bindlist a left join db_product b on a.alias1= b.sid where a.bindid='"
                 rt.setDesc("无多仓记录");
             }
         } catch (Exception e) {// 一般是表不存在
-            System.out.println("查询DB_MULTI_WAREHOUSE异常" + e.getMessage());
+            log.info("查询DB_MULTI_WAREHOUSE异常" + e.getMessage());
             rt.setCode(1000);
             rt.setDetail("");
             rt.setObj(null);
@@ -1414,7 +1164,7 @@ db_bindlist a left join db_product b on a.alias1= b.sid where a.bindid='"
                     ;
                 }
             }
-            System.out.println("整理完该批订单的各商品订单量");
+            log.info("整理完该批订单的各商品订单量");
 
             // 第二步:计算出每个订单的总金额,总重量,总成本,更新到db_order表
             List<Map<String, String>> resList = sellMapper.calculateorder(groupid);
@@ -1482,12 +1232,10 @@ db_bindlist a left join db_product b on a.alias1= b.sid where a.bindid='"
                                 purchaseoper = purchaseoper + rs5.getString("oper2") + ",";
                             }
                             if (!Sys.isNull(rs5.getString("originsku"))) {// 如果有原厂sku,则拼接
-                                if (originsku.indexOf("," + rs5.getString("originsku") + ",") < 0) {// 如果未包含
+                                if (!originsku.contains("," + rs5.getString("originsku") + ",")) {// 如果未包含
                                     originsku = originsku + rs5.getString("originsku") + ",";
                                 } else {// 如果已经包含
-                                    ;
                                 }
-
                             }
                         }
                         storageid = Sys.sortStr(storageid);
@@ -1531,14 +1279,13 @@ db_bindlist a left join db_product b on a.alias1= b.sid where a.bindid='"
                             + moneyexpressask + ",sellnum='" + sellnum + "',ordernum='" + ordernum + "',qlreserve3='"
                             + "skunumber" + "',originsku='" + originsku + "' " + sqlExtendUpdate + " where orderid='"
                             + orderid + "'";
-                    // this.WriteWeightLog(groupid,sqlE);
                 } catch (SQLException e) {
-                    System.out.println("updateCalculateNew方法SQLException异常:" + e.getMessage());
+                    log.info("updateCalculateNew方法SQLException异常:" + e.getMessage());
                 } catch (Exception e) {
-                    System.out.println("Exception异常:" + e.getMessage());
+                    log.info("Exception异常:" + e.getMessage());
                 }
             }
-            System.out.println("整理完该批订单的各订单总金额,总重量,总成本");
+            log.info("整理完该批订单的各订单总金额,总重量,总成本");
 
             // 第三步:迭加多物品选择,更新到db_order.reserve4中
             String orderidTemp = "";
@@ -1567,22 +1314,20 @@ db_bindlist a left join db_product b on a.alias1= b.sid where a.bindid='"
                         descr2Str = descr2;// 重新迭加多物品选择
                     }
                 } catch (Exception e) {
-                    ;
                 }
             }
             // 最后再更新1次
             if (orderidTemp.length() > 0 && descr2Str.length() > 0) {
                 String sqlE = "update db_order set reserve4='" + descr2Str + "' where orderid='" + orderidTemp + "'";
             }
-            System.out.println("整理完该批订单的多物品选择");
+            log.info("整理完该批订单的多物品选择");
 
             // 第四步:遍历各订单id,调验证缺货子过程PROC_CALCULATION
             // 本过程速度有些慢,基本上每笔订单需要花1~3秒时间,如果某一批次下载有1000单,则要花大约半小时,因此放到EbayNote线程去执行updateOrderAlertflag(groupid)方法
         } catch (Exception e) {
-            System.out.println("异常" + e.getMessage());
+            log.info("异常" + e.getMessage());
         }
     }
-
 
     private Double stringToDouble(String str) {
         if (str != null) {
@@ -1594,7 +1339,6 @@ db_bindlist a left join db_product b on a.alias1= b.sid where a.bindid='"
         }
         return 0d;
     }
-
 
     /**
      * 保存新币种
@@ -1629,18 +1373,13 @@ db_bindlist a left join db_product b on a.alias1= b.sid where a.bindid='"
                 moneyrateMapper.insertSelective(moneyRate);
             }
         } catch (Exception e) {
-            System.out.println("保存新币种Exception异常:" + e.getMessage());
+            log.info("保存新币种Exception异常:" + e.getMessage());
         }
     }
-
 
     // 拼接订单locationid和storageid
     private RetCode updateLoacationandStorage(boolean firstRun) {// firstRun=true表示第一次运行,则查找最近20天的订单,否则只查找最近半天
         RetCode rt = new RetCode(1000, "查询为空", "查询为空");
-        // String sql = "select orderid from db_order where ordertime>sysdate-10 and
-        // (locationid is null or locationid=',' or storageid is null or storageid =','
-        // or location is null or location=',' or storage is null or storage =',')";
-
         try {
             int num = 6;
             if (firstRun) {
@@ -1727,9 +1466,8 @@ db_bindlist a left join db_product b on a.alias1= b.sid where a.bindid='"
         return rt;
     }
 
-
     // 进入此方法，只需查看sku是否是db_product.alias1中的子sku，如果再不是，则创建新产品
-    public RetCode saveAndfindProduct(DbProduct obj) {
+    private RetCode saveAndfindProduct(DbProduct obj) {
         RetCode rt = new RetCode(1000, "操作失败", "操作失败");
         try {
             // 2.查有子SKU是否有该产品,有则返回
@@ -1779,6 +1517,7 @@ db_bindlist a left join db_product b on a.alias1= b.sid where a.bindid='"
             productMapper.insertSelective(obj);
             // 保存日志
             DbProductlog log = new DbProductlog();
+            log.setSequenceid(obj.getSequenceid());
             log.setSid(obj.getSid());
             log.setName(obj.getName());
             log.setOper("auto");
@@ -1797,8 +1536,7 @@ db_bindlist a left join db_product b on a.alias1= b.sid where a.bindid='"
     }
 
     @Override
-    public void updateSell(){
+    public void updateSell() {
         sellMapper.updateErrFlagByOrderId();
     }
-
 }

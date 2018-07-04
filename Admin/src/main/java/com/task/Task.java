@@ -28,7 +28,7 @@ public class Task {
 
 
 
-      LazadaOrderThread lot = new LazadaOrderThread();
+      LazadaOrderThread lot = new LazadaOrderThread("order","lazada",1,2L,false);
       lot.run();
 
 //测试forkJoinTask
