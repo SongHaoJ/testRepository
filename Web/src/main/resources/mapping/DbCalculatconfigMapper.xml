@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbCalculatconfigMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbCalculatconfig">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="PAYPALRATEB" jdbcType="DECIMAL" property="paypalrateb" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="FINALVALUEFEERATE" jdbcType="DECIMAL" property="finalvaluefeerate" />
+    <result column="POSITION" jdbcType="DECIMAL" property="position" />
+    <result column="PUBLISHFEE" jdbcType="DECIMAL" property="publishfee" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="SITE" jdbcType="VARCHAR" property="site" />
+    <result column="PAYPALRATEL" jdbcType="DECIMAL" property="paypalratel" />
+    <result column="EXTRAFEEL" jdbcType="DECIMAL" property="extrafeel" />
+    <result column="EXTRAFEEB" jdbcType="DECIMAL" property="extrafeeb" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select ID, PAYPALRATEB, OPER, FINALVALUEFEERATE, POSITION, PUBLISHFEE, OPERTIME, 
+    SITE, PAYPALRATEL, EXTRAFEEL, EXTRAFEEB
+    from db_calculatconfig
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ID, PAYPALRATEB, OPER, FINALVALUEFEERATE, POSITION, PUBLISHFEE, OPERTIME, 
+    SITE, PAYPALRATEL, EXTRAFEEL, EXTRAFEEB
+    from db_calculatconfig
+  </select>
+  <sql id="TableName">
+    db_calculatconfig
+  </sql>
+  <sql id="Values">
+     #{id,jdbcType=DECIMAL} , 
+     #{paypalrateb,jdbcType=DECIMAL} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{finalvaluefeerate,jdbcType=DECIMAL} , 
+     #{position,jdbcType=DECIMAL} , 
+     #{publishfee,jdbcType=DECIMAL} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{site,jdbcType=VARCHAR} , 
+     #{paypalratel,jdbcType=DECIMAL} , 
+     #{extrafeel,jdbcType=DECIMAL} , 
+     #{extrafeeb,jdbcType=DECIMAL}
+  </sql>
+  <sql id="Columns">
+    ID , 
+    PAYPALRATEB , 
+    OPER , 
+    FINALVALUEFEERATE , 
+    POSITION , 
+    PUBLISHFEE , 
+    OPERTIME , 
+    SITE , 
+    PAYPALRATEL , 
+    EXTRAFEEL , 
+    EXTRAFEEB
+  </sql>
+  <sql id="Criteria">
+    <if test="id != null">
+      ID = #{id,jdbcType=DECIMAL} and 
+    </if>
+    <if test="paypalrateb != null">
+      PAYPALRATEB = #{paypalrateb,jdbcType=DECIMAL} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="finalvaluefeerate != null">
+      FINALVALUEFEERATE = #{finalvaluefeerate,jdbcType=DECIMAL} and 
+    </if>
+    <if test="position != null">
+      POSITION = #{position,jdbcType=DECIMAL} and 
+    </if>
+    <if test="publishfee != null">
+      PUBLISHFEE = #{publishfee,jdbcType=DECIMAL} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="site != null">
+      SITE = #{site,jdbcType=VARCHAR} and 
+    </if>
+    <if test="paypalratel != null">
+      PAYPALRATEL = #{paypalratel,jdbcType=DECIMAL} and 
+    </if>
+    <if test="extrafeel != null">
+      EXTRAFEEL = #{extrafeel,jdbcType=DECIMAL} and 
+    </if>
+    <if test="extrafeeb != null">
+      EXTRAFEEB = #{extrafeeb,jdbcType=DECIMAL}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="id != null">
+      ID = #{id,jdbcType=DECIMAL} , 
+    </if>
+    <if test="paypalrateb != null">
+      PAYPALRATEB = #{paypalrateb,jdbcType=DECIMAL} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="finalvaluefeerate != null">
+      FINALVALUEFEERATE = #{finalvaluefeerate,jdbcType=DECIMAL} , 
+    </if>
+    <if test="position != null">
+      POSITION = #{position,jdbcType=DECIMAL} , 
+    </if>
+    <if test="publishfee != null">
+      PUBLISHFEE = #{publishfee,jdbcType=DECIMAL} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="site != null">
+      SITE = #{site,jdbcType=VARCHAR} , 
+    </if>
+    <if test="paypalratel != null">
+      PAYPALRATEL = #{paypalratel,jdbcType=DECIMAL} , 
+    </if>
+    <if test="extrafeel != null">
+      EXTRAFEEL = #{extrafeel,jdbcType=DECIMAL} , 
+    </if>
+    <if test="extrafeeb != null">
+      EXTRAFEEB = #{extrafeeb,jdbcType=DECIMAL}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbCalculatconfig" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="BigDecimal">
+    delete from <include refid="TableName"/> where ID=#{ID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbCalculatconfig">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbCalculatconfig">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbCalculatconfig">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

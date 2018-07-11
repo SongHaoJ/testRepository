@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbAnalysetypeMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbAnalysetype">
+    <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="FLAG" jdbcType="DECIMAL" property="flag" />
+    <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
+    <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="DESCRIPTION" jdbcType="LONGVARCHAR" property="description" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SEQUENCEID, NAME, FLAG, CORPID, OPENFLAG, OPER, OPERTIME, DESCRIPTION
+    from db_analysetype
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, NAME, FLAG, CORPID, OPENFLAG, OPER, OPERTIME, DESCRIPTION
+    from db_analysetype
+  </select>
+  <sql id="TableName">
+    db_analysetype
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=VARCHAR} , 
+     #{name,jdbcType=VARCHAR} , 
+     #{flag,jdbcType=DECIMAL} , 
+     #{corpid,jdbcType=VARCHAR} , 
+     #{openflag,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{description,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    NAME , 
+    FLAG , 
+    CORPID , 
+    OPENFLAG , 
+    OPER , 
+    OPERTIME , 
+    DESCRIPTION
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="name != null">
+      NAME = #{name,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag != null">
+      FLAG = #{flag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="corpid != null">
+      CORPID = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="description != null">
+      DESCRIPTION = #{description,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="name != null">
+      NAME = #{name,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag != null">
+      FLAG = #{flag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="corpid != null">
+      CORPID = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="description != null">
+      DESCRIPTION = #{description,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbAnalysetype" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbAnalysetype">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbAnalysetype">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbAnalysetype">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

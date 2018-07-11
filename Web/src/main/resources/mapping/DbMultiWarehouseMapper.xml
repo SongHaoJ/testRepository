@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbMultiWarehouseMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbMultiWarehouse">
+    <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
+    <result column="MAINSKU" jdbcType="VARCHAR" property="mainsku" />
+    <result column="PRODUCTID" jdbcType="VARCHAR" property="productid" />
+    <result column="STORAGEID" jdbcType="VARCHAR" property="storageid" />
+    <result column="STORAGENAME" jdbcType="VARCHAR" property="storagename" />
+    <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
+    <result column="DEFAULTFLAG" jdbcType="VARCHAR" property="defaultflag" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="COUNTRYJC" jdbcType="LONGVARCHAR" property="countryjc" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SEQUENCEID, MAINSKU, PRODUCTID, STORAGEID, STORAGENAME, OPENFLAG, DEFAULTFLAG, 
+    OPER, OPERTIME, RESERVE1, RESERVE2, COUNTRYJC
+    from db_multi_warehouse
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, MAINSKU, PRODUCTID, STORAGEID, STORAGENAME, OPENFLAG, DEFAULTFLAG, 
+    OPER, OPERTIME, RESERVE1, RESERVE2, COUNTRYJC
+    from db_multi_warehouse
+  </select>
+  <sql id="TableName">
+    db_multi_warehouse
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=VARCHAR} , 
+     #{mainsku,jdbcType=VARCHAR} , 
+     #{productid,jdbcType=VARCHAR} , 
+     #{storageid,jdbcType=VARCHAR} , 
+     #{storagename,jdbcType=VARCHAR} , 
+     #{openflag,jdbcType=VARCHAR} , 
+     #{defaultflag,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+     #{countryjc,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    MAINSKU , 
+    PRODUCTID , 
+    STORAGEID , 
+    STORAGENAME , 
+    OPENFLAG , 
+    DEFAULTFLAG , 
+    OPER , 
+    OPERTIME , 
+    RESERVE1 , 
+    RESERVE2 , 
+    COUNTRYJC
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="mainsku != null">
+      MAINSKU = #{mainsku,jdbcType=VARCHAR} and 
+    </if>
+    <if test="productid != null">
+      PRODUCTID = #{productid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="storageid != null">
+      STORAGEID = #{storageid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="storagename != null">
+      STORAGENAME = #{storagename,jdbcType=VARCHAR} and 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="defaultflag != null">
+      DEFAULTFLAG = #{defaultflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="countryjc != null">
+      COUNTRYJC = #{countryjc,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="mainsku != null">
+      MAINSKU = #{mainsku,jdbcType=VARCHAR} , 
+    </if>
+    <if test="productid != null">
+      PRODUCTID = #{productid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="storageid != null">
+      STORAGEID = #{storageid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="storagename != null">
+      STORAGENAME = #{storagename,jdbcType=VARCHAR} , 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="defaultflag != null">
+      DEFAULTFLAG = #{defaultflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="countryjc != null">
+      COUNTRYJC = #{countryjc,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbMultiWarehouse" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbMultiWarehouse">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbMultiWarehouse">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbMultiWarehouse">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

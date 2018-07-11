@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbBulletMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbBullet">
+    <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
+    <result column="SPCODE" jdbcType="VARCHAR" property="spcode" />
+    <result column="TARGET" jdbcType="DECIMAL" property="target" />
+    <result column="SMSDATE" jdbcType="TIMESTAMP" property="smsdate" />
+    <result column="BULLETTYPE" jdbcType="DECIMAL" property="bullettype" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
+    <result column="MYID" jdbcType="DECIMAL" property="myid" />
+    <result column="BTITLE" jdbcType="LONGVARCHAR" property="btitle" />
+    <result column="CONTENT" jdbcType="LONGVARCHAR" property="content" />
+    <result column="BOPER" jdbcType="LONGVARCHAR" property="boper" />
+    <result column="BGROUP" jdbcType="LONGVARCHAR" property="bgroup" />
+    <result column="BCLASS" jdbcType="LONGVARCHAR" property="bclass" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SEQUENCEID, SPCODE, TARGET, SMSDATE, BULLETTYPE, OPER, OPERTIME, OPENFLAG, 
+    MYID, BTITLE, CONTENT, BOPER, BGROUP, BCLASS
+    from db_bullet
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, SPCODE, TARGET, SMSDATE, BULLETTYPE, OPER, OPERTIME, OPENFLAG, 
+    MYID, BTITLE, CONTENT, BOPER, BGROUP, BCLASS
+    from db_bullet
+  </select>
+  <sql id="TableName">
+    db_bullet
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=VARCHAR} , 
+     #{spcode,jdbcType=VARCHAR} , 
+     #{target,jdbcType=DECIMAL} , 
+     #{smsdate,jdbcType=TIMESTAMP} , 
+     #{bullettype,jdbcType=DECIMAL} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{openflag,jdbcType=VARCHAR} , 
+     #{myid,jdbcType=DECIMAL} , 
+     #{btitle,jdbcType=LONGVARCHAR} , 
+     #{content,jdbcType=LONGVARCHAR} , 
+     #{boper,jdbcType=LONGVARCHAR} , 
+     #{bgroup,jdbcType=LONGVARCHAR} , 
+     #{bclass,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    SPCODE , 
+    TARGET , 
+    SMSDATE , 
+    BULLETTYPE , 
+    OPER , 
+    OPERTIME , 
+    OPENFLAG , 
+    MYID , 
+    BTITLE , 
+    CONTENT , 
+    BOPER , 
+    BGROUP , 
+    BCLASS
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="spcode != null">
+      SPCODE = #{spcode,jdbcType=VARCHAR} and 
+    </if>
+    <if test="target != null">
+      TARGET = #{target,jdbcType=DECIMAL} and 
+    </if>
+    <if test="smsdate != null">
+      SMSDATE = #{smsdate,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="bullettype != null">
+      BULLETTYPE = #{bullettype,jdbcType=DECIMAL} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="myid != null">
+      MYID = #{myid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="btitle != null">
+      BTITLE = #{btitle,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="content != null">
+      CONTENT = #{content,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="boper != null">
+      BOPER = #{boper,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="bgroup != null">
+      BGROUP = #{bgroup,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="bclass != null">
+      BCLASS = #{bclass,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="spcode != null">
+      SPCODE = #{spcode,jdbcType=VARCHAR} , 
+    </if>
+    <if test="target != null">
+      TARGET = #{target,jdbcType=DECIMAL} , 
+    </if>
+    <if test="smsdate != null">
+      SMSDATE = #{smsdate,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="bullettype != null">
+      BULLETTYPE = #{bullettype,jdbcType=DECIMAL} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="myid != null">
+      MYID = #{myid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="btitle != null">
+      BTITLE = #{btitle,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="content != null">
+      CONTENT = #{content,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="boper != null">
+      BOPER = #{boper,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="bgroup != null">
+      BGROUP = #{bgroup,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="bclass != null">
+      BCLASS = #{bclass,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbBullet" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbBullet">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbBullet">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbBullet">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

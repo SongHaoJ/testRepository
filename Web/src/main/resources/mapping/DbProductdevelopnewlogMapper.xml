@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbProductdevelopnewlogMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbProductdevelopnewlog">
+    <id column="SID" jdbcType="VARCHAR" property="sid" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="SKU" jdbcType="VARCHAR" property="sku" />
+    <result column="CONTENT" jdbcType="LONGVARCHAR" property="content" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SID, OPER, OPERTIME, SKU, CONTENT
+    from db_productdevelopnewlog
+    where SID = #{sid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, OPER, OPERTIME, SKU, CONTENT
+    from db_productdevelopnewlog
+  </select>
+  <sql id="TableName">
+    db_productdevelopnewlog
+  </sql>
+  <sql id="Values">
+     #{sid,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{sku,jdbcType=VARCHAR} , 
+     #{content,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    SID , 
+    OPER , 
+    OPERTIME , 
+    SKU , 
+    CONTENT
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="sku != null">
+      SKU = #{sku,jdbcType=VARCHAR} and 
+    </if>
+    <if test="content != null">
+      CONTENT = #{content,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="sku != null">
+      SKU = #{sku,jdbcType=VARCHAR} , 
+    </if>
+    <if test="content != null">
+      CONTENT = #{content,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbProductdevelopnewlog" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SID=#{SID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbProductdevelopnewlog">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbProductdevelopnewlog">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbProductdevelopnewlog">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

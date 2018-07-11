@@ -1,0 +1,698 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbProductforsellMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbProductforsell">
+    <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
+    <result column="SELLSKU" jdbcType="VARCHAR" property="sellsku" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
+    <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="RESERVE4" jdbcType="DECIMAL" property="reserve4" />
+    <result column="RESERVE5" jdbcType="DECIMAL" property="reserve5" />
+    <result column="RESERVE6" jdbcType="DECIMAL" property="reserve6" />
+    <result column="RESERVE7" jdbcType="DECIMAL" property="reserve7" />
+    <result column="RESERVE8" jdbcType="TIMESTAMP" property="reserve8" />
+    <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="CATEGORYID" jdbcType="VARCHAR" property="categoryid" />
+    <result column="SELLOPER" jdbcType="VARCHAR" property="selloper" />
+    <result column="PURCHASEOPER" jdbcType="VARCHAR" property="purchaseoper" />
+    <result column="NUMFORSKU" jdbcType="DECIMAL" property="numforsku" />
+    <result column="NUMFORONLINEITEM" jdbcType="DECIMAL" property="numforonlineitem" />
+    <result column="SODEFORONLINEITEM" jdbcType="DECIMAL" property="sodeforonlineitem" />
+    <result column="NUMFORONLINESHOP" jdbcType="DECIMAL" property="numforonlineshop" />
+    <result column="NUMFORSHOP" jdbcType="DECIMAL" property="numforshop" />
+    <result column="NUMFORDESCR" jdbcType="DECIMAL" property="numfordescr" />
+    <result column="ONEWEEKNUM" jdbcType="DECIMAL" property="oneweeknum" />
+    <result column="TWOWEEKNUM" jdbcType="DECIMAL" property="twoweeknum" />
+    <result column="THREEWEEKNUM" jdbcType="DECIMAL" property="threeweeknum" />
+    <result column="FOURWEEKNUM" jdbcType="DECIMAL" property="fourweeknum" />
+    <result column="US" jdbcType="VARCHAR" property="us" />
+    <result column="AU" jdbcType="VARCHAR" property="au" />
+    <result column="UK" jdbcType="VARCHAR" property="uk" />
+    <result column="CA" jdbcType="VARCHAR" property="ca" />
+    <result column="DE" jdbcType="VARCHAR" property="de" />
+    <result column="DESCRFLAG" jdbcType="VARCHAR" property="descrflag" />
+    <result column="PHOTOFLAG" jdbcType="VARCHAR" property="photoflag" />
+    <result column="STATUS1" jdbcType="VARCHAR" property="status1" />
+    <result column="ATTRIBUTE" jdbcType="VARCHAR" property="attribute" />
+    <result column="ONESTAGE" jdbcType="VARCHAR" property="onestage" />
+    <result column="TWOSTAGE" jdbcType="VARCHAR" property="twostage" />
+    <result column="AVGNUM" jdbcType="DECIMAL" property="avgnum" />
+    <result column="ONEMONTH" jdbcType="VARCHAR" property="onemonth" />
+    <result column="NEWSALL" jdbcType="DECIMAL" property="newsall" />
+    <result column="NEWS" jdbcType="DECIMAL" property="news" />
+    <result column="TASKNUM" jdbcType="DECIMAL" property="tasknum" />
+    <result column="SEASONFLAG" jdbcType="VARCHAR" property="seasonflag" />
+    <result column="RESERVE12" jdbcType="DECIMAL" property="reserve12" />
+    <result column="RESERVE9" jdbcType="DECIMAL" property="reserve9" />
+    <result column="RESERVE10" jdbcType="DECIMAL" property="reserve10" />
+    <result column="RESERVE11" jdbcType="DECIMAL" property="reserve11" />
+    <result column="EXPRESSTYPE1" jdbcType="VARCHAR" property="expresstype1" />
+    <result column="EXPRESSTYPE2" jdbcType="VARCHAR" property="expresstype2" />
+    <result column="EXPRESSTYPE3" jdbcType="VARCHAR" property="expresstype3" />
+    <result column="EXPRESSTYPE4" jdbcType="VARCHAR" property="expresstype4" />
+    <result column="EXPRESSTYPE5" jdbcType="VARCHAR" property="expresstype5" />
+    <result column="MAOLI" jdbcType="DECIMAL" property="maoli" />
+    <result column="RESERVE13" jdbcType="DECIMAL" property="reserve13" />
+    <result column="RESERVE14" jdbcType="DECIMAL" property="reserve14" />
+    <result column="GROSSPROFIT" jdbcType="DECIMAL" property="grossprofit" />
+    <result column="RATEOFMARGIN" jdbcType="DECIMAL" property="rateofmargin" />
+    <result column="USITEMID" jdbcType="VARCHAR" property="usitemid" />
+    <result column="UKITEMID" jdbcType="VARCHAR" property="ukitemid" />
+    <result column="AUITEMID" jdbcType="VARCHAR" property="auitemid" />
+    <result column="CAITEMID" jdbcType="VARCHAR" property="caitemid" />
+    <result column="DEITEMID" jdbcType="VARCHAR" property="deitemid" />
+    <result column="PICTUREID" jdbcType="VARCHAR" property="pictureid" />
+    <result column="NAME" jdbcType="LONGVARCHAR" property="name" />
+    <result column="ENNAME" jdbcType="LONGVARCHAR" property="enname" />
+    <result column="TITLE" jdbcType="LONGVARCHAR" property="title" />
+    <result column="RESERVE1" jdbcType="LONGVARCHAR" property="reserve1" />
+    <result column="RESERVE3" jdbcType="LONGVARCHAR" property="reserve3" />
+    <result column="CATEGORYNAME" jdbcType="LONGVARCHAR" property="categoryname" />
+    <result column="PICTURESTR" jdbcType="LONGVARCHAR" property="picturestr" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SEQUENCEID, SELLSKU, OPER, OPERTIME, OPENFLAG, CORPID, RESERVE2, RESERVE4, 
+    RESERVE5, RESERVE6, RESERVE7, RESERVE8, CREATETIME, STATUS, CATEGORYID, SELLOPER, 
+    PURCHASEOPER, NUMFORSKU, NUMFORONLINEITEM, SODEFORONLINEITEM, NUMFORONLINESHOP, NUMFORSHOP, 
+    NUMFORDESCR, ONEWEEKNUM, TWOWEEKNUM, THREEWEEKNUM, FOURWEEKNUM, US, AU, UK, CA, DE, 
+    DESCRFLAG, PHOTOFLAG, STATUS1, ATTRIBUTE, ONESTAGE, TWOSTAGE, AVGNUM, ONEMONTH, NEWSALL, 
+    NEWS, TASKNUM, SEASONFLAG, RESERVE12, RESERVE9, RESERVE10, RESERVE11, EXPRESSTYPE1, 
+    EXPRESSTYPE2, EXPRESSTYPE3, EXPRESSTYPE4, EXPRESSTYPE5, MAOLI, RESERVE13, RESERVE14, 
+    GROSSPROFIT, RATEOFMARGIN, USITEMID, UKITEMID, AUITEMID, CAITEMID, DEITEMID, PICTUREID, 
+    NAME, ENNAME, TITLE, RESERVE1, RESERVE3, CATEGORYNAME, PICTURESTR
+    from db_productforsell
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, SELLSKU, OPER, OPERTIME, OPENFLAG, CORPID, RESERVE2, RESERVE4, 
+    RESERVE5, RESERVE6, RESERVE7, RESERVE8, CREATETIME, STATUS, CATEGORYID, SELLOPER, 
+    PURCHASEOPER, NUMFORSKU, NUMFORONLINEITEM, SODEFORONLINEITEM, NUMFORONLINESHOP, NUMFORSHOP, 
+    NUMFORDESCR, ONEWEEKNUM, TWOWEEKNUM, THREEWEEKNUM, FOURWEEKNUM, US, AU, UK, CA, DE, 
+    DESCRFLAG, PHOTOFLAG, STATUS1, ATTRIBUTE, ONESTAGE, TWOSTAGE, AVGNUM, ONEMONTH, NEWSALL, 
+    NEWS, TASKNUM, SEASONFLAG, RESERVE12, RESERVE9, RESERVE10, RESERVE11, EXPRESSTYPE1, 
+    EXPRESSTYPE2, EXPRESSTYPE3, EXPRESSTYPE4, EXPRESSTYPE5, MAOLI, RESERVE13, RESERVE14, 
+    GROSSPROFIT, RATEOFMARGIN, USITEMID, UKITEMID, AUITEMID, CAITEMID, DEITEMID, PICTUREID, 
+    NAME, ENNAME, TITLE, RESERVE1, RESERVE3, CATEGORYNAME, PICTURESTR
+    from db_productforsell
+  </select>
+  <sql id="TableName">
+    db_productforsell
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=VARCHAR} , 
+     #{sellsku,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{openflag,jdbcType=VARCHAR} , 
+     #{corpid,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+     #{reserve4,jdbcType=DECIMAL} , 
+     #{reserve5,jdbcType=DECIMAL} , 
+     #{reserve6,jdbcType=DECIMAL} , 
+     #{reserve7,jdbcType=DECIMAL} , 
+     #{reserve8,jdbcType=TIMESTAMP} , 
+     #{createtime,jdbcType=TIMESTAMP} , 
+     #{status,jdbcType=VARCHAR} , 
+     #{categoryid,jdbcType=VARCHAR} , 
+     #{selloper,jdbcType=VARCHAR} , 
+     #{purchaseoper,jdbcType=VARCHAR} , 
+     #{numforsku,jdbcType=DECIMAL} , 
+     #{numforonlineitem,jdbcType=DECIMAL} , 
+     #{sodeforonlineitem,jdbcType=DECIMAL} , 
+     #{numforonlineshop,jdbcType=DECIMAL} , 
+     #{numforshop,jdbcType=DECIMAL} , 
+     #{numfordescr,jdbcType=DECIMAL} , 
+     #{oneweeknum,jdbcType=DECIMAL} , 
+     #{twoweeknum,jdbcType=DECIMAL} , 
+     #{threeweeknum,jdbcType=DECIMAL} , 
+     #{fourweeknum,jdbcType=DECIMAL} , 
+     #{us,jdbcType=VARCHAR} , 
+     #{au,jdbcType=VARCHAR} , 
+     #{uk,jdbcType=VARCHAR} , 
+     #{ca,jdbcType=VARCHAR} , 
+     #{de,jdbcType=VARCHAR} , 
+     #{descrflag,jdbcType=VARCHAR} , 
+     #{photoflag,jdbcType=VARCHAR} , 
+     #{status1,jdbcType=VARCHAR} , 
+     #{attribute,jdbcType=VARCHAR} , 
+     #{onestage,jdbcType=VARCHAR} , 
+     #{twostage,jdbcType=VARCHAR} , 
+     #{avgnum,jdbcType=DECIMAL} , 
+     #{onemonth,jdbcType=VARCHAR} , 
+     #{newsall,jdbcType=DECIMAL} , 
+     #{news,jdbcType=DECIMAL} , 
+     #{tasknum,jdbcType=DECIMAL} , 
+     #{seasonflag,jdbcType=VARCHAR} , 
+     #{reserve12,jdbcType=DECIMAL} , 
+     #{reserve9,jdbcType=DECIMAL} , 
+     #{reserve10,jdbcType=DECIMAL} , 
+     #{reserve11,jdbcType=DECIMAL} , 
+     #{expresstype1,jdbcType=VARCHAR} , 
+     #{expresstype2,jdbcType=VARCHAR} , 
+     #{expresstype3,jdbcType=VARCHAR} , 
+     #{expresstype4,jdbcType=VARCHAR} , 
+     #{expresstype5,jdbcType=VARCHAR} , 
+     #{maoli,jdbcType=DECIMAL} , 
+     #{reserve13,jdbcType=DECIMAL} , 
+     #{reserve14,jdbcType=DECIMAL} , 
+     #{grossprofit,jdbcType=DECIMAL} , 
+     #{rateofmargin,jdbcType=DECIMAL} , 
+     #{usitemid,jdbcType=VARCHAR} , 
+     #{ukitemid,jdbcType=VARCHAR} , 
+     #{auitemid,jdbcType=VARCHAR} , 
+     #{caitemid,jdbcType=VARCHAR} , 
+     #{deitemid,jdbcType=VARCHAR} , 
+     #{pictureid,jdbcType=VARCHAR} , 
+     #{name,jdbcType=LONGVARCHAR} , 
+     #{enname,jdbcType=LONGVARCHAR} , 
+     #{title,jdbcType=LONGVARCHAR} , 
+     #{reserve1,jdbcType=LONGVARCHAR} , 
+     #{reserve3,jdbcType=LONGVARCHAR} , 
+     #{categoryname,jdbcType=LONGVARCHAR} , 
+     #{picturestr,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    SELLSKU , 
+    OPER , 
+    OPERTIME , 
+    OPENFLAG , 
+    CORPID , 
+    RESERVE2 , 
+    RESERVE4 , 
+    RESERVE5 , 
+    RESERVE6 , 
+    RESERVE7 , 
+    RESERVE8 , 
+    CREATETIME , 
+    STATUS , 
+    CATEGORYID , 
+    SELLOPER , 
+    PURCHASEOPER , 
+    NUMFORSKU , 
+    NUMFORONLINEITEM , 
+    SODEFORONLINEITEM , 
+    NUMFORONLINESHOP , 
+    NUMFORSHOP , 
+    NUMFORDESCR , 
+    ONEWEEKNUM , 
+    TWOWEEKNUM , 
+    THREEWEEKNUM , 
+    FOURWEEKNUM , 
+    US , 
+    AU , 
+    UK , 
+    CA , 
+    DE , 
+    DESCRFLAG , 
+    PHOTOFLAG , 
+    STATUS1 , 
+    ATTRIBUTE , 
+    ONESTAGE , 
+    TWOSTAGE , 
+    AVGNUM , 
+    ONEMONTH , 
+    NEWSALL , 
+    NEWS , 
+    TASKNUM , 
+    SEASONFLAG , 
+    RESERVE12 , 
+    RESERVE9 , 
+    RESERVE10 , 
+    RESERVE11 , 
+    EXPRESSTYPE1 , 
+    EXPRESSTYPE2 , 
+    EXPRESSTYPE3 , 
+    EXPRESSTYPE4 , 
+    EXPRESSTYPE5 , 
+    MAOLI , 
+    RESERVE13 , 
+    RESERVE14 , 
+    GROSSPROFIT , 
+    RATEOFMARGIN , 
+    USITEMID , 
+    UKITEMID , 
+    AUITEMID , 
+    CAITEMID , 
+    DEITEMID , 
+    PICTUREID , 
+    NAME , 
+    ENNAME , 
+    TITLE , 
+    RESERVE1 , 
+    RESERVE3 , 
+    CATEGORYNAME , 
+    PICTURESTR
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sellsku != null">
+      SELLSKU = #{sellsku,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="corpid != null">
+      CORPID = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve4 != null">
+      RESERVE4 = #{reserve4,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve5 != null">
+      RESERVE5 = #{reserve5,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve6 != null">
+      RESERVE6 = #{reserve6,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve7 != null">
+      RESERVE7 = #{reserve7,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve8 != null">
+      RESERVE8 = #{reserve8,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="createtime != null">
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="status != null">
+      STATUS = #{status,jdbcType=VARCHAR} and 
+    </if>
+    <if test="categoryid != null">
+      CATEGORYID = #{categoryid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="selloper != null">
+      SELLOPER = #{selloper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="purchaseoper != null">
+      PURCHASEOPER = #{purchaseoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="numforsku != null">
+      NUMFORSKU = #{numforsku,jdbcType=DECIMAL} and 
+    </if>
+    <if test="numforonlineitem != null">
+      NUMFORONLINEITEM = #{numforonlineitem,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sodeforonlineitem != null">
+      SODEFORONLINEITEM = #{sodeforonlineitem,jdbcType=DECIMAL} and 
+    </if>
+    <if test="numforonlineshop != null">
+      NUMFORONLINESHOP = #{numforonlineshop,jdbcType=DECIMAL} and 
+    </if>
+    <if test="numforshop != null">
+      NUMFORSHOP = #{numforshop,jdbcType=DECIMAL} and 
+    </if>
+    <if test="numfordescr != null">
+      NUMFORDESCR = #{numfordescr,jdbcType=DECIMAL} and 
+    </if>
+    <if test="oneweeknum != null">
+      ONEWEEKNUM = #{oneweeknum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="twoweeknum != null">
+      TWOWEEKNUM = #{twoweeknum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="threeweeknum != null">
+      THREEWEEKNUM = #{threeweeknum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="fourweeknum != null">
+      FOURWEEKNUM = #{fourweeknum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="us != null">
+      US = #{us,jdbcType=VARCHAR} and 
+    </if>
+    <if test="au != null">
+      AU = #{au,jdbcType=VARCHAR} and 
+    </if>
+    <if test="uk != null">
+      UK = #{uk,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ca != null">
+      CA = #{ca,jdbcType=VARCHAR} and 
+    </if>
+    <if test="de != null">
+      DE = #{de,jdbcType=VARCHAR} and 
+    </if>
+    <if test="descrflag != null">
+      DESCRFLAG = #{descrflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="photoflag != null">
+      PHOTOFLAG = #{photoflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="status1 != null">
+      STATUS1 = #{status1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="attribute != null">
+      ATTRIBUTE = #{attribute,jdbcType=VARCHAR} and 
+    </if>
+    <if test="onestage != null">
+      ONESTAGE = #{onestage,jdbcType=VARCHAR} and 
+    </if>
+    <if test="twostage != null">
+      TWOSTAGE = #{twostage,jdbcType=VARCHAR} and 
+    </if>
+    <if test="avgnum != null">
+      AVGNUM = #{avgnum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="onemonth != null">
+      ONEMONTH = #{onemonth,jdbcType=VARCHAR} and 
+    </if>
+    <if test="newsall != null">
+      NEWSALL = #{newsall,jdbcType=DECIMAL} and 
+    </if>
+    <if test="news != null">
+      NEWS = #{news,jdbcType=DECIMAL} and 
+    </if>
+    <if test="tasknum != null">
+      TASKNUM = #{tasknum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="seasonflag != null">
+      SEASONFLAG = #{seasonflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve12 != null">
+      RESERVE12 = #{reserve12,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve9 != null">
+      RESERVE9 = #{reserve9,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve10 != null">
+      RESERVE10 = #{reserve10,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve11 != null">
+      RESERVE11 = #{reserve11,jdbcType=DECIMAL} and 
+    </if>
+    <if test="expresstype1 != null">
+      EXPRESSTYPE1 = #{expresstype1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="expresstype2 != null">
+      EXPRESSTYPE2 = #{expresstype2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="expresstype3 != null">
+      EXPRESSTYPE3 = #{expresstype3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="expresstype4 != null">
+      EXPRESSTYPE4 = #{expresstype4,jdbcType=VARCHAR} and 
+    </if>
+    <if test="expresstype5 != null">
+      EXPRESSTYPE5 = #{expresstype5,jdbcType=VARCHAR} and 
+    </if>
+    <if test="maoli != null">
+      MAOLI = #{maoli,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve13 != null">
+      RESERVE13 = #{reserve13,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve14 != null">
+      RESERVE14 = #{reserve14,jdbcType=DECIMAL} and 
+    </if>
+    <if test="grossprofit != null">
+      GROSSPROFIT = #{grossprofit,jdbcType=DECIMAL} and 
+    </if>
+    <if test="rateofmargin != null">
+      RATEOFMARGIN = #{rateofmargin,jdbcType=DECIMAL} and 
+    </if>
+    <if test="usitemid != null">
+      USITEMID = #{usitemid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ukitemid != null">
+      UKITEMID = #{ukitemid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="auitemid != null">
+      AUITEMID = #{auitemid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="caitemid != null">
+      CAITEMID = #{caitemid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="deitemid != null">
+      DEITEMID = #{deitemid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="pictureid != null">
+      PICTUREID = #{pictureid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="name != null">
+      NAME = #{name,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="enname != null">
+      ENNAME = #{enname,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="title != null">
+      TITLE = #{title,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="categoryname != null">
+      CATEGORYNAME = #{categoryname,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="picturestr != null">
+      PICTURESTR = #{picturestr,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sellsku != null">
+      SELLSKU = #{sellsku,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="corpid != null">
+      CORPID = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve4 != null">
+      RESERVE4 = #{reserve4,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve5 != null">
+      RESERVE5 = #{reserve5,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve6 != null">
+      RESERVE6 = #{reserve6,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve7 != null">
+      RESERVE7 = #{reserve7,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve8 != null">
+      RESERVE8 = #{reserve8,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="createtime != null">
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="status != null">
+      STATUS = #{status,jdbcType=VARCHAR} , 
+    </if>
+    <if test="categoryid != null">
+      CATEGORYID = #{categoryid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="selloper != null">
+      SELLOPER = #{selloper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="purchaseoper != null">
+      PURCHASEOPER = #{purchaseoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="numforsku != null">
+      NUMFORSKU = #{numforsku,jdbcType=DECIMAL} , 
+    </if>
+    <if test="numforonlineitem != null">
+      NUMFORONLINEITEM = #{numforonlineitem,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sodeforonlineitem != null">
+      SODEFORONLINEITEM = #{sodeforonlineitem,jdbcType=DECIMAL} , 
+    </if>
+    <if test="numforonlineshop != null">
+      NUMFORONLINESHOP = #{numforonlineshop,jdbcType=DECIMAL} , 
+    </if>
+    <if test="numforshop != null">
+      NUMFORSHOP = #{numforshop,jdbcType=DECIMAL} , 
+    </if>
+    <if test="numfordescr != null">
+      NUMFORDESCR = #{numfordescr,jdbcType=DECIMAL} , 
+    </if>
+    <if test="oneweeknum != null">
+      ONEWEEKNUM = #{oneweeknum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="twoweeknum != null">
+      TWOWEEKNUM = #{twoweeknum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="threeweeknum != null">
+      THREEWEEKNUM = #{threeweeknum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="fourweeknum != null">
+      FOURWEEKNUM = #{fourweeknum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="us != null">
+      US = #{us,jdbcType=VARCHAR} , 
+    </if>
+    <if test="au != null">
+      AU = #{au,jdbcType=VARCHAR} , 
+    </if>
+    <if test="uk != null">
+      UK = #{uk,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ca != null">
+      CA = #{ca,jdbcType=VARCHAR} , 
+    </if>
+    <if test="de != null">
+      DE = #{de,jdbcType=VARCHAR} , 
+    </if>
+    <if test="descrflag != null">
+      DESCRFLAG = #{descrflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="photoflag != null">
+      PHOTOFLAG = #{photoflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="status1 != null">
+      STATUS1 = #{status1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="attribute != null">
+      ATTRIBUTE = #{attribute,jdbcType=VARCHAR} , 
+    </if>
+    <if test="onestage != null">
+      ONESTAGE = #{onestage,jdbcType=VARCHAR} , 
+    </if>
+    <if test="twostage != null">
+      TWOSTAGE = #{twostage,jdbcType=VARCHAR} , 
+    </if>
+    <if test="avgnum != null">
+      AVGNUM = #{avgnum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="onemonth != null">
+      ONEMONTH = #{onemonth,jdbcType=VARCHAR} , 
+    </if>
+    <if test="newsall != null">
+      NEWSALL = #{newsall,jdbcType=DECIMAL} , 
+    </if>
+    <if test="news != null">
+      NEWS = #{news,jdbcType=DECIMAL} , 
+    </if>
+    <if test="tasknum != null">
+      TASKNUM = #{tasknum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="seasonflag != null">
+      SEASONFLAG = #{seasonflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve12 != null">
+      RESERVE12 = #{reserve12,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve9 != null">
+      RESERVE9 = #{reserve9,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve10 != null">
+      RESERVE10 = #{reserve10,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve11 != null">
+      RESERVE11 = #{reserve11,jdbcType=DECIMAL} , 
+    </if>
+    <if test="expresstype1 != null">
+      EXPRESSTYPE1 = #{expresstype1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="expresstype2 != null">
+      EXPRESSTYPE2 = #{expresstype2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="expresstype3 != null">
+      EXPRESSTYPE3 = #{expresstype3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="expresstype4 != null">
+      EXPRESSTYPE4 = #{expresstype4,jdbcType=VARCHAR} , 
+    </if>
+    <if test="expresstype5 != null">
+      EXPRESSTYPE5 = #{expresstype5,jdbcType=VARCHAR} , 
+    </if>
+    <if test="maoli != null">
+      MAOLI = #{maoli,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve13 != null">
+      RESERVE13 = #{reserve13,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve14 != null">
+      RESERVE14 = #{reserve14,jdbcType=DECIMAL} , 
+    </if>
+    <if test="grossprofit != null">
+      GROSSPROFIT = #{grossprofit,jdbcType=DECIMAL} , 
+    </if>
+    <if test="rateofmargin != null">
+      RATEOFMARGIN = #{rateofmargin,jdbcType=DECIMAL} , 
+    </if>
+    <if test="usitemid != null">
+      USITEMID = #{usitemid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ukitemid != null">
+      UKITEMID = #{ukitemid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="auitemid != null">
+      AUITEMID = #{auitemid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="caitemid != null">
+      CAITEMID = #{caitemid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="deitemid != null">
+      DEITEMID = #{deitemid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="pictureid != null">
+      PICTUREID = #{pictureid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="name != null">
+      NAME = #{name,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="enname != null">
+      ENNAME = #{enname,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="title != null">
+      TITLE = #{title,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="categoryname != null">
+      CATEGORYNAME = #{categoryname,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="picturestr != null">
+      PICTURESTR = #{picturestr,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbProductforsell" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbProductforsell">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbProductforsell">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbProductforsell">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

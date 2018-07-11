@@ -8,6 +8,7 @@ import com.bean.model.DbLazadaorderinfo;
 import com.bean.model.DbOrder;
 import com.bean.model.DbShop;
 import com.bean.orderUtil.LazadaUtil;
+import com.bean.util.NumberUtil;
 import com.bean.util.RetCode;
 import com.bean.util.Sys;
 import com.bean.yml.LazadaYml;
@@ -922,13 +923,13 @@ public class LazadaAnalysis {
                 orderinfo.setSku(Sys.isCheckNull(item.getSku()));
                 orderinfo.setShopsku(Sys.isCheckNull(item.getShopsku()));
                 orderinfo.setShippingtype(Sys.isCheckNull(item.getShippingtype()));
-                orderinfo.setItemprice(LazadaUtil.mul(item.getItemprice()));
+                orderinfo.setItemprice(NumberUtil.mul(item.getItemprice()));
                 orderinfo.setQuantity(item.getQuantity());
-                orderinfo.setPaidprice(LazadaUtil.mul(item.getPaidprice()));
-                orderinfo.setWalletcredits(LazadaUtil.mul(item.getWalletcredits()));
-                orderinfo.setTaxamount(LazadaUtil.mul(item.getTaxamount()));
-                orderinfo.setShippingamount(LazadaUtil.mul(item.getShippingamount()));
-                orderinfo.setVoucheramount(LazadaUtil.mul(item.getVoucheramount()));
+                orderinfo.setPaidprice(NumberUtil.mul(item.getPaidprice()));
+                orderinfo.setWalletcredits(NumberUtil.mul(item.getWalletcredits()));
+                orderinfo.setTaxamount(NumberUtil.mul(item.getTaxamount()));
+                orderinfo.setShippingamount(NumberUtil.mul(item.getShippingamount()));
+                orderinfo.setVoucheramount(NumberUtil.mul(item.getVoucheramount()));
                 orderinfo.setVouchercode(Sys.isCheckNull(item.getVouchercode()));
                 orderinfo.setItemstatus(Sys.isCheckNull(item.getItemstatus()));
                 orderinfo.setShipmentprovider(Sys.isCheckNull(item.getShipmentprovider()));
@@ -990,40 +991,40 @@ public class LazadaAnalysis {
         order.setShoptypeid(obj.getShopid());
         order.setShoptype(obj.getShopname());
         order.setMoneytype(obj.getCurrencyid());
-        order.setMoneyask(LazadaUtil.mul(0));// 后期自动算
-        order.setMoneyaction(LazadaUtil.mul(0));// 后期自动算
-        order.setMoneyaction(LazadaUtil.mul(0));// 后期自动算
+        order.setMoneyask(NumberUtil.mul(0));// 后期自动算
+        order.setMoneyaction(NumberUtil.mul(0));// 后期自动算
+        order.setMoneyaction(NumberUtil.mul(0));// 后期自动算
         order.setMoneyexpressask(new BigDecimal(obj.getShippingamount().doubleValue() * moneyrate));// 快递费
         order.setOrdertime(obj.getCreateddate());// 付款时间就是创建时间
         order.setAlertflag("0");// 告警标志
         order.setUploadtime(new Date());
-        order.setExpressweight(LazadaUtil.mul(0));// 后期自动算
+        order.setExpressweight(NumberUtil.mul(0));// 后期自动算
         order.setOper("sys");
         order.setOpertime(new Date());
         order.setReserve4("");// 买家对商品的备注信息
-        order.setInsurance(LazadaUtil.mul(0));// 保险费
+        order.setInsurance(NumberUtil.mul(0));// 保险费
         order.setPayid("");// PayPal交易ID
         order.setReserve8("");// PayPal收款Email地址
-        order.setMoneyrate(LazadaUtil.mul(moneyrate));// 汇率
+        order.setMoneyrate(NumberUtil.mul(moneyrate));// 汇率
         order.setOriginexpressmoney(obj.getShippingamount());// 原始运费
-        order.setOriginfinalvaluefee(LazadaUtil.mul(obj.getPaidprice(), obj.getQuantity(), platformFeeRate));// 原始交易费用
-        order.setFinalvaluefee(LazadaUtil.mul(order.getOriginfinalvaluefee(), moneyrate));// 转换后的交易费用
+        order.setOriginfinalvaluefee(NumberUtil.mul(obj.getPaidprice(), obj.getQuantity(), platformFeeRate));// 原始交易费用
+        order.setFinalvaluefee(NumberUtil.mul(order.getOriginfinalvaluefee(), moneyrate));// 转换后的交易费用
         // log.error(obj.getOriginfinalvaluefee());
         order.setNotestoyourself(Sys.isCheckNull(obj.getRemarks()));// 买家对卖家留言
-        order.setOrigininsurance(LazadaUtil.mul(0));// 原始保险费
+        order.setOrigininsurance(NumberUtil.mul(0));// 原始保险费
 
-        order.setOriginordermoney(LazadaUtil.mul(obj.getPaidprice(), obj.getQuantity(), obj.getShippingamount()));// 原始订单费=产品费用+运费
-        order.setOrdermoney(LazadaUtil.mul(order.getOriginordermoney(), moneyrate));// 转换后的订单费
+        order.setOriginordermoney(NumberUtil.mul(obj.getPaidprice(), obj.getQuantity(), obj.getShippingamount()));// 原始订单费=产品费用+运费
+        order.setOrdermoney(NumberUtil.mul(order.getOriginordermoney(), moneyrate));// 转换后的订单费
         String tempsku = Sys.findSku(obj.getSku());
         if ("1".equals(skuPosition)) {// 如果是取@#后面的字符串
             tempsku = Sys.findSkuFromMid(obj.getSku());
         }
         order.setQlreserve2("," + tempsku + ",");// 将第1个商品的SKU保存在订单里
         order.setPostageservice(Sys.isCheckNull(obj.getShippingtype()).replace("'", "'").replace(";", "_"));// Lazada发货方式
-        order.setQlreserve5(LazadaUtil.mul(0));
-        order.setQlreserve6(LazadaUtil.mul(0));
-        order.setQlreserve7(LazadaUtil.mul(0));
-        order.setQlreserve8(LazadaUtil.mul(0));
+        order.setQlreserve5(NumberUtil.mul(0));
+        order.setQlreserve6(NumberUtil.mul(0));
+        order.setQlreserve7(NumberUtil.mul(0));
+        order.setQlreserve8(NumberUtil.mul(0));
         order.setCalculateflag("0");// 未计算过运费
         // order.setCustomerreserve5(obj.getOrderreserve1());//此订单编号后期在交运时用的着-注:被作废,ebay真实订单ID目前保存在db_sell.reserve8而不是db_order.customerreserve1,因为sell会比合并到其他订单下,这样关联就出错了
         // 拼用户信息

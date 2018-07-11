@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbPictureprojectMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbPictureproject">
+    <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="PICTURE" jdbcType="VARCHAR" property="picture" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="FLAG" jdbcType="VARCHAR" property="flag" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="PICTUREID" jdbcType="VARCHAR" property="pictureid" />
+    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SEQUENCEID, NAME, PICTURE, OPER, OPERTIME, CREATETIME, FLAG, RESERVE1, RESERVE2, 
+    PICTUREID, DESCR
+    from db_pictureproject
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, NAME, PICTURE, OPER, OPERTIME, CREATETIME, FLAG, RESERVE1, RESERVE2, 
+    PICTUREID, DESCR
+    from db_pictureproject
+  </select>
+  <sql id="TableName">
+    db_pictureproject
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=VARCHAR} , 
+     #{name,jdbcType=VARCHAR} , 
+     #{picture,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{createtime,jdbcType=TIMESTAMP} , 
+     #{flag,jdbcType=VARCHAR} , 
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+     #{pictureid,jdbcType=VARCHAR} , 
+     #{descr,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    NAME , 
+    PICTURE , 
+    OPER , 
+    OPERTIME , 
+    CREATETIME , 
+    FLAG , 
+    RESERVE1 , 
+    RESERVE2 , 
+    PICTUREID , 
+    DESCR
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="name != null">
+      NAME = #{name,jdbcType=VARCHAR} and 
+    </if>
+    <if test="picture != null">
+      PICTURE = #{picture,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="createtime != null">
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="flag != null">
+      FLAG = #{flag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="pictureid != null">
+      PICTUREID = #{pictureid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="descr != null">
+      DESCR = #{descr,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="name != null">
+      NAME = #{name,jdbcType=VARCHAR} , 
+    </if>
+    <if test="picture != null">
+      PICTURE = #{picture,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="createtime != null">
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="flag != null">
+      FLAG = #{flag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="pictureid != null">
+      PICTUREID = #{pictureid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="descr != null">
+      DESCR = #{descr,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbPictureproject" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbPictureproject">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbPictureproject">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbPictureproject">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

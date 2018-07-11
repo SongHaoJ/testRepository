@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbDescraptionMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbDescraption">
+    <id column="SID" jdbcType="DECIMAL" property="sid" />
+    <result column="PRODUCTCONTENT" jdbcType="LONGVARCHAR" property="productcontent" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select SID, PRODUCTCONTENT
+    from db_descraption
+    where SID = #{sid,jdbcType=DECIMAL}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, PRODUCTCONTENT
+    from db_descraption
+  </select>
+  <sql id="TableName">
+    db_descraption
+  </sql>
+  <sql id="Values">
+     #{sid,jdbcType=DECIMAL} , 
+     #{productcontent,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    SID , 
+    PRODUCTCONTENT
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="productcontent != null">
+      PRODUCTCONTENT = #{productcontent,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="productcontent != null">
+      PRODUCTCONTENT = #{productcontent,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbDescraption" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="BigDecimal">
+    delete from <include refid="TableName"/> where SID=#{SID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbDescraption">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbDescraption">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbDescraption">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

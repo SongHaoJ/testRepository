@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbRelistitemMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbRelistitem">
+    <id column="SID" jdbcType="DECIMAL" property="sid" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="SHOPID" jdbcType="VARCHAR" property="shopid" />
+    <result column="CHECKOPER" jdbcType="VARCHAR" property="checkoper" />
+    <result column="OPENFLAG" jdbcType="DECIMAL" property="openflag" />
+    <result column="ITEMID" jdbcType="VARCHAR" property="itemid" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="SITE" jdbcType="VARCHAR" property="site" />
+    <result column="CHECKTIME" jdbcType="TIMESTAMP" property="checktime" />
+    <result column="ERROR" jdbcType="LONGVARCHAR" property="error" />
+    <result column="CHECKDESCR" jdbcType="LONGVARCHAR" property="checkdescr" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select SID, OPER, SHOPID, CHECKOPER, OPENFLAG, ITEMID, OPERTIME, SITE, CHECKTIME, 
+    ERROR, CHECKDESCR
+    from db_relistitem
+    where SID = #{sid,jdbcType=DECIMAL}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, OPER, SHOPID, CHECKOPER, OPENFLAG, ITEMID, OPERTIME, SITE, CHECKTIME, 
+    ERROR, CHECKDESCR
+    from db_relistitem
+  </select>
+  <sql id="TableName">
+    db_relistitem
+  </sql>
+  <sql id="Values">
+     #{sid,jdbcType=DECIMAL} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{shopid,jdbcType=VARCHAR} , 
+     #{checkoper,jdbcType=VARCHAR} , 
+     #{openflag,jdbcType=DECIMAL} , 
+     #{itemid,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{site,jdbcType=VARCHAR} , 
+     #{checktime,jdbcType=TIMESTAMP} , 
+     #{error,jdbcType=LONGVARCHAR} , 
+     #{checkdescr,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    SID , 
+    OPER , 
+    SHOPID , 
+    CHECKOPER , 
+    OPENFLAG , 
+    ITEMID , 
+    OPERTIME , 
+    SITE , 
+    CHECKTIME , 
+    ERROR , 
+    CHECKDESCR
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shopid != null">
+      SHOPID = #{shopid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="checkoper != null">
+      CHECKOPER = #{checkoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="itemid != null">
+      ITEMID = #{itemid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="site != null">
+      SITE = #{site,jdbcType=VARCHAR} and 
+    </if>
+    <if test="checktime != null">
+      CHECKTIME = #{checktime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="error != null">
+      ERROR = #{error,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="checkdescr != null">
+      CHECKDESCR = #{checkdescr,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shopid != null">
+      SHOPID = #{shopid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="checkoper != null">
+      CHECKOPER = #{checkoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="itemid != null">
+      ITEMID = #{itemid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="site != null">
+      SITE = #{site,jdbcType=VARCHAR} , 
+    </if>
+    <if test="checktime != null">
+      CHECKTIME = #{checktime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="error != null">
+      ERROR = #{error,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="checkdescr != null">
+      CHECKDESCR = #{checkdescr,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbRelistitem" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="BigDecimal">
+    delete from <include refid="TableName"/> where SID=#{SID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbRelistitem">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbRelistitem">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbRelistitem">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

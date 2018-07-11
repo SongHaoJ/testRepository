@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbOutcategorysellMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbOutcategorysell">
+    <id column="SID" jdbcType="VARCHAR" property="sid" />
+    <result column="WAREHOUSEID" jdbcType="VARCHAR" property="warehouseid" />
+    <result column="PRODUCTID" jdbcType="VARCHAR" property="productid" />
+    <result column="SPECIFICATION" jdbcType="VARCHAR" property="specification" />
+    <result column="EBAYTRANSACTIONID" jdbcType="VARCHAR" property="ebaytransactionid" />
+    <result column="EBAYITEMID" jdbcType="VARCHAR" property="ebayitemid" />
+    <result column="QUANTITY" jdbcType="DECIMAL" property="quantity" />
+    <result column="EBAYORDERID" jdbcType="VARCHAR" property="ebayorderid" />
+    <result column="FLAG" jdbcType="DECIMAL" property="flag" />
+    <result column="CATETIME" jdbcType="TIMESTAMP" property="catetime" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OEPRTIME" jdbcType="TIMESTAMP" property="oeprtime" />
+    <result column="UPDATETIME" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="RECORDID" jdbcType="VARCHAR" property="recordid" />
+    <result column="ERROR" jdbcType="LONGVARCHAR" property="error" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SID, WAREHOUSEID, PRODUCTID, SPECIFICATION, EBAYTRANSACTIONID, EBAYITEMID, 
+    QUANTITY, EBAYORDERID, FLAG, CATETIME, OPER, OEPRTIME, UPDATETIME, RECORDID, ERROR
+    from db_outcategorysell
+    where SID = #{sid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, WAREHOUSEID, PRODUCTID, SPECIFICATION, EBAYTRANSACTIONID, EBAYITEMID, 
+    QUANTITY, EBAYORDERID, FLAG, CATETIME, OPER, OEPRTIME, UPDATETIME, RECORDID, ERROR
+    from db_outcategorysell
+  </select>
+  <sql id="TableName">
+    db_outcategorysell
+  </sql>
+  <sql id="Values">
+     #{sid,jdbcType=VARCHAR} , 
+     #{warehouseid,jdbcType=VARCHAR} , 
+     #{productid,jdbcType=VARCHAR} , 
+     #{specification,jdbcType=VARCHAR} , 
+     #{ebaytransactionid,jdbcType=VARCHAR} , 
+     #{ebayitemid,jdbcType=VARCHAR} , 
+     #{quantity,jdbcType=DECIMAL} , 
+     #{ebayorderid,jdbcType=VARCHAR} , 
+     #{flag,jdbcType=DECIMAL} , 
+     #{catetime,jdbcType=TIMESTAMP} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{oeprtime,jdbcType=TIMESTAMP} , 
+     #{updatetime,jdbcType=TIMESTAMP} , 
+     #{recordid,jdbcType=VARCHAR} , 
+     #{error,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    SID , 
+    WAREHOUSEID , 
+    PRODUCTID , 
+    SPECIFICATION , 
+    EBAYTRANSACTIONID , 
+    EBAYITEMID , 
+    QUANTITY , 
+    EBAYORDERID , 
+    FLAG , 
+    CATETIME , 
+    OPER , 
+    OEPRTIME , 
+    UPDATETIME , 
+    RECORDID , 
+    ERROR
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="warehouseid != null">
+      WAREHOUSEID = #{warehouseid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="productid != null">
+      PRODUCTID = #{productid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="specification != null">
+      SPECIFICATION = #{specification,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebaytransactionid != null">
+      EBAYTRANSACTIONID = #{ebaytransactionid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebayitemid != null">
+      EBAYITEMID = #{ebayitemid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="quantity != null">
+      QUANTITY = #{quantity,jdbcType=DECIMAL} and 
+    </if>
+    <if test="ebayorderid != null">
+      EBAYORDERID = #{ebayorderid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag != null">
+      FLAG = #{flag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="catetime != null">
+      CATETIME = #{catetime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oeprtime != null">
+      OEPRTIME = #{oeprtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="updatetime != null">
+      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="recordid != null">
+      RECORDID = #{recordid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="error != null">
+      ERROR = #{error,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="warehouseid != null">
+      WAREHOUSEID = #{warehouseid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="productid != null">
+      PRODUCTID = #{productid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="specification != null">
+      SPECIFICATION = #{specification,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebaytransactionid != null">
+      EBAYTRANSACTIONID = #{ebaytransactionid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebayitemid != null">
+      EBAYITEMID = #{ebayitemid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="quantity != null">
+      QUANTITY = #{quantity,jdbcType=DECIMAL} , 
+    </if>
+    <if test="ebayorderid != null">
+      EBAYORDERID = #{ebayorderid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag != null">
+      FLAG = #{flag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="catetime != null">
+      CATETIME = #{catetime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oeprtime != null">
+      OEPRTIME = #{oeprtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="updatetime != null">
+      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="recordid != null">
+      RECORDID = #{recordid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="error != null">
+      ERROR = #{error,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbOutcategorysell" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SID=#{SID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbOutcategorysell">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbOutcategorysell">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbOutcategorysell">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

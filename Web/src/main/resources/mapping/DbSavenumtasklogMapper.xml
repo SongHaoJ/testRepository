@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbSavenumtasklogMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbSavenumtasklog">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="TASKID" jdbcType="DECIMAL" property="taskid" />
+    <result column="SOURCEID" jdbcType="VARCHAR" property="sourceid" />
+    <result column="PRODUCTID" jdbcType="VARCHAR" property="productid" />
+    <result column="QUANTITY" jdbcType="DECIMAL" property="quantity" />
+    <result column="COSTPRICE" jdbcType="DECIMAL" property="costprice" />
+    <result column="TYPE" jdbcType="DECIMAL" property="type" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="CHANGE" jdbcType="DECIMAL" property="change" />
+    <result column="RELATIONID" jdbcType="VARCHAR" property="relationid" />
+    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
+    <result column="ORIGINDESCR" jdbcType="LONGVARCHAR" property="origindescr" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select ID, TASKID, SOURCEID, PRODUCTID, QUANTITY, COSTPRICE, TYPE, OPER, OPERTIME, 
+    CHANGE, RELATIONID, DESCR, ORIGINDESCR
+    from db_savenumtasklog
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ID, TASKID, SOURCEID, PRODUCTID, QUANTITY, COSTPRICE, TYPE, OPER, OPERTIME, 
+    CHANGE, RELATIONID, DESCR, ORIGINDESCR
+    from db_savenumtasklog
+  </select>
+  <sql id="TableName">
+    db_savenumtasklog
+  </sql>
+  <sql id="Values">
+     #{id,jdbcType=DECIMAL} , 
+     #{taskid,jdbcType=DECIMAL} , 
+     #{sourceid,jdbcType=VARCHAR} , 
+     #{productid,jdbcType=VARCHAR} , 
+     #{quantity,jdbcType=DECIMAL} , 
+     #{costprice,jdbcType=DECIMAL} , 
+     #{type,jdbcType=DECIMAL} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{change,jdbcType=DECIMAL} , 
+     #{relationid,jdbcType=VARCHAR} , 
+     #{descr,jdbcType=LONGVARCHAR} , 
+     #{origindescr,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    ID , 
+    TASKID , 
+    SOURCEID , 
+    PRODUCTID , 
+    QUANTITY , 
+    COSTPRICE , 
+    TYPE , 
+    OPER , 
+    OPERTIME , 
+    CHANGE , 
+    RELATIONID , 
+    DESCR , 
+    ORIGINDESCR
+  </sql>
+  <sql id="Criteria">
+    <if test="id != null">
+      ID = #{id,jdbcType=DECIMAL} and 
+    </if>
+    <if test="taskid != null">
+      TASKID = #{taskid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sourceid != null">
+      SOURCEID = #{sourceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="productid != null">
+      PRODUCTID = #{productid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="quantity != null">
+      QUANTITY = #{quantity,jdbcType=DECIMAL} and 
+    </if>
+    <if test="costprice != null">
+      COSTPRICE = #{costprice,jdbcType=DECIMAL} and 
+    </if>
+    <if test="type != null">
+      TYPE = #{type,jdbcType=DECIMAL} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="change != null">
+      CHANGE = #{change,jdbcType=DECIMAL} and 
+    </if>
+    <if test="relationid != null">
+      RELATIONID = #{relationid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="descr != null">
+      DESCR = #{descr,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="origindescr != null">
+      ORIGINDESCR = #{origindescr,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="id != null">
+      ID = #{id,jdbcType=DECIMAL} , 
+    </if>
+    <if test="taskid != null">
+      TASKID = #{taskid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sourceid != null">
+      SOURCEID = #{sourceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="productid != null">
+      PRODUCTID = #{productid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="quantity != null">
+      QUANTITY = #{quantity,jdbcType=DECIMAL} , 
+    </if>
+    <if test="costprice != null">
+      COSTPRICE = #{costprice,jdbcType=DECIMAL} , 
+    </if>
+    <if test="type != null">
+      TYPE = #{type,jdbcType=DECIMAL} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="change != null">
+      CHANGE = #{change,jdbcType=DECIMAL} , 
+    </if>
+    <if test="relationid != null">
+      RELATIONID = #{relationid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="descr != null">
+      DESCR = #{descr,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="origindescr != null">
+      ORIGINDESCR = #{origindescr,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbSavenumtasklog" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="BigDecimal">
+    delete from <include refid="TableName"/> where ID=#{ID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbSavenumtasklog">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbSavenumtasklog">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbSavenumtasklog">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

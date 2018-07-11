@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbEbaytotalsalesMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbEbaytotalsales">
+    <id column="SEQUENCEID" jdbcType="DECIMAL" property="sequenceid" />
+    <result column="EBAYMANAGEID" jdbcType="DECIMAL" property="ebaymanageid" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="STANDARDVALUE1" jdbcType="VARCHAR" property="standardvalue1" />
+    <result column="VALUE1" jdbcType="VARCHAR" property="value1" />
+    <result column="STANDARDVALUE2" jdbcType="VARCHAR" property="standardvalue2" />
+    <result column="VALUE2" jdbcType="VARCHAR" property="value2" />
+    <result column="STANDARDVALUE3" jdbcType="VARCHAR" property="standardvalue3" />
+    <result column="VALUE3" jdbcType="VARCHAR" property="value3" />
+    <result column="STANDARDVALUE4" jdbcType="VARCHAR" property="standardvalue4" />
+    <result column="VALUE4" jdbcType="VARCHAR" property="value4" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="OPENFLAG" jdbcType="DECIMAL" property="openflag" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="CORPID" jdbcType="DECIMAL" property="corpid" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select SEQUENCEID, EBAYMANAGEID, NAME, STANDARDVALUE1, VALUE1, STANDARDVALUE2, VALUE2, 
+    STANDARDVALUE3, VALUE3, STANDARDVALUE4, VALUE4, OPERTIME, OPENFLAG, OPER, CORPID
+    from db_ebaytotalsales
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, EBAYMANAGEID, NAME, STANDARDVALUE1, VALUE1, STANDARDVALUE2, VALUE2, 
+    STANDARDVALUE3, VALUE3, STANDARDVALUE4, VALUE4, OPERTIME, OPENFLAG, OPER, CORPID
+    from db_ebaytotalsales
+  </select>
+  <sql id="TableName">
+    db_ebaytotalsales
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=DECIMAL} , 
+     #{ebaymanageid,jdbcType=DECIMAL} , 
+     #{name,jdbcType=VARCHAR} , 
+     #{standardvalue1,jdbcType=VARCHAR} , 
+     #{value1,jdbcType=VARCHAR} , 
+     #{standardvalue2,jdbcType=VARCHAR} , 
+     #{value2,jdbcType=VARCHAR} , 
+     #{standardvalue3,jdbcType=VARCHAR} , 
+     #{value3,jdbcType=VARCHAR} , 
+     #{standardvalue4,jdbcType=VARCHAR} , 
+     #{value4,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{openflag,jdbcType=DECIMAL} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{corpid,jdbcType=DECIMAL}
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    EBAYMANAGEID , 
+    NAME , 
+    STANDARDVALUE1 , 
+    VALUE1 , 
+    STANDARDVALUE2 , 
+    VALUE2 , 
+    STANDARDVALUE3 , 
+    VALUE3 , 
+    STANDARDVALUE4 , 
+    VALUE4 , 
+    OPERTIME , 
+    OPENFLAG , 
+    OPER , 
+    CORPID
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="ebaymanageid != null">
+      EBAYMANAGEID = #{ebaymanageid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="name != null">
+      NAME = #{name,jdbcType=VARCHAR} and 
+    </if>
+    <if test="standardvalue1 != null">
+      STANDARDVALUE1 = #{standardvalue1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="value1 != null">
+      VALUE1 = #{value1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="standardvalue2 != null">
+      STANDARDVALUE2 = #{standardvalue2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="value2 != null">
+      VALUE2 = #{value2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="standardvalue3 != null">
+      STANDARDVALUE3 = #{standardvalue3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="value3 != null">
+      VALUE3 = #{value3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="standardvalue4 != null">
+      STANDARDVALUE4 = #{standardvalue4,jdbcType=VARCHAR} and 
+    </if>
+    <if test="value4 != null">
+      VALUE4 = #{value4,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="corpid != null">
+      CORPID = #{corpid,jdbcType=DECIMAL}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="ebaymanageid != null">
+      EBAYMANAGEID = #{ebaymanageid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="name != null">
+      NAME = #{name,jdbcType=VARCHAR} , 
+    </if>
+    <if test="standardvalue1 != null">
+      STANDARDVALUE1 = #{standardvalue1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="value1 != null">
+      VALUE1 = #{value1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="standardvalue2 != null">
+      STANDARDVALUE2 = #{standardvalue2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="value2 != null">
+      VALUE2 = #{value2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="standardvalue3 != null">
+      STANDARDVALUE3 = #{standardvalue3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="value3 != null">
+      VALUE3 = #{value3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="standardvalue4 != null">
+      STANDARDVALUE4 = #{standardvalue4,jdbcType=VARCHAR} , 
+    </if>
+    <if test="value4 != null">
+      VALUE4 = #{value4,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="corpid != null">
+      CORPID = #{corpid,jdbcType=DECIMAL}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbEbaytotalsales" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="BigDecimal">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbEbaytotalsales">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbEbaytotalsales">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbEbaytotalsales">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

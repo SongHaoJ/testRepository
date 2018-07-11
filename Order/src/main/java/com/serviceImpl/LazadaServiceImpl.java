@@ -6,6 +6,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.bean.dao.*;
 import com.bean.model.*;
 import com.bean.orderUtil.LazadaUtil;
+import com.bean.util.NumberUtil;
 import com.bean.util.RetCode;
 import com.bean.util.Sys;
 import com.bean.yml.LazadaYml;
@@ -753,10 +754,10 @@ public class LazadaServiceImpl implements LazadaService {
             sell.setOrderid(obj.getOrderid());
             sell.setProductid(product.getSid());// 真实的sku
             sell.setProductname(product.getName());
-            sell.setOrdernum(LazadaUtil.mul(obj.getQuantity()));
+            sell.setOrdernum(NumberUtil.mul(obj.getQuantity()));
             sell.setCostprice(product.getCostprice());
-            sell.setSellprice(LazadaUtil.mul(obj.getPaidprice(), moneyrate));// 付款金额
-            sell.setAmount(LazadaUtil.mul(sell.getSellprice(), sell.getOrdernum()));
+            sell.setSellprice(NumberUtil.mul(obj.getPaidprice(), moneyrate));// 付款金额
+            sell.setAmount(NumberUtil.mul(sell.getSellprice(), sell.getOrdernum()));
             sell.setCustomerid(obj.getCustomerid());
             sell.setReserve2("");// 保存商品的单位如lots/piece by qinli 20140314
             sell.setOrdertime(obj.getCreateddate());
@@ -768,7 +769,7 @@ public class LazadaServiceImpl implements LazadaService {
             sell.setOpertime(new Date());
             sell.setFlag("1");
             sell.setReserve7(obj.getProvince());// 保存省份,原因未知
-            sell.setMoneyrate(LazadaUtil.mul(moneyrate));// 汇率
+            sell.setMoneyrate(NumberUtil.mul(moneyrate));// 汇率
             sell.setFlag("1");
             sell.setDescr2("");// 多物品选择
             sell.setXbtime1(new Date());// 订单下载时间
@@ -782,27 +783,27 @@ public class LazadaServiceImpl implements LazadaService {
             sell.setPackagingname(product.getPackagingname());// 包材名称
             sell.setPackagingweight(product.getPackagingweight());// 包材重量
             sell.setPackagingclass(product.getIclass());// 包材级别
-            sell.setWeight(LazadaUtil.mul(product.getWeight().doubleValue()));// 商品重量
+            sell.setWeight(NumberUtil.mul(product.getWeight().doubleValue()));// 商品重量
             if (sell.getWeight() == null) {
-                sell.setWeight(LazadaUtil.mul(0));
+                sell.setWeight(NumberUtil.mul(0));
             }
-            sell.setWeightamount(LazadaUtil.mul(sell.getWeight(), sell.getOrdernum()));// 商品的总重量
+            sell.setWeightamount(NumberUtil.mul(sell.getWeight(), sell.getOrdernum()));// 商品的总重量
 
             sell.setStorage(product.getStorage());// 仓库
             sell.setStorageid(product.getStorageid());
             sell.setLocation(product.getLocation());// 仓位
             sell.setLocationid(product.getLocationid());
 
-            sell.setFinalvaluefee(LazadaUtil.mul(obj.getPaidprice(), obj.getQuantity(), platformFeeRate, moneyrate));// 最终Lazada交易费=订单原始金额*汇率*百分比
-            sell.setOriginfinalvaluefee(LazadaUtil.mul(obj.getPaidprice(), obj.getQuantity(), platformFeeRate));// Lazada原始交易费
+            sell.setFinalvaluefee(NumberUtil.mul(obj.getPaidprice(), obj.getQuantity(), platformFeeRate, moneyrate));// 最终Lazada交易费=订单原始金额*汇率*百分比
+            sell.setOriginfinalvaluefee(NumberUtil.mul(obj.getPaidprice(), obj.getQuantity(), platformFeeRate));// Lazada原始交易费
             sell.setOriginexpressmoney(obj.getShippingamount());// Lazada原始运费
-            sell.setMoneyrate(LazadaUtil.mul(moneyrate));// 汇率
+            sell.setMoneyrate(NumberUtil.mul(moneyrate));// 汇率
             if (sell.getOriginexpressmoney() != null && sell.getOriginexpressmoney().intValue() > 0) {
-                sell.setMoneyexpressask(LazadaUtil.mul(sell.getOriginexpressmoney(), sell.getMoneyrate()));// 如果有收取运费
+                sell.setMoneyexpressask(NumberUtil.mul(sell.getOriginexpressmoney(), sell.getMoneyrate()));// 如果有收取运费
             } else {
-                sell.setMoneyexpressask(LazadaUtil.mul(0));// 如果没有收取运费
+                sell.setMoneyexpressask(NumberUtil.mul(0));// 如果没有收取运费
             }
-            sell.setOrigininsurance(LazadaUtil.mul(0));// Lazada原始保险费
+            sell.setOrigininsurance(NumberUtil.mul(0));// Lazada原始保险费
             sell.setFeedback("20");// Lazada订单,评价状态为20
             sell.setReserve4("Lazada订单");
             sell.setUpdateflag("0");// Lazada订单,同步状态为20
@@ -812,7 +813,7 @@ public class LazadaServiceImpl implements LazadaService {
             sell.setSelloper(Sys.isCheckNull(product.getOper3()));// 产品的销售员
             sell.setEnglishname(obj.getProductname());// 产品在Lazada上的名称
 
-            sell.setPaypalfee(LazadaUtil.mul(0));
+            sell.setPaypalfee(NumberUtil.mul(0));
             sell.setOriginsku(product.getReserve7());// 原厂sku
             sellflag = 1;
             int result = sellMapper.insertSelective(sell);
@@ -931,16 +932,16 @@ db_bindlist a left join db_product b on a.alias1= b.sid where a.bindid='"
                                     sell.setOrderid(obj.getOrderid());
                                     sell.setProductid(bindProductid);
                                     sell.setProductname(bindProductname);
-                                    sell.setOrdernum(LazadaUtil.mul(obj.getQuantity(), bindNum));// 实际订购量=订单的订购量*绑定商品数量
-                                    sell.setCostprice(LazadaUtil.mul(bindProductcostprice));
-                                    sell.setSellprice(LazadaUtil.div(LazadaUtil.mul(obj.getPaidprice(), moneyrate), LazadaUtil.mul(bindNum, bindC)));// 实际销售价格为订单上的单价除以绑定商品数量,除以捆绑sku个数
+                                    sell.setOrdernum(NumberUtil.mul(obj.getQuantity(), bindNum));// 实际订购量=订单的订购量*绑定商品数量
+                                    sell.setCostprice(NumberUtil.mul(bindProductcostprice));
+                                    sell.setSellprice(NumberUtil.div(NumberUtil.mul(obj.getPaidprice(), moneyrate), NumberUtil.mul(bindNum, bindC)));// 实际销售价格为订单上的单价除以绑定商品数量,除以捆绑sku个数
                                     // by qinli 20140331
-                                    sell.setAmount(LazadaUtil.mul(sell.getSellprice(), sell.getOrdernum()));
-                                    sell.setFinalvaluefee(LazadaUtil.div(LazadaUtil.mul(obj.getPaidprice(), obj.getQuantity(), moneyrate, platformFeeRate), LazadaUtil.mul(bindC)));// 最终Lazada交易费(根据捆绑商品数量均分)
+                                    sell.setAmount(NumberUtil.mul(sell.getSellprice(), sell.getOrdernum()));
+                                    sell.setFinalvaluefee(NumberUtil.div(NumberUtil.mul(obj.getPaidprice(), obj.getQuantity(), moneyrate, platformFeeRate), NumberUtil.mul(bindC)));// 最终Lazada交易费(根据捆绑商品数量均分)
 
                                     if (bindCount > 1) {//如果bindCount>1,表示是第2件以上的绑定商品,则售价为0,因为价格全部赋予给第1件商品了
-                                        sell.setSellprice(LazadaUtil.mul(0));
-                                        sell.setAmount(LazadaUtil.mul(0));
+                                        sell.setSellprice(NumberUtil.mul(0));
+                                        sell.setAmount(NumberUtil.mul(0));
                                     }
 
                                     sell.setCustomerid(obj.getCustomerid());
@@ -957,17 +958,17 @@ db_bindlist a left join db_product b on a.alias1= b.sid where a.bindid='"
                                     sell.setProductpic1(Sys.isCheckNull(picture3));// Orderreserve3被用来临时保存XML中解析的产品橱窗图片
                                     sell.setReserve7(obj.getProvince());// 保存省份,原因未知
                                     sell.setFlag("1");
-                                    sell.setMoneyrate(LazadaUtil.mul(moneyrate));// 汇率
+                                    sell.setMoneyrate(NumberUtil.mul(moneyrate));// 汇率
                                     sell.setXbtime1(new Date());// 订单下载时间
                                     sell.setGroupid("" + obj.getGroupid());// 批次
                                     sell.setDescr2("");// 多物品选择,如加大码等买家要求的信息
                                     sell.setDescr1("此商品属捆绑商品");
                                     sell.setTradeid(obj.getTradeid());
                                     sell.setTransactionid(obj.getOrderid());// 交易ID
-                                    sell.setOriginsellprice(LazadaUtil.div(LazadaUtil.mul(obj.getPaidprice(), obj.getQuantity()), LazadaUtil.mul(bindNum, bindC)));// 原始售价全部给第1个商品
+                                    sell.setOriginsellprice(NumberUtil.div(NumberUtil.mul(obj.getPaidprice(), obj.getQuantity()), NumberUtil.mul(bindNum, bindC)));// 原始售价全部给第1个商品
 
                                     if (bindCount > 1) {
-                                        sell.setOriginsellprice(LazadaUtil.mul(0));//第2个商品无原始售价 }
+                                        sell.setOriginsellprice(NumberUtil.mul(0));//第2个商品无原始售价 }
 
                                         sell.setReserve2("");// 保存商品的单位如lots/piece by qinli 20140314
                                         sell.setMoneytype(obj.getCurrencyid());// 货币符号
@@ -976,22 +977,22 @@ db_bindlist a left join db_product b on a.alias1= b.sid where a.bindid='"
                                         sell.setOper2(purchaseoper);// 采购员
                                         sell.setPackagingid(packagingid);// 包材id
                                         sell.setPackagingname(packagingname);// 包材名称
-                                        sell.setPackagingweight(LazadaUtil.mul(packagingweight));// 包材重量
+                                        sell.setPackagingweight(NumberUtil.mul(packagingweight));// 包材重量
                                         sell.setPackagingclass(packagingclass);// 包材级别
-                                        sell.setWeight(LazadaUtil.mul(weight));// 商品重量
-                                        sell.setWeightamount(LazadaUtil.mul(sell.getWeight(), sell.getOrdernum()));// 商品总重量
+                                        sell.setWeight(NumberUtil.mul(weight));// 商品重量
+                                        sell.setWeightamount(NumberUtil.mul(sell.getWeight(), sell.getOrdernum()));// 商品总重量
 
                                         sell.setStorage(storage);
                                         sell.setStorageid(storageid);
                                         sell.setLocation(location);
                                         sell.setLocationid(locationid);
-                                        sell.setOriginfinalvaluefee(LazadaUtil.div(LazadaUtil.mul(obj.getPaidprice(), obj.getQuantity(), platformFeeRate), bindC));
-                                        sell.setOriginexpressmoney(LazadaUtil.div(obj.getShippingamount(), bindC));// eBay原始运费
-                                        sell.setOrigininsurance(LazadaUtil.mul(0));// eBay原始保险费
-                                        sell.setMoneyrate(LazadaUtil.mul(moneyrate));// 汇率
-                                        sell.setMoneyexpressask(LazadaUtil.mul(sell.getOrigininsurance(), sell.getMoneyrate()));// 运费
+                                        sell.setOriginfinalvaluefee(NumberUtil.div(NumberUtil.mul(obj.getPaidprice(), obj.getQuantity(), platformFeeRate), bindC));
+                                        sell.setOriginexpressmoney(NumberUtil.div(obj.getShippingamount(), bindC));// eBay原始运费
+                                        sell.setOrigininsurance(NumberUtil.mul(0));// eBay原始保险费
+                                        sell.setMoneyrate(NumberUtil.mul(moneyrate));// 汇率
+                                        sell.setMoneyexpressask(NumberUtil.mul(sell.getOrigininsurance(), sell.getMoneyrate()));// 运费
                                         sell.setEnglishname(obj.getProductname());// 产品在ebay上的名称
-                                        sell.setPaypalfee(LazadaUtil.mul(0));
+                                        sell.setPaypalfee(NumberUtil.mul(0));
                                         sell.setOriginsku(yuanchangSku);// 原厂sku
                                         try {
                                             log.info("处理绑定商品,父商品ID=" + obj.getSku() + ",子商品ID为:" + bindProductid
@@ -1026,7 +1027,7 @@ db_bindlist a left join db_product b on a.alias1= b.sid where a.bindid='"
                 dp.setOriginarea(obj.getOrderitemid());// EbayItemID保存在Originarea字段中
                 dp.setCorpid(obj.getCorpid());
                 dp.setOper("sys");
-                dp.setSellprice(LazadaUtil.mul(obj.getPaidprice(), moneyrate));
+                dp.setSellprice(NumberUtil.mul(obj.getPaidprice(), moneyrate));
                 dp.setPicture3("");// Lazada图片地址
                 RetCode rtdp = this.saveAndfindProduct(dp);// 查找该产品，如果找不到就创建
                 dp = (DbProduct) rtdp.getObj();
@@ -1040,10 +1041,10 @@ db_bindlist a left join db_product b on a.alias1= b.sid where a.bindid='"
                 sell.setOrderid(obj.getOrderid());
                 sell.setProductid(dp.getSid());
                 sell.setProductname(dp.getName());
-                sell.setOrdernum(LazadaUtil.mul(obj.getQuantity()));
+                sell.setOrdernum(NumberUtil.mul(obj.getQuantity()));
                 sell.setCostprice(dp.getCostprice());
-                sell.setSellprice(LazadaUtil.mul(obj.getPaidprice(), moneyrate));
-                sell.setAmount(LazadaUtil.mul(sell.getSellprice(), sell.getOrdernum()));
+                sell.setSellprice(NumberUtil.mul(obj.getPaidprice(), moneyrate));
+                sell.setAmount(NumberUtil.mul(sell.getSellprice(), sell.getOrdernum()));
                 sell.setCustomerid(obj.getCustomerid());
                 sell.setOrdertime(obj.getCreateddate());
                 sell.setAlertflag("0");
@@ -1058,7 +1059,7 @@ db_bindlist a left join db_product b on a.alias1= b.sid where a.bindid='"
                 sell.setOpertime(new Date());
                 sell.setFlag("1");
                 sell.setReserve7(obj.getProvince());// 保存省份,原因未知
-                sell.setMoneyrate(LazadaUtil.mul(moneyrate));// 汇率
+                sell.setMoneyrate(NumberUtil.mul(moneyrate));// 汇率
                 sell.setDescr2("");// 多物品选择
                 sell.setTradeid(obj.getTradeid());
                 sell.setTransactionid(obj.getOrderid());
@@ -1072,9 +1073,9 @@ db_bindlist a left join db_product b on a.alias1= b.sid where a.bindid='"
                 sell.setPackagingclass(dp.getIclass());// 包材级别
                 sell.setWeight(dp.getWeight());// 商品重量
                 if (sell.getWeight() == null) {
-                    sell.setWeight(LazadaUtil.mul(0));
+                    sell.setWeight(NumberUtil.mul(0));
                 }
-                sell.setWeightamount(LazadaUtil.mul(sell.getWeight(), sell.getOrdernum()));// 商品的总重量
+                sell.setWeightamount(NumberUtil.mul(sell.getWeight(), sell.getOrdernum()));// 商品的总重量
 
                 sell.setStorage(dp.getStorage());// 仓库
                 sell.setStorageid(dp.getStorageid());
@@ -1082,16 +1083,16 @@ db_bindlist a left join db_product b on a.alias1= b.sid where a.bindid='"
                 sell.setLocation(dp.getLocation());// 仓位
                 sell.setLocationid(dp.getLocationid());
                 sell.setReserve2("");// 保存商品的单位如lots/piece by qinli 20140314
-                sell.setFinalvaluefee(LazadaUtil.mul(obj.getPaidprice(), obj.getQuantity(), moneyrate, platformFeeRate));// 最终Lazada交易费
+                sell.setFinalvaluefee(NumberUtil.mul(obj.getPaidprice(), obj.getQuantity(), moneyrate, platformFeeRate));// 最终Lazada交易费
                 sell.setOper1(Sys.isCheckNull(dp.getOper2()));// 产品的配货员
                 sell.setOper2(Sys.isCheckNull(dp.getOper1()));// 采购员
-                sell.setOriginfinalvaluefee(LazadaUtil.mul(obj.getPaidprice(), obj.getQuantity(), platformFeeRate));// Lazada原始交易费
+                sell.setOriginfinalvaluefee(NumberUtil.mul(obj.getPaidprice(), obj.getQuantity(), platformFeeRate));// Lazada原始交易费
                 sell.setOriginexpressmoney(obj.getShippingamount());// Lazada原始运费
-                sell.setMoneyexpressask(LazadaUtil.mul(sell.getOriginexpressmoney(), sell.getMoneyrate()));// 人民币运费
-                sell.setOrigininsurance(LazadaUtil.mul(0));// Lazada原始保险费
+                sell.setMoneyexpressask(NumberUtil.mul(sell.getOriginexpressmoney(), sell.getMoneyrate()));// 人民币运费
+                sell.setOrigininsurance(NumberUtil.mul(0));// Lazada原始保险费
                 sell.setEnglishname(obj.getProductname());// 产品在Lazada上的名称
-                sell.setMoneyrate(LazadaUtil.mul(moneyrate));
-                sell.setPaypalfee(LazadaUtil.mul(0));
+                sell.setMoneyrate(NumberUtil.mul(moneyrate));
+                sell.setPaypalfee(NumberUtil.mul(0));
                 sell.setOriginsku(dp.getReserve7());// 原厂sku
                 int result = sellMapper.insertSelective(sell);
                 log.info("sell保存成功3:" + result);
@@ -1502,14 +1503,14 @@ db_bindlist a left join db_product b on a.alias1= b.sid where a.bindid='"
             if (obj.getSellprice() != null && obj.getSellprice().intValue() > 0) {
                 costprice = obj.getSellprice().doubleValue() * 0.5;
             }
-            obj.setCostprice(LazadaUtil.mul(costprice));// 成本价
-            obj.setStockprice(LazadaUtil.mul(costprice));
-            obj.setBatchprice1(LazadaUtil.mul(costprice));
-            obj.setWeight(LazadaUtil.mul(0));
-            obj.setBuynum(LazadaUtil.mul(0));
-            obj.setSavenum(LazadaUtil.mul(0));
-            obj.setOrdernum(LazadaUtil.mul(0));
-            obj.setAlertnum(LazadaUtil.mul(0));
+            obj.setCostprice(NumberUtil.mul(costprice));// 成本价
+            obj.setStockprice(NumberUtil.mul(costprice));
+            obj.setBatchprice1(NumberUtil.mul(costprice));
+            obj.setWeight(NumberUtil.mul(0));
+            obj.setBuynum(NumberUtil.mul(0));
+            obj.setSavenum(NumberUtil.mul(0));
+            obj.setOrdernum(NumberUtil.mul(0));
+            obj.setAlertnum(NumberUtil.mul(0));
             obj.setOpenflag("1");
             obj.setOper("auto");
             obj.setOpertime(new Date());

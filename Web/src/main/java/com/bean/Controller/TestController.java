@@ -1,6 +1,6 @@
 package com.bean.Controller;
 
-import com.bean.yml.LazadaYml;
+import com.bean.DemoParam;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,7 @@ public class TestController {
 
     public static final Logger log = LoggerFactory.getLogger(TestController.class);
     @Autowired
-    private LazadaYml dp;
+    private DemoParam dp;
 
 
    /* @Autowired
@@ -38,17 +38,17 @@ public class TestController {
     }*/
 
  /*   @Autowired
-    TestService service;*/
+    TestService serviceImpl;*/
     /*@ResponseBody
     @GetMapping("/")
     public String useController(int n1){
         log.info("///////");
         if(n1 == 1)
-            return service.t1();
+            return serviceImpl.t1();
         if(n1 == 2)
-            return service.t2();
+            return serviceImpl.t2();
         if(n1 == 3)
-            return service.t3();
+            return serviceImpl.t3();
         return "error";
     }
 
@@ -94,7 +94,7 @@ public class TestController {
     @ResponseBody
     public String testCache(@RequestParam String key){
         log.info("Cache:"+key);
-        String s = service.testCache(key);
+        String s = serviceImpl.testCache(key);
         return s;
     }*/
  /*   @GetMapping("/getseansession")
@@ -107,10 +107,13 @@ public class TestController {
         return attributeMap;
     }*/
     @ResponseBody
-    @GetMapping("/params")
-    public String getTable(){
-        String result  = dp.getAppKey()+"=="+dp.getSecret();
+    @GetMapping("/config")
+    public String getTable(int a){
+        if(a==1){
+           return dp.getExp1().toString();
+        }
 
-        return result;
+
+        return "222222";
     }
 }

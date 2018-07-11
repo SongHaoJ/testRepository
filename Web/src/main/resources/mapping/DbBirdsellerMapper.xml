@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbBirdsellerMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbBirdseller">
+    <id column="SID" jdbcType="VARCHAR" property="sid" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
+    <result column="ZIP5" jdbcType="VARCHAR" property="zip5" />
+    <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
+    <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
+    <result column="ZIP4" jdbcType="VARCHAR" property="zip4" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="ADDRESS1" jdbcType="VARCHAR" property="address1" />
+    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
+    <result column="ADDRESS2" jdbcType="VARCHAR" property="address2" />
+    <result column="USERNAME" jdbcType="VARCHAR" property="username" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE4" jdbcType="VARCHAR" property="reserve4" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="TOKENAPI" jdbcType="VARCHAR" property="tokenapi" />
+    <result column="CITY" jdbcType="VARCHAR" property="city" />
+    <result column="RESERVE5" jdbcType="VARCHAR" property="reserve5" />
+    <result column="PHONE" jdbcType="VARCHAR" property="phone" />
+    <result column="STATE" jdbcType="VARCHAR" property="state" />
+    <result column="SENDNAME" jdbcType="VARCHAR" property="sendname" />
+    <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SID, OPER, CORPID, ZIP5, OPENFLAG, RESERVE3, ZIP4, RESERVE2, ADDRESS1, EMAIL, 
+    ADDRESS2, USERNAME, RESERVE1, RESERVE4, OPERTIME, TOKENAPI, CITY, RESERVE5, PHONE, 
+    STATE, SENDNAME, PASSWORD
+    from db_birdseller
+    where SID = #{sid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, OPER, CORPID, ZIP5, OPENFLAG, RESERVE3, ZIP4, RESERVE2, ADDRESS1, EMAIL, 
+    ADDRESS2, USERNAME, RESERVE1, RESERVE4, OPERTIME, TOKENAPI, CITY, RESERVE5, PHONE, 
+    STATE, SENDNAME, PASSWORD
+    from db_birdseller
+  </select>
+  <sql id="TableName">
+    db_birdseller
+  </sql>
+  <sql id="Values">
+     #{sid,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{corpid,jdbcType=VARCHAR} , 
+     #{zip5,jdbcType=VARCHAR} , 
+     #{openflag,jdbcType=VARCHAR} , 
+     #{reserve3,jdbcType=VARCHAR} , 
+     #{zip4,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+     #{address1,jdbcType=VARCHAR} , 
+     #{email,jdbcType=VARCHAR} , 
+     #{address2,jdbcType=VARCHAR} , 
+     #{username,jdbcType=VARCHAR} , 
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{reserve4,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{tokenapi,jdbcType=VARCHAR} , 
+     #{city,jdbcType=VARCHAR} , 
+     #{reserve5,jdbcType=VARCHAR} , 
+     #{phone,jdbcType=VARCHAR} , 
+     #{state,jdbcType=VARCHAR} , 
+     #{sendname,jdbcType=VARCHAR} , 
+     #{password,jdbcType=VARCHAR}
+  </sql>
+  <sql id="Columns">
+    SID , 
+    OPER , 
+    CORPID , 
+    ZIP5 , 
+    OPENFLAG , 
+    RESERVE3 , 
+    ZIP4 , 
+    RESERVE2 , 
+    ADDRESS1 , 
+    EMAIL , 
+    ADDRESS2 , 
+    USERNAME , 
+    RESERVE1 , 
+    RESERVE4 , 
+    OPERTIME , 
+    TOKENAPI , 
+    CITY , 
+    RESERVE5 , 
+    PHONE , 
+    STATE , 
+    SENDNAME , 
+    PASSWORD
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="corpid != null">
+      CORPID = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="zip5 != null">
+      ZIP5 = #{zip5,jdbcType=VARCHAR} and 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      RESERVE3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="zip4 != null">
+      ZIP4 = #{zip4,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="address1 != null">
+      ADDRESS1 = #{address1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="email != null">
+      EMAIL = #{email,jdbcType=VARCHAR} and 
+    </if>
+    <if test="address2 != null">
+      ADDRESS2 = #{address2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="username != null">
+      USERNAME = #{username,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve4 != null">
+      RESERVE4 = #{reserve4,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="tokenapi != null">
+      TOKENAPI = #{tokenapi,jdbcType=VARCHAR} and 
+    </if>
+    <if test="city != null">
+      CITY = #{city,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve5 != null">
+      RESERVE5 = #{reserve5,jdbcType=VARCHAR} and 
+    </if>
+    <if test="phone != null">
+      PHONE = #{phone,jdbcType=VARCHAR} and 
+    </if>
+    <if test="state != null">
+      STATE = #{state,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sendname != null">
+      SENDNAME = #{sendname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="password != null">
+      PASSWORD = #{password,jdbcType=VARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="corpid != null">
+      CORPID = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="zip5 != null">
+      ZIP5 = #{zip5,jdbcType=VARCHAR} , 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      RESERVE3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="zip4 != null">
+      ZIP4 = #{zip4,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="address1 != null">
+      ADDRESS1 = #{address1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="email != null">
+      EMAIL = #{email,jdbcType=VARCHAR} , 
+    </if>
+    <if test="address2 != null">
+      ADDRESS2 = #{address2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="username != null">
+      USERNAME = #{username,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve4 != null">
+      RESERVE4 = #{reserve4,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="tokenapi != null">
+      TOKENAPI = #{tokenapi,jdbcType=VARCHAR} , 
+    </if>
+    <if test="city != null">
+      CITY = #{city,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve5 != null">
+      RESERVE5 = #{reserve5,jdbcType=VARCHAR} , 
+    </if>
+    <if test="phone != null">
+      PHONE = #{phone,jdbcType=VARCHAR} , 
+    </if>
+    <if test="state != null">
+      STATE = #{state,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sendname != null">
+      SENDNAME = #{sendname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="password != null">
+      PASSWORD = #{password,jdbcType=VARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbBirdseller" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SID=#{SID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbBirdseller">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbBirdseller">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbBirdseller">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbShopmessagehistoryMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbShopmessagehistory">
+    <id column="SEQUENCEID" jdbcType="DECIMAL" property="sequenceid" />
+    <result column="SHOPID" jdbcType="VARCHAR" property="shopid" />
+    <result column="SHOPNAME" jdbcType="VARCHAR" property="shopname" />
+    <result column="ITEMID" jdbcType="DECIMAL" property="itemid" />
+    <result column="IMPRESSIONS" jdbcType="DECIMAL" property="impressions" />
+    <result column="CLICKS" jdbcType="DECIMAL" property="clicks" />
+    <result column="CLICKTHROUGH" jdbcType="DECIMAL" property="clickthrough" />
+    <result column="SOLDITEMS" jdbcType="DECIMAL" property="solditems" />
+    <result column="SELLTHROUGH" jdbcType="DECIMAL" property="sellthrough" />
+    <result column="IMPRESSIONTHROUGH" jdbcType="DECIMAL" property="impressionthrough" />
+    <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERID" jdbcType="VARCHAR" property="operid" />
+    <result column="SITEID" jdbcType="VARCHAR" property="siteid" />
+    <result column="SITENAME" jdbcType="VARCHAR" property="sitename" />
+    <result column="LISTINGSTART" jdbcType="TIMESTAMP" property="listingstart" />
+    <result column="LISTINGEND" jdbcType="TIMESTAMP" property="listingend" />
+    <result column="EBAYSKU" jdbcType="VARCHAR" property="ebaysku" />
+    <result column="SELLOPER" jdbcType="VARCHAR" property="selloper" />
+    <result column="WATCHERTHROUGH" jdbcType="DECIMAL" property="watcherthrough" />
+    <result column="REFUND" jdbcType="DECIMAL" property="refund" />
+    <result column="REFUNDRATE" jdbcType="DECIMAL" property="refundrate" />
+    <result column="GROSSPROFIT" jdbcType="DECIMAL" property="grossprofit" />
+    <result column="STATUS" jdbcType="DECIMAL" property="status" />
+    <result column="WATCHERS" jdbcType="VARCHAR" property="watchers" />
+    <result column="SALES" jdbcType="VARCHAR" property="sales" />
+    <result column="MONEYTYPE" jdbcType="VARCHAR" property="moneytype" />
+    <result column="VIEWITEM" jdbcType="LONGVARCHAR" property="viewitem" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select SEQUENCEID, SHOPID, SHOPNAME, ITEMID, IMPRESSIONS, CLICKS, CLICKTHROUGH, SOLDITEMS, 
+    SELLTHROUGH, IMPRESSIONTHROUGH, CREATETIME, OPENFLAG, OPER, OPERID, SITEID, SITENAME, 
+    LISTINGSTART, LISTINGEND, EBAYSKU, SELLOPER, WATCHERTHROUGH, REFUND, REFUNDRATE, 
+    GROSSPROFIT, STATUS, WATCHERS, SALES, MONEYTYPE, VIEWITEM
+    from db_shopmessagehistory
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, SHOPID, SHOPNAME, ITEMID, IMPRESSIONS, CLICKS, CLICKTHROUGH, SOLDITEMS, 
+    SELLTHROUGH, IMPRESSIONTHROUGH, CREATETIME, OPENFLAG, OPER, OPERID, SITEID, SITENAME, 
+    LISTINGSTART, LISTINGEND, EBAYSKU, SELLOPER, WATCHERTHROUGH, REFUND, REFUNDRATE, 
+    GROSSPROFIT, STATUS, WATCHERS, SALES, MONEYTYPE, VIEWITEM
+    from db_shopmessagehistory
+  </select>
+  <sql id="TableName">
+    db_shopmessagehistory
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=DECIMAL} , 
+     #{shopid,jdbcType=VARCHAR} , 
+     #{shopname,jdbcType=VARCHAR} , 
+     #{itemid,jdbcType=DECIMAL} , 
+     #{impressions,jdbcType=DECIMAL} , 
+     #{clicks,jdbcType=DECIMAL} , 
+     #{clickthrough,jdbcType=DECIMAL} , 
+     #{solditems,jdbcType=DECIMAL} , 
+     #{sellthrough,jdbcType=DECIMAL} , 
+     #{impressionthrough,jdbcType=DECIMAL} , 
+     #{createtime,jdbcType=TIMESTAMP} , 
+     #{openflag,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{operid,jdbcType=VARCHAR} , 
+     #{siteid,jdbcType=VARCHAR} , 
+     #{sitename,jdbcType=VARCHAR} , 
+     #{listingstart,jdbcType=TIMESTAMP} , 
+     #{listingend,jdbcType=TIMESTAMP} , 
+     #{ebaysku,jdbcType=VARCHAR} , 
+     #{selloper,jdbcType=VARCHAR} , 
+     #{watcherthrough,jdbcType=DECIMAL} , 
+     #{refund,jdbcType=DECIMAL} , 
+     #{refundrate,jdbcType=DECIMAL} , 
+     #{grossprofit,jdbcType=DECIMAL} , 
+     #{status,jdbcType=DECIMAL} , 
+     #{watchers,jdbcType=VARCHAR} , 
+     #{sales,jdbcType=VARCHAR} , 
+     #{moneytype,jdbcType=VARCHAR} , 
+     #{viewitem,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    SHOPID , 
+    SHOPNAME , 
+    ITEMID , 
+    IMPRESSIONS , 
+    CLICKS , 
+    CLICKTHROUGH , 
+    SOLDITEMS , 
+    SELLTHROUGH , 
+    IMPRESSIONTHROUGH , 
+    CREATETIME , 
+    OPENFLAG , 
+    OPER , 
+    OPERID , 
+    SITEID , 
+    SITENAME , 
+    LISTINGSTART , 
+    LISTINGEND , 
+    EBAYSKU , 
+    SELLOPER , 
+    WATCHERTHROUGH , 
+    REFUND , 
+    REFUNDRATE , 
+    GROSSPROFIT , 
+    STATUS , 
+    WATCHERS , 
+    SALES , 
+    MONEYTYPE , 
+    VIEWITEM
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="shopid != null">
+      SHOPID = #{shopid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shopname != null">
+      SHOPNAME = #{shopname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="itemid != null">
+      ITEMID = #{itemid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="impressions != null">
+      IMPRESSIONS = #{impressions,jdbcType=DECIMAL} and 
+    </if>
+    <if test="clicks != null">
+      CLICKS = #{clicks,jdbcType=DECIMAL} and 
+    </if>
+    <if test="clickthrough != null">
+      CLICKTHROUGH = #{clickthrough,jdbcType=DECIMAL} and 
+    </if>
+    <if test="solditems != null">
+      SOLDITEMS = #{solditems,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sellthrough != null">
+      SELLTHROUGH = #{sellthrough,jdbcType=DECIMAL} and 
+    </if>
+    <if test="impressionthrough != null">
+      IMPRESSIONTHROUGH = #{impressionthrough,jdbcType=DECIMAL} and 
+    </if>
+    <if test="createtime != null">
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="operid != null">
+      OPERID = #{operid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="siteid != null">
+      SITEID = #{siteid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sitename != null">
+      SITENAME = #{sitename,jdbcType=VARCHAR} and 
+    </if>
+    <if test="listingstart != null">
+      LISTINGSTART = #{listingstart,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="listingend != null">
+      LISTINGEND = #{listingend,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="ebaysku != null">
+      EBAYSKU = #{ebaysku,jdbcType=VARCHAR} and 
+    </if>
+    <if test="selloper != null">
+      SELLOPER = #{selloper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="watcherthrough != null">
+      WATCHERTHROUGH = #{watcherthrough,jdbcType=DECIMAL} and 
+    </if>
+    <if test="refund != null">
+      REFUND = #{refund,jdbcType=DECIMAL} and 
+    </if>
+    <if test="refundrate != null">
+      REFUNDRATE = #{refundrate,jdbcType=DECIMAL} and 
+    </if>
+    <if test="grossprofit != null">
+      GROSSPROFIT = #{grossprofit,jdbcType=DECIMAL} and 
+    </if>
+    <if test="status != null">
+      STATUS = #{status,jdbcType=DECIMAL} and 
+    </if>
+    <if test="watchers != null">
+      WATCHERS = #{watchers,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sales != null">
+      SALES = #{sales,jdbcType=VARCHAR} and 
+    </if>
+    <if test="moneytype != null">
+      MONEYTYPE = #{moneytype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="viewitem != null">
+      VIEWITEM = #{viewitem,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="shopid != null">
+      SHOPID = #{shopid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shopname != null">
+      SHOPNAME = #{shopname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="itemid != null">
+      ITEMID = #{itemid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="impressions != null">
+      IMPRESSIONS = #{impressions,jdbcType=DECIMAL} , 
+    </if>
+    <if test="clicks != null">
+      CLICKS = #{clicks,jdbcType=DECIMAL} , 
+    </if>
+    <if test="clickthrough != null">
+      CLICKTHROUGH = #{clickthrough,jdbcType=DECIMAL} , 
+    </if>
+    <if test="solditems != null">
+      SOLDITEMS = #{solditems,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sellthrough != null">
+      SELLTHROUGH = #{sellthrough,jdbcType=DECIMAL} , 
+    </if>
+    <if test="impressionthrough != null">
+      IMPRESSIONTHROUGH = #{impressionthrough,jdbcType=DECIMAL} , 
+    </if>
+    <if test="createtime != null">
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="operid != null">
+      OPERID = #{operid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="siteid != null">
+      SITEID = #{siteid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sitename != null">
+      SITENAME = #{sitename,jdbcType=VARCHAR} , 
+    </if>
+    <if test="listingstart != null">
+      LISTINGSTART = #{listingstart,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="listingend != null">
+      LISTINGEND = #{listingend,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="ebaysku != null">
+      EBAYSKU = #{ebaysku,jdbcType=VARCHAR} , 
+    </if>
+    <if test="selloper != null">
+      SELLOPER = #{selloper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="watcherthrough != null">
+      WATCHERTHROUGH = #{watcherthrough,jdbcType=DECIMAL} , 
+    </if>
+    <if test="refund != null">
+      REFUND = #{refund,jdbcType=DECIMAL} , 
+    </if>
+    <if test="refundrate != null">
+      REFUNDRATE = #{refundrate,jdbcType=DECIMAL} , 
+    </if>
+    <if test="grossprofit != null">
+      GROSSPROFIT = #{grossprofit,jdbcType=DECIMAL} , 
+    </if>
+    <if test="status != null">
+      STATUS = #{status,jdbcType=DECIMAL} , 
+    </if>
+    <if test="watchers != null">
+      WATCHERS = #{watchers,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sales != null">
+      SALES = #{sales,jdbcType=VARCHAR} , 
+    </if>
+    <if test="moneytype != null">
+      MONEYTYPE = #{moneytype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="viewitem != null">
+      VIEWITEM = #{viewitem,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbShopmessagehistory" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="BigDecimal">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbShopmessagehistory">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbShopmessagehistory">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbShopmessagehistory">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

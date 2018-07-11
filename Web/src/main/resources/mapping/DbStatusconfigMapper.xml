@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbStatusconfigMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbStatusconfig">
+    <id column="SID" jdbcType="DECIMAL" property="sid" />
+    <result column="STATUSID" jdbcType="DECIMAL" property="statusid" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="FLAG" jdbcType="DECIMAL" property="flag" />
+    <result column="FOLLOWOPER" jdbcType="VARCHAR" property="followoper" />
+    <result column="FOLLOWTIME" jdbcType="TIMESTAMP" property="followtime" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select SID, STATUSID, NAME, FLAG, FOLLOWOPER, FOLLOWTIME
+    from db_statusconfig
+    where SID = #{sid,jdbcType=DECIMAL}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, STATUSID, NAME, FLAG, FOLLOWOPER, FOLLOWTIME
+    from db_statusconfig
+  </select>
+  <sql id="TableName">
+    db_statusconfig
+  </sql>
+  <sql id="Values">
+     #{sid,jdbcType=DECIMAL} , 
+     #{statusid,jdbcType=DECIMAL} , 
+     #{name,jdbcType=VARCHAR} , 
+     #{flag,jdbcType=DECIMAL} , 
+     #{followoper,jdbcType=VARCHAR} , 
+     #{followtime,jdbcType=TIMESTAMP}
+  </sql>
+  <sql id="Columns">
+    SID , 
+    STATUSID , 
+    NAME , 
+    FLAG , 
+    FOLLOWOPER , 
+    FOLLOWTIME
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="statusid != null">
+      STATUSID = #{statusid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="name != null">
+      NAME = #{name,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag != null">
+      FLAG = #{flag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="followoper != null">
+      FOLLOWOPER = #{followoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="followtime != null">
+      FOLLOWTIME = #{followtime,jdbcType=TIMESTAMP}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="statusid != null">
+      STATUSID = #{statusid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="name != null">
+      NAME = #{name,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag != null">
+      FLAG = #{flag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="followoper != null">
+      FOLLOWOPER = #{followoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="followtime != null">
+      FOLLOWTIME = #{followtime,jdbcType=TIMESTAMP}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbStatusconfig" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="BigDecimal">
+    delete from <include refid="TableName"/> where SID=#{SID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbStatusconfig">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbStatusconfig">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbStatusconfig">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

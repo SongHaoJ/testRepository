@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbBiaojuexpresstypeMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbBiaojuexpresstype">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="STATUS" jdbcType="DECIMAL" property="status" />
+    <result column="SUPPLIERID" jdbcType="DECIMAL" property="supplierid" />
+    <result column="CANTRACK" jdbcType="VARCHAR" property="cantrack" />
+    <result column="CALCVOLUME" jdbcType="VARCHAR" property="calcvolume" />
+    <result column="MAXWEIGHT" jdbcType="DECIMAL" property="maxweight" />
+    <result column="MAXLENGTH" jdbcType="DECIMAL" property="maxlength" />
+    <result column="MAXWIDTH" jdbcType="DECIMAL" property="maxwidth" />
+    <result column="MAXHEIGHT" jdbcType="DECIMAL" property="maxheight" />
+    <result column="ALLOWBATTARY" jdbcType="DECIMAL" property="allowbattary" />
+    <result column="ALLOWRETURN" jdbcType="DECIMAL" property="allowreturn" />
+    <result column="TIMELASTMODIFIED" jdbcType="VARCHAR" property="timelastmodified" />
+    <result column="PAGE" jdbcType="DECIMAL" property="page" />
+    <result column="OPENFLAG" jdbcType="DECIMAL" property="openflag" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="NAME" jdbcType="LONGVARCHAR" property="name" />
+    <result column="SUPPLIERNAME" jdbcType="LONGVARCHAR" property="suppliername" />
+    <result column="CHANNELTYPE" jdbcType="LONGVARCHAR" property="channeltype" />
+    <result column="EXTENDFIELDS" jdbcType="LONGVARCHAR" property="extendfields" />
+    <result column="FIELD1" jdbcType="LONGVARCHAR" property="field1" />
+    <result column="FIELD2" jdbcType="LONGVARCHAR" property="field2" />
+    <result column="FIELD3" jdbcType="LONGVARCHAR" property="field3" />
+    <result column="FIELD4" jdbcType="LONGVARCHAR" property="field4" />
+    <result column="FIELD5" jdbcType="LONGVARCHAR" property="field5" />
+    <result column="FIELD6" jdbcType="LONGVARCHAR" property="field6" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select ID, STATUS, SUPPLIERID, CANTRACK, CALCVOLUME, MAXWEIGHT, MAXLENGTH, MAXWIDTH, 
+    MAXHEIGHT, ALLOWBATTARY, ALLOWRETURN, TIMELASTMODIFIED, PAGE, OPENFLAG, OPERTIME, 
+    NAME, SUPPLIERNAME, CHANNELTYPE, EXTENDFIELDS, FIELD1, FIELD2, FIELD3, FIELD4, FIELD5, 
+    FIELD6
+    from db_biaojuexpresstype
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ID, STATUS, SUPPLIERID, CANTRACK, CALCVOLUME, MAXWEIGHT, MAXLENGTH, MAXWIDTH, 
+    MAXHEIGHT, ALLOWBATTARY, ALLOWRETURN, TIMELASTMODIFIED, PAGE, OPENFLAG, OPERTIME, 
+    NAME, SUPPLIERNAME, CHANNELTYPE, EXTENDFIELDS, FIELD1, FIELD2, FIELD3, FIELD4, FIELD5, 
+    FIELD6
+    from db_biaojuexpresstype
+  </select>
+  <sql id="TableName">
+    db_biaojuexpresstype
+  </sql>
+  <sql id="Values">
+     #{id,jdbcType=DECIMAL} , 
+     #{status,jdbcType=DECIMAL} , 
+     #{supplierid,jdbcType=DECIMAL} , 
+     #{cantrack,jdbcType=VARCHAR} , 
+     #{calcvolume,jdbcType=VARCHAR} , 
+     #{maxweight,jdbcType=DECIMAL} , 
+     #{maxlength,jdbcType=DECIMAL} , 
+     #{maxwidth,jdbcType=DECIMAL} , 
+     #{maxheight,jdbcType=DECIMAL} , 
+     #{allowbattary,jdbcType=DECIMAL} , 
+     #{allowreturn,jdbcType=DECIMAL} , 
+     #{timelastmodified,jdbcType=VARCHAR} , 
+     #{page,jdbcType=DECIMAL} , 
+     #{openflag,jdbcType=DECIMAL} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{name,jdbcType=LONGVARCHAR} , 
+     #{suppliername,jdbcType=LONGVARCHAR} , 
+     #{channeltype,jdbcType=LONGVARCHAR} , 
+     #{extendfields,jdbcType=LONGVARCHAR} , 
+     #{field1,jdbcType=LONGVARCHAR} , 
+     #{field2,jdbcType=LONGVARCHAR} , 
+     #{field3,jdbcType=LONGVARCHAR} , 
+     #{field4,jdbcType=LONGVARCHAR} , 
+     #{field5,jdbcType=LONGVARCHAR} , 
+     #{field6,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    ID , 
+    STATUS , 
+    SUPPLIERID , 
+    CANTRACK , 
+    CALCVOLUME , 
+    MAXWEIGHT , 
+    MAXLENGTH , 
+    MAXWIDTH , 
+    MAXHEIGHT , 
+    ALLOWBATTARY , 
+    ALLOWRETURN , 
+    TIMELASTMODIFIED , 
+    PAGE , 
+    OPENFLAG , 
+    OPERTIME , 
+    NAME , 
+    SUPPLIERNAME , 
+    CHANNELTYPE , 
+    EXTENDFIELDS , 
+    FIELD1 , 
+    FIELD2 , 
+    FIELD3 , 
+    FIELD4 , 
+    FIELD5 , 
+    FIELD6
+  </sql>
+  <sql id="Criteria">
+    <if test="id != null">
+      ID = #{id,jdbcType=DECIMAL} and 
+    </if>
+    <if test="status != null">
+      STATUS = #{status,jdbcType=DECIMAL} and 
+    </if>
+    <if test="supplierid != null">
+      SUPPLIERID = #{supplierid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="cantrack != null">
+      CANTRACK = #{cantrack,jdbcType=VARCHAR} and 
+    </if>
+    <if test="calcvolume != null">
+      CALCVOLUME = #{calcvolume,jdbcType=VARCHAR} and 
+    </if>
+    <if test="maxweight != null">
+      MAXWEIGHT = #{maxweight,jdbcType=DECIMAL} and 
+    </if>
+    <if test="maxlength != null">
+      MAXLENGTH = #{maxlength,jdbcType=DECIMAL} and 
+    </if>
+    <if test="maxwidth != null">
+      MAXWIDTH = #{maxwidth,jdbcType=DECIMAL} and 
+    </if>
+    <if test="maxheight != null">
+      MAXHEIGHT = #{maxheight,jdbcType=DECIMAL} and 
+    </if>
+    <if test="allowbattary != null">
+      ALLOWBATTARY = #{allowbattary,jdbcType=DECIMAL} and 
+    </if>
+    <if test="allowreturn != null">
+      ALLOWRETURN = #{allowreturn,jdbcType=DECIMAL} and 
+    </if>
+    <if test="timelastmodified != null">
+      TIMELASTMODIFIED = #{timelastmodified,jdbcType=VARCHAR} and 
+    </if>
+    <if test="page != null">
+      PAGE = #{page,jdbcType=DECIMAL} and 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="name != null">
+      NAME = #{name,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="suppliername != null">
+      SUPPLIERNAME = #{suppliername,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="channeltype != null">
+      CHANNELTYPE = #{channeltype,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="extendfields != null">
+      EXTENDFIELDS = #{extendfields,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="field1 != null">
+      FIELD1 = #{field1,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="field2 != null">
+      FIELD2 = #{field2,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="field3 != null">
+      FIELD3 = #{field3,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="field4 != null">
+      FIELD4 = #{field4,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="field5 != null">
+      FIELD5 = #{field5,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="field6 != null">
+      FIELD6 = #{field6,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="id != null">
+      ID = #{id,jdbcType=DECIMAL} , 
+    </if>
+    <if test="status != null">
+      STATUS = #{status,jdbcType=DECIMAL} , 
+    </if>
+    <if test="supplierid != null">
+      SUPPLIERID = #{supplierid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="cantrack != null">
+      CANTRACK = #{cantrack,jdbcType=VARCHAR} , 
+    </if>
+    <if test="calcvolume != null">
+      CALCVOLUME = #{calcvolume,jdbcType=VARCHAR} , 
+    </if>
+    <if test="maxweight != null">
+      MAXWEIGHT = #{maxweight,jdbcType=DECIMAL} , 
+    </if>
+    <if test="maxlength != null">
+      MAXLENGTH = #{maxlength,jdbcType=DECIMAL} , 
+    </if>
+    <if test="maxwidth != null">
+      MAXWIDTH = #{maxwidth,jdbcType=DECIMAL} , 
+    </if>
+    <if test="maxheight != null">
+      MAXHEIGHT = #{maxheight,jdbcType=DECIMAL} , 
+    </if>
+    <if test="allowbattary != null">
+      ALLOWBATTARY = #{allowbattary,jdbcType=DECIMAL} , 
+    </if>
+    <if test="allowreturn != null">
+      ALLOWRETURN = #{allowreturn,jdbcType=DECIMAL} , 
+    </if>
+    <if test="timelastmodified != null">
+      TIMELASTMODIFIED = #{timelastmodified,jdbcType=VARCHAR} , 
+    </if>
+    <if test="page != null">
+      PAGE = #{page,jdbcType=DECIMAL} , 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="name != null">
+      NAME = #{name,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="suppliername != null">
+      SUPPLIERNAME = #{suppliername,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="channeltype != null">
+      CHANNELTYPE = #{channeltype,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="extendfields != null">
+      EXTENDFIELDS = #{extendfields,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="field1 != null">
+      FIELD1 = #{field1,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="field2 != null">
+      FIELD2 = #{field2,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="field3 != null">
+      FIELD3 = #{field3,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="field4 != null">
+      FIELD4 = #{field4,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="field5 != null">
+      FIELD5 = #{field5,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="field6 != null">
+      FIELD6 = #{field6,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbBiaojuexpresstype" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="Integer">
+    delete from <include refid="TableName"/> where ID=#{ID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbBiaojuexpresstype">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbBiaojuexpresstype">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbBiaojuexpresstype">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

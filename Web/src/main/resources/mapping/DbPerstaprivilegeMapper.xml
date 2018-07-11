@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbPerstaprivilegeMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbPerstaprivilege">
+    <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
+    <result column="CREATEOPER" jdbcType="VARCHAR" property="createoper" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="GRADE" jdbcType="VARCHAR" property="grade" />
+    <result column="IFPARENT" jdbcType="VARCHAR" property="ifparent" />
+    <result column="MODULES" jdbcType="VARCHAR" property="modules" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SEQUENCEID, CREATEOPER, OPER, CREATETIME, GRADE, IFPARENT, MODULES
+    from db_perstaprivilege
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, CREATEOPER, OPER, CREATETIME, GRADE, IFPARENT, MODULES
+    from db_perstaprivilege
+  </select>
+  <sql id="TableName">
+    db_perstaprivilege
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=VARCHAR} , 
+     #{createoper,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{createtime,jdbcType=TIMESTAMP} , 
+     #{grade,jdbcType=VARCHAR} , 
+     #{ifparent,jdbcType=VARCHAR} , 
+     #{modules,jdbcType=VARCHAR}
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    CREATEOPER , 
+    OPER , 
+    CREATETIME , 
+    GRADE , 
+    IFPARENT , 
+    MODULES
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="createoper != null">
+      CREATEOPER = #{createoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="createtime != null">
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="grade != null">
+      GRADE = #{grade,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ifparent != null">
+      IFPARENT = #{ifparent,jdbcType=VARCHAR} and 
+    </if>
+    <if test="modules != null">
+      MODULES = #{modules,jdbcType=VARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="createoper != null">
+      CREATEOPER = #{createoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="createtime != null">
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="grade != null">
+      GRADE = #{grade,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ifparent != null">
+      IFPARENT = #{ifparent,jdbcType=VARCHAR} , 
+    </if>
+    <if test="modules != null">
+      MODULES = #{modules,jdbcType=VARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbPerstaprivilege" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbPerstaprivilege">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbPerstaprivilege">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbPerstaprivilege">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

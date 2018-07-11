@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbShippinglocationMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbShippinglocation">
+    <id column="SID" jdbcType="DECIMAL" property="sid" />
+    <result column="SHIPPINGSERVICEID" jdbcType="DECIMAL" property="shippingserviceid" />
+    <result column="SHIPINGTOLOCATION" jdbcType="VARCHAR" property="shipingtolocation" />
+    <result column="FLAG" jdbcType="DECIMAL" property="flag" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select SID, SHIPPINGSERVICEID, SHIPINGTOLOCATION, FLAG
+    from db_shippinglocation
+    where SID = #{sid,jdbcType=DECIMAL}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, SHIPPINGSERVICEID, SHIPINGTOLOCATION, FLAG
+    from db_shippinglocation
+  </select>
+  <sql id="TableName">
+    db_shippinglocation
+  </sql>
+  <sql id="Values">
+     #{sid,jdbcType=DECIMAL} , 
+     #{shippingserviceid,jdbcType=DECIMAL} , 
+     #{shipingtolocation,jdbcType=VARCHAR} , 
+     #{flag,jdbcType=DECIMAL}
+  </sql>
+  <sql id="Columns">
+    SID , 
+    SHIPPINGSERVICEID , 
+    SHIPINGTOLOCATION , 
+    FLAG
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="shippingserviceid != null">
+      SHIPPINGSERVICEID = #{shippingserviceid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="shipingtolocation != null">
+      SHIPINGTOLOCATION = #{shipingtolocation,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag != null">
+      FLAG = #{flag,jdbcType=DECIMAL}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="shippingserviceid != null">
+      SHIPPINGSERVICEID = #{shippingserviceid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="shipingtolocation != null">
+      SHIPINGTOLOCATION = #{shipingtolocation,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag != null">
+      FLAG = #{flag,jdbcType=DECIMAL}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbShippinglocation" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="BigDecimal">
+    delete from <include refid="TableName"/> where SID=#{SID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbShippinglocation">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbShippinglocation">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbShippinglocation">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

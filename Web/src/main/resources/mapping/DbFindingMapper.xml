@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbFindingMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbFinding">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="CONTENT" jdbcType="VARCHAR" property="content" />
+    <result column="OPENFLAG" jdbcType="DECIMAL" property="openflag" />
+    <result column="CATEGORYNAME" jdbcType="VARCHAR" property="categoryname" />
+    <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="TASKFLAG" jdbcType="DECIMAL" property="taskflag" />
+    <result column="LASTRUNTIME" jdbcType="DECIMAL" property="lastruntime" />
+    <result column="FLAG" jdbcType="DECIMAL" property="flag" />
+    <result column="ITEMCOUNT" jdbcType="DECIMAL" property="itemcount" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select ID, OPER, CONTENT, OPENFLAG, CATEGORYNAME, RESERVE3, RESERVE2, CREATETIME, 
+    RESERVE1, OPERTIME, TASKFLAG, LASTRUNTIME, FLAG, ITEMCOUNT
+    from db_finding
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ID, OPER, CONTENT, OPENFLAG, CATEGORYNAME, RESERVE3, RESERVE2, CREATETIME, 
+    RESERVE1, OPERTIME, TASKFLAG, LASTRUNTIME, FLAG, ITEMCOUNT
+    from db_finding
+  </select>
+  <sql id="TableName">
+    db_finding
+  </sql>
+  <sql id="Values">
+     #{id,jdbcType=DECIMAL} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{content,jdbcType=VARCHAR} , 
+     #{openflag,jdbcType=DECIMAL} , 
+     #{categoryname,jdbcType=VARCHAR} , 
+     #{reserve3,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+     #{createtime,jdbcType=TIMESTAMP} , 
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{taskflag,jdbcType=DECIMAL} , 
+     #{lastruntime,jdbcType=DECIMAL} , 
+     #{flag,jdbcType=DECIMAL} , 
+     #{itemcount,jdbcType=DECIMAL}
+  </sql>
+  <sql id="Columns">
+    ID , 
+    OPER , 
+    CONTENT , 
+    OPENFLAG , 
+    CATEGORYNAME , 
+    RESERVE3 , 
+    RESERVE2 , 
+    CREATETIME , 
+    RESERVE1 , 
+    OPERTIME , 
+    TASKFLAG , 
+    LASTRUNTIME , 
+    FLAG , 
+    ITEMCOUNT
+  </sql>
+  <sql id="Criteria">
+    <if test="id != null">
+      ID = #{id,jdbcType=DECIMAL} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="content != null">
+      CONTENT = #{content,jdbcType=VARCHAR} and 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="categoryname != null">
+      CATEGORYNAME = #{categoryname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      RESERVE3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="createtime != null">
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="taskflag != null">
+      TASKFLAG = #{taskflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="lastruntime != null">
+      LASTRUNTIME = #{lastruntime,jdbcType=DECIMAL} and 
+    </if>
+    <if test="flag != null">
+      FLAG = #{flag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="itemcount != null">
+      ITEMCOUNT = #{itemcount,jdbcType=DECIMAL}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="id != null">
+      ID = #{id,jdbcType=DECIMAL} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="content != null">
+      CONTENT = #{content,jdbcType=VARCHAR} , 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="categoryname != null">
+      CATEGORYNAME = #{categoryname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      RESERVE3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="createtime != null">
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="taskflag != null">
+      TASKFLAG = #{taskflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="lastruntime != null">
+      LASTRUNTIME = #{lastruntime,jdbcType=DECIMAL} , 
+    </if>
+    <if test="flag != null">
+      FLAG = #{flag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="itemcount != null">
+      ITEMCOUNT = #{itemcount,jdbcType=DECIMAL}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbFinding" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="BigDecimal">
+    delete from <include refid="TableName"/> where ID=#{ID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbFinding">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbFinding">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbFinding">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

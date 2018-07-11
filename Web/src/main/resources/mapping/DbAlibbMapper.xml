@@ -1,0 +1,808 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbAlibbMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbAlibb">
+    <id column="SID" jdbcType="VARCHAR" property="sid" />
+    <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
+    <result column="SLEVEL" jdbcType="VARCHAR" property="slevel" />
+    <result column="CREDIT1" jdbcType="DECIMAL" property="credit1" />
+    <result column="CREDIT2" jdbcType="DECIMAL" property="credit2" />
+    <result column="CREDIT3" jdbcType="DECIMAL" property="credit3" />
+    <result column="MANAGER" jdbcType="VARCHAR" property="manager" />
+    <result column="TELE" jdbcType="VARCHAR" property="tele" />
+    <result column="FAX" jdbcType="VARCHAR" property="fax" />
+    <result column="ORDERNUM" jdbcType="DECIMAL" property="ordernum" />
+    <result column="TEMPLETFILE" jdbcType="VARCHAR" property="templetfile" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="RATE" jdbcType="DECIMAL" property="rate" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
+    <result column="RESERVE4" jdbcType="VARCHAR" property="reserve4" />
+    <result column="RESERVE5" jdbcType="VARCHAR" property="reserve5" />
+    <result column="RESERVE6" jdbcType="VARCHAR" property="reserve6" />
+    <result column="RESERVE7" jdbcType="VARCHAR" property="reserve7" />
+    <result column="RESERVE8" jdbcType="VARCHAR" property="reserve8" />
+    <result column="RESERVE9" jdbcType="VARCHAR" property="reserve9" />
+    <result column="RESERVE10" jdbcType="VARCHAR" property="reserve10" />
+    <result column="RESERVE11" jdbcType="VARCHAR" property="reserve11" />
+    <result column="RESERVE12" jdbcType="VARCHAR" property="reserve12" />
+    <result column="RESERVE14" jdbcType="VARCHAR" property="reserve14" />
+    <result column="RESERVE15" jdbcType="DECIMAL" property="reserve15" />
+    <result column="RESERVE16" jdbcType="DECIMAL" property="reserve16" />
+    <result column="RESERVE17" jdbcType="DECIMAL" property="reserve17" />
+    <result column="RESERVE18" jdbcType="DECIMAL" property="reserve18" />
+    <result column="ITEMID" jdbcType="VARCHAR" property="itemid" />
+    <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
+    <result column="TOKENFLAG" jdbcType="VARCHAR" property="tokenflag" />
+    <result column="CONTACT" jdbcType="VARCHAR" property="contact" />
+    <result column="CONTACTE" jdbcType="VARCHAR" property="contacte" />
+    <result column="POSTCODE" jdbcType="VARCHAR" property="postcode" />
+    <result column="MOBILE" jdbcType="VARCHAR" property="mobile" />
+    <result column="PHONE" jdbcType="VARCHAR" property="phone" />
+    <result column="EUBEMAIL" jdbcType="VARCHAR" property="eubemail" />
+    <result column="DEVUSERID" jdbcType="VARCHAR" property="devuserid" />
+    <result column="VERSION" jdbcType="VARCHAR" property="version" />
+    <result column="EBAYSITID" jdbcType="VARCHAR" property="ebaysitid" />
+    <result column="PROVINCEEN" jdbcType="VARCHAR" property="provinceen" />
+    <result column="CITYEN" jdbcType="VARCHAR" property="cityen" />
+    <result column="DISTRICTEN" jdbcType="VARCHAR" property="districten" />
+    <result column="STARTTIME" jdbcType="VARCHAR" property="starttime" />
+    <result column="ENDTIME" jdbcType="VARCHAR" property="endtime" />
+    <result column="AMAZON" jdbcType="VARCHAR" property="amazon" />
+    <result column="AMAZONFLAG" jdbcType="VARCHAR" property="amazonflag" />
+    <result column="SPAYPALNAME" jdbcType="VARCHAR" property="spaypalname" />
+    <result column="AMAZONURL" jdbcType="VARCHAR" property="amazonurl" />
+    <result column="AMAZONURLNAME" jdbcType="VARCHAR" property="amazonurlname" />
+    <result column="EBAYSHOPID" jdbcType="VARCHAR" property="ebayshopid" />
+    <result column="EBAYSHOPNAME" jdbcType="VARCHAR" property="ebayshopname" />
+    <result column="ORDEROPER" jdbcType="DECIMAL" property="orderoper" />
+    <result column="PAYPALEMAIL" jdbcType="VARCHAR" property="paypalemail" />
+    <result column="SHOPMANAGER" jdbcType="VARCHAR" property="shopmanager" />
+    <result column="CSCARTEMAIL" jdbcType="VARCHAR" property="cscartemail" />
+    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
+    <result column="EMAIL" jdbcType="LONGVARCHAR" property="email" />
+    <result column="TEMPLETCONTENT" jdbcType="LONGVARCHAR" property="templetcontent" />
+    <result column="TEMPLETCLOB" jdbcType="LONGVARCHAR" property="templetclob" />
+    <result column="RESERVE13" jdbcType="LONGVARCHAR" property="reserve13" />
+    <result column="RESERVE19" jdbcType="LONGVARCHAR" property="reserve19" />
+    <result column="RESERVE20" jdbcType="LONGVARCHAR" property="reserve20" />
+    <result column="TOKENID" jdbcType="LONGVARCHAR" property="tokenid" />
+    <result column="TOKENDESCR" jdbcType="LONGVARCHAR" property="tokendescr" />
+    <result column="STREET" jdbcType="LONGVARCHAR" property="street" />
+    <result column="STREETE" jdbcType="LONGVARCHAR" property="streete" />
+    <result column="PROVINCE" jdbcType="LONGVARCHAR" property="province" />
+    <result column="CITY" jdbcType="LONGVARCHAR" property="city" />
+    <result column="DISTRICT" jdbcType="LONGVARCHAR" property="district" />
+    <result column="EUBTONKEN" jdbcType="LONGVARCHAR" property="eubtonken" />
+    <result column="SELLUSERID" jdbcType="LONGVARCHAR" property="selluserid" />
+    <result column="EBAYFEEMONEYRATE" jdbcType="LONGVARCHAR" property="ebayfeemoneyrate" />
+    <result column="ACCESSKEYID" jdbcType="LONGVARCHAR" property="accesskeyid" />
+    <result column="SECRETACCESSKEY" jdbcType="LONGVARCHAR" property="secretaccesskey" />
+    <result column="APPLICATIONNAME" jdbcType="LONGVARCHAR" property="applicationname" />
+    <result column="SELLERID" jdbcType="LONGVARCHAR" property="sellerid" />
+    <result column="MARKETPLACEID" jdbcType="LONGVARCHAR" property="marketplaceid" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SID, CORPID, NAME, PASSWORD, SLEVEL, CREDIT1, CREDIT2, CREDIT3, MANAGER, TELE, 
+    FAX, ORDERNUM, TEMPLETFILE, OPER, OPERTIME, RATE, RESERVE1, RESERVE2, RESERVE3, RESERVE4, 
+    RESERVE5, RESERVE6, RESERVE7, RESERVE8, RESERVE9, RESERVE10, RESERVE11, RESERVE12, 
+    RESERVE14, RESERVE15, RESERVE16, RESERVE17, RESERVE18, ITEMID, OPENFLAG, TOKENFLAG, 
+    CONTACT, CONTACTE, POSTCODE, MOBILE, PHONE, EUBEMAIL, DEVUSERID, VERSION, EBAYSITID, 
+    PROVINCEEN, CITYEN, DISTRICTEN, STARTTIME, ENDTIME, AMAZON, AMAZONFLAG, SPAYPALNAME, 
+    AMAZONURL, AMAZONURLNAME, EBAYSHOPID, EBAYSHOPNAME, ORDEROPER, PAYPALEMAIL, SHOPMANAGER, 
+    CSCARTEMAIL, DESCR, EMAIL, TEMPLETCONTENT, TEMPLETCLOB, RESERVE13, RESERVE19, RESERVE20, 
+    TOKENID, TOKENDESCR, STREET, STREETE, PROVINCE, CITY, DISTRICT, EUBTONKEN, SELLUSERID, 
+    EBAYFEEMONEYRATE, ACCESSKEYID, SECRETACCESSKEY, APPLICATIONNAME, SELLERID, MARKETPLACEID
+    from db_alibb
+    where SID = #{sid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, CORPID, NAME, PASSWORD, SLEVEL, CREDIT1, CREDIT2, CREDIT3, MANAGER, TELE, 
+    FAX, ORDERNUM, TEMPLETFILE, OPER, OPERTIME, RATE, RESERVE1, RESERVE2, RESERVE3, RESERVE4, 
+    RESERVE5, RESERVE6, RESERVE7, RESERVE8, RESERVE9, RESERVE10, RESERVE11, RESERVE12, 
+    RESERVE14, RESERVE15, RESERVE16, RESERVE17, RESERVE18, ITEMID, OPENFLAG, TOKENFLAG, 
+    CONTACT, CONTACTE, POSTCODE, MOBILE, PHONE, EUBEMAIL, DEVUSERID, VERSION, EBAYSITID, 
+    PROVINCEEN, CITYEN, DISTRICTEN, STARTTIME, ENDTIME, AMAZON, AMAZONFLAG, SPAYPALNAME, 
+    AMAZONURL, AMAZONURLNAME, EBAYSHOPID, EBAYSHOPNAME, ORDEROPER, PAYPALEMAIL, SHOPMANAGER, 
+    CSCARTEMAIL, DESCR, EMAIL, TEMPLETCONTENT, TEMPLETCLOB, RESERVE13, RESERVE19, RESERVE20, 
+    TOKENID, TOKENDESCR, STREET, STREETE, PROVINCE, CITY, DISTRICT, EUBTONKEN, SELLUSERID, 
+    EBAYFEEMONEYRATE, ACCESSKEYID, SECRETACCESSKEY, APPLICATIONNAME, SELLERID, MARKETPLACEID
+    from db_alibb
+  </select>
+  <sql id="TableName">
+    db_alibb
+  </sql>
+  <sql id="Values">
+     #{sid,jdbcType=VARCHAR} , 
+     #{corpid,jdbcType=VARCHAR} , 
+     #{name,jdbcType=VARCHAR} , 
+     #{password,jdbcType=VARCHAR} , 
+     #{slevel,jdbcType=VARCHAR} , 
+     #{credit1,jdbcType=DECIMAL} , 
+     #{credit2,jdbcType=DECIMAL} , 
+     #{credit3,jdbcType=DECIMAL} , 
+     #{manager,jdbcType=VARCHAR} , 
+     #{tele,jdbcType=VARCHAR} , 
+     #{fax,jdbcType=VARCHAR} , 
+     #{ordernum,jdbcType=DECIMAL} , 
+     #{templetfile,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{rate,jdbcType=DECIMAL} , 
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+     #{reserve3,jdbcType=VARCHAR} , 
+     #{reserve4,jdbcType=VARCHAR} , 
+     #{reserve5,jdbcType=VARCHAR} , 
+     #{reserve6,jdbcType=VARCHAR} , 
+     #{reserve7,jdbcType=VARCHAR} , 
+     #{reserve8,jdbcType=VARCHAR} , 
+     #{reserve9,jdbcType=VARCHAR} , 
+     #{reserve10,jdbcType=VARCHAR} , 
+     #{reserve11,jdbcType=VARCHAR} , 
+     #{reserve12,jdbcType=VARCHAR} , 
+     #{reserve14,jdbcType=VARCHAR} , 
+     #{reserve15,jdbcType=DECIMAL} , 
+     #{reserve16,jdbcType=DECIMAL} , 
+     #{reserve17,jdbcType=DECIMAL} , 
+     #{reserve18,jdbcType=DECIMAL} , 
+     #{itemid,jdbcType=VARCHAR} , 
+     #{openflag,jdbcType=VARCHAR} , 
+     #{tokenflag,jdbcType=VARCHAR} , 
+     #{contact,jdbcType=VARCHAR} , 
+     #{contacte,jdbcType=VARCHAR} , 
+     #{postcode,jdbcType=VARCHAR} , 
+     #{mobile,jdbcType=VARCHAR} , 
+     #{phone,jdbcType=VARCHAR} , 
+     #{eubemail,jdbcType=VARCHAR} , 
+     #{devuserid,jdbcType=VARCHAR} , 
+     #{version,jdbcType=VARCHAR} , 
+     #{ebaysitid,jdbcType=VARCHAR} , 
+     #{provinceen,jdbcType=VARCHAR} , 
+     #{cityen,jdbcType=VARCHAR} , 
+     #{districten,jdbcType=VARCHAR} , 
+     #{starttime,jdbcType=VARCHAR} , 
+     #{endtime,jdbcType=VARCHAR} , 
+     #{amazon,jdbcType=VARCHAR} , 
+     #{amazonflag,jdbcType=VARCHAR} , 
+     #{spaypalname,jdbcType=VARCHAR} , 
+     #{amazonurl,jdbcType=VARCHAR} , 
+     #{amazonurlname,jdbcType=VARCHAR} , 
+     #{ebayshopid,jdbcType=VARCHAR} , 
+     #{ebayshopname,jdbcType=VARCHAR} , 
+     #{orderoper,jdbcType=DECIMAL} , 
+     #{paypalemail,jdbcType=VARCHAR} , 
+     #{shopmanager,jdbcType=VARCHAR} , 
+     #{cscartemail,jdbcType=VARCHAR} , 
+     #{descr,jdbcType=LONGVARCHAR} , 
+     #{email,jdbcType=LONGVARCHAR} , 
+     #{templetcontent,jdbcType=LONGVARCHAR} , 
+     #{templetclob,jdbcType=LONGVARCHAR} , 
+     #{reserve13,jdbcType=LONGVARCHAR} , 
+     #{reserve19,jdbcType=LONGVARCHAR} , 
+     #{reserve20,jdbcType=LONGVARCHAR} , 
+     #{tokenid,jdbcType=LONGVARCHAR} , 
+     #{tokendescr,jdbcType=LONGVARCHAR} , 
+     #{street,jdbcType=LONGVARCHAR} , 
+     #{streete,jdbcType=LONGVARCHAR} , 
+     #{province,jdbcType=LONGVARCHAR} , 
+     #{city,jdbcType=LONGVARCHAR} , 
+     #{district,jdbcType=LONGVARCHAR} , 
+     #{eubtonken,jdbcType=LONGVARCHAR} , 
+     #{selluserid,jdbcType=LONGVARCHAR} , 
+     #{ebayfeemoneyrate,jdbcType=LONGVARCHAR} , 
+     #{accesskeyid,jdbcType=LONGVARCHAR} , 
+     #{secretaccesskey,jdbcType=LONGVARCHAR} , 
+     #{applicationname,jdbcType=LONGVARCHAR} , 
+     #{sellerid,jdbcType=LONGVARCHAR} , 
+     #{marketplaceid,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    SID , 
+    CORPID , 
+    NAME , 
+    PASSWORD , 
+    SLEVEL , 
+    CREDIT1 , 
+    CREDIT2 , 
+    CREDIT3 , 
+    MANAGER , 
+    TELE , 
+    FAX , 
+    ORDERNUM , 
+    TEMPLETFILE , 
+    OPER , 
+    OPERTIME , 
+    RATE , 
+    RESERVE1 , 
+    RESERVE2 , 
+    RESERVE3 , 
+    RESERVE4 , 
+    RESERVE5 , 
+    RESERVE6 , 
+    RESERVE7 , 
+    RESERVE8 , 
+    RESERVE9 , 
+    RESERVE10 , 
+    RESERVE11 , 
+    RESERVE12 , 
+    RESERVE14 , 
+    RESERVE15 , 
+    RESERVE16 , 
+    RESERVE17 , 
+    RESERVE18 , 
+    ITEMID , 
+    OPENFLAG , 
+    TOKENFLAG , 
+    CONTACT , 
+    CONTACTE , 
+    POSTCODE , 
+    MOBILE , 
+    PHONE , 
+    EUBEMAIL , 
+    DEVUSERID , 
+    VERSION , 
+    EBAYSITID , 
+    PROVINCEEN , 
+    CITYEN , 
+    DISTRICTEN , 
+    STARTTIME , 
+    ENDTIME , 
+    AMAZON , 
+    AMAZONFLAG , 
+    SPAYPALNAME , 
+    AMAZONURL , 
+    AMAZONURLNAME , 
+    EBAYSHOPID , 
+    EBAYSHOPNAME , 
+    ORDEROPER , 
+    PAYPALEMAIL , 
+    SHOPMANAGER , 
+    CSCARTEMAIL , 
+    DESCR , 
+    EMAIL , 
+    TEMPLETCONTENT , 
+    TEMPLETCLOB , 
+    RESERVE13 , 
+    RESERVE19 , 
+    RESERVE20 , 
+    TOKENID , 
+    TOKENDESCR , 
+    STREET , 
+    STREETE , 
+    PROVINCE , 
+    CITY , 
+    DISTRICT , 
+    EUBTONKEN , 
+    SELLUSERID , 
+    EBAYFEEMONEYRATE , 
+    ACCESSKEYID , 
+    SECRETACCESSKEY , 
+    APPLICATIONNAME , 
+    SELLERID , 
+    MARKETPLACEID
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="corpid != null">
+      CORPID = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="name != null">
+      NAME = #{name,jdbcType=VARCHAR} and 
+    </if>
+    <if test="password != null">
+      PASSWORD = #{password,jdbcType=VARCHAR} and 
+    </if>
+    <if test="slevel != null">
+      SLEVEL = #{slevel,jdbcType=VARCHAR} and 
+    </if>
+    <if test="credit1 != null">
+      CREDIT1 = #{credit1,jdbcType=DECIMAL} and 
+    </if>
+    <if test="credit2 != null">
+      CREDIT2 = #{credit2,jdbcType=DECIMAL} and 
+    </if>
+    <if test="credit3 != null">
+      CREDIT3 = #{credit3,jdbcType=DECIMAL} and 
+    </if>
+    <if test="manager != null">
+      MANAGER = #{manager,jdbcType=VARCHAR} and 
+    </if>
+    <if test="tele != null">
+      TELE = #{tele,jdbcType=VARCHAR} and 
+    </if>
+    <if test="fax != null">
+      FAX = #{fax,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ordernum != null">
+      ORDERNUM = #{ordernum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="templetfile != null">
+      TEMPLETFILE = #{templetfile,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="rate != null">
+      RATE = #{rate,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      RESERVE3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve4 != null">
+      RESERVE4 = #{reserve4,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve5 != null">
+      RESERVE5 = #{reserve5,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve6 != null">
+      RESERVE6 = #{reserve6,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve7 != null">
+      RESERVE7 = #{reserve7,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve8 != null">
+      RESERVE8 = #{reserve8,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve9 != null">
+      RESERVE9 = #{reserve9,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve10 != null">
+      RESERVE10 = #{reserve10,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve11 != null">
+      RESERVE11 = #{reserve11,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve12 != null">
+      RESERVE12 = #{reserve12,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve14 != null">
+      RESERVE14 = #{reserve14,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve15 != null">
+      RESERVE15 = #{reserve15,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve16 != null">
+      RESERVE16 = #{reserve16,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve17 != null">
+      RESERVE17 = #{reserve17,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve18 != null">
+      RESERVE18 = #{reserve18,jdbcType=DECIMAL} and 
+    </if>
+    <if test="itemid != null">
+      ITEMID = #{itemid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="tokenflag != null">
+      TOKENFLAG = #{tokenflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="contact != null">
+      CONTACT = #{contact,jdbcType=VARCHAR} and 
+    </if>
+    <if test="contacte != null">
+      CONTACTE = #{contacte,jdbcType=VARCHAR} and 
+    </if>
+    <if test="postcode != null">
+      POSTCODE = #{postcode,jdbcType=VARCHAR} and 
+    </if>
+    <if test="mobile != null">
+      MOBILE = #{mobile,jdbcType=VARCHAR} and 
+    </if>
+    <if test="phone != null">
+      PHONE = #{phone,jdbcType=VARCHAR} and 
+    </if>
+    <if test="eubemail != null">
+      EUBEMAIL = #{eubemail,jdbcType=VARCHAR} and 
+    </if>
+    <if test="devuserid != null">
+      DEVUSERID = #{devuserid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="version != null">
+      VERSION = #{version,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebaysitid != null">
+      EBAYSITID = #{ebaysitid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="provinceen != null">
+      PROVINCEEN = #{provinceen,jdbcType=VARCHAR} and 
+    </if>
+    <if test="cityen != null">
+      CITYEN = #{cityen,jdbcType=VARCHAR} and 
+    </if>
+    <if test="districten != null">
+      DISTRICTEN = #{districten,jdbcType=VARCHAR} and 
+    </if>
+    <if test="starttime != null">
+      STARTTIME = #{starttime,jdbcType=VARCHAR} and 
+    </if>
+    <if test="endtime != null">
+      ENDTIME = #{endtime,jdbcType=VARCHAR} and 
+    </if>
+    <if test="amazon != null">
+      AMAZON = #{amazon,jdbcType=VARCHAR} and 
+    </if>
+    <if test="amazonflag != null">
+      AMAZONFLAG = #{amazonflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="spaypalname != null">
+      SPAYPALNAME = #{spaypalname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="amazonurl != null">
+      AMAZONURL = #{amazonurl,jdbcType=VARCHAR} and 
+    </if>
+    <if test="amazonurlname != null">
+      AMAZONURLNAME = #{amazonurlname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebayshopid != null">
+      EBAYSHOPID = #{ebayshopid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebayshopname != null">
+      EBAYSHOPNAME = #{ebayshopname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="orderoper != null">
+      ORDEROPER = #{orderoper,jdbcType=DECIMAL} and 
+    </if>
+    <if test="paypalemail != null">
+      PAYPALEMAIL = #{paypalemail,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shopmanager != null">
+      SHOPMANAGER = #{shopmanager,jdbcType=VARCHAR} and 
+    </if>
+    <if test="cscartemail != null">
+      CSCARTEMAIL = #{cscartemail,jdbcType=VARCHAR} and 
+    </if>
+    <if test="descr != null">
+      DESCR = #{descr,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="email != null">
+      EMAIL = #{email,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="templetcontent != null">
+      TEMPLETCONTENT = #{templetcontent,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="templetclob != null">
+      TEMPLETCLOB = #{templetclob,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="reserve13 != null">
+      RESERVE13 = #{reserve13,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="reserve19 != null">
+      RESERVE19 = #{reserve19,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="reserve20 != null">
+      RESERVE20 = #{reserve20,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="tokenid != null">
+      TOKENID = #{tokenid,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="tokendescr != null">
+      TOKENDESCR = #{tokendescr,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="street != null">
+      STREET = #{street,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="streete != null">
+      STREETE = #{streete,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="province != null">
+      PROVINCE = #{province,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="city != null">
+      CITY = #{city,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="district != null">
+      DISTRICT = #{district,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="eubtonken != null">
+      EUBTONKEN = #{eubtonken,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="selluserid != null">
+      SELLUSERID = #{selluserid,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="ebayfeemoneyrate != null">
+      EBAYFEEMONEYRATE = #{ebayfeemoneyrate,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="accesskeyid != null">
+      ACCESSKEYID = #{accesskeyid,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="secretaccesskey != null">
+      SECRETACCESSKEY = #{secretaccesskey,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="applicationname != null">
+      APPLICATIONNAME = #{applicationname,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="sellerid != null">
+      SELLERID = #{sellerid,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="marketplaceid != null">
+      MARKETPLACEID = #{marketplaceid,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="corpid != null">
+      CORPID = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="name != null">
+      NAME = #{name,jdbcType=VARCHAR} , 
+    </if>
+    <if test="password != null">
+      PASSWORD = #{password,jdbcType=VARCHAR} , 
+    </if>
+    <if test="slevel != null">
+      SLEVEL = #{slevel,jdbcType=VARCHAR} , 
+    </if>
+    <if test="credit1 != null">
+      CREDIT1 = #{credit1,jdbcType=DECIMAL} , 
+    </if>
+    <if test="credit2 != null">
+      CREDIT2 = #{credit2,jdbcType=DECIMAL} , 
+    </if>
+    <if test="credit3 != null">
+      CREDIT3 = #{credit3,jdbcType=DECIMAL} , 
+    </if>
+    <if test="manager != null">
+      MANAGER = #{manager,jdbcType=VARCHAR} , 
+    </if>
+    <if test="tele != null">
+      TELE = #{tele,jdbcType=VARCHAR} , 
+    </if>
+    <if test="fax != null">
+      FAX = #{fax,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ordernum != null">
+      ORDERNUM = #{ordernum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="templetfile != null">
+      TEMPLETFILE = #{templetfile,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="rate != null">
+      RATE = #{rate,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      RESERVE3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve4 != null">
+      RESERVE4 = #{reserve4,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve5 != null">
+      RESERVE5 = #{reserve5,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve6 != null">
+      RESERVE6 = #{reserve6,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve7 != null">
+      RESERVE7 = #{reserve7,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve8 != null">
+      RESERVE8 = #{reserve8,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve9 != null">
+      RESERVE9 = #{reserve9,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve10 != null">
+      RESERVE10 = #{reserve10,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve11 != null">
+      RESERVE11 = #{reserve11,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve12 != null">
+      RESERVE12 = #{reserve12,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve14 != null">
+      RESERVE14 = #{reserve14,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve15 != null">
+      RESERVE15 = #{reserve15,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve16 != null">
+      RESERVE16 = #{reserve16,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve17 != null">
+      RESERVE17 = #{reserve17,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve18 != null">
+      RESERVE18 = #{reserve18,jdbcType=DECIMAL} , 
+    </if>
+    <if test="itemid != null">
+      ITEMID = #{itemid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="tokenflag != null">
+      TOKENFLAG = #{tokenflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="contact != null">
+      CONTACT = #{contact,jdbcType=VARCHAR} , 
+    </if>
+    <if test="contacte != null">
+      CONTACTE = #{contacte,jdbcType=VARCHAR} , 
+    </if>
+    <if test="postcode != null">
+      POSTCODE = #{postcode,jdbcType=VARCHAR} , 
+    </if>
+    <if test="mobile != null">
+      MOBILE = #{mobile,jdbcType=VARCHAR} , 
+    </if>
+    <if test="phone != null">
+      PHONE = #{phone,jdbcType=VARCHAR} , 
+    </if>
+    <if test="eubemail != null">
+      EUBEMAIL = #{eubemail,jdbcType=VARCHAR} , 
+    </if>
+    <if test="devuserid != null">
+      DEVUSERID = #{devuserid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="version != null">
+      VERSION = #{version,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebaysitid != null">
+      EBAYSITID = #{ebaysitid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="provinceen != null">
+      PROVINCEEN = #{provinceen,jdbcType=VARCHAR} , 
+    </if>
+    <if test="cityen != null">
+      CITYEN = #{cityen,jdbcType=VARCHAR} , 
+    </if>
+    <if test="districten != null">
+      DISTRICTEN = #{districten,jdbcType=VARCHAR} , 
+    </if>
+    <if test="starttime != null">
+      STARTTIME = #{starttime,jdbcType=VARCHAR} , 
+    </if>
+    <if test="endtime != null">
+      ENDTIME = #{endtime,jdbcType=VARCHAR} , 
+    </if>
+    <if test="amazon != null">
+      AMAZON = #{amazon,jdbcType=VARCHAR} , 
+    </if>
+    <if test="amazonflag != null">
+      AMAZONFLAG = #{amazonflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="spaypalname != null">
+      SPAYPALNAME = #{spaypalname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="amazonurl != null">
+      AMAZONURL = #{amazonurl,jdbcType=VARCHAR} , 
+    </if>
+    <if test="amazonurlname != null">
+      AMAZONURLNAME = #{amazonurlname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebayshopid != null">
+      EBAYSHOPID = #{ebayshopid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebayshopname != null">
+      EBAYSHOPNAME = #{ebayshopname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="orderoper != null">
+      ORDEROPER = #{orderoper,jdbcType=DECIMAL} , 
+    </if>
+    <if test="paypalemail != null">
+      PAYPALEMAIL = #{paypalemail,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shopmanager != null">
+      SHOPMANAGER = #{shopmanager,jdbcType=VARCHAR} , 
+    </if>
+    <if test="cscartemail != null">
+      CSCARTEMAIL = #{cscartemail,jdbcType=VARCHAR} , 
+    </if>
+    <if test="descr != null">
+      DESCR = #{descr,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="email != null">
+      EMAIL = #{email,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="templetcontent != null">
+      TEMPLETCONTENT = #{templetcontent,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="templetclob != null">
+      TEMPLETCLOB = #{templetclob,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="reserve13 != null">
+      RESERVE13 = #{reserve13,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="reserve19 != null">
+      RESERVE19 = #{reserve19,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="reserve20 != null">
+      RESERVE20 = #{reserve20,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="tokenid != null">
+      TOKENID = #{tokenid,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="tokendescr != null">
+      TOKENDESCR = #{tokendescr,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="street != null">
+      STREET = #{street,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="streete != null">
+      STREETE = #{streete,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="province != null">
+      PROVINCE = #{province,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="city != null">
+      CITY = #{city,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="district != null">
+      DISTRICT = #{district,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="eubtonken != null">
+      EUBTONKEN = #{eubtonken,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="selluserid != null">
+      SELLUSERID = #{selluserid,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="ebayfeemoneyrate != null">
+      EBAYFEEMONEYRATE = #{ebayfeemoneyrate,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="accesskeyid != null">
+      ACCESSKEYID = #{accesskeyid,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="secretaccesskey != null">
+      SECRETACCESSKEY = #{secretaccesskey,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="applicationname != null">
+      APPLICATIONNAME = #{applicationname,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="sellerid != null">
+      SELLERID = #{sellerid,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="marketplaceid != null">
+      MARKETPLACEID = #{marketplaceid,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbAlibb" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SID=#{SID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbAlibb">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbAlibb">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbAlibb">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

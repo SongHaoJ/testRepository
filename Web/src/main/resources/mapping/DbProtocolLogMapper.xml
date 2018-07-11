@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbProtocolLogMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbProtocolLog">
+    <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="WARNTIME" jdbcType="TIMESTAMP" property="warntime" />
+    <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
+    <result column="PICTURE3" jdbcType="VARCHAR" property="picture3" />
+    <result column="BACKTIME" jdbcType="TIMESTAMP" property="backtime" />
+    <result column="TIMETYPE" jdbcType="DECIMAL" property="timetype" />
+    <result column="REPEATTIME" jdbcType="TIMESTAMP" property="repeattime" />
+    <result column="CREATEOPER" jdbcType="VARCHAR" property="createoper" />
+    <result column="RESERVE8" jdbcType="DECIMAL" property="reserve8" />
+    <result column="RESERVE10" jdbcType="TIMESTAMP" property="reserve10" />
+    <result column="RESERVE9" jdbcType="DECIMAL" property="reserve9" />
+    <result column="PICTURE1" jdbcType="VARCHAR" property="picture1" />
+    <result column="ENDTIME" jdbcType="TIMESTAMP" property="endtime" />
+    <result column="RESERVE6" jdbcType="DECIMAL" property="reserve6" />
+    <result column="CHECKOPER" jdbcType="VARCHAR" property="checkoper" />
+    <result column="STARTTIME" jdbcType="TIMESTAMP" property="starttime" />
+    <result column="URGENT" jdbcType="VARCHAR" property="urgent" />
+    <result column="RESERVE11" jdbcType="TIMESTAMP" property="reserve11" />
+    <result column="RESERVE7" jdbcType="DECIMAL" property="reserve7" />
+    <result column="CHECKTIME" jdbcType="TIMESTAMP" property="checktime" />
+    <result column="RESERVE14" jdbcType="VARCHAR" property="reserve14" />
+    <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="EXECUTOR" jdbcType="VARCHAR" property="executor" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="TYPEFLAG" jdbcType="VARCHAR" property="typeflag" />
+    <result column="RESERVE13" jdbcType="TIMESTAMP" property="reserve13" />
+    <result column="PICTURE2" jdbcType="VARCHAR" property="picture2" />
+    <result column="ACTION" jdbcType="VARCHAR" property="action" />
+    <result column="RESERVE12" jdbcType="TIMESTAMP" property="reserve12" />
+    <result column="FLAG" jdbcType="VARCHAR" property="flag" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="SKU" jdbcType="VARCHAR" property="sku" />
+    <result column="ACTIONID" jdbcType="LONGVARCHAR" property="actionid" />
+    <result column="RESERVE3" jdbcType="LONGVARCHAR" property="reserve3" />
+    <result column="RESERVE2" jdbcType="LONGVARCHAR" property="reserve2" />
+    <result column="NAME" jdbcType="LONGVARCHAR" property="name" />
+    <result column="CHECKNOTREASON" jdbcType="LONGVARCHAR" property="checknotreason" />
+    <result column="BACKREASON" jdbcType="LONGVARCHAR" property="backreason" />
+    <result column="RESERVE5" jdbcType="LONGVARCHAR" property="reserve5" />
+    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
+    <result column="NOTE" jdbcType="LONGVARCHAR" property="note" />
+    <result column="TITLE" jdbcType="LONGVARCHAR" property="title" />
+    <result column="RESERVE1" jdbcType="LONGVARCHAR" property="reserve1" />
+    <result column="RESERVE4" jdbcType="LONGVARCHAR" property="reserve4" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SEQUENCEID, OPER, WARNTIME, OPENFLAG, PICTURE3, BACKTIME, TIMETYPE, REPEATTIME, 
+    CREATEOPER, RESERVE8, RESERVE10, RESERVE9, PICTURE1, ENDTIME, RESERVE6, CHECKOPER, 
+    STARTTIME, URGENT, RESERVE11, RESERVE7, CHECKTIME, RESERVE14, CREATETIME, EXECUTOR, 
+    OPERTIME, TYPEFLAG, RESERVE13, PICTURE2, ACTION, RESERVE12, FLAG, STATUS, SKU, ACTIONID, 
+    RESERVE3, RESERVE2, NAME, CHECKNOTREASON, BACKREASON, RESERVE5, DESCR, NOTE, TITLE, 
+    RESERVE1, RESERVE4
+    from db_protocol_log
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, OPER, WARNTIME, OPENFLAG, PICTURE3, BACKTIME, TIMETYPE, REPEATTIME, 
+    CREATEOPER, RESERVE8, RESERVE10, RESERVE9, PICTURE1, ENDTIME, RESERVE6, CHECKOPER, 
+    STARTTIME, URGENT, RESERVE11, RESERVE7, CHECKTIME, RESERVE14, CREATETIME, EXECUTOR, 
+    OPERTIME, TYPEFLAG, RESERVE13, PICTURE2, ACTION, RESERVE12, FLAG, STATUS, SKU, ACTIONID, 
+    RESERVE3, RESERVE2, NAME, CHECKNOTREASON, BACKREASON, RESERVE5, DESCR, NOTE, TITLE, 
+    RESERVE1, RESERVE4
+    from db_protocol_log
+  </select>
+  <sql id="TableName">
+    db_protocol_log
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{warntime,jdbcType=TIMESTAMP} , 
+     #{openflag,jdbcType=VARCHAR} , 
+     #{picture3,jdbcType=VARCHAR} , 
+     #{backtime,jdbcType=TIMESTAMP} , 
+     #{timetype,jdbcType=DECIMAL} , 
+     #{repeattime,jdbcType=TIMESTAMP} , 
+     #{createoper,jdbcType=VARCHAR} , 
+     #{reserve8,jdbcType=DECIMAL} , 
+     #{reserve10,jdbcType=TIMESTAMP} , 
+     #{reserve9,jdbcType=DECIMAL} , 
+     #{picture1,jdbcType=VARCHAR} , 
+     #{endtime,jdbcType=TIMESTAMP} , 
+     #{reserve6,jdbcType=DECIMAL} , 
+     #{checkoper,jdbcType=VARCHAR} , 
+     #{starttime,jdbcType=TIMESTAMP} , 
+     #{urgent,jdbcType=VARCHAR} , 
+     #{reserve11,jdbcType=TIMESTAMP} , 
+     #{reserve7,jdbcType=DECIMAL} , 
+     #{checktime,jdbcType=TIMESTAMP} , 
+     #{reserve14,jdbcType=VARCHAR} , 
+     #{createtime,jdbcType=TIMESTAMP} , 
+     #{executor,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{typeflag,jdbcType=VARCHAR} , 
+     #{reserve13,jdbcType=TIMESTAMP} , 
+     #{picture2,jdbcType=VARCHAR} , 
+     #{action,jdbcType=VARCHAR} , 
+     #{reserve12,jdbcType=TIMESTAMP} , 
+     #{flag,jdbcType=VARCHAR} , 
+     #{status,jdbcType=VARCHAR} , 
+     #{sku,jdbcType=VARCHAR} , 
+     #{actionid,jdbcType=LONGVARCHAR} , 
+     #{reserve3,jdbcType=LONGVARCHAR} , 
+     #{reserve2,jdbcType=LONGVARCHAR} , 
+     #{name,jdbcType=LONGVARCHAR} , 
+     #{checknotreason,jdbcType=LONGVARCHAR} , 
+     #{backreason,jdbcType=LONGVARCHAR} , 
+     #{reserve5,jdbcType=LONGVARCHAR} , 
+     #{descr,jdbcType=LONGVARCHAR} , 
+     #{note,jdbcType=LONGVARCHAR} , 
+     #{title,jdbcType=LONGVARCHAR} , 
+     #{reserve1,jdbcType=LONGVARCHAR} , 
+     #{reserve4,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    OPER , 
+    WARNTIME , 
+    OPENFLAG , 
+    PICTURE3 , 
+    BACKTIME , 
+    TIMETYPE , 
+    REPEATTIME , 
+    CREATEOPER , 
+    RESERVE8 , 
+    RESERVE10 , 
+    RESERVE9 , 
+    PICTURE1 , 
+    ENDTIME , 
+    RESERVE6 , 
+    CHECKOPER , 
+    STARTTIME , 
+    URGENT , 
+    RESERVE11 , 
+    RESERVE7 , 
+    CHECKTIME , 
+    RESERVE14 , 
+    CREATETIME , 
+    EXECUTOR , 
+    OPERTIME , 
+    TYPEFLAG , 
+    RESERVE13 , 
+    PICTURE2 , 
+    ACTION , 
+    RESERVE12 , 
+    FLAG , 
+    STATUS , 
+    SKU , 
+    ACTIONID , 
+    RESERVE3 , 
+    RESERVE2 , 
+    NAME , 
+    CHECKNOTREASON , 
+    BACKREASON , 
+    RESERVE5 , 
+    DESCR , 
+    NOTE , 
+    TITLE , 
+    RESERVE1 , 
+    RESERVE4
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="warntime != null">
+      WARNTIME = #{warntime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="picture3 != null">
+      PICTURE3 = #{picture3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="backtime != null">
+      BACKTIME = #{backtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="timetype != null">
+      TIMETYPE = #{timetype,jdbcType=DECIMAL} and 
+    </if>
+    <if test="repeattime != null">
+      REPEATTIME = #{repeattime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="createoper != null">
+      CREATEOPER = #{createoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve8 != null">
+      RESERVE8 = #{reserve8,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve10 != null">
+      RESERVE10 = #{reserve10,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="reserve9 != null">
+      RESERVE9 = #{reserve9,jdbcType=DECIMAL} and 
+    </if>
+    <if test="picture1 != null">
+      PICTURE1 = #{picture1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="endtime != null">
+      ENDTIME = #{endtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="reserve6 != null">
+      RESERVE6 = #{reserve6,jdbcType=DECIMAL} and 
+    </if>
+    <if test="checkoper != null">
+      CHECKOPER = #{checkoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="starttime != null">
+      STARTTIME = #{starttime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="urgent != null">
+      URGENT = #{urgent,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve11 != null">
+      RESERVE11 = #{reserve11,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="reserve7 != null">
+      RESERVE7 = #{reserve7,jdbcType=DECIMAL} and 
+    </if>
+    <if test="checktime != null">
+      CHECKTIME = #{checktime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="reserve14 != null">
+      RESERVE14 = #{reserve14,jdbcType=VARCHAR} and 
+    </if>
+    <if test="createtime != null">
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="executor != null">
+      EXECUTOR = #{executor,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="typeflag != null">
+      TYPEFLAG = #{typeflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve13 != null">
+      RESERVE13 = #{reserve13,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="picture2 != null">
+      PICTURE2 = #{picture2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="action != null">
+      ACTION = #{action,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve12 != null">
+      RESERVE12 = #{reserve12,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="flag != null">
+      FLAG = #{flag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="status != null">
+      STATUS = #{status,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sku != null">
+      SKU = #{sku,jdbcType=VARCHAR} and 
+    </if>
+    <if test="actionid != null">
+      ACTIONID = #{actionid,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="name != null">
+      NAME = #{name,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="checknotreason != null">
+      CHECKNOTREASON = #{checknotreason,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="backreason != null">
+      BACKREASON = #{backreason,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="reserve5 != null">
+      RESERVE5 = #{reserve5,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="descr != null">
+      DESCR = #{descr,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="note != null">
+      NOTE = #{note,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="title != null">
+      TITLE = #{title,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="reserve4 != null">
+      RESERVE4 = #{reserve4,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="warntime != null">
+      WARNTIME = #{warntime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="picture3 != null">
+      PICTURE3 = #{picture3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="backtime != null">
+      BACKTIME = #{backtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="timetype != null">
+      TIMETYPE = #{timetype,jdbcType=DECIMAL} , 
+    </if>
+    <if test="repeattime != null">
+      REPEATTIME = #{repeattime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="createoper != null">
+      CREATEOPER = #{createoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve8 != null">
+      RESERVE8 = #{reserve8,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve10 != null">
+      RESERVE10 = #{reserve10,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="reserve9 != null">
+      RESERVE9 = #{reserve9,jdbcType=DECIMAL} , 
+    </if>
+    <if test="picture1 != null">
+      PICTURE1 = #{picture1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="endtime != null">
+      ENDTIME = #{endtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="reserve6 != null">
+      RESERVE6 = #{reserve6,jdbcType=DECIMAL} , 
+    </if>
+    <if test="checkoper != null">
+      CHECKOPER = #{checkoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="starttime != null">
+      STARTTIME = #{starttime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="urgent != null">
+      URGENT = #{urgent,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve11 != null">
+      RESERVE11 = #{reserve11,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="reserve7 != null">
+      RESERVE7 = #{reserve7,jdbcType=DECIMAL} , 
+    </if>
+    <if test="checktime != null">
+      CHECKTIME = #{checktime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="reserve14 != null">
+      RESERVE14 = #{reserve14,jdbcType=VARCHAR} , 
+    </if>
+    <if test="createtime != null">
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="executor != null">
+      EXECUTOR = #{executor,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="typeflag != null">
+      TYPEFLAG = #{typeflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve13 != null">
+      RESERVE13 = #{reserve13,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="picture2 != null">
+      PICTURE2 = #{picture2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="action != null">
+      ACTION = #{action,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve12 != null">
+      RESERVE12 = #{reserve12,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="flag != null">
+      FLAG = #{flag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="status != null">
+      STATUS = #{status,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sku != null">
+      SKU = #{sku,jdbcType=VARCHAR} , 
+    </if>
+    <if test="actionid != null">
+      ACTIONID = #{actionid,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="name != null">
+      NAME = #{name,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="checknotreason != null">
+      CHECKNOTREASON = #{checknotreason,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="backreason != null">
+      BACKREASON = #{backreason,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="reserve5 != null">
+      RESERVE5 = #{reserve5,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="descr != null">
+      DESCR = #{descr,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="note != null">
+      NOTE = #{note,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="title != null">
+      TITLE = #{title,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="reserve4 != null">
+      RESERVE4 = #{reserve4,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbProtocolLog" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbProtocolLog">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbProtocolLog">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbProtocolLog">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

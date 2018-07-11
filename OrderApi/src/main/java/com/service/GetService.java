@@ -11,23 +11,36 @@ public class GetService {
 
     private static LazadaYml yml;
 
-    private static LazadaService service;
+    private static LazadaService lazadaService;
 
-    public static LazadaService getService() {
-        return service;
+    private static EdisEbayService edisEbayService;
+
+
+
+    public static LazadaService getLazadaService() {
+        return lazadaService;
     }
 
     public static LazadaYml getYml() {
         return yml;
     }
 
+    public static EdisEbayService getEdisEbayService(){return edisEbayService;}
+
+
+
+
+
     @Resource
-    public void setService(LazadaService service) {
-        GetService.service = service;
+    public void setLazadaService(LazadaService service) {
+        GetService.lazadaService = service;
     }
 
     @Resource
-    public void setService(LazadaYml yml) {
+    public void setYml(LazadaYml yml) {
         GetService.yml = yml;
     }
+
+    @Resource
+    public void setEdisEbayService(EdisEbayService service){GetService.edisEbayService = service;}
 }

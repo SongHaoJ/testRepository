@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbMatecategoryMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbMatecategory">
+    <id column="SID" jdbcType="DECIMAL" property="sid" />
+    <result column="CATEGROYID" jdbcType="VARCHAR" property="categroyid" />
+    <result column="CATEGROYNAME" jdbcType="VARCHAR" property="categroyname" />
+    <result column="EBAYCATEGORYID" jdbcType="VARCHAR" property="ebaycategoryid" />
+    <result column="EBAYCATEGORYNAME" jdbcType="VARCHAR" property="ebaycategoryname" />
+    <result column="TEMPLETID" jdbcType="VARCHAR" property="templetid" />
+    <result column="FLAG" jdbcType="DECIMAL" property="flag" />
+    <result column="SITE" jdbcType="VARCHAR" property="site" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select SID, CATEGROYID, CATEGROYNAME, EBAYCATEGORYID, EBAYCATEGORYNAME, TEMPLETID, 
+    FLAG, SITE
+    from db_matecategory
+    where SID = #{sid,jdbcType=DECIMAL}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, CATEGROYID, CATEGROYNAME, EBAYCATEGORYID, EBAYCATEGORYNAME, TEMPLETID, 
+    FLAG, SITE
+    from db_matecategory
+  </select>
+  <sql id="TableName">
+    db_matecategory
+  </sql>
+  <sql id="Values">
+     #{sid,jdbcType=DECIMAL} , 
+     #{categroyid,jdbcType=VARCHAR} , 
+     #{categroyname,jdbcType=VARCHAR} , 
+     #{ebaycategoryid,jdbcType=VARCHAR} , 
+     #{ebaycategoryname,jdbcType=VARCHAR} , 
+     #{templetid,jdbcType=VARCHAR} , 
+     #{flag,jdbcType=DECIMAL} , 
+     #{site,jdbcType=VARCHAR}
+  </sql>
+  <sql id="Columns">
+    SID , 
+    CATEGROYID , 
+    CATEGROYNAME , 
+    EBAYCATEGORYID , 
+    EBAYCATEGORYNAME , 
+    TEMPLETID , 
+    FLAG , 
+    SITE
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="categroyid != null">
+      CATEGROYID = #{categroyid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="categroyname != null">
+      CATEGROYNAME = #{categroyname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebaycategoryid != null">
+      EBAYCATEGORYID = #{ebaycategoryid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebaycategoryname != null">
+      EBAYCATEGORYNAME = #{ebaycategoryname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="templetid != null">
+      TEMPLETID = #{templetid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag != null">
+      FLAG = #{flag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="site != null">
+      SITE = #{site,jdbcType=VARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="categroyid != null">
+      CATEGROYID = #{categroyid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="categroyname != null">
+      CATEGROYNAME = #{categroyname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebaycategoryid != null">
+      EBAYCATEGORYID = #{ebaycategoryid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebaycategoryname != null">
+      EBAYCATEGORYNAME = #{ebaycategoryname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="templetid != null">
+      TEMPLETID = #{templetid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag != null">
+      FLAG = #{flag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="site != null">
+      SITE = #{site,jdbcType=VARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbMatecategory" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="BigDecimal">
+    delete from <include refid="TableName"/> where SID=#{SID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbMatecategory">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbMatecategory">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbMatecategory">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbKdexpresstypeMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbKdexpresstype">
+    <id column="SID" jdbcType="VARCHAR" property="sid" />
+    <result column="ONAME" jdbcType="VARCHAR" property="oname" />
+    <result column="CNAME" jdbcType="VARCHAR" property="cname" />
+    <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="ADDRESS" jdbcType="LONGVARCHAR" property="address" />
+    <result column="TEMPLATE" jdbcType="LONGVARCHAR" property="template" />
+    <result column="RESERVE1" jdbcType="LONGVARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="LONGVARCHAR" property="reserve2" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SID, ONAME, CNAME, OPENFLAG, OPER, ADDRESS, TEMPLATE, RESERVE1, RESERVE2
+    from db_kdexpresstype
+    where SID = #{sid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, ONAME, CNAME, OPENFLAG, OPER, ADDRESS, TEMPLATE, RESERVE1, RESERVE2
+    from db_kdexpresstype
+  </select>
+  <sql id="TableName">
+    db_kdexpresstype
+  </sql>
+  <sql id="Values">
+     #{sid,jdbcType=VARCHAR} , 
+     #{oname,jdbcType=VARCHAR} , 
+     #{cname,jdbcType=VARCHAR} , 
+     #{openflag,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{address,jdbcType=LONGVARCHAR} , 
+     #{template,jdbcType=LONGVARCHAR} , 
+     #{reserve1,jdbcType=LONGVARCHAR} , 
+     #{reserve2,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    SID , 
+    ONAME , 
+    CNAME , 
+    OPENFLAG , 
+    OPER , 
+    ADDRESS , 
+    TEMPLATE , 
+    RESERVE1 , 
+    RESERVE2
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oname != null">
+      ONAME = #{oname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="cname != null">
+      CNAME = #{cname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="address != null">
+      ADDRESS = #{address,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="template != null">
+      TEMPLATE = #{template,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oname != null">
+      ONAME = #{oname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="cname != null">
+      CNAME = #{cname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="address != null">
+      ADDRESS = #{address,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="template != null">
+      TEMPLATE = #{template,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbKdexpresstype" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SID=#{SID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbKdexpresstype">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbKdexpresstype">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbKdexpresstype">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbProjectskuMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbProjectsku">
+    <id column="SEQUENCEID" jdbcType="DECIMAL" property="sequenceid" />
+    <result column="PROJECTID" jdbcType="DECIMAL" property="projectid" />
+    <result column="SKU" jdbcType="VARCHAR" property="sku" />
+    <result column="SKUTYPE" jdbcType="DECIMAL" property="skutype" />
+    <result column="SID" jdbcType="VARCHAR" property="sid" />
+    <result column="CHECKTIME" jdbcType="TIMESTAMP" property="checktime" />
+    <result column="CHECKFLAG" jdbcType="DECIMAL" property="checkflag" />
+    <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="IMGURL" jdbcType="LONGVARCHAR" property="imgurl" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select SEQUENCEID, PROJECTID, SKU, SKUTYPE, SID, CHECKTIME, CHECKFLAG, CREATETIME, 
+    IMGURL
+    from db_projectsku
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, PROJECTID, SKU, SKUTYPE, SID, CHECKTIME, CHECKFLAG, CREATETIME, 
+    IMGURL
+    from db_projectsku
+  </select>
+  <sql id="TableName">
+    db_projectsku
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=DECIMAL} , 
+     #{projectid,jdbcType=DECIMAL} , 
+     #{sku,jdbcType=VARCHAR} , 
+     #{skutype,jdbcType=DECIMAL} , 
+     #{sid,jdbcType=VARCHAR} , 
+     #{checktime,jdbcType=TIMESTAMP} , 
+     #{checkflag,jdbcType=DECIMAL} , 
+     #{createtime,jdbcType=TIMESTAMP} , 
+     #{imgurl,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    PROJECTID , 
+    SKU , 
+    SKUTYPE , 
+    SID , 
+    CHECKTIME , 
+    CHECKFLAG , 
+    CREATETIME , 
+    IMGURL
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="projectid != null">
+      PROJECTID = #{projectid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sku != null">
+      SKU = #{sku,jdbcType=VARCHAR} and 
+    </if>
+    <if test="skutype != null">
+      SKUTYPE = #{skutype,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sid != null">
+      SID = #{sid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="checktime != null">
+      CHECKTIME = #{checktime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="checkflag != null">
+      CHECKFLAG = #{checkflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="createtime != null">
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="imgurl != null">
+      IMGURL = #{imgurl,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="projectid != null">
+      PROJECTID = #{projectid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sku != null">
+      SKU = #{sku,jdbcType=VARCHAR} , 
+    </if>
+    <if test="skutype != null">
+      SKUTYPE = #{skutype,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sid != null">
+      SID = #{sid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="checktime != null">
+      CHECKTIME = #{checktime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="checkflag != null">
+      CHECKFLAG = #{checkflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="createtime != null">
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="imgurl != null">
+      IMGURL = #{imgurl,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbProjectsku" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="BigDecimal">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbProjectsku">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbProjectsku">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbProjectsku">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

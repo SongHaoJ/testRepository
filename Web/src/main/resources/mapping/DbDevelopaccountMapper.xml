@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbDevelopaccountMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbDevelopaccount">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="CLENTID" jdbcType="VARCHAR" property="clentid" />
+    <result column="APPSECRETKEY" jdbcType="VARCHAR" property="appsecretkey" />
+    <result column="OPENFLAG" jdbcType="DECIMAL" property="openflag" />
+    <result column="SHOPIDS" jdbcType="VARCHAR" property="shopids" />
+    <result column="PLATFROM" jdbcType="VARCHAR" property="platfrom" />
+    <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="UPDATETIME" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="DEVID" jdbcType="VARCHAR" property="devid" />
+    <result column="RUNAME" jdbcType="VARCHAR" property="runame" />
+    <result column="URL" jdbcType="LONGVARCHAR" property="url" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select ID, NAME, CLENTID, APPSECRETKEY, OPENFLAG, SHOPIDS, PLATFROM, CREATETIME, 
+    UPDATETIME, DEVID, RUNAME, URL
+    from db_developaccount
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ID, NAME, CLENTID, APPSECRETKEY, OPENFLAG, SHOPIDS, PLATFROM, CREATETIME, 
+    UPDATETIME, DEVID, RUNAME, URL
+    from db_developaccount
+  </select>
+  <sql id="TableName">
+    db_developaccount
+  </sql>
+  <sql id="Values">
+     #{id,jdbcType=DECIMAL} , 
+     #{name,jdbcType=VARCHAR} , 
+     #{clentid,jdbcType=VARCHAR} , 
+     #{appsecretkey,jdbcType=VARCHAR} , 
+     #{openflag,jdbcType=DECIMAL} , 
+     #{shopids,jdbcType=VARCHAR} , 
+     #{platfrom,jdbcType=VARCHAR} , 
+     #{createtime,jdbcType=TIMESTAMP} , 
+     #{updatetime,jdbcType=TIMESTAMP} , 
+     #{devid,jdbcType=VARCHAR} , 
+     #{runame,jdbcType=VARCHAR} , 
+     #{url,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    ID , 
+    NAME , 
+    CLENTID , 
+    APPSECRETKEY , 
+    OPENFLAG , 
+    SHOPIDS , 
+    PLATFROM , 
+    CREATETIME , 
+    UPDATETIME , 
+    DEVID , 
+    RUNAME , 
+    URL
+  </sql>
+  <sql id="Criteria">
+    <if test="id != null">
+      ID = #{id,jdbcType=DECIMAL} and 
+    </if>
+    <if test="name != null">
+      NAME = #{name,jdbcType=VARCHAR} and 
+    </if>
+    <if test="clentid != null">
+      CLENTID = #{clentid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="appsecretkey != null">
+      APPSECRETKEY = #{appsecretkey,jdbcType=VARCHAR} and 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="shopids != null">
+      SHOPIDS = #{shopids,jdbcType=VARCHAR} and 
+    </if>
+    <if test="platfrom != null">
+      PLATFROM = #{platfrom,jdbcType=VARCHAR} and 
+    </if>
+    <if test="createtime != null">
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="updatetime != null">
+      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="devid != null">
+      DEVID = #{devid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="runame != null">
+      RUNAME = #{runame,jdbcType=VARCHAR} and 
+    </if>
+    <if test="url != null">
+      URL = #{url,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="id != null">
+      ID = #{id,jdbcType=DECIMAL} , 
+    </if>
+    <if test="name != null">
+      NAME = #{name,jdbcType=VARCHAR} , 
+    </if>
+    <if test="clentid != null">
+      CLENTID = #{clentid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="appsecretkey != null">
+      APPSECRETKEY = #{appsecretkey,jdbcType=VARCHAR} , 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="shopids != null">
+      SHOPIDS = #{shopids,jdbcType=VARCHAR} , 
+    </if>
+    <if test="platfrom != null">
+      PLATFROM = #{platfrom,jdbcType=VARCHAR} , 
+    </if>
+    <if test="createtime != null">
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="updatetime != null">
+      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="devid != null">
+      DEVID = #{devid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="runame != null">
+      RUNAME = #{runame,jdbcType=VARCHAR} , 
+    </if>
+    <if test="url != null">
+      URL = #{url,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbDevelopaccount" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="Long">
+    delete from <include refid="TableName"/> where ID=#{ID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbDevelopaccount">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbDevelopaccount">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbDevelopaccount">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

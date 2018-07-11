@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbProductTitlelogMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbProductTitlelog">
+    <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
+    <result column="QTY" jdbcType="VARCHAR" property="qty" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="FILED4" jdbcType="DECIMAL" property="filed4" />
+    <result column="FILED5" jdbcType="DECIMAL" property="filed5" />
+    <result column="SID" jdbcType="LONGVARCHAR" property="sid" />
+    <result column="TITLE" jdbcType="LONGVARCHAR" property="title" />
+    <result column="FILED1" jdbcType="LONGVARCHAR" property="filed1" />
+    <result column="FILED2" jdbcType="LONGVARCHAR" property="filed2" />
+    <result column="FILED3" jdbcType="LONGVARCHAR" property="filed3" />
+    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SEQUENCEID, QTY, OPER, OPERTIME, FILED4, FILED5, SID, TITLE, FILED1, FILED2, 
+    FILED3, DESCR
+    from db_product_titlelog
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, QTY, OPER, OPERTIME, FILED4, FILED5, SID, TITLE, FILED1, FILED2, 
+    FILED3, DESCR
+    from db_product_titlelog
+  </select>
+  <sql id="TableName">
+    db_product_titlelog
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=VARCHAR} , 
+     #{qty,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{filed4,jdbcType=DECIMAL} , 
+     #{filed5,jdbcType=DECIMAL} , 
+     #{sid,jdbcType=LONGVARCHAR} , 
+     #{title,jdbcType=LONGVARCHAR} , 
+     #{filed1,jdbcType=LONGVARCHAR} , 
+     #{filed2,jdbcType=LONGVARCHAR} , 
+     #{filed3,jdbcType=LONGVARCHAR} , 
+     #{descr,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    QTY , 
+    OPER , 
+    OPERTIME , 
+    FILED4 , 
+    FILED5 , 
+    SID , 
+    TITLE , 
+    FILED1 , 
+    FILED2 , 
+    FILED3 , 
+    DESCR
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="qty != null">
+      QTY = #{qty,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="filed4 != null">
+      FILED4 = #{filed4,jdbcType=DECIMAL} and 
+    </if>
+    <if test="filed5 != null">
+      FILED5 = #{filed5,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sid != null">
+      SID = #{sid,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="title != null">
+      TITLE = #{title,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="filed1 != null">
+      FILED1 = #{filed1,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="filed2 != null">
+      FILED2 = #{filed2,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="filed3 != null">
+      FILED3 = #{filed3,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="descr != null">
+      DESCR = #{descr,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="qty != null">
+      QTY = #{qty,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="filed4 != null">
+      FILED4 = #{filed4,jdbcType=DECIMAL} , 
+    </if>
+    <if test="filed5 != null">
+      FILED5 = #{filed5,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sid != null">
+      SID = #{sid,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="title != null">
+      TITLE = #{title,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="filed1 != null">
+      FILED1 = #{filed1,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="filed2 != null">
+      FILED2 = #{filed2,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="filed3 != null">
+      FILED3 = #{filed3,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="descr != null">
+      DESCR = #{descr,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbProductTitlelog" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbProductTitlelog">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbProductTitlelog">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbProductTitlelog">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

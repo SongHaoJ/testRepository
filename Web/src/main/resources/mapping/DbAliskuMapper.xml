@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbAliskuMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbAlisku">
+    <id column="SKUID" jdbcType="VARCHAR" property="skuid" />
+    <result column="SPUID" jdbcType="VARCHAR" property="spuid" />
+    <result column="SELLERID" jdbcType="VARCHAR" property="sellerid" />
+    <result column="MABANGSKU" jdbcType="VARCHAR" property="mabangsku" />
+    <result column="ALISKU" jdbcType="VARCHAR" property="alisku" />
+    <result column="IMGURL" jdbcType="LONGVARCHAR" property="imgurl" />
+    <result column="NAME" jdbcType="LONGVARCHAR" property="name" />
+    <result column="PRODUCTLINK" jdbcType="LONGVARCHAR" property="productlink" />
+    <result column="SKUINFO" jdbcType="LONGVARCHAR" property="skuinfo" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SKUID, SPUID, SELLERID, MABANGSKU, ALISKU, IMGURL, NAME, PRODUCTLINK, SKUINFO
+    from db_alisku
+    where SKUID = #{skuid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SKUID, SPUID, SELLERID, MABANGSKU, ALISKU, IMGURL, NAME, PRODUCTLINK, SKUINFO
+    from db_alisku
+  </select>
+  <sql id="TableName">
+    db_alisku
+  </sql>
+  <sql id="Values">
+     #{skuid,jdbcType=VARCHAR} , 
+     #{spuid,jdbcType=VARCHAR} , 
+     #{sellerid,jdbcType=VARCHAR} , 
+     #{mabangsku,jdbcType=VARCHAR} , 
+     #{alisku,jdbcType=VARCHAR} , 
+     #{imgurl,jdbcType=LONGVARCHAR} , 
+     #{name,jdbcType=LONGVARCHAR} , 
+     #{productlink,jdbcType=LONGVARCHAR} , 
+     #{skuinfo,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    SKUID , 
+    SPUID , 
+    SELLERID , 
+    MABANGSKU , 
+    ALISKU , 
+    IMGURL , 
+    NAME , 
+    PRODUCTLINK , 
+    SKUINFO
+  </sql>
+  <sql id="Criteria">
+    <if test="skuid != null">
+      SKUID = #{skuid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="spuid != null">
+      SPUID = #{spuid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sellerid != null">
+      SELLERID = #{sellerid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="mabangsku != null">
+      MABANGSKU = #{mabangsku,jdbcType=VARCHAR} and 
+    </if>
+    <if test="alisku != null">
+      ALISKU = #{alisku,jdbcType=VARCHAR} and 
+    </if>
+    <if test="imgurl != null">
+      IMGURL = #{imgurl,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="name != null">
+      NAME = #{name,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="productlink != null">
+      PRODUCTLINK = #{productlink,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="skuinfo != null">
+      SKUINFO = #{skuinfo,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="skuid != null">
+      SKUID = #{skuid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="spuid != null">
+      SPUID = #{spuid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sellerid != null">
+      SELLERID = #{sellerid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="mabangsku != null">
+      MABANGSKU = #{mabangsku,jdbcType=VARCHAR} , 
+    </if>
+    <if test="alisku != null">
+      ALISKU = #{alisku,jdbcType=VARCHAR} , 
+    </if>
+    <if test="imgurl != null">
+      IMGURL = #{imgurl,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="name != null">
+      NAME = #{name,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="productlink != null">
+      PRODUCTLINK = #{productlink,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="skuinfo != null">
+      SKUINFO = #{skuinfo,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbAlisku" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SKUID=#{SKUID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbAlisku">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbAlisku">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbAlisku">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

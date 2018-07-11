@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbProductdevelopgroupidMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbProductdevelopgroupid">
+    <id column="GROUPID" jdbcType="VARCHAR" property="groupid" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="NUM" jdbcType="DECIMAL" property="num" />
+    <result column="APPLYOPER" jdbcType="VARCHAR" property="applyoper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select GROUPID, OPER, NUM, APPLYOPER, OPERTIME
+    from db_productdevelopgroupid
+    where GROUPID = #{groupid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select GROUPID, OPER, NUM, APPLYOPER, OPERTIME
+    from db_productdevelopgroupid
+  </select>
+  <sql id="TableName">
+    db_productdevelopgroupid
+  </sql>
+  <sql id="Values">
+     #{groupid,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{num,jdbcType=DECIMAL} , 
+     #{applyoper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP}
+  </sql>
+  <sql id="Columns">
+    GROUPID , 
+    OPER , 
+    NUM , 
+    APPLYOPER , 
+    OPERTIME
+  </sql>
+  <sql id="Criteria">
+    <if test="groupid != null">
+      GROUPID = #{groupid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="num != null">
+      NUM = #{num,jdbcType=DECIMAL} and 
+    </if>
+    <if test="applyoper != null">
+      APPLYOPER = #{applyoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="groupid != null">
+      GROUPID = #{groupid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="num != null">
+      NUM = #{num,jdbcType=DECIMAL} , 
+    </if>
+    <if test="applyoper != null">
+      APPLYOPER = #{applyoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbProductdevelopgroupid" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where GROUPID=#{GROUPID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbProductdevelopgroupid">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbProductdevelopgroupid">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbProductdevelopgroupid">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

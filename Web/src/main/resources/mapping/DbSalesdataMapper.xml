@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbSalesdataMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbSalesdata">
+    <id column="SID" jdbcType="DECIMAL" property="sid" />
+    <result column="EBAYITEMID" jdbcType="VARCHAR" property="ebayitemid" />
+    <result column="EBAYSKU" jdbcType="VARCHAR" property="ebaysku" />
+    <result column="EBAYCATEGORYID" jdbcType="VARCHAR" property="ebaycategoryid" />
+    <result column="EBAYCATEGORYNAME" jdbcType="VARCHAR" property="ebaycategoryname" />
+    <result column="EBAYUSERID" jdbcType="VARCHAR" property="ebayuserid" />
+    <result column="EBAYSHOPID" jdbcType="VARCHAR" property="ebayshopid" />
+    <result column="HITCOUNT" jdbcType="DECIMAL" property="hitcount" />
+    <result column="EBAYSTARTTIMESTR" jdbcType="VARCHAR" property="ebaystarttimestr" />
+    <result column="NUMODA" jdbcType="VARCHAR" property="numoda" />
+    <result column="EBAYMONEYTYPE" jdbcType="VARCHAR" property="ebaymoneytype" />
+    <result column="EBAYBUYITNEWPRICE" jdbcType="DECIMAL" property="ebaybuyitnewprice" />
+    <result column="SELLOPER" jdbcType="VARCHAR" property="selloper" />
+    <result column="QUANTITYSOLD1" jdbcType="DECIMAL" property="quantitysold1" />
+    <result column="QUANTITYSOLD7" jdbcType="DECIMAL" property="quantitysold7" />
+    <result column="QUANTITYSOLD14" jdbcType="DECIMAL" property="quantitysold14" />
+    <result column="QUANTITYSOLD21" jdbcType="DECIMAL" property="quantitysold21" />
+    <result column="QUANTITYSOLD28" jdbcType="DECIMAL" property="quantitysold28" />
+    <result column="QUANTITYSOLD56" jdbcType="DECIMAL" property="quantitysold56" />
+    <result column="QUANTITYSOLD" jdbcType="DECIMAL" property="quantitysold" />
+    <result column="QUANTITYSOLDAVG" jdbcType="DECIMAL" property="quantitysoldavg" />
+    <result column="HITCOUNT1" jdbcType="DECIMAL" property="hitcount1" />
+    <result column="HITCOUNT7" jdbcType="DECIMAL" property="hitcount7" />
+    <result column="HITCOUNT14" jdbcType="DECIMAL" property="hitcount14" />
+    <result column="HITCOUNT21" jdbcType="DECIMAL" property="hitcount21" />
+    <result column="HITCOUNT28" jdbcType="DECIMAL" property="hitcount28" />
+    <result column="HITCOUNT56" jdbcType="DECIMAL" property="hitcount56" />
+    <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="FLAG" jdbcType="DECIMAL" property="flag" />
+    <result column="EBAYTITLE" jdbcType="LONGVARCHAR" property="ebaytitle" />
+    <result column="EBAYSHOPNAME" jdbcType="LONGVARCHAR" property="ebayshopname" />
+    <result column="EBAYLOCATION" jdbcType="LONGVARCHAR" property="ebaylocation" />
+    <result column="EBAYGALLERYURL" jdbcType="LONGVARCHAR" property="ebaygalleryurl" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select SID, EBAYITEMID, EBAYSKU, EBAYCATEGORYID, EBAYCATEGORYNAME, EBAYUSERID, EBAYSHOPID, 
+    HITCOUNT, EBAYSTARTTIMESTR, NUMODA, EBAYMONEYTYPE, EBAYBUYITNEWPRICE, SELLOPER, QUANTITYSOLD1, 
+    QUANTITYSOLD7, QUANTITYSOLD14, QUANTITYSOLD21, QUANTITYSOLD28, QUANTITYSOLD56, QUANTITYSOLD, 
+    QUANTITYSOLDAVG, HITCOUNT1, HITCOUNT7, HITCOUNT14, HITCOUNT21, HITCOUNT28, HITCOUNT56, 
+    CORPID, OPER, OPERTIME, CREATETIME, FLAG, EBAYTITLE, EBAYSHOPNAME, EBAYLOCATION, 
+    EBAYGALLERYURL
+    from db_salesdata
+    where SID = #{sid,jdbcType=DECIMAL}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, EBAYITEMID, EBAYSKU, EBAYCATEGORYID, EBAYCATEGORYNAME, EBAYUSERID, EBAYSHOPID, 
+    HITCOUNT, EBAYSTARTTIMESTR, NUMODA, EBAYMONEYTYPE, EBAYBUYITNEWPRICE, SELLOPER, QUANTITYSOLD1, 
+    QUANTITYSOLD7, QUANTITYSOLD14, QUANTITYSOLD21, QUANTITYSOLD28, QUANTITYSOLD56, QUANTITYSOLD, 
+    QUANTITYSOLDAVG, HITCOUNT1, HITCOUNT7, HITCOUNT14, HITCOUNT21, HITCOUNT28, HITCOUNT56, 
+    CORPID, OPER, OPERTIME, CREATETIME, FLAG, EBAYTITLE, EBAYSHOPNAME, EBAYLOCATION, 
+    EBAYGALLERYURL
+    from db_salesdata
+  </select>
+  <sql id="TableName">
+    db_salesdata
+  </sql>
+  <sql id="Values">
+     #{sid,jdbcType=DECIMAL} , 
+     #{ebayitemid,jdbcType=VARCHAR} , 
+     #{ebaysku,jdbcType=VARCHAR} , 
+     #{ebaycategoryid,jdbcType=VARCHAR} , 
+     #{ebaycategoryname,jdbcType=VARCHAR} , 
+     #{ebayuserid,jdbcType=VARCHAR} , 
+     #{ebayshopid,jdbcType=VARCHAR} , 
+     #{hitcount,jdbcType=DECIMAL} , 
+     #{ebaystarttimestr,jdbcType=VARCHAR} , 
+     #{numoda,jdbcType=VARCHAR} , 
+     #{ebaymoneytype,jdbcType=VARCHAR} , 
+     #{ebaybuyitnewprice,jdbcType=DECIMAL} , 
+     #{selloper,jdbcType=VARCHAR} , 
+     #{quantitysold1,jdbcType=DECIMAL} , 
+     #{quantitysold7,jdbcType=DECIMAL} , 
+     #{quantitysold14,jdbcType=DECIMAL} , 
+     #{quantitysold21,jdbcType=DECIMAL} , 
+     #{quantitysold28,jdbcType=DECIMAL} , 
+     #{quantitysold56,jdbcType=DECIMAL} , 
+     #{quantitysold,jdbcType=DECIMAL} , 
+     #{quantitysoldavg,jdbcType=DECIMAL} , 
+     #{hitcount1,jdbcType=DECIMAL} , 
+     #{hitcount7,jdbcType=DECIMAL} , 
+     #{hitcount14,jdbcType=DECIMAL} , 
+     #{hitcount21,jdbcType=DECIMAL} , 
+     #{hitcount28,jdbcType=DECIMAL} , 
+     #{hitcount56,jdbcType=DECIMAL} , 
+     #{corpid,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{createtime,jdbcType=TIMESTAMP} , 
+     #{flag,jdbcType=DECIMAL} , 
+     #{ebaytitle,jdbcType=LONGVARCHAR} , 
+     #{ebayshopname,jdbcType=LONGVARCHAR} , 
+     #{ebaylocation,jdbcType=LONGVARCHAR} , 
+     #{ebaygalleryurl,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    SID , 
+    EBAYITEMID , 
+    EBAYSKU , 
+    EBAYCATEGORYID , 
+    EBAYCATEGORYNAME , 
+    EBAYUSERID , 
+    EBAYSHOPID , 
+    HITCOUNT , 
+    EBAYSTARTTIMESTR , 
+    NUMODA , 
+    EBAYMONEYTYPE , 
+    EBAYBUYITNEWPRICE , 
+    SELLOPER , 
+    QUANTITYSOLD1 , 
+    QUANTITYSOLD7 , 
+    QUANTITYSOLD14 , 
+    QUANTITYSOLD21 , 
+    QUANTITYSOLD28 , 
+    QUANTITYSOLD56 , 
+    QUANTITYSOLD , 
+    QUANTITYSOLDAVG , 
+    HITCOUNT1 , 
+    HITCOUNT7 , 
+    HITCOUNT14 , 
+    HITCOUNT21 , 
+    HITCOUNT28 , 
+    HITCOUNT56 , 
+    CORPID , 
+    OPER , 
+    OPERTIME , 
+    CREATETIME , 
+    FLAG , 
+    EBAYTITLE , 
+    EBAYSHOPNAME , 
+    EBAYLOCATION , 
+    EBAYGALLERYURL
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="ebayitemid != null">
+      EBAYITEMID = #{ebayitemid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebaysku != null">
+      EBAYSKU = #{ebaysku,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebaycategoryid != null">
+      EBAYCATEGORYID = #{ebaycategoryid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebaycategoryname != null">
+      EBAYCATEGORYNAME = #{ebaycategoryname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebayuserid != null">
+      EBAYUSERID = #{ebayuserid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebayshopid != null">
+      EBAYSHOPID = #{ebayshopid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="hitcount != null">
+      HITCOUNT = #{hitcount,jdbcType=DECIMAL} and 
+    </if>
+    <if test="ebaystarttimestr != null">
+      EBAYSTARTTIMESTR = #{ebaystarttimestr,jdbcType=VARCHAR} and 
+    </if>
+    <if test="numoda != null">
+      NUMODA = #{numoda,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebaymoneytype != null">
+      EBAYMONEYTYPE = #{ebaymoneytype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebaybuyitnewprice != null">
+      EBAYBUYITNEWPRICE = #{ebaybuyitnewprice,jdbcType=DECIMAL} and 
+    </if>
+    <if test="selloper != null">
+      SELLOPER = #{selloper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="quantitysold1 != null">
+      QUANTITYSOLD1 = #{quantitysold1,jdbcType=DECIMAL} and 
+    </if>
+    <if test="quantitysold7 != null">
+      QUANTITYSOLD7 = #{quantitysold7,jdbcType=DECIMAL} and 
+    </if>
+    <if test="quantitysold14 != null">
+      QUANTITYSOLD14 = #{quantitysold14,jdbcType=DECIMAL} and 
+    </if>
+    <if test="quantitysold21 != null">
+      QUANTITYSOLD21 = #{quantitysold21,jdbcType=DECIMAL} and 
+    </if>
+    <if test="quantitysold28 != null">
+      QUANTITYSOLD28 = #{quantitysold28,jdbcType=DECIMAL} and 
+    </if>
+    <if test="quantitysold56 != null">
+      QUANTITYSOLD56 = #{quantitysold56,jdbcType=DECIMAL} and 
+    </if>
+    <if test="quantitysold != null">
+      QUANTITYSOLD = #{quantitysold,jdbcType=DECIMAL} and 
+    </if>
+    <if test="quantitysoldavg != null">
+      QUANTITYSOLDAVG = #{quantitysoldavg,jdbcType=DECIMAL} and 
+    </if>
+    <if test="hitcount1 != null">
+      HITCOUNT1 = #{hitcount1,jdbcType=DECIMAL} and 
+    </if>
+    <if test="hitcount7 != null">
+      HITCOUNT7 = #{hitcount7,jdbcType=DECIMAL} and 
+    </if>
+    <if test="hitcount14 != null">
+      HITCOUNT14 = #{hitcount14,jdbcType=DECIMAL} and 
+    </if>
+    <if test="hitcount21 != null">
+      HITCOUNT21 = #{hitcount21,jdbcType=DECIMAL} and 
+    </if>
+    <if test="hitcount28 != null">
+      HITCOUNT28 = #{hitcount28,jdbcType=DECIMAL} and 
+    </if>
+    <if test="hitcount56 != null">
+      HITCOUNT56 = #{hitcount56,jdbcType=DECIMAL} and 
+    </if>
+    <if test="corpid != null">
+      CORPID = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="createtime != null">
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="flag != null">
+      FLAG = #{flag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="ebaytitle != null">
+      EBAYTITLE = #{ebaytitle,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="ebayshopname != null">
+      EBAYSHOPNAME = #{ebayshopname,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="ebaylocation != null">
+      EBAYLOCATION = #{ebaylocation,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="ebaygalleryurl != null">
+      EBAYGALLERYURL = #{ebaygalleryurl,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="ebayitemid != null">
+      EBAYITEMID = #{ebayitemid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebaysku != null">
+      EBAYSKU = #{ebaysku,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebaycategoryid != null">
+      EBAYCATEGORYID = #{ebaycategoryid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebaycategoryname != null">
+      EBAYCATEGORYNAME = #{ebaycategoryname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebayuserid != null">
+      EBAYUSERID = #{ebayuserid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebayshopid != null">
+      EBAYSHOPID = #{ebayshopid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="hitcount != null">
+      HITCOUNT = #{hitcount,jdbcType=DECIMAL} , 
+    </if>
+    <if test="ebaystarttimestr != null">
+      EBAYSTARTTIMESTR = #{ebaystarttimestr,jdbcType=VARCHAR} , 
+    </if>
+    <if test="numoda != null">
+      NUMODA = #{numoda,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebaymoneytype != null">
+      EBAYMONEYTYPE = #{ebaymoneytype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebaybuyitnewprice != null">
+      EBAYBUYITNEWPRICE = #{ebaybuyitnewprice,jdbcType=DECIMAL} , 
+    </if>
+    <if test="selloper != null">
+      SELLOPER = #{selloper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="quantitysold1 != null">
+      QUANTITYSOLD1 = #{quantitysold1,jdbcType=DECIMAL} , 
+    </if>
+    <if test="quantitysold7 != null">
+      QUANTITYSOLD7 = #{quantitysold7,jdbcType=DECIMAL} , 
+    </if>
+    <if test="quantitysold14 != null">
+      QUANTITYSOLD14 = #{quantitysold14,jdbcType=DECIMAL} , 
+    </if>
+    <if test="quantitysold21 != null">
+      QUANTITYSOLD21 = #{quantitysold21,jdbcType=DECIMAL} , 
+    </if>
+    <if test="quantitysold28 != null">
+      QUANTITYSOLD28 = #{quantitysold28,jdbcType=DECIMAL} , 
+    </if>
+    <if test="quantitysold56 != null">
+      QUANTITYSOLD56 = #{quantitysold56,jdbcType=DECIMAL} , 
+    </if>
+    <if test="quantitysold != null">
+      QUANTITYSOLD = #{quantitysold,jdbcType=DECIMAL} , 
+    </if>
+    <if test="quantitysoldavg != null">
+      QUANTITYSOLDAVG = #{quantitysoldavg,jdbcType=DECIMAL} , 
+    </if>
+    <if test="hitcount1 != null">
+      HITCOUNT1 = #{hitcount1,jdbcType=DECIMAL} , 
+    </if>
+    <if test="hitcount7 != null">
+      HITCOUNT7 = #{hitcount7,jdbcType=DECIMAL} , 
+    </if>
+    <if test="hitcount14 != null">
+      HITCOUNT14 = #{hitcount14,jdbcType=DECIMAL} , 
+    </if>
+    <if test="hitcount21 != null">
+      HITCOUNT21 = #{hitcount21,jdbcType=DECIMAL} , 
+    </if>
+    <if test="hitcount28 != null">
+      HITCOUNT28 = #{hitcount28,jdbcType=DECIMAL} , 
+    </if>
+    <if test="hitcount56 != null">
+      HITCOUNT56 = #{hitcount56,jdbcType=DECIMAL} , 
+    </if>
+    <if test="corpid != null">
+      CORPID = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="createtime != null">
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="flag != null">
+      FLAG = #{flag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="ebaytitle != null">
+      EBAYTITLE = #{ebaytitle,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="ebayshopname != null">
+      EBAYSHOPNAME = #{ebayshopname,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="ebaylocation != null">
+      EBAYLOCATION = #{ebaylocation,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="ebaygalleryurl != null">
+      EBAYGALLERYURL = #{ebaygalleryurl,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbSalesdata" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="BigDecimal">
+    delete from <include refid="TableName"/> where SID=#{SID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbSalesdata">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbSalesdata">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbSalesdata">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

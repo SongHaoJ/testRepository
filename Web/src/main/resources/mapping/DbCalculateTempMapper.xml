@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbCalculateTempMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbCalculateTemp">
+    <id column="SID" jdbcType="VARCHAR" property="sid" />
+    <result column="EBAYITEMID" jdbcType="VARCHAR" property="ebayitemid" />
+    <result column="EBAYQUANTITY" jdbcType="DECIMAL" property="ebayquantity" />
+    <result column="EBAYHITCOUNT" jdbcType="DECIMAL" property="ebayhitcount" />
+    <result column="UPDATETIME1" jdbcType="VARCHAR" property="updatetime1" />
+    <result column="UPDATETIME" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="CALCULATEFLAG" jdbcType="VARCHAR" property="calculateflag" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SID, EBAYITEMID, EBAYQUANTITY, EBAYHITCOUNT, UPDATETIME1, UPDATETIME, CALCULATEFLAG
+    from db_calculate_temp
+    where SID = #{sid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, EBAYITEMID, EBAYQUANTITY, EBAYHITCOUNT, UPDATETIME1, UPDATETIME, CALCULATEFLAG
+    from db_calculate_temp
+  </select>
+  <sql id="TableName">
+    db_calculate_temp
+  </sql>
+  <sql id="Values">
+     #{sid,jdbcType=VARCHAR} , 
+     #{ebayitemid,jdbcType=VARCHAR} , 
+     #{ebayquantity,jdbcType=DECIMAL} , 
+     #{ebayhitcount,jdbcType=DECIMAL} , 
+     #{updatetime1,jdbcType=VARCHAR} , 
+     #{updatetime,jdbcType=TIMESTAMP} , 
+     #{calculateflag,jdbcType=VARCHAR}
+  </sql>
+  <sql id="Columns">
+    SID , 
+    EBAYITEMID , 
+    EBAYQUANTITY , 
+    EBAYHITCOUNT , 
+    UPDATETIME1 , 
+    UPDATETIME , 
+    CALCULATEFLAG
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebayitemid != null">
+      EBAYITEMID = #{ebayitemid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebayquantity != null">
+      EBAYQUANTITY = #{ebayquantity,jdbcType=DECIMAL} and 
+    </if>
+    <if test="ebayhitcount != null">
+      EBAYHITCOUNT = #{ebayhitcount,jdbcType=DECIMAL} and 
+    </if>
+    <if test="updatetime1 != null">
+      UPDATETIME1 = #{updatetime1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="updatetime != null">
+      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="calculateflag != null">
+      CALCULATEFLAG = #{calculateflag,jdbcType=VARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebayitemid != null">
+      EBAYITEMID = #{ebayitemid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebayquantity != null">
+      EBAYQUANTITY = #{ebayquantity,jdbcType=DECIMAL} , 
+    </if>
+    <if test="ebayhitcount != null">
+      EBAYHITCOUNT = #{ebayhitcount,jdbcType=DECIMAL} , 
+    </if>
+    <if test="updatetime1 != null">
+      UPDATETIME1 = #{updatetime1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="updatetime != null">
+      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="calculateflag != null">
+      CALCULATEFLAG = #{calculateflag,jdbcType=VARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbCalculateTemp" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SID=#{SID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbCalculateTemp">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbCalculateTemp">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbCalculateTemp">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbExpstoreitemMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbExpstoreitem">
+    <id column="SEQUENCEID" jdbcType="DECIMAL" property="sequenceid" />
+    <result column="EXPSTOREID" jdbcType="DECIMAL" property="expstoreid" />
+    <result column="SKU" jdbcType="VARCHAR" property="sku" />
+    <result column="ORDERNUM" jdbcType="DECIMAL" property="ordernum" />
+    <result column="PRICE" jdbcType="DECIMAL" property="price" />
+    <result column="SAVELOG" jdbcType="LONGVARCHAR" property="savelog" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select SEQUENCEID, EXPSTOREID, SKU, ORDERNUM, PRICE, SAVELOG
+    from db_expstoreitem
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, EXPSTOREID, SKU, ORDERNUM, PRICE, SAVELOG
+    from db_expstoreitem
+  </select>
+  <sql id="TableName">
+    db_expstoreitem
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=DECIMAL} , 
+     #{expstoreid,jdbcType=DECIMAL} , 
+     #{sku,jdbcType=VARCHAR} , 
+     #{ordernum,jdbcType=DECIMAL} , 
+     #{price,jdbcType=DECIMAL} , 
+     #{savelog,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    EXPSTOREID , 
+    SKU , 
+    ORDERNUM , 
+    PRICE , 
+    SAVELOG
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="expstoreid != null">
+      EXPSTOREID = #{expstoreid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sku != null">
+      SKU = #{sku,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ordernum != null">
+      ORDERNUM = #{ordernum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="price != null">
+      PRICE = #{price,jdbcType=DECIMAL} and 
+    </if>
+    <if test="savelog != null">
+      SAVELOG = #{savelog,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="expstoreid != null">
+      EXPSTOREID = #{expstoreid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sku != null">
+      SKU = #{sku,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ordernum != null">
+      ORDERNUM = #{ordernum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="price != null">
+      PRICE = #{price,jdbcType=DECIMAL} , 
+    </if>
+    <if test="savelog != null">
+      SAVELOG = #{savelog,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbExpstoreitem" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="BigDecimal">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbExpstoreitem">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbExpstoreitem">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbExpstoreitem">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

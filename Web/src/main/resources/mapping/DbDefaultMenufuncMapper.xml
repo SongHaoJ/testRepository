@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbDefaultMenufuncMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbDefaultMenufunc">
+    <id column="CLASSID" jdbcType="VARCHAR" property="classid" />
+    <id column="FUNID" jdbcType="VARCHAR" property="funid" />
+  </resultMap>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select CLASSID, FUNID
+    from db_default_menufunc
+  </select>
+  <sql id="TableName">
+    db_default_menufunc
+  </sql>
+  <sql id="Values">
+     #{classid,jdbcType=VARCHAR} , 
+     #{funid,jdbcType=VARCHAR}
+  </sql>
+  <sql id="Columns">
+    CLASSID , 
+    FUNID
+  </sql>
+  <sql id="Criteria">
+    <if test="classid != null">
+      CLASSID = #{classid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="funid != null">
+      FUNID = #{funid,jdbcType=VARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="classid != null">
+      CLASSID = #{classid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="funid != null">
+      FUNID = #{funid,jdbcType=VARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbDefaultMenufunc" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where CLASSID=#{CLASSID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbDefaultMenufunc">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbDefaultMenufunc">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbDefaultMenufunc">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

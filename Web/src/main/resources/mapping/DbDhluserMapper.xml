@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbDhluserMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbDhluser">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="PHONENUMBER" jdbcType="VARCHAR" property="phonenumber" />
+    <result column="SHIPPINGPAYMENTTYPE" jdbcType="VARCHAR" property="shippingpaymenttype" />
+    <result column="COMPANYNAME" jdbcType="VARCHAR" property="companyname" />
+    <result column="PERSONNAME" jdbcType="VARCHAR" property="personname" />
+    <result column="SITEID" jdbcType="VARCHAR" property="siteid" />
+    <result column="COUNTRYCODE" jdbcType="VARCHAR" property="countrycode" />
+    <result column="FEDERALTAXID" jdbcType="VARCHAR" property="federaltaxid" />
+    <result column="OPERFLAG" jdbcType="DECIMAL" property="operflag" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="COUNTRYNAME" jdbcType="VARCHAR" property="countryname" />
+    <result column="LANGUAGECODE" jdbcType="VARCHAR" property="languagecode" />
+    <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
+    <result column="DUTYPAYMENTTYPE" jdbcType="VARCHAR" property="dutypaymenttype" />
+    <result column="ADDRESSLINE" jdbcType="LONGVARCHAR" property="addressline" />
+    <result column="POSTALCODE" jdbcType="LONGVARCHAR" property="postalcode" />
+    <result column="SHIPPERACCOUNTNUMBER" jdbcType="LONGVARCHAR" property="shipperaccountnumber" />
+    <result column="CITY" jdbcType="LONGVARCHAR" property="city" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select ID, OPER, PHONENUMBER, SHIPPINGPAYMENTTYPE, COMPANYNAME, PERSONNAME, SITEID, 
+    COUNTRYCODE, FEDERALTAXID, OPERFLAG, OPERTIME, COUNTRYNAME, LANGUAGECODE, PASSWORD, 
+    DUTYPAYMENTTYPE, ADDRESSLINE, POSTALCODE, SHIPPERACCOUNTNUMBER, CITY
+    from db_dhluser
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ID, OPER, PHONENUMBER, SHIPPINGPAYMENTTYPE, COMPANYNAME, PERSONNAME, SITEID, 
+    COUNTRYCODE, FEDERALTAXID, OPERFLAG, OPERTIME, COUNTRYNAME, LANGUAGECODE, PASSWORD, 
+    DUTYPAYMENTTYPE, ADDRESSLINE, POSTALCODE, SHIPPERACCOUNTNUMBER, CITY
+    from db_dhluser
+  </select>
+  <sql id="TableName">
+    db_dhluser
+  </sql>
+  <sql id="Values">
+     #{id,jdbcType=DECIMAL} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{phonenumber,jdbcType=VARCHAR} , 
+     #{shippingpaymenttype,jdbcType=VARCHAR} , 
+     #{companyname,jdbcType=VARCHAR} , 
+     #{personname,jdbcType=VARCHAR} , 
+     #{siteid,jdbcType=VARCHAR} , 
+     #{countrycode,jdbcType=VARCHAR} , 
+     #{federaltaxid,jdbcType=VARCHAR} , 
+     #{operflag,jdbcType=DECIMAL} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{countryname,jdbcType=VARCHAR} , 
+     #{languagecode,jdbcType=VARCHAR} , 
+     #{password,jdbcType=VARCHAR} , 
+     #{dutypaymenttype,jdbcType=VARCHAR} , 
+     #{addressline,jdbcType=LONGVARCHAR} , 
+     #{postalcode,jdbcType=LONGVARCHAR} , 
+     #{shipperaccountnumber,jdbcType=LONGVARCHAR} , 
+     #{city,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    ID , 
+    OPER , 
+    PHONENUMBER , 
+    SHIPPINGPAYMENTTYPE , 
+    COMPANYNAME , 
+    PERSONNAME , 
+    SITEID , 
+    COUNTRYCODE , 
+    FEDERALTAXID , 
+    OPERFLAG , 
+    OPERTIME , 
+    COUNTRYNAME , 
+    LANGUAGECODE , 
+    PASSWORD , 
+    DUTYPAYMENTTYPE , 
+    ADDRESSLINE , 
+    POSTALCODE , 
+    SHIPPERACCOUNTNUMBER , 
+    CITY
+  </sql>
+  <sql id="Criteria">
+    <if test="id != null">
+      ID = #{id,jdbcType=DECIMAL} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="phonenumber != null">
+      PHONENUMBER = #{phonenumber,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shippingpaymenttype != null">
+      SHIPPINGPAYMENTTYPE = #{shippingpaymenttype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="companyname != null">
+      COMPANYNAME = #{companyname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="personname != null">
+      PERSONNAME = #{personname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="siteid != null">
+      SITEID = #{siteid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="countrycode != null">
+      COUNTRYCODE = #{countrycode,jdbcType=VARCHAR} and 
+    </if>
+    <if test="federaltaxid != null">
+      FEDERALTAXID = #{federaltaxid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="operflag != null">
+      OPERFLAG = #{operflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="countryname != null">
+      COUNTRYNAME = #{countryname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="languagecode != null">
+      LANGUAGECODE = #{languagecode,jdbcType=VARCHAR} and 
+    </if>
+    <if test="password != null">
+      PASSWORD = #{password,jdbcType=VARCHAR} and 
+    </if>
+    <if test="dutypaymenttype != null">
+      DUTYPAYMENTTYPE = #{dutypaymenttype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="addressline != null">
+      ADDRESSLINE = #{addressline,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="postalcode != null">
+      POSTALCODE = #{postalcode,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="shipperaccountnumber != null">
+      SHIPPERACCOUNTNUMBER = #{shipperaccountnumber,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="city != null">
+      CITY = #{city,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="id != null">
+      ID = #{id,jdbcType=DECIMAL} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="phonenumber != null">
+      PHONENUMBER = #{phonenumber,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shippingpaymenttype != null">
+      SHIPPINGPAYMENTTYPE = #{shippingpaymenttype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="companyname != null">
+      COMPANYNAME = #{companyname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="personname != null">
+      PERSONNAME = #{personname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="siteid != null">
+      SITEID = #{siteid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="countrycode != null">
+      COUNTRYCODE = #{countrycode,jdbcType=VARCHAR} , 
+    </if>
+    <if test="federaltaxid != null">
+      FEDERALTAXID = #{federaltaxid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="operflag != null">
+      OPERFLAG = #{operflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="countryname != null">
+      COUNTRYNAME = #{countryname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="languagecode != null">
+      LANGUAGECODE = #{languagecode,jdbcType=VARCHAR} , 
+    </if>
+    <if test="password != null">
+      PASSWORD = #{password,jdbcType=VARCHAR} , 
+    </if>
+    <if test="dutypaymenttype != null">
+      DUTYPAYMENTTYPE = #{dutypaymenttype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="addressline != null">
+      ADDRESSLINE = #{addressline,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="postalcode != null">
+      POSTALCODE = #{postalcode,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="shipperaccountnumber != null">
+      SHIPPERACCOUNTNUMBER = #{shipperaccountnumber,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="city != null">
+      CITY = #{city,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbDhluser" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="BigDecimal">
+    delete from <include refid="TableName"/> where ID=#{ID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbDhluser">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbDhluser">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbDhluser">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbTestpaypalMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbTestpaypal">
+    <id column="SID" jdbcType="VARCHAR" property="sid" />
+    <result column="FLAG" jdbcType="DECIMAL" property="flag" />
+    <result column="TOTALMONEY" jdbcType="DECIMAL" property="totalmoney" />
+    <result column="REFUNDMONEY" jdbcType="DECIMAL" property="refundmoney" />
+    <result column="FEEMONEY" jdbcType="DECIMAL" property="feemoney" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SID, FLAG, TOTALMONEY, REFUNDMONEY, FEEMONEY, OPERTIME, STATUS
+    from db_testpaypal
+    where SID = #{sid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, FLAG, TOTALMONEY, REFUNDMONEY, FEEMONEY, OPERTIME, STATUS
+    from db_testpaypal
+  </select>
+  <sql id="TableName">
+    db_testpaypal
+  </sql>
+  <sql id="Values">
+     #{sid,jdbcType=VARCHAR} , 
+     #{flag,jdbcType=DECIMAL} , 
+     #{totalmoney,jdbcType=DECIMAL} , 
+     #{refundmoney,jdbcType=DECIMAL} , 
+     #{feemoney,jdbcType=DECIMAL} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{status,jdbcType=VARCHAR}
+  </sql>
+  <sql id="Columns">
+    SID , 
+    FLAG , 
+    TOTALMONEY , 
+    REFUNDMONEY , 
+    FEEMONEY , 
+    OPERTIME , 
+    STATUS
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag != null">
+      FLAG = #{flag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="totalmoney != null">
+      TOTALMONEY = #{totalmoney,jdbcType=DECIMAL} and 
+    </if>
+    <if test="refundmoney != null">
+      REFUNDMONEY = #{refundmoney,jdbcType=DECIMAL} and 
+    </if>
+    <if test="feemoney != null">
+      FEEMONEY = #{feemoney,jdbcType=DECIMAL} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="status != null">
+      STATUS = #{status,jdbcType=VARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag != null">
+      FLAG = #{flag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="totalmoney != null">
+      TOTALMONEY = #{totalmoney,jdbcType=DECIMAL} , 
+    </if>
+    <if test="refundmoney != null">
+      REFUNDMONEY = #{refundmoney,jdbcType=DECIMAL} , 
+    </if>
+    <if test="feemoney != null">
+      FEEMONEY = #{feemoney,jdbcType=DECIMAL} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="status != null">
+      STATUS = #{status,jdbcType=VARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbTestpaypal" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SID=#{SID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbTestpaypal">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbTestpaypal">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbTestpaypal">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

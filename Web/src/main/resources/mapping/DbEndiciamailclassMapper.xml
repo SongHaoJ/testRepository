@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbEndiciamailclassMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbEndiciamailclass">
+    <id column="DBCLASS" jdbcType="VARCHAR" property="dbclass" />
+  </resultMap>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select DBCLASS
+    from db_endiciamailclass
+  </select>
+  <sql id="TableName">
+    db_endiciamailclass
+  </sql>
+  <sql id="Values">
+     #{dbclass,jdbcType=VARCHAR}
+  </sql>
+  <sql id="Columns">
+    DBCLASS
+  </sql>
+  <sql id="Criteria">
+    <if test="dbclass != null">
+      DBCLASS = #{dbclass,jdbcType=VARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="dbclass != null">
+      DBCLASS = #{dbclass,jdbcType=VARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbEndiciamailclass" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where DBCLASS=#{DBCLASS}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbEndiciamailclass">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbEndiciamailclass">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbEndiciamailclass">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

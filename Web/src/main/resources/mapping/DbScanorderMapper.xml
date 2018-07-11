@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbScanorderMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbScanorder">
+    <id column="ORDERID" jdbcType="VARCHAR" property="orderid" />
+    <result column="EXPRESSTYPEID" jdbcType="VARCHAR" property="expresstypeid" />
+    <result column="EXPRESSID" jdbcType="VARCHAR" property="expressid" />
+    <result column="ORDERWEIGHT" jdbcType="DECIMAL" property="orderweight" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="FLAG" jdbcType="VARCHAR" property="flag" />
+    <result column="MAILFLAG" jdbcType="VARCHAR" property="mailflag" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
+    <result column="GROUPID" jdbcType="VARCHAR" property="groupid" />
+    <result column="EXPRESSTYPE" jdbcType="LONGVARCHAR" property="expresstype" />
+    <result column="RESERVE1" jdbcType="LONGVARCHAR" property="reserve1" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select ORDERID, EXPRESSTYPEID, EXPRESSID, ORDERWEIGHT, OPER, OPERTIME, FLAG, MAILFLAG, 
+    RESERVE2, RESERVE3, GROUPID, EXPRESSTYPE, RESERVE1
+    from db_scanorder
+    where ORDERID = #{orderid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ORDERID, EXPRESSTYPEID, EXPRESSID, ORDERWEIGHT, OPER, OPERTIME, FLAG, MAILFLAG, 
+    RESERVE2, RESERVE3, GROUPID, EXPRESSTYPE, RESERVE1
+    from db_scanorder
+  </select>
+  <sql id="TableName">
+    db_scanorder
+  </sql>
+  <sql id="Values">
+     #{orderid,jdbcType=VARCHAR} , 
+     #{expresstypeid,jdbcType=VARCHAR} , 
+     #{expressid,jdbcType=VARCHAR} , 
+     #{orderweight,jdbcType=DECIMAL} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{flag,jdbcType=VARCHAR} , 
+     #{mailflag,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+     #{reserve3,jdbcType=VARCHAR} , 
+     #{groupid,jdbcType=VARCHAR} , 
+     #{expresstype,jdbcType=LONGVARCHAR} , 
+     #{reserve1,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    ORDERID , 
+    EXPRESSTYPEID , 
+    EXPRESSID , 
+    ORDERWEIGHT , 
+    OPER , 
+    OPERTIME , 
+    FLAG , 
+    MAILFLAG , 
+    RESERVE2 , 
+    RESERVE3 , 
+    GROUPID , 
+    EXPRESSTYPE , 
+    RESERVE1
+  </sql>
+  <sql id="Criteria">
+    <if test="orderid != null">
+      ORDERID = #{orderid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="expresstypeid != null">
+      EXPRESSTYPEID = #{expresstypeid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="expressid != null">
+      EXPRESSID = #{expressid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="orderweight != null">
+      ORDERWEIGHT = #{orderweight,jdbcType=DECIMAL} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="flag != null">
+      FLAG = #{flag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="mailflag != null">
+      MAILFLAG = #{mailflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      RESERVE3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="groupid != null">
+      GROUPID = #{groupid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="expresstype != null">
+      EXPRESSTYPE = #{expresstype,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="orderid != null">
+      ORDERID = #{orderid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="expresstypeid != null">
+      EXPRESSTYPEID = #{expresstypeid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="expressid != null">
+      EXPRESSID = #{expressid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="orderweight != null">
+      ORDERWEIGHT = #{orderweight,jdbcType=DECIMAL} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="flag != null">
+      FLAG = #{flag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="mailflag != null">
+      MAILFLAG = #{mailflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      RESERVE3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="groupid != null">
+      GROUPID = #{groupid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="expresstype != null">
+      EXPRESSTYPE = #{expresstype,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbScanorder" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where ORDERID=#{ORDERID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbScanorder">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbScanorder">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbScanorder">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

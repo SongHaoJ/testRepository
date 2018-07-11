@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbBirdcountryMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbBirdcountry">
+    <id column="SID" jdbcType="VARCHAR" property="sid" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="PRINTABLE_NAME" jdbcType="VARCHAR" property="printableName" />
+    <result column="ISO" jdbcType="VARCHAR" property="iso" />
+    <result column="NUMCODE" jdbcType="VARCHAR" property="numcode" />
+    <result column="ISO3" jdbcType="VARCHAR" property="iso3" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SID, NAME, PRINTABLE_NAME, ISO, NUMCODE, ISO3
+    from db_birdcountry
+    where SID = #{sid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, NAME, PRINTABLE_NAME, ISO, NUMCODE, ISO3
+    from db_birdcountry
+  </select>
+  <sql id="TableName">
+    db_birdcountry
+  </sql>
+  <sql id="Values">
+     #{sid,jdbcType=VARCHAR} , 
+     #{name,jdbcType=VARCHAR} , 
+     #{printable_name,jdbcType=VARCHAR} , 
+     #{iso,jdbcType=VARCHAR} , 
+     #{numcode,jdbcType=VARCHAR} , 
+     #{iso3,jdbcType=VARCHAR}
+  </sql>
+  <sql id="Columns">
+    SID , 
+    NAME , 
+    PRINTABLE_NAME , 
+    ISO , 
+    NUMCODE , 
+    ISO3
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="name != null">
+      NAME = #{name,jdbcType=VARCHAR} and 
+    </if>
+    <if test="printable_name != null">
+      PRINTABLE_NAME = #{printable_name,jdbcType=VARCHAR} and 
+    </if>
+    <if test="iso != null">
+      ISO = #{iso,jdbcType=VARCHAR} and 
+    </if>
+    <if test="numcode != null">
+      NUMCODE = #{numcode,jdbcType=VARCHAR} and 
+    </if>
+    <if test="iso3 != null">
+      ISO3 = #{iso3,jdbcType=VARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="name != null">
+      NAME = #{name,jdbcType=VARCHAR} , 
+    </if>
+    <if test="printable_name != null">
+      PRINTABLE_NAME = #{printable_name,jdbcType=VARCHAR} , 
+    </if>
+    <if test="iso != null">
+      ISO = #{iso,jdbcType=VARCHAR} , 
+    </if>
+    <if test="numcode != null">
+      NUMCODE = #{numcode,jdbcType=VARCHAR} , 
+    </if>
+    <if test="iso3 != null">
+      ISO3 = #{iso3,jdbcType=VARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbBirdcountry" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SID=#{SID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbBirdcountry">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbBirdcountry">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbBirdcountry">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbOutboundMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbOutbound">
+    <id column="SEQUENCEID" jdbcType="DECIMAL" property="sequenceid" />
+    <result column="PRODUCTID" jdbcType="VARCHAR" property="productid" />
+    <result column="PRODUCTNAME" jdbcType="VARCHAR" property="productname" />
+    <result column="SAVENUMBER" jdbcType="DECIMAL" property="savenumber" />
+    <result column="ORDERNUM" jdbcType="DECIMAL" property="ordernum" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="VARCHAR" property="opertime" />
+    <result column="OUTBOUNDNUM" jdbcType="DECIMAL" property="outboundnum" />
+    <result column="NOTES" jdbcType="LONGVARCHAR" property="notes" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select SEQUENCEID, PRODUCTID, PRODUCTNAME, SAVENUMBER, ORDERNUM, OPER, OPERTIME, 
+    OUTBOUNDNUM, NOTES
+    from db_outbound
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, PRODUCTID, PRODUCTNAME, SAVENUMBER, ORDERNUM, OPER, OPERTIME, 
+    OUTBOUNDNUM, NOTES
+    from db_outbound
+  </select>
+  <sql id="TableName">
+    db_outbound
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=DECIMAL} , 
+     #{productid,jdbcType=VARCHAR} , 
+     #{productname,jdbcType=VARCHAR} , 
+     #{savenumber,jdbcType=DECIMAL} , 
+     #{ordernum,jdbcType=DECIMAL} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=VARCHAR} , 
+     #{outboundnum,jdbcType=DECIMAL} , 
+     #{notes,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    PRODUCTID , 
+    PRODUCTNAME , 
+    SAVENUMBER , 
+    ORDERNUM , 
+    OPER , 
+    OPERTIME , 
+    OUTBOUNDNUM , 
+    NOTES
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="productid != null">
+      PRODUCTID = #{productid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="productname != null">
+      PRODUCTNAME = #{productname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="savenumber != null">
+      SAVENUMBER = #{savenumber,jdbcType=DECIMAL} and 
+    </if>
+    <if test="ordernum != null">
+      ORDERNUM = #{ordernum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=VARCHAR} and 
+    </if>
+    <if test="outboundnum != null">
+      OUTBOUNDNUM = #{outboundnum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="notes != null">
+      NOTES = #{notes,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="productid != null">
+      PRODUCTID = #{productid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="productname != null">
+      PRODUCTNAME = #{productname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="savenumber != null">
+      SAVENUMBER = #{savenumber,jdbcType=DECIMAL} , 
+    </if>
+    <if test="ordernum != null">
+      ORDERNUM = #{ordernum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=VARCHAR} , 
+    </if>
+    <if test="outboundnum != null">
+      OUTBOUNDNUM = #{outboundnum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="notes != null">
+      NOTES = #{notes,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbOutbound" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="BigDecimal">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbOutbound">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbOutbound">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbOutbound">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

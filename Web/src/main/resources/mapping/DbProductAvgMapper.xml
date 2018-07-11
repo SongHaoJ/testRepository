@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbProductAvgMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbProductAvg">
+    <id column="SKU" jdbcType="VARCHAR" property="sku" />
+    <result column="SELLNUM2" jdbcType="DECIMAL" property="sellnum2" />
+    <result column="SELLNUM1" jdbcType="DECIMAL" property="sellnum1" />
+    <result column="DIFF3" jdbcType="DECIMAL" property="diff3" />
+    <result column="DIFF4" jdbcType="DECIMAL" property="diff4" />
+    <result column="SELLNUM6" jdbcType="DECIMAL" property="sellnum6" />
+    <result column="QUSHI" jdbcType="DECIMAL" property="qushi" />
+    <result column="PURCHASEDAY" jdbcType="DECIMAL" property="purchaseday" />
+    <result column="RESERVE3" jdbcType="DECIMAL" property="reserve3" />
+    <result column="SELLNUM0" jdbcType="DECIMAL" property="sellnum0" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="YYYYMMDD" jdbcType="VARCHAR" property="yyyymmdd" />
+    <result column="DIFF5" jdbcType="DECIMAL" property="diff5" />
+    <result column="DIFF2" jdbcType="DECIMAL" property="diff2" />
+    <result column="SELLNUM5" jdbcType="DECIMAL" property="sellnum5" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE4" jdbcType="DECIMAL" property="reserve4" />
+    <result column="DIFF1" jdbcType="DECIMAL" property="diff1" />
+    <result column="SELLNUM4" jdbcType="DECIMAL" property="sellnum4" />
+    <result column="DIFF0" jdbcType="DECIMAL" property="diff0" />
+    <result column="DIFFAVG" jdbcType="DECIMAL" property="diffavg" />
+    <result column="SELLNUM3" jdbcType="DECIMAL" property="sellnum3" />
+    <result column="DIFF6" jdbcType="DECIMAL" property="diff6" />
+    <result column="DAYS" jdbcType="DECIMAL" property="days" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SKU, SELLNUM2, SELLNUM1, DIFF3, DIFF4, SELLNUM6, QUSHI, PURCHASEDAY, RESERVE3, 
+    SELLNUM0, RESERVE2, YYYYMMDD, DIFF5, DIFF2, SELLNUM5, RESERVE1, RESERVE4, DIFF1, 
+    SELLNUM4, DIFF0, DIFFAVG, SELLNUM3, DIFF6, DAYS
+    from db_product_avg
+    where SKU = #{sku,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SKU, SELLNUM2, SELLNUM1, DIFF3, DIFF4, SELLNUM6, QUSHI, PURCHASEDAY, RESERVE3, 
+    SELLNUM0, RESERVE2, YYYYMMDD, DIFF5, DIFF2, SELLNUM5, RESERVE1, RESERVE4, DIFF1, 
+    SELLNUM4, DIFF0, DIFFAVG, SELLNUM3, DIFF6, DAYS
+    from db_product_avg
+  </select>
+  <sql id="TableName">
+    db_product_avg
+  </sql>
+  <sql id="Values">
+     #{sku,jdbcType=VARCHAR} , 
+     #{sellnum2,jdbcType=DECIMAL} , 
+     #{sellnum1,jdbcType=DECIMAL} , 
+     #{diff3,jdbcType=DECIMAL} , 
+     #{diff4,jdbcType=DECIMAL} , 
+     #{sellnum6,jdbcType=DECIMAL} , 
+     #{qushi,jdbcType=DECIMAL} , 
+     #{purchaseday,jdbcType=DECIMAL} , 
+     #{reserve3,jdbcType=DECIMAL} , 
+     #{sellnum0,jdbcType=DECIMAL} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+     #{yyyymmdd,jdbcType=VARCHAR} , 
+     #{diff5,jdbcType=DECIMAL} , 
+     #{diff2,jdbcType=DECIMAL} , 
+     #{sellnum5,jdbcType=DECIMAL} , 
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{reserve4,jdbcType=DECIMAL} , 
+     #{diff1,jdbcType=DECIMAL} , 
+     #{sellnum4,jdbcType=DECIMAL} , 
+     #{diff0,jdbcType=DECIMAL} , 
+     #{diffavg,jdbcType=DECIMAL} , 
+     #{sellnum3,jdbcType=DECIMAL} , 
+     #{diff6,jdbcType=DECIMAL} , 
+     #{days,jdbcType=DECIMAL}
+  </sql>
+  <sql id="Columns">
+    SKU , 
+    SELLNUM2 , 
+    SELLNUM1 , 
+    DIFF3 , 
+    DIFF4 , 
+    SELLNUM6 , 
+    QUSHI , 
+    PURCHASEDAY , 
+    RESERVE3 , 
+    SELLNUM0 , 
+    RESERVE2 , 
+    YYYYMMDD , 
+    DIFF5 , 
+    DIFF2 , 
+    SELLNUM5 , 
+    RESERVE1 , 
+    RESERVE4 , 
+    DIFF1 , 
+    SELLNUM4 , 
+    DIFF0 , 
+    DIFFAVG , 
+    SELLNUM3 , 
+    DIFF6 , 
+    DAYS
+  </sql>
+  <sql id="Criteria">
+    <if test="sku != null">
+      SKU = #{sku,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sellnum2 != null">
+      SELLNUM2 = #{sellnum2,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sellnum1 != null">
+      SELLNUM1 = #{sellnum1,jdbcType=DECIMAL} and 
+    </if>
+    <if test="diff3 != null">
+      DIFF3 = #{diff3,jdbcType=DECIMAL} and 
+    </if>
+    <if test="diff4 != null">
+      DIFF4 = #{diff4,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sellnum6 != null">
+      SELLNUM6 = #{sellnum6,jdbcType=DECIMAL} and 
+    </if>
+    <if test="qushi != null">
+      QUSHI = #{qushi,jdbcType=DECIMAL} and 
+    </if>
+    <if test="purchaseday != null">
+      PURCHASEDAY = #{purchaseday,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve3 != null">
+      RESERVE3 = #{reserve3,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sellnum0 != null">
+      SELLNUM0 = #{sellnum0,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="yyyymmdd != null">
+      YYYYMMDD = #{yyyymmdd,jdbcType=VARCHAR} and 
+    </if>
+    <if test="diff5 != null">
+      DIFF5 = #{diff5,jdbcType=DECIMAL} and 
+    </if>
+    <if test="diff2 != null">
+      DIFF2 = #{diff2,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sellnum5 != null">
+      SELLNUM5 = #{sellnum5,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve4 != null">
+      RESERVE4 = #{reserve4,jdbcType=DECIMAL} and 
+    </if>
+    <if test="diff1 != null">
+      DIFF1 = #{diff1,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sellnum4 != null">
+      SELLNUM4 = #{sellnum4,jdbcType=DECIMAL} and 
+    </if>
+    <if test="diff0 != null">
+      DIFF0 = #{diff0,jdbcType=DECIMAL} and 
+    </if>
+    <if test="diffavg != null">
+      DIFFAVG = #{diffavg,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sellnum3 != null">
+      SELLNUM3 = #{sellnum3,jdbcType=DECIMAL} and 
+    </if>
+    <if test="diff6 != null">
+      DIFF6 = #{diff6,jdbcType=DECIMAL} and 
+    </if>
+    <if test="days != null">
+      DAYS = #{days,jdbcType=DECIMAL}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sku != null">
+      SKU = #{sku,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sellnum2 != null">
+      SELLNUM2 = #{sellnum2,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sellnum1 != null">
+      SELLNUM1 = #{sellnum1,jdbcType=DECIMAL} , 
+    </if>
+    <if test="diff3 != null">
+      DIFF3 = #{diff3,jdbcType=DECIMAL} , 
+    </if>
+    <if test="diff4 != null">
+      DIFF4 = #{diff4,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sellnum6 != null">
+      SELLNUM6 = #{sellnum6,jdbcType=DECIMAL} , 
+    </if>
+    <if test="qushi != null">
+      QUSHI = #{qushi,jdbcType=DECIMAL} , 
+    </if>
+    <if test="purchaseday != null">
+      PURCHASEDAY = #{purchaseday,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve3 != null">
+      RESERVE3 = #{reserve3,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sellnum0 != null">
+      SELLNUM0 = #{sellnum0,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="yyyymmdd != null">
+      YYYYMMDD = #{yyyymmdd,jdbcType=VARCHAR} , 
+    </if>
+    <if test="diff5 != null">
+      DIFF5 = #{diff5,jdbcType=DECIMAL} , 
+    </if>
+    <if test="diff2 != null">
+      DIFF2 = #{diff2,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sellnum5 != null">
+      SELLNUM5 = #{sellnum5,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve4 != null">
+      RESERVE4 = #{reserve4,jdbcType=DECIMAL} , 
+    </if>
+    <if test="diff1 != null">
+      DIFF1 = #{diff1,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sellnum4 != null">
+      SELLNUM4 = #{sellnum4,jdbcType=DECIMAL} , 
+    </if>
+    <if test="diff0 != null">
+      DIFF0 = #{diff0,jdbcType=DECIMAL} , 
+    </if>
+    <if test="diffavg != null">
+      DIFFAVG = #{diffavg,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sellnum3 != null">
+      SELLNUM3 = #{sellnum3,jdbcType=DECIMAL} , 
+    </if>
+    <if test="diff6 != null">
+      DIFF6 = #{diff6,jdbcType=DECIMAL} , 
+    </if>
+    <if test="days != null">
+      DAYS = #{days,jdbcType=DECIMAL}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbProductAvg" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SKU=#{SKU}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbProductAvg">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbProductAvg">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbProductAvg">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

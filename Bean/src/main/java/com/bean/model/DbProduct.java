@@ -324,6 +324,11 @@ public class DbProduct implements Serializable {
 
     private String customsdetails;
 
+
+
+    //取订单详情用
+    private DbCategory category;
+
     private static final long serialVersionUID = 1L;
 
     //重写set防止null

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbItemspecificsvalueTempMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbItemspecificsvalueTemp">
+    <id column="SID" jdbcType="DECIMAL" property="sid" />
+    <result column="SPEID" jdbcType="DECIMAL" property="speid" />
+    <result column="NAMEVALUE" jdbcType="VARCHAR" property="namevalue" />
+    <result column="FLAG" jdbcType="DECIMAL" property="flag" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select SID, SPEID, NAMEVALUE, FLAG
+    from db_itemspecificsvalue_temp
+    where SID = #{sid,jdbcType=DECIMAL}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, SPEID, NAMEVALUE, FLAG
+    from db_itemspecificsvalue_temp
+  </select>
+  <sql id="TableName">
+    db_itemspecificsvalue_temp
+  </sql>
+  <sql id="Values">
+     #{sid,jdbcType=DECIMAL} , 
+     #{speid,jdbcType=DECIMAL} , 
+     #{namevalue,jdbcType=VARCHAR} , 
+     #{flag,jdbcType=DECIMAL}
+  </sql>
+  <sql id="Columns">
+    SID , 
+    SPEID , 
+    NAMEVALUE , 
+    FLAG
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="speid != null">
+      SPEID = #{speid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="namevalue != null">
+      NAMEVALUE = #{namevalue,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag != null">
+      FLAG = #{flag,jdbcType=DECIMAL}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="speid != null">
+      SPEID = #{speid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="namevalue != null">
+      NAMEVALUE = #{namevalue,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag != null">
+      FLAG = #{flag,jdbcType=DECIMAL}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbItemspecificsvalueTemp" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="BigDecimal">
+    delete from <include refid="TableName"/> where SID=#{SID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbItemspecificsvalueTemp">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbItemspecificsvalueTemp">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbItemspecificsvalueTemp">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

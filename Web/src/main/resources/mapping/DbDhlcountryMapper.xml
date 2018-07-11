@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbDhlcountryMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbDhlcountry">
+    <id column="COUNTRYCODE" jdbcType="VARCHAR" property="countrycode" />
+    <result column="WEIGHTUNIT" jdbcType="VARCHAR" property="weightunit" />
+    <result column="COUNTRY" jdbcType="VARCHAR" property="country" />
+    <result column="DIMENSIONALUNIT" jdbcType="VARCHAR" property="dimensionalunit" />
+    <result column="CURRENCYNAME" jdbcType="VARCHAR" property="currencyname" />
+    <result column="CURRENCYCODE" jdbcType="VARCHAR" property="currencycode" />
+    <result column="COUNTRYLOCATIONTYPE" jdbcType="VARCHAR" property="countrylocationtype" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select COUNTRYCODE, WEIGHTUNIT, COUNTRY, DIMENSIONALUNIT, CURRENCYNAME, CURRENCYCODE, 
+    COUNTRYLOCATIONTYPE
+    from db_dhlcountry
+    where COUNTRYCODE = #{countrycode,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select COUNTRYCODE, WEIGHTUNIT, COUNTRY, DIMENSIONALUNIT, CURRENCYNAME, CURRENCYCODE, 
+    COUNTRYLOCATIONTYPE
+    from db_dhlcountry
+  </select>
+  <sql id="TableName">
+    db_dhlcountry
+  </sql>
+  <sql id="Values">
+     #{countrycode,jdbcType=VARCHAR} , 
+     #{weightunit,jdbcType=VARCHAR} , 
+     #{country,jdbcType=VARCHAR} , 
+     #{dimensionalunit,jdbcType=VARCHAR} , 
+     #{currencyname,jdbcType=VARCHAR} , 
+     #{currencycode,jdbcType=VARCHAR} , 
+     #{countrylocationtype,jdbcType=VARCHAR}
+  </sql>
+  <sql id="Columns">
+    COUNTRYCODE , 
+    WEIGHTUNIT , 
+    COUNTRY , 
+    DIMENSIONALUNIT , 
+    CURRENCYNAME , 
+    CURRENCYCODE , 
+    COUNTRYLOCATIONTYPE
+  </sql>
+  <sql id="Criteria">
+    <if test="countrycode != null">
+      COUNTRYCODE = #{countrycode,jdbcType=VARCHAR} and 
+    </if>
+    <if test="weightunit != null">
+      WEIGHTUNIT = #{weightunit,jdbcType=VARCHAR} and 
+    </if>
+    <if test="country != null">
+      COUNTRY = #{country,jdbcType=VARCHAR} and 
+    </if>
+    <if test="dimensionalunit != null">
+      DIMENSIONALUNIT = #{dimensionalunit,jdbcType=VARCHAR} and 
+    </if>
+    <if test="currencyname != null">
+      CURRENCYNAME = #{currencyname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="currencycode != null">
+      CURRENCYCODE = #{currencycode,jdbcType=VARCHAR} and 
+    </if>
+    <if test="countrylocationtype != null">
+      COUNTRYLOCATIONTYPE = #{countrylocationtype,jdbcType=VARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="countrycode != null">
+      COUNTRYCODE = #{countrycode,jdbcType=VARCHAR} , 
+    </if>
+    <if test="weightunit != null">
+      WEIGHTUNIT = #{weightunit,jdbcType=VARCHAR} , 
+    </if>
+    <if test="country != null">
+      COUNTRY = #{country,jdbcType=VARCHAR} , 
+    </if>
+    <if test="dimensionalunit != null">
+      DIMENSIONALUNIT = #{dimensionalunit,jdbcType=VARCHAR} , 
+    </if>
+    <if test="currencyname != null">
+      CURRENCYNAME = #{currencyname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="currencycode != null">
+      CURRENCYCODE = #{currencycode,jdbcType=VARCHAR} , 
+    </if>
+    <if test="countrylocationtype != null">
+      COUNTRYLOCATIONTYPE = #{countrylocationtype,jdbcType=VARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbDhlcountry" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where COUNTRYCODE=#{COUNTRYCODE}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbDhlcountry">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbDhlcountry">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbDhlcountry">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

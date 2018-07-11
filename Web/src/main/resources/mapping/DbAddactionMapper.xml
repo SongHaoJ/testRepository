@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbAddactionMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbAddaction">
+    <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
+    <result column="FUNCTION3" jdbcType="VARCHAR" property="function3" />
+    <result column="FUNCTION11" jdbcType="VARCHAR" property="function11" />
+    <result column="FUNCTION8" jdbcType="VARCHAR" property="function8" />
+    <result column="SEARCHNAME" jdbcType="VARCHAR" property="searchname" />
+    <result column="FUNCTION9" jdbcType="VARCHAR" property="function9" />
+    <result column="SORT" jdbcType="DECIMAL" property="sort" />
+    <result column="FUNCTION13" jdbcType="VARCHAR" property="function13" />
+    <result column="FUNCTION6" jdbcType="VARCHAR" property="function6" />
+    <result column="FUNCTION7" jdbcType="VARCHAR" property="function7" />
+    <result column="FUNCTION12" jdbcType="VARCHAR" property="function12" />
+    <result column="FUNCTIONNAME" jdbcType="VARCHAR" property="functionname" />
+    <result column="FUNCTION2" jdbcType="VARCHAR" property="function2" />
+    <result column="FUNCTION4" jdbcType="VARCHAR" property="function4" />
+    <result column="FUNCTION14" jdbcType="VARCHAR" property="function14" />
+    <result column="FUNCTION1" jdbcType="VARCHAR" property="function1" />
+    <result column="FUNCTION10" jdbcType="VARCHAR" property="function10" />
+    <result column="SEARCHID" jdbcType="VARCHAR" property="searchid" />
+    <result column="FUNCTIONID" jdbcType="VARCHAR" property="functionid" />
+    <result column="FUNCTION15" jdbcType="VARCHAR" property="function15" />
+    <result column="FUNCTION5" jdbcType="VARCHAR" property="function5" />
+    <result column="SQLWHERE" jdbcType="LONGVARCHAR" property="sqlwhere" />
+    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SEQUENCEID, FUNCTION3, FUNCTION11, FUNCTION8, SEARCHNAME, FUNCTION9, SORT, 
+    FUNCTION13, FUNCTION6, FUNCTION7, FUNCTION12, FUNCTIONNAME, FUNCTION2, FUNCTION4, 
+    FUNCTION14, FUNCTION1, FUNCTION10, SEARCHID, FUNCTIONID, FUNCTION15, FUNCTION5, SQLWHERE, 
+    DESCR
+    from db_addaction
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, FUNCTION3, FUNCTION11, FUNCTION8, SEARCHNAME, FUNCTION9, SORT, 
+    FUNCTION13, FUNCTION6, FUNCTION7, FUNCTION12, FUNCTIONNAME, FUNCTION2, FUNCTION4, 
+    FUNCTION14, FUNCTION1, FUNCTION10, SEARCHID, FUNCTIONID, FUNCTION15, FUNCTION5, SQLWHERE, 
+    DESCR
+    from db_addaction
+  </select>
+  <sql id="TableName">
+    db_addaction
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=VARCHAR} , 
+     #{function3,jdbcType=VARCHAR} , 
+     #{function11,jdbcType=VARCHAR} , 
+     #{function8,jdbcType=VARCHAR} , 
+     #{searchname,jdbcType=VARCHAR} , 
+     #{function9,jdbcType=VARCHAR} , 
+     #{sort,jdbcType=DECIMAL} , 
+     #{function13,jdbcType=VARCHAR} , 
+     #{function6,jdbcType=VARCHAR} , 
+     #{function7,jdbcType=VARCHAR} , 
+     #{function12,jdbcType=VARCHAR} , 
+     #{functionname,jdbcType=VARCHAR} , 
+     #{function2,jdbcType=VARCHAR} , 
+     #{function4,jdbcType=VARCHAR} , 
+     #{function14,jdbcType=VARCHAR} , 
+     #{function1,jdbcType=VARCHAR} , 
+     #{function10,jdbcType=VARCHAR} , 
+     #{searchid,jdbcType=VARCHAR} , 
+     #{functionid,jdbcType=VARCHAR} , 
+     #{function15,jdbcType=VARCHAR} , 
+     #{function5,jdbcType=VARCHAR} , 
+     #{sqlwhere,jdbcType=LONGVARCHAR} , 
+     #{descr,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    FUNCTION3 , 
+    FUNCTION11 , 
+    FUNCTION8 , 
+    SEARCHNAME , 
+    FUNCTION9 , 
+    SORT , 
+    FUNCTION13 , 
+    FUNCTION6 , 
+    FUNCTION7 , 
+    FUNCTION12 , 
+    FUNCTIONNAME , 
+    FUNCTION2 , 
+    FUNCTION4 , 
+    FUNCTION14 , 
+    FUNCTION1 , 
+    FUNCTION10 , 
+    SEARCHID , 
+    FUNCTIONID , 
+    FUNCTION15 , 
+    FUNCTION5 , 
+    SQLWHERE , 
+    DESCR
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="function3 != null">
+      FUNCTION3 = #{function3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="function11 != null">
+      FUNCTION11 = #{function11,jdbcType=VARCHAR} and 
+    </if>
+    <if test="function8 != null">
+      FUNCTION8 = #{function8,jdbcType=VARCHAR} and 
+    </if>
+    <if test="searchname != null">
+      SEARCHNAME = #{searchname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="function9 != null">
+      FUNCTION9 = #{function9,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sort != null">
+      SORT = #{sort,jdbcType=DECIMAL} and 
+    </if>
+    <if test="function13 != null">
+      FUNCTION13 = #{function13,jdbcType=VARCHAR} and 
+    </if>
+    <if test="function6 != null">
+      FUNCTION6 = #{function6,jdbcType=VARCHAR} and 
+    </if>
+    <if test="function7 != null">
+      FUNCTION7 = #{function7,jdbcType=VARCHAR} and 
+    </if>
+    <if test="function12 != null">
+      FUNCTION12 = #{function12,jdbcType=VARCHAR} and 
+    </if>
+    <if test="functionname != null">
+      FUNCTIONNAME = #{functionname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="function2 != null">
+      FUNCTION2 = #{function2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="function4 != null">
+      FUNCTION4 = #{function4,jdbcType=VARCHAR} and 
+    </if>
+    <if test="function14 != null">
+      FUNCTION14 = #{function14,jdbcType=VARCHAR} and 
+    </if>
+    <if test="function1 != null">
+      FUNCTION1 = #{function1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="function10 != null">
+      FUNCTION10 = #{function10,jdbcType=VARCHAR} and 
+    </if>
+    <if test="searchid != null">
+      SEARCHID = #{searchid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="functionid != null">
+      FUNCTIONID = #{functionid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="function15 != null">
+      FUNCTION15 = #{function15,jdbcType=VARCHAR} and 
+    </if>
+    <if test="function5 != null">
+      FUNCTION5 = #{function5,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sqlwhere != null">
+      SQLWHERE = #{sqlwhere,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="descr != null">
+      DESCR = #{descr,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="function3 != null">
+      FUNCTION3 = #{function3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="function11 != null">
+      FUNCTION11 = #{function11,jdbcType=VARCHAR} , 
+    </if>
+    <if test="function8 != null">
+      FUNCTION8 = #{function8,jdbcType=VARCHAR} , 
+    </if>
+    <if test="searchname != null">
+      SEARCHNAME = #{searchname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="function9 != null">
+      FUNCTION9 = #{function9,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sort != null">
+      SORT = #{sort,jdbcType=DECIMAL} , 
+    </if>
+    <if test="function13 != null">
+      FUNCTION13 = #{function13,jdbcType=VARCHAR} , 
+    </if>
+    <if test="function6 != null">
+      FUNCTION6 = #{function6,jdbcType=VARCHAR} , 
+    </if>
+    <if test="function7 != null">
+      FUNCTION7 = #{function7,jdbcType=VARCHAR} , 
+    </if>
+    <if test="function12 != null">
+      FUNCTION12 = #{function12,jdbcType=VARCHAR} , 
+    </if>
+    <if test="functionname != null">
+      FUNCTIONNAME = #{functionname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="function2 != null">
+      FUNCTION2 = #{function2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="function4 != null">
+      FUNCTION4 = #{function4,jdbcType=VARCHAR} , 
+    </if>
+    <if test="function14 != null">
+      FUNCTION14 = #{function14,jdbcType=VARCHAR} , 
+    </if>
+    <if test="function1 != null">
+      FUNCTION1 = #{function1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="function10 != null">
+      FUNCTION10 = #{function10,jdbcType=VARCHAR} , 
+    </if>
+    <if test="searchid != null">
+      SEARCHID = #{searchid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="functionid != null">
+      FUNCTIONID = #{functionid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="function15 != null">
+      FUNCTION15 = #{function15,jdbcType=VARCHAR} , 
+    </if>
+    <if test="function5 != null">
+      FUNCTION5 = #{function5,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sqlwhere != null">
+      SQLWHERE = #{sqlwhere,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="descr != null">
+      DESCR = #{descr,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbAddaction" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbAddaction">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbAddaction">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbAddaction">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

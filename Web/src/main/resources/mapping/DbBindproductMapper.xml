@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbBindproductMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbBindproduct">
+    <id column="SID" jdbcType="VARCHAR" property="sid" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="CATEGORYID" jdbcType="VARCHAR" property="categoryid" />
+    <result column="PROJECTID" jdbcType="VARCHAR" property="projectid" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="STOCKPRICE" jdbcType="DECIMAL" property="stockprice" />
+    <result column="COSTPRICE" jdbcType="DECIMAL" property="costprice" />
+    <result column="SELLPRICE" jdbcType="DECIMAL" property="sellprice" />
+    <result column="OTHERPRICE1" jdbcType="DECIMAL" property="otherprice1" />
+    <result column="OTHERPRICE2" jdbcType="DECIMAL" property="otherprice2" />
+    <result column="WEIGHT" jdbcType="VARCHAR" property="weight" />
+    <result column="SIZES" jdbcType="VARCHAR" property="sizes" />
+    <result column="COLOR" jdbcType="VARCHAR" property="color" />
+    <result column="PICTURE1" jdbcType="VARCHAR" property="picture1" />
+    <result column="PICTURE2" jdbcType="VARCHAR" property="picture2" />
+    <result column="PICTURE3" jdbcType="VARCHAR" property="picture3" />
+    <result column="PICTURE4" jdbcType="VARCHAR" property="picture4" />
+    <result column="ORDERNUM" jdbcType="DECIMAL" property="ordernum" />
+    <result column="ALIAS2" jdbcType="VARCHAR" property="alias2" />
+    <result column="ALIAS3" jdbcType="VARCHAR" property="alias3" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
+    <result column="RESERVE4" jdbcType="VARCHAR" property="reserve4" />
+    <result column="RESERVE5" jdbcType="VARCHAR" property="reserve5" />
+    <result column="RESERVE6" jdbcType="VARCHAR" property="reserve6" />
+    <result column="RESERVE7" jdbcType="DECIMAL" property="reserve7" />
+    <result column="RESERVE8" jdbcType="DECIMAL" property="reserve8" />
+    <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
+    <result column="CONTENT" jdbcType="LONGVARCHAR" property="content" />
+    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
+    <result column="ALIAS1" jdbcType="LONGVARCHAR" property="alias1" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SID, NAME, CATEGORYID, PROJECTID, STATUS, STOCKPRICE, COSTPRICE, SELLPRICE, 
+    OTHERPRICE1, OTHERPRICE2, WEIGHT, SIZES, COLOR, PICTURE1, PICTURE2, PICTURE3, PICTURE4, 
+    ORDERNUM, ALIAS2, ALIAS3, OPER, OPERTIME, RESERVE1, RESERVE2, RESERVE3, RESERVE4, 
+    RESERVE5, RESERVE6, RESERVE7, RESERVE8, CORPID, CONTENT, DESCR, ALIAS1
+    from db_bindproduct
+    where SID = #{sid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, NAME, CATEGORYID, PROJECTID, STATUS, STOCKPRICE, COSTPRICE, SELLPRICE, 
+    OTHERPRICE1, OTHERPRICE2, WEIGHT, SIZES, COLOR, PICTURE1, PICTURE2, PICTURE3, PICTURE4, 
+    ORDERNUM, ALIAS2, ALIAS3, OPER, OPERTIME, RESERVE1, RESERVE2, RESERVE3, RESERVE4, 
+    RESERVE5, RESERVE6, RESERVE7, RESERVE8, CORPID, CONTENT, DESCR, ALIAS1
+    from db_bindproduct
+  </select>
+  <sql id="TableName">
+    db_bindproduct
+  </sql>
+  <sql id="Values">
+     #{sid,jdbcType=VARCHAR} , 
+     #{name,jdbcType=VARCHAR} , 
+     #{categoryid,jdbcType=VARCHAR} , 
+     #{projectid,jdbcType=VARCHAR} , 
+     #{status,jdbcType=VARCHAR} , 
+     #{stockprice,jdbcType=DECIMAL} , 
+     #{costprice,jdbcType=DECIMAL} , 
+     #{sellprice,jdbcType=DECIMAL} , 
+     #{otherprice1,jdbcType=DECIMAL} , 
+     #{otherprice2,jdbcType=DECIMAL} , 
+     #{weight,jdbcType=VARCHAR} , 
+     #{sizes,jdbcType=VARCHAR} , 
+     #{color,jdbcType=VARCHAR} , 
+     #{picture1,jdbcType=VARCHAR} , 
+     #{picture2,jdbcType=VARCHAR} , 
+     #{picture3,jdbcType=VARCHAR} , 
+     #{picture4,jdbcType=VARCHAR} , 
+     #{ordernum,jdbcType=DECIMAL} , 
+     #{alias2,jdbcType=VARCHAR} , 
+     #{alias3,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+     #{reserve3,jdbcType=VARCHAR} , 
+     #{reserve4,jdbcType=VARCHAR} , 
+     #{reserve5,jdbcType=VARCHAR} , 
+     #{reserve6,jdbcType=VARCHAR} , 
+     #{reserve7,jdbcType=DECIMAL} , 
+     #{reserve8,jdbcType=DECIMAL} , 
+     #{corpid,jdbcType=VARCHAR} , 
+     #{content,jdbcType=LONGVARCHAR} , 
+     #{descr,jdbcType=LONGVARCHAR} , 
+     #{alias1,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    SID , 
+    NAME , 
+    CATEGORYID , 
+    PROJECTID , 
+    STATUS , 
+    STOCKPRICE , 
+    COSTPRICE , 
+    SELLPRICE , 
+    OTHERPRICE1 , 
+    OTHERPRICE2 , 
+    WEIGHT , 
+    SIZES , 
+    COLOR , 
+    PICTURE1 , 
+    PICTURE2 , 
+    PICTURE3 , 
+    PICTURE4 , 
+    ORDERNUM , 
+    ALIAS2 , 
+    ALIAS3 , 
+    OPER , 
+    OPERTIME , 
+    RESERVE1 , 
+    RESERVE2 , 
+    RESERVE3 , 
+    RESERVE4 , 
+    RESERVE5 , 
+    RESERVE6 , 
+    RESERVE7 , 
+    RESERVE8 , 
+    CORPID , 
+    CONTENT , 
+    DESCR , 
+    ALIAS1
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="name != null">
+      NAME = #{name,jdbcType=VARCHAR} and 
+    </if>
+    <if test="categoryid != null">
+      CATEGORYID = #{categoryid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="projectid != null">
+      PROJECTID = #{projectid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="status != null">
+      STATUS = #{status,jdbcType=VARCHAR} and 
+    </if>
+    <if test="stockprice != null">
+      STOCKPRICE = #{stockprice,jdbcType=DECIMAL} and 
+    </if>
+    <if test="costprice != null">
+      COSTPRICE = #{costprice,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sellprice != null">
+      SELLPRICE = #{sellprice,jdbcType=DECIMAL} and 
+    </if>
+    <if test="otherprice1 != null">
+      OTHERPRICE1 = #{otherprice1,jdbcType=DECIMAL} and 
+    </if>
+    <if test="otherprice2 != null">
+      OTHERPRICE2 = #{otherprice2,jdbcType=DECIMAL} and 
+    </if>
+    <if test="weight != null">
+      WEIGHT = #{weight,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sizes != null">
+      SIZES = #{sizes,jdbcType=VARCHAR} and 
+    </if>
+    <if test="color != null">
+      COLOR = #{color,jdbcType=VARCHAR} and 
+    </if>
+    <if test="picture1 != null">
+      PICTURE1 = #{picture1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="picture2 != null">
+      PICTURE2 = #{picture2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="picture3 != null">
+      PICTURE3 = #{picture3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="picture4 != null">
+      PICTURE4 = #{picture4,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ordernum != null">
+      ORDERNUM = #{ordernum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="alias2 != null">
+      ALIAS2 = #{alias2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="alias3 != null">
+      ALIAS3 = #{alias3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      RESERVE3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve4 != null">
+      RESERVE4 = #{reserve4,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve5 != null">
+      RESERVE5 = #{reserve5,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve6 != null">
+      RESERVE6 = #{reserve6,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve7 != null">
+      RESERVE7 = #{reserve7,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve8 != null">
+      RESERVE8 = #{reserve8,jdbcType=DECIMAL} and 
+    </if>
+    <if test="corpid != null">
+      CORPID = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="content != null">
+      CONTENT = #{content,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="descr != null">
+      DESCR = #{descr,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="alias1 != null">
+      ALIAS1 = #{alias1,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="name != null">
+      NAME = #{name,jdbcType=VARCHAR} , 
+    </if>
+    <if test="categoryid != null">
+      CATEGORYID = #{categoryid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="projectid != null">
+      PROJECTID = #{projectid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="status != null">
+      STATUS = #{status,jdbcType=VARCHAR} , 
+    </if>
+    <if test="stockprice != null">
+      STOCKPRICE = #{stockprice,jdbcType=DECIMAL} , 
+    </if>
+    <if test="costprice != null">
+      COSTPRICE = #{costprice,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sellprice != null">
+      SELLPRICE = #{sellprice,jdbcType=DECIMAL} , 
+    </if>
+    <if test="otherprice1 != null">
+      OTHERPRICE1 = #{otherprice1,jdbcType=DECIMAL} , 
+    </if>
+    <if test="otherprice2 != null">
+      OTHERPRICE2 = #{otherprice2,jdbcType=DECIMAL} , 
+    </if>
+    <if test="weight != null">
+      WEIGHT = #{weight,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sizes != null">
+      SIZES = #{sizes,jdbcType=VARCHAR} , 
+    </if>
+    <if test="color != null">
+      COLOR = #{color,jdbcType=VARCHAR} , 
+    </if>
+    <if test="picture1 != null">
+      PICTURE1 = #{picture1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="picture2 != null">
+      PICTURE2 = #{picture2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="picture3 != null">
+      PICTURE3 = #{picture3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="picture4 != null">
+      PICTURE4 = #{picture4,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ordernum != null">
+      ORDERNUM = #{ordernum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="alias2 != null">
+      ALIAS2 = #{alias2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="alias3 != null">
+      ALIAS3 = #{alias3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      RESERVE3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve4 != null">
+      RESERVE4 = #{reserve4,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve5 != null">
+      RESERVE5 = #{reserve5,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve6 != null">
+      RESERVE6 = #{reserve6,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve7 != null">
+      RESERVE7 = #{reserve7,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve8 != null">
+      RESERVE8 = #{reserve8,jdbcType=DECIMAL} , 
+    </if>
+    <if test="corpid != null">
+      CORPID = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="content != null">
+      CONTENT = #{content,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="descr != null">
+      DESCR = #{descr,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="alias1 != null">
+      ALIAS1 = #{alias1,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbBindproduct" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SID=#{SID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbBindproduct">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbBindproduct">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbBindproduct">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

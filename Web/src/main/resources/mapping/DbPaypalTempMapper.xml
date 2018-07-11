@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbPaypalTempMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbPaypalTemp">
+    <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
+    <result column="TRANSACTIONID" jdbcType="VARCHAR" property="transactionid" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="FEEAMOUNT" jdbcType="DECIMAL" property="feeamount" />
+    <result column="GROSSAMOUNT" jdbcType="DECIMAL" property="grossamount" />
+    <result column="NETAMOUNT" jdbcType="DECIMAL" property="netamount" />
+    <result column="PAYTIME" jdbcType="TIMESTAMP" property="paytime" />
+    <result column="FILED3" jdbcType="DECIMAL" property="filed3" />
+    <result column="FILED4" jdbcType="DECIMAL" property="filed4" />
+    <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
+    <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
+    <result column="FILED11" jdbcType="DECIMAL" property="filed11" />
+    <result column="FILED12" jdbcType="DECIMAL" property="filed12" />
+    <result column="FILED13" jdbcType="DECIMAL" property="filed13" />
+    <result column="ADDRESS" jdbcType="LONGVARCHAR" property="address" />
+    <result column="EMAILADDRESS" jdbcType="LONGVARCHAR" property="emailaddress" />
+    <result column="STATUS" jdbcType="LONGVARCHAR" property="status" />
+    <result column="FILED1" jdbcType="LONGVARCHAR" property="filed1" />
+    <result column="FILED2" jdbcType="LONGVARCHAR" property="filed2" />
+    <result column="CUSTOMERPROVINCE" jdbcType="LONGVARCHAR" property="customerprovince" />
+    <result column="CUSTOMERCITY" jdbcType="LONGVARCHAR" property="customercity" />
+    <result column="CUSTOMERCOUNTRY" jdbcType="LONGVARCHAR" property="customercountry" />
+    <result column="CUSTOMERSTREET" jdbcType="LONGVARCHAR" property="customerstreet" />
+    <result column="APIUSER" jdbcType="LONGVARCHAR" property="apiuser" />
+    <result column="APIPASSWORD" jdbcType="LONGVARCHAR" property="apipassword" />
+    <result column="APITOKEN" jdbcType="LONGVARCHAR" property="apitoken" />
+    <result column="FILED5" jdbcType="LONGVARCHAR" property="filed5" />
+    <result column="FILED6" jdbcType="LONGVARCHAR" property="filed6" />
+    <result column="FILED7" jdbcType="LONGVARCHAR" property="filed7" />
+    <result column="FILED8" jdbcType="LONGVARCHAR" property="filed8" />
+    <result column="FILED9" jdbcType="LONGVARCHAR" property="filed9" />
+    <result column="FILED10" jdbcType="LONGVARCHAR" property="filed10" />
+    <result column="PAYPALCUSTOMERADDRESS" jdbcType="LONGVARCHAR" property="paypalcustomeraddress" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SEQUENCEID, TRANSACTIONID, OPER, OPERTIME, FEEAMOUNT, GROSSAMOUNT, NETAMOUNT, 
+    PAYTIME, FILED3, FILED4, CORPID, OPENFLAG, FILED11, FILED12, FILED13, ADDRESS, EMAILADDRESS, 
+    STATUS, FILED1, FILED2, CUSTOMERPROVINCE, CUSTOMERCITY, CUSTOMERCOUNTRY, CUSTOMERSTREET, 
+    APIUSER, APIPASSWORD, APITOKEN, FILED5, FILED6, FILED7, FILED8, FILED9, FILED10, 
+    PAYPALCUSTOMERADDRESS
+    from db_paypal_temp
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, TRANSACTIONID, OPER, OPERTIME, FEEAMOUNT, GROSSAMOUNT, NETAMOUNT, 
+    PAYTIME, FILED3, FILED4, CORPID, OPENFLAG, FILED11, FILED12, FILED13, ADDRESS, EMAILADDRESS, 
+    STATUS, FILED1, FILED2, CUSTOMERPROVINCE, CUSTOMERCITY, CUSTOMERCOUNTRY, CUSTOMERSTREET, 
+    APIUSER, APIPASSWORD, APITOKEN, FILED5, FILED6, FILED7, FILED8, FILED9, FILED10, 
+    PAYPALCUSTOMERADDRESS
+    from db_paypal_temp
+  </select>
+  <sql id="TableName">
+    db_paypal_temp
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=VARCHAR} , 
+     #{transactionid,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{feeamount,jdbcType=DECIMAL} , 
+     #{grossamount,jdbcType=DECIMAL} , 
+     #{netamount,jdbcType=DECIMAL} , 
+     #{paytime,jdbcType=TIMESTAMP} , 
+     #{filed3,jdbcType=DECIMAL} , 
+     #{filed4,jdbcType=DECIMAL} , 
+     #{corpid,jdbcType=VARCHAR} , 
+     #{openflag,jdbcType=VARCHAR} , 
+     #{filed11,jdbcType=DECIMAL} , 
+     #{filed12,jdbcType=DECIMAL} , 
+     #{filed13,jdbcType=DECIMAL} , 
+     #{address,jdbcType=LONGVARCHAR} , 
+     #{emailaddress,jdbcType=LONGVARCHAR} , 
+     #{status,jdbcType=LONGVARCHAR} , 
+     #{filed1,jdbcType=LONGVARCHAR} , 
+     #{filed2,jdbcType=LONGVARCHAR} , 
+     #{customerprovince,jdbcType=LONGVARCHAR} , 
+     #{customercity,jdbcType=LONGVARCHAR} , 
+     #{customercountry,jdbcType=LONGVARCHAR} , 
+     #{customerstreet,jdbcType=LONGVARCHAR} , 
+     #{apiuser,jdbcType=LONGVARCHAR} , 
+     #{apipassword,jdbcType=LONGVARCHAR} , 
+     #{apitoken,jdbcType=LONGVARCHAR} , 
+     #{filed5,jdbcType=LONGVARCHAR} , 
+     #{filed6,jdbcType=LONGVARCHAR} , 
+     #{filed7,jdbcType=LONGVARCHAR} , 
+     #{filed8,jdbcType=LONGVARCHAR} , 
+     #{filed9,jdbcType=LONGVARCHAR} , 
+     #{filed10,jdbcType=LONGVARCHAR} , 
+     #{paypalcustomeraddress,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    TRANSACTIONID , 
+    OPER , 
+    OPERTIME , 
+    FEEAMOUNT , 
+    GROSSAMOUNT , 
+    NETAMOUNT , 
+    PAYTIME , 
+    FILED3 , 
+    FILED4 , 
+    CORPID , 
+    OPENFLAG , 
+    FILED11 , 
+    FILED12 , 
+    FILED13 , 
+    ADDRESS , 
+    EMAILADDRESS , 
+    STATUS , 
+    FILED1 , 
+    FILED2 , 
+    CUSTOMERPROVINCE , 
+    CUSTOMERCITY , 
+    CUSTOMERCOUNTRY , 
+    CUSTOMERSTREET , 
+    APIUSER , 
+    APIPASSWORD , 
+    APITOKEN , 
+    FILED5 , 
+    FILED6 , 
+    FILED7 , 
+    FILED8 , 
+    FILED9 , 
+    FILED10 , 
+    PAYPALCUSTOMERADDRESS
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="transactionid != null">
+      TRANSACTIONID = #{transactionid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="feeamount != null">
+      FEEAMOUNT = #{feeamount,jdbcType=DECIMAL} and 
+    </if>
+    <if test="grossamount != null">
+      GROSSAMOUNT = #{grossamount,jdbcType=DECIMAL} and 
+    </if>
+    <if test="netamount != null">
+      NETAMOUNT = #{netamount,jdbcType=DECIMAL} and 
+    </if>
+    <if test="paytime != null">
+      PAYTIME = #{paytime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="filed3 != null">
+      FILED3 = #{filed3,jdbcType=DECIMAL} and 
+    </if>
+    <if test="filed4 != null">
+      FILED4 = #{filed4,jdbcType=DECIMAL} and 
+    </if>
+    <if test="corpid != null">
+      CORPID = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="filed11 != null">
+      FILED11 = #{filed11,jdbcType=DECIMAL} and 
+    </if>
+    <if test="filed12 != null">
+      FILED12 = #{filed12,jdbcType=DECIMAL} and 
+    </if>
+    <if test="filed13 != null">
+      FILED13 = #{filed13,jdbcType=DECIMAL} and 
+    </if>
+    <if test="address != null">
+      ADDRESS = #{address,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="emailaddress != null">
+      EMAILADDRESS = #{emailaddress,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="status != null">
+      STATUS = #{status,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="filed1 != null">
+      FILED1 = #{filed1,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="filed2 != null">
+      FILED2 = #{filed2,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="customerprovince != null">
+      CUSTOMERPROVINCE = #{customerprovince,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="customercity != null">
+      CUSTOMERCITY = #{customercity,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="customercountry != null">
+      CUSTOMERCOUNTRY = #{customercountry,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="customerstreet != null">
+      CUSTOMERSTREET = #{customerstreet,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="apiuser != null">
+      APIUSER = #{apiuser,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="apipassword != null">
+      APIPASSWORD = #{apipassword,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="apitoken != null">
+      APITOKEN = #{apitoken,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="filed5 != null">
+      FILED5 = #{filed5,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="filed6 != null">
+      FILED6 = #{filed6,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="filed7 != null">
+      FILED7 = #{filed7,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="filed8 != null">
+      FILED8 = #{filed8,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="filed9 != null">
+      FILED9 = #{filed9,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="filed10 != null">
+      FILED10 = #{filed10,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="paypalcustomeraddress != null">
+      PAYPALCUSTOMERADDRESS = #{paypalcustomeraddress,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="transactionid != null">
+      TRANSACTIONID = #{transactionid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="feeamount != null">
+      FEEAMOUNT = #{feeamount,jdbcType=DECIMAL} , 
+    </if>
+    <if test="grossamount != null">
+      GROSSAMOUNT = #{grossamount,jdbcType=DECIMAL} , 
+    </if>
+    <if test="netamount != null">
+      NETAMOUNT = #{netamount,jdbcType=DECIMAL} , 
+    </if>
+    <if test="paytime != null">
+      PAYTIME = #{paytime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="filed3 != null">
+      FILED3 = #{filed3,jdbcType=DECIMAL} , 
+    </if>
+    <if test="filed4 != null">
+      FILED4 = #{filed4,jdbcType=DECIMAL} , 
+    </if>
+    <if test="corpid != null">
+      CORPID = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="filed11 != null">
+      FILED11 = #{filed11,jdbcType=DECIMAL} , 
+    </if>
+    <if test="filed12 != null">
+      FILED12 = #{filed12,jdbcType=DECIMAL} , 
+    </if>
+    <if test="filed13 != null">
+      FILED13 = #{filed13,jdbcType=DECIMAL} , 
+    </if>
+    <if test="address != null">
+      ADDRESS = #{address,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="emailaddress != null">
+      EMAILADDRESS = #{emailaddress,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="status != null">
+      STATUS = #{status,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="filed1 != null">
+      FILED1 = #{filed1,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="filed2 != null">
+      FILED2 = #{filed2,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="customerprovince != null">
+      CUSTOMERPROVINCE = #{customerprovince,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="customercity != null">
+      CUSTOMERCITY = #{customercity,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="customercountry != null">
+      CUSTOMERCOUNTRY = #{customercountry,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="customerstreet != null">
+      CUSTOMERSTREET = #{customerstreet,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="apiuser != null">
+      APIUSER = #{apiuser,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="apipassword != null">
+      APIPASSWORD = #{apipassword,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="apitoken != null">
+      APITOKEN = #{apitoken,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="filed5 != null">
+      FILED5 = #{filed5,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="filed6 != null">
+      FILED6 = #{filed6,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="filed7 != null">
+      FILED7 = #{filed7,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="filed8 != null">
+      FILED8 = #{filed8,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="filed9 != null">
+      FILED9 = #{filed9,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="filed10 != null">
+      FILED10 = #{filed10,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="paypalcustomeraddress != null">
+      PAYPALCUSTOMERADDRESS = #{paypalcustomeraddress,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbPaypalTemp" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbPaypalTemp">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbPaypalTemp">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbPaypalTemp">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

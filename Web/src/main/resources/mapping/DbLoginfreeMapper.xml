@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbLoginfreeMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbLoginfree">
+    <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
+    <result column="PLATFORMID" jdbcType="VARCHAR" property="platformid" />
+    <result column="PLATFORM" jdbcType="VARCHAR" property="platform" />
+    <result column="SALEMETHOD" jdbcType="VARCHAR" property="salemethod" />
+    <result column="STARPRICE" jdbcType="DECIMAL" property="starprice" />
+    <result column="ENDPRICE" jdbcType="DECIMAL" property="endprice" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
+    <result column="RESERVE4" jdbcType="DECIMAL" property="reserve4" />
+    <result column="RESERVE5" jdbcType="DECIMAL" property="reserve5" />
+    <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
+    <result column="CREATEOPER" jdbcType="VARCHAR" property="createoper" />
+    <result column="CREATEDATE" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="EXPRESSION" jdbcType="LONGVARCHAR" property="expression" />
+    <result column="REMARK" jdbcType="LONGVARCHAR" property="remark" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SEQUENCEID, PLATFORMID, PLATFORM, SALEMETHOD, STARPRICE, ENDPRICE, OPER, OPERTIME, 
+    RESERVE1, RESERVE2, RESERVE3, RESERVE4, RESERVE5, CORPID, CREATEOPER, CREATEDATE, 
+    EXPRESSION, REMARK
+    from db_loginfree
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, PLATFORMID, PLATFORM, SALEMETHOD, STARPRICE, ENDPRICE, OPER, OPERTIME, 
+    RESERVE1, RESERVE2, RESERVE3, RESERVE4, RESERVE5, CORPID, CREATEOPER, CREATEDATE, 
+    EXPRESSION, REMARK
+    from db_loginfree
+  </select>
+  <sql id="TableName">
+    db_loginfree
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=VARCHAR} , 
+     #{platformid,jdbcType=VARCHAR} , 
+     #{platform,jdbcType=VARCHAR} , 
+     #{salemethod,jdbcType=VARCHAR} , 
+     #{starprice,jdbcType=DECIMAL} , 
+     #{endprice,jdbcType=DECIMAL} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+     #{reserve3,jdbcType=VARCHAR} , 
+     #{reserve4,jdbcType=DECIMAL} , 
+     #{reserve5,jdbcType=DECIMAL} , 
+     #{corpid,jdbcType=VARCHAR} , 
+     #{createoper,jdbcType=VARCHAR} , 
+     #{createdate,jdbcType=TIMESTAMP} , 
+     #{expression,jdbcType=LONGVARCHAR} , 
+     #{remark,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    PLATFORMID , 
+    PLATFORM , 
+    SALEMETHOD , 
+    STARPRICE , 
+    ENDPRICE , 
+    OPER , 
+    OPERTIME , 
+    RESERVE1 , 
+    RESERVE2 , 
+    RESERVE3 , 
+    RESERVE4 , 
+    RESERVE5 , 
+    CORPID , 
+    CREATEOPER , 
+    CREATEDATE , 
+    EXPRESSION , 
+    REMARK
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="platformid != null">
+      PLATFORMID = #{platformid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="platform != null">
+      PLATFORM = #{platform,jdbcType=VARCHAR} and 
+    </if>
+    <if test="salemethod != null">
+      SALEMETHOD = #{salemethod,jdbcType=VARCHAR} and 
+    </if>
+    <if test="starprice != null">
+      STARPRICE = #{starprice,jdbcType=DECIMAL} and 
+    </if>
+    <if test="endprice != null">
+      ENDPRICE = #{endprice,jdbcType=DECIMAL} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      RESERVE3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve4 != null">
+      RESERVE4 = #{reserve4,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve5 != null">
+      RESERVE5 = #{reserve5,jdbcType=DECIMAL} and 
+    </if>
+    <if test="corpid != null">
+      CORPID = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="createoper != null">
+      CREATEOPER = #{createoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="createdate != null">
+      CREATEDATE = #{createdate,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="expression != null">
+      EXPRESSION = #{expression,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="remark != null">
+      REMARK = #{remark,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="platformid != null">
+      PLATFORMID = #{platformid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="platform != null">
+      PLATFORM = #{platform,jdbcType=VARCHAR} , 
+    </if>
+    <if test="salemethod != null">
+      SALEMETHOD = #{salemethod,jdbcType=VARCHAR} , 
+    </if>
+    <if test="starprice != null">
+      STARPRICE = #{starprice,jdbcType=DECIMAL} , 
+    </if>
+    <if test="endprice != null">
+      ENDPRICE = #{endprice,jdbcType=DECIMAL} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      RESERVE3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve4 != null">
+      RESERVE4 = #{reserve4,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve5 != null">
+      RESERVE5 = #{reserve5,jdbcType=DECIMAL} , 
+    </if>
+    <if test="corpid != null">
+      CORPID = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="createoper != null">
+      CREATEOPER = #{createoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="createdate != null">
+      CREATEDATE = #{createdate,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="expression != null">
+      EXPRESSION = #{expression,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="remark != null">
+      REMARK = #{remark,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbLoginfree" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbLoginfree">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbLoginfree">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbLoginfree">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

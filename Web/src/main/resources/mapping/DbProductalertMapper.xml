@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbProductalertMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbProductalert">
+    <id column="SQUENCEID" jdbcType="VARCHAR" property="squenceid" />
+    <result column="ALERTSTAR1" jdbcType="DECIMAL" property="alertstar1" />
+    <result column="ALERTEND1" jdbcType="DECIMAL" property="alertend1" />
+    <result column="ALERTSTATIC1" jdbcType="DECIMAL" property="alertstatic1" />
+    <result column="ALERTSTAR2" jdbcType="DECIMAL" property="alertstar2" />
+    <result column="ALERTEND2" jdbcType="DECIMAL" property="alertend2" />
+    <result column="ALERTSTATIC2" jdbcType="DECIMAL" property="alertstatic2" />
+    <result column="ALERTSTAR3" jdbcType="DECIMAL" property="alertstar3" />
+    <result column="ALERTEND3" jdbcType="DECIMAL" property="alertend3" />
+    <result column="ALERTSTATIC3" jdbcType="DECIMAL" property="alertstatic3" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SQUENCEID, ALERTSTAR1, ALERTEND1, ALERTSTATIC1, ALERTSTAR2, ALERTEND2, ALERTSTATIC2, 
+    ALERTSTAR3, ALERTEND3, ALERTSTATIC3
+    from db_productalert
+    where SQUENCEID = #{squenceid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SQUENCEID, ALERTSTAR1, ALERTEND1, ALERTSTATIC1, ALERTSTAR2, ALERTEND2, ALERTSTATIC2, 
+    ALERTSTAR3, ALERTEND3, ALERTSTATIC3
+    from db_productalert
+  </select>
+  <sql id="TableName">
+    db_productalert
+  </sql>
+  <sql id="Values">
+     #{squenceid,jdbcType=VARCHAR} , 
+     #{alertstar1,jdbcType=DECIMAL} , 
+     #{alertend1,jdbcType=DECIMAL} , 
+     #{alertstatic1,jdbcType=DECIMAL} , 
+     #{alertstar2,jdbcType=DECIMAL} , 
+     #{alertend2,jdbcType=DECIMAL} , 
+     #{alertstatic2,jdbcType=DECIMAL} , 
+     #{alertstar3,jdbcType=DECIMAL} , 
+     #{alertend3,jdbcType=DECIMAL} , 
+     #{alertstatic3,jdbcType=DECIMAL}
+  </sql>
+  <sql id="Columns">
+    SQUENCEID , 
+    ALERTSTAR1 , 
+    ALERTEND1 , 
+    ALERTSTATIC1 , 
+    ALERTSTAR2 , 
+    ALERTEND2 , 
+    ALERTSTATIC2 , 
+    ALERTSTAR3 , 
+    ALERTEND3 , 
+    ALERTSTATIC3
+  </sql>
+  <sql id="Criteria">
+    <if test="squenceid != null">
+      SQUENCEID = #{squenceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="alertstar1 != null">
+      ALERTSTAR1 = #{alertstar1,jdbcType=DECIMAL} and 
+    </if>
+    <if test="alertend1 != null">
+      ALERTEND1 = #{alertend1,jdbcType=DECIMAL} and 
+    </if>
+    <if test="alertstatic1 != null">
+      ALERTSTATIC1 = #{alertstatic1,jdbcType=DECIMAL} and 
+    </if>
+    <if test="alertstar2 != null">
+      ALERTSTAR2 = #{alertstar2,jdbcType=DECIMAL} and 
+    </if>
+    <if test="alertend2 != null">
+      ALERTEND2 = #{alertend2,jdbcType=DECIMAL} and 
+    </if>
+    <if test="alertstatic2 != null">
+      ALERTSTATIC2 = #{alertstatic2,jdbcType=DECIMAL} and 
+    </if>
+    <if test="alertstar3 != null">
+      ALERTSTAR3 = #{alertstar3,jdbcType=DECIMAL} and 
+    </if>
+    <if test="alertend3 != null">
+      ALERTEND3 = #{alertend3,jdbcType=DECIMAL} and 
+    </if>
+    <if test="alertstatic3 != null">
+      ALERTSTATIC3 = #{alertstatic3,jdbcType=DECIMAL}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="squenceid != null">
+      SQUENCEID = #{squenceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="alertstar1 != null">
+      ALERTSTAR1 = #{alertstar1,jdbcType=DECIMAL} , 
+    </if>
+    <if test="alertend1 != null">
+      ALERTEND1 = #{alertend1,jdbcType=DECIMAL} , 
+    </if>
+    <if test="alertstatic1 != null">
+      ALERTSTATIC1 = #{alertstatic1,jdbcType=DECIMAL} , 
+    </if>
+    <if test="alertstar2 != null">
+      ALERTSTAR2 = #{alertstar2,jdbcType=DECIMAL} , 
+    </if>
+    <if test="alertend2 != null">
+      ALERTEND2 = #{alertend2,jdbcType=DECIMAL} , 
+    </if>
+    <if test="alertstatic2 != null">
+      ALERTSTATIC2 = #{alertstatic2,jdbcType=DECIMAL} , 
+    </if>
+    <if test="alertstar3 != null">
+      ALERTSTAR3 = #{alertstar3,jdbcType=DECIMAL} , 
+    </if>
+    <if test="alertend3 != null">
+      ALERTEND3 = #{alertend3,jdbcType=DECIMAL} , 
+    </if>
+    <if test="alertstatic3 != null">
+      ALERTSTATIC3 = #{alertstatic3,jdbcType=DECIMAL}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbProductalert" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SQUENCEID=#{SQUENCEID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbProductalert">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbProductalert">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbProductalert">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbWytproductMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbWytproduct">
+    <id column="SID" jdbcType="VARCHAR" property="sid" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="MWAREHOUSEID" jdbcType="VARCHAR" property="mwarehouseid" />
+    <result column="QTYONHAND" jdbcType="DECIMAL" property="qtyonhand" />
+    <result column="QTYORDERED" jdbcType="DECIMAL" property="qtyordered" />
+    <result column="QTYAVAILABLE" jdbcType="DECIMAL" property="qtyavailable" />
+    <result column="QTYSELL" jdbcType="DECIMAL" property="qtysell" />
+    <result column="MABANGSKU" jdbcType="VARCHAR" property="mabangsku" />
+    <result column="WYTSKU" jdbcType="VARCHAR" property="wytsku" />
+    <result column="PRODUCTID" jdbcType="VARCHAR" property="productid" />
+    <result column="CATEGORYID" jdbcType="VARCHAR" property="categoryid" />
+    <result column="CATEGORYNAME" jdbcType="VARCHAR" property="categoryname" />
+    <result column="SPECIFICATION" jdbcType="LONGVARCHAR" property="specification" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SID, NAME, MWAREHOUSEID, QTYONHAND, QTYORDERED, QTYAVAILABLE, QTYSELL, MABANGSKU, 
+    WYTSKU, PRODUCTID, CATEGORYID, CATEGORYNAME, SPECIFICATION
+    from db_wytproduct
+    where SID = #{sid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, NAME, MWAREHOUSEID, QTYONHAND, QTYORDERED, QTYAVAILABLE, QTYSELL, MABANGSKU, 
+    WYTSKU, PRODUCTID, CATEGORYID, CATEGORYNAME, SPECIFICATION
+    from db_wytproduct
+  </select>
+  <sql id="TableName">
+    db_wytproduct
+  </sql>
+  <sql id="Values">
+     #{sid,jdbcType=VARCHAR} , 
+     #{name,jdbcType=VARCHAR} , 
+     #{mwarehouseid,jdbcType=VARCHAR} , 
+     #{qtyonhand,jdbcType=DECIMAL} , 
+     #{qtyordered,jdbcType=DECIMAL} , 
+     #{qtyavailable,jdbcType=DECIMAL} , 
+     #{qtysell,jdbcType=DECIMAL} , 
+     #{mabangsku,jdbcType=VARCHAR} , 
+     #{wytsku,jdbcType=VARCHAR} , 
+     #{productid,jdbcType=VARCHAR} , 
+     #{categoryid,jdbcType=VARCHAR} , 
+     #{categoryname,jdbcType=VARCHAR} , 
+     #{specification,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    SID , 
+    NAME , 
+    MWAREHOUSEID , 
+    QTYONHAND , 
+    QTYORDERED , 
+    QTYAVAILABLE , 
+    QTYSELL , 
+    MABANGSKU , 
+    WYTSKU , 
+    PRODUCTID , 
+    CATEGORYID , 
+    CATEGORYNAME , 
+    SPECIFICATION
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="name != null">
+      NAME = #{name,jdbcType=VARCHAR} and 
+    </if>
+    <if test="mwarehouseid != null">
+      MWAREHOUSEID = #{mwarehouseid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="qtyonhand != null">
+      QTYONHAND = #{qtyonhand,jdbcType=DECIMAL} and 
+    </if>
+    <if test="qtyordered != null">
+      QTYORDERED = #{qtyordered,jdbcType=DECIMAL} and 
+    </if>
+    <if test="qtyavailable != null">
+      QTYAVAILABLE = #{qtyavailable,jdbcType=DECIMAL} and 
+    </if>
+    <if test="qtysell != null">
+      QTYSELL = #{qtysell,jdbcType=DECIMAL} and 
+    </if>
+    <if test="mabangsku != null">
+      MABANGSKU = #{mabangsku,jdbcType=VARCHAR} and 
+    </if>
+    <if test="wytsku != null">
+      WYTSKU = #{wytsku,jdbcType=VARCHAR} and 
+    </if>
+    <if test="productid != null">
+      PRODUCTID = #{productid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="categoryid != null">
+      CATEGORYID = #{categoryid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="categoryname != null">
+      CATEGORYNAME = #{categoryname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="specification != null">
+      SPECIFICATION = #{specification,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="name != null">
+      NAME = #{name,jdbcType=VARCHAR} , 
+    </if>
+    <if test="mwarehouseid != null">
+      MWAREHOUSEID = #{mwarehouseid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="qtyonhand != null">
+      QTYONHAND = #{qtyonhand,jdbcType=DECIMAL} , 
+    </if>
+    <if test="qtyordered != null">
+      QTYORDERED = #{qtyordered,jdbcType=DECIMAL} , 
+    </if>
+    <if test="qtyavailable != null">
+      QTYAVAILABLE = #{qtyavailable,jdbcType=DECIMAL} , 
+    </if>
+    <if test="qtysell != null">
+      QTYSELL = #{qtysell,jdbcType=DECIMAL} , 
+    </if>
+    <if test="mabangsku != null">
+      MABANGSKU = #{mabangsku,jdbcType=VARCHAR} , 
+    </if>
+    <if test="wytsku != null">
+      WYTSKU = #{wytsku,jdbcType=VARCHAR} , 
+    </if>
+    <if test="productid != null">
+      PRODUCTID = #{productid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="categoryid != null">
+      CATEGORYID = #{categoryid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="categoryname != null">
+      CATEGORYNAME = #{categoryname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="specification != null">
+      SPECIFICATION = #{specification,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbWytproduct" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SID=#{SID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbWytproduct">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbWytproduct">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbWytproduct">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

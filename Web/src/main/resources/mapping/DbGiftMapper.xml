@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbGiftMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbGift">
+    <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
+    <result column="PRODUCTID" jdbcType="VARCHAR" property="productid" />
+    <result column="WEIGHT" jdbcType="DECIMAL" property="weight" />
+    <result column="COSTPRICE" jdbcType="DECIMAL" property="costprice" />
+    <result column="SELLPRICE" jdbcType="DECIMAL" property="sellprice" />
+    <result column="SAVENUM" jdbcType="DECIMAL" property="savenum" />
+    <result column="OPER1" jdbcType="VARCHAR" property="oper1" />
+    <result column="OPER2" jdbcType="VARCHAR" property="oper2" />
+    <result column="SHOPTYPE" jdbcType="VARCHAR" property="shoptype" />
+    <result column="SHOPTYPEID" jdbcType="VARCHAR" property="shoptypeid" />
+    <result column="EBAYITEMID" jdbcType="VARCHAR" property="ebayitemid" />
+    <result column="EBAYSITE" jdbcType="VARCHAR" property="ebaysite" />
+    <result column="RESERVE4" jdbcType="DECIMAL" property="reserve4" />
+    <result column="RESERVE5" jdbcType="DECIMAL" property="reserve5" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
+    <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
+    <result column="CATEGORYID" jdbcType="VARCHAR" property="categoryid" />
+    <result column="CATEGORY" jdbcType="VARCHAR" property="category" />
+    <result column="CREATEOPER" jdbcType="VARCHAR" property="createoper" />
+    <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="PRODUCTNAME" jdbcType="LONGVARCHAR" property="productname" />
+    <result column="PRODUCTNAMEEN" jdbcType="LONGVARCHAR" property="productnameen" />
+    <result column="PICTUREURL" jdbcType="LONGVARCHAR" property="pictureurl" />
+    <result column="RESERVE1" jdbcType="LONGVARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="LONGVARCHAR" property="reserve2" />
+    <result column="RESERVE3" jdbcType="LONGVARCHAR" property="reserve3" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SEQUENCEID, PRODUCTID, WEIGHT, COSTPRICE, SELLPRICE, SAVENUM, OPER1, OPER2, 
+    SHOPTYPE, SHOPTYPEID, EBAYITEMID, EBAYSITE, RESERVE4, RESERVE5, OPER, OPERTIME, CORPID, 
+    OPENFLAG, CATEGORYID, CATEGORY, CREATEOPER, CREATETIME, PRODUCTNAME, PRODUCTNAMEEN, 
+    PICTUREURL, RESERVE1, RESERVE2, RESERVE3
+    from db_gift
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, PRODUCTID, WEIGHT, COSTPRICE, SELLPRICE, SAVENUM, OPER1, OPER2, 
+    SHOPTYPE, SHOPTYPEID, EBAYITEMID, EBAYSITE, RESERVE4, RESERVE5, OPER, OPERTIME, CORPID, 
+    OPENFLAG, CATEGORYID, CATEGORY, CREATEOPER, CREATETIME, PRODUCTNAME, PRODUCTNAMEEN, 
+    PICTUREURL, RESERVE1, RESERVE2, RESERVE3
+    from db_gift
+  </select>
+  <sql id="TableName">
+    db_gift
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=VARCHAR} , 
+     #{productid,jdbcType=VARCHAR} , 
+     #{weight,jdbcType=DECIMAL} , 
+     #{costprice,jdbcType=DECIMAL} , 
+     #{sellprice,jdbcType=DECIMAL} , 
+     #{savenum,jdbcType=DECIMAL} , 
+     #{oper1,jdbcType=VARCHAR} , 
+     #{oper2,jdbcType=VARCHAR} , 
+     #{shoptype,jdbcType=VARCHAR} , 
+     #{shoptypeid,jdbcType=VARCHAR} , 
+     #{ebayitemid,jdbcType=VARCHAR} , 
+     #{ebaysite,jdbcType=VARCHAR} , 
+     #{reserve4,jdbcType=DECIMAL} , 
+     #{reserve5,jdbcType=DECIMAL} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{corpid,jdbcType=VARCHAR} , 
+     #{openflag,jdbcType=VARCHAR} , 
+     #{categoryid,jdbcType=VARCHAR} , 
+     #{category,jdbcType=VARCHAR} , 
+     #{createoper,jdbcType=VARCHAR} , 
+     #{createtime,jdbcType=TIMESTAMP} , 
+     #{productname,jdbcType=LONGVARCHAR} , 
+     #{productnameen,jdbcType=LONGVARCHAR} , 
+     #{pictureurl,jdbcType=LONGVARCHAR} , 
+     #{reserve1,jdbcType=LONGVARCHAR} , 
+     #{reserve2,jdbcType=LONGVARCHAR} , 
+     #{reserve3,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    PRODUCTID , 
+    WEIGHT , 
+    COSTPRICE , 
+    SELLPRICE , 
+    SAVENUM , 
+    OPER1 , 
+    OPER2 , 
+    SHOPTYPE , 
+    SHOPTYPEID , 
+    EBAYITEMID , 
+    EBAYSITE , 
+    RESERVE4 , 
+    RESERVE5 , 
+    OPER , 
+    OPERTIME , 
+    CORPID , 
+    OPENFLAG , 
+    CATEGORYID , 
+    CATEGORY , 
+    CREATEOPER , 
+    CREATETIME , 
+    PRODUCTNAME , 
+    PRODUCTNAMEEN , 
+    PICTUREURL , 
+    RESERVE1 , 
+    RESERVE2 , 
+    RESERVE3
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="productid != null">
+      PRODUCTID = #{productid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="weight != null">
+      WEIGHT = #{weight,jdbcType=DECIMAL} and 
+    </if>
+    <if test="costprice != null">
+      COSTPRICE = #{costprice,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sellprice != null">
+      SELLPRICE = #{sellprice,jdbcType=DECIMAL} and 
+    </if>
+    <if test="savenum != null">
+      SAVENUM = #{savenum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="oper1 != null">
+      OPER1 = #{oper1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper2 != null">
+      OPER2 = #{oper2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shoptype != null">
+      SHOPTYPE = #{shoptype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shoptypeid != null">
+      SHOPTYPEID = #{shoptypeid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebayitemid != null">
+      EBAYITEMID = #{ebayitemid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebaysite != null">
+      EBAYSITE = #{ebaysite,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve4 != null">
+      RESERVE4 = #{reserve4,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve5 != null">
+      RESERVE5 = #{reserve5,jdbcType=DECIMAL} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="corpid != null">
+      CORPID = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="categoryid != null">
+      CATEGORYID = #{categoryid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="category != null">
+      CATEGORY = #{category,jdbcType=VARCHAR} and 
+    </if>
+    <if test="createoper != null">
+      CREATEOPER = #{createoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="createtime != null">
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="productname != null">
+      PRODUCTNAME = #{productname,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="productnameen != null">
+      PRODUCTNAMEEN = #{productnameen,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="pictureurl != null">
+      PICTUREURL = #{pictureurl,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="productid != null">
+      PRODUCTID = #{productid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="weight != null">
+      WEIGHT = #{weight,jdbcType=DECIMAL} , 
+    </if>
+    <if test="costprice != null">
+      COSTPRICE = #{costprice,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sellprice != null">
+      SELLPRICE = #{sellprice,jdbcType=DECIMAL} , 
+    </if>
+    <if test="savenum != null">
+      SAVENUM = #{savenum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="oper1 != null">
+      OPER1 = #{oper1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper2 != null">
+      OPER2 = #{oper2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shoptype != null">
+      SHOPTYPE = #{shoptype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shoptypeid != null">
+      SHOPTYPEID = #{shoptypeid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebayitemid != null">
+      EBAYITEMID = #{ebayitemid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebaysite != null">
+      EBAYSITE = #{ebaysite,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve4 != null">
+      RESERVE4 = #{reserve4,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve5 != null">
+      RESERVE5 = #{reserve5,jdbcType=DECIMAL} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="corpid != null">
+      CORPID = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="categoryid != null">
+      CATEGORYID = #{categoryid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="category != null">
+      CATEGORY = #{category,jdbcType=VARCHAR} , 
+    </if>
+    <if test="createoper != null">
+      CREATEOPER = #{createoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="createtime != null">
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="productname != null">
+      PRODUCTNAME = #{productname,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="productnameen != null">
+      PRODUCTNAMEEN = #{productnameen,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="pictureurl != null">
+      PICTUREURL = #{pictureurl,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbGift" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbGift">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbGift">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbGift">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>
