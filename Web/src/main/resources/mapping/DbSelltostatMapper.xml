@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbSelltostatMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbSelltostat">
+    <id column="SID" jdbcType="VARCHAR" property="sid" />
+    <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
+    <result column="ORDERID" jdbcType="VARCHAR" property="orderid" />
+    <result column="PRODUCTID" jdbcType="VARCHAR" property="productid" />
+    <result column="ORDERNUM" jdbcType="DECIMAL" property="ordernum" />
+    <result column="SELLPRICE" jdbcType="DECIMAL" property="sellprice" />
+    <result column="COSTPRICE" jdbcType="DECIMAL" property="costprice" />
+    <result column="CUSTOMERID" jdbcType="VARCHAR" property="customerid" />
+    <result column="CUSTOMEREMAIL" jdbcType="VARCHAR" property="customeremail" />
+    <result column="STORAGEID" jdbcType="VARCHAR" property="storageid" />
+    <result column="STORAGENAME" jdbcType="VARCHAR" property="storagename" />
+    <result column="LOCATIONID" jdbcType="VARCHAR" property="locationid" />
+    <result column="LOCATIONNAME" jdbcType="VARCHAR" property="locationname" />
+    <result column="ALERTFLAG" jdbcType="VARCHAR" property="alertflag" />
+    <result column="SHOPTYPEID" jdbcType="VARCHAR" property="shoptypeid" />
+    <result column="SHOPTYPE" jdbcType="VARCHAR" property="shoptype" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="SELLOPER" jdbcType="VARCHAR" property="selloper" />
+    <result column="PURCHASEOPER" jdbcType="VARCHAR" property="purchaseoper" />
+    <result column="EBAYITEMID" jdbcType="VARCHAR" property="ebayitemid" />
+    <result column="TRADEID" jdbcType="VARCHAR" property="tradeid" />
+    <result column="TRANSACTIONID" jdbcType="VARCHAR" property="transactionid" />
+    <result column="MONEYTYPE" jdbcType="VARCHAR" property="moneytype" />
+    <result column="WEIGHT" jdbcType="DECIMAL" property="weight" />
+    <result column="WEIGHTAMOUNT" jdbcType="DECIMAL" property="weightamount" />
+    <result column="PACKAGINGID" jdbcType="VARCHAR" property="packagingid" />
+    <result column="PACKAGINGNAME" jdbcType="VARCHAR" property="packagingname" />
+    <result column="INSURANCE" jdbcType="DECIMAL" property="insurance" />
+    <result column="ORDERTIME" jdbcType="TIMESTAMP" property="ordertime" />
+    <result column="PURCHASETIME" jdbcType="TIMESTAMP" property="purchasetime" />
+    <result column="EXPRESSTIME" jdbcType="TIMESTAMP" property="expresstime" />
+    <result column="INTOTAL" jdbcType="DECIMAL" property="intotal" />
+    <result column="INEXPRESS" jdbcType="DECIMAL" property="inexpress" />
+    <result column="INOTHER1" jdbcType="DECIMAL" property="inother1" />
+    <result column="INOTHER2" jdbcType="DECIMAL" property="inother2" />
+    <result column="OUTTOTAL" jdbcType="DECIMAL" property="outtotal" />
+    <result column="OUTEXPRESS" jdbcType="DECIMAL" property="outexpress" />
+    <result column="OUTEBAYFEE" jdbcType="DECIMAL" property="outebayfee" />
+    <result column="OUTPAYPALFEE" jdbcType="DECIMAL" property="outpaypalfee" />
+    <result column="OUTOTHER1" jdbcType="DECIMAL" property="outother1" />
+    <result column="OUTOTHER2" jdbcType="DECIMAL" property="outother2" />
+    <result column="MONEYRATE" jdbcType="DECIMAL" property="moneyrate" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
+    <result column="RESERVE4" jdbcType="VARCHAR" property="reserve4" />
+    <result column="RESERVE5" jdbcType="VARCHAR" property="reserve5" />
+    <result column="RESERVE6" jdbcType="DECIMAL" property="reserve6" />
+    <result column="RESERVE7" jdbcType="DECIMAL" property="reserve7" />
+    <result column="RESERVE8" jdbcType="VARCHAR" property="reserve8" />
+    <result column="RESERVE9" jdbcType="VARCHAR" property="reserve9" />
+    <result column="RESERVE10" jdbcType="VARCHAR" property="reserve10" />
+    <result column="SOURCE" jdbcType="VARCHAR" property="source" />
+    <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="OUTPACKAGINGFEE" jdbcType="DECIMAL" property="outpackagingfee" />
+    <result column="PRODUCTNAME" jdbcType="LONGVARCHAR" property="productname" />
+    <result column="CUSTOMERNAME" jdbcType="LONGVARCHAR" property="customername" />
+    <result column="ENGLISHNAME" jdbcType="LONGVARCHAR" property="englishname" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SID, CORPID, ORDERID, PRODUCTID, ORDERNUM, SELLPRICE, COSTPRICE, CUSTOMERID, 
+    CUSTOMEREMAIL, STORAGEID, STORAGENAME, LOCATIONID, LOCATIONNAME, ALERTFLAG, SHOPTYPEID, 
+    SHOPTYPE, OPER, OPERTIME, SELLOPER, PURCHASEOPER, EBAYITEMID, TRADEID, TRANSACTIONID, 
+    MONEYTYPE, WEIGHT, WEIGHTAMOUNT, PACKAGINGID, PACKAGINGNAME, INSURANCE, ORDERTIME, 
+    PURCHASETIME, EXPRESSTIME, INTOTAL, INEXPRESS, INOTHER1, INOTHER2, OUTTOTAL, OUTEXPRESS, 
+    OUTEBAYFEE, OUTPAYPALFEE, OUTOTHER1, OUTOTHER2, MONEYRATE, RESERVE1, RESERVE2, RESERVE3, 
+    RESERVE4, RESERVE5, RESERVE6, RESERVE7, RESERVE8, RESERVE9, RESERVE10, SOURCE, CREATETIME, 
+    OUTPACKAGINGFEE, PRODUCTNAME, CUSTOMERNAME, ENGLISHNAME
+    from db_selltostat
+    where SID = #{sid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, CORPID, ORDERID, PRODUCTID, ORDERNUM, SELLPRICE, COSTPRICE, CUSTOMERID, 
+    CUSTOMEREMAIL, STORAGEID, STORAGENAME, LOCATIONID, LOCATIONNAME, ALERTFLAG, SHOPTYPEID, 
+    SHOPTYPE, OPER, OPERTIME, SELLOPER, PURCHASEOPER, EBAYITEMID, TRADEID, TRANSACTIONID, 
+    MONEYTYPE, WEIGHT, WEIGHTAMOUNT, PACKAGINGID, PACKAGINGNAME, INSURANCE, ORDERTIME, 
+    PURCHASETIME, EXPRESSTIME, INTOTAL, INEXPRESS, INOTHER1, INOTHER2, OUTTOTAL, OUTEXPRESS, 
+    OUTEBAYFEE, OUTPAYPALFEE, OUTOTHER1, OUTOTHER2, MONEYRATE, RESERVE1, RESERVE2, RESERVE3, 
+    RESERVE4, RESERVE5, RESERVE6, RESERVE7, RESERVE8, RESERVE9, RESERVE10, SOURCE, CREATETIME, 
+    OUTPACKAGINGFEE, PRODUCTNAME, CUSTOMERNAME, ENGLISHNAME
+    from db_selltostat
+  </select>
+  <sql id="TableName">
+    db_selltostat
+  </sql>
+  <sql id="Values">
+     #{sid,jdbcType=VARCHAR} , 
+     #{corpid,jdbcType=VARCHAR} , 
+     #{orderid,jdbcType=VARCHAR} , 
+     #{productid,jdbcType=VARCHAR} , 
+     #{ordernum,jdbcType=DECIMAL} , 
+     #{sellprice,jdbcType=DECIMAL} , 
+     #{costprice,jdbcType=DECIMAL} , 
+     #{customerid,jdbcType=VARCHAR} , 
+     #{customeremail,jdbcType=VARCHAR} , 
+     #{storageid,jdbcType=VARCHAR} , 
+     #{storagename,jdbcType=VARCHAR} , 
+     #{locationid,jdbcType=VARCHAR} , 
+     #{locationname,jdbcType=VARCHAR} , 
+     #{alertflag,jdbcType=VARCHAR} , 
+     #{shoptypeid,jdbcType=VARCHAR} , 
+     #{shoptype,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{selloper,jdbcType=VARCHAR} , 
+     #{purchaseoper,jdbcType=VARCHAR} , 
+     #{ebayitemid,jdbcType=VARCHAR} , 
+     #{tradeid,jdbcType=VARCHAR} , 
+     #{transactionid,jdbcType=VARCHAR} , 
+     #{moneytype,jdbcType=VARCHAR} , 
+     #{weight,jdbcType=DECIMAL} , 
+     #{weightamount,jdbcType=DECIMAL} , 
+     #{packagingid,jdbcType=VARCHAR} , 
+     #{packagingname,jdbcType=VARCHAR} , 
+     #{insurance,jdbcType=DECIMAL} , 
+     #{ordertime,jdbcType=TIMESTAMP} , 
+     #{purchasetime,jdbcType=TIMESTAMP} , 
+     #{expresstime,jdbcType=TIMESTAMP} , 
+     #{intotal,jdbcType=DECIMAL} , 
+     #{inexpress,jdbcType=DECIMAL} , 
+     #{inother1,jdbcType=DECIMAL} , 
+     #{inother2,jdbcType=DECIMAL} , 
+     #{outtotal,jdbcType=DECIMAL} , 
+     #{outexpress,jdbcType=DECIMAL} , 
+     #{outebayfee,jdbcType=DECIMAL} , 
+     #{outpaypalfee,jdbcType=DECIMAL} , 
+     #{outother1,jdbcType=DECIMAL} , 
+     #{outother2,jdbcType=DECIMAL} , 
+     #{moneyrate,jdbcType=DECIMAL} , 
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+     #{reserve3,jdbcType=VARCHAR} , 
+     #{reserve4,jdbcType=VARCHAR} , 
+     #{reserve5,jdbcType=VARCHAR} , 
+     #{reserve6,jdbcType=DECIMAL} , 
+     #{reserve7,jdbcType=DECIMAL} , 
+     #{reserve8,jdbcType=VARCHAR} , 
+     #{reserve9,jdbcType=VARCHAR} , 
+     #{reserve10,jdbcType=VARCHAR} , 
+     #{source,jdbcType=VARCHAR} , 
+     #{createtime,jdbcType=TIMESTAMP} , 
+     #{outpackagingfee,jdbcType=DECIMAL} , 
+     #{productname,jdbcType=LONGVARCHAR} , 
+     #{customername,jdbcType=LONGVARCHAR} , 
+     #{englishname,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    SID , 
+    CORPID , 
+    ORDERID , 
+    PRODUCTID , 
+    ORDERNUM , 
+    SELLPRICE , 
+    COSTPRICE , 
+    CUSTOMERID , 
+    CUSTOMEREMAIL , 
+    STORAGEID , 
+    STORAGENAME , 
+    LOCATIONID , 
+    LOCATIONNAME , 
+    ALERTFLAG , 
+    SHOPTYPEID , 
+    SHOPTYPE , 
+    OPER , 
+    OPERTIME , 
+    SELLOPER , 
+    PURCHASEOPER , 
+    EBAYITEMID , 
+    TRADEID , 
+    TRANSACTIONID , 
+    MONEYTYPE , 
+    WEIGHT , 
+    WEIGHTAMOUNT , 
+    PACKAGINGID , 
+    PACKAGINGNAME , 
+    INSURANCE , 
+    ORDERTIME , 
+    PURCHASETIME , 
+    EXPRESSTIME , 
+    INTOTAL , 
+    INEXPRESS , 
+    INOTHER1 , 
+    INOTHER2 , 
+    OUTTOTAL , 
+    OUTEXPRESS , 
+    OUTEBAYFEE , 
+    OUTPAYPALFEE , 
+    OUTOTHER1 , 
+    OUTOTHER2 , 
+    MONEYRATE , 
+    RESERVE1 , 
+    RESERVE2 , 
+    RESERVE3 , 
+    RESERVE4 , 
+    RESERVE5 , 
+    RESERVE6 , 
+    RESERVE7 , 
+    RESERVE8 , 
+    RESERVE9 , 
+    RESERVE10 , 
+    SOURCE , 
+    CREATETIME , 
+    OUTPACKAGINGFEE , 
+    PRODUCTNAME , 
+    CUSTOMERNAME , 
+    ENGLISHNAME
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="corpid != null">
+      CORPID = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="orderid != null">
+      ORDERID = #{orderid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="productid != null">
+      PRODUCTID = #{productid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ordernum != null">
+      ORDERNUM = #{ordernum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sellprice != null">
+      SELLPRICE = #{sellprice,jdbcType=DECIMAL} and 
+    </if>
+    <if test="costprice != null">
+      COSTPRICE = #{costprice,jdbcType=DECIMAL} and 
+    </if>
+    <if test="customerid != null">
+      CUSTOMERID = #{customerid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="customeremail != null">
+      CUSTOMEREMAIL = #{customeremail,jdbcType=VARCHAR} and 
+    </if>
+    <if test="storageid != null">
+      STORAGEID = #{storageid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="storagename != null">
+      STORAGENAME = #{storagename,jdbcType=VARCHAR} and 
+    </if>
+    <if test="locationid != null">
+      LOCATIONID = #{locationid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="locationname != null">
+      LOCATIONNAME = #{locationname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="alertflag != null">
+      ALERTFLAG = #{alertflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shoptypeid != null">
+      SHOPTYPEID = #{shoptypeid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shoptype != null">
+      SHOPTYPE = #{shoptype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="selloper != null">
+      SELLOPER = #{selloper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="purchaseoper != null">
+      PURCHASEOPER = #{purchaseoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebayitemid != null">
+      EBAYITEMID = #{ebayitemid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="tradeid != null">
+      TRADEID = #{tradeid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="transactionid != null">
+      TRANSACTIONID = #{transactionid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="moneytype != null">
+      MONEYTYPE = #{moneytype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="weight != null">
+      WEIGHT = #{weight,jdbcType=DECIMAL} and 
+    </if>
+    <if test="weightamount != null">
+      WEIGHTAMOUNT = #{weightamount,jdbcType=DECIMAL} and 
+    </if>
+    <if test="packagingid != null">
+      PACKAGINGID = #{packagingid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="packagingname != null">
+      PACKAGINGNAME = #{packagingname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="insurance != null">
+      INSURANCE = #{insurance,jdbcType=DECIMAL} and 
+    </if>
+    <if test="ordertime != null">
+      ORDERTIME = #{ordertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="purchasetime != null">
+      PURCHASETIME = #{purchasetime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="expresstime != null">
+      EXPRESSTIME = #{expresstime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="intotal != null">
+      INTOTAL = #{intotal,jdbcType=DECIMAL} and 
+    </if>
+    <if test="inexpress != null">
+      INEXPRESS = #{inexpress,jdbcType=DECIMAL} and 
+    </if>
+    <if test="inother1 != null">
+      INOTHER1 = #{inother1,jdbcType=DECIMAL} and 
+    </if>
+    <if test="inother2 != null">
+      INOTHER2 = #{inother2,jdbcType=DECIMAL} and 
+    </if>
+    <if test="outtotal != null">
+      OUTTOTAL = #{outtotal,jdbcType=DECIMAL} and 
+    </if>
+    <if test="outexpress != null">
+      OUTEXPRESS = #{outexpress,jdbcType=DECIMAL} and 
+    </if>
+    <if test="outebayfee != null">
+      OUTEBAYFEE = #{outebayfee,jdbcType=DECIMAL} and 
+    </if>
+    <if test="outpaypalfee != null">
+      OUTPAYPALFEE = #{outpaypalfee,jdbcType=DECIMAL} and 
+    </if>
+    <if test="outother1 != null">
+      OUTOTHER1 = #{outother1,jdbcType=DECIMAL} and 
+    </if>
+    <if test="outother2 != null">
+      OUTOTHER2 = #{outother2,jdbcType=DECIMAL} and 
+    </if>
+    <if test="moneyrate != null">
+      MONEYRATE = #{moneyrate,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      RESERVE3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve4 != null">
+      RESERVE4 = #{reserve4,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve5 != null">
+      RESERVE5 = #{reserve5,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve6 != null">
+      RESERVE6 = #{reserve6,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve7 != null">
+      RESERVE7 = #{reserve7,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve8 != null">
+      RESERVE8 = #{reserve8,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve9 != null">
+      RESERVE9 = #{reserve9,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve10 != null">
+      RESERVE10 = #{reserve10,jdbcType=VARCHAR} and 
+    </if>
+    <if test="source != null">
+      SOURCE = #{source,jdbcType=VARCHAR} and 
+    </if>
+    <if test="createtime != null">
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="outpackagingfee != null">
+      OUTPACKAGINGFEE = #{outpackagingfee,jdbcType=DECIMAL} and 
+    </if>
+    <if test="productname != null">
+      PRODUCTNAME = #{productname,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="customername != null">
+      CUSTOMERNAME = #{customername,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="englishname != null">
+      ENGLISHNAME = #{englishname,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="corpid != null">
+      CORPID = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="orderid != null">
+      ORDERID = #{orderid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="productid != null">
+      PRODUCTID = #{productid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ordernum != null">
+      ORDERNUM = #{ordernum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sellprice != null">
+      SELLPRICE = #{sellprice,jdbcType=DECIMAL} , 
+    </if>
+    <if test="costprice != null">
+      COSTPRICE = #{costprice,jdbcType=DECIMAL} , 
+    </if>
+    <if test="customerid != null">
+      CUSTOMERID = #{customerid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="customeremail != null">
+      CUSTOMEREMAIL = #{customeremail,jdbcType=VARCHAR} , 
+    </if>
+    <if test="storageid != null">
+      STORAGEID = #{storageid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="storagename != null">
+      STORAGENAME = #{storagename,jdbcType=VARCHAR} , 
+    </if>
+    <if test="locationid != null">
+      LOCATIONID = #{locationid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="locationname != null">
+      LOCATIONNAME = #{locationname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="alertflag != null">
+      ALERTFLAG = #{alertflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shoptypeid != null">
+      SHOPTYPEID = #{shoptypeid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shoptype != null">
+      SHOPTYPE = #{shoptype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="selloper != null">
+      SELLOPER = #{selloper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="purchaseoper != null">
+      PURCHASEOPER = #{purchaseoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebayitemid != null">
+      EBAYITEMID = #{ebayitemid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="tradeid != null">
+      TRADEID = #{tradeid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="transactionid != null">
+      TRANSACTIONID = #{transactionid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="moneytype != null">
+      MONEYTYPE = #{moneytype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="weight != null">
+      WEIGHT = #{weight,jdbcType=DECIMAL} , 
+    </if>
+    <if test="weightamount != null">
+      WEIGHTAMOUNT = #{weightamount,jdbcType=DECIMAL} , 
+    </if>
+    <if test="packagingid != null">
+      PACKAGINGID = #{packagingid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="packagingname != null">
+      PACKAGINGNAME = #{packagingname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="insurance != null">
+      INSURANCE = #{insurance,jdbcType=DECIMAL} , 
+    </if>
+    <if test="ordertime != null">
+      ORDERTIME = #{ordertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="purchasetime != null">
+      PURCHASETIME = #{purchasetime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="expresstime != null">
+      EXPRESSTIME = #{expresstime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="intotal != null">
+      INTOTAL = #{intotal,jdbcType=DECIMAL} , 
+    </if>
+    <if test="inexpress != null">
+      INEXPRESS = #{inexpress,jdbcType=DECIMAL} , 
+    </if>
+    <if test="inother1 != null">
+      INOTHER1 = #{inother1,jdbcType=DECIMAL} , 
+    </if>
+    <if test="inother2 != null">
+      INOTHER2 = #{inother2,jdbcType=DECIMAL} , 
+    </if>
+    <if test="outtotal != null">
+      OUTTOTAL = #{outtotal,jdbcType=DECIMAL} , 
+    </if>
+    <if test="outexpress != null">
+      OUTEXPRESS = #{outexpress,jdbcType=DECIMAL} , 
+    </if>
+    <if test="outebayfee != null">
+      OUTEBAYFEE = #{outebayfee,jdbcType=DECIMAL} , 
+    </if>
+    <if test="outpaypalfee != null">
+      OUTPAYPALFEE = #{outpaypalfee,jdbcType=DECIMAL} , 
+    </if>
+    <if test="outother1 != null">
+      OUTOTHER1 = #{outother1,jdbcType=DECIMAL} , 
+    </if>
+    <if test="outother2 != null">
+      OUTOTHER2 = #{outother2,jdbcType=DECIMAL} , 
+    </if>
+    <if test="moneyrate != null">
+      MONEYRATE = #{moneyrate,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      RESERVE3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve4 != null">
+      RESERVE4 = #{reserve4,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve5 != null">
+      RESERVE5 = #{reserve5,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve6 != null">
+      RESERVE6 = #{reserve6,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve7 != null">
+      RESERVE7 = #{reserve7,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve8 != null">
+      RESERVE8 = #{reserve8,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve9 != null">
+      RESERVE9 = #{reserve9,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve10 != null">
+      RESERVE10 = #{reserve10,jdbcType=VARCHAR} , 
+    </if>
+    <if test="source != null">
+      SOURCE = #{source,jdbcType=VARCHAR} , 
+    </if>
+    <if test="createtime != null">
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="outpackagingfee != null">
+      OUTPACKAGINGFEE = #{outpackagingfee,jdbcType=DECIMAL} , 
+    </if>
+    <if test="productname != null">
+      PRODUCTNAME = #{productname,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="customername != null">
+      CUSTOMERNAME = #{customername,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="englishname != null">
+      ENGLISHNAME = #{englishname,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbSelltostat" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SID=#{SID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbSelltostat">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbSelltostat">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbSelltostat">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

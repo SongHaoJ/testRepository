@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbProjectproductMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbProjectproduct">
+    <id column="SID" jdbcType="VARCHAR" property="sid" />
+    <result column="PROJECTID" jdbcType="VARCHAR" property="projectid" />
+    <result column="PRODUCTID" jdbcType="VARCHAR" property="productid" />
+    <result column="STYPE" jdbcType="VARCHAR" property="stype" />
+    <result column="SLEVEL" jdbcType="VARCHAR" property="slevel" />
+    <result column="FLAG" jdbcType="VARCHAR" property="flag" />
+    <result column="TRANSLATEFLAG" jdbcType="VARCHAR" property="translateflag" />
+    <result column="PRICEFLAG" jdbcType="VARCHAR" property="priceflag" />
+    <result column="CONTENTFLAG" jdbcType="VARCHAR" property="contentflag" />
+    <result column="PICFLAG" jdbcType="VARCHAR" property="picflag" />
+    <result column="DESIGNFLAG" jdbcType="VARCHAR" property="designflag" />
+    <result column="PUBLICFLAG" jdbcType="VARCHAR" property="publicflag" />
+    <result column="TRANSLATEOPER" jdbcType="VARCHAR" property="translateoper" />
+    <result column="PRICEOPER" jdbcType="VARCHAR" property="priceoper" />
+    <result column="CONTENTOPER" jdbcType="VARCHAR" property="contentoper" />
+    <result column="PICOPER" jdbcType="VARCHAR" property="picoper" />
+    <result column="DESIGNOPER" jdbcType="VARCHAR" property="designoper" />
+    <result column="PUBLICOPER" jdbcType="VARCHAR" property="publicoper" />
+    <result column="ENDTIME" jdbcType="TIMESTAMP" property="endtime" />
+    <result column="DATEDIFF" jdbcType="DECIMAL" property="datediff" />
+    <result column="TRANSLATETIME" jdbcType="TIMESTAMP" property="translatetime" />
+    <result column="PRICETIME" jdbcType="TIMESTAMP" property="pricetime" />
+    <result column="CONTENTTIME" jdbcType="TIMESTAMP" property="contenttime" />
+    <result column="PICTIME" jdbcType="TIMESTAMP" property="pictime" />
+    <result column="DESIGNTIME" jdbcType="TIMESTAMP" property="designtime" />
+    <result column="PUBLICTIME" jdbcType="TIMESTAMP" property="publictime" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
+    <result column="RESERVE4" jdbcType="VARCHAR" property="reserve4" />
+    <result column="RESERVE5" jdbcType="VARCHAR" property="reserve5" />
+    <result column="CHECKFLAG" jdbcType="VARCHAR" property="checkflag" />
+    <result column="CHECKOPER" jdbcType="VARCHAR" property="checkoper" />
+    <result column="CHECKTIME" jdbcType="TIMESTAMP" property="checktime" />
+    <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
+    <result column="PRODUCTNAME" jdbcType="LONGVARCHAR" property="productname" />
+    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
+    <result column="SHOPTYPE" jdbcType="LONGVARCHAR" property="shoptype" />
+    <result column="SALESOURCE" jdbcType="LONGVARCHAR" property="salesource" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SID, PROJECTID, PRODUCTID, STYPE, SLEVEL, FLAG, TRANSLATEFLAG, PRICEFLAG, 
+    CONTENTFLAG, PICFLAG, DESIGNFLAG, PUBLICFLAG, TRANSLATEOPER, PRICEOPER, CONTENTOPER, 
+    PICOPER, DESIGNOPER, PUBLICOPER, ENDTIME, DATEDIFF, TRANSLATETIME, PRICETIME, CONTENTTIME, 
+    PICTIME, DESIGNTIME, PUBLICTIME, OPER, OPERTIME, RESERVE1, RESERVE2, RESERVE3, RESERVE4, 
+    RESERVE5, CHECKFLAG, CHECKOPER, CHECKTIME, CORPID, PRODUCTNAME, DESCR, SHOPTYPE, 
+    SALESOURCE
+    from db_projectproduct
+    where SID = #{sid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, PROJECTID, PRODUCTID, STYPE, SLEVEL, FLAG, TRANSLATEFLAG, PRICEFLAG, 
+    CONTENTFLAG, PICFLAG, DESIGNFLAG, PUBLICFLAG, TRANSLATEOPER, PRICEOPER, CONTENTOPER, 
+    PICOPER, DESIGNOPER, PUBLICOPER, ENDTIME, DATEDIFF, TRANSLATETIME, PRICETIME, CONTENTTIME, 
+    PICTIME, DESIGNTIME, PUBLICTIME, OPER, OPERTIME, RESERVE1, RESERVE2, RESERVE3, RESERVE4, 
+    RESERVE5, CHECKFLAG, CHECKOPER, CHECKTIME, CORPID, PRODUCTNAME, DESCR, SHOPTYPE, 
+    SALESOURCE
+    from db_projectproduct
+  </select>
+  <sql id="TableName">
+    db_projectproduct
+  </sql>
+  <sql id="Values">
+     #{sid,jdbcType=VARCHAR} , 
+     #{projectid,jdbcType=VARCHAR} , 
+     #{productid,jdbcType=VARCHAR} , 
+     #{stype,jdbcType=VARCHAR} , 
+     #{slevel,jdbcType=VARCHAR} , 
+     #{flag,jdbcType=VARCHAR} , 
+     #{translateflag,jdbcType=VARCHAR} , 
+     #{priceflag,jdbcType=VARCHAR} , 
+     #{contentflag,jdbcType=VARCHAR} , 
+     #{picflag,jdbcType=VARCHAR} , 
+     #{designflag,jdbcType=VARCHAR} , 
+     #{publicflag,jdbcType=VARCHAR} , 
+     #{translateoper,jdbcType=VARCHAR} , 
+     #{priceoper,jdbcType=VARCHAR} , 
+     #{contentoper,jdbcType=VARCHAR} , 
+     #{picoper,jdbcType=VARCHAR} , 
+     #{designoper,jdbcType=VARCHAR} , 
+     #{publicoper,jdbcType=VARCHAR} , 
+     #{endtime,jdbcType=TIMESTAMP} , 
+     #{datediff,jdbcType=DECIMAL} , 
+     #{translatetime,jdbcType=TIMESTAMP} , 
+     #{pricetime,jdbcType=TIMESTAMP} , 
+     #{contenttime,jdbcType=TIMESTAMP} , 
+     #{pictime,jdbcType=TIMESTAMP} , 
+     #{designtime,jdbcType=TIMESTAMP} , 
+     #{publictime,jdbcType=TIMESTAMP} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+     #{reserve3,jdbcType=VARCHAR} , 
+     #{reserve4,jdbcType=VARCHAR} , 
+     #{reserve5,jdbcType=VARCHAR} , 
+     #{checkflag,jdbcType=VARCHAR} , 
+     #{checkoper,jdbcType=VARCHAR} , 
+     #{checktime,jdbcType=TIMESTAMP} , 
+     #{corpid,jdbcType=VARCHAR} , 
+     #{productname,jdbcType=LONGVARCHAR} , 
+     #{descr,jdbcType=LONGVARCHAR} , 
+     #{shoptype,jdbcType=LONGVARCHAR} , 
+     #{salesource,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    SID , 
+    PROJECTID , 
+    PRODUCTID , 
+    STYPE , 
+    SLEVEL , 
+    FLAG , 
+    TRANSLATEFLAG , 
+    PRICEFLAG , 
+    CONTENTFLAG , 
+    PICFLAG , 
+    DESIGNFLAG , 
+    PUBLICFLAG , 
+    TRANSLATEOPER , 
+    PRICEOPER , 
+    CONTENTOPER , 
+    PICOPER , 
+    DESIGNOPER , 
+    PUBLICOPER , 
+    ENDTIME , 
+    DATEDIFF , 
+    TRANSLATETIME , 
+    PRICETIME , 
+    CONTENTTIME , 
+    PICTIME , 
+    DESIGNTIME , 
+    PUBLICTIME , 
+    OPER , 
+    OPERTIME , 
+    RESERVE1 , 
+    RESERVE2 , 
+    RESERVE3 , 
+    RESERVE4 , 
+    RESERVE5 , 
+    CHECKFLAG , 
+    CHECKOPER , 
+    CHECKTIME , 
+    CORPID , 
+    PRODUCTNAME , 
+    DESCR , 
+    SHOPTYPE , 
+    SALESOURCE
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="projectid != null">
+      PROJECTID = #{projectid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="productid != null">
+      PRODUCTID = #{productid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="stype != null">
+      STYPE = #{stype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="slevel != null">
+      SLEVEL = #{slevel,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag != null">
+      FLAG = #{flag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="translateflag != null">
+      TRANSLATEFLAG = #{translateflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="priceflag != null">
+      PRICEFLAG = #{priceflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="contentflag != null">
+      CONTENTFLAG = #{contentflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="picflag != null">
+      PICFLAG = #{picflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="designflag != null">
+      DESIGNFLAG = #{designflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="publicflag != null">
+      PUBLICFLAG = #{publicflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="translateoper != null">
+      TRANSLATEOPER = #{translateoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="priceoper != null">
+      PRICEOPER = #{priceoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="contentoper != null">
+      CONTENTOPER = #{contentoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="picoper != null">
+      PICOPER = #{picoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="designoper != null">
+      DESIGNOPER = #{designoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="publicoper != null">
+      PUBLICOPER = #{publicoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="endtime != null">
+      ENDTIME = #{endtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="datediff != null">
+      DATEDIFF = #{datediff,jdbcType=DECIMAL} and 
+    </if>
+    <if test="translatetime != null">
+      TRANSLATETIME = #{translatetime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="pricetime != null">
+      PRICETIME = #{pricetime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="contenttime != null">
+      CONTENTTIME = #{contenttime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="pictime != null">
+      PICTIME = #{pictime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="designtime != null">
+      DESIGNTIME = #{designtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="publictime != null">
+      PUBLICTIME = #{publictime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      RESERVE3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve4 != null">
+      RESERVE4 = #{reserve4,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve5 != null">
+      RESERVE5 = #{reserve5,jdbcType=VARCHAR} and 
+    </if>
+    <if test="checkflag != null">
+      CHECKFLAG = #{checkflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="checkoper != null">
+      CHECKOPER = #{checkoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="checktime != null">
+      CHECKTIME = #{checktime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="corpid != null">
+      CORPID = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="productname != null">
+      PRODUCTNAME = #{productname,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="descr != null">
+      DESCR = #{descr,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="shoptype != null">
+      SHOPTYPE = #{shoptype,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="salesource != null">
+      SALESOURCE = #{salesource,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="projectid != null">
+      PROJECTID = #{projectid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="productid != null">
+      PRODUCTID = #{productid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="stype != null">
+      STYPE = #{stype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="slevel != null">
+      SLEVEL = #{slevel,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag != null">
+      FLAG = #{flag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="translateflag != null">
+      TRANSLATEFLAG = #{translateflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="priceflag != null">
+      PRICEFLAG = #{priceflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="contentflag != null">
+      CONTENTFLAG = #{contentflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="picflag != null">
+      PICFLAG = #{picflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="designflag != null">
+      DESIGNFLAG = #{designflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="publicflag != null">
+      PUBLICFLAG = #{publicflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="translateoper != null">
+      TRANSLATEOPER = #{translateoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="priceoper != null">
+      PRICEOPER = #{priceoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="contentoper != null">
+      CONTENTOPER = #{contentoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="picoper != null">
+      PICOPER = #{picoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="designoper != null">
+      DESIGNOPER = #{designoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="publicoper != null">
+      PUBLICOPER = #{publicoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="endtime != null">
+      ENDTIME = #{endtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="datediff != null">
+      DATEDIFF = #{datediff,jdbcType=DECIMAL} , 
+    </if>
+    <if test="translatetime != null">
+      TRANSLATETIME = #{translatetime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="pricetime != null">
+      PRICETIME = #{pricetime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="contenttime != null">
+      CONTENTTIME = #{contenttime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="pictime != null">
+      PICTIME = #{pictime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="designtime != null">
+      DESIGNTIME = #{designtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="publictime != null">
+      PUBLICTIME = #{publictime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      RESERVE3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve4 != null">
+      RESERVE4 = #{reserve4,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve5 != null">
+      RESERVE5 = #{reserve5,jdbcType=VARCHAR} , 
+    </if>
+    <if test="checkflag != null">
+      CHECKFLAG = #{checkflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="checkoper != null">
+      CHECKOPER = #{checkoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="checktime != null">
+      CHECKTIME = #{checktime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="corpid != null">
+      CORPID = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="productname != null">
+      PRODUCTNAME = #{productname,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="descr != null">
+      DESCR = #{descr,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="shoptype != null">
+      SHOPTYPE = #{shoptype,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="salesource != null">
+      SALESOURCE = #{salesource,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbProjectproduct" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SID=#{SID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbProjectproduct">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbProjectproduct">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbProjectproduct">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

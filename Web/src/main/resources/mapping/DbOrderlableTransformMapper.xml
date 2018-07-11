@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbOrderlableTransformMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbOrderlableTransform">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="ORDERID" jdbcType="VARCHAR" property="orderid" />
+    <result column="FLAG" jdbcType="DECIMAL" property="flag" />
+    <result column="PICNUM" jdbcType="DECIMAL" property="picnum" />
+    <result column="DOWNLOADTIME" jdbcType="TIMESTAMP" property="downloadtime" />
+    <result column="PICTIME" jdbcType="TIMESTAMP" property="pictime" />
+    <result column="EXPRESSTYPE" jdbcType="VARCHAR" property="expresstype" />
+    <result column="PDFURL" jdbcType="LONGVARCHAR" property="pdfurl" />
+    <result column="PARAMDATA" jdbcType="LONGVARCHAR" property="paramdata" />
+    <result column="ERROR" jdbcType="LONGVARCHAR" property="error" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select ID, ORDERID, FLAG, PICNUM, DOWNLOADTIME, PICTIME, EXPRESSTYPE, PDFURL, PARAMDATA, 
+    ERROR
+    from db_orderlable_transform
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ID, ORDERID, FLAG, PICNUM, DOWNLOADTIME, PICTIME, EXPRESSTYPE, PDFURL, PARAMDATA, 
+    ERROR
+    from db_orderlable_transform
+  </select>
+  <sql id="TableName">
+    db_orderlable_transform
+  </sql>
+  <sql id="Values">
+     #{id,jdbcType=DECIMAL} , 
+     #{orderid,jdbcType=VARCHAR} , 
+     #{flag,jdbcType=DECIMAL} , 
+     #{picnum,jdbcType=DECIMAL} , 
+     #{downloadtime,jdbcType=TIMESTAMP} , 
+     #{pictime,jdbcType=TIMESTAMP} , 
+     #{expresstype,jdbcType=VARCHAR} , 
+     #{pdfurl,jdbcType=LONGVARCHAR} , 
+     #{paramdata,jdbcType=LONGVARCHAR} , 
+     #{error,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    ID , 
+    ORDERID , 
+    FLAG , 
+    PICNUM , 
+    DOWNLOADTIME , 
+    PICTIME , 
+    EXPRESSTYPE , 
+    PDFURL , 
+    PARAMDATA , 
+    ERROR
+  </sql>
+  <sql id="Criteria">
+    <if test="id != null">
+      ID = #{id,jdbcType=DECIMAL} and 
+    </if>
+    <if test="orderid != null">
+      ORDERID = #{orderid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag != null">
+      FLAG = #{flag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="picnum != null">
+      PICNUM = #{picnum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="downloadtime != null">
+      DOWNLOADTIME = #{downloadtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="pictime != null">
+      PICTIME = #{pictime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="expresstype != null">
+      EXPRESSTYPE = #{expresstype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="pdfurl != null">
+      PDFURL = #{pdfurl,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="paramdata != null">
+      PARAMDATA = #{paramdata,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="error != null">
+      ERROR = #{error,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="id != null">
+      ID = #{id,jdbcType=DECIMAL} , 
+    </if>
+    <if test="orderid != null">
+      ORDERID = #{orderid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag != null">
+      FLAG = #{flag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="picnum != null">
+      PICNUM = #{picnum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="downloadtime != null">
+      DOWNLOADTIME = #{downloadtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="pictime != null">
+      PICTIME = #{pictime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="expresstype != null">
+      EXPRESSTYPE = #{expresstype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="pdfurl != null">
+      PDFURL = #{pdfurl,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="paramdata != null">
+      PARAMDATA = #{paramdata,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="error != null">
+      ERROR = #{error,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbOrderlableTransform" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="Long">
+    delete from <include refid="TableName"/> where ID=#{ID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbOrderlableTransform">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbOrderlableTransform">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbOrderlableTransform">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

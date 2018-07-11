@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbCkyuserMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbCkyuser">
+    <id column="SID" jdbcType="VARCHAR" property="sid" />
+    <result column="EXPRESSID" jdbcType="VARCHAR" property="expressid" />
+    <result column="TOKENID" jdbcType="VARCHAR" property="tokenid" />
+    <result column="USERKEY" jdbcType="VARCHAR" property="userkey" />
+    <result column="CUSTOMUSERKEY" jdbcType="VARCHAR" property="customuserkey" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="FLAG" jdbcType="DECIMAL" property="flag" />
+    <result column="OPENFLAG" jdbcType="DECIMAL" property="openflag" />
+    <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
+    <result column="TYPEID" jdbcType="VARCHAR" property="typeid" />
+    <result column="TYPENAME" jdbcType="VARCHAR" property="typename" />
+    <result column="TYPECOUNTRY" jdbcType="VARCHAR" property="typecountry" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
+    <result column="RESERVE4" jdbcType="DECIMAL" property="reserve4" />
+    <result column="RESERVE5" jdbcType="DECIMAL" property="reserve5" />
+    <result column="RESERVE6" jdbcType="DECIMAL" property="reserve6" />
+    <result column="CONTACT" jdbcType="VARCHAR" property="contact" />
+    <result column="COMPANY" jdbcType="VARCHAR" property="company" />
+    <result column="CITY" jdbcType="VARCHAR" property="city" />
+    <result column="PROVINCE" jdbcType="VARCHAR" property="province" />
+    <result column="COUNTRY" jdbcType="VARCHAR" property="country" />
+    <result column="POSTCODE" jdbcType="VARCHAR" property="postcode" />
+    <result column="DISTRICT" jdbcType="VARCHAR" property="district" />
+    <result column="TEL" jdbcType="VARCHAR" property="tel" />
+    <result column="FAX" jdbcType="VARCHAR" property="fax" />
+    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
+    <result column="USERID" jdbcType="VARCHAR" property="userid" />
+    <result column="RESERVE8" jdbcType="DECIMAL" property="reserve8" />
+    <result column="RESERVE7" jdbcType="DECIMAL" property="reserve7" />
+    <result column="STREET1" jdbcType="LONGVARCHAR" property="street1" />
+    <result column="STREET2" jdbcType="LONGVARCHAR" property="street2" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SID, EXPRESSID, TOKENID, USERKEY, CUSTOMUSERKEY, OPER, OPERTIME, FLAG, OPENFLAG, 
+    CORPID, TYPEID, TYPENAME, TYPECOUNTRY, RESERVE1, RESERVE2, RESERVE3, RESERVE4, RESERVE5, 
+    RESERVE6, CONTACT, COMPANY, CITY, PROVINCE, COUNTRY, POSTCODE, DISTRICT, TEL, FAX, 
+    EMAIL, USERID, RESERVE8, RESERVE7, STREET1, STREET2
+    from db_ckyuser
+    where SID = #{sid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, EXPRESSID, TOKENID, USERKEY, CUSTOMUSERKEY, OPER, OPERTIME, FLAG, OPENFLAG, 
+    CORPID, TYPEID, TYPENAME, TYPECOUNTRY, RESERVE1, RESERVE2, RESERVE3, RESERVE4, RESERVE5, 
+    RESERVE6, CONTACT, COMPANY, CITY, PROVINCE, COUNTRY, POSTCODE, DISTRICT, TEL, FAX, 
+    EMAIL, USERID, RESERVE8, RESERVE7, STREET1, STREET2
+    from db_ckyuser
+  </select>
+  <sql id="TableName">
+    db_ckyuser
+  </sql>
+  <sql id="Values">
+     #{sid,jdbcType=VARCHAR} , 
+     #{expressid,jdbcType=VARCHAR} , 
+     #{tokenid,jdbcType=VARCHAR} , 
+     #{userkey,jdbcType=VARCHAR} , 
+     #{customuserkey,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{flag,jdbcType=DECIMAL} , 
+     #{openflag,jdbcType=DECIMAL} , 
+     #{corpid,jdbcType=VARCHAR} , 
+     #{typeid,jdbcType=VARCHAR} , 
+     #{typename,jdbcType=VARCHAR} , 
+     #{typecountry,jdbcType=VARCHAR} , 
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+     #{reserve3,jdbcType=VARCHAR} , 
+     #{reserve4,jdbcType=DECIMAL} , 
+     #{reserve5,jdbcType=DECIMAL} , 
+     #{reserve6,jdbcType=DECIMAL} , 
+     #{contact,jdbcType=VARCHAR} , 
+     #{company,jdbcType=VARCHAR} , 
+     #{city,jdbcType=VARCHAR} , 
+     #{province,jdbcType=VARCHAR} , 
+     #{country,jdbcType=VARCHAR} , 
+     #{postcode,jdbcType=VARCHAR} , 
+     #{district,jdbcType=VARCHAR} , 
+     #{tel,jdbcType=VARCHAR} , 
+     #{fax,jdbcType=VARCHAR} , 
+     #{email,jdbcType=VARCHAR} , 
+     #{userid,jdbcType=VARCHAR} , 
+     #{reserve8,jdbcType=DECIMAL} , 
+     #{reserve7,jdbcType=DECIMAL} , 
+     #{street1,jdbcType=LONGVARCHAR} , 
+     #{street2,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    SID , 
+    EXPRESSID , 
+    TOKENID , 
+    USERKEY , 
+    CUSTOMUSERKEY , 
+    OPER , 
+    OPERTIME , 
+    FLAG , 
+    OPENFLAG , 
+    CORPID , 
+    TYPEID , 
+    TYPENAME , 
+    TYPECOUNTRY , 
+    RESERVE1 , 
+    RESERVE2 , 
+    RESERVE3 , 
+    RESERVE4 , 
+    RESERVE5 , 
+    RESERVE6 , 
+    CONTACT , 
+    COMPANY , 
+    CITY , 
+    PROVINCE , 
+    COUNTRY , 
+    POSTCODE , 
+    DISTRICT , 
+    TEL , 
+    FAX , 
+    EMAIL , 
+    USERID , 
+    RESERVE8 , 
+    RESERVE7 , 
+    STREET1 , 
+    STREET2
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="expressid != null">
+      EXPRESSID = #{expressid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="tokenid != null">
+      TOKENID = #{tokenid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="userkey != null">
+      USERKEY = #{userkey,jdbcType=VARCHAR} and 
+    </if>
+    <if test="customuserkey != null">
+      CUSTOMUSERKEY = #{customuserkey,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="flag != null">
+      FLAG = #{flag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="corpid != null">
+      CORPID = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="typeid != null">
+      TYPEID = #{typeid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="typename != null">
+      TYPENAME = #{typename,jdbcType=VARCHAR} and 
+    </if>
+    <if test="typecountry != null">
+      TYPECOUNTRY = #{typecountry,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      RESERVE3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve4 != null">
+      RESERVE4 = #{reserve4,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve5 != null">
+      RESERVE5 = #{reserve5,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve6 != null">
+      RESERVE6 = #{reserve6,jdbcType=DECIMAL} and 
+    </if>
+    <if test="contact != null">
+      CONTACT = #{contact,jdbcType=VARCHAR} and 
+    </if>
+    <if test="company != null">
+      COMPANY = #{company,jdbcType=VARCHAR} and 
+    </if>
+    <if test="city != null">
+      CITY = #{city,jdbcType=VARCHAR} and 
+    </if>
+    <if test="province != null">
+      PROVINCE = #{province,jdbcType=VARCHAR} and 
+    </if>
+    <if test="country != null">
+      COUNTRY = #{country,jdbcType=VARCHAR} and 
+    </if>
+    <if test="postcode != null">
+      POSTCODE = #{postcode,jdbcType=VARCHAR} and 
+    </if>
+    <if test="district != null">
+      DISTRICT = #{district,jdbcType=VARCHAR} and 
+    </if>
+    <if test="tel != null">
+      TEL = #{tel,jdbcType=VARCHAR} and 
+    </if>
+    <if test="fax != null">
+      FAX = #{fax,jdbcType=VARCHAR} and 
+    </if>
+    <if test="email != null">
+      EMAIL = #{email,jdbcType=VARCHAR} and 
+    </if>
+    <if test="userid != null">
+      USERID = #{userid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve8 != null">
+      RESERVE8 = #{reserve8,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve7 != null">
+      RESERVE7 = #{reserve7,jdbcType=DECIMAL} and 
+    </if>
+    <if test="street1 != null">
+      STREET1 = #{street1,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="street2 != null">
+      STREET2 = #{street2,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="expressid != null">
+      EXPRESSID = #{expressid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="tokenid != null">
+      TOKENID = #{tokenid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="userkey != null">
+      USERKEY = #{userkey,jdbcType=VARCHAR} , 
+    </if>
+    <if test="customuserkey != null">
+      CUSTOMUSERKEY = #{customuserkey,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="flag != null">
+      FLAG = #{flag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="corpid != null">
+      CORPID = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="typeid != null">
+      TYPEID = #{typeid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="typename != null">
+      TYPENAME = #{typename,jdbcType=VARCHAR} , 
+    </if>
+    <if test="typecountry != null">
+      TYPECOUNTRY = #{typecountry,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      RESERVE3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve4 != null">
+      RESERVE4 = #{reserve4,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve5 != null">
+      RESERVE5 = #{reserve5,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve6 != null">
+      RESERVE6 = #{reserve6,jdbcType=DECIMAL} , 
+    </if>
+    <if test="contact != null">
+      CONTACT = #{contact,jdbcType=VARCHAR} , 
+    </if>
+    <if test="company != null">
+      COMPANY = #{company,jdbcType=VARCHAR} , 
+    </if>
+    <if test="city != null">
+      CITY = #{city,jdbcType=VARCHAR} , 
+    </if>
+    <if test="province != null">
+      PROVINCE = #{province,jdbcType=VARCHAR} , 
+    </if>
+    <if test="country != null">
+      COUNTRY = #{country,jdbcType=VARCHAR} , 
+    </if>
+    <if test="postcode != null">
+      POSTCODE = #{postcode,jdbcType=VARCHAR} , 
+    </if>
+    <if test="district != null">
+      DISTRICT = #{district,jdbcType=VARCHAR} , 
+    </if>
+    <if test="tel != null">
+      TEL = #{tel,jdbcType=VARCHAR} , 
+    </if>
+    <if test="fax != null">
+      FAX = #{fax,jdbcType=VARCHAR} , 
+    </if>
+    <if test="email != null">
+      EMAIL = #{email,jdbcType=VARCHAR} , 
+    </if>
+    <if test="userid != null">
+      USERID = #{userid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve8 != null">
+      RESERVE8 = #{reserve8,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve7 != null">
+      RESERVE7 = #{reserve7,jdbcType=DECIMAL} , 
+    </if>
+    <if test="street1 != null">
+      STREET1 = #{street1,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="street2 != null">
+      STREET2 = #{street2,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbCkyuser" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SID=#{SID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbCkyuser">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbCkyuser">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbCkyuser">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

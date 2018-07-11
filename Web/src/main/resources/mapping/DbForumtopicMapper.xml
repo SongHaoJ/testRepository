@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbForumtopicMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbForumtopic">
+    <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
+    <result column="STYPE" jdbcType="VARCHAR" property="stype" />
+    <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="FORUMID" jdbcType="VARCHAR" property="forumid" />
+    <result column="PARENTID" jdbcType="VARCHAR" property="parentid" />
+    <result column="CLICKCOUNT" jdbcType="DECIMAL" property="clickcount" />
+    <result column="ANSWERCOUNT" jdbcType="DECIMAL" property="answercount" />
+    <result column="ANSWEROPER" jdbcType="VARCHAR" property="answeroper" />
+    <result column="ANSWERTIME" jdbcType="TIMESTAMP" property="answertime" />
+    <result column="HOTFLAG" jdbcType="VARCHAR" property="hotflag" />
+    <result column="PICURL" jdbcType="VARCHAR" property="picurl" />
+    <result column="IPADDRESS" jdbcType="VARCHAR" property="ipaddress" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
+    <result column="RESERVE4" jdbcType="VARCHAR" property="reserve4" />
+    <result column="TOPICNAME" jdbcType="LONGVARCHAR" property="topicname" />
+    <result column="CONTENT" jdbcType="LONGVARCHAR" property="content" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SEQUENCEID, STYPE, OPENFLAG, OPER, OPERTIME, FORUMID, PARENTID, CLICKCOUNT, 
+    ANSWERCOUNT, ANSWEROPER, ANSWERTIME, HOTFLAG, PICURL, IPADDRESS, RESERVE1, RESERVE2, 
+    RESERVE3, RESERVE4, TOPICNAME, CONTENT
+    from db_forumtopic
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, STYPE, OPENFLAG, OPER, OPERTIME, FORUMID, PARENTID, CLICKCOUNT, 
+    ANSWERCOUNT, ANSWEROPER, ANSWERTIME, HOTFLAG, PICURL, IPADDRESS, RESERVE1, RESERVE2, 
+    RESERVE3, RESERVE4, TOPICNAME, CONTENT
+    from db_forumtopic
+  </select>
+  <sql id="TableName">
+    db_forumtopic
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=VARCHAR} , 
+     #{stype,jdbcType=VARCHAR} , 
+     #{openflag,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{forumid,jdbcType=VARCHAR} , 
+     #{parentid,jdbcType=VARCHAR} , 
+     #{clickcount,jdbcType=DECIMAL} , 
+     #{answercount,jdbcType=DECIMAL} , 
+     #{answeroper,jdbcType=VARCHAR} , 
+     #{answertime,jdbcType=TIMESTAMP} , 
+     #{hotflag,jdbcType=VARCHAR} , 
+     #{picurl,jdbcType=VARCHAR} , 
+     #{ipaddress,jdbcType=VARCHAR} , 
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+     #{reserve3,jdbcType=VARCHAR} , 
+     #{reserve4,jdbcType=VARCHAR} , 
+     #{topicname,jdbcType=LONGVARCHAR} , 
+     #{content,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    STYPE , 
+    OPENFLAG , 
+    OPER , 
+    OPERTIME , 
+    FORUMID , 
+    PARENTID , 
+    CLICKCOUNT , 
+    ANSWERCOUNT , 
+    ANSWEROPER , 
+    ANSWERTIME , 
+    HOTFLAG , 
+    PICURL , 
+    IPADDRESS , 
+    RESERVE1 , 
+    RESERVE2 , 
+    RESERVE3 , 
+    RESERVE4 , 
+    TOPICNAME , 
+    CONTENT
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="stype != null">
+      STYPE = #{stype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="forumid != null">
+      FORUMID = #{forumid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="parentid != null">
+      PARENTID = #{parentid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="clickcount != null">
+      CLICKCOUNT = #{clickcount,jdbcType=DECIMAL} and 
+    </if>
+    <if test="answercount != null">
+      ANSWERCOUNT = #{answercount,jdbcType=DECIMAL} and 
+    </if>
+    <if test="answeroper != null">
+      ANSWEROPER = #{answeroper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="answertime != null">
+      ANSWERTIME = #{answertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="hotflag != null">
+      HOTFLAG = #{hotflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="picurl != null">
+      PICURL = #{picurl,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ipaddress != null">
+      IPADDRESS = #{ipaddress,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      RESERVE3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve4 != null">
+      RESERVE4 = #{reserve4,jdbcType=VARCHAR} and 
+    </if>
+    <if test="topicname != null">
+      TOPICNAME = #{topicname,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="content != null">
+      CONTENT = #{content,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="stype != null">
+      STYPE = #{stype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="forumid != null">
+      FORUMID = #{forumid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="parentid != null">
+      PARENTID = #{parentid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="clickcount != null">
+      CLICKCOUNT = #{clickcount,jdbcType=DECIMAL} , 
+    </if>
+    <if test="answercount != null">
+      ANSWERCOUNT = #{answercount,jdbcType=DECIMAL} , 
+    </if>
+    <if test="answeroper != null">
+      ANSWEROPER = #{answeroper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="answertime != null">
+      ANSWERTIME = #{answertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="hotflag != null">
+      HOTFLAG = #{hotflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="picurl != null">
+      PICURL = #{picurl,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ipaddress != null">
+      IPADDRESS = #{ipaddress,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      RESERVE3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve4 != null">
+      RESERVE4 = #{reserve4,jdbcType=VARCHAR} , 
+    </if>
+    <if test="topicname != null">
+      TOPICNAME = #{topicname,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="content != null">
+      CONTENT = #{content,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbForumtopic" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbForumtopic">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbForumtopic">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbForumtopic">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

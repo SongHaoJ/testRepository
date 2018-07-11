@@ -63,12 +63,8 @@
     </if>
   </sql>
 
-<select id="selectDistinctMainSku" resultType="string">
-  select distinct mainsku from DB_MULTI_WAREHOUSE
-</select>
-
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
-    select 
+    select
     <include refid="Base_Column_List" />
     ,
     <include refid="Blob_Column_List" />
@@ -213,7 +209,9 @@
   <select id="selectByMainSku" parameterType="map" resultType="string">
     select PRODUCTID from db_multi_warehouse where MAINSKU=#{mainsku} and COUNTRYJC like concat('%',#{countryjc},'%')
   </select>
-
+  <select id="selectDistinctMainSku" resultType="string">
+  select distinct mainsku from DB_MULTI_WAREHOUSE
+</select>
   <!--select productid from DB_MULTI_WAREHOUSE where mainsku in(select sequenceid from db_product where alias1 like'%,"
                                     + obj.getSku() + ",%') and countryjc like '%;" + obj.getCountrycode() + ";%'";-->
   <!--查询多仓sku-->

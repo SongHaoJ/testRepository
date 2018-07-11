@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbMenufuncBakMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbMenufuncBak">
+    <id column="FUNID" jdbcType="VARCHAR" property="funid" />
+    <result column="FUNNAME" jdbcType="VARCHAR" property="funname" />
+    <result column="FUNDESC" jdbcType="VARCHAR" property="fundesc" />
+    <result column="IFWINOPEN" jdbcType="DECIMAL" property="ifwinopen" />
+    <result column="IFPARENT" jdbcType="DECIMAL" property="ifparent" />
+    <result column="PARENTID" jdbcType="VARCHAR" property="parentid" />
+    <result column="SORT" jdbcType="DECIMAL" property="sort" />
+    <result column="TYPE" jdbcType="DECIMAL" property="type" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
+    <result column="RESERVE4" jdbcType="VARCHAR" property="reserve4" />
+    <result column="RESERVE5" jdbcType="VARCHAR" property="reserve5" />
+    <result column="URL" jdbcType="LONGVARCHAR" property="url" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select FUNID, FUNNAME, FUNDESC, IFWINOPEN, IFPARENT, PARENTID, SORT, TYPE, RESERVE1, 
+    RESERVE2, RESERVE3, RESERVE4, RESERVE5, URL
+    from db_menufunc_bak
+    where FUNID = #{funid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select FUNID, FUNNAME, FUNDESC, IFWINOPEN, IFPARENT, PARENTID, SORT, TYPE, RESERVE1, 
+    RESERVE2, RESERVE3, RESERVE4, RESERVE5, URL
+    from db_menufunc_bak
+  </select>
+  <sql id="TableName">
+    db_menufunc_bak
+  </sql>
+  <sql id="Values">
+     #{funid,jdbcType=VARCHAR} , 
+     #{funname,jdbcType=VARCHAR} , 
+     #{fundesc,jdbcType=VARCHAR} , 
+     #{ifwinopen,jdbcType=DECIMAL} , 
+     #{ifparent,jdbcType=DECIMAL} , 
+     #{parentid,jdbcType=VARCHAR} , 
+     #{sort,jdbcType=DECIMAL} , 
+     #{type,jdbcType=DECIMAL} , 
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+     #{reserve3,jdbcType=VARCHAR} , 
+     #{reserve4,jdbcType=VARCHAR} , 
+     #{reserve5,jdbcType=VARCHAR} , 
+     #{url,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    FUNID , 
+    FUNNAME , 
+    FUNDESC , 
+    IFWINOPEN , 
+    IFPARENT , 
+    PARENTID , 
+    SORT , 
+    TYPE , 
+    RESERVE1 , 
+    RESERVE2 , 
+    RESERVE3 , 
+    RESERVE4 , 
+    RESERVE5 , 
+    URL
+  </sql>
+  <sql id="Criteria">
+    <if test="funid != null">
+      FUNID = #{funid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="funname != null">
+      FUNNAME = #{funname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="fundesc != null">
+      FUNDESC = #{fundesc,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ifwinopen != null">
+      IFWINOPEN = #{ifwinopen,jdbcType=DECIMAL} and 
+    </if>
+    <if test="ifparent != null">
+      IFPARENT = #{ifparent,jdbcType=DECIMAL} and 
+    </if>
+    <if test="parentid != null">
+      PARENTID = #{parentid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sort != null">
+      SORT = #{sort,jdbcType=DECIMAL} and 
+    </if>
+    <if test="type != null">
+      TYPE = #{type,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      RESERVE3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve4 != null">
+      RESERVE4 = #{reserve4,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve5 != null">
+      RESERVE5 = #{reserve5,jdbcType=VARCHAR} and 
+    </if>
+    <if test="url != null">
+      URL = #{url,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="funid != null">
+      FUNID = #{funid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="funname != null">
+      FUNNAME = #{funname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="fundesc != null">
+      FUNDESC = #{fundesc,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ifwinopen != null">
+      IFWINOPEN = #{ifwinopen,jdbcType=DECIMAL} , 
+    </if>
+    <if test="ifparent != null">
+      IFPARENT = #{ifparent,jdbcType=DECIMAL} , 
+    </if>
+    <if test="parentid != null">
+      PARENTID = #{parentid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sort != null">
+      SORT = #{sort,jdbcType=DECIMAL} , 
+    </if>
+    <if test="type != null">
+      TYPE = #{type,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      RESERVE3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve4 != null">
+      RESERVE4 = #{reserve4,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve5 != null">
+      RESERVE5 = #{reserve5,jdbcType=VARCHAR} , 
+    </if>
+    <if test="url != null">
+      URL = #{url,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbMenufuncBak" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where FUNID=#{FUNID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbMenufuncBak">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbMenufuncBak">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbMenufuncBak">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbAntistopMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbAntistop">
+    <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
+    <result column="PARENTID" jdbcType="VARCHAR" property="parentid" />
+    <result column="PARENTFLAG" jdbcType="VARCHAR" property="parentflag" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="CREATEOPER" jdbcType="VARCHAR" property="createoper" />
+    <result column="CREATTIME" jdbcType="TIMESTAMP" property="creattime" />
+    <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
+    <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
+    <result column="TOTALSALES" jdbcType="VARCHAR" property="totalsales" />
+    <result column="TOTALLISTINGS" jdbcType="VARCHAR" property="totallistings" />
+    <result column="SUCESSFULLISTING" jdbcType="VARCHAR" property="sucessfullisting" />
+    <result column="BIDS" jdbcType="VARCHAR" property="bids" />
+    <result column="ITEMSSOLD" jdbcType="VARCHAR" property="itemssold" />
+    <result column="AVERAGEPRICE" jdbcType="VARCHAR" property="averageprice" />
+    <result column="SELLTHROUGH" jdbcType="VARCHAR" property="sellthrough" />
+    <result column="RANK" jdbcType="VARCHAR" property="rank" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="SORT" jdbcType="DECIMAL" property="sort" />
+    <result column="ANTISTOP" jdbcType="LONGVARCHAR" property="antistop" />
+    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
+    <result column="ANTISTOP1" jdbcType="LONGVARCHAR" property="antistop1" />
+    <result column="ANTISTOP2" jdbcType="LONGVARCHAR" property="antistop2" />
+    <result column="ANTISTOP3" jdbcType="LONGVARCHAR" property="antistop3" />
+    <result column="ANTISTOP4" jdbcType="LONGVARCHAR" property="antistop4" />
+    <result column="ANTISTOP5" jdbcType="LONGVARCHAR" property="antistop5" />
+    <result column="REMARK" jdbcType="LONGVARCHAR" property="remark" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SEQUENCEID, PARENTID, PARENTFLAG, OPER, OPERTIME, CREATEOPER, CREATTIME, CORPID, 
+    OPENFLAG, TOTALSALES, TOTALLISTINGS, SUCESSFULLISTING, BIDS, ITEMSSOLD, AVERAGEPRICE, 
+    SELLTHROUGH, RANK, NAME, SORT, ANTISTOP, DESCR, ANTISTOP1, ANTISTOP2, ANTISTOP3, 
+    ANTISTOP4, ANTISTOP5, REMARK
+    from db_antistop
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, PARENTID, PARENTFLAG, OPER, OPERTIME, CREATEOPER, CREATTIME, CORPID, 
+    OPENFLAG, TOTALSALES, TOTALLISTINGS, SUCESSFULLISTING, BIDS, ITEMSSOLD, AVERAGEPRICE, 
+    SELLTHROUGH, RANK, NAME, SORT, ANTISTOP, DESCR, ANTISTOP1, ANTISTOP2, ANTISTOP3, 
+    ANTISTOP4, ANTISTOP5, REMARK
+    from db_antistop
+  </select>
+  <sql id="TableName">
+    db_antistop
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=VARCHAR} , 
+     #{parentid,jdbcType=VARCHAR} , 
+     #{parentflag,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{createoper,jdbcType=VARCHAR} , 
+     #{creattime,jdbcType=TIMESTAMP} , 
+     #{corpid,jdbcType=VARCHAR} , 
+     #{openflag,jdbcType=VARCHAR} , 
+     #{totalsales,jdbcType=VARCHAR} , 
+     #{totallistings,jdbcType=VARCHAR} , 
+     #{sucessfullisting,jdbcType=VARCHAR} , 
+     #{bids,jdbcType=VARCHAR} , 
+     #{itemssold,jdbcType=VARCHAR} , 
+     #{averageprice,jdbcType=VARCHAR} , 
+     #{sellthrough,jdbcType=VARCHAR} , 
+     #{rank,jdbcType=VARCHAR} , 
+     #{name,jdbcType=VARCHAR} , 
+     #{sort,jdbcType=DECIMAL} , 
+     #{antistop,jdbcType=LONGVARCHAR} , 
+     #{descr,jdbcType=LONGVARCHAR} , 
+     #{antistop1,jdbcType=LONGVARCHAR} , 
+     #{antistop2,jdbcType=LONGVARCHAR} , 
+     #{antistop3,jdbcType=LONGVARCHAR} , 
+     #{antistop4,jdbcType=LONGVARCHAR} , 
+     #{antistop5,jdbcType=LONGVARCHAR} , 
+     #{remark,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    PARENTID , 
+    PARENTFLAG , 
+    OPER , 
+    OPERTIME , 
+    CREATEOPER , 
+    CREATTIME , 
+    CORPID , 
+    OPENFLAG , 
+    TOTALSALES , 
+    TOTALLISTINGS , 
+    SUCESSFULLISTING , 
+    BIDS , 
+    ITEMSSOLD , 
+    AVERAGEPRICE , 
+    SELLTHROUGH , 
+    RANK , 
+    NAME , 
+    SORT , 
+    ANTISTOP , 
+    DESCR , 
+    ANTISTOP1 , 
+    ANTISTOP2 , 
+    ANTISTOP3 , 
+    ANTISTOP4 , 
+    ANTISTOP5 , 
+    REMARK
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="parentid != null">
+      PARENTID = #{parentid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="parentflag != null">
+      PARENTFLAG = #{parentflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="createoper != null">
+      CREATEOPER = #{createoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="creattime != null">
+      CREATTIME = #{creattime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="corpid != null">
+      CORPID = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="totalsales != null">
+      TOTALSALES = #{totalsales,jdbcType=VARCHAR} and 
+    </if>
+    <if test="totallistings != null">
+      TOTALLISTINGS = #{totallistings,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sucessfullisting != null">
+      SUCESSFULLISTING = #{sucessfullisting,jdbcType=VARCHAR} and 
+    </if>
+    <if test="bids != null">
+      BIDS = #{bids,jdbcType=VARCHAR} and 
+    </if>
+    <if test="itemssold != null">
+      ITEMSSOLD = #{itemssold,jdbcType=VARCHAR} and 
+    </if>
+    <if test="averageprice != null">
+      AVERAGEPRICE = #{averageprice,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sellthrough != null">
+      SELLTHROUGH = #{sellthrough,jdbcType=VARCHAR} and 
+    </if>
+    <if test="rank != null">
+      RANK = #{rank,jdbcType=VARCHAR} and 
+    </if>
+    <if test="name != null">
+      NAME = #{name,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sort != null">
+      SORT = #{sort,jdbcType=DECIMAL} and 
+    </if>
+    <if test="antistop != null">
+      ANTISTOP = #{antistop,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="descr != null">
+      DESCR = #{descr,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="antistop1 != null">
+      ANTISTOP1 = #{antistop1,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="antistop2 != null">
+      ANTISTOP2 = #{antistop2,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="antistop3 != null">
+      ANTISTOP3 = #{antistop3,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="antistop4 != null">
+      ANTISTOP4 = #{antistop4,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="antistop5 != null">
+      ANTISTOP5 = #{antistop5,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="remark != null">
+      REMARK = #{remark,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="parentid != null">
+      PARENTID = #{parentid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="parentflag != null">
+      PARENTFLAG = #{parentflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="createoper != null">
+      CREATEOPER = #{createoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="creattime != null">
+      CREATTIME = #{creattime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="corpid != null">
+      CORPID = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="totalsales != null">
+      TOTALSALES = #{totalsales,jdbcType=VARCHAR} , 
+    </if>
+    <if test="totallistings != null">
+      TOTALLISTINGS = #{totallistings,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sucessfullisting != null">
+      SUCESSFULLISTING = #{sucessfullisting,jdbcType=VARCHAR} , 
+    </if>
+    <if test="bids != null">
+      BIDS = #{bids,jdbcType=VARCHAR} , 
+    </if>
+    <if test="itemssold != null">
+      ITEMSSOLD = #{itemssold,jdbcType=VARCHAR} , 
+    </if>
+    <if test="averageprice != null">
+      AVERAGEPRICE = #{averageprice,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sellthrough != null">
+      SELLTHROUGH = #{sellthrough,jdbcType=VARCHAR} , 
+    </if>
+    <if test="rank != null">
+      RANK = #{rank,jdbcType=VARCHAR} , 
+    </if>
+    <if test="name != null">
+      NAME = #{name,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sort != null">
+      SORT = #{sort,jdbcType=DECIMAL} , 
+    </if>
+    <if test="antistop != null">
+      ANTISTOP = #{antistop,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="descr != null">
+      DESCR = #{descr,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="antistop1 != null">
+      ANTISTOP1 = #{antistop1,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="antistop2 != null">
+      ANTISTOP2 = #{antistop2,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="antistop3 != null">
+      ANTISTOP3 = #{antistop3,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="antistop4 != null">
+      ANTISTOP4 = #{antistop4,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="antistop5 != null">
+      ANTISTOP5 = #{antistop5,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="remark != null">
+      REMARK = #{remark,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbAntistop" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbAntistop">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbAntistop">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbAntistop">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

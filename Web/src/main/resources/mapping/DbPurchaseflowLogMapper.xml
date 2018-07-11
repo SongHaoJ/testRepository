@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbPurchaseflowLogMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbPurchaseflowLog">
+    <id column="SEQUENCEID" jdbcType="DECIMAL" property="sequenceid" />
+    <result column="FLOWSID" jdbcType="DECIMAL" property="flowsid" />
+    <result column="DEVELOPSID" jdbcType="DECIMAL" property="developsid" />
+    <result column="PRODUCTID" jdbcType="VARCHAR" property="productid" />
+    <result column="ORDERNUM" jdbcType="DECIMAL" property="ordernum" />
+    <result column="STOCKPRICE" jdbcType="DECIMAL" property="stockprice" />
+    <result column="CREATEDATE" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="CREATEOPER" jdbcType="VARCHAR" property="createoper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTYPE" jdbcType="DECIMAL" property="opertype" />
+    <result column="GROUPID" jdbcType="VARCHAR" property="groupid" />
+    <result column="STATUS" jdbcType="DECIMAL" property="status" />
+    <result column="LCLSID" jdbcType="DECIMAL" property="lclsid" />
+    <result column="CONTENT" jdbcType="LONGVARCHAR" property="content" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select SEQUENCEID, FLOWSID, DEVELOPSID, PRODUCTID, ORDERNUM, STOCKPRICE, CREATEDATE, 
+    CREATEOPER, OPERTIME, OPER, OPERTYPE, GROUPID, STATUS, LCLSID, CONTENT
+    from db_purchaseflow_log
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, FLOWSID, DEVELOPSID, PRODUCTID, ORDERNUM, STOCKPRICE, CREATEDATE, 
+    CREATEOPER, OPERTIME, OPER, OPERTYPE, GROUPID, STATUS, LCLSID, CONTENT
+    from db_purchaseflow_log
+  </select>
+  <sql id="TableName">
+    db_purchaseflow_log
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=DECIMAL} , 
+     #{flowsid,jdbcType=DECIMAL} , 
+     #{developsid,jdbcType=DECIMAL} , 
+     #{productid,jdbcType=VARCHAR} , 
+     #{ordernum,jdbcType=DECIMAL} , 
+     #{stockprice,jdbcType=DECIMAL} , 
+     #{createdate,jdbcType=TIMESTAMP} , 
+     #{createoper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertype,jdbcType=DECIMAL} , 
+     #{groupid,jdbcType=VARCHAR} , 
+     #{status,jdbcType=DECIMAL} , 
+     #{lclsid,jdbcType=DECIMAL} , 
+     #{content,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    FLOWSID , 
+    DEVELOPSID , 
+    PRODUCTID , 
+    ORDERNUM , 
+    STOCKPRICE , 
+    CREATEDATE , 
+    CREATEOPER , 
+    OPERTIME , 
+    OPER , 
+    OPERTYPE , 
+    GROUPID , 
+    STATUS , 
+    LCLSID , 
+    CONTENT
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="flowsid != null">
+      FLOWSID = #{flowsid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="developsid != null">
+      DEVELOPSID = #{developsid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="productid != null">
+      PRODUCTID = #{productid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ordernum != null">
+      ORDERNUM = #{ordernum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="stockprice != null">
+      STOCKPRICE = #{stockprice,jdbcType=DECIMAL} and 
+    </if>
+    <if test="createdate != null">
+      CREATEDATE = #{createdate,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="createoper != null">
+      CREATEOPER = #{createoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertype != null">
+      OPERTYPE = #{opertype,jdbcType=DECIMAL} and 
+    </if>
+    <if test="groupid != null">
+      GROUPID = #{groupid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="status != null">
+      STATUS = #{status,jdbcType=DECIMAL} and 
+    </if>
+    <if test="lclsid != null">
+      LCLSID = #{lclsid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="content != null">
+      CONTENT = #{content,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="flowsid != null">
+      FLOWSID = #{flowsid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="developsid != null">
+      DEVELOPSID = #{developsid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="productid != null">
+      PRODUCTID = #{productid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ordernum != null">
+      ORDERNUM = #{ordernum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="stockprice != null">
+      STOCKPRICE = #{stockprice,jdbcType=DECIMAL} , 
+    </if>
+    <if test="createdate != null">
+      CREATEDATE = #{createdate,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="createoper != null">
+      CREATEOPER = #{createoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertype != null">
+      OPERTYPE = #{opertype,jdbcType=DECIMAL} , 
+    </if>
+    <if test="groupid != null">
+      GROUPID = #{groupid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="status != null">
+      STATUS = #{status,jdbcType=DECIMAL} , 
+    </if>
+    <if test="lclsid != null">
+      LCLSID = #{lclsid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="content != null">
+      CONTENT = #{content,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbPurchaseflowLog" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="BigDecimal">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbPurchaseflowLog">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbPurchaseflowLog">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbPurchaseflowLog">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

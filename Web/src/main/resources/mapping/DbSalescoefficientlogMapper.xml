@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbSalescoefficientlogMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbSalescoefficientlog">
+    <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
+    <result column="RANK" jdbcType="VARCHAR" property="rank" />
+    <result column="RANGE1" jdbcType="DECIMAL" property="range1" />
+    <result column="RANGE2" jdbcType="DECIMAL" property="range2" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
+    <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
+    <result column="OPERTYPE" jdbcType="VARCHAR" property="opertype" />
+    <result column="FILED1" jdbcType="VARCHAR" property="filed1" />
+    <result column="FILED2" jdbcType="VARCHAR" property="filed2" />
+    <result column="FILED3" jdbcType="DECIMAL" property="filed3" />
+    <result column="FILED4" jdbcType="DECIMAL" property="filed4" />
+    <result column="FILED5" jdbcType="DECIMAL" property="filed5" />
+    <result column="ALERTNUM" jdbcType="DECIMAL" property="alertnum" />
+    <result column="PURCHASENUM" jdbcType="DECIMAL" property="purchasenum" />
+    <result column="SORT" jdbcType="DECIMAL" property="sort" />
+    <result column="CONTENT" jdbcType="LONGVARCHAR" property="content" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SEQUENCEID, RANK, RANGE1, RANGE2, OPER, OPERTIME, OPENFLAG, CORPID, OPERTYPE, 
+    FILED1, FILED2, FILED3, FILED4, FILED5, ALERTNUM, PURCHASENUM, SORT, CONTENT
+    from db_salescoefficientlog
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, RANK, RANGE1, RANGE2, OPER, OPERTIME, OPENFLAG, CORPID, OPERTYPE, 
+    FILED1, FILED2, FILED3, FILED4, FILED5, ALERTNUM, PURCHASENUM, SORT, CONTENT
+    from db_salescoefficientlog
+  </select>
+  <sql id="TableName">
+    db_salescoefficientlog
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=VARCHAR} , 
+     #{rank,jdbcType=VARCHAR} , 
+     #{range1,jdbcType=DECIMAL} , 
+     #{range2,jdbcType=DECIMAL} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{openflag,jdbcType=VARCHAR} , 
+     #{corpid,jdbcType=VARCHAR} , 
+     #{opertype,jdbcType=VARCHAR} , 
+     #{filed1,jdbcType=VARCHAR} , 
+     #{filed2,jdbcType=VARCHAR} , 
+     #{filed3,jdbcType=DECIMAL} , 
+     #{filed4,jdbcType=DECIMAL} , 
+     #{filed5,jdbcType=DECIMAL} , 
+     #{alertnum,jdbcType=DECIMAL} , 
+     #{purchasenum,jdbcType=DECIMAL} , 
+     #{sort,jdbcType=DECIMAL} , 
+     #{content,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    RANK , 
+    RANGE1 , 
+    RANGE2 , 
+    OPER , 
+    OPERTIME , 
+    OPENFLAG , 
+    CORPID , 
+    OPERTYPE , 
+    FILED1 , 
+    FILED2 , 
+    FILED3 , 
+    FILED4 , 
+    FILED5 , 
+    ALERTNUM , 
+    PURCHASENUM , 
+    SORT , 
+    CONTENT
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="rank != null">
+      RANK = #{rank,jdbcType=VARCHAR} and 
+    </if>
+    <if test="range1 != null">
+      RANGE1 = #{range1,jdbcType=DECIMAL} and 
+    </if>
+    <if test="range2 != null">
+      RANGE2 = #{range2,jdbcType=DECIMAL} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="corpid != null">
+      CORPID = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertype != null">
+      OPERTYPE = #{opertype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="filed1 != null">
+      FILED1 = #{filed1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="filed2 != null">
+      FILED2 = #{filed2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="filed3 != null">
+      FILED3 = #{filed3,jdbcType=DECIMAL} and 
+    </if>
+    <if test="filed4 != null">
+      FILED4 = #{filed4,jdbcType=DECIMAL} and 
+    </if>
+    <if test="filed5 != null">
+      FILED5 = #{filed5,jdbcType=DECIMAL} and 
+    </if>
+    <if test="alertnum != null">
+      ALERTNUM = #{alertnum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="purchasenum != null">
+      PURCHASENUM = #{purchasenum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sort != null">
+      SORT = #{sort,jdbcType=DECIMAL} and 
+    </if>
+    <if test="content != null">
+      CONTENT = #{content,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="rank != null">
+      RANK = #{rank,jdbcType=VARCHAR} , 
+    </if>
+    <if test="range1 != null">
+      RANGE1 = #{range1,jdbcType=DECIMAL} , 
+    </if>
+    <if test="range2 != null">
+      RANGE2 = #{range2,jdbcType=DECIMAL} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="corpid != null">
+      CORPID = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertype != null">
+      OPERTYPE = #{opertype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="filed1 != null">
+      FILED1 = #{filed1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="filed2 != null">
+      FILED2 = #{filed2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="filed3 != null">
+      FILED3 = #{filed3,jdbcType=DECIMAL} , 
+    </if>
+    <if test="filed4 != null">
+      FILED4 = #{filed4,jdbcType=DECIMAL} , 
+    </if>
+    <if test="filed5 != null">
+      FILED5 = #{filed5,jdbcType=DECIMAL} , 
+    </if>
+    <if test="alertnum != null">
+      ALERTNUM = #{alertnum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="purchasenum != null">
+      PURCHASENUM = #{purchasenum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sort != null">
+      SORT = #{sort,jdbcType=DECIMAL} , 
+    </if>
+    <if test="content != null">
+      CONTENT = #{content,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbSalescoefficientlog" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbSalescoefficientlog">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbSalescoefficientlog">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbSalescoefficientlog">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

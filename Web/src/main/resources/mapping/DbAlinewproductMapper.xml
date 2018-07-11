@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbAlinewproductMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbAlinewproduct">
+    <id column="ALIITEMID" jdbcType="VARCHAR" property="aliitemid" />
+    <result column="PRODUCTID" jdbcType="VARCHAR" property="productid" />
+    <result column="FLAG" jdbcType="VARCHAR" property="flag" />
+    <result column="DOWNTIME" jdbcType="TIMESTAMP" property="downtime" />
+    <result column="UPDATETIME" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="SHOPID" jdbcType="VARCHAR" property="shopid" />
+    <result column="GROUPID" jdbcType="VARCHAR" property="groupid" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select ALIITEMID, PRODUCTID, FLAG, DOWNTIME, UPDATETIME, SHOPID, GROUPID
+    from db_alinewproduct
+    where ALIITEMID = #{aliitemid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ALIITEMID, PRODUCTID, FLAG, DOWNTIME, UPDATETIME, SHOPID, GROUPID
+    from db_alinewproduct
+  </select>
+  <sql id="TableName">
+    db_alinewproduct
+  </sql>
+  <sql id="Values">
+     #{aliitemid,jdbcType=VARCHAR} , 
+     #{productid,jdbcType=VARCHAR} , 
+     #{flag,jdbcType=VARCHAR} , 
+     #{downtime,jdbcType=TIMESTAMP} , 
+     #{updatetime,jdbcType=TIMESTAMP} , 
+     #{shopid,jdbcType=VARCHAR} , 
+     #{groupid,jdbcType=VARCHAR}
+  </sql>
+  <sql id="Columns">
+    ALIITEMID , 
+    PRODUCTID , 
+    FLAG , 
+    DOWNTIME , 
+    UPDATETIME , 
+    SHOPID , 
+    GROUPID
+  </sql>
+  <sql id="Criteria">
+    <if test="aliitemid != null">
+      ALIITEMID = #{aliitemid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="productid != null">
+      PRODUCTID = #{productid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag != null">
+      FLAG = #{flag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="downtime != null">
+      DOWNTIME = #{downtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="updatetime != null">
+      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="shopid != null">
+      SHOPID = #{shopid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="groupid != null">
+      GROUPID = #{groupid,jdbcType=VARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="aliitemid != null">
+      ALIITEMID = #{aliitemid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="productid != null">
+      PRODUCTID = #{productid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag != null">
+      FLAG = #{flag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="downtime != null">
+      DOWNTIME = #{downtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="updatetime != null">
+      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="shopid != null">
+      SHOPID = #{shopid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="groupid != null">
+      GROUPID = #{groupid,jdbcType=VARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbAlinewproduct" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where ALIITEMID=#{ALIITEMID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbAlinewproduct">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbAlinewproduct">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbAlinewproduct">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbUbisellerMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbUbiseller">
+    <id column="SID" jdbcType="VARCHAR" property="sid" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="TOKENTYPE" jdbcType="VARCHAR" property="tokentype" />
+    <result column="TOKENID" jdbcType="VARCHAR" property="tokenid" />
+    <result column="USERNAME" jdbcType="VARCHAR" property="username" />
+    <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
+    <result column="PROVINCE" jdbcType="VARCHAR" property="province" />
+    <result column="PROVINCEEN" jdbcType="VARCHAR" property="provinceen" />
+    <result column="PROVINCEID" jdbcType="VARCHAR" property="provinceid" />
+    <result column="CITY" jdbcType="VARCHAR" property="city" />
+    <result column="CITYEN" jdbcType="VARCHAR" property="cityen" />
+    <result column="CITYID" jdbcType="VARCHAR" property="cityid" />
+    <result column="DISTRICTID" jdbcType="VARCHAR" property="districtid" />
+    <result column="COUNTRYID" jdbcType="VARCHAR" property="countryid" />
+    <result column="COUNTRY" jdbcType="VARCHAR" property="country" />
+    <result column="COUNTRYEN" jdbcType="VARCHAR" property="countryen" />
+    <result column="POSTCODE" jdbcType="VARCHAR" property="postcode" />
+    <result column="POSTCODE2" jdbcType="VARCHAR" property="postcode2" />
+    <result column="MOBILE" jdbcType="VARCHAR" property="mobile" />
+    <result column="PHONE" jdbcType="VARCHAR" property="phone" />
+    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
+    <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
+    <result column="RESERVE4" jdbcType="VARCHAR" property="reserve4" />
+    <result column="COMPANY" jdbcType="LONGVARCHAR" property="company" />
+    <result column="COMPANYEN" jdbcType="LONGVARCHAR" property="companyen" />
+    <result column="CONTACT" jdbcType="LONGVARCHAR" property="contact" />
+    <result column="CONTACTEN" jdbcType="LONGVARCHAR" property="contacten" />
+    <result column="STREET" jdbcType="LONGVARCHAR" property="street" />
+    <result column="STREETEN" jdbcType="LONGVARCHAR" property="streeten" />
+    <result column="DISTRICT" jdbcType="LONGVARCHAR" property="district" />
+    <result column="DISTRICTEN" jdbcType="LONGVARCHAR" property="districten" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SID, NAME, TOKENTYPE, TOKENID, USERNAME, PASSWORD, PROVINCE, PROVINCEEN, PROVINCEID, 
+    CITY, CITYEN, CITYID, DISTRICTID, COUNTRYID, COUNTRY, COUNTRYEN, POSTCODE, POSTCODE2, 
+    MOBILE, PHONE, EMAIL, OPENFLAG, OPER, OPERTIME, CREATETIME, RESERVE1, RESERVE2, RESERVE3, 
+    RESERVE4, COMPANY, COMPANYEN, CONTACT, CONTACTEN, STREET, STREETEN, DISTRICT, DISTRICTEN
+    from db_ubiseller
+    where SID = #{sid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, NAME, TOKENTYPE, TOKENID, USERNAME, PASSWORD, PROVINCE, PROVINCEEN, PROVINCEID, 
+    CITY, CITYEN, CITYID, DISTRICTID, COUNTRYID, COUNTRY, COUNTRYEN, POSTCODE, POSTCODE2, 
+    MOBILE, PHONE, EMAIL, OPENFLAG, OPER, OPERTIME, CREATETIME, RESERVE1, RESERVE2, RESERVE3, 
+    RESERVE4, COMPANY, COMPANYEN, CONTACT, CONTACTEN, STREET, STREETEN, DISTRICT, DISTRICTEN
+    from db_ubiseller
+  </select>
+  <sql id="TableName">
+    db_ubiseller
+  </sql>
+  <sql id="Values">
+     #{sid,jdbcType=VARCHAR} , 
+     #{name,jdbcType=VARCHAR} , 
+     #{tokentype,jdbcType=VARCHAR} , 
+     #{tokenid,jdbcType=VARCHAR} , 
+     #{username,jdbcType=VARCHAR} , 
+     #{password,jdbcType=VARCHAR} , 
+     #{province,jdbcType=VARCHAR} , 
+     #{provinceen,jdbcType=VARCHAR} , 
+     #{provinceid,jdbcType=VARCHAR} , 
+     #{city,jdbcType=VARCHAR} , 
+     #{cityen,jdbcType=VARCHAR} , 
+     #{cityid,jdbcType=VARCHAR} , 
+     #{districtid,jdbcType=VARCHAR} , 
+     #{countryid,jdbcType=VARCHAR} , 
+     #{country,jdbcType=VARCHAR} , 
+     #{countryen,jdbcType=VARCHAR} , 
+     #{postcode,jdbcType=VARCHAR} , 
+     #{postcode2,jdbcType=VARCHAR} , 
+     #{mobile,jdbcType=VARCHAR} , 
+     #{phone,jdbcType=VARCHAR} , 
+     #{email,jdbcType=VARCHAR} , 
+     #{openflag,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{createtime,jdbcType=TIMESTAMP} , 
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+     #{reserve3,jdbcType=VARCHAR} , 
+     #{reserve4,jdbcType=VARCHAR} , 
+     #{company,jdbcType=LONGVARCHAR} , 
+     #{companyen,jdbcType=LONGVARCHAR} , 
+     #{contact,jdbcType=LONGVARCHAR} , 
+     #{contacten,jdbcType=LONGVARCHAR} , 
+     #{street,jdbcType=LONGVARCHAR} , 
+     #{streeten,jdbcType=LONGVARCHAR} , 
+     #{district,jdbcType=LONGVARCHAR} , 
+     #{districten,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    SID , 
+    NAME , 
+    TOKENTYPE , 
+    TOKENID , 
+    USERNAME , 
+    PASSWORD , 
+    PROVINCE , 
+    PROVINCEEN , 
+    PROVINCEID , 
+    CITY , 
+    CITYEN , 
+    CITYID , 
+    DISTRICTID , 
+    COUNTRYID , 
+    COUNTRY , 
+    COUNTRYEN , 
+    POSTCODE , 
+    POSTCODE2 , 
+    MOBILE , 
+    PHONE , 
+    EMAIL , 
+    OPENFLAG , 
+    OPER , 
+    OPERTIME , 
+    CREATETIME , 
+    RESERVE1 , 
+    RESERVE2 , 
+    RESERVE3 , 
+    RESERVE4 , 
+    COMPANY , 
+    COMPANYEN , 
+    CONTACT , 
+    CONTACTEN , 
+    STREET , 
+    STREETEN , 
+    DISTRICT , 
+    DISTRICTEN
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="name != null">
+      NAME = #{name,jdbcType=VARCHAR} and 
+    </if>
+    <if test="tokentype != null">
+      TOKENTYPE = #{tokentype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="tokenid != null">
+      TOKENID = #{tokenid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="username != null">
+      USERNAME = #{username,jdbcType=VARCHAR} and 
+    </if>
+    <if test="password != null">
+      PASSWORD = #{password,jdbcType=VARCHAR} and 
+    </if>
+    <if test="province != null">
+      PROVINCE = #{province,jdbcType=VARCHAR} and 
+    </if>
+    <if test="provinceen != null">
+      PROVINCEEN = #{provinceen,jdbcType=VARCHAR} and 
+    </if>
+    <if test="provinceid != null">
+      PROVINCEID = #{provinceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="city != null">
+      CITY = #{city,jdbcType=VARCHAR} and 
+    </if>
+    <if test="cityen != null">
+      CITYEN = #{cityen,jdbcType=VARCHAR} and 
+    </if>
+    <if test="cityid != null">
+      CITYID = #{cityid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="districtid != null">
+      DISTRICTID = #{districtid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="countryid != null">
+      COUNTRYID = #{countryid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="country != null">
+      COUNTRY = #{country,jdbcType=VARCHAR} and 
+    </if>
+    <if test="countryen != null">
+      COUNTRYEN = #{countryen,jdbcType=VARCHAR} and 
+    </if>
+    <if test="postcode != null">
+      POSTCODE = #{postcode,jdbcType=VARCHAR} and 
+    </if>
+    <if test="postcode2 != null">
+      POSTCODE2 = #{postcode2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="mobile != null">
+      MOBILE = #{mobile,jdbcType=VARCHAR} and 
+    </if>
+    <if test="phone != null">
+      PHONE = #{phone,jdbcType=VARCHAR} and 
+    </if>
+    <if test="email != null">
+      EMAIL = #{email,jdbcType=VARCHAR} and 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="createtime != null">
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      RESERVE3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve4 != null">
+      RESERVE4 = #{reserve4,jdbcType=VARCHAR} and 
+    </if>
+    <if test="company != null">
+      COMPANY = #{company,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="companyen != null">
+      COMPANYEN = #{companyen,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="contact != null">
+      CONTACT = #{contact,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="contacten != null">
+      CONTACTEN = #{contacten,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="street != null">
+      STREET = #{street,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="streeten != null">
+      STREETEN = #{streeten,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="district != null">
+      DISTRICT = #{district,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="districten != null">
+      DISTRICTEN = #{districten,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="name != null">
+      NAME = #{name,jdbcType=VARCHAR} , 
+    </if>
+    <if test="tokentype != null">
+      TOKENTYPE = #{tokentype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="tokenid != null">
+      TOKENID = #{tokenid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="username != null">
+      USERNAME = #{username,jdbcType=VARCHAR} , 
+    </if>
+    <if test="password != null">
+      PASSWORD = #{password,jdbcType=VARCHAR} , 
+    </if>
+    <if test="province != null">
+      PROVINCE = #{province,jdbcType=VARCHAR} , 
+    </if>
+    <if test="provinceen != null">
+      PROVINCEEN = #{provinceen,jdbcType=VARCHAR} , 
+    </if>
+    <if test="provinceid != null">
+      PROVINCEID = #{provinceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="city != null">
+      CITY = #{city,jdbcType=VARCHAR} , 
+    </if>
+    <if test="cityen != null">
+      CITYEN = #{cityen,jdbcType=VARCHAR} , 
+    </if>
+    <if test="cityid != null">
+      CITYID = #{cityid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="districtid != null">
+      DISTRICTID = #{districtid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="countryid != null">
+      COUNTRYID = #{countryid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="country != null">
+      COUNTRY = #{country,jdbcType=VARCHAR} , 
+    </if>
+    <if test="countryen != null">
+      COUNTRYEN = #{countryen,jdbcType=VARCHAR} , 
+    </if>
+    <if test="postcode != null">
+      POSTCODE = #{postcode,jdbcType=VARCHAR} , 
+    </if>
+    <if test="postcode2 != null">
+      POSTCODE2 = #{postcode2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="mobile != null">
+      MOBILE = #{mobile,jdbcType=VARCHAR} , 
+    </if>
+    <if test="phone != null">
+      PHONE = #{phone,jdbcType=VARCHAR} , 
+    </if>
+    <if test="email != null">
+      EMAIL = #{email,jdbcType=VARCHAR} , 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="createtime != null">
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      RESERVE3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve4 != null">
+      RESERVE4 = #{reserve4,jdbcType=VARCHAR} , 
+    </if>
+    <if test="company != null">
+      COMPANY = #{company,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="companyen != null">
+      COMPANYEN = #{companyen,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="contact != null">
+      CONTACT = #{contact,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="contacten != null">
+      CONTACTEN = #{contacten,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="street != null">
+      STREET = #{street,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="streeten != null">
+      STREETEN = #{streeten,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="district != null">
+      DISTRICT = #{district,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="districten != null">
+      DISTRICTEN = #{districten,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbUbiseller" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SID=#{SID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbUbiseller">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbUbiseller">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbUbiseller">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

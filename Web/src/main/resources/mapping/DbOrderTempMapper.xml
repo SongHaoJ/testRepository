@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbOrderTempMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbOrderTemp">
+    <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
+    <result column="GROUPID" jdbcType="VARCHAR" property="groupid" />
+    <result column="RECORDNUM" jdbcType="DECIMAL" property="recordnum" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="SHOPID" jdbcType="VARCHAR" property="shopid" />
+    <result column="SHOPNAME" jdbcType="VARCHAR" property="shopname" />
+    <result column="SHOPITEMID" jdbcType="VARCHAR" property="shopitemid" />
+    <result column="CHECKFLAG" jdbcType="VARCHAR" property="checkflag" />
+    <result column="MONEYTYPE" jdbcType="VARCHAR" property="moneytype" />
+    <result column="MONEYRATE" jdbcType="DECIMAL" property="moneyrate" />
+    <result column="ORIGINSELLPRICE" jdbcType="DECIMAL" property="originsellprice" />
+    <result column="RMBSELLPRICE" jdbcType="DECIMAL" property="rmbsellprice" />
+    <result column="RMBAMOUNT" jdbcType="DECIMAL" property="rmbamount" />
+    <result column="ORIGINEXPRESS" jdbcType="DECIMAL" property="originexpress" />
+    <result column="RMBEXPRESSMONEY" jdbcType="DECIMAL" property="rmbexpressmoney" />
+    <result column="INSURANCEMONEY" jdbcType="DECIMAL" property="insurancemoney" />
+    <result column="RMBINSURANCEMONEY" jdbcType="DECIMAL" property="rmbinsurancemoney" />
+    <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
+    <result column="TRADEID" jdbcType="LONGVARCHAR" property="tradeid" />
+    <result column="CUSTOMERID" jdbcType="LONGVARCHAR" property="customerid" />
+    <result column="CUSTOMERNAME" jdbcType="LONGVARCHAR" property="customername" />
+    <result column="CUSTOMERTEL" jdbcType="LONGVARCHAR" property="customertel" />
+    <result column="CUSTOMEREMAIL" jdbcType="LONGVARCHAR" property="customeremail" />
+    <result column="CUSTOMERADDRESS1" jdbcType="LONGVARCHAR" property="customeraddress1" />
+    <result column="CUSTOMERADDRESS2" jdbcType="LONGVARCHAR" property="customeraddress2" />
+    <result column="CUSTOMERCITY" jdbcType="LONGVARCHAR" property="customercity" />
+    <result column="CUSTOMERPROVINCE" jdbcType="LONGVARCHAR" property="customerprovince" />
+    <result column="CUSTOMERZIPCODE" jdbcType="LONGVARCHAR" property="customerzipcode" />
+    <result column="CUSTOMERCOUNTRY" jdbcType="LONGVARCHAR" property="customercountry" />
+    <result column="PRODUCTID" jdbcType="LONGVARCHAR" property="productid" />
+    <result column="ORDERNUM" jdbcType="LONGVARCHAR" property="ordernum" />
+    <result column="SELLPRICESTR" jdbcType="LONGVARCHAR" property="sellpricestr" />
+    <result column="EXPRESSSTR" jdbcType="LONGVARCHAR" property="expressstr" />
+    <result column="PAYPALID" jdbcType="LONGVARCHAR" property="paypalid" />
+    <result column="TRANSACTIONID" jdbcType="LONGVARCHAR" property="transactionid" />
+    <result column="VARIATIONDETAILS" jdbcType="LONGVARCHAR" property="variationdetails" />
+    <result column="PRODUCTNAME" jdbcType="LONGVARCHAR" property="productname" />
+    <result column="ITEMID" jdbcType="LONGVARCHAR" property="itemid" />
+    <result column="INSURANCE" jdbcType="LONGVARCHAR" property="insurance" />
+    <result column="POSTAGESERVICE" jdbcType="LONGVARCHAR" property="postageservice" />
+    <result column="FIELD23" jdbcType="LONGVARCHAR" property="field23" />
+    <result column="FIELD24" jdbcType="LONGVARCHAR" property="field24" />
+    <result column="FIELD25" jdbcType="LONGVARCHAR" property="field25" />
+    <result column="FIELD26" jdbcType="LONGVARCHAR" property="field26" />
+    <result column="FIELD27" jdbcType="LONGVARCHAR" property="field27" />
+    <result column="FIELD28" jdbcType="LONGVARCHAR" property="field28" />
+    <result column="FIELD29" jdbcType="LONGVARCHAR" property="field29" />
+    <result column="FIELD30" jdbcType="LONGVARCHAR" property="field30" />
+    <result column="SLINE" jdbcType="LONGVARCHAR" property="sline" />
+    <result column="ERRORINFO" jdbcType="LONGVARCHAR" property="errorinfo" />
+    <result column="EBAYCUSTOMERADDRESS" jdbcType="LONGVARCHAR" property="ebaycustomeraddress" />
+    <result column="CONTENT" jdbcType="LONGVARCHAR" property="content" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SEQUENCEID, GROUPID, RECORDNUM, OPER, OPERTIME, SHOPID, SHOPNAME, SHOPITEMID, 
+    CHECKFLAG, MONEYTYPE, MONEYRATE, ORIGINSELLPRICE, RMBSELLPRICE, RMBAMOUNT, ORIGINEXPRESS, 
+    RMBEXPRESSMONEY, INSURANCEMONEY, RMBINSURANCEMONEY, CORPID, TRADEID, CUSTOMERID, 
+    CUSTOMERNAME, CUSTOMERTEL, CUSTOMEREMAIL, CUSTOMERADDRESS1, CUSTOMERADDRESS2, CUSTOMERCITY, 
+    CUSTOMERPROVINCE, CUSTOMERZIPCODE, CUSTOMERCOUNTRY, PRODUCTID, ORDERNUM, SELLPRICESTR, 
+    EXPRESSSTR, PAYPALID, TRANSACTIONID, VARIATIONDETAILS, PRODUCTNAME, ITEMID, INSURANCE, 
+    POSTAGESERVICE, FIELD23, FIELD24, FIELD25, FIELD26, FIELD27, FIELD28, FIELD29, FIELD30, 
+    SLINE, ERRORINFO, EBAYCUSTOMERADDRESS, CONTENT
+    from db_order_temp
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, GROUPID, RECORDNUM, OPER, OPERTIME, SHOPID, SHOPNAME, SHOPITEMID, 
+    CHECKFLAG, MONEYTYPE, MONEYRATE, ORIGINSELLPRICE, RMBSELLPRICE, RMBAMOUNT, ORIGINEXPRESS, 
+    RMBEXPRESSMONEY, INSURANCEMONEY, RMBINSURANCEMONEY, CORPID, TRADEID, CUSTOMERID, 
+    CUSTOMERNAME, CUSTOMERTEL, CUSTOMEREMAIL, CUSTOMERADDRESS1, CUSTOMERADDRESS2, CUSTOMERCITY, 
+    CUSTOMERPROVINCE, CUSTOMERZIPCODE, CUSTOMERCOUNTRY, PRODUCTID, ORDERNUM, SELLPRICESTR, 
+    EXPRESSSTR, PAYPALID, TRANSACTIONID, VARIATIONDETAILS, PRODUCTNAME, ITEMID, INSURANCE, 
+    POSTAGESERVICE, FIELD23, FIELD24, FIELD25, FIELD26, FIELD27, FIELD28, FIELD29, FIELD30, 
+    SLINE, ERRORINFO, EBAYCUSTOMERADDRESS, CONTENT
+    from db_order_temp
+  </select>
+  <sql id="TableName">
+    db_order_temp
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=VARCHAR} , 
+     #{groupid,jdbcType=VARCHAR} , 
+     #{recordnum,jdbcType=DECIMAL} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{shopid,jdbcType=VARCHAR} , 
+     #{shopname,jdbcType=VARCHAR} , 
+     #{shopitemid,jdbcType=VARCHAR} , 
+     #{checkflag,jdbcType=VARCHAR} , 
+     #{moneytype,jdbcType=VARCHAR} , 
+     #{moneyrate,jdbcType=DECIMAL} , 
+     #{originsellprice,jdbcType=DECIMAL} , 
+     #{rmbsellprice,jdbcType=DECIMAL} , 
+     #{rmbamount,jdbcType=DECIMAL} , 
+     #{originexpress,jdbcType=DECIMAL} , 
+     #{rmbexpressmoney,jdbcType=DECIMAL} , 
+     #{insurancemoney,jdbcType=DECIMAL} , 
+     #{rmbinsurancemoney,jdbcType=DECIMAL} , 
+     #{corpid,jdbcType=VARCHAR} , 
+     #{tradeid,jdbcType=LONGVARCHAR} , 
+     #{customerid,jdbcType=LONGVARCHAR} , 
+     #{customername,jdbcType=LONGVARCHAR} , 
+     #{customertel,jdbcType=LONGVARCHAR} , 
+     #{customeremail,jdbcType=LONGVARCHAR} , 
+     #{customeraddress1,jdbcType=LONGVARCHAR} , 
+     #{customeraddress2,jdbcType=LONGVARCHAR} , 
+     #{customercity,jdbcType=LONGVARCHAR} , 
+     #{customerprovince,jdbcType=LONGVARCHAR} , 
+     #{customerzipcode,jdbcType=LONGVARCHAR} , 
+     #{customercountry,jdbcType=LONGVARCHAR} , 
+     #{productid,jdbcType=LONGVARCHAR} , 
+     #{ordernum,jdbcType=LONGVARCHAR} , 
+     #{sellpricestr,jdbcType=LONGVARCHAR} , 
+     #{expressstr,jdbcType=LONGVARCHAR} , 
+     #{paypalid,jdbcType=LONGVARCHAR} , 
+     #{transactionid,jdbcType=LONGVARCHAR} , 
+     #{variationdetails,jdbcType=LONGVARCHAR} , 
+     #{productname,jdbcType=LONGVARCHAR} , 
+     #{itemid,jdbcType=LONGVARCHAR} , 
+     #{insurance,jdbcType=LONGVARCHAR} , 
+     #{postageservice,jdbcType=LONGVARCHAR} , 
+     #{field23,jdbcType=LONGVARCHAR} , 
+     #{field24,jdbcType=LONGVARCHAR} , 
+     #{field25,jdbcType=LONGVARCHAR} , 
+     #{field26,jdbcType=LONGVARCHAR} , 
+     #{field27,jdbcType=LONGVARCHAR} , 
+     #{field28,jdbcType=LONGVARCHAR} , 
+     #{field29,jdbcType=LONGVARCHAR} , 
+     #{field30,jdbcType=LONGVARCHAR} , 
+     #{sline,jdbcType=LONGVARCHAR} , 
+     #{errorinfo,jdbcType=LONGVARCHAR} , 
+     #{ebaycustomeraddress,jdbcType=LONGVARCHAR} , 
+     #{content,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    GROUPID , 
+    RECORDNUM , 
+    OPER , 
+    OPERTIME , 
+    SHOPID , 
+    SHOPNAME , 
+    SHOPITEMID , 
+    CHECKFLAG , 
+    MONEYTYPE , 
+    MONEYRATE , 
+    ORIGINSELLPRICE , 
+    RMBSELLPRICE , 
+    RMBAMOUNT , 
+    ORIGINEXPRESS , 
+    RMBEXPRESSMONEY , 
+    INSURANCEMONEY , 
+    RMBINSURANCEMONEY , 
+    CORPID , 
+    TRADEID , 
+    CUSTOMERID , 
+    CUSTOMERNAME , 
+    CUSTOMERTEL , 
+    CUSTOMEREMAIL , 
+    CUSTOMERADDRESS1 , 
+    CUSTOMERADDRESS2 , 
+    CUSTOMERCITY , 
+    CUSTOMERPROVINCE , 
+    CUSTOMERZIPCODE , 
+    CUSTOMERCOUNTRY , 
+    PRODUCTID , 
+    ORDERNUM , 
+    SELLPRICESTR , 
+    EXPRESSSTR , 
+    PAYPALID , 
+    TRANSACTIONID , 
+    VARIATIONDETAILS , 
+    PRODUCTNAME , 
+    ITEMID , 
+    INSURANCE , 
+    POSTAGESERVICE , 
+    FIELD23 , 
+    FIELD24 , 
+    FIELD25 , 
+    FIELD26 , 
+    FIELD27 , 
+    FIELD28 , 
+    FIELD29 , 
+    FIELD30 , 
+    SLINE , 
+    ERRORINFO , 
+    EBAYCUSTOMERADDRESS , 
+    CONTENT
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="groupid != null">
+      GROUPID = #{groupid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="recordnum != null">
+      RECORDNUM = #{recordnum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="shopid != null">
+      SHOPID = #{shopid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shopname != null">
+      SHOPNAME = #{shopname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shopitemid != null">
+      SHOPITEMID = #{shopitemid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="checkflag != null">
+      CHECKFLAG = #{checkflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="moneytype != null">
+      MONEYTYPE = #{moneytype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="moneyrate != null">
+      MONEYRATE = #{moneyrate,jdbcType=DECIMAL} and 
+    </if>
+    <if test="originsellprice != null">
+      ORIGINSELLPRICE = #{originsellprice,jdbcType=DECIMAL} and 
+    </if>
+    <if test="rmbsellprice != null">
+      RMBSELLPRICE = #{rmbsellprice,jdbcType=DECIMAL} and 
+    </if>
+    <if test="rmbamount != null">
+      RMBAMOUNT = #{rmbamount,jdbcType=DECIMAL} and 
+    </if>
+    <if test="originexpress != null">
+      ORIGINEXPRESS = #{originexpress,jdbcType=DECIMAL} and 
+    </if>
+    <if test="rmbexpressmoney != null">
+      RMBEXPRESSMONEY = #{rmbexpressmoney,jdbcType=DECIMAL} and 
+    </if>
+    <if test="insurancemoney != null">
+      INSURANCEMONEY = #{insurancemoney,jdbcType=DECIMAL} and 
+    </if>
+    <if test="rmbinsurancemoney != null">
+      RMBINSURANCEMONEY = #{rmbinsurancemoney,jdbcType=DECIMAL} and 
+    </if>
+    <if test="corpid != null">
+      CORPID = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="tradeid != null">
+      TRADEID = #{tradeid,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="customerid != null">
+      CUSTOMERID = #{customerid,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="customername != null">
+      CUSTOMERNAME = #{customername,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="customertel != null">
+      CUSTOMERTEL = #{customertel,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="customeremail != null">
+      CUSTOMEREMAIL = #{customeremail,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="customeraddress1 != null">
+      CUSTOMERADDRESS1 = #{customeraddress1,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="customeraddress2 != null">
+      CUSTOMERADDRESS2 = #{customeraddress2,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="customercity != null">
+      CUSTOMERCITY = #{customercity,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="customerprovince != null">
+      CUSTOMERPROVINCE = #{customerprovince,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="customerzipcode != null">
+      CUSTOMERZIPCODE = #{customerzipcode,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="customercountry != null">
+      CUSTOMERCOUNTRY = #{customercountry,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="productid != null">
+      PRODUCTID = #{productid,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="ordernum != null">
+      ORDERNUM = #{ordernum,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="sellpricestr != null">
+      SELLPRICESTR = #{sellpricestr,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="expressstr != null">
+      EXPRESSSTR = #{expressstr,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="paypalid != null">
+      PAYPALID = #{paypalid,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="transactionid != null">
+      TRANSACTIONID = #{transactionid,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="variationdetails != null">
+      VARIATIONDETAILS = #{variationdetails,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="productname != null">
+      PRODUCTNAME = #{productname,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="itemid != null">
+      ITEMID = #{itemid,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="insurance != null">
+      INSURANCE = #{insurance,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="postageservice != null">
+      POSTAGESERVICE = #{postageservice,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="field23 != null">
+      FIELD23 = #{field23,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="field24 != null">
+      FIELD24 = #{field24,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="field25 != null">
+      FIELD25 = #{field25,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="field26 != null">
+      FIELD26 = #{field26,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="field27 != null">
+      FIELD27 = #{field27,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="field28 != null">
+      FIELD28 = #{field28,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="field29 != null">
+      FIELD29 = #{field29,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="field30 != null">
+      FIELD30 = #{field30,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="sline != null">
+      SLINE = #{sline,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="errorinfo != null">
+      ERRORINFO = #{errorinfo,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="ebaycustomeraddress != null">
+      EBAYCUSTOMERADDRESS = #{ebaycustomeraddress,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="content != null">
+      CONTENT = #{content,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="groupid != null">
+      GROUPID = #{groupid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="recordnum != null">
+      RECORDNUM = #{recordnum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="shopid != null">
+      SHOPID = #{shopid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shopname != null">
+      SHOPNAME = #{shopname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shopitemid != null">
+      SHOPITEMID = #{shopitemid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="checkflag != null">
+      CHECKFLAG = #{checkflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="moneytype != null">
+      MONEYTYPE = #{moneytype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="moneyrate != null">
+      MONEYRATE = #{moneyrate,jdbcType=DECIMAL} , 
+    </if>
+    <if test="originsellprice != null">
+      ORIGINSELLPRICE = #{originsellprice,jdbcType=DECIMAL} , 
+    </if>
+    <if test="rmbsellprice != null">
+      RMBSELLPRICE = #{rmbsellprice,jdbcType=DECIMAL} , 
+    </if>
+    <if test="rmbamount != null">
+      RMBAMOUNT = #{rmbamount,jdbcType=DECIMAL} , 
+    </if>
+    <if test="originexpress != null">
+      ORIGINEXPRESS = #{originexpress,jdbcType=DECIMAL} , 
+    </if>
+    <if test="rmbexpressmoney != null">
+      RMBEXPRESSMONEY = #{rmbexpressmoney,jdbcType=DECIMAL} , 
+    </if>
+    <if test="insurancemoney != null">
+      INSURANCEMONEY = #{insurancemoney,jdbcType=DECIMAL} , 
+    </if>
+    <if test="rmbinsurancemoney != null">
+      RMBINSURANCEMONEY = #{rmbinsurancemoney,jdbcType=DECIMAL} , 
+    </if>
+    <if test="corpid != null">
+      CORPID = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="tradeid != null">
+      TRADEID = #{tradeid,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="customerid != null">
+      CUSTOMERID = #{customerid,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="customername != null">
+      CUSTOMERNAME = #{customername,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="customertel != null">
+      CUSTOMERTEL = #{customertel,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="customeremail != null">
+      CUSTOMEREMAIL = #{customeremail,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="customeraddress1 != null">
+      CUSTOMERADDRESS1 = #{customeraddress1,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="customeraddress2 != null">
+      CUSTOMERADDRESS2 = #{customeraddress2,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="customercity != null">
+      CUSTOMERCITY = #{customercity,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="customerprovince != null">
+      CUSTOMERPROVINCE = #{customerprovince,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="customerzipcode != null">
+      CUSTOMERZIPCODE = #{customerzipcode,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="customercountry != null">
+      CUSTOMERCOUNTRY = #{customercountry,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="productid != null">
+      PRODUCTID = #{productid,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="ordernum != null">
+      ORDERNUM = #{ordernum,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="sellpricestr != null">
+      SELLPRICESTR = #{sellpricestr,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="expressstr != null">
+      EXPRESSSTR = #{expressstr,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="paypalid != null">
+      PAYPALID = #{paypalid,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="transactionid != null">
+      TRANSACTIONID = #{transactionid,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="variationdetails != null">
+      VARIATIONDETAILS = #{variationdetails,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="productname != null">
+      PRODUCTNAME = #{productname,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="itemid != null">
+      ITEMID = #{itemid,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="insurance != null">
+      INSURANCE = #{insurance,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="postageservice != null">
+      POSTAGESERVICE = #{postageservice,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="field23 != null">
+      FIELD23 = #{field23,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="field24 != null">
+      FIELD24 = #{field24,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="field25 != null">
+      FIELD25 = #{field25,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="field26 != null">
+      FIELD26 = #{field26,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="field27 != null">
+      FIELD27 = #{field27,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="field28 != null">
+      FIELD28 = #{field28,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="field29 != null">
+      FIELD29 = #{field29,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="field30 != null">
+      FIELD30 = #{field30,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="sline != null">
+      SLINE = #{sline,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="errorinfo != null">
+      ERRORINFO = #{errorinfo,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="ebaycustomeraddress != null">
+      EBAYCUSTOMERADDRESS = #{ebaycustomeraddress,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="content != null">
+      CONTENT = #{content,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbOrderTemp" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbOrderTemp">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbOrderTemp">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbOrderTemp">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

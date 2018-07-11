@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbUploadfileMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbUploadfile">
+    <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTYPE" jdbcType="DECIMAL" property="opertype" />
+    <result column="FLAG" jdbcType="DECIMAL" property="flag" />
+    <result column="PAYDATE" jdbcType="TIMESTAMP" property="paydate" />
+    <result column="MOBILE" jdbcType="VARCHAR" property="mobile" />
+    <result column="GROUPID" jdbcType="VARCHAR" property="groupid" />
+    <result column="SMSFLAG" jdbcType="DECIMAL" property="smsflag" />
+    <result column="STATE" jdbcType="DECIMAL" property="state" />
+    <result column="UPLOADTIME" jdbcType="TIMESTAMP" property="uploadtime" />
+    <result column="RECORDNUM" jdbcType="DECIMAL" property="recordnum" />
+    <result column="SUCCESSNUM" jdbcType="DECIMAL" property="successnum" />
+    <result column="ERRORNUM" jdbcType="DECIMAL" property="errornum" />
+    <result column="PROCESSTIME" jdbcType="TIMESTAMP" property="processtime" />
+    <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
+    <result column="SOURCETYPE" jdbcType="VARCHAR" property="sourcetype" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
+    <result column="SHOPID" jdbcType="VARCHAR" property="shopid" />
+    <result column="SHOPNAME" jdbcType="VARCHAR" property="shopname" />
+    <result column="FILETYPE" jdbcType="VARCHAR" property="filetype" />
+    <result column="SHOPITEMID" jdbcType="VARCHAR" property="shopitemid" />
+    <result column="FILEURL" jdbcType="LONGVARCHAR" property="fileurl" />
+    <result column="SUCCESSURL" jdbcType="LONGVARCHAR" property="successurl" />
+    <result column="ERRORURL" jdbcType="LONGVARCHAR" property="errorurl" />
+    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SEQUENCEID, OPER, OPERTYPE, FLAG, PAYDATE, MOBILE, GROUPID, SMSFLAG, STATE, 
+    UPLOADTIME, RECORDNUM, SUCCESSNUM, ERRORNUM, PROCESSTIME, CORPID, SOURCETYPE, OPERTIME, 
+    RESERVE1, RESERVE2, RESERVE3, SHOPID, SHOPNAME, FILETYPE, SHOPITEMID, FILEURL, SUCCESSURL, 
+    ERRORURL, DESCR
+    from db_uploadfile
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, OPER, OPERTYPE, FLAG, PAYDATE, MOBILE, GROUPID, SMSFLAG, STATE, 
+    UPLOADTIME, RECORDNUM, SUCCESSNUM, ERRORNUM, PROCESSTIME, CORPID, SOURCETYPE, OPERTIME, 
+    RESERVE1, RESERVE2, RESERVE3, SHOPID, SHOPNAME, FILETYPE, SHOPITEMID, FILEURL, SUCCESSURL, 
+    ERRORURL, DESCR
+    from db_uploadfile
+  </select>
+  <sql id="TableName">
+    db_uploadfile
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertype,jdbcType=DECIMAL} , 
+     #{flag,jdbcType=DECIMAL} , 
+     #{paydate,jdbcType=TIMESTAMP} , 
+     #{mobile,jdbcType=VARCHAR} , 
+     #{groupid,jdbcType=VARCHAR} , 
+     #{smsflag,jdbcType=DECIMAL} , 
+     #{state,jdbcType=DECIMAL} , 
+     #{uploadtime,jdbcType=TIMESTAMP} , 
+     #{recordnum,jdbcType=DECIMAL} , 
+     #{successnum,jdbcType=DECIMAL} , 
+     #{errornum,jdbcType=DECIMAL} , 
+     #{processtime,jdbcType=TIMESTAMP} , 
+     #{corpid,jdbcType=VARCHAR} , 
+     #{sourcetype,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+     #{reserve3,jdbcType=VARCHAR} , 
+     #{shopid,jdbcType=VARCHAR} , 
+     #{shopname,jdbcType=VARCHAR} , 
+     #{filetype,jdbcType=VARCHAR} , 
+     #{shopitemid,jdbcType=VARCHAR} , 
+     #{fileurl,jdbcType=LONGVARCHAR} , 
+     #{successurl,jdbcType=LONGVARCHAR} , 
+     #{errorurl,jdbcType=LONGVARCHAR} , 
+     #{descr,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    OPER , 
+    OPERTYPE , 
+    FLAG , 
+    PAYDATE , 
+    MOBILE , 
+    GROUPID , 
+    SMSFLAG , 
+    STATE , 
+    UPLOADTIME , 
+    RECORDNUM , 
+    SUCCESSNUM , 
+    ERRORNUM , 
+    PROCESSTIME , 
+    CORPID , 
+    SOURCETYPE , 
+    OPERTIME , 
+    RESERVE1 , 
+    RESERVE2 , 
+    RESERVE3 , 
+    SHOPID , 
+    SHOPNAME , 
+    FILETYPE , 
+    SHOPITEMID , 
+    FILEURL , 
+    SUCCESSURL , 
+    ERRORURL , 
+    DESCR
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertype != null">
+      OPERTYPE = #{opertype,jdbcType=DECIMAL} and 
+    </if>
+    <if test="flag != null">
+      FLAG = #{flag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="paydate != null">
+      PAYDATE = #{paydate,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="mobile != null">
+      MOBILE = #{mobile,jdbcType=VARCHAR} and 
+    </if>
+    <if test="groupid != null">
+      GROUPID = #{groupid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="smsflag != null">
+      SMSFLAG = #{smsflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="state != null">
+      STATE = #{state,jdbcType=DECIMAL} and 
+    </if>
+    <if test="uploadtime != null">
+      UPLOADTIME = #{uploadtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="recordnum != null">
+      RECORDNUM = #{recordnum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="successnum != null">
+      SUCCESSNUM = #{successnum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="errornum != null">
+      ERRORNUM = #{errornum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="processtime != null">
+      PROCESSTIME = #{processtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="corpid != null">
+      CORPID = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sourcetype != null">
+      SOURCETYPE = #{sourcetype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      RESERVE3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shopid != null">
+      SHOPID = #{shopid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shopname != null">
+      SHOPNAME = #{shopname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="filetype != null">
+      FILETYPE = #{filetype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shopitemid != null">
+      SHOPITEMID = #{shopitemid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="fileurl != null">
+      FILEURL = #{fileurl,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="successurl != null">
+      SUCCESSURL = #{successurl,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="errorurl != null">
+      ERRORURL = #{errorurl,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="descr != null">
+      DESCR = #{descr,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertype != null">
+      OPERTYPE = #{opertype,jdbcType=DECIMAL} , 
+    </if>
+    <if test="flag != null">
+      FLAG = #{flag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="paydate != null">
+      PAYDATE = #{paydate,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="mobile != null">
+      MOBILE = #{mobile,jdbcType=VARCHAR} , 
+    </if>
+    <if test="groupid != null">
+      GROUPID = #{groupid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="smsflag != null">
+      SMSFLAG = #{smsflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="state != null">
+      STATE = #{state,jdbcType=DECIMAL} , 
+    </if>
+    <if test="uploadtime != null">
+      UPLOADTIME = #{uploadtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="recordnum != null">
+      RECORDNUM = #{recordnum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="successnum != null">
+      SUCCESSNUM = #{successnum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="errornum != null">
+      ERRORNUM = #{errornum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="processtime != null">
+      PROCESSTIME = #{processtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="corpid != null">
+      CORPID = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sourcetype != null">
+      SOURCETYPE = #{sourcetype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      RESERVE3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shopid != null">
+      SHOPID = #{shopid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shopname != null">
+      SHOPNAME = #{shopname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="filetype != null">
+      FILETYPE = #{filetype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shopitemid != null">
+      SHOPITEMID = #{shopitemid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="fileurl != null">
+      FILEURL = #{fileurl,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="successurl != null">
+      SUCCESSURL = #{successurl,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="errorurl != null">
+      ERRORURL = #{errorurl,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="descr != null">
+      DESCR = #{descr,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbUploadfile" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbUploadfile">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbUploadfile">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbUploadfile">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

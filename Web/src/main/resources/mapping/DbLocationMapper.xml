@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbLocationMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbLocation">
+    <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="FILED8" jdbcType="DECIMAL" property="filed8" />
+    <result column="FILED9" jdbcType="DECIMAL" property="filed9" />
+    <result column="FILED10" jdbcType="DECIMAL" property="filed10" />
+    <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
+    <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
+    <result column="SAVENUM" jdbcType="DECIMAL" property="savenum" />
+    <result column="COST" jdbcType="DECIMAL" property="cost" />
+    <result column="SELLNUM" jdbcType="DECIMAL" property="sellnum" />
+    <result column="SELLCOST" jdbcType="DECIMAL" property="sellcost" />
+    <result column="UPDATETIME" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="POSITIONX" jdbcType="DECIMAL" property="positionx" />
+    <result column="POSITIONY" jdbcType="DECIMAL" property="positiony" />
+    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
+    <result column="FILED1" jdbcType="LONGVARCHAR" property="filed1" />
+    <result column="FILED2" jdbcType="LONGVARCHAR" property="filed2" />
+    <result column="FILED3" jdbcType="LONGVARCHAR" property="filed3" />
+    <result column="FILED4" jdbcType="LONGVARCHAR" property="filed4" />
+    <result column="FILED5" jdbcType="LONGVARCHAR" property="filed5" />
+    <result column="FILED6" jdbcType="LONGVARCHAR" property="filed6" />
+    <result column="FILED7" jdbcType="LONGVARCHAR" property="filed7" />
+    <result column="ICON" jdbcType="LONGVARCHAR" property="icon" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SEQUENCEID, NAME, OPER, OPERTIME, FILED8, FILED9, FILED10, CORPID, OPENFLAG, 
+    SAVENUM, COST, SELLNUM, SELLCOST, UPDATETIME, POSITIONX, POSITIONY, DESCR, FILED1, 
+    FILED2, FILED3, FILED4, FILED5, FILED6, FILED7, ICON
+    from db_location
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, NAME, OPER, OPERTIME, FILED8, FILED9, FILED10, CORPID, OPENFLAG, 
+    SAVENUM, COST, SELLNUM, SELLCOST, UPDATETIME, POSITIONX, POSITIONY, DESCR, FILED1, 
+    FILED2, FILED3, FILED4, FILED5, FILED6, FILED7, ICON
+    from db_location
+  </select>
+  <sql id="TableName">
+    db_location
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=VARCHAR} , 
+     #{name,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{filed8,jdbcType=DECIMAL} , 
+     #{filed9,jdbcType=DECIMAL} , 
+     #{filed10,jdbcType=DECIMAL} , 
+     #{corpid,jdbcType=VARCHAR} , 
+     #{openflag,jdbcType=VARCHAR} , 
+     #{savenum,jdbcType=DECIMAL} , 
+     #{cost,jdbcType=DECIMAL} , 
+     #{sellnum,jdbcType=DECIMAL} , 
+     #{sellcost,jdbcType=DECIMAL} , 
+     #{updatetime,jdbcType=TIMESTAMP} , 
+     #{positionx,jdbcType=DECIMAL} , 
+     #{positiony,jdbcType=DECIMAL} , 
+     #{descr,jdbcType=LONGVARCHAR} , 
+     #{filed1,jdbcType=LONGVARCHAR} , 
+     #{filed2,jdbcType=LONGVARCHAR} , 
+     #{filed3,jdbcType=LONGVARCHAR} , 
+     #{filed4,jdbcType=LONGVARCHAR} , 
+     #{filed5,jdbcType=LONGVARCHAR} , 
+     #{filed6,jdbcType=LONGVARCHAR} , 
+     #{filed7,jdbcType=LONGVARCHAR} , 
+     #{icon,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    NAME , 
+    OPER , 
+    OPERTIME , 
+    FILED8 , 
+    FILED9 , 
+    FILED10 , 
+    CORPID , 
+    OPENFLAG , 
+    SAVENUM , 
+    COST , 
+    SELLNUM , 
+    SELLCOST , 
+    UPDATETIME , 
+    POSITIONX , 
+    POSITIONY , 
+    DESCR , 
+    FILED1 , 
+    FILED2 , 
+    FILED3 , 
+    FILED4 , 
+    FILED5 , 
+    FILED6 , 
+    FILED7 , 
+    ICON
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="name != null">
+      NAME = #{name,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="filed8 != null">
+      FILED8 = #{filed8,jdbcType=DECIMAL} and 
+    </if>
+    <if test="filed9 != null">
+      FILED9 = #{filed9,jdbcType=DECIMAL} and 
+    </if>
+    <if test="filed10 != null">
+      FILED10 = #{filed10,jdbcType=DECIMAL} and 
+    </if>
+    <if test="corpid != null">
+      CORPID = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="savenum != null">
+      SAVENUM = #{savenum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="cost != null">
+      COST = #{cost,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sellnum != null">
+      SELLNUM = #{sellnum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sellcost != null">
+      SELLCOST = #{sellcost,jdbcType=DECIMAL} and 
+    </if>
+    <if test="updatetime != null">
+      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="positionx != null">
+      POSITIONX = #{positionx,jdbcType=DECIMAL} and 
+    </if>
+    <if test="positiony != null">
+      POSITIONY = #{positiony,jdbcType=DECIMAL} and 
+    </if>
+    <if test="descr != null">
+      DESCR = #{descr,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="filed1 != null">
+      FILED1 = #{filed1,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="filed2 != null">
+      FILED2 = #{filed2,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="filed3 != null">
+      FILED3 = #{filed3,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="filed4 != null">
+      FILED4 = #{filed4,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="filed5 != null">
+      FILED5 = #{filed5,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="filed6 != null">
+      FILED6 = #{filed6,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="filed7 != null">
+      FILED7 = #{filed7,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="icon != null">
+      ICON = #{icon,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="name != null">
+      NAME = #{name,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="filed8 != null">
+      FILED8 = #{filed8,jdbcType=DECIMAL} , 
+    </if>
+    <if test="filed9 != null">
+      FILED9 = #{filed9,jdbcType=DECIMAL} , 
+    </if>
+    <if test="filed10 != null">
+      FILED10 = #{filed10,jdbcType=DECIMAL} , 
+    </if>
+    <if test="corpid != null">
+      CORPID = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="savenum != null">
+      SAVENUM = #{savenum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="cost != null">
+      COST = #{cost,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sellnum != null">
+      SELLNUM = #{sellnum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sellcost != null">
+      SELLCOST = #{sellcost,jdbcType=DECIMAL} , 
+    </if>
+    <if test="updatetime != null">
+      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="positionx != null">
+      POSITIONX = #{positionx,jdbcType=DECIMAL} , 
+    </if>
+    <if test="positiony != null">
+      POSITIONY = #{positiony,jdbcType=DECIMAL} , 
+    </if>
+    <if test="descr != null">
+      DESCR = #{descr,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="filed1 != null">
+      FILED1 = #{filed1,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="filed2 != null">
+      FILED2 = #{filed2,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="filed3 != null">
+      FILED3 = #{filed3,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="filed4 != null">
+      FILED4 = #{filed4,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="filed5 != null">
+      FILED5 = #{filed5,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="filed6 != null">
+      FILED6 = #{filed6,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="filed7 != null">
+      FILED7 = #{filed7,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="icon != null">
+      ICON = #{icon,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbLocation" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbLocation">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbLocation">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbLocation">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

@@ -27,7 +27,7 @@ public class LazadaOrderThread extends ThreadModel {
 
     /*    private static List<Map<String,String>> skuMap;//多仓sku暂存
         private static boolean refreshSku;//多仓sku刷新标志*/ {
-        service = GetService.getService();
+        service = GetService.getLazadaService();
         yml = GetService.getYml();
     }
 

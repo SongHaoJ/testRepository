@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbEbayforexpressMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbEbayforexpress">
+    <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="EBAYEXPRESSTYPE" jdbcType="VARCHAR" property="ebayexpresstype" />
+    <result column="EBAYEXPRESSID" jdbcType="VARCHAR" property="ebayexpressid" />
+    <result column="MABANGEXPRESSID" jdbcType="VARCHAR" property="mabangexpressid" />
+    <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="MABANGEXPRESSTYPE" jdbcType="VARCHAR" property="mabangexpresstype" />
+    <result column="SITE" jdbcType="VARCHAR" property="site" />
+    <result column="SITEFLAG" jdbcType="VARCHAR" property="siteflag" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SEQUENCEID, OPER, EBAYEXPRESSTYPE, EBAYEXPRESSID, MABANGEXPRESSID, OPENFLAG, 
+    OPERTIME, MABANGEXPRESSTYPE, SITE, SITEFLAG
+    from db_ebayforexpress
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, OPER, EBAYEXPRESSTYPE, EBAYEXPRESSID, MABANGEXPRESSID, OPENFLAG, 
+    OPERTIME, MABANGEXPRESSTYPE, SITE, SITEFLAG
+    from db_ebayforexpress
+  </select>
+  <sql id="TableName">
+    db_ebayforexpress
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{ebayexpresstype,jdbcType=VARCHAR} , 
+     #{ebayexpressid,jdbcType=VARCHAR} , 
+     #{mabangexpressid,jdbcType=VARCHAR} , 
+     #{openflag,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{mabangexpresstype,jdbcType=VARCHAR} , 
+     #{site,jdbcType=VARCHAR} , 
+     #{siteflag,jdbcType=VARCHAR}
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    OPER , 
+    EBAYEXPRESSTYPE , 
+    EBAYEXPRESSID , 
+    MABANGEXPRESSID , 
+    OPENFLAG , 
+    OPERTIME , 
+    MABANGEXPRESSTYPE , 
+    SITE , 
+    SITEFLAG
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebayexpresstype != null">
+      EBAYEXPRESSTYPE = #{ebayexpresstype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebayexpressid != null">
+      EBAYEXPRESSID = #{ebayexpressid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="mabangexpressid != null">
+      MABANGEXPRESSID = #{mabangexpressid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="mabangexpresstype != null">
+      MABANGEXPRESSTYPE = #{mabangexpresstype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="site != null">
+      SITE = #{site,jdbcType=VARCHAR} and 
+    </if>
+    <if test="siteflag != null">
+      SITEFLAG = #{siteflag,jdbcType=VARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebayexpresstype != null">
+      EBAYEXPRESSTYPE = #{ebayexpresstype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebayexpressid != null">
+      EBAYEXPRESSID = #{ebayexpressid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="mabangexpressid != null">
+      MABANGEXPRESSID = #{mabangexpressid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="mabangexpresstype != null">
+      MABANGEXPRESSTYPE = #{mabangexpresstype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="site != null">
+      SITE = #{site,jdbcType=VARCHAR} , 
+    </if>
+    <if test="siteflag != null">
+      SITEFLAG = #{siteflag,jdbcType=VARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbEbayforexpress" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbEbayforexpress">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbEbayforexpress">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbEbayforexpress">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

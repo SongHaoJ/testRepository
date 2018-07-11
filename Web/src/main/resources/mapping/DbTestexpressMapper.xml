@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbTestexpressMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbTestexpress">
+    <id column="PACKAGE" jdbcType="VARCHAR" property="package" />
+    <result column="CNMINIPARCEL10X10" jdbcType="DECIMAL" property="cnminiparcel10x10" />
+    <result column="A6" jdbcType="DECIMAL" property="a6" />
+    <result column="A4" jdbcType="DECIMAL" property="a4" />
+    <result column="SID" jdbcType="VARCHAR" property="sid" />
+    <result column="EXPRESSTYPE" jdbcType="VARCHAR" property="expresstype" />
+    <result column="CURRENCY" jdbcType="VARCHAR" property="currency" />
+    <result column="A7" jdbcType="DECIMAL" property="a7" />
+    <result column="LABELSTR" jdbcType="LONGVARCHAR" property="labelstr" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select PACKAGE, CNMINIPARCEL10X10, A6, A4, SID, EXPRESSTYPE, CURRENCY, A7, LABELSTR
+    from db_testexpress
+    where PACKAGE = #{package,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select PACKAGE, CNMINIPARCEL10X10, A6, A4, SID, EXPRESSTYPE, CURRENCY, A7, LABELSTR
+    from db_testexpress
+  </select>
+  <sql id="TableName">
+    db_testexpress
+  </sql>
+  <sql id="Values">
+     #{package,jdbcType=VARCHAR} , 
+     #{cnminiparcel10x10,jdbcType=DECIMAL} , 
+     #{a6,jdbcType=DECIMAL} , 
+     #{a4,jdbcType=DECIMAL} , 
+     #{sid,jdbcType=VARCHAR} , 
+     #{expresstype,jdbcType=VARCHAR} , 
+     #{currency,jdbcType=VARCHAR} , 
+     #{a7,jdbcType=DECIMAL} , 
+     #{labelstr,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    PACKAGE , 
+    CNMINIPARCEL10X10 , 
+    A6 , 
+    A4 , 
+    SID , 
+    EXPRESSTYPE , 
+    CURRENCY , 
+    A7 , 
+    LABELSTR
+  </sql>
+  <sql id="Criteria">
+    <if test="package != null">
+      PACKAGE = #{package,jdbcType=VARCHAR} and 
+    </if>
+    <if test="cnminiparcel10x10 != null">
+      CNMINIPARCEL10X10 = #{cnminiparcel10x10,jdbcType=DECIMAL} and 
+    </if>
+    <if test="a6 != null">
+      A6 = #{a6,jdbcType=DECIMAL} and 
+    </if>
+    <if test="a4 != null">
+      A4 = #{a4,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sid != null">
+      SID = #{sid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="expresstype != null">
+      EXPRESSTYPE = #{expresstype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="currency != null">
+      CURRENCY = #{currency,jdbcType=VARCHAR} and 
+    </if>
+    <if test="a7 != null">
+      A7 = #{a7,jdbcType=DECIMAL} and 
+    </if>
+    <if test="labelstr != null">
+      LABELSTR = #{labelstr,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="package != null">
+      PACKAGE = #{package,jdbcType=VARCHAR} , 
+    </if>
+    <if test="cnminiparcel10x10 != null">
+      CNMINIPARCEL10X10 = #{cnminiparcel10x10,jdbcType=DECIMAL} , 
+    </if>
+    <if test="a6 != null">
+      A6 = #{a6,jdbcType=DECIMAL} , 
+    </if>
+    <if test="a4 != null">
+      A4 = #{a4,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sid != null">
+      SID = #{sid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="expresstype != null">
+      EXPRESSTYPE = #{expresstype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="currency != null">
+      CURRENCY = #{currency,jdbcType=VARCHAR} , 
+    </if>
+    <if test="a7 != null">
+      A7 = #{a7,jdbcType=DECIMAL} , 
+    </if>
+    <if test="labelstr != null">
+      LABELSTR = #{labelstr,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbTestexpress" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where PACKAGE=#{PACKAGE}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbTestexpress">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbTestexpress">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbTestexpress">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

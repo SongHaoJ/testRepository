@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbProductlogMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbProductlog">
+    <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
+    <result column="SID" jdbcType="VARCHAR" property="sid" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="FILED8" jdbcType="DECIMAL" property="filed8" />
+    <result column="FILED9" jdbcType="DECIMAL" property="filed9" />
+    <result column="FILED10" jdbcType="DECIMAL" property="filed10" />
+    <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
+    <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
+    <result column="OPERTYPE" jdbcType="VARCHAR" property="opertype" />
+    <result column="STORAGEBINFLAG" jdbcType="VARCHAR" property="storagebinflag" />
+    <result column="OUTERLENGTH" jdbcType="DECIMAL" property="outerlength" />
+    <result column="OUTERWIDTH" jdbcType="DECIMAL" property="outerwidth" />
+    <result column="OUTERHIGH" jdbcType="DECIMAL" property="outerhigh" />
+    <result column="OUTERVOLUME" jdbcType="DECIMAL" property="outervolume" />
+    <result column="OUTERGROSSWEIGHT" jdbcType="DECIMAL" property="outergrossweight" />
+    <result column="OUTERNETWEIGHT" jdbcType="DECIMAL" property="outernetweight" />
+    <result column="GROSSWEIGHT" jdbcType="DECIMAL" property="grossweight" />
+    <result column="LENGTH" jdbcType="DECIMAL" property="length" />
+    <result column="WIDTH" jdbcType="DECIMAL" property="width" />
+    <result column="HIGH" jdbcType="DECIMAL" property="high" />
+    <result column="VOLUME" jdbcType="DECIMAL" property="volume" />
+    <result column="MAINSKU" jdbcType="VARCHAR" property="mainsku" />
+    <result column="NAME" jdbcType="LONGVARCHAR" property="name" />
+    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
+    <result column="FILED1" jdbcType="LONGVARCHAR" property="filed1" />
+    <result column="FILED2" jdbcType="LONGVARCHAR" property="filed2" />
+    <result column="FILED3" jdbcType="LONGVARCHAR" property="filed3" />
+    <result column="FILED4" jdbcType="LONGVARCHAR" property="filed4" />
+    <result column="FILED5" jdbcType="LONGVARCHAR" property="filed5" />
+    <result column="FILED6" jdbcType="LONGVARCHAR" property="filed6" />
+    <result column="FILED7" jdbcType="LONGVARCHAR" property="filed7" />
+    <result column="CONTENT" jdbcType="LONGVARCHAR" property="content" />
+    <result column="OUTERNORMS" jdbcType="LONGVARCHAR" property="outernorms" />
+    <result column="OUTERLEVEL" jdbcType="LONGVARCHAR" property="outerlevel" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SEQUENCEID, SID, OPER, OPERTIME, FILED8, FILED9, FILED10, CORPID, OPENFLAG, 
+    OPERTYPE, STORAGEBINFLAG, OUTERLENGTH, OUTERWIDTH, OUTERHIGH, OUTERVOLUME, OUTERGROSSWEIGHT, 
+    OUTERNETWEIGHT, GROSSWEIGHT, LENGTH, WIDTH, HIGH, VOLUME, MAINSKU, NAME, DESCR, FILED1, 
+    FILED2, FILED3, FILED4, FILED5, FILED6, FILED7, CONTENT, OUTERNORMS, OUTERLEVEL
+    from db_productlog
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, SID, OPER, OPERTIME, FILED8, FILED9, FILED10, CORPID, OPENFLAG, 
+    OPERTYPE, STORAGEBINFLAG, OUTERLENGTH, OUTERWIDTH, OUTERHIGH, OUTERVOLUME, OUTERGROSSWEIGHT, 
+    OUTERNETWEIGHT, GROSSWEIGHT, LENGTH, WIDTH, HIGH, VOLUME, MAINSKU, NAME, DESCR, FILED1, 
+    FILED2, FILED3, FILED4, FILED5, FILED6, FILED7, CONTENT, OUTERNORMS, OUTERLEVEL
+    from db_productlog
+  </select>
+  <sql id="TableName">
+    db_productlog
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=VARCHAR} , 
+     #{sid,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{filed8,jdbcType=DECIMAL} , 
+     #{filed9,jdbcType=DECIMAL} , 
+     #{filed10,jdbcType=DECIMAL} , 
+     #{corpid,jdbcType=VARCHAR} , 
+     #{openflag,jdbcType=VARCHAR} , 
+     #{opertype,jdbcType=VARCHAR} , 
+     #{storagebinflag,jdbcType=VARCHAR} , 
+     #{outerlength,jdbcType=DECIMAL} , 
+     #{outerwidth,jdbcType=DECIMAL} , 
+     #{outerhigh,jdbcType=DECIMAL} , 
+     #{outervolume,jdbcType=DECIMAL} , 
+     #{outergrossweight,jdbcType=DECIMAL} , 
+     #{outernetweight,jdbcType=DECIMAL} , 
+     #{grossweight,jdbcType=DECIMAL} , 
+     #{length,jdbcType=DECIMAL} , 
+     #{width,jdbcType=DECIMAL} , 
+     #{high,jdbcType=DECIMAL} , 
+     #{volume,jdbcType=DECIMAL} , 
+     #{mainsku,jdbcType=VARCHAR} , 
+     #{name,jdbcType=LONGVARCHAR} , 
+     #{descr,jdbcType=LONGVARCHAR} , 
+     #{filed1,jdbcType=LONGVARCHAR} , 
+     #{filed2,jdbcType=LONGVARCHAR} , 
+     #{filed3,jdbcType=LONGVARCHAR} , 
+     #{filed4,jdbcType=LONGVARCHAR} , 
+     #{filed5,jdbcType=LONGVARCHAR} , 
+     #{filed6,jdbcType=LONGVARCHAR} , 
+     #{filed7,jdbcType=LONGVARCHAR} , 
+     #{content,jdbcType=LONGVARCHAR} , 
+     #{outernorms,jdbcType=LONGVARCHAR} , 
+     #{outerlevel,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    SID , 
+    OPER , 
+    OPERTIME , 
+    FILED8 , 
+    FILED9 , 
+    FILED10 , 
+    CORPID , 
+    OPENFLAG , 
+    OPERTYPE , 
+    STORAGEBINFLAG , 
+    OUTERLENGTH , 
+    OUTERWIDTH , 
+    OUTERHIGH , 
+    OUTERVOLUME , 
+    OUTERGROSSWEIGHT , 
+    OUTERNETWEIGHT , 
+    GROSSWEIGHT , 
+    LENGTH , 
+    WIDTH , 
+    HIGH , 
+    VOLUME , 
+    MAINSKU , 
+    NAME , 
+    DESCR , 
+    FILED1 , 
+    FILED2 , 
+    FILED3 , 
+    FILED4 , 
+    FILED5 , 
+    FILED6 , 
+    FILED7 , 
+    CONTENT , 
+    OUTERNORMS , 
+    OUTERLEVEL
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sid != null">
+      SID = #{sid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="filed8 != null">
+      FILED8 = #{filed8,jdbcType=DECIMAL} and 
+    </if>
+    <if test="filed9 != null">
+      FILED9 = #{filed9,jdbcType=DECIMAL} and 
+    </if>
+    <if test="filed10 != null">
+      FILED10 = #{filed10,jdbcType=DECIMAL} and 
+    </if>
+    <if test="corpid != null">
+      CORPID = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertype != null">
+      OPERTYPE = #{opertype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="storagebinflag != null">
+      STORAGEBINFLAG = #{storagebinflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="outerlength != null">
+      OUTERLENGTH = #{outerlength,jdbcType=DECIMAL} and 
+    </if>
+    <if test="outerwidth != null">
+      OUTERWIDTH = #{outerwidth,jdbcType=DECIMAL} and 
+    </if>
+    <if test="outerhigh != null">
+      OUTERHIGH = #{outerhigh,jdbcType=DECIMAL} and 
+    </if>
+    <if test="outervolume != null">
+      OUTERVOLUME = #{outervolume,jdbcType=DECIMAL} and 
+    </if>
+    <if test="outergrossweight != null">
+      OUTERGROSSWEIGHT = #{outergrossweight,jdbcType=DECIMAL} and 
+    </if>
+    <if test="outernetweight != null">
+      OUTERNETWEIGHT = #{outernetweight,jdbcType=DECIMAL} and 
+    </if>
+    <if test="grossweight != null">
+      GROSSWEIGHT = #{grossweight,jdbcType=DECIMAL} and 
+    </if>
+    <if test="length != null">
+      LENGTH = #{length,jdbcType=DECIMAL} and 
+    </if>
+    <if test="width != null">
+      WIDTH = #{width,jdbcType=DECIMAL} and 
+    </if>
+    <if test="high != null">
+      HIGH = #{high,jdbcType=DECIMAL} and 
+    </if>
+    <if test="volume != null">
+      VOLUME = #{volume,jdbcType=DECIMAL} and 
+    </if>
+    <if test="mainsku != null">
+      MAINSKU = #{mainsku,jdbcType=VARCHAR} and 
+    </if>
+    <if test="name != null">
+      NAME = #{name,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="descr != null">
+      DESCR = #{descr,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="filed1 != null">
+      FILED1 = #{filed1,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="filed2 != null">
+      FILED2 = #{filed2,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="filed3 != null">
+      FILED3 = #{filed3,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="filed4 != null">
+      FILED4 = #{filed4,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="filed5 != null">
+      FILED5 = #{filed5,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="filed6 != null">
+      FILED6 = #{filed6,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="filed7 != null">
+      FILED7 = #{filed7,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="content != null">
+      CONTENT = #{content,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="outernorms != null">
+      OUTERNORMS = #{outernorms,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="outerlevel != null">
+      OUTERLEVEL = #{outerlevel,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sid != null">
+      SID = #{sid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="filed8 != null">
+      FILED8 = #{filed8,jdbcType=DECIMAL} , 
+    </if>
+    <if test="filed9 != null">
+      FILED9 = #{filed9,jdbcType=DECIMAL} , 
+    </if>
+    <if test="filed10 != null">
+      FILED10 = #{filed10,jdbcType=DECIMAL} , 
+    </if>
+    <if test="corpid != null">
+      CORPID = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertype != null">
+      OPERTYPE = #{opertype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="storagebinflag != null">
+      STORAGEBINFLAG = #{storagebinflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="outerlength != null">
+      OUTERLENGTH = #{outerlength,jdbcType=DECIMAL} , 
+    </if>
+    <if test="outerwidth != null">
+      OUTERWIDTH = #{outerwidth,jdbcType=DECIMAL} , 
+    </if>
+    <if test="outerhigh != null">
+      OUTERHIGH = #{outerhigh,jdbcType=DECIMAL} , 
+    </if>
+    <if test="outervolume != null">
+      OUTERVOLUME = #{outervolume,jdbcType=DECIMAL} , 
+    </if>
+    <if test="outergrossweight != null">
+      OUTERGROSSWEIGHT = #{outergrossweight,jdbcType=DECIMAL} , 
+    </if>
+    <if test="outernetweight != null">
+      OUTERNETWEIGHT = #{outernetweight,jdbcType=DECIMAL} , 
+    </if>
+    <if test="grossweight != null">
+      GROSSWEIGHT = #{grossweight,jdbcType=DECIMAL} , 
+    </if>
+    <if test="length != null">
+      LENGTH = #{length,jdbcType=DECIMAL} , 
+    </if>
+    <if test="width != null">
+      WIDTH = #{width,jdbcType=DECIMAL} , 
+    </if>
+    <if test="high != null">
+      HIGH = #{high,jdbcType=DECIMAL} , 
+    </if>
+    <if test="volume != null">
+      VOLUME = #{volume,jdbcType=DECIMAL} , 
+    </if>
+    <if test="mainsku != null">
+      MAINSKU = #{mainsku,jdbcType=VARCHAR} , 
+    </if>
+    <if test="name != null">
+      NAME = #{name,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="descr != null">
+      DESCR = #{descr,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="filed1 != null">
+      FILED1 = #{filed1,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="filed2 != null">
+      FILED2 = #{filed2,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="filed3 != null">
+      FILED3 = #{filed3,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="filed4 != null">
+      FILED4 = #{filed4,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="filed5 != null">
+      FILED5 = #{filed5,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="filed6 != null">
+      FILED6 = #{filed6,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="filed7 != null">
+      FILED7 = #{filed7,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="content != null">
+      CONTENT = #{content,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="outernorms != null">
+      OUTERNORMS = #{outernorms,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="outerlevel != null">
+      OUTERLEVEL = #{outerlevel,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbProductlog" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbProductlog">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbProductlog">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbProductlog">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

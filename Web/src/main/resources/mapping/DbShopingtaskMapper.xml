@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbShopingtaskMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbShopingtask">
+    <id column="ITEMID" jdbcType="DECIMAL" property="itemid" />
+    <result column="TASKID" jdbcType="DECIMAL" property="taskid" />
+    <result column="ITEMFLAG" jdbcType="DECIMAL" property="itemflag" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="OPENFLAG" jdbcType="DECIMAL" property="openflag" />
+    <result column="USERID" jdbcType="VARCHAR" property="userid" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="SITE" jdbcType="VARCHAR" property="site" />
+    <result column="LASTRUNTIME" jdbcType="DECIMAL" property="lastruntime" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select ITEMID, TASKID, ITEMFLAG, OPER, CREATETIME, OPENFLAG, USERID, OPERTIME, SITE, 
+    LASTRUNTIME
+    from db_shopingtask
+    where ITEMID = #{itemid,jdbcType=DECIMAL}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ITEMID, TASKID, ITEMFLAG, OPER, CREATETIME, OPENFLAG, USERID, OPERTIME, SITE, 
+    LASTRUNTIME
+    from db_shopingtask
+  </select>
+  <sql id="TableName">
+    db_shopingtask
+  </sql>
+  <sql id="Values">
+     #{itemid,jdbcType=DECIMAL} , 
+     #{taskid,jdbcType=DECIMAL} , 
+     #{itemflag,jdbcType=DECIMAL} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{createtime,jdbcType=TIMESTAMP} , 
+     #{openflag,jdbcType=DECIMAL} , 
+     #{userid,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{site,jdbcType=VARCHAR} , 
+     #{lastruntime,jdbcType=DECIMAL}
+  </sql>
+  <sql id="Columns">
+    ITEMID , 
+    TASKID , 
+    ITEMFLAG , 
+    OPER , 
+    CREATETIME , 
+    OPENFLAG , 
+    USERID , 
+    OPERTIME , 
+    SITE , 
+    LASTRUNTIME
+  </sql>
+  <sql id="Criteria">
+    <if test="itemid != null">
+      ITEMID = #{itemid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="taskid != null">
+      TASKID = #{taskid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="itemflag != null">
+      ITEMFLAG = #{itemflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="createtime != null">
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="userid != null">
+      USERID = #{userid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="site != null">
+      SITE = #{site,jdbcType=VARCHAR} and 
+    </if>
+    <if test="lastruntime != null">
+      LASTRUNTIME = #{lastruntime,jdbcType=DECIMAL}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="itemid != null">
+      ITEMID = #{itemid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="taskid != null">
+      TASKID = #{taskid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="itemflag != null">
+      ITEMFLAG = #{itemflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="createtime != null">
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="userid != null">
+      USERID = #{userid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="site != null">
+      SITE = #{site,jdbcType=VARCHAR} , 
+    </if>
+    <if test="lastruntime != null">
+      LASTRUNTIME = #{lastruntime,jdbcType=DECIMAL}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbShopingtask" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="BigDecimal">
+    delete from <include refid="TableName"/> where ITEMID=#{ITEMID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbShopingtask">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbShopingtask">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbShopingtask">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

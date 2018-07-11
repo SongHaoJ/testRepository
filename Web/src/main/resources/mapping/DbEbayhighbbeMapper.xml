@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbEbayhighbbeMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbEbayhighbbe">
+    <id column="SEQUENCEID" jdbcType="DECIMAL" property="sequenceid" />
+    <result column="EBAYIDMANAGEID" jdbcType="DECIMAL" property="ebayidmanageid" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="ITEMID" jdbcType="DECIMAL" property="itemid" />
+    <result column="TRADEMONEY" jdbcType="VARCHAR" property="trademoney" />
+    <result column="TRADEALL" jdbcType="VARCHAR" property="tradeall" />
+    <result column="TRADEBBE" jdbcType="VARCHAR" property="tradebbe" />
+    <result column="BBEBILI" jdbcType="VARCHAR" property="bbebili" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select SEQUENCEID, EBAYIDMANAGEID, TITLE, ITEMID, TRADEMONEY, TRADEALL, TRADEBBE, 
+    BBEBILI, OPER, OPERTIME
+    from db_ebayhighbbe
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, EBAYIDMANAGEID, TITLE, ITEMID, TRADEMONEY, TRADEALL, TRADEBBE, 
+    BBEBILI, OPER, OPERTIME
+    from db_ebayhighbbe
+  </select>
+  <sql id="TableName">
+    db_ebayhighbbe
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=DECIMAL} , 
+     #{ebayidmanageid,jdbcType=DECIMAL} , 
+     #{title,jdbcType=VARCHAR} , 
+     #{itemid,jdbcType=DECIMAL} , 
+     #{trademoney,jdbcType=VARCHAR} , 
+     #{tradeall,jdbcType=VARCHAR} , 
+     #{tradebbe,jdbcType=VARCHAR} , 
+     #{bbebili,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP}
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    EBAYIDMANAGEID , 
+    TITLE , 
+    ITEMID , 
+    TRADEMONEY , 
+    TRADEALL , 
+    TRADEBBE , 
+    BBEBILI , 
+    OPER , 
+    OPERTIME
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="ebayidmanageid != null">
+      EBAYIDMANAGEID = #{ebayidmanageid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="title != null">
+      TITLE = #{title,jdbcType=VARCHAR} and 
+    </if>
+    <if test="itemid != null">
+      ITEMID = #{itemid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="trademoney != null">
+      TRADEMONEY = #{trademoney,jdbcType=VARCHAR} and 
+    </if>
+    <if test="tradeall != null">
+      TRADEALL = #{tradeall,jdbcType=VARCHAR} and 
+    </if>
+    <if test="tradebbe != null">
+      TRADEBBE = #{tradebbe,jdbcType=VARCHAR} and 
+    </if>
+    <if test="bbebili != null">
+      BBEBILI = #{bbebili,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="ebayidmanageid != null">
+      EBAYIDMANAGEID = #{ebayidmanageid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="title != null">
+      TITLE = #{title,jdbcType=VARCHAR} , 
+    </if>
+    <if test="itemid != null">
+      ITEMID = #{itemid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="trademoney != null">
+      TRADEMONEY = #{trademoney,jdbcType=VARCHAR} , 
+    </if>
+    <if test="tradeall != null">
+      TRADEALL = #{tradeall,jdbcType=VARCHAR} , 
+    </if>
+    <if test="tradebbe != null">
+      TRADEBBE = #{tradebbe,jdbcType=VARCHAR} , 
+    </if>
+    <if test="bbebili != null">
+      BBEBILI = #{bbebili,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbEbayhighbbe" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="BigDecimal">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbEbayhighbbe">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbEbayhighbbe">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbEbayhighbbe">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

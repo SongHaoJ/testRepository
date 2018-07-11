@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbProductbackinfoMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbProductbackinfo">
+    <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
+    <result column="PRODUCTID" jdbcType="VARCHAR" property="productid" />
+    <result column="OPERTYPE" jdbcType="VARCHAR" property="opertype" />
+    <result column="BACKMOONEY" jdbcType="VARCHAR" property="backmooney" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="ORDERID" jdbcType="LONGVARCHAR" property="orderid" />
+    <result column="COMPLAIN" jdbcType="LONGVARCHAR" property="complain" />
+    <result column="SELLTIME" jdbcType="LONGVARCHAR" property="selltime" />
+    <result column="COMMENTS" jdbcType="LONGVARCHAR" property="comments" />
+    <result column="SHOPTYPE" jdbcType="LONGVARCHAR" property="shoptype" />
+    <result column="DESCS" jdbcType="LONGVARCHAR" property="descs" />
+    <result column="OPER" jdbcType="LONGVARCHAR" property="oper" />
+    <result column="RESERVE1" jdbcType="LONGVARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="LONGVARCHAR" property="reserve2" />
+    <result column="RESERVE3" jdbcType="LONGVARCHAR" property="reserve3" />
+    <result column="RESERVE4" jdbcType="LONGVARCHAR" property="reserve4" />
+    <result column="RESERVE5" jdbcType="LONGVARCHAR" property="reserve5" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SEQUENCEID, PRODUCTID, OPERTYPE, BACKMOONEY, OPERTIME, ORDERID, COMPLAIN, 
+    SELLTIME, COMMENTS, SHOPTYPE, DESCS, OPER, RESERVE1, RESERVE2, RESERVE3, RESERVE4, 
+    RESERVE5
+    from db_productbackinfo
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, PRODUCTID, OPERTYPE, BACKMOONEY, OPERTIME, ORDERID, COMPLAIN, 
+    SELLTIME, COMMENTS, SHOPTYPE, DESCS, OPER, RESERVE1, RESERVE2, RESERVE3, RESERVE4, 
+    RESERVE5
+    from db_productbackinfo
+  </select>
+  <sql id="TableName">
+    db_productbackinfo
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=VARCHAR} , 
+     #{productid,jdbcType=VARCHAR} , 
+     #{opertype,jdbcType=VARCHAR} , 
+     #{backmooney,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{orderid,jdbcType=LONGVARCHAR} , 
+     #{complain,jdbcType=LONGVARCHAR} , 
+     #{selltime,jdbcType=LONGVARCHAR} , 
+     #{comments,jdbcType=LONGVARCHAR} , 
+     #{shoptype,jdbcType=LONGVARCHAR} , 
+     #{descs,jdbcType=LONGVARCHAR} , 
+     #{oper,jdbcType=LONGVARCHAR} , 
+     #{reserve1,jdbcType=LONGVARCHAR} , 
+     #{reserve2,jdbcType=LONGVARCHAR} , 
+     #{reserve3,jdbcType=LONGVARCHAR} , 
+     #{reserve4,jdbcType=LONGVARCHAR} , 
+     #{reserve5,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    PRODUCTID , 
+    OPERTYPE , 
+    BACKMOONEY , 
+    OPERTIME , 
+    ORDERID , 
+    COMPLAIN , 
+    SELLTIME , 
+    COMMENTS , 
+    SHOPTYPE , 
+    DESCS , 
+    OPER , 
+    RESERVE1 , 
+    RESERVE2 , 
+    RESERVE3 , 
+    RESERVE4 , 
+    RESERVE5
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="productid != null">
+      PRODUCTID = #{productid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertype != null">
+      OPERTYPE = #{opertype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="backmooney != null">
+      BACKMOONEY = #{backmooney,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="orderid != null">
+      ORDERID = #{orderid,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="complain != null">
+      COMPLAIN = #{complain,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="selltime != null">
+      SELLTIME = #{selltime,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="comments != null">
+      COMMENTS = #{comments,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="shoptype != null">
+      SHOPTYPE = #{shoptype,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="descs != null">
+      DESCS = #{descs,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="reserve4 != null">
+      RESERVE4 = #{reserve4,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="reserve5 != null">
+      RESERVE5 = #{reserve5,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="productid != null">
+      PRODUCTID = #{productid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertype != null">
+      OPERTYPE = #{opertype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="backmooney != null">
+      BACKMOONEY = #{backmooney,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="orderid != null">
+      ORDERID = #{orderid,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="complain != null">
+      COMPLAIN = #{complain,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="selltime != null">
+      SELLTIME = #{selltime,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="comments != null">
+      COMMENTS = #{comments,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="shoptype != null">
+      SHOPTYPE = #{shoptype,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="descs != null">
+      DESCS = #{descs,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="reserve4 != null">
+      RESERVE4 = #{reserve4,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="reserve5 != null">
+      RESERVE5 = #{reserve5,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbProductbackinfo" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbProductbackinfo">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbProductbackinfo">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbProductbackinfo">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

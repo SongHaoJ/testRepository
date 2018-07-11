@@ -1,0 +1,1482 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbProductHistoryMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbProductHistory">
+    <id column="SEQUENCEID" jdbcType="DECIMAL" property="sequenceid" />
+    <result column="PRODUCTID" jdbcType="VARCHAR" property="productid" />
+    <result column="HISTPROFIT" jdbcType="DECIMAL" property="histprofit" />
+    <result column="PROFITT" jdbcType="DECIMAL" property="profitt" />
+    <result column="PROFITS" jdbcType="DECIMAL" property="profits" />
+    <result column="ALLORDERNUM" jdbcType="DECIMAL" property="allordernum" />
+    <result column="TODAYORDERNUM" jdbcType="DECIMAL" property="todayordernum" />
+    <result column="ONPASSAGEPURCHASE" jdbcType="DECIMAL" property="onpassagepurchase" />
+    <result column="OOSLEVEL" jdbcType="DECIMAL" property="ooslevel" />
+    <result column="RATEOFPIN" jdbcType="DECIMAL" property="rateofpin" />
+    <result column="SAVENUM" jdbcType="DECIMAL" property="savenum" />
+    <result column="COSTPRICE" jdbcType="DECIMAL" property="costprice" />
+    <result column="ALERTDAY" jdbcType="DECIMAL" property="alertday" />
+    <result column="ALERTNUM" jdbcType="DECIMAL" property="alertnum" />
+    <result column="WEIGHT" jdbcType="DECIMAL" property="weight" />
+    <result column="TODAYSAVENUM" jdbcType="DECIMAL" property="todaysavenum" />
+    <result column="SINGLEDAYSALES" jdbcType="DECIMAL" property="singledaysales" />
+    <result column="DIELIBRARYCOEFFICIENT" jdbcType="DECIMAL" property="dielibrarycoefficient" />
+    <result column="TODAYOUTSAVENUM" jdbcType="DECIMAL" property="todayoutsavenum" />
+    <result column="MINPURCHASENUM" jdbcType="DECIMAL" property="minpurchasenum" />
+    <result column="LOCATIONID" jdbcType="VARCHAR" property="locationid" />
+    <result column="LOCATION" jdbcType="VARCHAR" property="location" />
+    <result column="STORNGID" jdbcType="VARCHAR" property="storngid" />
+    <result column="STRONG" jdbcType="VARCHAR" property="strong" />
+    <result column="PRODUCTNAME" jdbcType="VARCHAR" property="productname" />
+    <result column="OPER1" jdbcType="VARCHAR" property="oper1" />
+    <result column="OPER2" jdbcType="VARCHAR" property="oper2" />
+    <result column="OPER3" jdbcType="VARCHAR" property="oper3" />
+    <result column="OPER4" jdbcType="VARCHAR" property="oper4" />
+    <result column="OPER5" jdbcType="VARCHAR" property="oper5" />
+    <result column="MENUFUNCTORYID" jdbcType="VARCHAR" property="menufunctoryid" />
+    <result column="MENUFUNCTORY" jdbcType="VARCHAR" property="menufunctory" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
+    <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="HISTPAVGROFIT" jdbcType="DECIMAL" property="histpavgrofit" />
+    <result column="GSTPRICE" jdbcType="DECIMAL" property="gstprice" />
+    <result column="OCEANSHIPPRICE" jdbcType="DECIMAL" property="oceanshipprice" />
+    <result column="FOBPRICE" jdbcType="DECIMAL" property="fobprice" />
+    <result column="CIFPRICE" jdbcType="DECIMAL" property="cifprice" />
+    <result column="EXPRESSPRICE" jdbcType="DECIMAL" property="expressprice" />
+    <result column="PROFIT" jdbcType="DECIMAL" property="profit" />
+    <result column="BIDPROFIT" jdbcType="DECIMAL" property="bidprofit" />
+    <result column="FIXEDPROFIT" jdbcType="DECIMAL" property="fixedprofit" />
+    <result column="BIDEBAYPRICE" jdbcType="DECIMAL" property="bidebayprice" />
+    <result column="FIXEDEBAYPRICE" jdbcType="DECIMAL" property="fixedebayprice" />
+    <result column="BIDNUM" jdbcType="DECIMAL" property="bidnum" />
+    <result column="STORERENT" jdbcType="DECIMAL" property="storerent" />
+    <result column="ALLPURCHASENUM" jdbcType="DECIMAL" property="allpurchasenum" />
+    <result column="MANUFACTUREQUOTE" jdbcType="DECIMAL" property="manufacturequote" />
+    <result column="TARIFFPRICE" jdbcType="DECIMAL" property="tariffprice" />
+    <result column="PAYPALPRICE" jdbcType="DECIMAL" property="paypalprice" />
+    <result column="ALIASKU" jdbcType="VARCHAR" property="aliasku" />
+    <result column="VOLUME" jdbcType="DECIMAL" property="volume" />
+    <result column="SIZES" jdbcType="VARCHAR" property="sizes" />
+    <result column="SELLPRICE" jdbcType="DECIMAL" property="sellprice" />
+    <result column="LENGTH" jdbcType="DECIMAL" property="length" />
+    <result column="WIDTH" jdbcType="DECIMAL" property="width" />
+    <result column="HIGH" jdbcType="DECIMAL" property="high" />
+    <result column="SALES7" jdbcType="DECIMAL" property="sales7" />
+    <result column="SALES30" jdbcType="DECIMAL" property="sales30" />
+    <result column="SALES90" jdbcType="DECIMAL" property="sales90" />
+    <result column="OUTERLEVEL" jdbcType="VARCHAR" property="outerlevel" />
+    <result column="DHNUMBER" jdbcType="DECIMAL" property="dhnumber" />
+    <result column="MAINSKU" jdbcType="VARCHAR" property="mainsku" />
+    <result column="EBAYPRICE" jdbcType="DECIMAL" property="ebayprice" />
+    <result column="BIDAVGPRICE" jdbcType="DECIMAL" property="bidavgprice" />
+    <result column="BIDTURNOVERRATE" jdbcType="DECIMAL" property="bidturnoverrate" />
+    <result column="BIDTOTALPRICE" jdbcType="DECIMAL" property="bidtotalprice" />
+    <result column="BID7DAY" jdbcType="DECIMAL" property="bid7day" />
+    <result column="BID30DAY" jdbcType="DECIMAL" property="bid30day" />
+    <result column="BID60DAY" jdbcType="DECIMAL" property="bid60day" />
+    <result column="BIDPRICE" jdbcType="DECIMAL" property="bidprice" />
+    <result column="BARGAINRATE" jdbcType="DECIMAL" property="bargainrate" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="UPDATETIME" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="TOCOLSORT" jdbcType="DECIMAL" property="tocolsort" />
+    <result column="TOCOLLONG" jdbcType="DECIMAL" property="tocollong" />
+    <result column="FIXPROFIT" jdbcType="DECIMAL" property="fixprofit" />
+    <result column="POST" jdbcType="DECIMAL" property="post" />
+    <result column="PAYPALBIDFEE" jdbcType="DECIMAL" property="paypalbidfee" />
+    <result column="PAYPALFIXFEE" jdbcType="DECIMAL" property="paypalfixfee" />
+    <result column="EBAYBIDFEE" jdbcType="DECIMAL" property="ebaybidfee" />
+    <result column="EBAYFIXFEE" jdbcType="DECIMAL" property="ebayfixfee" />
+    <result column="ONLINETIME" jdbcType="TIMESTAMP" property="onlinetime" />
+    <result column="SELLNUMBY7D" jdbcType="DECIMAL" property="sellnumby7d" />
+    <result column="SELLNUMBY7C" jdbcType="DECIMAL" property="sellnumby7c" />
+    <result column="SELLNUMBY7B" jdbcType="DECIMAL" property="sellnumby7b" />
+    <result column="SELLNUMBY7A" jdbcType="DECIMAL" property="sellnumby7a" />
+    <result column="SELLTHROUGH" jdbcType="DECIMAL" property="sellthrough" />
+    <result column="CLICKTHROUGH" jdbcType="DECIMAL" property="clickthrough" />
+    <result column="IMPRESSIONS" jdbcType="DECIMAL" property="impressions" />
+    <result column="TODAYOEDERNUM" jdbcType="DECIMAL" property="todayoedernum" />
+    <result column="MONTHBIDNUM" jdbcType="DECIMAL" property="monthbidnum" />
+    <result column="OLDORDERNUM" jdbcType="DECIMAL" property="oldordernum" />
+    <result column="SIXDAYSALES" jdbcType="DECIMAL" property="sixdaysales" />
+    <result column="NDAYSALES" jdbcType="DECIMAL" property="ndaysales" />
+    <result column="MANUFACTURE" jdbcType="VARCHAR" property="manufacture" />
+    <result column="MANUFACTUREID" jdbcType="VARCHAR" property="manufactureid" />
+    <result column="CATEGORY" jdbcType="VARCHAR" property="category" />
+    <result column="CATEGORYID" jdbcType="VARCHAR" property="categoryid" />
+    <result column="PURPRICE" jdbcType="DECIMAL" property="purprice" />
+    <result column="PROFITPERCENT" jdbcType="DECIMAL" property="profitpercent" />
+    <result column="FIXPRICE" jdbcType="DECIMAL" property="fixprice" />
+    <result column="SAVENUMCBM" jdbcType="DECIMAL" property="savenumcbm" />
+    <result column="SAVENUMCIF" jdbcType="DECIMAL" property="savenumcif" />
+    <result column="NEEDORDER" jdbcType="DECIMAL" property="needorder" />
+    <result column="MONTHSAVENUM" jdbcType="DECIMAL" property="monthsavenum" />
+    <result column="PRODUCTIONNUMDAY" jdbcType="DECIMAL" property="productionnumday" />
+    <result column="PRODUCTIONNUM" jdbcType="DECIMAL" property="productionnum" />
+    <result column="ALLOTNUMDAY" jdbcType="DECIMAL" property="allotnumday" />
+    <result column="ALLOTNUM" jdbcType="DECIMAL" property="allotnum" />
+    <result column="PURCHASENUMDAY" jdbcType="DECIMAL" property="purchasenumday" />
+    <result column="PURCHASENUM" jdbcType="DECIMAL" property="purchasenum" />
+    <result column="SAVENUMDAY" jdbcType="DECIMAL" property="savenumday" />
+    <result column="ALLSAVENUMDAY" jdbcType="DECIMAL" property="allsavenumday" />
+    <result column="ALLSAVENUM" jdbcType="DECIMAL" property="allsavenum" />
+    <result column="SELLOPER" jdbcType="VARCHAR" property="selloper" />
+    <result column="DAILYMEANSALES" jdbcType="DECIMAL" property="dailymeansales" />
+    <result column="PUROPER" jdbcType="VARCHAR" property="puroper" />
+    <result column="HISTORYSAVENUM" jdbcType="DECIMAL" property="historysavenum" />
+    <result column="HISTORYCIFPRICE" jdbcType="DECIMAL" property="historycifprice" />
+    <result column="HISTORYPROFITAMOUNT" jdbcType="DECIMAL" property="historyprofitamount" />
+    <result column="CLASSPROFIT" jdbcType="DECIMAL" property="classprofit" />
+    <result column="PRODUCTCONTRIBUTIONS" jdbcType="DECIMAL" property="productcontributions" />
+    <result column="MONTHLYPROFITABC" jdbcType="VARCHAR" property="monthlyprofitabc" />
+    <result column="FPROFITABC" jdbcType="VARCHAR" property="fprofitabc" />
+    <result column="TURNOVERDAY" jdbcType="DECIMAL" property="turnoverday" />
+    <result column="MONTHPROFITS" jdbcType="DECIMAL" property="monthprofits" />
+    <result column="REFUNDRATE" jdbcType="DECIMAL" property="refundrate" />
+    <result column="MONTHCLASSPROFIT" jdbcType="DECIMAL" property="monthclassprofit" />
+    <result column="CHANGEAMOUNT" jdbcType="DECIMAL" property="changeamount" />
+    <result column="LITERRATIO" jdbcType="DECIMAL" property="literratio" />
+    <result column="CLASSCONTRIBUTIONRATIO" jdbcType="DECIMAL" property="classcontributionratio" />
+    <result column="MONTHREFUNDRATE" jdbcType="DECIMAL" property="monthrefundrate" />
+    <result column="HISTORYAVGPROFITRATIO" jdbcType="DECIMAL" property="historyavgprofitratio" />
+    <result column="HISTORYAVGPROFIT" jdbcType="DECIMAL" property="historyavgprofit" />
+    <result column="HISTORYNETPROFITAMOUNT" jdbcType="DECIMAL" property="historynetprofitamount" />
+    <result column="VOLUMEWEIGHT" jdbcType="DECIMAL" property="volumeweight" />
+    <result column="GST" jdbcType="DECIMAL" property="gst" />
+    <result column="TARIFF" jdbcType="DECIMAL" property="tariff" />
+    <result column="SAVENUMSTATUS" jdbcType="DECIMAL" property="savenumstatus" />
+    <result column="NOTE1" jdbcType="LONGVARCHAR" property="note1" />
+    <result column="NOTE2" jdbcType="LONGVARCHAR" property="note2" />
+    <result column="NOTE3" jdbcType="LONGVARCHAR" property="note3" />
+    <result column="NOTE4" jdbcType="LONGVARCHAR" property="note4" />
+    <result column="NOTE5" jdbcType="LONGVARCHAR" property="note5" />
+    <result column="NOTE6" jdbcType="LONGVARCHAR" property="note6" />
+    <result column="NOTE7" jdbcType="LONGVARCHAR" property="note7" />
+    <result column="ADVERTISEMENT" jdbcType="LONGVARCHAR" property="advertisement" />
+    <result column="SELLNUMDESCRBY7D" jdbcType="LONGVARCHAR" property="sellnumdescrby7d" />
+    <result column="SELLNUMDESCRBY7C" jdbcType="LONGVARCHAR" property="sellnumdescrby7c" />
+    <result column="SELLNUMDESCRBY7B" jdbcType="LONGVARCHAR" property="sellnumdescrby7b" />
+    <result column="SELLNUMDESCRBY7A" jdbcType="LONGVARCHAR" property="sellnumdescrby7a" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select SEQUENCEID, PRODUCTID, HISTPROFIT, PROFITT, PROFITS, ALLORDERNUM, TODAYORDERNUM, 
+    ONPASSAGEPURCHASE, OOSLEVEL, RATEOFPIN, SAVENUM, COSTPRICE, ALERTDAY, ALERTNUM, WEIGHT, 
+    TODAYSAVENUM, SINGLEDAYSALES, DIELIBRARYCOEFFICIENT, TODAYOUTSAVENUM, MINPURCHASENUM, 
+    LOCATIONID, LOCATION, STORNGID, STRONG, PRODUCTNAME, OPER1, OPER2, OPER3, OPER4, 
+    OPER5, MENUFUNCTORYID, MENUFUNCTORY, STATUS, CORPID, CREATETIME, HISTPAVGROFIT, GSTPRICE, 
+    OCEANSHIPPRICE, FOBPRICE, CIFPRICE, EXPRESSPRICE, PROFIT, BIDPROFIT, FIXEDPROFIT, 
+    BIDEBAYPRICE, FIXEDEBAYPRICE, BIDNUM, STORERENT, ALLPURCHASENUM, MANUFACTUREQUOTE, 
+    TARIFFPRICE, PAYPALPRICE, ALIASKU, VOLUME, SIZES, SELLPRICE, LENGTH, WIDTH, HIGH, 
+    SALES7, SALES30, SALES90, OUTERLEVEL, DHNUMBER, MAINSKU, EBAYPRICE, BIDAVGPRICE, 
+    BIDTURNOVERRATE, BIDTOTALPRICE, BID7DAY, BID30DAY, BID60DAY, BIDPRICE, BARGAINRATE, 
+    OPERTIME, OPER, UPDATETIME, TOCOLSORT, TOCOLLONG, FIXPROFIT, POST, PAYPALBIDFEE, 
+    PAYPALFIXFEE, EBAYBIDFEE, EBAYFIXFEE, ONLINETIME, SELLNUMBY7D, SELLNUMBY7C, SELLNUMBY7B, 
+    SELLNUMBY7A, SELLTHROUGH, CLICKTHROUGH, IMPRESSIONS, TODAYOEDERNUM, MONTHBIDNUM, 
+    OLDORDERNUM, SIXDAYSALES, NDAYSALES, MANUFACTURE, MANUFACTUREID, CATEGORY, CATEGORYID, 
+    PURPRICE, PROFITPERCENT, FIXPRICE, SAVENUMCBM, SAVENUMCIF, NEEDORDER, MONTHSAVENUM, 
+    PRODUCTIONNUMDAY, PRODUCTIONNUM, ALLOTNUMDAY, ALLOTNUM, PURCHASENUMDAY, PURCHASENUM, 
+    SAVENUMDAY, ALLSAVENUMDAY, ALLSAVENUM, SELLOPER, DAILYMEANSALES, PUROPER, HISTORYSAVENUM, 
+    HISTORYCIFPRICE, HISTORYPROFITAMOUNT, CLASSPROFIT, PRODUCTCONTRIBUTIONS, MONTHLYPROFITABC, 
+    FPROFITABC, TURNOVERDAY, MONTHPROFITS, REFUNDRATE, MONTHCLASSPROFIT, CHANGEAMOUNT, 
+    LITERRATIO, CLASSCONTRIBUTIONRATIO, MONTHREFUNDRATE, HISTORYAVGPROFITRATIO, HISTORYAVGPROFIT, 
+    HISTORYNETPROFITAMOUNT, VOLUMEWEIGHT, GST, TARIFF, SAVENUMSTATUS, NOTE1, NOTE2, NOTE3, 
+    NOTE4, NOTE5, NOTE6, NOTE7, ADVERTISEMENT, SELLNUMDESCRBY7D, SELLNUMDESCRBY7C, SELLNUMDESCRBY7B, 
+    SELLNUMDESCRBY7A
+    from db_product_history
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, PRODUCTID, HISTPROFIT, PROFITT, PROFITS, ALLORDERNUM, TODAYORDERNUM, 
+    ONPASSAGEPURCHASE, OOSLEVEL, RATEOFPIN, SAVENUM, COSTPRICE, ALERTDAY, ALERTNUM, WEIGHT, 
+    TODAYSAVENUM, SINGLEDAYSALES, DIELIBRARYCOEFFICIENT, TODAYOUTSAVENUM, MINPURCHASENUM, 
+    LOCATIONID, LOCATION, STORNGID, STRONG, PRODUCTNAME, OPER1, OPER2, OPER3, OPER4, 
+    OPER5, MENUFUNCTORYID, MENUFUNCTORY, STATUS, CORPID, CREATETIME, HISTPAVGROFIT, GSTPRICE, 
+    OCEANSHIPPRICE, FOBPRICE, CIFPRICE, EXPRESSPRICE, PROFIT, BIDPROFIT, FIXEDPROFIT, 
+    BIDEBAYPRICE, FIXEDEBAYPRICE, BIDNUM, STORERENT, ALLPURCHASENUM, MANUFACTUREQUOTE, 
+    TARIFFPRICE, PAYPALPRICE, ALIASKU, VOLUME, SIZES, SELLPRICE, LENGTH, WIDTH, HIGH, 
+    SALES7, SALES30, SALES90, OUTERLEVEL, DHNUMBER, MAINSKU, EBAYPRICE, BIDAVGPRICE, 
+    BIDTURNOVERRATE, BIDTOTALPRICE, BID7DAY, BID30DAY, BID60DAY, BIDPRICE, BARGAINRATE, 
+    OPERTIME, OPER, UPDATETIME, TOCOLSORT, TOCOLLONG, FIXPROFIT, POST, PAYPALBIDFEE, 
+    PAYPALFIXFEE, EBAYBIDFEE, EBAYFIXFEE, ONLINETIME, SELLNUMBY7D, SELLNUMBY7C, SELLNUMBY7B, 
+    SELLNUMBY7A, SELLTHROUGH, CLICKTHROUGH, IMPRESSIONS, TODAYOEDERNUM, MONTHBIDNUM, 
+    OLDORDERNUM, SIXDAYSALES, NDAYSALES, MANUFACTURE, MANUFACTUREID, CATEGORY, CATEGORYID, 
+    PURPRICE, PROFITPERCENT, FIXPRICE, SAVENUMCBM, SAVENUMCIF, NEEDORDER, MONTHSAVENUM, 
+    PRODUCTIONNUMDAY, PRODUCTIONNUM, ALLOTNUMDAY, ALLOTNUM, PURCHASENUMDAY, PURCHASENUM, 
+    SAVENUMDAY, ALLSAVENUMDAY, ALLSAVENUM, SELLOPER, DAILYMEANSALES, PUROPER, HISTORYSAVENUM, 
+    HISTORYCIFPRICE, HISTORYPROFITAMOUNT, CLASSPROFIT, PRODUCTCONTRIBUTIONS, MONTHLYPROFITABC, 
+    FPROFITABC, TURNOVERDAY, MONTHPROFITS, REFUNDRATE, MONTHCLASSPROFIT, CHANGEAMOUNT, 
+    LITERRATIO, CLASSCONTRIBUTIONRATIO, MONTHREFUNDRATE, HISTORYAVGPROFITRATIO, HISTORYAVGPROFIT, 
+    HISTORYNETPROFITAMOUNT, VOLUMEWEIGHT, GST, TARIFF, SAVENUMSTATUS, NOTE1, NOTE2, NOTE3, 
+    NOTE4, NOTE5, NOTE6, NOTE7, ADVERTISEMENT, SELLNUMDESCRBY7D, SELLNUMDESCRBY7C, SELLNUMDESCRBY7B, 
+    SELLNUMDESCRBY7A
+    from db_product_history
+  </select>
+  <sql id="TableName">
+    db_product_history
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=DECIMAL} , 
+     #{productid,jdbcType=VARCHAR} , 
+     #{histprofit,jdbcType=DECIMAL} , 
+     #{profitt,jdbcType=DECIMAL} , 
+     #{profits,jdbcType=DECIMAL} , 
+     #{allordernum,jdbcType=DECIMAL} , 
+     #{todayordernum,jdbcType=DECIMAL} , 
+     #{onpassagepurchase,jdbcType=DECIMAL} , 
+     #{ooslevel,jdbcType=DECIMAL} , 
+     #{rateofpin,jdbcType=DECIMAL} , 
+     #{savenum,jdbcType=DECIMAL} , 
+     #{costprice,jdbcType=DECIMAL} , 
+     #{alertday,jdbcType=DECIMAL} , 
+     #{alertnum,jdbcType=DECIMAL} , 
+     #{weight,jdbcType=DECIMAL} , 
+     #{todaysavenum,jdbcType=DECIMAL} , 
+     #{singledaysales,jdbcType=DECIMAL} , 
+     #{dielibrarycoefficient,jdbcType=DECIMAL} , 
+     #{todayoutsavenum,jdbcType=DECIMAL} , 
+     #{minpurchasenum,jdbcType=DECIMAL} , 
+     #{locationid,jdbcType=VARCHAR} , 
+     #{location,jdbcType=VARCHAR} , 
+     #{storngid,jdbcType=VARCHAR} , 
+     #{strong,jdbcType=VARCHAR} , 
+     #{productname,jdbcType=VARCHAR} , 
+     #{oper1,jdbcType=VARCHAR} , 
+     #{oper2,jdbcType=VARCHAR} , 
+     #{oper3,jdbcType=VARCHAR} , 
+     #{oper4,jdbcType=VARCHAR} , 
+     #{oper5,jdbcType=VARCHAR} , 
+     #{menufunctoryid,jdbcType=VARCHAR} , 
+     #{menufunctory,jdbcType=VARCHAR} , 
+     #{status,jdbcType=VARCHAR} , 
+     #{corpid,jdbcType=VARCHAR} , 
+     #{createtime,jdbcType=TIMESTAMP} , 
+     #{histpavgrofit,jdbcType=DECIMAL} , 
+     #{gstprice,jdbcType=DECIMAL} , 
+     #{oceanshipprice,jdbcType=DECIMAL} , 
+     #{fobprice,jdbcType=DECIMAL} , 
+     #{cifprice,jdbcType=DECIMAL} , 
+     #{expressprice,jdbcType=DECIMAL} , 
+     #{profit,jdbcType=DECIMAL} , 
+     #{bidprofit,jdbcType=DECIMAL} , 
+     #{fixedprofit,jdbcType=DECIMAL} , 
+     #{bidebayprice,jdbcType=DECIMAL} , 
+     #{fixedebayprice,jdbcType=DECIMAL} , 
+     #{bidnum,jdbcType=DECIMAL} , 
+     #{storerent,jdbcType=DECIMAL} , 
+     #{allpurchasenum,jdbcType=DECIMAL} , 
+     #{manufacturequote,jdbcType=DECIMAL} , 
+     #{tariffprice,jdbcType=DECIMAL} , 
+     #{paypalprice,jdbcType=DECIMAL} , 
+     #{aliasku,jdbcType=VARCHAR} , 
+     #{volume,jdbcType=DECIMAL} , 
+     #{sizes,jdbcType=VARCHAR} , 
+     #{sellprice,jdbcType=DECIMAL} , 
+     #{length,jdbcType=DECIMAL} , 
+     #{width,jdbcType=DECIMAL} , 
+     #{high,jdbcType=DECIMAL} , 
+     #{sales7,jdbcType=DECIMAL} , 
+     #{sales30,jdbcType=DECIMAL} , 
+     #{sales90,jdbcType=DECIMAL} , 
+     #{outerlevel,jdbcType=VARCHAR} , 
+     #{dhnumber,jdbcType=DECIMAL} , 
+     #{mainsku,jdbcType=VARCHAR} , 
+     #{ebayprice,jdbcType=DECIMAL} , 
+     #{bidavgprice,jdbcType=DECIMAL} , 
+     #{bidturnoverrate,jdbcType=DECIMAL} , 
+     #{bidtotalprice,jdbcType=DECIMAL} , 
+     #{bid7day,jdbcType=DECIMAL} , 
+     #{bid30day,jdbcType=DECIMAL} , 
+     #{bid60day,jdbcType=DECIMAL} , 
+     #{bidprice,jdbcType=DECIMAL} , 
+     #{bargainrate,jdbcType=DECIMAL} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{updatetime,jdbcType=TIMESTAMP} , 
+     #{tocolsort,jdbcType=DECIMAL} , 
+     #{tocollong,jdbcType=DECIMAL} , 
+     #{fixprofit,jdbcType=DECIMAL} , 
+     #{post,jdbcType=DECIMAL} , 
+     #{paypalbidfee,jdbcType=DECIMAL} , 
+     #{paypalfixfee,jdbcType=DECIMAL} , 
+     #{ebaybidfee,jdbcType=DECIMAL} , 
+     #{ebayfixfee,jdbcType=DECIMAL} , 
+     #{onlinetime,jdbcType=TIMESTAMP} , 
+     #{sellnumby7d,jdbcType=DECIMAL} , 
+     #{sellnumby7c,jdbcType=DECIMAL} , 
+     #{sellnumby7b,jdbcType=DECIMAL} , 
+     #{sellnumby7a,jdbcType=DECIMAL} , 
+     #{sellthrough,jdbcType=DECIMAL} , 
+     #{clickthrough,jdbcType=DECIMAL} , 
+     #{impressions,jdbcType=DECIMAL} , 
+     #{todayoedernum,jdbcType=DECIMAL} , 
+     #{monthbidnum,jdbcType=DECIMAL} , 
+     #{oldordernum,jdbcType=DECIMAL} , 
+     #{sixdaysales,jdbcType=DECIMAL} , 
+     #{ndaysales,jdbcType=DECIMAL} , 
+     #{manufacture,jdbcType=VARCHAR} , 
+     #{manufactureid,jdbcType=VARCHAR} , 
+     #{category,jdbcType=VARCHAR} , 
+     #{categoryid,jdbcType=VARCHAR} , 
+     #{purprice,jdbcType=DECIMAL} , 
+     #{profitpercent,jdbcType=DECIMAL} , 
+     #{fixprice,jdbcType=DECIMAL} , 
+     #{savenumcbm,jdbcType=DECIMAL} , 
+     #{savenumcif,jdbcType=DECIMAL} , 
+     #{needorder,jdbcType=DECIMAL} , 
+     #{monthsavenum,jdbcType=DECIMAL} , 
+     #{productionnumday,jdbcType=DECIMAL} , 
+     #{productionnum,jdbcType=DECIMAL} , 
+     #{allotnumday,jdbcType=DECIMAL} , 
+     #{allotnum,jdbcType=DECIMAL} , 
+     #{purchasenumday,jdbcType=DECIMAL} , 
+     #{purchasenum,jdbcType=DECIMAL} , 
+     #{savenumday,jdbcType=DECIMAL} , 
+     #{allsavenumday,jdbcType=DECIMAL} , 
+     #{allsavenum,jdbcType=DECIMAL} , 
+     #{selloper,jdbcType=VARCHAR} , 
+     #{dailymeansales,jdbcType=DECIMAL} , 
+     #{puroper,jdbcType=VARCHAR} , 
+     #{historysavenum,jdbcType=DECIMAL} , 
+     #{historycifprice,jdbcType=DECIMAL} , 
+     #{historyprofitamount,jdbcType=DECIMAL} , 
+     #{classprofit,jdbcType=DECIMAL} , 
+     #{productcontributions,jdbcType=DECIMAL} , 
+     #{monthlyprofitabc,jdbcType=VARCHAR} , 
+     #{fprofitabc,jdbcType=VARCHAR} , 
+     #{turnoverday,jdbcType=DECIMAL} , 
+     #{monthprofits,jdbcType=DECIMAL} , 
+     #{refundrate,jdbcType=DECIMAL} , 
+     #{monthclassprofit,jdbcType=DECIMAL} , 
+     #{changeamount,jdbcType=DECIMAL} , 
+     #{literratio,jdbcType=DECIMAL} , 
+     #{classcontributionratio,jdbcType=DECIMAL} , 
+     #{monthrefundrate,jdbcType=DECIMAL} , 
+     #{historyavgprofitratio,jdbcType=DECIMAL} , 
+     #{historyavgprofit,jdbcType=DECIMAL} , 
+     #{historynetprofitamount,jdbcType=DECIMAL} , 
+     #{volumeweight,jdbcType=DECIMAL} , 
+     #{gst,jdbcType=DECIMAL} , 
+     #{tariff,jdbcType=DECIMAL} , 
+     #{savenumstatus,jdbcType=DECIMAL} , 
+     #{note1,jdbcType=LONGVARCHAR} , 
+     #{note2,jdbcType=LONGVARCHAR} , 
+     #{note3,jdbcType=LONGVARCHAR} , 
+     #{note4,jdbcType=LONGVARCHAR} , 
+     #{note5,jdbcType=LONGVARCHAR} , 
+     #{note6,jdbcType=LONGVARCHAR} , 
+     #{note7,jdbcType=LONGVARCHAR} , 
+     #{advertisement,jdbcType=LONGVARCHAR} , 
+     #{sellnumdescrby7d,jdbcType=LONGVARCHAR} , 
+     #{sellnumdescrby7c,jdbcType=LONGVARCHAR} , 
+     #{sellnumdescrby7b,jdbcType=LONGVARCHAR} , 
+     #{sellnumdescrby7a,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    PRODUCTID , 
+    HISTPROFIT , 
+    PROFITT , 
+    PROFITS , 
+    ALLORDERNUM , 
+    TODAYORDERNUM , 
+    ONPASSAGEPURCHASE , 
+    OOSLEVEL , 
+    RATEOFPIN , 
+    SAVENUM , 
+    COSTPRICE , 
+    ALERTDAY , 
+    ALERTNUM , 
+    WEIGHT , 
+    TODAYSAVENUM , 
+    SINGLEDAYSALES , 
+    DIELIBRARYCOEFFICIENT , 
+    TODAYOUTSAVENUM , 
+    MINPURCHASENUM , 
+    LOCATIONID , 
+    LOCATION , 
+    STORNGID , 
+    STRONG , 
+    PRODUCTNAME , 
+    OPER1 , 
+    OPER2 , 
+    OPER3 , 
+    OPER4 , 
+    OPER5 , 
+    MENUFUNCTORYID , 
+    MENUFUNCTORY , 
+    STATUS , 
+    CORPID , 
+    CREATETIME , 
+    HISTPAVGROFIT , 
+    GSTPRICE , 
+    OCEANSHIPPRICE , 
+    FOBPRICE , 
+    CIFPRICE , 
+    EXPRESSPRICE , 
+    PROFIT , 
+    BIDPROFIT , 
+    FIXEDPROFIT , 
+    BIDEBAYPRICE , 
+    FIXEDEBAYPRICE , 
+    BIDNUM , 
+    STORERENT , 
+    ALLPURCHASENUM , 
+    MANUFACTUREQUOTE , 
+    TARIFFPRICE , 
+    PAYPALPRICE , 
+    ALIASKU , 
+    VOLUME , 
+    SIZES , 
+    SELLPRICE , 
+    LENGTH , 
+    WIDTH , 
+    HIGH , 
+    SALES7 , 
+    SALES30 , 
+    SALES90 , 
+    OUTERLEVEL , 
+    DHNUMBER , 
+    MAINSKU , 
+    EBAYPRICE , 
+    BIDAVGPRICE , 
+    BIDTURNOVERRATE , 
+    BIDTOTALPRICE , 
+    BID7DAY , 
+    BID30DAY , 
+    BID60DAY , 
+    BIDPRICE , 
+    BARGAINRATE , 
+    OPERTIME , 
+    OPER , 
+    UPDATETIME , 
+    TOCOLSORT , 
+    TOCOLLONG , 
+    FIXPROFIT , 
+    POST , 
+    PAYPALBIDFEE , 
+    PAYPALFIXFEE , 
+    EBAYBIDFEE , 
+    EBAYFIXFEE , 
+    ONLINETIME , 
+    SELLNUMBY7D , 
+    SELLNUMBY7C , 
+    SELLNUMBY7B , 
+    SELLNUMBY7A , 
+    SELLTHROUGH , 
+    CLICKTHROUGH , 
+    IMPRESSIONS , 
+    TODAYOEDERNUM , 
+    MONTHBIDNUM , 
+    OLDORDERNUM , 
+    SIXDAYSALES , 
+    NDAYSALES , 
+    MANUFACTURE , 
+    MANUFACTUREID , 
+    CATEGORY , 
+    CATEGORYID , 
+    PURPRICE , 
+    PROFITPERCENT , 
+    FIXPRICE , 
+    SAVENUMCBM , 
+    SAVENUMCIF , 
+    NEEDORDER , 
+    MONTHSAVENUM , 
+    PRODUCTIONNUMDAY , 
+    PRODUCTIONNUM , 
+    ALLOTNUMDAY , 
+    ALLOTNUM , 
+    PURCHASENUMDAY , 
+    PURCHASENUM , 
+    SAVENUMDAY , 
+    ALLSAVENUMDAY , 
+    ALLSAVENUM , 
+    SELLOPER , 
+    DAILYMEANSALES , 
+    PUROPER , 
+    HISTORYSAVENUM , 
+    HISTORYCIFPRICE , 
+    HISTORYPROFITAMOUNT , 
+    CLASSPROFIT , 
+    PRODUCTCONTRIBUTIONS , 
+    MONTHLYPROFITABC , 
+    FPROFITABC , 
+    TURNOVERDAY , 
+    MONTHPROFITS , 
+    REFUNDRATE , 
+    MONTHCLASSPROFIT , 
+    CHANGEAMOUNT , 
+    LITERRATIO , 
+    CLASSCONTRIBUTIONRATIO , 
+    MONTHREFUNDRATE , 
+    HISTORYAVGPROFITRATIO , 
+    HISTORYAVGPROFIT , 
+    HISTORYNETPROFITAMOUNT , 
+    VOLUMEWEIGHT , 
+    GST , 
+    TARIFF , 
+    SAVENUMSTATUS , 
+    NOTE1 , 
+    NOTE2 , 
+    NOTE3 , 
+    NOTE4 , 
+    NOTE5 , 
+    NOTE6 , 
+    NOTE7 , 
+    ADVERTISEMENT , 
+    SELLNUMDESCRBY7D , 
+    SELLNUMDESCRBY7C , 
+    SELLNUMDESCRBY7B , 
+    SELLNUMDESCRBY7A
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="productid != null">
+      PRODUCTID = #{productid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="histprofit != null">
+      HISTPROFIT = #{histprofit,jdbcType=DECIMAL} and 
+    </if>
+    <if test="profitt != null">
+      PROFITT = #{profitt,jdbcType=DECIMAL} and 
+    </if>
+    <if test="profits != null">
+      PROFITS = #{profits,jdbcType=DECIMAL} and 
+    </if>
+    <if test="allordernum != null">
+      ALLORDERNUM = #{allordernum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="todayordernum != null">
+      TODAYORDERNUM = #{todayordernum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="onpassagepurchase != null">
+      ONPASSAGEPURCHASE = #{onpassagepurchase,jdbcType=DECIMAL} and 
+    </if>
+    <if test="ooslevel != null">
+      OOSLEVEL = #{ooslevel,jdbcType=DECIMAL} and 
+    </if>
+    <if test="rateofpin != null">
+      RATEOFPIN = #{rateofpin,jdbcType=DECIMAL} and 
+    </if>
+    <if test="savenum != null">
+      SAVENUM = #{savenum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="costprice != null">
+      COSTPRICE = #{costprice,jdbcType=DECIMAL} and 
+    </if>
+    <if test="alertday != null">
+      ALERTDAY = #{alertday,jdbcType=DECIMAL} and 
+    </if>
+    <if test="alertnum != null">
+      ALERTNUM = #{alertnum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="weight != null">
+      WEIGHT = #{weight,jdbcType=DECIMAL} and 
+    </if>
+    <if test="todaysavenum != null">
+      TODAYSAVENUM = #{todaysavenum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="singledaysales != null">
+      SINGLEDAYSALES = #{singledaysales,jdbcType=DECIMAL} and 
+    </if>
+    <if test="dielibrarycoefficient != null">
+      DIELIBRARYCOEFFICIENT = #{dielibrarycoefficient,jdbcType=DECIMAL} and 
+    </if>
+    <if test="todayoutsavenum != null">
+      TODAYOUTSAVENUM = #{todayoutsavenum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="minpurchasenum != null">
+      MINPURCHASENUM = #{minpurchasenum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="locationid != null">
+      LOCATIONID = #{locationid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="location != null">
+      LOCATION = #{location,jdbcType=VARCHAR} and 
+    </if>
+    <if test="storngid != null">
+      STORNGID = #{storngid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="strong != null">
+      STRONG = #{strong,jdbcType=VARCHAR} and 
+    </if>
+    <if test="productname != null">
+      PRODUCTNAME = #{productname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper1 != null">
+      OPER1 = #{oper1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper2 != null">
+      OPER2 = #{oper2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper3 != null">
+      OPER3 = #{oper3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper4 != null">
+      OPER4 = #{oper4,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper5 != null">
+      OPER5 = #{oper5,jdbcType=VARCHAR} and 
+    </if>
+    <if test="menufunctoryid != null">
+      MENUFUNCTORYID = #{menufunctoryid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="menufunctory != null">
+      MENUFUNCTORY = #{menufunctory,jdbcType=VARCHAR} and 
+    </if>
+    <if test="status != null">
+      STATUS = #{status,jdbcType=VARCHAR} and 
+    </if>
+    <if test="corpid != null">
+      CORPID = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="createtime != null">
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="histpavgrofit != null">
+      HISTPAVGROFIT = #{histpavgrofit,jdbcType=DECIMAL} and 
+    </if>
+    <if test="gstprice != null">
+      GSTPRICE = #{gstprice,jdbcType=DECIMAL} and 
+    </if>
+    <if test="oceanshipprice != null">
+      OCEANSHIPPRICE = #{oceanshipprice,jdbcType=DECIMAL} and 
+    </if>
+    <if test="fobprice != null">
+      FOBPRICE = #{fobprice,jdbcType=DECIMAL} and 
+    </if>
+    <if test="cifprice != null">
+      CIFPRICE = #{cifprice,jdbcType=DECIMAL} and 
+    </if>
+    <if test="expressprice != null">
+      EXPRESSPRICE = #{expressprice,jdbcType=DECIMAL} and 
+    </if>
+    <if test="profit != null">
+      PROFIT = #{profit,jdbcType=DECIMAL} and 
+    </if>
+    <if test="bidprofit != null">
+      BIDPROFIT = #{bidprofit,jdbcType=DECIMAL} and 
+    </if>
+    <if test="fixedprofit != null">
+      FIXEDPROFIT = #{fixedprofit,jdbcType=DECIMAL} and 
+    </if>
+    <if test="bidebayprice != null">
+      BIDEBAYPRICE = #{bidebayprice,jdbcType=DECIMAL} and 
+    </if>
+    <if test="fixedebayprice != null">
+      FIXEDEBAYPRICE = #{fixedebayprice,jdbcType=DECIMAL} and 
+    </if>
+    <if test="bidnum != null">
+      BIDNUM = #{bidnum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="storerent != null">
+      STORERENT = #{storerent,jdbcType=DECIMAL} and 
+    </if>
+    <if test="allpurchasenum != null">
+      ALLPURCHASENUM = #{allpurchasenum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="manufacturequote != null">
+      MANUFACTUREQUOTE = #{manufacturequote,jdbcType=DECIMAL} and 
+    </if>
+    <if test="tariffprice != null">
+      TARIFFPRICE = #{tariffprice,jdbcType=DECIMAL} and 
+    </if>
+    <if test="paypalprice != null">
+      PAYPALPRICE = #{paypalprice,jdbcType=DECIMAL} and 
+    </if>
+    <if test="aliasku != null">
+      ALIASKU = #{aliasku,jdbcType=VARCHAR} and 
+    </if>
+    <if test="volume != null">
+      VOLUME = #{volume,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sizes != null">
+      SIZES = #{sizes,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sellprice != null">
+      SELLPRICE = #{sellprice,jdbcType=DECIMAL} and 
+    </if>
+    <if test="length != null">
+      LENGTH = #{length,jdbcType=DECIMAL} and 
+    </if>
+    <if test="width != null">
+      WIDTH = #{width,jdbcType=DECIMAL} and 
+    </if>
+    <if test="high != null">
+      HIGH = #{high,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sales7 != null">
+      SALES7 = #{sales7,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sales30 != null">
+      SALES30 = #{sales30,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sales90 != null">
+      SALES90 = #{sales90,jdbcType=DECIMAL} and 
+    </if>
+    <if test="outerlevel != null">
+      OUTERLEVEL = #{outerlevel,jdbcType=VARCHAR} and 
+    </if>
+    <if test="dhnumber != null">
+      DHNUMBER = #{dhnumber,jdbcType=DECIMAL} and 
+    </if>
+    <if test="mainsku != null">
+      MAINSKU = #{mainsku,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebayprice != null">
+      EBAYPRICE = #{ebayprice,jdbcType=DECIMAL} and 
+    </if>
+    <if test="bidavgprice != null">
+      BIDAVGPRICE = #{bidavgprice,jdbcType=DECIMAL} and 
+    </if>
+    <if test="bidturnoverrate != null">
+      BIDTURNOVERRATE = #{bidturnoverrate,jdbcType=DECIMAL} and 
+    </if>
+    <if test="bidtotalprice != null">
+      BIDTOTALPRICE = #{bidtotalprice,jdbcType=DECIMAL} and 
+    </if>
+    <if test="bid7day != null">
+      BID7DAY = #{bid7day,jdbcType=DECIMAL} and 
+    </if>
+    <if test="bid30day != null">
+      BID30DAY = #{bid30day,jdbcType=DECIMAL} and 
+    </if>
+    <if test="bid60day != null">
+      BID60DAY = #{bid60day,jdbcType=DECIMAL} and 
+    </if>
+    <if test="bidprice != null">
+      BIDPRICE = #{bidprice,jdbcType=DECIMAL} and 
+    </if>
+    <if test="bargainrate != null">
+      BARGAINRATE = #{bargainrate,jdbcType=DECIMAL} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="updatetime != null">
+      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="tocolsort != null">
+      TOCOLSORT = #{tocolsort,jdbcType=DECIMAL} and 
+    </if>
+    <if test="tocollong != null">
+      TOCOLLONG = #{tocollong,jdbcType=DECIMAL} and 
+    </if>
+    <if test="fixprofit != null">
+      FIXPROFIT = #{fixprofit,jdbcType=DECIMAL} and 
+    </if>
+    <if test="post != null">
+      POST = #{post,jdbcType=DECIMAL} and 
+    </if>
+    <if test="paypalbidfee != null">
+      PAYPALBIDFEE = #{paypalbidfee,jdbcType=DECIMAL} and 
+    </if>
+    <if test="paypalfixfee != null">
+      PAYPALFIXFEE = #{paypalfixfee,jdbcType=DECIMAL} and 
+    </if>
+    <if test="ebaybidfee != null">
+      EBAYBIDFEE = #{ebaybidfee,jdbcType=DECIMAL} and 
+    </if>
+    <if test="ebayfixfee != null">
+      EBAYFIXFEE = #{ebayfixfee,jdbcType=DECIMAL} and 
+    </if>
+    <if test="onlinetime != null">
+      ONLINETIME = #{onlinetime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="sellnumby7d != null">
+      SELLNUMBY7D = #{sellnumby7d,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sellnumby7c != null">
+      SELLNUMBY7C = #{sellnumby7c,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sellnumby7b != null">
+      SELLNUMBY7B = #{sellnumby7b,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sellnumby7a != null">
+      SELLNUMBY7A = #{sellnumby7a,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sellthrough != null">
+      SELLTHROUGH = #{sellthrough,jdbcType=DECIMAL} and 
+    </if>
+    <if test="clickthrough != null">
+      CLICKTHROUGH = #{clickthrough,jdbcType=DECIMAL} and 
+    </if>
+    <if test="impressions != null">
+      IMPRESSIONS = #{impressions,jdbcType=DECIMAL} and 
+    </if>
+    <if test="todayoedernum != null">
+      TODAYOEDERNUM = #{todayoedernum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="monthbidnum != null">
+      MONTHBIDNUM = #{monthbidnum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="oldordernum != null">
+      OLDORDERNUM = #{oldordernum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sixdaysales != null">
+      SIXDAYSALES = #{sixdaysales,jdbcType=DECIMAL} and 
+    </if>
+    <if test="ndaysales != null">
+      NDAYSALES = #{ndaysales,jdbcType=DECIMAL} and 
+    </if>
+    <if test="manufacture != null">
+      MANUFACTURE = #{manufacture,jdbcType=VARCHAR} and 
+    </if>
+    <if test="manufactureid != null">
+      MANUFACTUREID = #{manufactureid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="category != null">
+      CATEGORY = #{category,jdbcType=VARCHAR} and 
+    </if>
+    <if test="categoryid != null">
+      CATEGORYID = #{categoryid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="purprice != null">
+      PURPRICE = #{purprice,jdbcType=DECIMAL} and 
+    </if>
+    <if test="profitpercent != null">
+      PROFITPERCENT = #{profitpercent,jdbcType=DECIMAL} and 
+    </if>
+    <if test="fixprice != null">
+      FIXPRICE = #{fixprice,jdbcType=DECIMAL} and 
+    </if>
+    <if test="savenumcbm != null">
+      SAVENUMCBM = #{savenumcbm,jdbcType=DECIMAL} and 
+    </if>
+    <if test="savenumcif != null">
+      SAVENUMCIF = #{savenumcif,jdbcType=DECIMAL} and 
+    </if>
+    <if test="needorder != null">
+      NEEDORDER = #{needorder,jdbcType=DECIMAL} and 
+    </if>
+    <if test="monthsavenum != null">
+      MONTHSAVENUM = #{monthsavenum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="productionnumday != null">
+      PRODUCTIONNUMDAY = #{productionnumday,jdbcType=DECIMAL} and 
+    </if>
+    <if test="productionnum != null">
+      PRODUCTIONNUM = #{productionnum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="allotnumday != null">
+      ALLOTNUMDAY = #{allotnumday,jdbcType=DECIMAL} and 
+    </if>
+    <if test="allotnum != null">
+      ALLOTNUM = #{allotnum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="purchasenumday != null">
+      PURCHASENUMDAY = #{purchasenumday,jdbcType=DECIMAL} and 
+    </if>
+    <if test="purchasenum != null">
+      PURCHASENUM = #{purchasenum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="savenumday != null">
+      SAVENUMDAY = #{savenumday,jdbcType=DECIMAL} and 
+    </if>
+    <if test="allsavenumday != null">
+      ALLSAVENUMDAY = #{allsavenumday,jdbcType=DECIMAL} and 
+    </if>
+    <if test="allsavenum != null">
+      ALLSAVENUM = #{allsavenum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="selloper != null">
+      SELLOPER = #{selloper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="dailymeansales != null">
+      DAILYMEANSALES = #{dailymeansales,jdbcType=DECIMAL} and 
+    </if>
+    <if test="puroper != null">
+      PUROPER = #{puroper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="historysavenum != null">
+      HISTORYSAVENUM = #{historysavenum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="historycifprice != null">
+      HISTORYCIFPRICE = #{historycifprice,jdbcType=DECIMAL} and 
+    </if>
+    <if test="historyprofitamount != null">
+      HISTORYPROFITAMOUNT = #{historyprofitamount,jdbcType=DECIMAL} and 
+    </if>
+    <if test="classprofit != null">
+      CLASSPROFIT = #{classprofit,jdbcType=DECIMAL} and 
+    </if>
+    <if test="productcontributions != null">
+      PRODUCTCONTRIBUTIONS = #{productcontributions,jdbcType=DECIMAL} and 
+    </if>
+    <if test="monthlyprofitabc != null">
+      MONTHLYPROFITABC = #{monthlyprofitabc,jdbcType=VARCHAR} and 
+    </if>
+    <if test="fprofitabc != null">
+      FPROFITABC = #{fprofitabc,jdbcType=VARCHAR} and 
+    </if>
+    <if test="turnoverday != null">
+      TURNOVERDAY = #{turnoverday,jdbcType=DECIMAL} and 
+    </if>
+    <if test="monthprofits != null">
+      MONTHPROFITS = #{monthprofits,jdbcType=DECIMAL} and 
+    </if>
+    <if test="refundrate != null">
+      REFUNDRATE = #{refundrate,jdbcType=DECIMAL} and 
+    </if>
+    <if test="monthclassprofit != null">
+      MONTHCLASSPROFIT = #{monthclassprofit,jdbcType=DECIMAL} and 
+    </if>
+    <if test="changeamount != null">
+      CHANGEAMOUNT = #{changeamount,jdbcType=DECIMAL} and 
+    </if>
+    <if test="literratio != null">
+      LITERRATIO = #{literratio,jdbcType=DECIMAL} and 
+    </if>
+    <if test="classcontributionratio != null">
+      CLASSCONTRIBUTIONRATIO = #{classcontributionratio,jdbcType=DECIMAL} and 
+    </if>
+    <if test="monthrefundrate != null">
+      MONTHREFUNDRATE = #{monthrefundrate,jdbcType=DECIMAL} and 
+    </if>
+    <if test="historyavgprofitratio != null">
+      HISTORYAVGPROFITRATIO = #{historyavgprofitratio,jdbcType=DECIMAL} and 
+    </if>
+    <if test="historyavgprofit != null">
+      HISTORYAVGPROFIT = #{historyavgprofit,jdbcType=DECIMAL} and 
+    </if>
+    <if test="historynetprofitamount != null">
+      HISTORYNETPROFITAMOUNT = #{historynetprofitamount,jdbcType=DECIMAL} and 
+    </if>
+    <if test="volumeweight != null">
+      VOLUMEWEIGHT = #{volumeweight,jdbcType=DECIMAL} and 
+    </if>
+    <if test="gst != null">
+      GST = #{gst,jdbcType=DECIMAL} and 
+    </if>
+    <if test="tariff != null">
+      TARIFF = #{tariff,jdbcType=DECIMAL} and 
+    </if>
+    <if test="savenumstatus != null">
+      SAVENUMSTATUS = #{savenumstatus,jdbcType=DECIMAL} and 
+    </if>
+    <if test="note1 != null">
+      NOTE1 = #{note1,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="note2 != null">
+      NOTE2 = #{note2,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="note3 != null">
+      NOTE3 = #{note3,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="note4 != null">
+      NOTE4 = #{note4,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="note5 != null">
+      NOTE5 = #{note5,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="note6 != null">
+      NOTE6 = #{note6,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="note7 != null">
+      NOTE7 = #{note7,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="advertisement != null">
+      ADVERTISEMENT = #{advertisement,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="sellnumdescrby7d != null">
+      SELLNUMDESCRBY7D = #{sellnumdescrby7d,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="sellnumdescrby7c != null">
+      SELLNUMDESCRBY7C = #{sellnumdescrby7c,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="sellnumdescrby7b != null">
+      SELLNUMDESCRBY7B = #{sellnumdescrby7b,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="sellnumdescrby7a != null">
+      SELLNUMDESCRBY7A = #{sellnumdescrby7a,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="productid != null">
+      PRODUCTID = #{productid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="histprofit != null">
+      HISTPROFIT = #{histprofit,jdbcType=DECIMAL} , 
+    </if>
+    <if test="profitt != null">
+      PROFITT = #{profitt,jdbcType=DECIMAL} , 
+    </if>
+    <if test="profits != null">
+      PROFITS = #{profits,jdbcType=DECIMAL} , 
+    </if>
+    <if test="allordernum != null">
+      ALLORDERNUM = #{allordernum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="todayordernum != null">
+      TODAYORDERNUM = #{todayordernum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="onpassagepurchase != null">
+      ONPASSAGEPURCHASE = #{onpassagepurchase,jdbcType=DECIMAL} , 
+    </if>
+    <if test="ooslevel != null">
+      OOSLEVEL = #{ooslevel,jdbcType=DECIMAL} , 
+    </if>
+    <if test="rateofpin != null">
+      RATEOFPIN = #{rateofpin,jdbcType=DECIMAL} , 
+    </if>
+    <if test="savenum != null">
+      SAVENUM = #{savenum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="costprice != null">
+      COSTPRICE = #{costprice,jdbcType=DECIMAL} , 
+    </if>
+    <if test="alertday != null">
+      ALERTDAY = #{alertday,jdbcType=DECIMAL} , 
+    </if>
+    <if test="alertnum != null">
+      ALERTNUM = #{alertnum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="weight != null">
+      WEIGHT = #{weight,jdbcType=DECIMAL} , 
+    </if>
+    <if test="todaysavenum != null">
+      TODAYSAVENUM = #{todaysavenum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="singledaysales != null">
+      SINGLEDAYSALES = #{singledaysales,jdbcType=DECIMAL} , 
+    </if>
+    <if test="dielibrarycoefficient != null">
+      DIELIBRARYCOEFFICIENT = #{dielibrarycoefficient,jdbcType=DECIMAL} , 
+    </if>
+    <if test="todayoutsavenum != null">
+      TODAYOUTSAVENUM = #{todayoutsavenum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="minpurchasenum != null">
+      MINPURCHASENUM = #{minpurchasenum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="locationid != null">
+      LOCATIONID = #{locationid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="location != null">
+      LOCATION = #{location,jdbcType=VARCHAR} , 
+    </if>
+    <if test="storngid != null">
+      STORNGID = #{storngid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="strong != null">
+      STRONG = #{strong,jdbcType=VARCHAR} , 
+    </if>
+    <if test="productname != null">
+      PRODUCTNAME = #{productname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper1 != null">
+      OPER1 = #{oper1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper2 != null">
+      OPER2 = #{oper2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper3 != null">
+      OPER3 = #{oper3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper4 != null">
+      OPER4 = #{oper4,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper5 != null">
+      OPER5 = #{oper5,jdbcType=VARCHAR} , 
+    </if>
+    <if test="menufunctoryid != null">
+      MENUFUNCTORYID = #{menufunctoryid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="menufunctory != null">
+      MENUFUNCTORY = #{menufunctory,jdbcType=VARCHAR} , 
+    </if>
+    <if test="status != null">
+      STATUS = #{status,jdbcType=VARCHAR} , 
+    </if>
+    <if test="corpid != null">
+      CORPID = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="createtime != null">
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="histpavgrofit != null">
+      HISTPAVGROFIT = #{histpavgrofit,jdbcType=DECIMAL} , 
+    </if>
+    <if test="gstprice != null">
+      GSTPRICE = #{gstprice,jdbcType=DECIMAL} , 
+    </if>
+    <if test="oceanshipprice != null">
+      OCEANSHIPPRICE = #{oceanshipprice,jdbcType=DECIMAL} , 
+    </if>
+    <if test="fobprice != null">
+      FOBPRICE = #{fobprice,jdbcType=DECIMAL} , 
+    </if>
+    <if test="cifprice != null">
+      CIFPRICE = #{cifprice,jdbcType=DECIMAL} , 
+    </if>
+    <if test="expressprice != null">
+      EXPRESSPRICE = #{expressprice,jdbcType=DECIMAL} , 
+    </if>
+    <if test="profit != null">
+      PROFIT = #{profit,jdbcType=DECIMAL} , 
+    </if>
+    <if test="bidprofit != null">
+      BIDPROFIT = #{bidprofit,jdbcType=DECIMAL} , 
+    </if>
+    <if test="fixedprofit != null">
+      FIXEDPROFIT = #{fixedprofit,jdbcType=DECIMAL} , 
+    </if>
+    <if test="bidebayprice != null">
+      BIDEBAYPRICE = #{bidebayprice,jdbcType=DECIMAL} , 
+    </if>
+    <if test="fixedebayprice != null">
+      FIXEDEBAYPRICE = #{fixedebayprice,jdbcType=DECIMAL} , 
+    </if>
+    <if test="bidnum != null">
+      BIDNUM = #{bidnum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="storerent != null">
+      STORERENT = #{storerent,jdbcType=DECIMAL} , 
+    </if>
+    <if test="allpurchasenum != null">
+      ALLPURCHASENUM = #{allpurchasenum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="manufacturequote != null">
+      MANUFACTUREQUOTE = #{manufacturequote,jdbcType=DECIMAL} , 
+    </if>
+    <if test="tariffprice != null">
+      TARIFFPRICE = #{tariffprice,jdbcType=DECIMAL} , 
+    </if>
+    <if test="paypalprice != null">
+      PAYPALPRICE = #{paypalprice,jdbcType=DECIMAL} , 
+    </if>
+    <if test="aliasku != null">
+      ALIASKU = #{aliasku,jdbcType=VARCHAR} , 
+    </if>
+    <if test="volume != null">
+      VOLUME = #{volume,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sizes != null">
+      SIZES = #{sizes,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sellprice != null">
+      SELLPRICE = #{sellprice,jdbcType=DECIMAL} , 
+    </if>
+    <if test="length != null">
+      LENGTH = #{length,jdbcType=DECIMAL} , 
+    </if>
+    <if test="width != null">
+      WIDTH = #{width,jdbcType=DECIMAL} , 
+    </if>
+    <if test="high != null">
+      HIGH = #{high,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sales7 != null">
+      SALES7 = #{sales7,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sales30 != null">
+      SALES30 = #{sales30,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sales90 != null">
+      SALES90 = #{sales90,jdbcType=DECIMAL} , 
+    </if>
+    <if test="outerlevel != null">
+      OUTERLEVEL = #{outerlevel,jdbcType=VARCHAR} , 
+    </if>
+    <if test="dhnumber != null">
+      DHNUMBER = #{dhnumber,jdbcType=DECIMAL} , 
+    </if>
+    <if test="mainsku != null">
+      MAINSKU = #{mainsku,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebayprice != null">
+      EBAYPRICE = #{ebayprice,jdbcType=DECIMAL} , 
+    </if>
+    <if test="bidavgprice != null">
+      BIDAVGPRICE = #{bidavgprice,jdbcType=DECIMAL} , 
+    </if>
+    <if test="bidturnoverrate != null">
+      BIDTURNOVERRATE = #{bidturnoverrate,jdbcType=DECIMAL} , 
+    </if>
+    <if test="bidtotalprice != null">
+      BIDTOTALPRICE = #{bidtotalprice,jdbcType=DECIMAL} , 
+    </if>
+    <if test="bid7day != null">
+      BID7DAY = #{bid7day,jdbcType=DECIMAL} , 
+    </if>
+    <if test="bid30day != null">
+      BID30DAY = #{bid30day,jdbcType=DECIMAL} , 
+    </if>
+    <if test="bid60day != null">
+      BID60DAY = #{bid60day,jdbcType=DECIMAL} , 
+    </if>
+    <if test="bidprice != null">
+      BIDPRICE = #{bidprice,jdbcType=DECIMAL} , 
+    </if>
+    <if test="bargainrate != null">
+      BARGAINRATE = #{bargainrate,jdbcType=DECIMAL} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="updatetime != null">
+      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="tocolsort != null">
+      TOCOLSORT = #{tocolsort,jdbcType=DECIMAL} , 
+    </if>
+    <if test="tocollong != null">
+      TOCOLLONG = #{tocollong,jdbcType=DECIMAL} , 
+    </if>
+    <if test="fixprofit != null">
+      FIXPROFIT = #{fixprofit,jdbcType=DECIMAL} , 
+    </if>
+    <if test="post != null">
+      POST = #{post,jdbcType=DECIMAL} , 
+    </if>
+    <if test="paypalbidfee != null">
+      PAYPALBIDFEE = #{paypalbidfee,jdbcType=DECIMAL} , 
+    </if>
+    <if test="paypalfixfee != null">
+      PAYPALFIXFEE = #{paypalfixfee,jdbcType=DECIMAL} , 
+    </if>
+    <if test="ebaybidfee != null">
+      EBAYBIDFEE = #{ebaybidfee,jdbcType=DECIMAL} , 
+    </if>
+    <if test="ebayfixfee != null">
+      EBAYFIXFEE = #{ebayfixfee,jdbcType=DECIMAL} , 
+    </if>
+    <if test="onlinetime != null">
+      ONLINETIME = #{onlinetime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="sellnumby7d != null">
+      SELLNUMBY7D = #{sellnumby7d,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sellnumby7c != null">
+      SELLNUMBY7C = #{sellnumby7c,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sellnumby7b != null">
+      SELLNUMBY7B = #{sellnumby7b,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sellnumby7a != null">
+      SELLNUMBY7A = #{sellnumby7a,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sellthrough != null">
+      SELLTHROUGH = #{sellthrough,jdbcType=DECIMAL} , 
+    </if>
+    <if test="clickthrough != null">
+      CLICKTHROUGH = #{clickthrough,jdbcType=DECIMAL} , 
+    </if>
+    <if test="impressions != null">
+      IMPRESSIONS = #{impressions,jdbcType=DECIMAL} , 
+    </if>
+    <if test="todayoedernum != null">
+      TODAYOEDERNUM = #{todayoedernum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="monthbidnum != null">
+      MONTHBIDNUM = #{monthbidnum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="oldordernum != null">
+      OLDORDERNUM = #{oldordernum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sixdaysales != null">
+      SIXDAYSALES = #{sixdaysales,jdbcType=DECIMAL} , 
+    </if>
+    <if test="ndaysales != null">
+      NDAYSALES = #{ndaysales,jdbcType=DECIMAL} , 
+    </if>
+    <if test="manufacture != null">
+      MANUFACTURE = #{manufacture,jdbcType=VARCHAR} , 
+    </if>
+    <if test="manufactureid != null">
+      MANUFACTUREID = #{manufactureid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="category != null">
+      CATEGORY = #{category,jdbcType=VARCHAR} , 
+    </if>
+    <if test="categoryid != null">
+      CATEGORYID = #{categoryid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="purprice != null">
+      PURPRICE = #{purprice,jdbcType=DECIMAL} , 
+    </if>
+    <if test="profitpercent != null">
+      PROFITPERCENT = #{profitpercent,jdbcType=DECIMAL} , 
+    </if>
+    <if test="fixprice != null">
+      FIXPRICE = #{fixprice,jdbcType=DECIMAL} , 
+    </if>
+    <if test="savenumcbm != null">
+      SAVENUMCBM = #{savenumcbm,jdbcType=DECIMAL} , 
+    </if>
+    <if test="savenumcif != null">
+      SAVENUMCIF = #{savenumcif,jdbcType=DECIMAL} , 
+    </if>
+    <if test="needorder != null">
+      NEEDORDER = #{needorder,jdbcType=DECIMAL} , 
+    </if>
+    <if test="monthsavenum != null">
+      MONTHSAVENUM = #{monthsavenum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="productionnumday != null">
+      PRODUCTIONNUMDAY = #{productionnumday,jdbcType=DECIMAL} , 
+    </if>
+    <if test="productionnum != null">
+      PRODUCTIONNUM = #{productionnum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="allotnumday != null">
+      ALLOTNUMDAY = #{allotnumday,jdbcType=DECIMAL} , 
+    </if>
+    <if test="allotnum != null">
+      ALLOTNUM = #{allotnum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="purchasenumday != null">
+      PURCHASENUMDAY = #{purchasenumday,jdbcType=DECIMAL} , 
+    </if>
+    <if test="purchasenum != null">
+      PURCHASENUM = #{purchasenum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="savenumday != null">
+      SAVENUMDAY = #{savenumday,jdbcType=DECIMAL} , 
+    </if>
+    <if test="allsavenumday != null">
+      ALLSAVENUMDAY = #{allsavenumday,jdbcType=DECIMAL} , 
+    </if>
+    <if test="allsavenum != null">
+      ALLSAVENUM = #{allsavenum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="selloper != null">
+      SELLOPER = #{selloper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="dailymeansales != null">
+      DAILYMEANSALES = #{dailymeansales,jdbcType=DECIMAL} , 
+    </if>
+    <if test="puroper != null">
+      PUROPER = #{puroper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="historysavenum != null">
+      HISTORYSAVENUM = #{historysavenum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="historycifprice != null">
+      HISTORYCIFPRICE = #{historycifprice,jdbcType=DECIMAL} , 
+    </if>
+    <if test="historyprofitamount != null">
+      HISTORYPROFITAMOUNT = #{historyprofitamount,jdbcType=DECIMAL} , 
+    </if>
+    <if test="classprofit != null">
+      CLASSPROFIT = #{classprofit,jdbcType=DECIMAL} , 
+    </if>
+    <if test="productcontributions != null">
+      PRODUCTCONTRIBUTIONS = #{productcontributions,jdbcType=DECIMAL} , 
+    </if>
+    <if test="monthlyprofitabc != null">
+      MONTHLYPROFITABC = #{monthlyprofitabc,jdbcType=VARCHAR} , 
+    </if>
+    <if test="fprofitabc != null">
+      FPROFITABC = #{fprofitabc,jdbcType=VARCHAR} , 
+    </if>
+    <if test="turnoverday != null">
+      TURNOVERDAY = #{turnoverday,jdbcType=DECIMAL} , 
+    </if>
+    <if test="monthprofits != null">
+      MONTHPROFITS = #{monthprofits,jdbcType=DECIMAL} , 
+    </if>
+    <if test="refundrate != null">
+      REFUNDRATE = #{refundrate,jdbcType=DECIMAL} , 
+    </if>
+    <if test="monthclassprofit != null">
+      MONTHCLASSPROFIT = #{monthclassprofit,jdbcType=DECIMAL} , 
+    </if>
+    <if test="changeamount != null">
+      CHANGEAMOUNT = #{changeamount,jdbcType=DECIMAL} , 
+    </if>
+    <if test="literratio != null">
+      LITERRATIO = #{literratio,jdbcType=DECIMAL} , 
+    </if>
+    <if test="classcontributionratio != null">
+      CLASSCONTRIBUTIONRATIO = #{classcontributionratio,jdbcType=DECIMAL} , 
+    </if>
+    <if test="monthrefundrate != null">
+      MONTHREFUNDRATE = #{monthrefundrate,jdbcType=DECIMAL} , 
+    </if>
+    <if test="historyavgprofitratio != null">
+      HISTORYAVGPROFITRATIO = #{historyavgprofitratio,jdbcType=DECIMAL} , 
+    </if>
+    <if test="historyavgprofit != null">
+      HISTORYAVGPROFIT = #{historyavgprofit,jdbcType=DECIMAL} , 
+    </if>
+    <if test="historynetprofitamount != null">
+      HISTORYNETPROFITAMOUNT = #{historynetprofitamount,jdbcType=DECIMAL} , 
+    </if>
+    <if test="volumeweight != null">
+      VOLUMEWEIGHT = #{volumeweight,jdbcType=DECIMAL} , 
+    </if>
+    <if test="gst != null">
+      GST = #{gst,jdbcType=DECIMAL} , 
+    </if>
+    <if test="tariff != null">
+      TARIFF = #{tariff,jdbcType=DECIMAL} , 
+    </if>
+    <if test="savenumstatus != null">
+      SAVENUMSTATUS = #{savenumstatus,jdbcType=DECIMAL} , 
+    </if>
+    <if test="note1 != null">
+      NOTE1 = #{note1,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="note2 != null">
+      NOTE2 = #{note2,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="note3 != null">
+      NOTE3 = #{note3,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="note4 != null">
+      NOTE4 = #{note4,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="note5 != null">
+      NOTE5 = #{note5,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="note6 != null">
+      NOTE6 = #{note6,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="note7 != null">
+      NOTE7 = #{note7,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="advertisement != null">
+      ADVERTISEMENT = #{advertisement,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="sellnumdescrby7d != null">
+      SELLNUMDESCRBY7D = #{sellnumdescrby7d,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="sellnumdescrby7c != null">
+      SELLNUMDESCRBY7C = #{sellnumdescrby7c,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="sellnumdescrby7b != null">
+      SELLNUMDESCRBY7B = #{sellnumdescrby7b,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="sellnumdescrby7a != null">
+      SELLNUMDESCRBY7A = #{sellnumdescrby7a,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbProductHistory" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="BigDecimal">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbProductHistory">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbProductHistory">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbProductHistory">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

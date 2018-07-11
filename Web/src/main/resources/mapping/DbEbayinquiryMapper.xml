@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbEbayinquiryMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbEbayinquiry">
+    <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
+    <result column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="MESSAGEID" jdbcType="VARCHAR" property="messageid" />
+    <result column="INQUIRYID" jdbcType="VARCHAR" property="inquiryid" />
+    <result column="SHOPID" jdbcType="VARCHAR" property="shopid" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="ITEMID" jdbcType="VARCHAR" property="itemid" />
+    <result column="ITEMPICTUREURL" jdbcType="VARCHAR" property="itempictureurl" />
+    <result column="VIEWPURCHASEDITEMURL" jdbcType="VARCHAR" property="viewpurchaseditemurl" />
+    <result column="TRANSACTIONID" jdbcType="VARCHAR" property="transactionid" />
+    <result column="ORDERID" jdbcType="VARCHAR" property="orderid" />
+    <result column="CLAIMAMOUNT" jdbcType="VARCHAR" property="claimamount" />
+    <result column="BUYER" jdbcType="VARCHAR" property="buyer" />
+    <result column="BUYERREQUESTED" jdbcType="VARCHAR" property="buyerrequested" />
+    <result column="CREATIONDATE" jdbcType="TIMESTAMP" property="creationdate" />
+    <result column="LASTACTION" jdbcType="VARCHAR" property="lastaction" />
+    <result column="LASTACTOR" jdbcType="VARCHAR" property="lastactor" />
+    <result column="LASTDATE" jdbcType="TIMESTAMP" property="lastdate" />
+    <result column="APISTATUS" jdbcType="DECIMAL" property="apistatus" />
+    <result column="APIDATE" jdbcType="TIMESTAMP" property="apidate" />
+    <result column="APIDESCR" jdbcType="VARCHAR" property="apidescr" />
+    <result column="LASTDESCRIPTION" jdbcType="LONGVARCHAR" property="lastdescription" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SEQUENCEID, ID, MESSAGEID, INQUIRYID, SHOPID, STATUS, ITEMID, ITEMPICTUREURL, 
+    VIEWPURCHASEDITEMURL, TRANSACTIONID, ORDERID, CLAIMAMOUNT, BUYER, BUYERREQUESTED, 
+    CREATIONDATE, LASTACTION, LASTACTOR, LASTDATE, APISTATUS, APIDATE, APIDESCR, LASTDESCRIPTION
+    from db_ebayinquiry
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, ID, MESSAGEID, INQUIRYID, SHOPID, STATUS, ITEMID, ITEMPICTUREURL, 
+    VIEWPURCHASEDITEMURL, TRANSACTIONID, ORDERID, CLAIMAMOUNT, BUYER, BUYERREQUESTED, 
+    CREATIONDATE, LASTACTION, LASTACTOR, LASTDATE, APISTATUS, APIDATE, APIDESCR, LASTDESCRIPTION
+    from db_ebayinquiry
+  </select>
+  <sql id="TableName">
+    db_ebayinquiry
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=VARCHAR} , 
+     #{id,jdbcType=DECIMAL} , 
+     #{messageid,jdbcType=VARCHAR} , 
+     #{inquiryid,jdbcType=VARCHAR} , 
+     #{shopid,jdbcType=VARCHAR} , 
+     #{status,jdbcType=VARCHAR} , 
+     #{itemid,jdbcType=VARCHAR} , 
+     #{itempictureurl,jdbcType=VARCHAR} , 
+     #{viewpurchaseditemurl,jdbcType=VARCHAR} , 
+     #{transactionid,jdbcType=VARCHAR} , 
+     #{orderid,jdbcType=VARCHAR} , 
+     #{claimamount,jdbcType=VARCHAR} , 
+     #{buyer,jdbcType=VARCHAR} , 
+     #{buyerrequested,jdbcType=VARCHAR} , 
+     #{creationdate,jdbcType=TIMESTAMP} , 
+     #{lastaction,jdbcType=VARCHAR} , 
+     #{lastactor,jdbcType=VARCHAR} , 
+     #{lastdate,jdbcType=TIMESTAMP} , 
+     #{apistatus,jdbcType=DECIMAL} , 
+     #{apidate,jdbcType=TIMESTAMP} , 
+     #{apidescr,jdbcType=VARCHAR} , 
+     #{lastdescription,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    ID , 
+    MESSAGEID , 
+    INQUIRYID , 
+    SHOPID , 
+    STATUS , 
+    ITEMID , 
+    ITEMPICTUREURL , 
+    VIEWPURCHASEDITEMURL , 
+    TRANSACTIONID , 
+    ORDERID , 
+    CLAIMAMOUNT , 
+    BUYER , 
+    BUYERREQUESTED , 
+    CREATIONDATE , 
+    LASTACTION , 
+    LASTACTOR , 
+    LASTDATE , 
+    APISTATUS , 
+    APIDATE , 
+    APIDESCR , 
+    LASTDESCRIPTION
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="id != null">
+      ID = #{id,jdbcType=DECIMAL} and 
+    </if>
+    <if test="messageid != null">
+      MESSAGEID = #{messageid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="inquiryid != null">
+      INQUIRYID = #{inquiryid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shopid != null">
+      SHOPID = #{shopid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="status != null">
+      STATUS = #{status,jdbcType=VARCHAR} and 
+    </if>
+    <if test="itemid != null">
+      ITEMID = #{itemid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="itempictureurl != null">
+      ITEMPICTUREURL = #{itempictureurl,jdbcType=VARCHAR} and 
+    </if>
+    <if test="viewpurchaseditemurl != null">
+      VIEWPURCHASEDITEMURL = #{viewpurchaseditemurl,jdbcType=VARCHAR} and 
+    </if>
+    <if test="transactionid != null">
+      TRANSACTIONID = #{transactionid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="orderid != null">
+      ORDERID = #{orderid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="claimamount != null">
+      CLAIMAMOUNT = #{claimamount,jdbcType=VARCHAR} and 
+    </if>
+    <if test="buyer != null">
+      BUYER = #{buyer,jdbcType=VARCHAR} and 
+    </if>
+    <if test="buyerrequested != null">
+      BUYERREQUESTED = #{buyerrequested,jdbcType=VARCHAR} and 
+    </if>
+    <if test="creationdate != null">
+      CREATIONDATE = #{creationdate,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="lastaction != null">
+      LASTACTION = #{lastaction,jdbcType=VARCHAR} and 
+    </if>
+    <if test="lastactor != null">
+      LASTACTOR = #{lastactor,jdbcType=VARCHAR} and 
+    </if>
+    <if test="lastdate != null">
+      LASTDATE = #{lastdate,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="apistatus != null">
+      APISTATUS = #{apistatus,jdbcType=DECIMAL} and 
+    </if>
+    <if test="apidate != null">
+      APIDATE = #{apidate,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="apidescr != null">
+      APIDESCR = #{apidescr,jdbcType=VARCHAR} and 
+    </if>
+    <if test="lastdescription != null">
+      LASTDESCRIPTION = #{lastdescription,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="id != null">
+      ID = #{id,jdbcType=DECIMAL} , 
+    </if>
+    <if test="messageid != null">
+      MESSAGEID = #{messageid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="inquiryid != null">
+      INQUIRYID = #{inquiryid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shopid != null">
+      SHOPID = #{shopid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="status != null">
+      STATUS = #{status,jdbcType=VARCHAR} , 
+    </if>
+    <if test="itemid != null">
+      ITEMID = #{itemid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="itempictureurl != null">
+      ITEMPICTUREURL = #{itempictureurl,jdbcType=VARCHAR} , 
+    </if>
+    <if test="viewpurchaseditemurl != null">
+      VIEWPURCHASEDITEMURL = #{viewpurchaseditemurl,jdbcType=VARCHAR} , 
+    </if>
+    <if test="transactionid != null">
+      TRANSACTIONID = #{transactionid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="orderid != null">
+      ORDERID = #{orderid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="claimamount != null">
+      CLAIMAMOUNT = #{claimamount,jdbcType=VARCHAR} , 
+    </if>
+    <if test="buyer != null">
+      BUYER = #{buyer,jdbcType=VARCHAR} , 
+    </if>
+    <if test="buyerrequested != null">
+      BUYERREQUESTED = #{buyerrequested,jdbcType=VARCHAR} , 
+    </if>
+    <if test="creationdate != null">
+      CREATIONDATE = #{creationdate,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="lastaction != null">
+      LASTACTION = #{lastaction,jdbcType=VARCHAR} , 
+    </if>
+    <if test="lastactor != null">
+      LASTACTOR = #{lastactor,jdbcType=VARCHAR} , 
+    </if>
+    <if test="lastdate != null">
+      LASTDATE = #{lastdate,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="apistatus != null">
+      APISTATUS = #{apistatus,jdbcType=DECIMAL} , 
+    </if>
+    <if test="apidate != null">
+      APIDATE = #{apidate,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="apidescr != null">
+      APIDESCR = #{apidescr,jdbcType=VARCHAR} , 
+    </if>
+    <if test="lastdescription != null">
+      LASTDESCRIPTION = #{lastdescription,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbEbayinquiry" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbEbayinquiry">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbEbayinquiry">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbEbayinquiry">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

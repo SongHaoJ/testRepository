@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbRepeatproductMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbRepeatproduct">
+    <id column="SEQUENCEID" jdbcType="DECIMAL" property="sequenceid" />
+    <result column="SALSEMONEY" jdbcType="VARCHAR" property="salsemoney" />
+    <result column="PUBLISNUM" jdbcType="VARCHAR" property="publisnum" />
+    <result column="CHANGERATE" jdbcType="VARCHAR" property="changerate" />
+    <result column="PRICEAVG" jdbcType="VARCHAR" property="priceavg" />
+    <result column="OFFER" jdbcType="VARCHAR" property="offer" />
+    <result column="TOPSALSENUM" jdbcType="DECIMAL" property="topsalsenum" />
+    <result column="TOPSALSEMONEY" jdbcType="DECIMAL" property="topsalsemoney" />
+    <result column="OPENFLAG" jdbcType="DECIMAL" property="openflag" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="CORPID" jdbcType="DECIMAL" property="corpid" />
+    <result column="TITLE" jdbcType="LONGVARCHAR" property="title" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select SEQUENCEID, SALSEMONEY, PUBLISNUM, CHANGERATE, PRICEAVG, OFFER, TOPSALSENUM, 
+    TOPSALSEMONEY, OPENFLAG, OPER, OPERTIME, CORPID, TITLE
+    from db_repeatproduct
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, SALSEMONEY, PUBLISNUM, CHANGERATE, PRICEAVG, OFFER, TOPSALSENUM, 
+    TOPSALSEMONEY, OPENFLAG, OPER, OPERTIME, CORPID, TITLE
+    from db_repeatproduct
+  </select>
+  <sql id="TableName">
+    db_repeatproduct
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=DECIMAL} , 
+     #{salsemoney,jdbcType=VARCHAR} , 
+     #{publisnum,jdbcType=VARCHAR} , 
+     #{changerate,jdbcType=VARCHAR} , 
+     #{priceavg,jdbcType=VARCHAR} , 
+     #{offer,jdbcType=VARCHAR} , 
+     #{topsalsenum,jdbcType=DECIMAL} , 
+     #{topsalsemoney,jdbcType=DECIMAL} , 
+     #{openflag,jdbcType=DECIMAL} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{corpid,jdbcType=DECIMAL} , 
+     #{title,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    SALSEMONEY , 
+    PUBLISNUM , 
+    CHANGERATE , 
+    PRICEAVG , 
+    OFFER , 
+    TOPSALSENUM , 
+    TOPSALSEMONEY , 
+    OPENFLAG , 
+    OPER , 
+    OPERTIME , 
+    CORPID , 
+    TITLE
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="salsemoney != null">
+      SALSEMONEY = #{salsemoney,jdbcType=VARCHAR} and 
+    </if>
+    <if test="publisnum != null">
+      PUBLISNUM = #{publisnum,jdbcType=VARCHAR} and 
+    </if>
+    <if test="changerate != null">
+      CHANGERATE = #{changerate,jdbcType=VARCHAR} and 
+    </if>
+    <if test="priceavg != null">
+      PRICEAVG = #{priceavg,jdbcType=VARCHAR} and 
+    </if>
+    <if test="offer != null">
+      OFFER = #{offer,jdbcType=VARCHAR} and 
+    </if>
+    <if test="topsalsenum != null">
+      TOPSALSENUM = #{topsalsenum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="topsalsemoney != null">
+      TOPSALSEMONEY = #{topsalsemoney,jdbcType=DECIMAL} and 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="corpid != null">
+      CORPID = #{corpid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="title != null">
+      TITLE = #{title,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="salsemoney != null">
+      SALSEMONEY = #{salsemoney,jdbcType=VARCHAR} , 
+    </if>
+    <if test="publisnum != null">
+      PUBLISNUM = #{publisnum,jdbcType=VARCHAR} , 
+    </if>
+    <if test="changerate != null">
+      CHANGERATE = #{changerate,jdbcType=VARCHAR} , 
+    </if>
+    <if test="priceavg != null">
+      PRICEAVG = #{priceavg,jdbcType=VARCHAR} , 
+    </if>
+    <if test="offer != null">
+      OFFER = #{offer,jdbcType=VARCHAR} , 
+    </if>
+    <if test="topsalsenum != null">
+      TOPSALSENUM = #{topsalsenum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="topsalsemoney != null">
+      TOPSALSEMONEY = #{topsalsemoney,jdbcType=DECIMAL} , 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="corpid != null">
+      CORPID = #{corpid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="title != null">
+      TITLE = #{title,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbRepeatproduct" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="BigDecimal">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbRepeatproduct">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbRepeatproduct">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbRepeatproduct">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

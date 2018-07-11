@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbFpxconfigMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbFpxconfig">
+    <id column="SID" jdbcType="VARCHAR" property="sid" />
+    <result column="TOKEN" jdbcType="VARCHAR" property="token" />
+    <result column="SHIPPERNAME" jdbcType="VARCHAR" property="shippername" />
+    <result column="SHIPPERCOMPANYNAME" jdbcType="VARCHAR" property="shippercompanyname" />
+    <result column="SHIPPERADDRESS" jdbcType="VARCHAR" property="shipperaddress" />
+    <result column="SHIPPERPOSTCODE" jdbcType="VARCHAR" property="shipperpostcode" />
+    <result column="SHIPPERTELEPHONE" jdbcType="VARCHAR" property="shippertelephone" />
+    <result column="SHIPPERFAX" jdbcType="VARCHAR" property="shipperfax" />
+    <result column="INSURTYPE" jdbcType="VARCHAR" property="insurtype" />
+    <result column="CARGOCODE" jdbcType="VARCHAR" property="cargocode" />
+    <result column="PAYMENTCODE" jdbcType="VARCHAR" property="paymentcode" />
+    <result column="INITIALCOUNTRYCODE" jdbcType="VARCHAR" property="initialcountrycode" />
+    <result column="PRODUCTCODE" jdbcType="VARCHAR" property="productcode" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
+    <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
+    <result column="RESERVE4" jdbcType="VARCHAR" property="reserve4" />
+    <result column="RESERVE5" jdbcType="VARCHAR" property="reserve5" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SID, TOKEN, SHIPPERNAME, SHIPPERCOMPANYNAME, SHIPPERADDRESS, SHIPPERPOSTCODE, 
+    SHIPPERTELEPHONE, SHIPPERFAX, INSURTYPE, CARGOCODE, PAYMENTCODE, INITIALCOUNTRYCODE, 
+    PRODUCTCODE, RESERVE1, RESERVE2, RESERVE3, OPENFLAG, RESERVE4, RESERVE5
+    from db_fpxconfig
+    where SID = #{sid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, TOKEN, SHIPPERNAME, SHIPPERCOMPANYNAME, SHIPPERADDRESS, SHIPPERPOSTCODE, 
+    SHIPPERTELEPHONE, SHIPPERFAX, INSURTYPE, CARGOCODE, PAYMENTCODE, INITIALCOUNTRYCODE, 
+    PRODUCTCODE, RESERVE1, RESERVE2, RESERVE3, OPENFLAG, RESERVE4, RESERVE5
+    from db_fpxconfig
+  </select>
+  <sql id="TableName">
+    db_fpxconfig
+  </sql>
+  <sql id="Values">
+     #{sid,jdbcType=VARCHAR} , 
+     #{token,jdbcType=VARCHAR} , 
+     #{shippername,jdbcType=VARCHAR} , 
+     #{shippercompanyname,jdbcType=VARCHAR} , 
+     #{shipperaddress,jdbcType=VARCHAR} , 
+     #{shipperpostcode,jdbcType=VARCHAR} , 
+     #{shippertelephone,jdbcType=VARCHAR} , 
+     #{shipperfax,jdbcType=VARCHAR} , 
+     #{insurtype,jdbcType=VARCHAR} , 
+     #{cargocode,jdbcType=VARCHAR} , 
+     #{paymentcode,jdbcType=VARCHAR} , 
+     #{initialcountrycode,jdbcType=VARCHAR} , 
+     #{productcode,jdbcType=VARCHAR} , 
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+     #{reserve3,jdbcType=VARCHAR} , 
+     #{openflag,jdbcType=VARCHAR} , 
+     #{reserve4,jdbcType=VARCHAR} , 
+     #{reserve5,jdbcType=VARCHAR}
+  </sql>
+  <sql id="Columns">
+    SID , 
+    TOKEN , 
+    SHIPPERNAME , 
+    SHIPPERCOMPANYNAME , 
+    SHIPPERADDRESS , 
+    SHIPPERPOSTCODE , 
+    SHIPPERTELEPHONE , 
+    SHIPPERFAX , 
+    INSURTYPE , 
+    CARGOCODE , 
+    PAYMENTCODE , 
+    INITIALCOUNTRYCODE , 
+    PRODUCTCODE , 
+    RESERVE1 , 
+    RESERVE2 , 
+    RESERVE3 , 
+    OPENFLAG , 
+    RESERVE4 , 
+    RESERVE5
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="token != null">
+      TOKEN = #{token,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shippername != null">
+      SHIPPERNAME = #{shippername,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shippercompanyname != null">
+      SHIPPERCOMPANYNAME = #{shippercompanyname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shipperaddress != null">
+      SHIPPERADDRESS = #{shipperaddress,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shipperpostcode != null">
+      SHIPPERPOSTCODE = #{shipperpostcode,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shippertelephone != null">
+      SHIPPERTELEPHONE = #{shippertelephone,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shipperfax != null">
+      SHIPPERFAX = #{shipperfax,jdbcType=VARCHAR} and 
+    </if>
+    <if test="insurtype != null">
+      INSURTYPE = #{insurtype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="cargocode != null">
+      CARGOCODE = #{cargocode,jdbcType=VARCHAR} and 
+    </if>
+    <if test="paymentcode != null">
+      PAYMENTCODE = #{paymentcode,jdbcType=VARCHAR} and 
+    </if>
+    <if test="initialcountrycode != null">
+      INITIALCOUNTRYCODE = #{initialcountrycode,jdbcType=VARCHAR} and 
+    </if>
+    <if test="productcode != null">
+      PRODUCTCODE = #{productcode,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      RESERVE3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve4 != null">
+      RESERVE4 = #{reserve4,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve5 != null">
+      RESERVE5 = #{reserve5,jdbcType=VARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="token != null">
+      TOKEN = #{token,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shippername != null">
+      SHIPPERNAME = #{shippername,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shippercompanyname != null">
+      SHIPPERCOMPANYNAME = #{shippercompanyname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shipperaddress != null">
+      SHIPPERADDRESS = #{shipperaddress,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shipperpostcode != null">
+      SHIPPERPOSTCODE = #{shipperpostcode,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shippertelephone != null">
+      SHIPPERTELEPHONE = #{shippertelephone,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shipperfax != null">
+      SHIPPERFAX = #{shipperfax,jdbcType=VARCHAR} , 
+    </if>
+    <if test="insurtype != null">
+      INSURTYPE = #{insurtype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="cargocode != null">
+      CARGOCODE = #{cargocode,jdbcType=VARCHAR} , 
+    </if>
+    <if test="paymentcode != null">
+      PAYMENTCODE = #{paymentcode,jdbcType=VARCHAR} , 
+    </if>
+    <if test="initialcountrycode != null">
+      INITIALCOUNTRYCODE = #{initialcountrycode,jdbcType=VARCHAR} , 
+    </if>
+    <if test="productcode != null">
+      PRODUCTCODE = #{productcode,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      RESERVE3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve4 != null">
+      RESERVE4 = #{reserve4,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve5 != null">
+      RESERVE5 = #{reserve5,jdbcType=VARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbFpxconfig" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SID=#{SID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbFpxconfig">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbFpxconfig">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbFpxconfig">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

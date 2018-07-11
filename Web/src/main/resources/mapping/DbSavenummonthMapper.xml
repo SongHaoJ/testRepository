@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbSavenummonthMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbSavenummonth">
+    <id column="MONTH" jdbcType="VARCHAR" property="month" />
+    <result column="FLAG1" jdbcType="VARCHAR" property="flag1" />
+    <result column="FLAG2" jdbcType="VARCHAR" property="flag2" />
+    <result column="FLAG3" jdbcType="VARCHAR" property="flag3" />
+    <result column="FLAG4" jdbcType="VARCHAR" property="flag4" />
+    <result column="FLAG5" jdbcType="VARCHAR" property="flag5" />
+    <result column="FLAG6" jdbcType="VARCHAR" property="flag6" />
+    <result column="FLAG7" jdbcType="VARCHAR" property="flag7" />
+    <result column="FLAG8" jdbcType="VARCHAR" property="flag8" />
+    <result column="FLAG9" jdbcType="VARCHAR" property="flag9" />
+    <result column="FLAG10" jdbcType="VARCHAR" property="flag10" />
+    <result column="FLAG11" jdbcType="VARCHAR" property="flag11" />
+    <result column="FLAG12" jdbcType="VARCHAR" property="flag12" />
+    <result column="FLAG13" jdbcType="VARCHAR" property="flag13" />
+    <result column="FLAG14" jdbcType="VARCHAR" property="flag14" />
+    <result column="FLAG15" jdbcType="VARCHAR" property="flag15" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select MONTH, FLAG1, FLAG2, FLAG3, FLAG4, FLAG5, FLAG6, FLAG7, FLAG8, FLAG9, FLAG10, 
+    FLAG11, FLAG12, FLAG13, FLAG14, FLAG15
+    from db_savenummonth
+    where MONTH = #{month,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select MONTH, FLAG1, FLAG2, FLAG3, FLAG4, FLAG5, FLAG6, FLAG7, FLAG8, FLAG9, FLAG10, 
+    FLAG11, FLAG12, FLAG13, FLAG14, FLAG15
+    from db_savenummonth
+  </select>
+  <sql id="TableName">
+    db_savenummonth
+  </sql>
+  <sql id="Values">
+     #{month,jdbcType=VARCHAR} , 
+     #{flag1,jdbcType=VARCHAR} , 
+     #{flag2,jdbcType=VARCHAR} , 
+     #{flag3,jdbcType=VARCHAR} , 
+     #{flag4,jdbcType=VARCHAR} , 
+     #{flag5,jdbcType=VARCHAR} , 
+     #{flag6,jdbcType=VARCHAR} , 
+     #{flag7,jdbcType=VARCHAR} , 
+     #{flag8,jdbcType=VARCHAR} , 
+     #{flag9,jdbcType=VARCHAR} , 
+     #{flag10,jdbcType=VARCHAR} , 
+     #{flag11,jdbcType=VARCHAR} , 
+     #{flag12,jdbcType=VARCHAR} , 
+     #{flag13,jdbcType=VARCHAR} , 
+     #{flag14,jdbcType=VARCHAR} , 
+     #{flag15,jdbcType=VARCHAR}
+  </sql>
+  <sql id="Columns">
+    MONTH , 
+    FLAG1 , 
+    FLAG2 , 
+    FLAG3 , 
+    FLAG4 , 
+    FLAG5 , 
+    FLAG6 , 
+    FLAG7 , 
+    FLAG8 , 
+    FLAG9 , 
+    FLAG10 , 
+    FLAG11 , 
+    FLAG12 , 
+    FLAG13 , 
+    FLAG14 , 
+    FLAG15
+  </sql>
+  <sql id="Criteria">
+    <if test="month != null">
+      MONTH = #{month,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag1 != null">
+      FLAG1 = #{flag1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag2 != null">
+      FLAG2 = #{flag2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag3 != null">
+      FLAG3 = #{flag3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag4 != null">
+      FLAG4 = #{flag4,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag5 != null">
+      FLAG5 = #{flag5,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag6 != null">
+      FLAG6 = #{flag6,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag7 != null">
+      FLAG7 = #{flag7,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag8 != null">
+      FLAG8 = #{flag8,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag9 != null">
+      FLAG9 = #{flag9,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag10 != null">
+      FLAG10 = #{flag10,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag11 != null">
+      FLAG11 = #{flag11,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag12 != null">
+      FLAG12 = #{flag12,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag13 != null">
+      FLAG13 = #{flag13,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag14 != null">
+      FLAG14 = #{flag14,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag15 != null">
+      FLAG15 = #{flag15,jdbcType=VARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="month != null">
+      MONTH = #{month,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag1 != null">
+      FLAG1 = #{flag1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag2 != null">
+      FLAG2 = #{flag2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag3 != null">
+      FLAG3 = #{flag3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag4 != null">
+      FLAG4 = #{flag4,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag5 != null">
+      FLAG5 = #{flag5,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag6 != null">
+      FLAG6 = #{flag6,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag7 != null">
+      FLAG7 = #{flag7,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag8 != null">
+      FLAG8 = #{flag8,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag9 != null">
+      FLAG9 = #{flag9,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag10 != null">
+      FLAG10 = #{flag10,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag11 != null">
+      FLAG11 = #{flag11,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag12 != null">
+      FLAG12 = #{flag12,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag13 != null">
+      FLAG13 = #{flag13,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag14 != null">
+      FLAG14 = #{flag14,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag15 != null">
+      FLAG15 = #{flag15,jdbcType=VARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbSavenummonth" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where MONTH=#{MONTH}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbSavenummonth">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbSavenummonth">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbSavenummonth">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbAlisupplierMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbAlisupplier">
+    <id column="USERID" jdbcType="VARCHAR" property="userid" />
+    <result column="DOMAININPLATFORMS" jdbcType="VARCHAR" property="domaininplatforms" />
+    <result column="LOGINID" jdbcType="VARCHAR" property="loginid" />
+    <result column="TRADE" jdbcType="VARCHAR" property="trade" />
+    <result column="GOODS_LIST" jdbcType="VARCHAR" property="goodsList" />
+    <result column="FAVORITE" jdbcType="VARCHAR" property="favorite" />
+    <result column="ATTENTION" jdbcType="VARCHAR" property="attention" />
+    <result column="SUPPLYID" jdbcType="VARCHAR" property="supplyid" />
+    <result column="COMPANYNAME" jdbcType="LONGVARCHAR" property="companyname" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select USERID, DOMAININPLATFORMS, LOGINID, TRADE, GOODS_LIST, FAVORITE, ATTENTION, 
+    SUPPLYID, COMPANYNAME
+    from db_alisupplier
+    where USERID = #{userid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select USERID, DOMAININPLATFORMS, LOGINID, TRADE, GOODS_LIST, FAVORITE, ATTENTION, 
+    SUPPLYID, COMPANYNAME
+    from db_alisupplier
+  </select>
+  <sql id="TableName">
+    db_alisupplier
+  </sql>
+  <sql id="Values">
+     #{userid,jdbcType=VARCHAR} , 
+     #{domaininplatforms,jdbcType=VARCHAR} , 
+     #{loginid,jdbcType=VARCHAR} , 
+     #{trade,jdbcType=VARCHAR} , 
+     #{goods_list,jdbcType=VARCHAR} , 
+     #{favorite,jdbcType=VARCHAR} , 
+     #{attention,jdbcType=VARCHAR} , 
+     #{supplyid,jdbcType=VARCHAR} , 
+     #{companyname,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    USERID , 
+    DOMAININPLATFORMS , 
+    LOGINID , 
+    TRADE , 
+    GOODS_LIST , 
+    FAVORITE , 
+    ATTENTION , 
+    SUPPLYID , 
+    COMPANYNAME
+  </sql>
+  <sql id="Criteria">
+    <if test="userid != null">
+      USERID = #{userid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="domaininplatforms != null">
+      DOMAININPLATFORMS = #{domaininplatforms,jdbcType=VARCHAR} and 
+    </if>
+    <if test="loginid != null">
+      LOGINID = #{loginid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="trade != null">
+      TRADE = #{trade,jdbcType=VARCHAR} and 
+    </if>
+    <if test="goods_list != null">
+      GOODS_LIST = #{goods_list,jdbcType=VARCHAR} and 
+    </if>
+    <if test="favorite != null">
+      FAVORITE = #{favorite,jdbcType=VARCHAR} and 
+    </if>
+    <if test="attention != null">
+      ATTENTION = #{attention,jdbcType=VARCHAR} and 
+    </if>
+    <if test="supplyid != null">
+      SUPPLYID = #{supplyid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="companyname != null">
+      COMPANYNAME = #{companyname,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="userid != null">
+      USERID = #{userid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="domaininplatforms != null">
+      DOMAININPLATFORMS = #{domaininplatforms,jdbcType=VARCHAR} , 
+    </if>
+    <if test="loginid != null">
+      LOGINID = #{loginid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="trade != null">
+      TRADE = #{trade,jdbcType=VARCHAR} , 
+    </if>
+    <if test="goods_list != null">
+      GOODS_LIST = #{goods_list,jdbcType=VARCHAR} , 
+    </if>
+    <if test="favorite != null">
+      FAVORITE = #{favorite,jdbcType=VARCHAR} , 
+    </if>
+    <if test="attention != null">
+      ATTENTION = #{attention,jdbcType=VARCHAR} , 
+    </if>
+    <if test="supplyid != null">
+      SUPPLYID = #{supplyid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="companyname != null">
+      COMPANYNAME = #{companyname,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbAlisupplier" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where USERID=#{USERID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbAlisupplier">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbAlisupplier">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbAlisupplier">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbAskrussianmobileMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbAskrussianmobile">
+    <id column="ORDERID" jdbcType="VARCHAR" property="orderid" />
+    <result column="SHOPID" jdbcType="VARCHAR" property="shopid" />
+    <result column="SHOPNAME" jdbcType="VARCHAR" property="shopname" />
+    <result column="ERRORFLAG" jdbcType="VARCHAR" property="errorflag" />
+    <result column="SENDTIME" jdbcType="TIMESTAMP" property="sendtime" />
+    <result column="CONTENT" jdbcType="LONGVARCHAR" property="content" />
+    <result column="ERRORDESCR" jdbcType="LONGVARCHAR" property="errordescr" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select ORDERID, SHOPID, SHOPNAME, ERRORFLAG, SENDTIME, CONTENT, ERRORDESCR
+    from db_askrussianmobile
+    where ORDERID = #{orderid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ORDERID, SHOPID, SHOPNAME, ERRORFLAG, SENDTIME, CONTENT, ERRORDESCR
+    from db_askrussianmobile
+  </select>
+  <sql id="TableName">
+    db_askrussianmobile
+  </sql>
+  <sql id="Values">
+     #{orderid,jdbcType=VARCHAR} , 
+     #{shopid,jdbcType=VARCHAR} , 
+     #{shopname,jdbcType=VARCHAR} , 
+     #{errorflag,jdbcType=VARCHAR} , 
+     #{sendtime,jdbcType=TIMESTAMP} , 
+     #{content,jdbcType=LONGVARCHAR} , 
+     #{errordescr,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    ORDERID , 
+    SHOPID , 
+    SHOPNAME , 
+    ERRORFLAG , 
+    SENDTIME , 
+    CONTENT , 
+    ERRORDESCR
+  </sql>
+  <sql id="Criteria">
+    <if test="orderid != null">
+      ORDERID = #{orderid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shopid != null">
+      SHOPID = #{shopid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shopname != null">
+      SHOPNAME = #{shopname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="errorflag != null">
+      ERRORFLAG = #{errorflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sendtime != null">
+      SENDTIME = #{sendtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="content != null">
+      CONTENT = #{content,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="errordescr != null">
+      ERRORDESCR = #{errordescr,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="orderid != null">
+      ORDERID = #{orderid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shopid != null">
+      SHOPID = #{shopid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shopname != null">
+      SHOPNAME = #{shopname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="errorflag != null">
+      ERRORFLAG = #{errorflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sendtime != null">
+      SENDTIME = #{sendtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="content != null">
+      CONTENT = #{content,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="errordescr != null">
+      ERRORDESCR = #{errordescr,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbAskrussianmobile" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where ORDERID=#{ORDERID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbAskrussianmobile">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbAskrussianmobile">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbAskrussianmobile">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

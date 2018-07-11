@@ -24,7 +24,7 @@ public class ThreadPool {
     private static int corePoolSize = Runtime.getRuntime().availableProcessors();
     /**
      * public ThreadPoolExecutor(int corePoolSize,int maximumPoolSize,long keepAliveTime,
-     *              TimeUnit unit,BlockingQueue<Runnable> workQueue)
+     * TimeUnit unit,BlockingQueue<Runnable> workQueue)
      * corePoolSize用于指定核心线程数量
      * maximumPoolSize指定最大线程数
      * keepAliveTime和TimeUnit指定线程空闲后的最大存活时间
@@ -34,7 +34,7 @@ public class ThreadPool {
      * 而过多的线程又会 由于频繁的上下文切换导致整个系统的速度变缓——殊途而同归。队列的长度至关重要，它必须得是有界的，这样如果线程池不堪重负了它可以暂时拒绝掉新的请求。
      * ExecutorService 默认的实现是一个无界的 LinkedBlockingQueue。
      */
-    private static ThreadPoolExecutor executor = new ThreadPoolExecutor(corePoolSize, corePoolSize+1, 10l, TimeUnit.SECONDS,
+    private static ThreadPoolExecutor executor = new ThreadPoolExecutor(corePoolSize, corePoolSize + 1, 10l, TimeUnit.SECONDS,
             new LinkedBlockingQueue<Runnable>(1000));
 
     public static void main(String[] args) throws InterruptedException {
@@ -62,10 +62,10 @@ public class ThreadPool {
 
         public void run() {
             try {
-                System.out.println(statsName+ " do stats begin at "+ startTime);
+                System.out.println(statsName + " do stats begin at " + startTime);
                 //模拟任务执行时间
                 Thread.sleep(runTime);
-                System.out.println(statsName + " do stats complete at "+ sdf.format(new Date()));
+                System.out.println(statsName + " do stats complete at " + sdf.format(new Date()));
                 latch.countDown();//单次任务结束，计数器减一
             } catch (InterruptedException e) {
                 e.printStackTrace();

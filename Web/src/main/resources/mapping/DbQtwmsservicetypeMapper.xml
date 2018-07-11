@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbQtwmsservicetypeMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbQtwmsservicetype">
+    <id column="SERVICEID" jdbcType="VARCHAR" property="serviceid" />
+    <result column="SERVICENAME" jdbcType="VARCHAR" property="servicename" />
+    <result column="SERVICETYPE" jdbcType="VARCHAR" property="servicetype" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SERVICEID, SERVICENAME, SERVICETYPE
+    from db_qtwmsservicetype
+    where SERVICEID = #{serviceid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SERVICEID, SERVICENAME, SERVICETYPE
+    from db_qtwmsservicetype
+  </select>
+  <sql id="TableName">
+    db_qtwmsservicetype
+  </sql>
+  <sql id="Values">
+     #{serviceid,jdbcType=VARCHAR} , 
+     #{servicename,jdbcType=VARCHAR} , 
+     #{servicetype,jdbcType=VARCHAR}
+  </sql>
+  <sql id="Columns">
+    SERVICEID , 
+    SERVICENAME , 
+    SERVICETYPE
+  </sql>
+  <sql id="Criteria">
+    <if test="serviceid != null">
+      SERVICEID = #{serviceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="servicename != null">
+      SERVICENAME = #{servicename,jdbcType=VARCHAR} and 
+    </if>
+    <if test="servicetype != null">
+      SERVICETYPE = #{servicetype,jdbcType=VARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="serviceid != null">
+      SERVICEID = #{serviceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="servicename != null">
+      SERVICENAME = #{servicename,jdbcType=VARCHAR} , 
+    </if>
+    <if test="servicetype != null">
+      SERVICETYPE = #{servicetype,jdbcType=VARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbQtwmsservicetype" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SERVICEID=#{SERVICEID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbQtwmsservicetype">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbQtwmsservicetype">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbQtwmsservicetype">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

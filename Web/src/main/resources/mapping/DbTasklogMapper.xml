@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbTasklogMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbTasklog">
+    <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
+    <result column="SID" jdbcType="VARCHAR" property="sid" />
+    <result column="STYPE" jdbcType="VARCHAR" property="stype" />
+    <result column="STYPENAME" jdbcType="VARCHAR" property="stypename" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="TOOPER" jdbcType="VARCHAR" property="tooper" />
+    <result column="TOOPERTIME" jdbcType="TIMESTAMP" property="toopertime" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="STATUSNAME" jdbcType="VARCHAR" property="statusname" />
+    <result column="SLEVEL" jdbcType="VARCHAR" property="slevel" />
+    <result column="CHECKRESULT" jdbcType="VARCHAR" property="checkresult" />
+    <result column="SCORES" jdbcType="DECIMAL" property="scores" />
+    <result column="CHECKOPER" jdbcType="VARCHAR" property="checkoper" />
+    <result column="CHECKTIME" jdbcType="TIMESTAMP" property="checktime" />
+    <result column="PUBLICFLAG" jdbcType="VARCHAR" property="publicflag" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
+    <result column="RESERVE4" jdbcType="VARCHAR" property="reserve4" />
+    <result column="RESERVE5" jdbcType="VARCHAR" property="reserve5" />
+    <result column="ENDTIME" jdbcType="TIMESTAMP" property="endtime" />
+    <result column="DATEDIFF" jdbcType="DECIMAL" property="datediff" />
+    <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
+    <result column="OPERTYPE" jdbcType="VARCHAR" property="opertype" />
+    <result column="STATUSFLAG" jdbcType="VARCHAR" property="statusflag" />
+    <result column="CUSTOMERTYPE" jdbcType="VARCHAR" property="customertype" />
+    <result column="TITLE" jdbcType="LONGVARCHAR" property="title" />
+    <result column="QUESTION" jdbcType="LONGVARCHAR" property="question" />
+    <result column="ANSWER" jdbcType="LONGVARCHAR" property="answer" />
+    <result column="CHECKDESCR" jdbcType="LONGVARCHAR" property="checkdescr" />
+    <result column="CONTENT" jdbcType="LONGVARCHAR" property="content" />
+    <result column="MEMBER" jdbcType="LONGVARCHAR" property="member" />
+    <result column="CUSTOMERNAME" jdbcType="LONGVARCHAR" property="customername" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SEQUENCEID, SID, STYPE, STYPENAME, OPER, OPERTIME, TOOPER, TOOPERTIME, STATUS, 
+    STATUSNAME, SLEVEL, CHECKRESULT, SCORES, CHECKOPER, CHECKTIME, PUBLICFLAG, RESERVE1, 
+    RESERVE2, RESERVE3, RESERVE4, RESERVE5, ENDTIME, DATEDIFF, CORPID, OPERTYPE, STATUSFLAG, 
+    CUSTOMERTYPE, TITLE, QUESTION, ANSWER, CHECKDESCR, CONTENT, MEMBER, CUSTOMERNAME
+    from db_tasklog
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, SID, STYPE, STYPENAME, OPER, OPERTIME, TOOPER, TOOPERTIME, STATUS, 
+    STATUSNAME, SLEVEL, CHECKRESULT, SCORES, CHECKOPER, CHECKTIME, PUBLICFLAG, RESERVE1, 
+    RESERVE2, RESERVE3, RESERVE4, RESERVE5, ENDTIME, DATEDIFF, CORPID, OPERTYPE, STATUSFLAG, 
+    CUSTOMERTYPE, TITLE, QUESTION, ANSWER, CHECKDESCR, CONTENT, MEMBER, CUSTOMERNAME
+    from db_tasklog
+  </select>
+  <sql id="TableName">
+    db_tasklog
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=VARCHAR} , 
+     #{sid,jdbcType=VARCHAR} , 
+     #{stype,jdbcType=VARCHAR} , 
+     #{stypename,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{tooper,jdbcType=VARCHAR} , 
+     #{toopertime,jdbcType=TIMESTAMP} , 
+     #{status,jdbcType=VARCHAR} , 
+     #{statusname,jdbcType=VARCHAR} , 
+     #{slevel,jdbcType=VARCHAR} , 
+     #{checkresult,jdbcType=VARCHAR} , 
+     #{scores,jdbcType=DECIMAL} , 
+     #{checkoper,jdbcType=VARCHAR} , 
+     #{checktime,jdbcType=TIMESTAMP} , 
+     #{publicflag,jdbcType=VARCHAR} , 
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+     #{reserve3,jdbcType=VARCHAR} , 
+     #{reserve4,jdbcType=VARCHAR} , 
+     #{reserve5,jdbcType=VARCHAR} , 
+     #{endtime,jdbcType=TIMESTAMP} , 
+     #{datediff,jdbcType=DECIMAL} , 
+     #{corpid,jdbcType=VARCHAR} , 
+     #{opertype,jdbcType=VARCHAR} , 
+     #{statusflag,jdbcType=VARCHAR} , 
+     #{customertype,jdbcType=VARCHAR} , 
+     #{title,jdbcType=LONGVARCHAR} , 
+     #{question,jdbcType=LONGVARCHAR} , 
+     #{answer,jdbcType=LONGVARCHAR} , 
+     #{checkdescr,jdbcType=LONGVARCHAR} , 
+     #{content,jdbcType=LONGVARCHAR} , 
+     #{member,jdbcType=LONGVARCHAR} , 
+     #{customername,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    SID , 
+    STYPE , 
+    STYPENAME , 
+    OPER , 
+    OPERTIME , 
+    TOOPER , 
+    TOOPERTIME , 
+    STATUS , 
+    STATUSNAME , 
+    SLEVEL , 
+    CHECKRESULT , 
+    SCORES , 
+    CHECKOPER , 
+    CHECKTIME , 
+    PUBLICFLAG , 
+    RESERVE1 , 
+    RESERVE2 , 
+    RESERVE3 , 
+    RESERVE4 , 
+    RESERVE5 , 
+    ENDTIME , 
+    DATEDIFF , 
+    CORPID , 
+    OPERTYPE , 
+    STATUSFLAG , 
+    CUSTOMERTYPE , 
+    TITLE , 
+    QUESTION , 
+    ANSWER , 
+    CHECKDESCR , 
+    CONTENT , 
+    MEMBER , 
+    CUSTOMERNAME
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sid != null">
+      SID = #{sid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="stype != null">
+      STYPE = #{stype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="stypename != null">
+      STYPENAME = #{stypename,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="tooper != null">
+      TOOPER = #{tooper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="toopertime != null">
+      TOOPERTIME = #{toopertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="status != null">
+      STATUS = #{status,jdbcType=VARCHAR} and 
+    </if>
+    <if test="statusname != null">
+      STATUSNAME = #{statusname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="slevel != null">
+      SLEVEL = #{slevel,jdbcType=VARCHAR} and 
+    </if>
+    <if test="checkresult != null">
+      CHECKRESULT = #{checkresult,jdbcType=VARCHAR} and 
+    </if>
+    <if test="scores != null">
+      SCORES = #{scores,jdbcType=DECIMAL} and 
+    </if>
+    <if test="checkoper != null">
+      CHECKOPER = #{checkoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="checktime != null">
+      CHECKTIME = #{checktime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="publicflag != null">
+      PUBLICFLAG = #{publicflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      RESERVE3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve4 != null">
+      RESERVE4 = #{reserve4,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve5 != null">
+      RESERVE5 = #{reserve5,jdbcType=VARCHAR} and 
+    </if>
+    <if test="endtime != null">
+      ENDTIME = #{endtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="datediff != null">
+      DATEDIFF = #{datediff,jdbcType=DECIMAL} and 
+    </if>
+    <if test="corpid != null">
+      CORPID = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertype != null">
+      OPERTYPE = #{opertype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="statusflag != null">
+      STATUSFLAG = #{statusflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="customertype != null">
+      CUSTOMERTYPE = #{customertype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="title != null">
+      TITLE = #{title,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="question != null">
+      QUESTION = #{question,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="answer != null">
+      ANSWER = #{answer,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="checkdescr != null">
+      CHECKDESCR = #{checkdescr,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="content != null">
+      CONTENT = #{content,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="member != null">
+      MEMBER = #{member,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="customername != null">
+      CUSTOMERNAME = #{customername,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sid != null">
+      SID = #{sid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="stype != null">
+      STYPE = #{stype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="stypename != null">
+      STYPENAME = #{stypename,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="tooper != null">
+      TOOPER = #{tooper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="toopertime != null">
+      TOOPERTIME = #{toopertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="status != null">
+      STATUS = #{status,jdbcType=VARCHAR} , 
+    </if>
+    <if test="statusname != null">
+      STATUSNAME = #{statusname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="slevel != null">
+      SLEVEL = #{slevel,jdbcType=VARCHAR} , 
+    </if>
+    <if test="checkresult != null">
+      CHECKRESULT = #{checkresult,jdbcType=VARCHAR} , 
+    </if>
+    <if test="scores != null">
+      SCORES = #{scores,jdbcType=DECIMAL} , 
+    </if>
+    <if test="checkoper != null">
+      CHECKOPER = #{checkoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="checktime != null">
+      CHECKTIME = #{checktime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="publicflag != null">
+      PUBLICFLAG = #{publicflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      RESERVE3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve4 != null">
+      RESERVE4 = #{reserve4,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve5 != null">
+      RESERVE5 = #{reserve5,jdbcType=VARCHAR} , 
+    </if>
+    <if test="endtime != null">
+      ENDTIME = #{endtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="datediff != null">
+      DATEDIFF = #{datediff,jdbcType=DECIMAL} , 
+    </if>
+    <if test="corpid != null">
+      CORPID = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertype != null">
+      OPERTYPE = #{opertype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="statusflag != null">
+      STATUSFLAG = #{statusflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="customertype != null">
+      CUSTOMERTYPE = #{customertype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="title != null">
+      TITLE = #{title,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="question != null">
+      QUESTION = #{question,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="answer != null">
+      ANSWER = #{answer,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="checkdescr != null">
+      CHECKDESCR = #{checkdescr,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="content != null">
+      CONTENT = #{content,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="member != null">
+      MEMBER = #{member,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="customername != null">
+      CUSTOMERNAME = #{customername,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbTasklog" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbTasklog">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbTasklog">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbTasklog">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

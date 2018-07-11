@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbProductDailyMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbProductDaily">
+    <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
+    <result column="YYYY" jdbcType="VARCHAR" property="yyyy" />
+    <result column="YYYYMM" jdbcType="VARCHAR" property="yyyymm" />
+    <result column="YYYYMMDD" jdbcType="VARCHAR" property="yyyymmdd" />
+    <result column="ALLSAVENUM" jdbcType="DECIMAL" property="allsavenum" />
+    <result column="ALLCOST" jdbcType="DECIMAL" property="allcost" />
+    <result column="FIELD1" jdbcType="VARCHAR" property="field1" />
+    <result column="FIELD2" jdbcType="VARCHAR" property="field2" />
+    <result column="FIELD3" jdbcType="VARCHAR" property="field3" />
+    <result column="CATEGORYID" jdbcType="VARCHAR" property="categoryid" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SEQUENCEID, YYYY, YYYYMM, YYYYMMDD, ALLSAVENUM, ALLCOST, FIELD1, FIELD2, FIELD3, 
+    CATEGORYID
+    from db_product_daily
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, YYYY, YYYYMM, YYYYMMDD, ALLSAVENUM, ALLCOST, FIELD1, FIELD2, FIELD3, 
+    CATEGORYID
+    from db_product_daily
+  </select>
+  <sql id="TableName">
+    db_product_daily
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=VARCHAR} , 
+     #{yyyy,jdbcType=VARCHAR} , 
+     #{yyyymm,jdbcType=VARCHAR} , 
+     #{yyyymmdd,jdbcType=VARCHAR} , 
+     #{allsavenum,jdbcType=DECIMAL} , 
+     #{allcost,jdbcType=DECIMAL} , 
+     #{field1,jdbcType=VARCHAR} , 
+     #{field2,jdbcType=VARCHAR} , 
+     #{field3,jdbcType=VARCHAR} , 
+     #{categoryid,jdbcType=VARCHAR}
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    YYYY , 
+    YYYYMM , 
+    YYYYMMDD , 
+    ALLSAVENUM , 
+    ALLCOST , 
+    FIELD1 , 
+    FIELD2 , 
+    FIELD3 , 
+    CATEGORYID
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="yyyy != null">
+      YYYY = #{yyyy,jdbcType=VARCHAR} and 
+    </if>
+    <if test="yyyymm != null">
+      YYYYMM = #{yyyymm,jdbcType=VARCHAR} and 
+    </if>
+    <if test="yyyymmdd != null">
+      YYYYMMDD = #{yyyymmdd,jdbcType=VARCHAR} and 
+    </if>
+    <if test="allsavenum != null">
+      ALLSAVENUM = #{allsavenum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="allcost != null">
+      ALLCOST = #{allcost,jdbcType=DECIMAL} and 
+    </if>
+    <if test="field1 != null">
+      FIELD1 = #{field1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="field2 != null">
+      FIELD2 = #{field2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="field3 != null">
+      FIELD3 = #{field3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="categoryid != null">
+      CATEGORYID = #{categoryid,jdbcType=VARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="yyyy != null">
+      YYYY = #{yyyy,jdbcType=VARCHAR} , 
+    </if>
+    <if test="yyyymm != null">
+      YYYYMM = #{yyyymm,jdbcType=VARCHAR} , 
+    </if>
+    <if test="yyyymmdd != null">
+      YYYYMMDD = #{yyyymmdd,jdbcType=VARCHAR} , 
+    </if>
+    <if test="allsavenum != null">
+      ALLSAVENUM = #{allsavenum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="allcost != null">
+      ALLCOST = #{allcost,jdbcType=DECIMAL} , 
+    </if>
+    <if test="field1 != null">
+      FIELD1 = #{field1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="field2 != null">
+      FIELD2 = #{field2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="field3 != null">
+      FIELD3 = #{field3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="categoryid != null">
+      CATEGORYID = #{categoryid,jdbcType=VARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbProductDaily" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbProductDaily">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbProductDaily">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbProductDaily">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

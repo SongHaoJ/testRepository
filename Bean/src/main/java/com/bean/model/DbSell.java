@@ -1,9 +1,12 @@
 package com.bean.model;
 
+import lombok.Data;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
-
+import java.util.List;
+@Data
 public class DbSell implements Serializable {
     private String sid;
 
@@ -162,6 +165,13 @@ public class DbSell implements Serializable {
     private String packagingclass;
 
     private String englishname;
+
+    //取订单详情用
+    private List<DbProduct> productList;
+
+
+
+
 
     private static final long serialVersionUID = 1L;
 

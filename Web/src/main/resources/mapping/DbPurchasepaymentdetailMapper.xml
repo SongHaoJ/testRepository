@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbPurchasepaymentdetailMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbPurchasepaymentdetail">
+    <id column="SID" jdbcType="VARCHAR" property="sid" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="MONEYACTIONPAY" jdbcType="DECIMAL" property="moneyactionpay" />
+    <result column="MANUFACTUREID" jdbcType="VARCHAR" property="manufactureid" />
+    <result column="PAYMENTID" jdbcType="DECIMAL" property="paymentid" />
+    <result column="MONEYNEEDPAY" jdbcType="DECIMAL" property="moneyneedpay" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="MONEYNOTPAY" jdbcType="DECIMAL" property="moneynotpay" />
+    <result column="PAYOPER" jdbcType="VARCHAR" property="payoper" />
+    <result column="MANUFACTURE" jdbcType="VARCHAR" property="manufacture" />
+    <result column="PAYNUM" jdbcType="VARCHAR" property="paynum" />
+    <result column="FLAG" jdbcType="VARCHAR" property="flag" />
+    <result column="PAYTIME" jdbcType="TIMESTAMP" property="paytime" />
+    <result column="CONTENT" jdbcType="LONGVARCHAR" property="content" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SID, OPER, MONEYACTIONPAY, MANUFACTUREID, PAYMENTID, MONEYNEEDPAY, OPERTIME, 
+    MONEYNOTPAY, PAYOPER, MANUFACTURE, PAYNUM, FLAG, PAYTIME, CONTENT
+    from db_purchasepaymentdetail
+    where SID = #{sid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, OPER, MONEYACTIONPAY, MANUFACTUREID, PAYMENTID, MONEYNEEDPAY, OPERTIME, 
+    MONEYNOTPAY, PAYOPER, MANUFACTURE, PAYNUM, FLAG, PAYTIME, CONTENT
+    from db_purchasepaymentdetail
+  </select>
+  <sql id="TableName">
+    db_purchasepaymentdetail
+  </sql>
+  <sql id="Values">
+     #{sid,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{moneyactionpay,jdbcType=DECIMAL} , 
+     #{manufactureid,jdbcType=VARCHAR} , 
+     #{paymentid,jdbcType=DECIMAL} , 
+     #{moneyneedpay,jdbcType=DECIMAL} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{moneynotpay,jdbcType=DECIMAL} , 
+     #{payoper,jdbcType=VARCHAR} , 
+     #{manufacture,jdbcType=VARCHAR} , 
+     #{paynum,jdbcType=VARCHAR} , 
+     #{flag,jdbcType=VARCHAR} , 
+     #{paytime,jdbcType=TIMESTAMP} , 
+     #{content,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    SID , 
+    OPER , 
+    MONEYACTIONPAY , 
+    MANUFACTUREID , 
+    PAYMENTID , 
+    MONEYNEEDPAY , 
+    OPERTIME , 
+    MONEYNOTPAY , 
+    PAYOPER , 
+    MANUFACTURE , 
+    PAYNUM , 
+    FLAG , 
+    PAYTIME , 
+    CONTENT
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="moneyactionpay != null">
+      MONEYACTIONPAY = #{moneyactionpay,jdbcType=DECIMAL} and 
+    </if>
+    <if test="manufactureid != null">
+      MANUFACTUREID = #{manufactureid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="paymentid != null">
+      PAYMENTID = #{paymentid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="moneyneedpay != null">
+      MONEYNEEDPAY = #{moneyneedpay,jdbcType=DECIMAL} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="moneynotpay != null">
+      MONEYNOTPAY = #{moneynotpay,jdbcType=DECIMAL} and 
+    </if>
+    <if test="payoper != null">
+      PAYOPER = #{payoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="manufacture != null">
+      MANUFACTURE = #{manufacture,jdbcType=VARCHAR} and 
+    </if>
+    <if test="paynum != null">
+      PAYNUM = #{paynum,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag != null">
+      FLAG = #{flag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="paytime != null">
+      PAYTIME = #{paytime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="content != null">
+      CONTENT = #{content,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="moneyactionpay != null">
+      MONEYACTIONPAY = #{moneyactionpay,jdbcType=DECIMAL} , 
+    </if>
+    <if test="manufactureid != null">
+      MANUFACTUREID = #{manufactureid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="paymentid != null">
+      PAYMENTID = #{paymentid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="moneyneedpay != null">
+      MONEYNEEDPAY = #{moneyneedpay,jdbcType=DECIMAL} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="moneynotpay != null">
+      MONEYNOTPAY = #{moneynotpay,jdbcType=DECIMAL} , 
+    </if>
+    <if test="payoper != null">
+      PAYOPER = #{payoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="manufacture != null">
+      MANUFACTURE = #{manufacture,jdbcType=VARCHAR} , 
+    </if>
+    <if test="paynum != null">
+      PAYNUM = #{paynum,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag != null">
+      FLAG = #{flag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="paytime != null">
+      PAYTIME = #{paytime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="content != null">
+      CONTENT = #{content,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbPurchasepaymentdetail" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SID=#{SID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbPurchasepaymentdetail">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbPurchasepaymentdetail">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbPurchasepaymentdetail">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

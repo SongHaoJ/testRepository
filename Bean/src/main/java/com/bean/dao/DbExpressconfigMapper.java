@@ -2,6 +2,8 @@ package com.bean.dao;
 
 import com.bean.model.DbExpressconfig;
 
+import java.util.List;
+
 public interface DbExpressconfigMapper {
     int deleteByPrimaryKey(Short id);
 
@@ -13,7 +15,5 @@ public interface DbExpressconfigMapper {
 
     int updateByPrimaryKeySelective(DbExpressconfig record);
 
-    int updateByPrimaryKeyWithBLOBs(DbExpressconfig record);
-
-    int updateByPrimaryKey(DbExpressconfig record);
+    List<DbExpressconfig> selectConfigByOrderTYpes(String ordertypes);
 }

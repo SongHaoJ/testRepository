@@ -1,0 +1,832 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbAliorderinfoMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbAliorderinfo">
+    <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
+    <result column="ORDERID" jdbcType="VARCHAR" property="orderid" />
+    <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
+    <result column="TRADEID" jdbcType="VARCHAR" property="tradeid" />
+    <result column="MAINTRADEID" jdbcType="VARCHAR" property="maintradeid" />
+    <result column="GROUPID" jdbcType="VARCHAR" property="groupid" />
+    <result column="CUSTOMERID" jdbcType="VARCHAR" property="customerid" />
+    <result column="CUSTOMERCOUNTRYCN" jdbcType="VARCHAR" property="customercountrycn" />
+    <result column="CUSTOMERCOUNTRY2" jdbcType="VARCHAR" property="customercountry2" />
+    <result column="CUSTOMERZIPCODE" jdbcType="VARCHAR" property="customerzipcode" />
+    <result column="CUSTOMERRESERVE5" jdbcType="DECIMAL" property="customerreserve5" />
+    <result column="CUSTOMERRESERVE6" jdbcType="DECIMAL" property="customerreserve6" />
+    <result column="CUSTOMERRESERVE7" jdbcType="DECIMAL" property="customerreserve7" />
+    <result column="CUSTOMERRESERVE8" jdbcType="DECIMAL" property="customerreserve8" />
+    <result column="SHOPTYPEID" jdbcType="VARCHAR" property="shoptypeid" />
+    <result column="SHOPTYPE" jdbcType="VARCHAR" property="shoptype" />
+    <result column="MONEYTYPE" jdbcType="VARCHAR" property="moneytype" />
+    <result column="MONEYASK" jdbcType="DECIMAL" property="moneyask" />
+    <result column="MONEYACTION" jdbcType="DECIMAL" property="moneyaction" />
+    <result column="MONEYEXPRESSASK" jdbcType="DECIMAL" property="moneyexpressask" />
+    <result column="ORDERTIME" jdbcType="TIMESTAMP" property="ordertime" />
+    <result column="UPLOADTIME" jdbcType="TIMESTAMP" property="uploadtime" />
+    <result column="PAYTIME" jdbcType="TIMESTAMP" property="paytime" />
+    <result column="EXPRESSWEIGHT" jdbcType="DECIMAL" property="expressweight" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="FINALVALUEFEE" jdbcType="DECIMAL" property="finalvaluefee" />
+    <result column="TRANSACTIONID" jdbcType="VARCHAR" property="transactionid" />
+    <result column="SKU" jdbcType="VARCHAR" property="sku" />
+    <result column="ORDERNUM" jdbcType="DECIMAL" property="ordernum" />
+    <result column="COSTPRICE" jdbcType="DECIMAL" property="costprice" />
+    <result column="SELLPRICE" jdbcType="DECIMAL" property="sellprice" />
+    <result column="AMOUNT" jdbcType="DECIMAL" property="amount" />
+    <result column="ORIGINSELLPRICE" jdbcType="DECIMAL" property="originsellprice" />
+    <result column="ORIGINEXPRESS" jdbcType="DECIMAL" property="originexpress" />
+    <result column="ORIGININSURANCE" jdbcType="DECIMAL" property="origininsurance" />
+    <result column="INSURANCE" jdbcType="DECIMAL" property="insurance" />
+    <result column="EBAYITEMID" jdbcType="VARCHAR" property="ebayitemid" />
+    <result column="PAYPALEMAIL" jdbcType="VARCHAR" property="paypalemail" />
+    <result column="PAYPALID" jdbcType="VARCHAR" property="paypalid" />
+    <result column="ORDERRESERVE4" jdbcType="DECIMAL" property="orderreserve4" />
+    <result column="ORDERRESERVE5" jdbcType="DECIMAL" property="orderreserve5" />
+    <result column="ORDERRESERVE6" jdbcType="DECIMAL" property="orderreserve6" />
+    <result column="ORDERRESERVE7" jdbcType="DECIMAL" property="orderreserve7" />
+    <result column="RESERVE6" jdbcType="DECIMAL" property="reserve6" />
+    <result column="RESERVE7" jdbcType="DECIMAL" property="reserve7" />
+    <result column="RESERVE8" jdbcType="DECIMAL" property="reserve8" />
+    <result column="RESERVE9" jdbcType="DECIMAL" property="reserve9" />
+    <result column="ERRORFLAG" jdbcType="VARCHAR" property="errorflag" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="RECORDNUM" jdbcType="DECIMAL" property="recordnum" />
+    <result column="MONEYRATE" jdbcType="DECIMAL" property="moneyrate" />
+    <result column="ORIGINORDERMONEY" jdbcType="DECIMAL" property="originordermoney" />
+    <result column="ORIGINEXPRESSMONEY" jdbcType="DECIMAL" property="originexpressmoney" />
+    <result column="ORIGININSURANCE1" jdbcType="DECIMAL" property="origininsurance1" />
+    <result column="ORIGINFINALVALUEFEE" jdbcType="DECIMAL" property="originfinalvaluefee" />
+    <result column="CUSTOMERNAME" jdbcType="LONGVARCHAR" property="customername" />
+    <result column="CUSTOMERFIRSTNAME" jdbcType="LONGVARCHAR" property="customerfirstname" />
+    <result column="CUSTOMERLASTNAME" jdbcType="LONGVARCHAR" property="customerlastname" />
+    <result column="CUSTOMERTYPE" jdbcType="LONGVARCHAR" property="customertype" />
+    <result column="CUSTOMERTEL1" jdbcType="LONGVARCHAR" property="customertel1" />
+    <result column="CUSTOMERTEL2" jdbcType="LONGVARCHAR" property="customertel2" />
+    <result column="CUSTOMEREMAIL" jdbcType="LONGVARCHAR" property="customeremail" />
+    <result column="CUSTOMERCOUNTRY" jdbcType="LONGVARCHAR" property="customercountry" />
+    <result column="CUSTOMERPROVINCE" jdbcType="LONGVARCHAR" property="customerprovince" />
+    <result column="CUSTOMERCITY" jdbcType="LONGVARCHAR" property="customercity" />
+    <result column="CUSTOMERADDRESS" jdbcType="LONGVARCHAR" property="customeraddress" />
+    <result column="CUSTOMERRESERVE1" jdbcType="LONGVARCHAR" property="customerreserve1" />
+    <result column="CUSTOMERRESERVE2" jdbcType="LONGVARCHAR" property="customerreserve2" />
+    <result column="CUSTOMERRESERVE3" jdbcType="LONGVARCHAR" property="customerreserve3" />
+    <result column="CUSTOMERRESERVE4" jdbcType="LONGVARCHAR" property="customerreserve4" />
+    <result column="PRODUCTNAME" jdbcType="LONGVARCHAR" property="productname" />
+    <result column="DESCR2" jdbcType="LONGVARCHAR" property="descr2" />
+    <result column="SHIPPINGSERVICE" jdbcType="LONGVARCHAR" property="shippingservice" />
+    <result column="NOTETOYOURSELF" jdbcType="LONGVARCHAR" property="notetoyourself" />
+    <result column="ORDERRESERVE1" jdbcType="LONGVARCHAR" property="orderreserve1" />
+    <result column="ORDERRESERVE2" jdbcType="LONGVARCHAR" property="orderreserve2" />
+    <result column="ORDERRESERVE3" jdbcType="LONGVARCHAR" property="orderreserve3" />
+    <result column="RESERVE1" jdbcType="LONGVARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="LONGVARCHAR" property="reserve2" />
+    <result column="RESERVE3" jdbcType="LONGVARCHAR" property="reserve3" />
+    <result column="RESERVE4" jdbcType="LONGVARCHAR" property="reserve4" />
+    <result column="RESERVE5" jdbcType="LONGVARCHAR" property="reserve5" />
+    <result column="ERRORINFO" jdbcType="LONGVARCHAR" property="errorinfo" />
+    <result column="EBAYCUSTOMERADDRESS" jdbcType="LONGVARCHAR" property="ebaycustomeraddress" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SEQUENCEID, ORDERID, CORPID, TRADEID, MAINTRADEID, GROUPID, CUSTOMERID, CUSTOMERCOUNTRYCN, 
+    CUSTOMERCOUNTRY2, CUSTOMERZIPCODE, CUSTOMERRESERVE5, CUSTOMERRESERVE6, CUSTOMERRESERVE7, 
+    CUSTOMERRESERVE8, SHOPTYPEID, SHOPTYPE, MONEYTYPE, MONEYASK, MONEYACTION, MONEYEXPRESSASK, 
+    ORDERTIME, UPLOADTIME, PAYTIME, EXPRESSWEIGHT, OPER, STATUS, FINALVALUEFEE, TRANSACTIONID, 
+    SKU, ORDERNUM, COSTPRICE, SELLPRICE, AMOUNT, ORIGINSELLPRICE, ORIGINEXPRESS, ORIGININSURANCE, 
+    INSURANCE, EBAYITEMID, PAYPALEMAIL, PAYPALID, ORDERRESERVE4, ORDERRESERVE5, ORDERRESERVE6, 
+    ORDERRESERVE7, RESERVE6, RESERVE7, RESERVE8, RESERVE9, ERRORFLAG, OPERTIME, RECORDNUM, 
+    MONEYRATE, ORIGINORDERMONEY, ORIGINEXPRESSMONEY, ORIGININSURANCE1, ORIGINFINALVALUEFEE, 
+    CUSTOMERNAME, CUSTOMERFIRSTNAME, CUSTOMERLASTNAME, CUSTOMERTYPE, CUSTOMERTEL1, CUSTOMERTEL2, 
+    CUSTOMEREMAIL, CUSTOMERCOUNTRY, CUSTOMERPROVINCE, CUSTOMERCITY, CUSTOMERADDRESS, 
+    CUSTOMERRESERVE1, CUSTOMERRESERVE2, CUSTOMERRESERVE3, CUSTOMERRESERVE4, PRODUCTNAME, 
+    DESCR2, SHIPPINGSERVICE, NOTETOYOURSELF, ORDERRESERVE1, ORDERRESERVE2, ORDERRESERVE3, 
+    RESERVE1, RESERVE2, RESERVE3, RESERVE4, RESERVE5, ERRORINFO, EBAYCUSTOMERADDRESS
+    from db_aliorderinfo
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, ORDERID, CORPID, TRADEID, MAINTRADEID, GROUPID, CUSTOMERID, CUSTOMERCOUNTRYCN, 
+    CUSTOMERCOUNTRY2, CUSTOMERZIPCODE, CUSTOMERRESERVE5, CUSTOMERRESERVE6, CUSTOMERRESERVE7, 
+    CUSTOMERRESERVE8, SHOPTYPEID, SHOPTYPE, MONEYTYPE, MONEYASK, MONEYACTION, MONEYEXPRESSASK, 
+    ORDERTIME, UPLOADTIME, PAYTIME, EXPRESSWEIGHT, OPER, STATUS, FINALVALUEFEE, TRANSACTIONID, 
+    SKU, ORDERNUM, COSTPRICE, SELLPRICE, AMOUNT, ORIGINSELLPRICE, ORIGINEXPRESS, ORIGININSURANCE, 
+    INSURANCE, EBAYITEMID, PAYPALEMAIL, PAYPALID, ORDERRESERVE4, ORDERRESERVE5, ORDERRESERVE6, 
+    ORDERRESERVE7, RESERVE6, RESERVE7, RESERVE8, RESERVE9, ERRORFLAG, OPERTIME, RECORDNUM, 
+    MONEYRATE, ORIGINORDERMONEY, ORIGINEXPRESSMONEY, ORIGININSURANCE1, ORIGINFINALVALUEFEE, 
+    CUSTOMERNAME, CUSTOMERFIRSTNAME, CUSTOMERLASTNAME, CUSTOMERTYPE, CUSTOMERTEL1, CUSTOMERTEL2, 
+    CUSTOMEREMAIL, CUSTOMERCOUNTRY, CUSTOMERPROVINCE, CUSTOMERCITY, CUSTOMERADDRESS, 
+    CUSTOMERRESERVE1, CUSTOMERRESERVE2, CUSTOMERRESERVE3, CUSTOMERRESERVE4, PRODUCTNAME, 
+    DESCR2, SHIPPINGSERVICE, NOTETOYOURSELF, ORDERRESERVE1, ORDERRESERVE2, ORDERRESERVE3, 
+    RESERVE1, RESERVE2, RESERVE3, RESERVE4, RESERVE5, ERRORINFO, EBAYCUSTOMERADDRESS
+    from db_aliorderinfo
+  </select>
+  <sql id="TableName">
+    db_aliorderinfo
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=VARCHAR} , 
+     #{orderid,jdbcType=VARCHAR} , 
+     #{corpid,jdbcType=VARCHAR} , 
+     #{tradeid,jdbcType=VARCHAR} , 
+     #{maintradeid,jdbcType=VARCHAR} , 
+     #{groupid,jdbcType=VARCHAR} , 
+     #{customerid,jdbcType=VARCHAR} , 
+     #{customercountrycn,jdbcType=VARCHAR} , 
+     #{customercountry2,jdbcType=VARCHAR} , 
+     #{customerzipcode,jdbcType=VARCHAR} , 
+     #{customerreserve5,jdbcType=DECIMAL} , 
+     #{customerreserve6,jdbcType=DECIMAL} , 
+     #{customerreserve7,jdbcType=DECIMAL} , 
+     #{customerreserve8,jdbcType=DECIMAL} , 
+     #{shoptypeid,jdbcType=VARCHAR} , 
+     #{shoptype,jdbcType=VARCHAR} , 
+     #{moneytype,jdbcType=VARCHAR} , 
+     #{moneyask,jdbcType=DECIMAL} , 
+     #{moneyaction,jdbcType=DECIMAL} , 
+     #{moneyexpressask,jdbcType=DECIMAL} , 
+     #{ordertime,jdbcType=TIMESTAMP} , 
+     #{uploadtime,jdbcType=TIMESTAMP} , 
+     #{paytime,jdbcType=TIMESTAMP} , 
+     #{expressweight,jdbcType=DECIMAL} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{status,jdbcType=VARCHAR} , 
+     #{finalvaluefee,jdbcType=DECIMAL} , 
+     #{transactionid,jdbcType=VARCHAR} , 
+     #{sku,jdbcType=VARCHAR} , 
+     #{ordernum,jdbcType=DECIMAL} , 
+     #{costprice,jdbcType=DECIMAL} , 
+     #{sellprice,jdbcType=DECIMAL} , 
+     #{amount,jdbcType=DECIMAL} , 
+     #{originsellprice,jdbcType=DECIMAL} , 
+     #{originexpress,jdbcType=DECIMAL} , 
+     #{origininsurance,jdbcType=DECIMAL} , 
+     #{insurance,jdbcType=DECIMAL} , 
+     #{ebayitemid,jdbcType=VARCHAR} , 
+     #{paypalemail,jdbcType=VARCHAR} , 
+     #{paypalid,jdbcType=VARCHAR} , 
+     #{orderreserve4,jdbcType=DECIMAL} , 
+     #{orderreserve5,jdbcType=DECIMAL} , 
+     #{orderreserve6,jdbcType=DECIMAL} , 
+     #{orderreserve7,jdbcType=DECIMAL} , 
+     #{reserve6,jdbcType=DECIMAL} , 
+     #{reserve7,jdbcType=DECIMAL} , 
+     #{reserve8,jdbcType=DECIMAL} , 
+     #{reserve9,jdbcType=DECIMAL} , 
+     #{errorflag,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{recordnum,jdbcType=DECIMAL} , 
+     #{moneyrate,jdbcType=DECIMAL} , 
+     #{originordermoney,jdbcType=DECIMAL} , 
+     #{originexpressmoney,jdbcType=DECIMAL} , 
+     #{origininsurance1,jdbcType=DECIMAL} , 
+     #{originfinalvaluefee,jdbcType=DECIMAL} , 
+     #{customername,jdbcType=LONGVARCHAR} , 
+     #{customerfirstname,jdbcType=LONGVARCHAR} , 
+     #{customerlastname,jdbcType=LONGVARCHAR} , 
+     #{customertype,jdbcType=LONGVARCHAR} , 
+     #{customertel1,jdbcType=LONGVARCHAR} , 
+     #{customertel2,jdbcType=LONGVARCHAR} , 
+     #{customeremail,jdbcType=LONGVARCHAR} , 
+     #{customercountry,jdbcType=LONGVARCHAR} , 
+     #{customerprovince,jdbcType=LONGVARCHAR} , 
+     #{customercity,jdbcType=LONGVARCHAR} , 
+     #{customeraddress,jdbcType=LONGVARCHAR} , 
+     #{customerreserve1,jdbcType=LONGVARCHAR} , 
+     #{customerreserve2,jdbcType=LONGVARCHAR} , 
+     #{customerreserve3,jdbcType=LONGVARCHAR} , 
+     #{customerreserve4,jdbcType=LONGVARCHAR} , 
+     #{productname,jdbcType=LONGVARCHAR} , 
+     #{descr2,jdbcType=LONGVARCHAR} , 
+     #{shippingservice,jdbcType=LONGVARCHAR} , 
+     #{notetoyourself,jdbcType=LONGVARCHAR} , 
+     #{orderreserve1,jdbcType=LONGVARCHAR} , 
+     #{orderreserve2,jdbcType=LONGVARCHAR} , 
+     #{orderreserve3,jdbcType=LONGVARCHAR} , 
+     #{reserve1,jdbcType=LONGVARCHAR} , 
+     #{reserve2,jdbcType=LONGVARCHAR} , 
+     #{reserve3,jdbcType=LONGVARCHAR} , 
+     #{reserve4,jdbcType=LONGVARCHAR} , 
+     #{reserve5,jdbcType=LONGVARCHAR} , 
+     #{errorinfo,jdbcType=LONGVARCHAR} , 
+     #{ebaycustomeraddress,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    ORDERID , 
+    CORPID , 
+    TRADEID , 
+    MAINTRADEID , 
+    GROUPID , 
+    CUSTOMERID , 
+    CUSTOMERCOUNTRYCN , 
+    CUSTOMERCOUNTRY2 , 
+    CUSTOMERZIPCODE , 
+    CUSTOMERRESERVE5 , 
+    CUSTOMERRESERVE6 , 
+    CUSTOMERRESERVE7 , 
+    CUSTOMERRESERVE8 , 
+    SHOPTYPEID , 
+    SHOPTYPE , 
+    MONEYTYPE , 
+    MONEYASK , 
+    MONEYACTION , 
+    MONEYEXPRESSASK , 
+    ORDERTIME , 
+    UPLOADTIME , 
+    PAYTIME , 
+    EXPRESSWEIGHT , 
+    OPER , 
+    STATUS , 
+    FINALVALUEFEE , 
+    TRANSACTIONID , 
+    SKU , 
+    ORDERNUM , 
+    COSTPRICE , 
+    SELLPRICE , 
+    AMOUNT , 
+    ORIGINSELLPRICE , 
+    ORIGINEXPRESS , 
+    ORIGININSURANCE , 
+    INSURANCE , 
+    EBAYITEMID , 
+    PAYPALEMAIL , 
+    PAYPALID , 
+    ORDERRESERVE4 , 
+    ORDERRESERVE5 , 
+    ORDERRESERVE6 , 
+    ORDERRESERVE7 , 
+    RESERVE6 , 
+    RESERVE7 , 
+    RESERVE8 , 
+    RESERVE9 , 
+    ERRORFLAG , 
+    OPERTIME , 
+    RECORDNUM , 
+    MONEYRATE , 
+    ORIGINORDERMONEY , 
+    ORIGINEXPRESSMONEY , 
+    ORIGININSURANCE1 , 
+    ORIGINFINALVALUEFEE , 
+    CUSTOMERNAME , 
+    CUSTOMERFIRSTNAME , 
+    CUSTOMERLASTNAME , 
+    CUSTOMERTYPE , 
+    CUSTOMERTEL1 , 
+    CUSTOMERTEL2 , 
+    CUSTOMEREMAIL , 
+    CUSTOMERCOUNTRY , 
+    CUSTOMERPROVINCE , 
+    CUSTOMERCITY , 
+    CUSTOMERADDRESS , 
+    CUSTOMERRESERVE1 , 
+    CUSTOMERRESERVE2 , 
+    CUSTOMERRESERVE3 , 
+    CUSTOMERRESERVE4 , 
+    PRODUCTNAME , 
+    DESCR2 , 
+    SHIPPINGSERVICE , 
+    NOTETOYOURSELF , 
+    ORDERRESERVE1 , 
+    ORDERRESERVE2 , 
+    ORDERRESERVE3 , 
+    RESERVE1 , 
+    RESERVE2 , 
+    RESERVE3 , 
+    RESERVE4 , 
+    RESERVE5 , 
+    ERRORINFO , 
+    EBAYCUSTOMERADDRESS
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="orderid != null">
+      ORDERID = #{orderid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="corpid != null">
+      CORPID = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="tradeid != null">
+      TRADEID = #{tradeid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="maintradeid != null">
+      MAINTRADEID = #{maintradeid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="groupid != null">
+      GROUPID = #{groupid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="customerid != null">
+      CUSTOMERID = #{customerid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="customercountrycn != null">
+      CUSTOMERCOUNTRYCN = #{customercountrycn,jdbcType=VARCHAR} and 
+    </if>
+    <if test="customercountry2 != null">
+      CUSTOMERCOUNTRY2 = #{customercountry2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="customerzipcode != null">
+      CUSTOMERZIPCODE = #{customerzipcode,jdbcType=VARCHAR} and 
+    </if>
+    <if test="customerreserve5 != null">
+      CUSTOMERRESERVE5 = #{customerreserve5,jdbcType=DECIMAL} and 
+    </if>
+    <if test="customerreserve6 != null">
+      CUSTOMERRESERVE6 = #{customerreserve6,jdbcType=DECIMAL} and 
+    </if>
+    <if test="customerreserve7 != null">
+      CUSTOMERRESERVE7 = #{customerreserve7,jdbcType=DECIMAL} and 
+    </if>
+    <if test="customerreserve8 != null">
+      CUSTOMERRESERVE8 = #{customerreserve8,jdbcType=DECIMAL} and 
+    </if>
+    <if test="shoptypeid != null">
+      SHOPTYPEID = #{shoptypeid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shoptype != null">
+      SHOPTYPE = #{shoptype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="moneytype != null">
+      MONEYTYPE = #{moneytype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="moneyask != null">
+      MONEYASK = #{moneyask,jdbcType=DECIMAL} and 
+    </if>
+    <if test="moneyaction != null">
+      MONEYACTION = #{moneyaction,jdbcType=DECIMAL} and 
+    </if>
+    <if test="moneyexpressask != null">
+      MONEYEXPRESSASK = #{moneyexpressask,jdbcType=DECIMAL} and 
+    </if>
+    <if test="ordertime != null">
+      ORDERTIME = #{ordertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="uploadtime != null">
+      UPLOADTIME = #{uploadtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="paytime != null">
+      PAYTIME = #{paytime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="expressweight != null">
+      EXPRESSWEIGHT = #{expressweight,jdbcType=DECIMAL} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="status != null">
+      STATUS = #{status,jdbcType=VARCHAR} and 
+    </if>
+    <if test="finalvaluefee != null">
+      FINALVALUEFEE = #{finalvaluefee,jdbcType=DECIMAL} and 
+    </if>
+    <if test="transactionid != null">
+      TRANSACTIONID = #{transactionid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sku != null">
+      SKU = #{sku,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ordernum != null">
+      ORDERNUM = #{ordernum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="costprice != null">
+      COSTPRICE = #{costprice,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sellprice != null">
+      SELLPRICE = #{sellprice,jdbcType=DECIMAL} and 
+    </if>
+    <if test="amount != null">
+      AMOUNT = #{amount,jdbcType=DECIMAL} and 
+    </if>
+    <if test="originsellprice != null">
+      ORIGINSELLPRICE = #{originsellprice,jdbcType=DECIMAL} and 
+    </if>
+    <if test="originexpress != null">
+      ORIGINEXPRESS = #{originexpress,jdbcType=DECIMAL} and 
+    </if>
+    <if test="origininsurance != null">
+      ORIGININSURANCE = #{origininsurance,jdbcType=DECIMAL} and 
+    </if>
+    <if test="insurance != null">
+      INSURANCE = #{insurance,jdbcType=DECIMAL} and 
+    </if>
+    <if test="ebayitemid != null">
+      EBAYITEMID = #{ebayitemid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="paypalemail != null">
+      PAYPALEMAIL = #{paypalemail,jdbcType=VARCHAR} and 
+    </if>
+    <if test="paypalid != null">
+      PAYPALID = #{paypalid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="orderreserve4 != null">
+      ORDERRESERVE4 = #{orderreserve4,jdbcType=DECIMAL} and 
+    </if>
+    <if test="orderreserve5 != null">
+      ORDERRESERVE5 = #{orderreserve5,jdbcType=DECIMAL} and 
+    </if>
+    <if test="orderreserve6 != null">
+      ORDERRESERVE6 = #{orderreserve6,jdbcType=DECIMAL} and 
+    </if>
+    <if test="orderreserve7 != null">
+      ORDERRESERVE7 = #{orderreserve7,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve6 != null">
+      RESERVE6 = #{reserve6,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve7 != null">
+      RESERVE7 = #{reserve7,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve8 != null">
+      RESERVE8 = #{reserve8,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve9 != null">
+      RESERVE9 = #{reserve9,jdbcType=DECIMAL} and 
+    </if>
+    <if test="errorflag != null">
+      ERRORFLAG = #{errorflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="recordnum != null">
+      RECORDNUM = #{recordnum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="moneyrate != null">
+      MONEYRATE = #{moneyrate,jdbcType=DECIMAL} and 
+    </if>
+    <if test="originordermoney != null">
+      ORIGINORDERMONEY = #{originordermoney,jdbcType=DECIMAL} and 
+    </if>
+    <if test="originexpressmoney != null">
+      ORIGINEXPRESSMONEY = #{originexpressmoney,jdbcType=DECIMAL} and 
+    </if>
+    <if test="origininsurance1 != null">
+      ORIGININSURANCE1 = #{origininsurance1,jdbcType=DECIMAL} and 
+    </if>
+    <if test="originfinalvaluefee != null">
+      ORIGINFINALVALUEFEE = #{originfinalvaluefee,jdbcType=DECIMAL} and 
+    </if>
+    <if test="customername != null">
+      CUSTOMERNAME = #{customername,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="customerfirstname != null">
+      CUSTOMERFIRSTNAME = #{customerfirstname,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="customerlastname != null">
+      CUSTOMERLASTNAME = #{customerlastname,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="customertype != null">
+      CUSTOMERTYPE = #{customertype,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="customertel1 != null">
+      CUSTOMERTEL1 = #{customertel1,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="customertel2 != null">
+      CUSTOMERTEL2 = #{customertel2,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="customeremail != null">
+      CUSTOMEREMAIL = #{customeremail,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="customercountry != null">
+      CUSTOMERCOUNTRY = #{customercountry,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="customerprovince != null">
+      CUSTOMERPROVINCE = #{customerprovince,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="customercity != null">
+      CUSTOMERCITY = #{customercity,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="customeraddress != null">
+      CUSTOMERADDRESS = #{customeraddress,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="customerreserve1 != null">
+      CUSTOMERRESERVE1 = #{customerreserve1,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="customerreserve2 != null">
+      CUSTOMERRESERVE2 = #{customerreserve2,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="customerreserve3 != null">
+      CUSTOMERRESERVE3 = #{customerreserve3,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="customerreserve4 != null">
+      CUSTOMERRESERVE4 = #{customerreserve4,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="productname != null">
+      PRODUCTNAME = #{productname,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="descr2 != null">
+      DESCR2 = #{descr2,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="shippingservice != null">
+      SHIPPINGSERVICE = #{shippingservice,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="notetoyourself != null">
+      NOTETOYOURSELF = #{notetoyourself,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="orderreserve1 != null">
+      ORDERRESERVE1 = #{orderreserve1,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="orderreserve2 != null">
+      ORDERRESERVE2 = #{orderreserve2,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="orderreserve3 != null">
+      ORDERRESERVE3 = #{orderreserve3,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="reserve4 != null">
+      RESERVE4 = #{reserve4,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="reserve5 != null">
+      RESERVE5 = #{reserve5,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="errorinfo != null">
+      ERRORINFO = #{errorinfo,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="ebaycustomeraddress != null">
+      EBAYCUSTOMERADDRESS = #{ebaycustomeraddress,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="orderid != null">
+      ORDERID = #{orderid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="corpid != null">
+      CORPID = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="tradeid != null">
+      TRADEID = #{tradeid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="maintradeid != null">
+      MAINTRADEID = #{maintradeid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="groupid != null">
+      GROUPID = #{groupid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="customerid != null">
+      CUSTOMERID = #{customerid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="customercountrycn != null">
+      CUSTOMERCOUNTRYCN = #{customercountrycn,jdbcType=VARCHAR} , 
+    </if>
+    <if test="customercountry2 != null">
+      CUSTOMERCOUNTRY2 = #{customercountry2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="customerzipcode != null">
+      CUSTOMERZIPCODE = #{customerzipcode,jdbcType=VARCHAR} , 
+    </if>
+    <if test="customerreserve5 != null">
+      CUSTOMERRESERVE5 = #{customerreserve5,jdbcType=DECIMAL} , 
+    </if>
+    <if test="customerreserve6 != null">
+      CUSTOMERRESERVE6 = #{customerreserve6,jdbcType=DECIMAL} , 
+    </if>
+    <if test="customerreserve7 != null">
+      CUSTOMERRESERVE7 = #{customerreserve7,jdbcType=DECIMAL} , 
+    </if>
+    <if test="customerreserve8 != null">
+      CUSTOMERRESERVE8 = #{customerreserve8,jdbcType=DECIMAL} , 
+    </if>
+    <if test="shoptypeid != null">
+      SHOPTYPEID = #{shoptypeid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shoptype != null">
+      SHOPTYPE = #{shoptype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="moneytype != null">
+      MONEYTYPE = #{moneytype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="moneyask != null">
+      MONEYASK = #{moneyask,jdbcType=DECIMAL} , 
+    </if>
+    <if test="moneyaction != null">
+      MONEYACTION = #{moneyaction,jdbcType=DECIMAL} , 
+    </if>
+    <if test="moneyexpressask != null">
+      MONEYEXPRESSASK = #{moneyexpressask,jdbcType=DECIMAL} , 
+    </if>
+    <if test="ordertime != null">
+      ORDERTIME = #{ordertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="uploadtime != null">
+      UPLOADTIME = #{uploadtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="paytime != null">
+      PAYTIME = #{paytime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="expressweight != null">
+      EXPRESSWEIGHT = #{expressweight,jdbcType=DECIMAL} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="status != null">
+      STATUS = #{status,jdbcType=VARCHAR} , 
+    </if>
+    <if test="finalvaluefee != null">
+      FINALVALUEFEE = #{finalvaluefee,jdbcType=DECIMAL} , 
+    </if>
+    <if test="transactionid != null">
+      TRANSACTIONID = #{transactionid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sku != null">
+      SKU = #{sku,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ordernum != null">
+      ORDERNUM = #{ordernum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="costprice != null">
+      COSTPRICE = #{costprice,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sellprice != null">
+      SELLPRICE = #{sellprice,jdbcType=DECIMAL} , 
+    </if>
+    <if test="amount != null">
+      AMOUNT = #{amount,jdbcType=DECIMAL} , 
+    </if>
+    <if test="originsellprice != null">
+      ORIGINSELLPRICE = #{originsellprice,jdbcType=DECIMAL} , 
+    </if>
+    <if test="originexpress != null">
+      ORIGINEXPRESS = #{originexpress,jdbcType=DECIMAL} , 
+    </if>
+    <if test="origininsurance != null">
+      ORIGININSURANCE = #{origininsurance,jdbcType=DECIMAL} , 
+    </if>
+    <if test="insurance != null">
+      INSURANCE = #{insurance,jdbcType=DECIMAL} , 
+    </if>
+    <if test="ebayitemid != null">
+      EBAYITEMID = #{ebayitemid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="paypalemail != null">
+      PAYPALEMAIL = #{paypalemail,jdbcType=VARCHAR} , 
+    </if>
+    <if test="paypalid != null">
+      PAYPALID = #{paypalid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="orderreserve4 != null">
+      ORDERRESERVE4 = #{orderreserve4,jdbcType=DECIMAL} , 
+    </if>
+    <if test="orderreserve5 != null">
+      ORDERRESERVE5 = #{orderreserve5,jdbcType=DECIMAL} , 
+    </if>
+    <if test="orderreserve6 != null">
+      ORDERRESERVE6 = #{orderreserve6,jdbcType=DECIMAL} , 
+    </if>
+    <if test="orderreserve7 != null">
+      ORDERRESERVE7 = #{orderreserve7,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve6 != null">
+      RESERVE6 = #{reserve6,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve7 != null">
+      RESERVE7 = #{reserve7,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve8 != null">
+      RESERVE8 = #{reserve8,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve9 != null">
+      RESERVE9 = #{reserve9,jdbcType=DECIMAL} , 
+    </if>
+    <if test="errorflag != null">
+      ERRORFLAG = #{errorflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="recordnum != null">
+      RECORDNUM = #{recordnum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="moneyrate != null">
+      MONEYRATE = #{moneyrate,jdbcType=DECIMAL} , 
+    </if>
+    <if test="originordermoney != null">
+      ORIGINORDERMONEY = #{originordermoney,jdbcType=DECIMAL} , 
+    </if>
+    <if test="originexpressmoney != null">
+      ORIGINEXPRESSMONEY = #{originexpressmoney,jdbcType=DECIMAL} , 
+    </if>
+    <if test="origininsurance1 != null">
+      ORIGININSURANCE1 = #{origininsurance1,jdbcType=DECIMAL} , 
+    </if>
+    <if test="originfinalvaluefee != null">
+      ORIGINFINALVALUEFEE = #{originfinalvaluefee,jdbcType=DECIMAL} , 
+    </if>
+    <if test="customername != null">
+      CUSTOMERNAME = #{customername,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="customerfirstname != null">
+      CUSTOMERFIRSTNAME = #{customerfirstname,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="customerlastname != null">
+      CUSTOMERLASTNAME = #{customerlastname,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="customertype != null">
+      CUSTOMERTYPE = #{customertype,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="customertel1 != null">
+      CUSTOMERTEL1 = #{customertel1,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="customertel2 != null">
+      CUSTOMERTEL2 = #{customertel2,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="customeremail != null">
+      CUSTOMEREMAIL = #{customeremail,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="customercountry != null">
+      CUSTOMERCOUNTRY = #{customercountry,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="customerprovince != null">
+      CUSTOMERPROVINCE = #{customerprovince,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="customercity != null">
+      CUSTOMERCITY = #{customercity,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="customeraddress != null">
+      CUSTOMERADDRESS = #{customeraddress,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="customerreserve1 != null">
+      CUSTOMERRESERVE1 = #{customerreserve1,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="customerreserve2 != null">
+      CUSTOMERRESERVE2 = #{customerreserve2,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="customerreserve3 != null">
+      CUSTOMERRESERVE3 = #{customerreserve3,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="customerreserve4 != null">
+      CUSTOMERRESERVE4 = #{customerreserve4,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="productname != null">
+      PRODUCTNAME = #{productname,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="descr2 != null">
+      DESCR2 = #{descr2,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="shippingservice != null">
+      SHIPPINGSERVICE = #{shippingservice,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="notetoyourself != null">
+      NOTETOYOURSELF = #{notetoyourself,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="orderreserve1 != null">
+      ORDERRESERVE1 = #{orderreserve1,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="orderreserve2 != null">
+      ORDERRESERVE2 = #{orderreserve2,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="orderreserve3 != null">
+      ORDERRESERVE3 = #{orderreserve3,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="reserve4 != null">
+      RESERVE4 = #{reserve4,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="reserve5 != null">
+      RESERVE5 = #{reserve5,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="errorinfo != null">
+      ERRORINFO = #{errorinfo,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="ebaycustomeraddress != null">
+      EBAYCUSTOMERADDRESS = #{ebaycustomeraddress,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbAliorderinfo" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbAliorderinfo">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbAliorderinfo">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbAliorderinfo">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

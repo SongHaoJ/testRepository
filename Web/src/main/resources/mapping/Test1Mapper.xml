@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.Test1Mapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.Test1">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="t1" jdbcType="VARCHAR" property="t1" />
+    <result column="t2" jdbcType="VARCHAR" property="t2" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="token" jdbcType="VARCHAR" property="token" />
+    <result column="stockid" jdbcType="INTEGER" property="stockid" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, t1, t2, url, token, stockid
+    from test1
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, t1, t2, url, token, stockid
+    from test1
+  </select>
+  <sql id="TableName">
+    test1
+  </sql>
+  <sql id="Values">
+     #{id,jdbcType=INTEGER} , 
+     #{t1,jdbcType=VARCHAR} , 
+     #{t2,jdbcType=VARCHAR} , 
+     #{url,jdbcType=VARCHAR} , 
+     #{token,jdbcType=VARCHAR} , 
+     #{stockid,jdbcType=INTEGER}
+  </sql>
+  <sql id="Columns">
+    ID , 
+    T1 , 
+    T2 , 
+    URL , 
+    TOKEN , 
+    STOCKID
+  </sql>
+  <sql id="Criteria">
+    <if test="id != null">
+      ID = #{id,jdbcType=INTEGER} and 
+    </if>
+    <if test="t1 != null">
+      T1 = #{t1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="t2 != null">
+      T2 = #{t2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="url != null">
+      URL = #{url,jdbcType=VARCHAR} and 
+    </if>
+    <if test="token != null">
+      TOKEN = #{token,jdbcType=VARCHAR} and 
+    </if>
+    <if test="stockid != null">
+      STOCKID = #{stockid,jdbcType=INTEGER}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="id != null">
+      ID = #{id,jdbcType=INTEGER} , 
+    </if>
+    <if test="t1 != null">
+      T1 = #{t1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="t2 != null">
+      T2 = #{t2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="url != null">
+      URL = #{url,jdbcType=VARCHAR} , 
+    </if>
+    <if test="token != null">
+      TOKEN = #{token,jdbcType=VARCHAR} , 
+    </if>
+    <if test="stockid != null">
+      STOCKID = #{stockid,jdbcType=INTEGER}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.Test1" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="Integer">
+    delete from <include refid="TableName"/> where id=#{id}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.Test1">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.Test1">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.Test1">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

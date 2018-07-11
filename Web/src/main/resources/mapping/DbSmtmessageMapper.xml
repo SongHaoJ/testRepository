@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbSmtmessageMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbSmtmessage">
+    <id column="SID" jdbcType="VARCHAR" property="sid" />
+    <result column="SENDERNAME" jdbcType="VARCHAR" property="sendername" />
+    <result column="SENDERLOGINID" jdbcType="VARCHAR" property="senderloginid" />
+    <result column="READ" jdbcType="VARCHAR" property="read" />
+    <result column="RECEIVENAME" jdbcType="VARCHAR" property="receivename" />
+    <result column="RECEIVELOGINID" jdbcType="VARCHAR" property="receiveloginid" />
+    <result column="CREATEDATE" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="RECEIVEDATE" jdbcType="TIMESTAMP" property="receivedate" />
+    <result column="MESSAGETYPE" jdbcType="VARCHAR" property="messagetype" />
+    <result column="HAVEFILE" jdbcType="VARCHAR" property="havefile" />
+    <result column="ITEMID" jdbcType="VARCHAR" property="itemid" />
+    <result column="PRODUCTID" jdbcType="VARCHAR" property="productid" />
+    <result column="ORDERID" jdbcType="VARCHAR" property="orderid" />
+    <result column="RELATIONID" jdbcType="VARCHAR" property="relationid" />
+    <result column="SMTTYPEID" jdbcType="VARCHAR" property="smttypeid" />
+    <result column="SHOPTYPEID" jdbcType="VARCHAR" property="shoptypeid" />
+    <result column="SHOPTYPENAME" jdbcType="VARCHAR" property="shoptypename" />
+    <result column="CATEGORYID" jdbcType="VARCHAR" property="categoryid" />
+    <result column="CATEGORYNAME" jdbcType="VARCHAR" property="categoryname" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="APPLYOPER" jdbcType="VARCHAR" property="applyoper" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="ASSIGNOPER" jdbcType="VARCHAR" property="assignoper" />
+    <result column="ASSIGNOPERTIME" jdbcType="TIMESTAMP" property="assignopertime" />
+    <result column="UPDATEFLAG" jdbcType="VARCHAR" property="updateflag" />
+    <result column="UPDATETIME" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
+    <result column="CUSTOMERTYPEID" jdbcType="DECIMAL" property="customertypeid" />
+    <result column="CUSTOMERTYPE" jdbcType="VARCHAR" property="customertype" />
+    <result column="TYPEID" jdbcType="VARCHAR" property="typeid" />
+    <result column="TYPENAME" jdbcType="VARCHAR" property="typename" />
+    <result column="TYPECOLOR" jdbcType="VARCHAR" property="typecolor" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
+    <result column="RESERVE4" jdbcType="VARCHAR" property="reserve4" />
+    <result column="RESERVE5" jdbcType="VARCHAR" property="reserve5" />
+    <result column="RESERVE6" jdbcType="VARCHAR" property="reserve6" />
+    <result column="PRODUCTURL" jdbcType="LONGVARCHAR" property="producturl" />
+    <result column="FILEURL" jdbcType="LONGVARCHAR" property="fileurl" />
+    <result column="ORDERURL" jdbcType="LONGVARCHAR" property="orderurl" />
+    <result column="PRODUCTNAME" jdbcType="LONGVARCHAR" property="productname" />
+    <result column="CONTENT" jdbcType="LONGVARCHAR" property="content" />
+    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
+    <result column="ANSWER" jdbcType="LONGVARCHAR" property="answer" />
+    <result column="UPDATEDESCR" jdbcType="LONGVARCHAR" property="updatedescr" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SID, SENDERNAME, SENDERLOGINID, READ, RECEIVENAME, RECEIVELOGINID, CREATEDATE, 
+    RECEIVEDATE, MESSAGETYPE, HAVEFILE, ITEMID, PRODUCTID, ORDERID, RELATIONID, SMTTYPEID, 
+    SHOPTYPEID, SHOPTYPENAME, CATEGORYID, CATEGORYNAME, STATUS, APPLYOPER, OPER, OPERTIME, 
+    ASSIGNOPER, ASSIGNOPERTIME, UPDATEFLAG, UPDATETIME, OPENFLAG, CUSTOMERTYPEID, CUSTOMERTYPE, 
+    TYPEID, TYPENAME, TYPECOLOR, RESERVE1, RESERVE2, RESERVE3, RESERVE4, RESERVE5, RESERVE6, 
+    PRODUCTURL, FILEURL, ORDERURL, PRODUCTNAME, CONTENT, DESCR, ANSWER, UPDATEDESCR
+    from db_smtmessage
+    where SID = #{sid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, SENDERNAME, SENDERLOGINID, READ, RECEIVENAME, RECEIVELOGINID, CREATEDATE, 
+    RECEIVEDATE, MESSAGETYPE, HAVEFILE, ITEMID, PRODUCTID, ORDERID, RELATIONID, SMTTYPEID, 
+    SHOPTYPEID, SHOPTYPENAME, CATEGORYID, CATEGORYNAME, STATUS, APPLYOPER, OPER, OPERTIME, 
+    ASSIGNOPER, ASSIGNOPERTIME, UPDATEFLAG, UPDATETIME, OPENFLAG, CUSTOMERTYPEID, CUSTOMERTYPE, 
+    TYPEID, TYPENAME, TYPECOLOR, RESERVE1, RESERVE2, RESERVE3, RESERVE4, RESERVE5, RESERVE6, 
+    PRODUCTURL, FILEURL, ORDERURL, PRODUCTNAME, CONTENT, DESCR, ANSWER, UPDATEDESCR
+    from db_smtmessage
+  </select>
+  <sql id="TableName">
+    db_smtmessage
+  </sql>
+  <sql id="Values">
+     #{sid,jdbcType=VARCHAR} , 
+     #{sendername,jdbcType=VARCHAR} , 
+     #{senderloginid,jdbcType=VARCHAR} , 
+     #{read,jdbcType=VARCHAR} , 
+     #{receivename,jdbcType=VARCHAR} , 
+     #{receiveloginid,jdbcType=VARCHAR} , 
+     #{createdate,jdbcType=TIMESTAMP} , 
+     #{receivedate,jdbcType=TIMESTAMP} , 
+     #{messagetype,jdbcType=VARCHAR} , 
+     #{havefile,jdbcType=VARCHAR} , 
+     #{itemid,jdbcType=VARCHAR} , 
+     #{productid,jdbcType=VARCHAR} , 
+     #{orderid,jdbcType=VARCHAR} , 
+     #{relationid,jdbcType=VARCHAR} , 
+     #{smttypeid,jdbcType=VARCHAR} , 
+     #{shoptypeid,jdbcType=VARCHAR} , 
+     #{shoptypename,jdbcType=VARCHAR} , 
+     #{categoryid,jdbcType=VARCHAR} , 
+     #{categoryname,jdbcType=VARCHAR} , 
+     #{status,jdbcType=VARCHAR} , 
+     #{applyoper,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{assignoper,jdbcType=VARCHAR} , 
+     #{assignopertime,jdbcType=TIMESTAMP} , 
+     #{updateflag,jdbcType=VARCHAR} , 
+     #{updatetime,jdbcType=TIMESTAMP} , 
+     #{openflag,jdbcType=VARCHAR} , 
+     #{customertypeid,jdbcType=DECIMAL} , 
+     #{customertype,jdbcType=VARCHAR} , 
+     #{typeid,jdbcType=VARCHAR} , 
+     #{typename,jdbcType=VARCHAR} , 
+     #{typecolor,jdbcType=VARCHAR} , 
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+     #{reserve3,jdbcType=VARCHAR} , 
+     #{reserve4,jdbcType=VARCHAR} , 
+     #{reserve5,jdbcType=VARCHAR} , 
+     #{reserve6,jdbcType=VARCHAR} , 
+     #{producturl,jdbcType=LONGVARCHAR} , 
+     #{fileurl,jdbcType=LONGVARCHAR} , 
+     #{orderurl,jdbcType=LONGVARCHAR} , 
+     #{productname,jdbcType=LONGVARCHAR} , 
+     #{content,jdbcType=LONGVARCHAR} , 
+     #{descr,jdbcType=LONGVARCHAR} , 
+     #{answer,jdbcType=LONGVARCHAR} , 
+     #{updatedescr,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    SID , 
+    SENDERNAME , 
+    SENDERLOGINID , 
+    READ , 
+    RECEIVENAME , 
+    RECEIVELOGINID , 
+    CREATEDATE , 
+    RECEIVEDATE , 
+    MESSAGETYPE , 
+    HAVEFILE , 
+    ITEMID , 
+    PRODUCTID , 
+    ORDERID , 
+    RELATIONID , 
+    SMTTYPEID , 
+    SHOPTYPEID , 
+    SHOPTYPENAME , 
+    CATEGORYID , 
+    CATEGORYNAME , 
+    STATUS , 
+    APPLYOPER , 
+    OPER , 
+    OPERTIME , 
+    ASSIGNOPER , 
+    ASSIGNOPERTIME , 
+    UPDATEFLAG , 
+    UPDATETIME , 
+    OPENFLAG , 
+    CUSTOMERTYPEID , 
+    CUSTOMERTYPE , 
+    TYPEID , 
+    TYPENAME , 
+    TYPECOLOR , 
+    RESERVE1 , 
+    RESERVE2 , 
+    RESERVE3 , 
+    RESERVE4 , 
+    RESERVE5 , 
+    RESERVE6 , 
+    PRODUCTURL , 
+    FILEURL , 
+    ORDERURL , 
+    PRODUCTNAME , 
+    CONTENT , 
+    DESCR , 
+    ANSWER , 
+    UPDATEDESCR
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sendername != null">
+      SENDERNAME = #{sendername,jdbcType=VARCHAR} and 
+    </if>
+    <if test="senderloginid != null">
+      SENDERLOGINID = #{senderloginid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="read != null">
+      READ = #{read,jdbcType=VARCHAR} and 
+    </if>
+    <if test="receivename != null">
+      RECEIVENAME = #{receivename,jdbcType=VARCHAR} and 
+    </if>
+    <if test="receiveloginid != null">
+      RECEIVELOGINID = #{receiveloginid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="createdate != null">
+      CREATEDATE = #{createdate,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="receivedate != null">
+      RECEIVEDATE = #{receivedate,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="messagetype != null">
+      MESSAGETYPE = #{messagetype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="havefile != null">
+      HAVEFILE = #{havefile,jdbcType=VARCHAR} and 
+    </if>
+    <if test="itemid != null">
+      ITEMID = #{itemid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="productid != null">
+      PRODUCTID = #{productid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="orderid != null">
+      ORDERID = #{orderid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="relationid != null">
+      RELATIONID = #{relationid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="smttypeid != null">
+      SMTTYPEID = #{smttypeid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shoptypeid != null">
+      SHOPTYPEID = #{shoptypeid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shoptypename != null">
+      SHOPTYPENAME = #{shoptypename,jdbcType=VARCHAR} and 
+    </if>
+    <if test="categoryid != null">
+      CATEGORYID = #{categoryid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="categoryname != null">
+      CATEGORYNAME = #{categoryname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="status != null">
+      STATUS = #{status,jdbcType=VARCHAR} and 
+    </if>
+    <if test="applyoper != null">
+      APPLYOPER = #{applyoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="assignoper != null">
+      ASSIGNOPER = #{assignoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="assignopertime != null">
+      ASSIGNOPERTIME = #{assignopertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="updateflag != null">
+      UPDATEFLAG = #{updateflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="updatetime != null">
+      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="customertypeid != null">
+      CUSTOMERTYPEID = #{customertypeid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="customertype != null">
+      CUSTOMERTYPE = #{customertype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="typeid != null">
+      TYPEID = #{typeid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="typename != null">
+      TYPENAME = #{typename,jdbcType=VARCHAR} and 
+    </if>
+    <if test="typecolor != null">
+      TYPECOLOR = #{typecolor,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      RESERVE3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve4 != null">
+      RESERVE4 = #{reserve4,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve5 != null">
+      RESERVE5 = #{reserve5,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve6 != null">
+      RESERVE6 = #{reserve6,jdbcType=VARCHAR} and 
+    </if>
+    <if test="producturl != null">
+      PRODUCTURL = #{producturl,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="fileurl != null">
+      FILEURL = #{fileurl,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="orderurl != null">
+      ORDERURL = #{orderurl,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="productname != null">
+      PRODUCTNAME = #{productname,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="content != null">
+      CONTENT = #{content,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="descr != null">
+      DESCR = #{descr,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="answer != null">
+      ANSWER = #{answer,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="updatedescr != null">
+      UPDATEDESCR = #{updatedescr,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sendername != null">
+      SENDERNAME = #{sendername,jdbcType=VARCHAR} , 
+    </if>
+    <if test="senderloginid != null">
+      SENDERLOGINID = #{senderloginid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="read != null">
+      READ = #{read,jdbcType=VARCHAR} , 
+    </if>
+    <if test="receivename != null">
+      RECEIVENAME = #{receivename,jdbcType=VARCHAR} , 
+    </if>
+    <if test="receiveloginid != null">
+      RECEIVELOGINID = #{receiveloginid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="createdate != null">
+      CREATEDATE = #{createdate,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="receivedate != null">
+      RECEIVEDATE = #{receivedate,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="messagetype != null">
+      MESSAGETYPE = #{messagetype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="havefile != null">
+      HAVEFILE = #{havefile,jdbcType=VARCHAR} , 
+    </if>
+    <if test="itemid != null">
+      ITEMID = #{itemid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="productid != null">
+      PRODUCTID = #{productid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="orderid != null">
+      ORDERID = #{orderid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="relationid != null">
+      RELATIONID = #{relationid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="smttypeid != null">
+      SMTTYPEID = #{smttypeid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shoptypeid != null">
+      SHOPTYPEID = #{shoptypeid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shoptypename != null">
+      SHOPTYPENAME = #{shoptypename,jdbcType=VARCHAR} , 
+    </if>
+    <if test="categoryid != null">
+      CATEGORYID = #{categoryid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="categoryname != null">
+      CATEGORYNAME = #{categoryname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="status != null">
+      STATUS = #{status,jdbcType=VARCHAR} , 
+    </if>
+    <if test="applyoper != null">
+      APPLYOPER = #{applyoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="assignoper != null">
+      ASSIGNOPER = #{assignoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="assignopertime != null">
+      ASSIGNOPERTIME = #{assignopertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="updateflag != null">
+      UPDATEFLAG = #{updateflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="updatetime != null">
+      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="customertypeid != null">
+      CUSTOMERTYPEID = #{customertypeid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="customertype != null">
+      CUSTOMERTYPE = #{customertype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="typeid != null">
+      TYPEID = #{typeid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="typename != null">
+      TYPENAME = #{typename,jdbcType=VARCHAR} , 
+    </if>
+    <if test="typecolor != null">
+      TYPECOLOR = #{typecolor,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve1 != null">
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      RESERVE3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve4 != null">
+      RESERVE4 = #{reserve4,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve5 != null">
+      RESERVE5 = #{reserve5,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve6 != null">
+      RESERVE6 = #{reserve6,jdbcType=VARCHAR} , 
+    </if>
+    <if test="producturl != null">
+      PRODUCTURL = #{producturl,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="fileurl != null">
+      FILEURL = #{fileurl,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="orderurl != null">
+      ORDERURL = #{orderurl,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="productname != null">
+      PRODUCTNAME = #{productname,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="content != null">
+      CONTENT = #{content,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="descr != null">
+      DESCR = #{descr,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="answer != null">
+      ANSWER = #{answer,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="updatedescr != null">
+      UPDATEDESCR = #{updatedescr,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbSmtmessage" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SID=#{SID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbSmtmessage">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbSmtmessage">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbSmtmessage">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

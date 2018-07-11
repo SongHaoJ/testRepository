@@ -1,7 +1,9 @@
 package com.bean.dao;
 
 import com.bean.model.DbAsktradernumber;
+import org.springframework.stereotype.Service;
 
+@Service
 public interface DbAsktradernumberMapper {
     int deleteByPrimaryKey(String sequenceid);
 
@@ -13,7 +15,4 @@ public interface DbAsktradernumberMapper {
 
     int updateByPrimaryKeySelective(DbAsktradernumber record);
 
-    int updateByPrimaryKeyWithBLOBs(DbAsktradernumber record);
-
-    int updateByPrimaryKey(DbAsktradernumber record);
 }

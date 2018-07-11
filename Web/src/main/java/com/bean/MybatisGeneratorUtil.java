@@ -13,7 +13,6 @@ import org.mybatis.generator.exception.XMLParserException;
 import org.mybatis.generator.internal.DefaultShellCallback;
 
 
-
 import java.io.File;
 
 import java.io.IOException;
@@ -24,7 +23,7 @@ import java.util.ArrayList;
 
 import java.util.List;
 
-public class MybatisGeneratorUtil  {
+public class MybatisGeneratorUtil {
 
     public static void main(String[] args) {
 
@@ -41,12 +40,11 @@ public class MybatisGeneratorUtil  {
             ConfigurationParser cp = new ConfigurationParser(warnings);
 
 
-
-            Configuration config =cp.parseConfiguration(configFile);
+            Configuration config = cp.parseConfiguration(configFile);
 
             DefaultShellCallback callback = new DefaultShellCallback(overwrite);
 
-            MyBatisGenerator myBatisGenerator =new MyBatisGenerator(config, callback, warnings);
+            MyBatisGenerator myBatisGenerator = new MyBatisGenerator(config, callback, warnings);
 
             myBatisGenerator.generate(null);
 

@@ -91,16 +91,16 @@
       <include refid="Criteria"/>
     </where>
   </select>
+  <select id="selectMaxId">
+    select max(cast(sequenceid as unsigned int) ) from db_moneyrate;
+  </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
-    select 
+    select
     <include refid="Base_Column_List" />
     ,
     <include refid="Blob_Column_List" />
     from db_moneyrate
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
-  </select>
-  <select id="selectMaxId">
-    select max(cast(sequenceid as unsigned int) ) from db_moneyrate;
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from db_moneyrate

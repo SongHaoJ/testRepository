@@ -84,12 +84,13 @@
     FILED16, FILED17, FILED18
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
-    select 
+    select
     <include refid="Base_Column_List" />
     ,
     <include refid="Blob_Column_List" />
     from db_expresstype
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+    <where> SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+    </where>
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from db_expresstype
@@ -734,129 +735,6 @@
         FILED18 = #{filed18,jdbcType=LONGVARCHAR},
       </if>
     </set>
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbExpresstype">
-    update db_expresstype
-    set 'NAME' = #{name,jdbcType=VARCHAR},
-      OPER = #{oper,jdbcType=VARCHAR},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      FILED8 = #{filed8,jdbcType=DECIMAL},
-      FILED9 = #{filed9,jdbcType=DECIMAL},
-      FILED10 = #{filed10,jdbcType=DECIMAL},
-      CORPID = #{corpid,jdbcType=VARCHAR},
-      OPENFLAG = #{openflag,jdbcType=VARCHAR},
-      FILED11 = #{filed11,jdbcType=DECIMAL},
-      FILED12 = #{filed12,jdbcType=DECIMAL},
-      FILED13 = #{filed13,jdbcType=DECIMAL},
-      NAMEEN = #{nameen,jdbcType=VARCHAR},
-      EXPRESSTYPEFEEID = #{expresstypefeeid,jdbcType=VARCHAR},
-      TOKENCONFIGID = #{tokenconfigid,jdbcType=VARCHAR},
-      TOKEN = #{token,jdbcType=VARCHAR},
-      USERKEY = #{userkey,jdbcType=VARCHAR},
-      CUSTOMUSERKEY = #{customuserkey,jdbcType=VARCHAR},
-      EXPRESSTYPENEW = #{expresstypenew,jdbcType=VARCHAR},
-      CONTACT = #{contact,jdbcType=VARCHAR},
-      COMPAN = #{compan,jdbcType=VARCHAR},
-      STREET1 = #{street1,jdbcType=VARCHAR},
-      STREET2 = #{street2,jdbcType=VARCHAR},
-      CITY = #{city,jdbcType=VARCHAR},
-      PROVINCE = #{province,jdbcType=VARCHAR},
-      COUNTRY = #{country,jdbcType=VARCHAR},
-      POSTCODE = #{postcode,jdbcType=VARCHAR},
-      PHONE = #{phone,jdbcType=VARCHAR},
-      EMAIL = #{email,jdbcType=VARCHAR},
-      DISTRICT = #{district,jdbcType=VARCHAR},
-      DISTRICTCODE = #{districtcode,jdbcType=VARCHAR},
-      CITYCODE = #{citycode,jdbcType=VARCHAR},
-      PROVINCECODE = #{provincecode,jdbcType=VARCHAR},
-      'LENGTH' = #{length,jdbcType=DECIMAL},
-      WIDTH = #{width,jdbcType=DECIMAL},
-      HEIGHT = #{height,jdbcType=DECIMAL},
-      CITYID = #{cityid,jdbcType=VARCHAR},
-      PROVINCEID = #{provinceid,jdbcType=VARCHAR},
-      DISTRICTID = #{districtid,jdbcType=VARCHAR},
-      STORAGENAME = #{storagename,jdbcType=VARCHAR},
-      STORAGECODE = #{storagecode,jdbcType=VARCHAR},
-      CKYFLAG = #{ckyflag,jdbcType=DECIMAL},
-      INSURED = #{insured,jdbcType=DECIMAL},
-      CODE = #{code,jdbcType=VARCHAR},
-      DHEXPRESSTYPE = #{dhexpresstype,jdbcType=VARCHAR},
-      LAZADAEXPRESSTYPE = #{lazadaexpresstype,jdbcType=VARCHAR},
-      DECLAREDVALUEMIN = #{declaredvaluemin,jdbcType=DECIMAL},
-      DECLAREDVALUEMAX = #{declaredvaluemax,jdbcType=DECIMAL},
-      DECLCURRENCY = #{declcurrency,jdbcType=VARCHAR},
-      SHOPIFYEXPRESSTYPE = #{shopifyexpresstype,jdbcType=VARCHAR},
-      SHOPEEEXPRESSTYPE = #{shopeeexpresstype,jdbcType=VARCHAR},
-      UPLOADNUM = #{uploadnum,jdbcType=VARCHAR},
-      DESCR = #{descr,jdbcType=LONGVARCHAR},
-      FILED1 = #{filed1,jdbcType=LONGVARCHAR},
-      FILED2 = #{filed2,jdbcType=LONGVARCHAR},
-      FILED3 = #{filed3,jdbcType=LONGVARCHAR},
-      FILED4 = #{filed4,jdbcType=LONGVARCHAR},
-      FILED5 = #{filed5,jdbcType=LONGVARCHAR},
-      FILED6 = #{filed6,jdbcType=LONGVARCHAR},
-      FILED7 = #{filed7,jdbcType=LONGVARCHAR},
-      FILED14 = #{filed14,jdbcType=LONGVARCHAR},
-      FILED15 = #{filed15,jdbcType=LONGVARCHAR},
-      FILED16 = #{filed16,jdbcType=LONGVARCHAR},
-      FILED17 = #{filed17,jdbcType=LONGVARCHAR},
-      FILED18 = #{filed18,jdbcType=LONGVARCHAR}
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbExpresstype">
-    update db_expresstype
-    set 'NAME' = #{name,jdbcType=VARCHAR},
-      OPER = #{oper,jdbcType=VARCHAR},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      FILED8 = #{filed8,jdbcType=DECIMAL},
-      FILED9 = #{filed9,jdbcType=DECIMAL},
-      FILED10 = #{filed10,jdbcType=DECIMAL},
-      CORPID = #{corpid,jdbcType=VARCHAR},
-      OPENFLAG = #{openflag,jdbcType=VARCHAR},
-      FILED11 = #{filed11,jdbcType=DECIMAL},
-      FILED12 = #{filed12,jdbcType=DECIMAL},
-      FILED13 = #{filed13,jdbcType=DECIMAL},
-      NAMEEN = #{nameen,jdbcType=VARCHAR},
-      EXPRESSTYPEFEEID = #{expresstypefeeid,jdbcType=VARCHAR},
-      TOKENCONFIGID = #{tokenconfigid,jdbcType=VARCHAR},
-      TOKEN = #{token,jdbcType=VARCHAR},
-      USERKEY = #{userkey,jdbcType=VARCHAR},
-      CUSTOMUSERKEY = #{customuserkey,jdbcType=VARCHAR},
-      EXPRESSTYPENEW = #{expresstypenew,jdbcType=VARCHAR},
-      CONTACT = #{contact,jdbcType=VARCHAR},
-      COMPAN = #{compan,jdbcType=VARCHAR},
-      STREET1 = #{street1,jdbcType=VARCHAR},
-      STREET2 = #{street2,jdbcType=VARCHAR},
-      CITY = #{city,jdbcType=VARCHAR},
-      PROVINCE = #{province,jdbcType=VARCHAR},
-      COUNTRY = #{country,jdbcType=VARCHAR},
-      POSTCODE = #{postcode,jdbcType=VARCHAR},
-      PHONE = #{phone,jdbcType=VARCHAR},
-      EMAIL = #{email,jdbcType=VARCHAR},
-      DISTRICT = #{district,jdbcType=VARCHAR},
-      DISTRICTCODE = #{districtcode,jdbcType=VARCHAR},
-      CITYCODE = #{citycode,jdbcType=VARCHAR},
-      PROVINCECODE = #{provincecode,jdbcType=VARCHAR},
-      'LENGTH' = #{length,jdbcType=DECIMAL},
-      WIDTH = #{width,jdbcType=DECIMAL},
-      HEIGHT = #{height,jdbcType=DECIMAL},
-      CITYID = #{cityid,jdbcType=VARCHAR},
-      PROVINCEID = #{provinceid,jdbcType=VARCHAR},
-      DISTRICTID = #{districtid,jdbcType=VARCHAR},
-      STORAGENAME = #{storagename,jdbcType=VARCHAR},
-      STORAGECODE = #{storagecode,jdbcType=VARCHAR},
-      CKYFLAG = #{ckyflag,jdbcType=DECIMAL},
-      INSURED = #{insured,jdbcType=DECIMAL},
-      CODE = #{code,jdbcType=VARCHAR},
-      DHEXPRESSTYPE = #{dhexpresstype,jdbcType=VARCHAR},
-      LAZADAEXPRESSTYPE = #{lazadaexpresstype,jdbcType=VARCHAR},
-      DECLAREDVALUEMIN = #{declaredvaluemin,jdbcType=DECIMAL},
-      DECLAREDVALUEMAX = #{declaredvaluemax,jdbcType=DECIMAL},
-      DECLCURRENCY = #{declcurrency,jdbcType=VARCHAR},
-      SHOPIFYEXPRESSTYPE = #{shopifyexpresstype,jdbcType=VARCHAR},
-      SHOPEEEXPRESSTYPE = #{shopeeexpresstype,jdbcType=VARCHAR},
-      UPLOADNUM = #{uploadnum,jdbcType=VARCHAR}
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </update>
 </mapper>

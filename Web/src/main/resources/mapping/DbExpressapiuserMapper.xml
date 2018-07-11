@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbExpressapiuserMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbExpressapiuser">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="POSTCODE" jdbcType="VARCHAR" property="postcode" />
+    <result column="TOKEN" jdbcType="VARCHAR" property="token" />
+    <result column="OPENFLAG" jdbcType="DECIMAL" property="openflag" />
+    <result column="COUNTRYCODE" jdbcType="VARCHAR" property="countrycode" />
+    <result column="POSTCODE1" jdbcType="VARCHAR" property="postcode1" />
+    <result column="ACCOUNT" jdbcType="VARCHAR" property="account" />
+    <result column="DISTRICT" jdbcType="VARCHAR" property="district" />
+    <result column="FAX" jdbcType="VARCHAR" property="fax" />
+    <result column="ACCOUNTNICK" jdbcType="VARCHAR" property="accountnick" />
+    <result column="CITY" jdbcType="VARCHAR" property="city" />
+    <result column="COMPANY" jdbcType="VARCHAR" property="company" />
+    <result column="TOKEN1" jdbcType="VARCHAR" property="token1" />
+    <result column="TOKEN2" jdbcType="VARCHAR" property="token2" />
+    <result column="FIRSTNAME" jdbcType="VARCHAR" property="firstname" />
+    <result column="TEL" jdbcType="VARCHAR" property="tel" />
+    <result column="LASTNAME" jdbcType="VARCHAR" property="lastname" />
+    <result column="PROVINCE" jdbcType="VARCHAR" property="province" />
+    <result column="FLAG1" jdbcType="DECIMAL" property="flag1" />
+    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
+    <result column="TOKEN3" jdbcType="VARCHAR" property="token3" />
+    <result column="FLAG2" jdbcType="DECIMAL" property="flag2" />
+    <result column="COUNTRY" jdbcType="VARCHAR" property="country" />
+    <result column="PWD" jdbcType="VARCHAR" property="pwd" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="ACCOUNTTYPE" jdbcType="DECIMAL" property="accounttype" />
+    <result column="FLAG3" jdbcType="DECIMAL" property="flag3" />
+    <result column="FLAG" jdbcType="DECIMAL" property="flag" />
+    <result column="SENDER" jdbcType="VARCHAR" property="sender" />
+    <result column="APIID" jdbcType="DECIMAL" property="apiid" />
+    <result column="ORDERTYPE" jdbcType="VARCHAR" property="ordertype" />
+    <result column="ADDRESS1" jdbcType="LONGVARCHAR" property="address1" />
+    <result column="ADDRESS" jdbcType="LONGVARCHAR" property="address" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select ID, OPER, POSTCODE, TOKEN, OPENFLAG, COUNTRYCODE, POSTCODE1, ACCOUNT, DISTRICT, 
+    FAX, ACCOUNTNICK, CITY, COMPANY, TOKEN1, TOKEN2, FIRSTNAME, TEL, LASTNAME, PROVINCE, 
+    FLAG1, EMAIL, TOKEN3, FLAG2, COUNTRY, PWD, OPERTIME, ACCOUNTTYPE, FLAG3, FLAG, SENDER, 
+    APIID, ORDERTYPE, ADDRESS1, ADDRESS
+    from db_expressapiuser
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ID, OPER, POSTCODE, TOKEN, OPENFLAG, COUNTRYCODE, POSTCODE1, ACCOUNT, DISTRICT, 
+    FAX, ACCOUNTNICK, CITY, COMPANY, TOKEN1, TOKEN2, FIRSTNAME, TEL, LASTNAME, PROVINCE, 
+    FLAG1, EMAIL, TOKEN3, FLAG2, COUNTRY, PWD, OPERTIME, ACCOUNTTYPE, FLAG3, FLAG, SENDER, 
+    APIID, ORDERTYPE, ADDRESS1, ADDRESS
+    from db_expressapiuser
+  </select>
+  <sql id="TableName">
+    db_expressapiuser
+  </sql>
+  <sql id="Values">
+     #{id,jdbcType=DECIMAL} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{postcode,jdbcType=VARCHAR} , 
+     #{token,jdbcType=VARCHAR} , 
+     #{openflag,jdbcType=DECIMAL} , 
+     #{countrycode,jdbcType=VARCHAR} , 
+     #{postcode1,jdbcType=VARCHAR} , 
+     #{account,jdbcType=VARCHAR} , 
+     #{district,jdbcType=VARCHAR} , 
+     #{fax,jdbcType=VARCHAR} , 
+     #{accountnick,jdbcType=VARCHAR} , 
+     #{city,jdbcType=VARCHAR} , 
+     #{company,jdbcType=VARCHAR} , 
+     #{token1,jdbcType=VARCHAR} , 
+     #{token2,jdbcType=VARCHAR} , 
+     #{firstname,jdbcType=VARCHAR} , 
+     #{tel,jdbcType=VARCHAR} , 
+     #{lastname,jdbcType=VARCHAR} , 
+     #{province,jdbcType=VARCHAR} , 
+     #{flag1,jdbcType=DECIMAL} , 
+     #{email,jdbcType=VARCHAR} , 
+     #{token3,jdbcType=VARCHAR} , 
+     #{flag2,jdbcType=DECIMAL} , 
+     #{country,jdbcType=VARCHAR} , 
+     #{pwd,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{accounttype,jdbcType=DECIMAL} , 
+     #{flag3,jdbcType=DECIMAL} , 
+     #{flag,jdbcType=DECIMAL} , 
+     #{sender,jdbcType=VARCHAR} , 
+     #{apiid,jdbcType=DECIMAL} , 
+     #{ordertype,jdbcType=VARCHAR} , 
+     #{address1,jdbcType=LONGVARCHAR} , 
+     #{address,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    ID , 
+    OPER , 
+    POSTCODE , 
+    TOKEN , 
+    OPENFLAG , 
+    COUNTRYCODE , 
+    POSTCODE1 , 
+    ACCOUNT , 
+    DISTRICT , 
+    FAX , 
+    ACCOUNTNICK , 
+    CITY , 
+    COMPANY , 
+    TOKEN1 , 
+    TOKEN2 , 
+    FIRSTNAME , 
+    TEL , 
+    LASTNAME , 
+    PROVINCE , 
+    FLAG1 , 
+    EMAIL , 
+    TOKEN3 , 
+    FLAG2 , 
+    COUNTRY , 
+    PWD , 
+    OPERTIME , 
+    ACCOUNTTYPE , 
+    FLAG3 , 
+    FLAG , 
+    SENDER , 
+    APIID , 
+    ORDERTYPE , 
+    ADDRESS1 , 
+    ADDRESS
+  </sql>
+  <sql id="Criteria">
+    <if test="id != null">
+      ID = #{id,jdbcType=DECIMAL} and 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="postcode != null">
+      POSTCODE = #{postcode,jdbcType=VARCHAR} and 
+    </if>
+    <if test="token != null">
+      TOKEN = #{token,jdbcType=VARCHAR} and 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="countrycode != null">
+      COUNTRYCODE = #{countrycode,jdbcType=VARCHAR} and 
+    </if>
+    <if test="postcode1 != null">
+      POSTCODE1 = #{postcode1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="account != null">
+      ACCOUNT = #{account,jdbcType=VARCHAR} and 
+    </if>
+    <if test="district != null">
+      DISTRICT = #{district,jdbcType=VARCHAR} and 
+    </if>
+    <if test="fax != null">
+      FAX = #{fax,jdbcType=VARCHAR} and 
+    </if>
+    <if test="accountnick != null">
+      ACCOUNTNICK = #{accountnick,jdbcType=VARCHAR} and 
+    </if>
+    <if test="city != null">
+      CITY = #{city,jdbcType=VARCHAR} and 
+    </if>
+    <if test="company != null">
+      COMPANY = #{company,jdbcType=VARCHAR} and 
+    </if>
+    <if test="token1 != null">
+      TOKEN1 = #{token1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="token2 != null">
+      TOKEN2 = #{token2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="firstname != null">
+      FIRSTNAME = #{firstname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="tel != null">
+      TEL = #{tel,jdbcType=VARCHAR} and 
+    </if>
+    <if test="lastname != null">
+      LASTNAME = #{lastname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="province != null">
+      PROVINCE = #{province,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag1 != null">
+      FLAG1 = #{flag1,jdbcType=DECIMAL} and 
+    </if>
+    <if test="email != null">
+      EMAIL = #{email,jdbcType=VARCHAR} and 
+    </if>
+    <if test="token3 != null">
+      TOKEN3 = #{token3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag2 != null">
+      FLAG2 = #{flag2,jdbcType=DECIMAL} and 
+    </if>
+    <if test="country != null">
+      COUNTRY = #{country,jdbcType=VARCHAR} and 
+    </if>
+    <if test="pwd != null">
+      PWD = #{pwd,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="accounttype != null">
+      ACCOUNTTYPE = #{accounttype,jdbcType=DECIMAL} and 
+    </if>
+    <if test="flag3 != null">
+      FLAG3 = #{flag3,jdbcType=DECIMAL} and 
+    </if>
+    <if test="flag != null">
+      FLAG = #{flag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sender != null">
+      SENDER = #{sender,jdbcType=VARCHAR} and 
+    </if>
+    <if test="apiid != null">
+      APIID = #{apiid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="ordertype != null">
+      ORDERTYPE = #{ordertype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="address1 != null">
+      ADDRESS1 = #{address1,jdbcType=LONGVARCHAR} and 
+    </if>
+    <if test="address != null">
+      ADDRESS = #{address,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="id != null">
+      ID = #{id,jdbcType=DECIMAL} , 
+    </if>
+    <if test="oper != null">
+      OPER = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="postcode != null">
+      POSTCODE = #{postcode,jdbcType=VARCHAR} , 
+    </if>
+    <if test="token != null">
+      TOKEN = #{token,jdbcType=VARCHAR} , 
+    </if>
+    <if test="openflag != null">
+      OPENFLAG = #{openflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="countrycode != null">
+      COUNTRYCODE = #{countrycode,jdbcType=VARCHAR} , 
+    </if>
+    <if test="postcode1 != null">
+      POSTCODE1 = #{postcode1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="account != null">
+      ACCOUNT = #{account,jdbcType=VARCHAR} , 
+    </if>
+    <if test="district != null">
+      DISTRICT = #{district,jdbcType=VARCHAR} , 
+    </if>
+    <if test="fax != null">
+      FAX = #{fax,jdbcType=VARCHAR} , 
+    </if>
+    <if test="accountnick != null">
+      ACCOUNTNICK = #{accountnick,jdbcType=VARCHAR} , 
+    </if>
+    <if test="city != null">
+      CITY = #{city,jdbcType=VARCHAR} , 
+    </if>
+    <if test="company != null">
+      COMPANY = #{company,jdbcType=VARCHAR} , 
+    </if>
+    <if test="token1 != null">
+      TOKEN1 = #{token1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="token2 != null">
+      TOKEN2 = #{token2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="firstname != null">
+      FIRSTNAME = #{firstname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="tel != null">
+      TEL = #{tel,jdbcType=VARCHAR} , 
+    </if>
+    <if test="lastname != null">
+      LASTNAME = #{lastname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="province != null">
+      PROVINCE = #{province,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag1 != null">
+      FLAG1 = #{flag1,jdbcType=DECIMAL} , 
+    </if>
+    <if test="email != null">
+      EMAIL = #{email,jdbcType=VARCHAR} , 
+    </if>
+    <if test="token3 != null">
+      TOKEN3 = #{token3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag2 != null">
+      FLAG2 = #{flag2,jdbcType=DECIMAL} , 
+    </if>
+    <if test="country != null">
+      COUNTRY = #{country,jdbcType=VARCHAR} , 
+    </if>
+    <if test="pwd != null">
+      PWD = #{pwd,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="accounttype != null">
+      ACCOUNTTYPE = #{accounttype,jdbcType=DECIMAL} , 
+    </if>
+    <if test="flag3 != null">
+      FLAG3 = #{flag3,jdbcType=DECIMAL} , 
+    </if>
+    <if test="flag != null">
+      FLAG = #{flag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sender != null">
+      SENDER = #{sender,jdbcType=VARCHAR} , 
+    </if>
+    <if test="apiid != null">
+      APIID = #{apiid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="ordertype != null">
+      ORDERTYPE = #{ordertype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="address1 != null">
+      ADDRESS1 = #{address1,jdbcType=LONGVARCHAR} , 
+    </if>
+    <if test="address != null">
+      ADDRESS = #{address,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbExpressapiuser" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="BigDecimal">
+    delete from <include refid="TableName"/> where ID=#{ID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbExpressapiuser">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbExpressapiuser">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbExpressapiuser">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

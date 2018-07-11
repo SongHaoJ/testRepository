@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbItemspevalueMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbItemspevalue">
+    <id column="SID" jdbcType="VARCHAR" property="sid" />
+    <result column="EBAYITEMSPEID" jdbcType="VARCHAR" property="ebayitemspeid" />
+    <result column="FLAG" jdbcType="VARCHAR" property="flag" />
+    <result column="EBAYITEMSPENAME" jdbcType="LONGVARCHAR" property="ebayitemspename" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SID, EBAYITEMSPEID, FLAG, EBAYITEMSPENAME
+    from db_itemspevalue
+    where SID = #{sid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, EBAYITEMSPEID, FLAG, EBAYITEMSPENAME
+    from db_itemspevalue
+  </select>
+  <sql id="TableName">
+    db_itemspevalue
+  </sql>
+  <sql id="Values">
+     #{sid,jdbcType=VARCHAR} , 
+     #{ebayitemspeid,jdbcType=VARCHAR} , 
+     #{flag,jdbcType=VARCHAR} , 
+     #{ebayitemspename,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    SID , 
+    EBAYITEMSPEID , 
+    FLAG , 
+    EBAYITEMSPENAME
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebayitemspeid != null">
+      EBAYITEMSPEID = #{ebayitemspeid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag != null">
+      FLAG = #{flag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebayitemspename != null">
+      EBAYITEMSPENAME = #{ebayitemspename,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      SID = #{sid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebayitemspeid != null">
+      EBAYITEMSPEID = #{ebayitemspeid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag != null">
+      FLAG = #{flag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebayitemspename != null">
+      EBAYITEMSPENAME = #{ebayitemspename,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbItemspevalue" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SID=#{SID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbItemspevalue">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbItemspevalue">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbItemspevalue">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

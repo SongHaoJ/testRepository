@@ -13,7 +13,4 @@ public interface DbEdisexpresstypeMapper {
 
     int updateByPrimaryKeySelective(DbEdisexpresstype record);
 
-    int updateByPrimaryKeyWithBLOBs(DbEdisexpresstype record);
-
-    int updateByPrimaryKey(DbEdisexpresstype record);
 }

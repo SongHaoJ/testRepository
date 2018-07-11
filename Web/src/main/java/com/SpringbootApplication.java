@@ -29,7 +29,7 @@ public class SpringbootApplication extends SpringBootServletInitializer {
     public static void main(String args[]) {
         logger.debug("SpringBootWeb开始启动");
         SpringApplication.run(SpringbootApplication.class, args);
-
+        runGenerator();
     }
 
 
@@ -37,8 +37,8 @@ public class SpringbootApplication extends SpringBootServletInitializer {
 
         BigDecimal d = new BigDecimal(2);
         Number n = d;
-     int i = 1;
-     int m = 2;
+        int i = 1;
+        int m = 2;
         System.out.println(n.intValue());
     }
 
@@ -50,7 +50,7 @@ public class SpringbootApplication extends SpringBootServletInitializer {
         return new String(ch);
     }
 
-    public static void runGenerator(){
+    public static void runGenerator() {
         try {
             System.out.println("generator start");
             GeneratorAntTask task = new GeneratorAntTask();
@@ -60,8 +60,9 @@ public class SpringbootApplication extends SpringBootServletInitializer {
             task.execute();
             System.out.println("generator end");
         } catch (Exception e) {
-
+            logger.error(e.getMessage(),e);
             e.printStackTrace();
+
 
         }
     }

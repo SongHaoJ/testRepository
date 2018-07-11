@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbProductinfoMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbProductinfo">
+    <id column="SKUID" jdbcType="VARCHAR" property="skuid" />
+    <result column="ITEMID" jdbcType="VARCHAR" property="itemid" />
+    <result column="SKU" jdbcType="VARCHAR" property="sku" />
+    <result column="SONSKU" jdbcType="VARCHAR" property="sonsku" />
+    <result column="CATEGORYID" jdbcType="VARCHAR" property="categoryid" />
+    <result column="WEIGHT" jdbcType="DECIMAL" property="weight" />
+    <result column="ATTRIBUTEID" jdbcType="VARCHAR" property="attributeid" />
+    <result column="ATTRIBUTENAME" jdbcType="VARCHAR" property="attributename" />
+    <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="MODEFIEDTIME" jdbcType="TIMESTAMP" property="modefiedtime" />
+    <result column="PRODUCTTYPE" jdbcType="LONGVARCHAR" property="producttype" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SKUID, ITEMID, SKU, SONSKU, CATEGORYID, WEIGHT, ATTRIBUTEID, ATTRIBUTENAME, 
+    CREATETIME, MODEFIEDTIME, PRODUCTTYPE
+    from db_productinfo
+    where SKUID = #{skuid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SKUID, ITEMID, SKU, SONSKU, CATEGORYID, WEIGHT, ATTRIBUTEID, ATTRIBUTENAME, 
+    CREATETIME, MODEFIEDTIME, PRODUCTTYPE
+    from db_productinfo
+  </select>
+  <sql id="TableName">
+    db_productinfo
+  </sql>
+  <sql id="Values">
+     #{skuid,jdbcType=VARCHAR} , 
+     #{itemid,jdbcType=VARCHAR} , 
+     #{sku,jdbcType=VARCHAR} , 
+     #{sonsku,jdbcType=VARCHAR} , 
+     #{categoryid,jdbcType=VARCHAR} , 
+     #{weight,jdbcType=DECIMAL} , 
+     #{attributeid,jdbcType=VARCHAR} , 
+     #{attributename,jdbcType=VARCHAR} , 
+     #{createtime,jdbcType=TIMESTAMP} , 
+     #{modefiedtime,jdbcType=TIMESTAMP} , 
+     #{producttype,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    SKUID , 
+    ITEMID , 
+    SKU , 
+    SONSKU , 
+    CATEGORYID , 
+    WEIGHT , 
+    ATTRIBUTEID , 
+    ATTRIBUTENAME , 
+    CREATETIME , 
+    MODEFIEDTIME , 
+    PRODUCTTYPE
+  </sql>
+  <sql id="Criteria">
+    <if test="skuid != null">
+      SKUID = #{skuid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="itemid != null">
+      ITEMID = #{itemid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sku != null">
+      SKU = #{sku,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sonsku != null">
+      SONSKU = #{sonsku,jdbcType=VARCHAR} and 
+    </if>
+    <if test="categoryid != null">
+      CATEGORYID = #{categoryid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="weight != null">
+      WEIGHT = #{weight,jdbcType=DECIMAL} and 
+    </if>
+    <if test="attributeid != null">
+      ATTRIBUTEID = #{attributeid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="attributename != null">
+      ATTRIBUTENAME = #{attributename,jdbcType=VARCHAR} and 
+    </if>
+    <if test="createtime != null">
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="modefiedtime != null">
+      MODEFIEDTIME = #{modefiedtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="producttype != null">
+      PRODUCTTYPE = #{producttype,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="skuid != null">
+      SKUID = #{skuid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="itemid != null">
+      ITEMID = #{itemid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sku != null">
+      SKU = #{sku,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sonsku != null">
+      SONSKU = #{sonsku,jdbcType=VARCHAR} , 
+    </if>
+    <if test="categoryid != null">
+      CATEGORYID = #{categoryid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="weight != null">
+      WEIGHT = #{weight,jdbcType=DECIMAL} , 
+    </if>
+    <if test="attributeid != null">
+      ATTRIBUTEID = #{attributeid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="attributename != null">
+      ATTRIBUTENAME = #{attributename,jdbcType=VARCHAR} , 
+    </if>
+    <if test="createtime != null">
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="modefiedtime != null">
+      MODEFIEDTIME = #{modefiedtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="producttype != null">
+      PRODUCTTYPE = #{producttype,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbProductinfo" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SKUID=#{SKUID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbProductinfo">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbProductinfo">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbProductinfo">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbProductcontentMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbProductcontent">
+    <id column="PRODUCTID" jdbcType="VARCHAR" property="productid" />
+    <result column="CLOBCONTENT" jdbcType="LONGVARCHAR" property="clobcontent" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select PRODUCTID, CLOBCONTENT
+    from db_productcontent
+    where PRODUCTID = #{productid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select PRODUCTID, CLOBCONTENT
+    from db_productcontent
+  </select>
+  <sql id="TableName">
+    db_productcontent
+  </sql>
+  <sql id="Values">
+     #{productid,jdbcType=VARCHAR} , 
+     #{clobcontent,jdbcType=LONGVARCHAR}
+  </sql>
+  <sql id="Columns">
+    PRODUCTID , 
+    CLOBCONTENT
+  </sql>
+  <sql id="Criteria">
+    <if test="productid != null">
+      PRODUCTID = #{productid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="clobcontent != null">
+      CLOBCONTENT = #{clobcontent,jdbcType=LONGVARCHAR}
+    </if>
+     and 1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="productid != null">
+      PRODUCTID = #{productid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="clobcontent != null">
+      CLOBCONTENT = #{clobcontent,jdbcType=LONGVARCHAR}
+    </if>
+     , 1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbProductcontent" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where PRODUCTID=#{PRODUCTID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbProductcontent">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbProductcontent">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbProductcontent">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>
