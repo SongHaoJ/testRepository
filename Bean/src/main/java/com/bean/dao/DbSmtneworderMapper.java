@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbSmtneworder;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbSmtneworderMapper {
-    int deleteByPrimaryKey(String orderid);
+    DbSmtneworder selectByCriteria(DbSmtneworder DbSmtneworder);
 
-    int insert(DbSmtneworder record);
+    void deleteByPrimaryKey(String ORDERID);
 
-    int insertSelective(DbSmtneworder record);
+    void deleteByCriteria(DbSmtneworder DbSmtneworder);
+
+    int insertByCriteria(DbSmtneworder DbSmtneworder);
+
+    int updateByCriteria(DbSmtneworder DbSmtneworder);
 
     DbSmtneworder selectByPrimaryKey(String orderid);
 
-    int updateByPrimaryKeySelective(DbSmtneworder record);
-
-    int updateByPrimaryKeyWithBLOBs(DbSmtneworder record);
-
-    int updateByPrimaryKey(DbSmtneworder record);
+    List<DbSmtneworder> selectAll();
 }

@@ -33,7 +33,7 @@
     QUANTITYSOLD30, QUANTITYALL, SELLNUMBERAVG, DOWNCOUNT, HITCOUNT1, HITCOUNT3, HITCOUNT7, 
     HITCOUNT10, HITCOUNT15, HITCOUNT30, TARNSFORMRATE10, TARNSFORMRATE15, TARNSFORMRATE30, 
     QUANTITYSOLD60, UPDATETIME1, UPDATETIME, EBAYITEMID, HITCOUNT56, TARNSFORMRATE28
-    from db_calculateitem
+    from DB_CALCULATEITEM
     where SID = #{sid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
@@ -41,10 +41,10 @@
     QUANTITYSOLD30, QUANTITYALL, SELLNUMBERAVG, DOWNCOUNT, HITCOUNT1, HITCOUNT3, HITCOUNT7, 
     HITCOUNT10, HITCOUNT15, HITCOUNT30, TARNSFORMRATE10, TARNSFORMRATE15, TARNSFORMRATE30, 
     QUANTITYSOLD60, UPDATETIME1, UPDATETIME, EBAYITEMID, HITCOUNT56, TARNSFORMRATE28
-    from db_calculateitem
+    from DB_CALCULATEITEM
   </select>
   <sql id="TableName">
-    db_calculateitem
+    DB_CALCULATEITEM
   </sql>
   <sql id="Values">
      #{sid,jdbcType=VARCHAR} , 
@@ -71,7 +71,7 @@
      #{updatetime,jdbcType=TIMESTAMP} , 
      #{ebayitemid,jdbcType=VARCHAR} , 
      #{hitcount56,jdbcType=DECIMAL} , 
-     #{tarnsformrate28,jdbcType=DECIMAL}
+     #{tarnsformrate28,jdbcType=DECIMAL} , 
   </sql>
   <sql id="Columns">
     SID , 
@@ -98,163 +98,163 @@
     UPDATETIME , 
     EBAYITEMID , 
     HITCOUNT56 , 
-    TARNSFORMRATE28
+    TARNSFORMRATE28 , 
   </sql>
   <sql id="Criteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} and 
+      sid = #{sid,jdbcType=VARCHAR} and 
     </if>
     <if test="quantitysold1 != null">
-      QUANTITYSOLD1 = #{quantitysold1,jdbcType=DECIMAL} and 
+      quantitysold1 = #{quantitysold1,jdbcType=DECIMAL} and 
     </if>
     <if test="quantitysold3 != null">
-      QUANTITYSOLD3 = #{quantitysold3,jdbcType=DECIMAL} and 
+      quantitysold3 = #{quantitysold3,jdbcType=DECIMAL} and 
     </if>
     <if test="quantitysold7 != null">
-      QUANTITYSOLD7 = #{quantitysold7,jdbcType=DECIMAL} and 
+      quantitysold7 = #{quantitysold7,jdbcType=DECIMAL} and 
     </if>
     <if test="quantitysold10 != null">
-      QUANTITYSOLD10 = #{quantitysold10,jdbcType=DECIMAL} and 
+      quantitysold10 = #{quantitysold10,jdbcType=DECIMAL} and 
     </if>
     <if test="quantitysold15 != null">
-      QUANTITYSOLD15 = #{quantitysold15,jdbcType=DECIMAL} and 
+      quantitysold15 = #{quantitysold15,jdbcType=DECIMAL} and 
     </if>
     <if test="quantitysold30 != null">
-      QUANTITYSOLD30 = #{quantitysold30,jdbcType=DECIMAL} and 
+      quantitysold30 = #{quantitysold30,jdbcType=DECIMAL} and 
     </if>
     <if test="quantityall != null">
-      QUANTITYALL = #{quantityall,jdbcType=DECIMAL} and 
+      quantityall = #{quantityall,jdbcType=DECIMAL} and 
     </if>
     <if test="sellnumberavg != null">
-      SELLNUMBERAVG = #{sellnumberavg,jdbcType=DECIMAL} and 
+      sellnumberavg = #{sellnumberavg,jdbcType=DECIMAL} and 
     </if>
     <if test="downcount != null">
-      DOWNCOUNT = #{downcount,jdbcType=DECIMAL} and 
+      downcount = #{downcount,jdbcType=DECIMAL} and 
     </if>
     <if test="hitcount1 != null">
-      HITCOUNT1 = #{hitcount1,jdbcType=DECIMAL} and 
+      hitcount1 = #{hitcount1,jdbcType=DECIMAL} and 
     </if>
     <if test="hitcount3 != null">
-      HITCOUNT3 = #{hitcount3,jdbcType=DECIMAL} and 
+      hitcount3 = #{hitcount3,jdbcType=DECIMAL} and 
     </if>
     <if test="hitcount7 != null">
-      HITCOUNT7 = #{hitcount7,jdbcType=DECIMAL} and 
+      hitcount7 = #{hitcount7,jdbcType=DECIMAL} and 
     </if>
     <if test="hitcount10 != null">
-      HITCOUNT10 = #{hitcount10,jdbcType=DECIMAL} and 
+      hitcount10 = #{hitcount10,jdbcType=DECIMAL} and 
     </if>
     <if test="hitcount15 != null">
-      HITCOUNT15 = #{hitcount15,jdbcType=DECIMAL} and 
+      hitcount15 = #{hitcount15,jdbcType=DECIMAL} and 
     </if>
     <if test="hitcount30 != null">
-      HITCOUNT30 = #{hitcount30,jdbcType=DECIMAL} and 
+      hitcount30 = #{hitcount30,jdbcType=DECIMAL} and 
     </if>
     <if test="tarnsformrate10 != null">
-      TARNSFORMRATE10 = #{tarnsformrate10,jdbcType=DECIMAL} and 
+      tarnsformrate10 = #{tarnsformrate10,jdbcType=DECIMAL} and 
     </if>
     <if test="tarnsformrate15 != null">
-      TARNSFORMRATE15 = #{tarnsformrate15,jdbcType=DECIMAL} and 
+      tarnsformrate15 = #{tarnsformrate15,jdbcType=DECIMAL} and 
     </if>
     <if test="tarnsformrate30 != null">
-      TARNSFORMRATE30 = #{tarnsformrate30,jdbcType=DECIMAL} and 
+      tarnsformrate30 = #{tarnsformrate30,jdbcType=DECIMAL} and 
     </if>
     <if test="quantitysold60 != null">
-      QUANTITYSOLD60 = #{quantitysold60,jdbcType=DECIMAL} and 
+      quantitysold60 = #{quantitysold60,jdbcType=DECIMAL} and 
     </if>
     <if test="updatetime1 != null">
-      UPDATETIME1 = #{updatetime1,jdbcType=VARCHAR} and 
+      updatetime1 = #{updatetime1,jdbcType=VARCHAR} and 
     </if>
     <if test="updatetime != null">
-      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP} and 
+      updatetime = #{updatetime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="ebayitemid != null">
-      EBAYITEMID = #{ebayitemid,jdbcType=VARCHAR} and 
+      ebayitemid = #{ebayitemid,jdbcType=VARCHAR} and 
     </if>
     <if test="hitcount56 != null">
-      HITCOUNT56 = #{hitcount56,jdbcType=DECIMAL} and 
+      hitcount56 = #{hitcount56,jdbcType=DECIMAL} and 
     </if>
     <if test="tarnsformrate28 != null">
-      TARNSFORMRATE28 = #{tarnsformrate28,jdbcType=DECIMAL}
+      tarnsformrate28 = #{tarnsformrate28,jdbcType=DECIMAL} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} , 
+      sid = #{sid,jdbcType=VARCHAR} , 
     </if>
     <if test="quantitysold1 != null">
-      QUANTITYSOLD1 = #{quantitysold1,jdbcType=DECIMAL} , 
+      quantitysold1 = #{quantitysold1,jdbcType=DECIMAL} , 
     </if>
     <if test="quantitysold3 != null">
-      QUANTITYSOLD3 = #{quantitysold3,jdbcType=DECIMAL} , 
+      quantitysold3 = #{quantitysold3,jdbcType=DECIMAL} , 
     </if>
     <if test="quantitysold7 != null">
-      QUANTITYSOLD7 = #{quantitysold7,jdbcType=DECIMAL} , 
+      quantitysold7 = #{quantitysold7,jdbcType=DECIMAL} , 
     </if>
     <if test="quantitysold10 != null">
-      QUANTITYSOLD10 = #{quantitysold10,jdbcType=DECIMAL} , 
+      quantitysold10 = #{quantitysold10,jdbcType=DECIMAL} , 
     </if>
     <if test="quantitysold15 != null">
-      QUANTITYSOLD15 = #{quantitysold15,jdbcType=DECIMAL} , 
+      quantitysold15 = #{quantitysold15,jdbcType=DECIMAL} , 
     </if>
     <if test="quantitysold30 != null">
-      QUANTITYSOLD30 = #{quantitysold30,jdbcType=DECIMAL} , 
+      quantitysold30 = #{quantitysold30,jdbcType=DECIMAL} , 
     </if>
     <if test="quantityall != null">
-      QUANTITYALL = #{quantityall,jdbcType=DECIMAL} , 
+      quantityall = #{quantityall,jdbcType=DECIMAL} , 
     </if>
     <if test="sellnumberavg != null">
-      SELLNUMBERAVG = #{sellnumberavg,jdbcType=DECIMAL} , 
+      sellnumberavg = #{sellnumberavg,jdbcType=DECIMAL} , 
     </if>
     <if test="downcount != null">
-      DOWNCOUNT = #{downcount,jdbcType=DECIMAL} , 
+      downcount = #{downcount,jdbcType=DECIMAL} , 
     </if>
     <if test="hitcount1 != null">
-      HITCOUNT1 = #{hitcount1,jdbcType=DECIMAL} , 
+      hitcount1 = #{hitcount1,jdbcType=DECIMAL} , 
     </if>
     <if test="hitcount3 != null">
-      HITCOUNT3 = #{hitcount3,jdbcType=DECIMAL} , 
+      hitcount3 = #{hitcount3,jdbcType=DECIMAL} , 
     </if>
     <if test="hitcount7 != null">
-      HITCOUNT7 = #{hitcount7,jdbcType=DECIMAL} , 
+      hitcount7 = #{hitcount7,jdbcType=DECIMAL} , 
     </if>
     <if test="hitcount10 != null">
-      HITCOUNT10 = #{hitcount10,jdbcType=DECIMAL} , 
+      hitcount10 = #{hitcount10,jdbcType=DECIMAL} , 
     </if>
     <if test="hitcount15 != null">
-      HITCOUNT15 = #{hitcount15,jdbcType=DECIMAL} , 
+      hitcount15 = #{hitcount15,jdbcType=DECIMAL} , 
     </if>
     <if test="hitcount30 != null">
-      HITCOUNT30 = #{hitcount30,jdbcType=DECIMAL} , 
+      hitcount30 = #{hitcount30,jdbcType=DECIMAL} , 
     </if>
     <if test="tarnsformrate10 != null">
-      TARNSFORMRATE10 = #{tarnsformrate10,jdbcType=DECIMAL} , 
+      tarnsformrate10 = #{tarnsformrate10,jdbcType=DECIMAL} , 
     </if>
     <if test="tarnsformrate15 != null">
-      TARNSFORMRATE15 = #{tarnsformrate15,jdbcType=DECIMAL} , 
+      tarnsformrate15 = #{tarnsformrate15,jdbcType=DECIMAL} , 
     </if>
     <if test="tarnsformrate30 != null">
-      TARNSFORMRATE30 = #{tarnsformrate30,jdbcType=DECIMAL} , 
+      tarnsformrate30 = #{tarnsformrate30,jdbcType=DECIMAL} , 
     </if>
     <if test="quantitysold60 != null">
-      QUANTITYSOLD60 = #{quantitysold60,jdbcType=DECIMAL} , 
+      quantitysold60 = #{quantitysold60,jdbcType=DECIMAL} , 
     </if>
     <if test="updatetime1 != null">
-      UPDATETIME1 = #{updatetime1,jdbcType=VARCHAR} , 
+      updatetime1 = #{updatetime1,jdbcType=VARCHAR} , 
     </if>
     <if test="updatetime != null">
-      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP} , 
+      updatetime = #{updatetime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="ebayitemid != null">
-      EBAYITEMID = #{ebayitemid,jdbcType=VARCHAR} , 
+      ebayitemid = #{ebayitemid,jdbcType=VARCHAR} , 
     </if>
     <if test="hitcount56 != null">
-      HITCOUNT56 = #{hitcount56,jdbcType=DECIMAL} , 
+      hitcount56 = #{hitcount56,jdbcType=DECIMAL} , 
     </if>
     <if test="tarnsformrate28 != null">
-      TARNSFORMRATE28 = #{tarnsformrate28,jdbcType=DECIMAL}
+      tarnsformrate28 = #{tarnsformrate28,jdbcType=DECIMAL} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbCalculateitem" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

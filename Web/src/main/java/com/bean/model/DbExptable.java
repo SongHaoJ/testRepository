@@ -10,13 +10,13 @@ public class DbExptable implements Serializable {
 
     private String oper;
 
+    private String content;
+
     private Date createtime;
 
     private String openflag;
 
     private Date opertime;
-
-    private String content;
 
     private static final long serialVersionUID = 1L;
 
@@ -44,6 +44,14 @@ public class DbExptable implements Serializable {
         this.oper = oper == null ? null : oper.trim();
     }
 
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content == null ? null : content.trim();
+    }
+
     public Date getCreatetime() {
         return createtime;
     }
@@ -68,14 +76,6 @@ public class DbExptable implements Serializable {
         this.opertime = opertime;
     }
 
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content == null ? null : content.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -91,10 +91,10 @@ public class DbExptable implements Serializable {
         return (this.getSid() == null ? other.getSid() == null : this.getSid().equals(other.getSid()))
             && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
+            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
             && (this.getCreatetime() == null ? other.getCreatetime() == null : this.getCreatetime().equals(other.getCreatetime()))
             && (this.getOpenflag() == null ? other.getOpenflag() == null : this.getOpenflag().equals(other.getOpenflag()))
-            && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
-            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()));
+            && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()));
     }
 
     @Override
@@ -104,10 +104,10 @@ public class DbExptable implements Serializable {
         result = prime * result + ((getSid() == null) ? 0 : getSid().hashCode());
         result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
+        result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
         result = prime * result + ((getCreatetime() == null) ? 0 : getCreatetime().hashCode());
         result = prime * result + ((getOpenflag() == null) ? 0 : getOpenflag().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
-        result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
         return result;
     }
 
@@ -120,10 +120,10 @@ public class DbExptable implements Serializable {
         sb.append(", sid=").append(sid);
         sb.append(", name=").append(name);
         sb.append(", oper=").append(oper);
+        sb.append(", content=").append(content);
         sb.append(", createtime=").append(createtime);
         sb.append(", openflag=").append(openflag);
         sb.append(", opertime=").append(opertime);
-        sb.append(", content=").append(content);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

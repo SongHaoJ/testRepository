@@ -6,28 +6,28 @@
   </resultMap>
   <select id="selectAll" resultMap="BaseResultMap">
     select TYPE
-    from db_endicialabeltype
+    from DB_ENDICIALABELTYPE
   </select>
   <sql id="TableName">
-    db_endicialabeltype
+    DB_ENDICIALABELTYPE
   </sql>
   <sql id="Values">
-     #{type,jdbcType=VARCHAR}
+     #{type,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
-    TYPE
+    TYPE , 
   </sql>
   <sql id="Criteria">
     <if test="type != null">
-      TYPE = #{type,jdbcType=VARCHAR}
+      type = #{type,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="type != null">
-      TYPE = #{type,jdbcType=VARCHAR}
+      type = #{type,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbEndicialabeltype" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

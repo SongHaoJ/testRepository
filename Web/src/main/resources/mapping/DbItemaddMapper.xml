@@ -6,28 +6,28 @@
   </resultMap>
   <select id="selectAll" resultMap="BaseResultMap">
     select ITEMID
-    from db_itemadd
+    from DB_ITEMADD
   </select>
   <sql id="TableName">
-    db_itemadd
+    DB_ITEMADD
   </sql>
   <sql id="Values">
-     #{itemid,jdbcType=VARCHAR}
+     #{itemid,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
-    ITEMID
+    ITEMID , 
   </sql>
   <sql id="Criteria">
     <if test="itemid != null">
-      ITEMID = #{itemid,jdbcType=VARCHAR}
+      itemid = #{itemid,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="itemid != null">
-      ITEMID = #{itemid,jdbcType=VARCHAR}
+      itemid = #{itemid,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbItemadd" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

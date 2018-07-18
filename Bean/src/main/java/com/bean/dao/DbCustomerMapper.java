@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbCustomer;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbCustomerMapper {
-    int deleteByPrimaryKey(String customerid);
+    DbCustomer selectByCriteria(DbCustomer DbCustomer);
 
-    int insert(DbCustomer record);
+    void deleteByPrimaryKey(String CUSTOMERID);
 
-    int insertSelective(DbCustomer record);
+    void deleteByCriteria(DbCustomer DbCustomer);
+
+    int insertByCriteria(DbCustomer DbCustomer);
+
+    int updateByCriteria(DbCustomer DbCustomer);
 
     DbCustomer selectByPrimaryKey(String customerid);
 
-    int updateByPrimaryKeySelective(DbCustomer record);
-
-    int updateByPrimaryKey(DbCustomer record);
+    List<DbCustomer> selectAll();
 }

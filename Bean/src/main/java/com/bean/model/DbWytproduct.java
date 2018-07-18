@@ -14,6 +14,8 @@ public class DbWytproduct implements Serializable {
 
     private BigDecimal qtyordered;
 
+    private String specification;
+
     private BigDecimal qtyavailable;
 
     private BigDecimal qtysell;
@@ -27,8 +29,6 @@ public class DbWytproduct implements Serializable {
     private String categoryid;
 
     private String categoryname;
-
-    private String specification;
 
     private static final long serialVersionUID = 1L;
 
@@ -70,6 +70,14 @@ public class DbWytproduct implements Serializable {
 
     public void setQtyordered(BigDecimal qtyordered) {
         this.qtyordered = qtyordered;
+    }
+
+    public String getSpecification() {
+        return specification;
+    }
+
+    public void setSpecification(String specification) {
+        this.specification = specification == null ? null : specification.trim();
     }
 
     public BigDecimal getQtyavailable() {
@@ -128,14 +136,6 @@ public class DbWytproduct implements Serializable {
         this.categoryname = categoryname == null ? null : categoryname.trim();
     }
 
-    public String getSpecification() {
-        return specification;
-    }
-
-    public void setSpecification(String specification) {
-        this.specification = specification == null ? null : specification.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -153,14 +153,14 @@ public class DbWytproduct implements Serializable {
             && (this.getMwarehouseid() == null ? other.getMwarehouseid() == null : this.getMwarehouseid().equals(other.getMwarehouseid()))
             && (this.getQtyonhand() == null ? other.getQtyonhand() == null : this.getQtyonhand().equals(other.getQtyonhand()))
             && (this.getQtyordered() == null ? other.getQtyordered() == null : this.getQtyordered().equals(other.getQtyordered()))
+            && (this.getSpecification() == null ? other.getSpecification() == null : this.getSpecification().equals(other.getSpecification()))
             && (this.getQtyavailable() == null ? other.getQtyavailable() == null : this.getQtyavailable().equals(other.getQtyavailable()))
             && (this.getQtysell() == null ? other.getQtysell() == null : this.getQtysell().equals(other.getQtysell()))
             && (this.getMabangsku() == null ? other.getMabangsku() == null : this.getMabangsku().equals(other.getMabangsku()))
             && (this.getWytsku() == null ? other.getWytsku() == null : this.getWytsku().equals(other.getWytsku()))
             && (this.getProductid() == null ? other.getProductid() == null : this.getProductid().equals(other.getProductid()))
             && (this.getCategoryid() == null ? other.getCategoryid() == null : this.getCategoryid().equals(other.getCategoryid()))
-            && (this.getCategoryname() == null ? other.getCategoryname() == null : this.getCategoryname().equals(other.getCategoryname()))
-            && (this.getSpecification() == null ? other.getSpecification() == null : this.getSpecification().equals(other.getSpecification()));
+            && (this.getCategoryname() == null ? other.getCategoryname() == null : this.getCategoryname().equals(other.getCategoryname()));
     }
 
     @Override
@@ -172,6 +172,7 @@ public class DbWytproduct implements Serializable {
         result = prime * result + ((getMwarehouseid() == null) ? 0 : getMwarehouseid().hashCode());
         result = prime * result + ((getQtyonhand() == null) ? 0 : getQtyonhand().hashCode());
         result = prime * result + ((getQtyordered() == null) ? 0 : getQtyordered().hashCode());
+        result = prime * result + ((getSpecification() == null) ? 0 : getSpecification().hashCode());
         result = prime * result + ((getQtyavailable() == null) ? 0 : getQtyavailable().hashCode());
         result = prime * result + ((getQtysell() == null) ? 0 : getQtysell().hashCode());
         result = prime * result + ((getMabangsku() == null) ? 0 : getMabangsku().hashCode());
@@ -179,7 +180,6 @@ public class DbWytproduct implements Serializable {
         result = prime * result + ((getProductid() == null) ? 0 : getProductid().hashCode());
         result = prime * result + ((getCategoryid() == null) ? 0 : getCategoryid().hashCode());
         result = prime * result + ((getCategoryname() == null) ? 0 : getCategoryname().hashCode());
-        result = prime * result + ((getSpecification() == null) ? 0 : getSpecification().hashCode());
         return result;
     }
 
@@ -194,6 +194,7 @@ public class DbWytproduct implements Serializable {
         sb.append(", mwarehouseid=").append(mwarehouseid);
         sb.append(", qtyonhand=").append(qtyonhand);
         sb.append(", qtyordered=").append(qtyordered);
+        sb.append(", specification=").append(specification);
         sb.append(", qtyavailable=").append(qtyavailable);
         sb.append(", qtysell=").append(qtysell);
         sb.append(", mabangsku=").append(mabangsku);
@@ -201,7 +202,6 @@ public class DbWytproduct implements Serializable {
         sb.append(", productid=").append(productid);
         sb.append(", categoryid=").append(categoryid);
         sb.append(", categoryname=").append(categoryname);
-        sb.append(", specification=").append(specification);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

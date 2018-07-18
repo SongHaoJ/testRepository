@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbIndividualexpressiddata;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbIndividualexpressiddataMapper {
-    int deleteByPrimaryKey(String expressid);
+    DbIndividualexpressiddata selectByCriteria(DbIndividualexpressiddata DbIndividualexpressiddata);
 
-    int insert(DbIndividualexpressiddata record);
+    void deleteByPrimaryKey(String EXPRESSID);
 
-    int insertSelective(DbIndividualexpressiddata record);
+    void deleteByCriteria(DbIndividualexpressiddata DbIndividualexpressiddata);
+
+    int insertByCriteria(DbIndividualexpressiddata DbIndividualexpressiddata);
+
+    int updateByCriteria(DbIndividualexpressiddata DbIndividualexpressiddata);
 
     DbIndividualexpressiddata selectByPrimaryKey(String expressid);
 
-    int updateByPrimaryKeySelective(DbIndividualexpressiddata record);
-
-    int updateByPrimaryKeyWithBLOBs(DbIndividualexpressiddata record);
-
-    int updateByPrimaryKey(DbIndividualexpressiddata record);
+    List<DbIndividualexpressiddata> selectAll();
 }

@@ -1,35 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbOrder;
-import com.gourpBean.BaseOrderIncludeSellBean;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Map;
 
-@Repository
+@Service
 public interface DbOrderMapper {
-    int deleteByPrimaryKey(String orderid) throws Exception;
+    DbOrder selectByCriteria(DbOrder DbOrder);
 
-    int insert(DbOrder record) throws Exception;
+    void deleteByPrimaryKey(String ORDERID);
 
-    int insertSelective(DbOrder record) throws Exception;
+    void deleteByCriteria(DbOrder DbOrder);
 
-    DbOrder selectByPrimaryKey(String orderid) throws Exception;
+    int insertByCriteria(DbOrder DbOrder);
 
-    int updateByPrimaryKeySelective(DbOrder record) throws Exception;
+    int updateByCriteria(DbOrder DbOrder);
 
-    List<String> selectOrderIdByShopId(Map<String,String> params) throws Exception;
+    DbOrder selectByPrimaryKey(String orderid);
 
-    int updateRefundOrderStatus(Map<String,String> params) throws Exception;
-
-    List<String> selectOrderByDate(int num)throws Exception;
-
-    List<DbOrder> selectAllByCriteria(DbOrder order);
-
-    Map<String,String> selectIsSave(Map<String,String> params);
-
-    BaseOrderIncludeSellBean orderAndSell(String orderid);
-
-    String orderIsExist(Map<String,String> params);
+    List<DbOrder> selectAll();
 }

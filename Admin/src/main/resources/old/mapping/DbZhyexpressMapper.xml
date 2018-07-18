@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbZhyexpressMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbZhyexpress">
+    <id column="SEQUENCEID" jdbcType="DECIMAL" property="sequenceid" />
+    <result column="SHIPPINGCODE" jdbcType="VARCHAR" property="shippingcode" />
+    <result column="SHIPPINGNAMECN" jdbcType="VARCHAR" property="shippingnamecn" />
+    <result column="SHIPPINGNAMEEN" jdbcType="VARCHAR" property="shippingnameen" />
+    <result column="SHIPPINTIMGURL" jdbcType="VARCHAR" property="shippintimgurl" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbZhyexpress">
+    <result column="SHIPPINTADDRESS" jdbcType="LONGVARCHAR" property="shippintaddress" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SEQUENCEID, SHIPPINGCODE, SHIPPINGNAMECN, SHIPPINGNAMEEN, SHIPPINTIMGURL, 'STATUS'
+  </sql>
+  <sql id="Blob_Column_List">
+    SHIPPINTADDRESS
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from db_zhyexpress
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
+    delete from db_zhyexpress
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.bean.model.DbZhyexpress">
+    insert into db_zhyexpress (SEQUENCEID, SHIPPINGCODE, SHIPPINGNAMECN, 
+      SHIPPINGNAMEEN, SHIPPINTIMGURL, 'STATUS', 
+      SHIPPINTADDRESS)
+    values (#{sequenceid,jdbcType=DECIMAL}, #{shippingcode,jdbcType=VARCHAR}, #{shippingnamecn,jdbcType=VARCHAR}, 
+      #{shippingnameen,jdbcType=VARCHAR}, #{shippintimgurl,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{shippintaddress,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbZhyexpress">
+    insert into db_zhyexpress
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        SEQUENCEID,
+      </if>
+      <if test="shippingcode != null">
+        SHIPPINGCODE,
+      </if>
+      <if test="shippingnamecn != null">
+        SHIPPINGNAMECN,
+      </if>
+      <if test="shippingnameen != null">
+        SHIPPINGNAMEEN,
+      </if>
+      <if test="shippintimgurl != null">
+        SHIPPINTIMGURL,
+      </if>
+      <if test="status != null">
+        'STATUS',
+      </if>
+      <if test="shippintaddress != null">
+        SHIPPINTADDRESS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        #{sequenceid,jdbcType=DECIMAL},
+      </if>
+      <if test="shippingcode != null">
+        #{shippingcode,jdbcType=VARCHAR},
+      </if>
+      <if test="shippingnamecn != null">
+        #{shippingnamecn,jdbcType=VARCHAR},
+      </if>
+      <if test="shippingnameen != null">
+        #{shippingnameen,jdbcType=VARCHAR},
+      </if>
+      <if test="shippintimgurl != null">
+        #{shippintimgurl,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="shippintaddress != null">
+        #{shippintaddress,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbZhyexpress">
+    update db_zhyexpress
+    <set>
+      <if test="shippingcode != null">
+        SHIPPINGCODE = #{shippingcode,jdbcType=VARCHAR},
+      </if>
+      <if test="shippingnamecn != null">
+        SHIPPINGNAMECN = #{shippingnamecn,jdbcType=VARCHAR},
+      </if>
+      <if test="shippingnameen != null">
+        SHIPPINGNAMEEN = #{shippingnameen,jdbcType=VARCHAR},
+      </if>
+      <if test="shippintimgurl != null">
+        SHIPPINTIMGURL = #{shippintimgurl,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        'STATUS' = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="shippintaddress != null">
+        SHIPPINTADDRESS = #{shippintaddress,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbZhyexpress">
+    update db_zhyexpress
+    set SHIPPINGCODE = #{shippingcode,jdbcType=VARCHAR},
+      SHIPPINGNAMECN = #{shippingnamecn,jdbcType=VARCHAR},
+      SHIPPINGNAMEEN = #{shippingnameen,jdbcType=VARCHAR},
+      SHIPPINTIMGURL = #{shippintimgurl,jdbcType=VARCHAR},
+      'STATUS' = #{status,jdbcType=VARCHAR},
+      SHIPPINTADDRESS = #{shippintaddress,jdbcType=LONGVARCHAR}
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbZhyexpress">
+    update db_zhyexpress
+    set SHIPPINGCODE = #{shippingcode,jdbcType=VARCHAR},
+      SHIPPINGNAMECN = #{shippingnamecn,jdbcType=VARCHAR},
+      SHIPPINGNAMEEN = #{shippingnameen,jdbcType=VARCHAR},
+      SHIPPINTIMGURL = #{shippintimgurl,jdbcType=VARCHAR},
+      'STATUS' = #{status,jdbcType=VARCHAR}
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </update>
+</mapper>

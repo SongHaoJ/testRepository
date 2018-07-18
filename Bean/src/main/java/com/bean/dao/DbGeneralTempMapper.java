@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbGeneralTemp;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbGeneralTempMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbGeneralTemp selectByCriteria(DbGeneralTemp DbGeneralTemp);
 
-    int insert(DbGeneralTemp record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbGeneralTemp record);
+    void deleteByCriteria(DbGeneralTemp DbGeneralTemp);
+
+    int insertByCriteria(DbGeneralTemp DbGeneralTemp);
+
+    int updateByCriteria(DbGeneralTemp DbGeneralTemp);
 
     DbGeneralTemp selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbGeneralTemp record);
-
-    int updateByPrimaryKeyWithBLOBs(DbGeneralTemp record);
-
-    int updateByPrimaryKey(DbGeneralTemp record);
+    List<DbGeneralTemp> selectAll();
 }

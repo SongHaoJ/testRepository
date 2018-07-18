@@ -19,6 +19,10 @@ public class DbCkyskuconfig implements Serializable {
 
     private Date createtime;
 
+    private String productname;
+
+    private String ckyproductname;
+
     private String ckystatus;
 
     private String categoryid;
@@ -65,6 +69,8 @@ public class DbCkyskuconfig implements Serializable {
 
     private String reserve9;
 
+    private String descr;
+
     private String warehouse;
 
     private String weight;
@@ -76,12 +82,6 @@ public class DbCkyskuconfig implements Serializable {
     private String tpnsavenum;
 
     private BigDecimal sharestock;
-
-    private String productname;
-
-    private String ckyproductname;
-
-    private String descr;
 
     private static final long serialVersionUID = 1L;
 
@@ -139,6 +139,22 @@ public class DbCkyskuconfig implements Serializable {
 
     public void setCreatetime(Date createtime) {
         this.createtime = createtime;
+    }
+
+    public String getProductname() {
+        return productname;
+    }
+
+    public void setProductname(String productname) {
+        this.productname = productname == null ? null : productname.trim();
+    }
+
+    public String getCkyproductname() {
+        return ckyproductname;
+    }
+
+    public void setCkyproductname(String ckyproductname) {
+        this.ckyproductname = ckyproductname == null ? null : ckyproductname.trim();
     }
 
     public String getCkystatus() {
@@ -325,6 +341,14 @@ public class DbCkyskuconfig implements Serializable {
         this.reserve9 = reserve9 == null ? null : reserve9.trim();
     }
 
+    public String getDescr() {
+        return descr;
+    }
+
+    public void setDescr(String descr) {
+        this.descr = descr == null ? null : descr.trim();
+    }
+
     public String getWarehouse() {
         return warehouse;
     }
@@ -373,30 +397,6 @@ public class DbCkyskuconfig implements Serializable {
         this.sharestock = sharestock;
     }
 
-    public String getProductname() {
-        return productname;
-    }
-
-    public void setProductname(String productname) {
-        this.productname = productname == null ? null : productname.trim();
-    }
-
-    public String getCkyproductname() {
-        return ckyproductname;
-    }
-
-    public void setCkyproductname(String ckyproductname) {
-        this.ckyproductname = ckyproductname == null ? null : ckyproductname.trim();
-    }
-
-    public String getDescr() {
-        return descr;
-    }
-
-    public void setDescr(String descr) {
-        this.descr = descr == null ? null : descr.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -416,6 +416,8 @@ public class DbCkyskuconfig implements Serializable {
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
             && (this.getCreateoper() == null ? other.getCreateoper() == null : this.getCreateoper().equals(other.getCreateoper()))
             && (this.getCreatetime() == null ? other.getCreatetime() == null : this.getCreatetime().equals(other.getCreatetime()))
+            && (this.getProductname() == null ? other.getProductname() == null : this.getProductname().equals(other.getProductname()))
+            && (this.getCkyproductname() == null ? other.getCkyproductname() == null : this.getCkyproductname().equals(other.getCkyproductname()))
             && (this.getCkystatus() == null ? other.getCkystatus() == null : this.getCkystatus().equals(other.getCkystatus()))
             && (this.getCategoryid() == null ? other.getCategoryid() == null : this.getCategoryid().equals(other.getCategoryid()))
             && (this.getPrice1() == null ? other.getPrice1() == null : this.getPrice1().equals(other.getPrice1()))
@@ -439,15 +441,13 @@ public class DbCkyskuconfig implements Serializable {
             && (this.getReserve8() == null ? other.getReserve8() == null : this.getReserve8().equals(other.getReserve8()))
             && (this.getReserve10() == null ? other.getReserve10() == null : this.getReserve10().equals(other.getReserve10()))
             && (this.getReserve9() == null ? other.getReserve9() == null : this.getReserve9().equals(other.getReserve9()))
+            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
             && (this.getWarehouse() == null ? other.getWarehouse() == null : this.getWarehouse().equals(other.getWarehouse()))
             && (this.getWeight() == null ? other.getWeight() == null : this.getWeight().equals(other.getWeight()))
             && (this.getSellnum() == null ? other.getSellnum() == null : this.getSellnum().equals(other.getSellnum()))
             && (this.getAvailstock() == null ? other.getAvailstock() == null : this.getAvailstock().equals(other.getAvailstock()))
             && (this.getTpnsavenum() == null ? other.getTpnsavenum() == null : this.getTpnsavenum().equals(other.getTpnsavenum()))
-            && (this.getSharestock() == null ? other.getSharestock() == null : this.getSharestock().equals(other.getSharestock()))
-            && (this.getProductname() == null ? other.getProductname() == null : this.getProductname().equals(other.getProductname()))
-            && (this.getCkyproductname() == null ? other.getCkyproductname() == null : this.getCkyproductname().equals(other.getCkyproductname()))
-            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()));
+            && (this.getSharestock() == null ? other.getSharestock() == null : this.getSharestock().equals(other.getSharestock()));
     }
 
     @Override
@@ -461,6 +461,8 @@ public class DbCkyskuconfig implements Serializable {
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getCreateoper() == null) ? 0 : getCreateoper().hashCode());
         result = prime * result + ((getCreatetime() == null) ? 0 : getCreatetime().hashCode());
+        result = prime * result + ((getProductname() == null) ? 0 : getProductname().hashCode());
+        result = prime * result + ((getCkyproductname() == null) ? 0 : getCkyproductname().hashCode());
         result = prime * result + ((getCkystatus() == null) ? 0 : getCkystatus().hashCode());
         result = prime * result + ((getCategoryid() == null) ? 0 : getCategoryid().hashCode());
         result = prime * result + ((getPrice1() == null) ? 0 : getPrice1().hashCode());
@@ -484,15 +486,13 @@ public class DbCkyskuconfig implements Serializable {
         result = prime * result + ((getReserve8() == null) ? 0 : getReserve8().hashCode());
         result = prime * result + ((getReserve10() == null) ? 0 : getReserve10().hashCode());
         result = prime * result + ((getReserve9() == null) ? 0 : getReserve9().hashCode());
+        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
         result = prime * result + ((getWarehouse() == null) ? 0 : getWarehouse().hashCode());
         result = prime * result + ((getWeight() == null) ? 0 : getWeight().hashCode());
         result = prime * result + ((getSellnum() == null) ? 0 : getSellnum().hashCode());
         result = prime * result + ((getAvailstock() == null) ? 0 : getAvailstock().hashCode());
         result = prime * result + ((getTpnsavenum() == null) ? 0 : getTpnsavenum().hashCode());
         result = prime * result + ((getSharestock() == null) ? 0 : getSharestock().hashCode());
-        result = prime * result + ((getProductname() == null) ? 0 : getProductname().hashCode());
-        result = prime * result + ((getCkyproductname() == null) ? 0 : getCkyproductname().hashCode());
-        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
         return result;
     }
 
@@ -509,6 +509,8 @@ public class DbCkyskuconfig implements Serializable {
         sb.append(", opertime=").append(opertime);
         sb.append(", createoper=").append(createoper);
         sb.append(", createtime=").append(createtime);
+        sb.append(", productname=").append(productname);
+        sb.append(", ckyproductname=").append(ckyproductname);
         sb.append(", ckystatus=").append(ckystatus);
         sb.append(", categoryid=").append(categoryid);
         sb.append(", price1=").append(price1);
@@ -532,15 +534,13 @@ public class DbCkyskuconfig implements Serializable {
         sb.append(", reserve8=").append(reserve8);
         sb.append(", reserve10=").append(reserve10);
         sb.append(", reserve9=").append(reserve9);
+        sb.append(", descr=").append(descr);
         sb.append(", warehouse=").append(warehouse);
         sb.append(", weight=").append(weight);
         sb.append(", sellnum=").append(sellnum);
         sb.append(", availstock=").append(availstock);
         sb.append(", tpnsavenum=").append(tpnsavenum);
         sb.append(", sharestock=").append(sharestock);
-        sb.append(", productname=").append(productname);
-        sb.append(", ckyproductname=").append(ckyproductname);
-        sb.append(", descr=").append(descr);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbAlisku;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbAliskuMapper {
-    int deleteByPrimaryKey(String skuid);
+    DbAlisku selectByCriteria(DbAlisku DbAlisku);
 
-    int insert(DbAlisku record);
+    void deleteByPrimaryKey(String SKUID);
 
-    int insertSelective(DbAlisku record);
+    void deleteByCriteria(DbAlisku DbAlisku);
+
+    int insertByCriteria(DbAlisku DbAlisku);
+
+    int updateByCriteria(DbAlisku DbAlisku);
 
     DbAlisku selectByPrimaryKey(String skuid);
 
-    int updateByPrimaryKeySelective(DbAlisku record);
-
-    int updateByPrimaryKeyWithBLOBs(DbAlisku record);
-
-    int updateByPrimaryKey(DbAlisku record);
+    List<DbAlisku> selectAll();
 }

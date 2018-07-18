@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbUploadfile;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbUploadfileMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbUploadfile selectByCriteria(DbUploadfile DbUploadfile);
 
-    int insert(DbUploadfile record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbUploadfile record);
+    void deleteByCriteria(DbUploadfile DbUploadfile);
+
+    int insertByCriteria(DbUploadfile DbUploadfile);
+
+    int updateByCriteria(DbUploadfile DbUploadfile);
 
     DbUploadfile selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbUploadfile record);
-
-    int updateByPrimaryKeyWithBLOBs(DbUploadfile record);
-
-    int updateByPrimaryKey(DbUploadfile record);
+    List<DbUploadfile> selectAll();
 }

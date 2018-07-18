@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbUsershowconfig;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbUsershowconfigMapper {
-    int deleteByPrimaryKey(Integer id);
+    DbUsershowconfig selectByCriteria(DbUsershowconfig DbUsershowconfig);
 
-    int insert(DbUsershowconfig record);
+    void deleteByPrimaryKey(String ID);
 
-    int insertSelective(DbUsershowconfig record);
+    void deleteByCriteria(DbUsershowconfig DbUsershowconfig);
+
+    int insertByCriteria(DbUsershowconfig DbUsershowconfig);
+
+    int updateByCriteria(DbUsershowconfig DbUsershowconfig);
 
     DbUsershowconfig selectByPrimaryKey(Integer id);
 
-    int updateByPrimaryKeySelective(DbUsershowconfig record);
-
-    int updateByPrimaryKeyWithBLOBs(DbUsershowconfig record);
-
-    int updateByPrimaryKey(DbUsershowconfig record);
+    List<DbUsershowconfig> selectAll();
 }

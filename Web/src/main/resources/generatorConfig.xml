@@ -6,7 +6,8 @@
       还有重要的就是我们要生成的实体类所对应的的表或者试图 -->
 <generatorConfiguration>
     <properties resource="mybatis_generator.properties" />
-<!--    <classPathEntry location="D:\oracle\product\11.2.0\dbhome_1\jdbc\lib\ojdbc6.jar" />-->
+    <!--死活读不到maven的jar包，只能读个绝对路径-->
+    <classPathEntry location="D:\oracle\product\11.2.0\dbhome_1\jdbc\lib\ojdbc6.jar" />
     <context id="MBG" targetRuntime="MyBatis3Simple" defaultModelType="flat">
         <!-- 注意以下标签的顺序:property*,plugin*,commentGenerator?,jdbcConnection,
                 javaTypeResolver?,javaModelGenerator,sqlMapGenerator?,
@@ -19,6 +20,7 @@
             <property name="suppressJavaInterface" value="false" />
         </plugin>
         <plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+        <!--导入自己的plugin-->
         <!--<plugin type="com.bean.plugin.MyPlugin"/>-->
         <plugin type="com.bean.plugin.DaoPlugin"/>
         <commentGenerator>
@@ -32,10 +34,10 @@
         <!-- 数据库连接 -->
 
         <jdbcConnection
-                driverClass="${jdbc_driver}"
-                connectionURL="${jdbc_url}"
-                userId="${jdbc_username}"
-                password="${jdbc_password}">
+                driverClass="${jdbc_driver2}"
+                connectionURL="${jdbc_url2}"
+                userId="${jdbc_username2}"
+                password="${jdbc_password2}">
         </jdbcConnection>
         <!-- 指定生成的类型为java类型，避免数据库中number等类型字段 -->
         <javaTypeResolver>
@@ -57,9 +59,16 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
         <!-- 表名对应生成的实体 (tableName="%" 会生成所有表)-->
-        <table tableName="%" enableCountByExample="false" enableUpdateByExample="false"
+        <!--oracle 加上schema属性-->
+        <table tableName="%" schema="eshop" enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" enableInsert="false"
-               enableUpdateByPrimaryKey="false" enableDeleteByPrimaryKey="false"/>
+               enableUpdateByPrimaryKey="false" enableDeleteByPrimaryKey="false">
+            <!--去掉schema的开头-->
+            <property name="ignoreQualifiersAtRuntime" value="true"/>
+            <!--java关键字替换-->
+            <columnOverride column="class" property="dbClass"/>
+            <columnOverride column="package" property="dbPackage"/>
+        </table>
 <!--    可选 （至少要生成一个语句）：
         1，schema：数据库的schema；
         2，catalog：数据库的catalog；

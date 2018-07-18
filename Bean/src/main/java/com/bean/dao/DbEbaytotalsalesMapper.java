@@ -1,18 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbEbaytotalsales;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbEbaytotalsalesMapper {
-    int deleteByPrimaryKey(BigDecimal sequenceid);
+    DbEbaytotalsales selectByCriteria(DbEbaytotalsales DbEbaytotalsales);
 
-    int insert(DbEbaytotalsales record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbEbaytotalsales record);
+    void deleteByCriteria(DbEbaytotalsales DbEbaytotalsales);
+
+    int insertByCriteria(DbEbaytotalsales DbEbaytotalsales);
+
+    int updateByCriteria(DbEbaytotalsales DbEbaytotalsales);
 
     DbEbaytotalsales selectByPrimaryKey(BigDecimal sequenceid);
 
-    int updateByPrimaryKeySelective(DbEbaytotalsales record);
-
-    int updateByPrimaryKey(DbEbaytotalsales record);
+    List<DbEbaytotalsales> selectAll();
 }

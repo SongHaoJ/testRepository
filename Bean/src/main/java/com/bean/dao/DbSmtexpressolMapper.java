@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbSmtexpressol;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbSmtexpressolMapper {
-    int deleteByPrimaryKey(String code);
+    DbSmtexpressol selectByCriteria(DbSmtexpressol DbSmtexpressol);
 
-    int insert(DbSmtexpressol record);
+    void deleteByPrimaryKey(String CODE);
 
-    int insertSelective(DbSmtexpressol record);
+    void deleteByCriteria(DbSmtexpressol DbSmtexpressol);
+
+    int insertByCriteria(DbSmtexpressol DbSmtexpressol);
+
+    int updateByCriteria(DbSmtexpressol DbSmtexpressol);
 
     DbSmtexpressol selectByPrimaryKey(String code);
 
-    int updateByPrimaryKeySelective(DbSmtexpressol record);
-
-    int updateByPrimaryKeyWithBLOBs(DbSmtexpressol record);
-
-    int updateByPrimaryKey(DbSmtexpressol record);
+    List<DbSmtexpressol> selectAll();
 }

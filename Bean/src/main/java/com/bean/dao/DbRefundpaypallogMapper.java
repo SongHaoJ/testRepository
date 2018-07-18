@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbRefundpaypallog;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbRefundpaypallogMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbRefundpaypallog selectByCriteria(DbRefundpaypallog DbRefundpaypallog);
 
-    int insert(DbRefundpaypallog record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbRefundpaypallog record);
+    void deleteByCriteria(DbRefundpaypallog DbRefundpaypallog);
+
+    int insertByCriteria(DbRefundpaypallog DbRefundpaypallog);
+
+    int updateByCriteria(DbRefundpaypallog DbRefundpaypallog);
 
     DbRefundpaypallog selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbRefundpaypallog record);
-
-    int updateByPrimaryKeyWithBLOBs(DbRefundpaypallog record);
-
-    int updateByPrimaryKey(DbRefundpaypallog record);
+    List<DbRefundpaypallog> selectAll();
 }

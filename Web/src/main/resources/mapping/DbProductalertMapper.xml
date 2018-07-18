@@ -16,16 +16,16 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select SQUENCEID, ALERTSTAR1, ALERTEND1, ALERTSTATIC1, ALERTSTAR2, ALERTEND2, ALERTSTATIC2, 
     ALERTSTAR3, ALERTEND3, ALERTSTATIC3
-    from db_productalert
+    from DB_PRODUCTALERT
     where SQUENCEID = #{squenceid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SQUENCEID, ALERTSTAR1, ALERTEND1, ALERTSTATIC1, ALERTSTAR2, ALERTEND2, ALERTSTATIC2, 
     ALERTSTAR3, ALERTEND3, ALERTSTATIC3
-    from db_productalert
+    from DB_PRODUCTALERT
   </select>
   <sql id="TableName">
-    db_productalert
+    DB_PRODUCTALERT
   </sql>
   <sql id="Values">
      #{squenceid,jdbcType=VARCHAR} , 
@@ -37,7 +37,7 @@
      #{alertstatic2,jdbcType=DECIMAL} , 
      #{alertstar3,jdbcType=DECIMAL} , 
      #{alertend3,jdbcType=DECIMAL} , 
-     #{alertstatic3,jdbcType=DECIMAL}
+     #{alertstatic3,jdbcType=DECIMAL} , 
   </sql>
   <sql id="Columns">
     SQUENCEID , 
@@ -49,73 +49,73 @@
     ALERTSTATIC2 , 
     ALERTSTAR3 , 
     ALERTEND3 , 
-    ALERTSTATIC3
+    ALERTSTATIC3 , 
   </sql>
   <sql id="Criteria">
     <if test="squenceid != null">
-      SQUENCEID = #{squenceid,jdbcType=VARCHAR} and 
+      squenceid = #{squenceid,jdbcType=VARCHAR} and 
     </if>
     <if test="alertstar1 != null">
-      ALERTSTAR1 = #{alertstar1,jdbcType=DECIMAL} and 
+      alertstar1 = #{alertstar1,jdbcType=DECIMAL} and 
     </if>
     <if test="alertend1 != null">
-      ALERTEND1 = #{alertend1,jdbcType=DECIMAL} and 
+      alertend1 = #{alertend1,jdbcType=DECIMAL} and 
     </if>
     <if test="alertstatic1 != null">
-      ALERTSTATIC1 = #{alertstatic1,jdbcType=DECIMAL} and 
+      alertstatic1 = #{alertstatic1,jdbcType=DECIMAL} and 
     </if>
     <if test="alertstar2 != null">
-      ALERTSTAR2 = #{alertstar2,jdbcType=DECIMAL} and 
+      alertstar2 = #{alertstar2,jdbcType=DECIMAL} and 
     </if>
     <if test="alertend2 != null">
-      ALERTEND2 = #{alertend2,jdbcType=DECIMAL} and 
+      alertend2 = #{alertend2,jdbcType=DECIMAL} and 
     </if>
     <if test="alertstatic2 != null">
-      ALERTSTATIC2 = #{alertstatic2,jdbcType=DECIMAL} and 
+      alertstatic2 = #{alertstatic2,jdbcType=DECIMAL} and 
     </if>
     <if test="alertstar3 != null">
-      ALERTSTAR3 = #{alertstar3,jdbcType=DECIMAL} and 
+      alertstar3 = #{alertstar3,jdbcType=DECIMAL} and 
     </if>
     <if test="alertend3 != null">
-      ALERTEND3 = #{alertend3,jdbcType=DECIMAL} and 
+      alertend3 = #{alertend3,jdbcType=DECIMAL} and 
     </if>
     <if test="alertstatic3 != null">
-      ALERTSTATIC3 = #{alertstatic3,jdbcType=DECIMAL}
+      alertstatic3 = #{alertstatic3,jdbcType=DECIMAL} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="squenceid != null">
-      SQUENCEID = #{squenceid,jdbcType=VARCHAR} , 
+      squenceid = #{squenceid,jdbcType=VARCHAR} , 
     </if>
     <if test="alertstar1 != null">
-      ALERTSTAR1 = #{alertstar1,jdbcType=DECIMAL} , 
+      alertstar1 = #{alertstar1,jdbcType=DECIMAL} , 
     </if>
     <if test="alertend1 != null">
-      ALERTEND1 = #{alertend1,jdbcType=DECIMAL} , 
+      alertend1 = #{alertend1,jdbcType=DECIMAL} , 
     </if>
     <if test="alertstatic1 != null">
-      ALERTSTATIC1 = #{alertstatic1,jdbcType=DECIMAL} , 
+      alertstatic1 = #{alertstatic1,jdbcType=DECIMAL} , 
     </if>
     <if test="alertstar2 != null">
-      ALERTSTAR2 = #{alertstar2,jdbcType=DECIMAL} , 
+      alertstar2 = #{alertstar2,jdbcType=DECIMAL} , 
     </if>
     <if test="alertend2 != null">
-      ALERTEND2 = #{alertend2,jdbcType=DECIMAL} , 
+      alertend2 = #{alertend2,jdbcType=DECIMAL} , 
     </if>
     <if test="alertstatic2 != null">
-      ALERTSTATIC2 = #{alertstatic2,jdbcType=DECIMAL} , 
+      alertstatic2 = #{alertstatic2,jdbcType=DECIMAL} , 
     </if>
     <if test="alertstar3 != null">
-      ALERTSTAR3 = #{alertstar3,jdbcType=DECIMAL} , 
+      alertstar3 = #{alertstar3,jdbcType=DECIMAL} , 
     </if>
     <if test="alertend3 != null">
-      ALERTEND3 = #{alertend3,jdbcType=DECIMAL} , 
+      alertend3 = #{alertend3,jdbcType=DECIMAL} , 
     </if>
     <if test="alertstatic3 != null">
-      ALERTSTATIC3 = #{alertstatic3,jdbcType=DECIMAL}
+      alertstatic3 = #{alertstatic3,jdbcType=DECIMAL} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbProductalert" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

@@ -1,18 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbBullettype;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbBullettypeMapper {
-    int deleteByPrimaryKey(BigDecimal bullettype);
+    DbBullettype selectByCriteria(DbBullettype DbBullettype);
 
-    int insert(DbBullettype record);
+    void deleteByPrimaryKey(String BULLETTYPE);
 
-    int insertSelective(DbBullettype record);
+    void deleteByCriteria(DbBullettype DbBullettype);
+
+    int insertByCriteria(DbBullettype DbBullettype);
+
+    int updateByCriteria(DbBullettype DbBullettype);
 
     DbBullettype selectByPrimaryKey(BigDecimal bullettype);
 
-    int updateByPrimaryKeySelective(DbBullettype record);
-
-    int updateByPrimaryKeyWithBLOBs(DbBullettype record);
+    List<DbBullettype> selectAll();
 }

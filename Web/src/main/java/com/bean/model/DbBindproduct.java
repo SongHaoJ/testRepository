@@ -9,6 +9,10 @@ public class DbBindproduct implements Serializable {
 
     private String name;
 
+    private String content;
+
+    private String descr;
+
     private String categoryid;
 
     private String projectid;
@@ -41,6 +45,8 @@ public class DbBindproduct implements Serializable {
 
     private BigDecimal ordernum;
 
+    private String alias1;
+
     private String alias2;
 
     private String alias3;
@@ -67,12 +73,6 @@ public class DbBindproduct implements Serializable {
 
     private String corpid;
 
-    private String content;
-
-    private String descr;
-
-    private String alias1;
-
     private static final long serialVersionUID = 1L;
 
     public String getSid() {
@@ -89,6 +89,22 @@ public class DbBindproduct implements Serializable {
 
     public void setName(String name) {
         this.name = name == null ? null : name.trim();
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content == null ? null : content.trim();
+    }
+
+    public String getDescr() {
+        return descr;
+    }
+
+    public void setDescr(String descr) {
+        this.descr = descr == null ? null : descr.trim();
     }
 
     public String getCategoryid() {
@@ -219,6 +235,14 @@ public class DbBindproduct implements Serializable {
         this.ordernum = ordernum;
     }
 
+    public String getAlias1() {
+        return alias1;
+    }
+
+    public void setAlias1(String alias1) {
+        this.alias1 = alias1 == null ? null : alias1.trim();
+    }
+
     public String getAlias2() {
         return alias2;
     }
@@ -323,30 +347,6 @@ public class DbBindproduct implements Serializable {
         this.corpid = corpid == null ? null : corpid.trim();
     }
 
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content == null ? null : content.trim();
-    }
-
-    public String getDescr() {
-        return descr;
-    }
-
-    public void setDescr(String descr) {
-        this.descr = descr == null ? null : descr.trim();
-    }
-
-    public String getAlias1() {
-        return alias1;
-    }
-
-    public void setAlias1(String alias1) {
-        this.alias1 = alias1 == null ? null : alias1.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -361,6 +361,8 @@ public class DbBindproduct implements Serializable {
         DbBindproduct other = (DbBindproduct) that;
         return (this.getSid() == null ? other.getSid() == null : this.getSid().equals(other.getSid()))
             && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
+            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
+            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
             && (this.getCategoryid() == null ? other.getCategoryid() == null : this.getCategoryid().equals(other.getCategoryid()))
             && (this.getProjectid() == null ? other.getProjectid() == null : this.getProjectid().equals(other.getProjectid()))
             && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
@@ -377,6 +379,7 @@ public class DbBindproduct implements Serializable {
             && (this.getPicture3() == null ? other.getPicture3() == null : this.getPicture3().equals(other.getPicture3()))
             && (this.getPicture4() == null ? other.getPicture4() == null : this.getPicture4().equals(other.getPicture4()))
             && (this.getOrdernum() == null ? other.getOrdernum() == null : this.getOrdernum().equals(other.getOrdernum()))
+            && (this.getAlias1() == null ? other.getAlias1() == null : this.getAlias1().equals(other.getAlias1()))
             && (this.getAlias2() == null ? other.getAlias2() == null : this.getAlias2().equals(other.getAlias2()))
             && (this.getAlias3() == null ? other.getAlias3() == null : this.getAlias3().equals(other.getAlias3()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
@@ -389,10 +392,7 @@ public class DbBindproduct implements Serializable {
             && (this.getReserve6() == null ? other.getReserve6() == null : this.getReserve6().equals(other.getReserve6()))
             && (this.getReserve7() == null ? other.getReserve7() == null : this.getReserve7().equals(other.getReserve7()))
             && (this.getReserve8() == null ? other.getReserve8() == null : this.getReserve8().equals(other.getReserve8()))
-            && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()))
-            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
-            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
-            && (this.getAlias1() == null ? other.getAlias1() == null : this.getAlias1().equals(other.getAlias1()));
+            && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()));
     }
 
     @Override
@@ -401,6 +401,8 @@ public class DbBindproduct implements Serializable {
         int result = 1;
         result = prime * result + ((getSid() == null) ? 0 : getSid().hashCode());
         result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
+        result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
+        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
         result = prime * result + ((getCategoryid() == null) ? 0 : getCategoryid().hashCode());
         result = prime * result + ((getProjectid() == null) ? 0 : getProjectid().hashCode());
         result = prime * result + ((getStatus() == null) ? 0 : getStatus().hashCode());
@@ -417,6 +419,7 @@ public class DbBindproduct implements Serializable {
         result = prime * result + ((getPicture3() == null) ? 0 : getPicture3().hashCode());
         result = prime * result + ((getPicture4() == null) ? 0 : getPicture4().hashCode());
         result = prime * result + ((getOrdernum() == null) ? 0 : getOrdernum().hashCode());
+        result = prime * result + ((getAlias1() == null) ? 0 : getAlias1().hashCode());
         result = prime * result + ((getAlias2() == null) ? 0 : getAlias2().hashCode());
         result = prime * result + ((getAlias3() == null) ? 0 : getAlias3().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
@@ -430,9 +433,6 @@ public class DbBindproduct implements Serializable {
         result = prime * result + ((getReserve7() == null) ? 0 : getReserve7().hashCode());
         result = prime * result + ((getReserve8() == null) ? 0 : getReserve8().hashCode());
         result = prime * result + ((getCorpid() == null) ? 0 : getCorpid().hashCode());
-        result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
-        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
-        result = prime * result + ((getAlias1() == null) ? 0 : getAlias1().hashCode());
         return result;
     }
 
@@ -444,6 +444,8 @@ public class DbBindproduct implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", sid=").append(sid);
         sb.append(", name=").append(name);
+        sb.append(", content=").append(content);
+        sb.append(", descr=").append(descr);
         sb.append(", categoryid=").append(categoryid);
         sb.append(", projectid=").append(projectid);
         sb.append(", status=").append(status);
@@ -460,6 +462,7 @@ public class DbBindproduct implements Serializable {
         sb.append(", picture3=").append(picture3);
         sb.append(", picture4=").append(picture4);
         sb.append(", ordernum=").append(ordernum);
+        sb.append(", alias1=").append(alias1);
         sb.append(", alias2=").append(alias2);
         sb.append(", alias3=").append(alias3);
         sb.append(", oper=").append(oper);
@@ -473,9 +476,6 @@ public class DbBindproduct implements Serializable {
         sb.append(", reserve7=").append(reserve7);
         sb.append(", reserve8=").append(reserve8);
         sb.append(", corpid=").append(corpid);
-        sb.append(", content=").append(content);
-        sb.append(", descr=").append(descr);
-        sb.append(", alias1=").append(alias1);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

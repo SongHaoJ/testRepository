@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbPostmessage;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbPostmessageMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbPostmessage selectByCriteria(DbPostmessage DbPostmessage);
 
-    int insert(DbPostmessage record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbPostmessage record);
+    void deleteByCriteria(DbPostmessage DbPostmessage);
+
+    int insertByCriteria(DbPostmessage DbPostmessage);
+
+    int updateByCriteria(DbPostmessage DbPostmessage);
 
     DbPostmessage selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbPostmessage record);
-
-    int updateByPrimaryKeyWithBLOBs(DbPostmessage record);
-
-    int updateByPrimaryKey(DbPostmessage record);
+    List<DbPostmessage> selectAll();
 }

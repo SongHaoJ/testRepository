@@ -17,11 +17,17 @@ public class DbPurchaseflow implements Serializable {
 
     private Date arrivedate;
 
+    private String position;
+
     private String followupoper;
 
     private String poorderflag;
 
+    private String company;
+
     private String productid;
+
+    private String productname;
 
     private String payment;
 
@@ -35,7 +41,11 @@ public class DbPurchaseflow implements Serializable {
 
     private String posure;
 
+    private String content;
+
     private Date photoqcdate;
+
+    private String note;
 
     private BigDecimal samplenum;
 
@@ -48,6 +58,8 @@ public class DbPurchaseflow implements Serializable {
     private Date finishorderdate;
 
     private Date drawbackdate;
+
+    private String city;
 
     private Date expressdate;
 
@@ -67,9 +79,17 @@ public class DbPurchaseflow implements Serializable {
 
     private Date arrivestoredate;
 
+    private String containernote;
+
     private Date augarnereddate;
 
+    private String packinglist;
+
     private String billoflading;
+
+    private String shipmentupdateinventory;
+
+    private String garneredupdateinventory;
 
     private Date closedate;
 
@@ -99,7 +119,17 @@ public class DbPurchaseflow implements Serializable {
 
     private String urgent;
 
+    private String moneynote;
+
     private String picture1;
+
+    private String reserve1;
+
+    private String reserve2;
+
+    private String reserve3;
+
+    private String reserve4;
 
     private String reserve5;
 
@@ -132,6 +162,10 @@ public class DbPurchaseflow implements Serializable {
     private BigDecimal outergrossweight;
 
     private BigDecimal outernetweight;
+
+    private String outernorms;
+
+    private String outerlevel;
 
     private BigDecimal grossweight;
 
@@ -189,40 +223,6 @@ public class DbPurchaseflow implements Serializable {
 
     private BigDecimal delay;
 
-    private String position;
-
-    private String company;
-
-    private String productname;
-
-    private String content;
-
-    private String note;
-
-    private String city;
-
-    private String containernote;
-
-    private String packinglist;
-
-    private String shipmentupdateinventory;
-
-    private String garneredupdateinventory;
-
-    private String moneynote;
-
-    private String reserve1;
-
-    private String reserve2;
-
-    private String reserve3;
-
-    private String reserve4;
-
-    private String outernorms;
-
-    private String outerlevel;
-
     private static final long serialVersionUID = 1L;
 
     public BigDecimal getSequenceid() {
@@ -273,6 +273,14 @@ public class DbPurchaseflow implements Serializable {
         this.arrivedate = arrivedate;
     }
 
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position == null ? null : position.trim();
+    }
+
     public String getFollowupoper() {
         return followupoper;
     }
@@ -289,12 +297,28 @@ public class DbPurchaseflow implements Serializable {
         this.poorderflag = poorderflag == null ? null : poorderflag.trim();
     }
 
+    public String getCompany() {
+        return company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company == null ? null : company.trim();
+    }
+
     public String getProductid() {
         return productid;
     }
 
     public void setProductid(String productid) {
         this.productid = productid == null ? null : productid.trim();
+    }
+
+    public String getProductname() {
+        return productname;
+    }
+
+    public void setProductname(String productname) {
+        this.productname = productname == null ? null : productname.trim();
     }
 
     public String getPayment() {
@@ -345,12 +369,28 @@ public class DbPurchaseflow implements Serializable {
         this.posure = posure == null ? null : posure.trim();
     }
 
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content == null ? null : content.trim();
+    }
+
     public Date getPhotoqcdate() {
         return photoqcdate;
     }
 
     public void setPhotoqcdate(Date photoqcdate) {
         this.photoqcdate = photoqcdate;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note == null ? null : note.trim();
     }
 
     public BigDecimal getSamplenum() {
@@ -399,6 +439,14 @@ public class DbPurchaseflow implements Serializable {
 
     public void setDrawbackdate(Date drawbackdate) {
         this.drawbackdate = drawbackdate;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city == null ? null : city.trim();
     }
 
     public Date getExpressdate() {
@@ -473,6 +521,14 @@ public class DbPurchaseflow implements Serializable {
         this.arrivestoredate = arrivestoredate;
     }
 
+    public String getContainernote() {
+        return containernote;
+    }
+
+    public void setContainernote(String containernote) {
+        this.containernote = containernote == null ? null : containernote.trim();
+    }
+
     public Date getAugarnereddate() {
         return augarnereddate;
     }
@@ -481,12 +537,36 @@ public class DbPurchaseflow implements Serializable {
         this.augarnereddate = augarnereddate;
     }
 
+    public String getPackinglist() {
+        return packinglist;
+    }
+
+    public void setPackinglist(String packinglist) {
+        this.packinglist = packinglist == null ? null : packinglist.trim();
+    }
+
     public String getBilloflading() {
         return billoflading;
     }
 
     public void setBilloflading(String billoflading) {
         this.billoflading = billoflading == null ? null : billoflading.trim();
+    }
+
+    public String getShipmentupdateinventory() {
+        return shipmentupdateinventory;
+    }
+
+    public void setShipmentupdateinventory(String shipmentupdateinventory) {
+        this.shipmentupdateinventory = shipmentupdateinventory == null ? null : shipmentupdateinventory.trim();
+    }
+
+    public String getGarneredupdateinventory() {
+        return garneredupdateinventory;
+    }
+
+    public void setGarneredupdateinventory(String garneredupdateinventory) {
+        this.garneredupdateinventory = garneredupdateinventory == null ? null : garneredupdateinventory.trim();
     }
 
     public Date getClosedate() {
@@ -601,12 +681,52 @@ public class DbPurchaseflow implements Serializable {
         this.urgent = urgent == null ? null : urgent.trim();
     }
 
+    public String getMoneynote() {
+        return moneynote;
+    }
+
+    public void setMoneynote(String moneynote) {
+        this.moneynote = moneynote == null ? null : moneynote.trim();
+    }
+
     public String getPicture1() {
         return picture1;
     }
 
     public void setPicture1(String picture1) {
         this.picture1 = picture1 == null ? null : picture1.trim();
+    }
+
+    public String getReserve1() {
+        return reserve1;
+    }
+
+    public void setReserve1(String reserve1) {
+        this.reserve1 = reserve1 == null ? null : reserve1.trim();
+    }
+
+    public String getReserve2() {
+        return reserve2;
+    }
+
+    public void setReserve2(String reserve2) {
+        this.reserve2 = reserve2 == null ? null : reserve2.trim();
+    }
+
+    public String getReserve3() {
+        return reserve3;
+    }
+
+    public void setReserve3(String reserve3) {
+        this.reserve3 = reserve3 == null ? null : reserve3.trim();
+    }
+
+    public String getReserve4() {
+        return reserve4;
+    }
+
+    public void setReserve4(String reserve4) {
+        this.reserve4 = reserve4 == null ? null : reserve4.trim();
     }
 
     public String getReserve5() {
@@ -735,6 +855,22 @@ public class DbPurchaseflow implements Serializable {
 
     public void setOuternetweight(BigDecimal outernetweight) {
         this.outernetweight = outernetweight;
+    }
+
+    public String getOuternorms() {
+        return outernorms;
+    }
+
+    public void setOuternorms(String outernorms) {
+        this.outernorms = outernorms == null ? null : outernorms.trim();
+    }
+
+    public String getOuterlevel() {
+        return outerlevel;
+    }
+
+    public void setOuterlevel(String outerlevel) {
+        this.outerlevel = outerlevel == null ? null : outerlevel.trim();
     }
 
     public BigDecimal getGrossweight() {
@@ -961,142 +1097,6 @@ public class DbPurchaseflow implements Serializable {
         this.delay = delay;
     }
 
-    public String getPosition() {
-        return position;
-    }
-
-    public void setPosition(String position) {
-        this.position = position == null ? null : position.trim();
-    }
-
-    public String getCompany() {
-        return company;
-    }
-
-    public void setCompany(String company) {
-        this.company = company == null ? null : company.trim();
-    }
-
-    public String getProductname() {
-        return productname;
-    }
-
-    public void setProductname(String productname) {
-        this.productname = productname == null ? null : productname.trim();
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content == null ? null : content.trim();
-    }
-
-    public String getNote() {
-        return note;
-    }
-
-    public void setNote(String note) {
-        this.note = note == null ? null : note.trim();
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city == null ? null : city.trim();
-    }
-
-    public String getContainernote() {
-        return containernote;
-    }
-
-    public void setContainernote(String containernote) {
-        this.containernote = containernote == null ? null : containernote.trim();
-    }
-
-    public String getPackinglist() {
-        return packinglist;
-    }
-
-    public void setPackinglist(String packinglist) {
-        this.packinglist = packinglist == null ? null : packinglist.trim();
-    }
-
-    public String getShipmentupdateinventory() {
-        return shipmentupdateinventory;
-    }
-
-    public void setShipmentupdateinventory(String shipmentupdateinventory) {
-        this.shipmentupdateinventory = shipmentupdateinventory == null ? null : shipmentupdateinventory.trim();
-    }
-
-    public String getGarneredupdateinventory() {
-        return garneredupdateinventory;
-    }
-
-    public void setGarneredupdateinventory(String garneredupdateinventory) {
-        this.garneredupdateinventory = garneredupdateinventory == null ? null : garneredupdateinventory.trim();
-    }
-
-    public String getMoneynote() {
-        return moneynote;
-    }
-
-    public void setMoneynote(String moneynote) {
-        this.moneynote = moneynote == null ? null : moneynote.trim();
-    }
-
-    public String getReserve1() {
-        return reserve1;
-    }
-
-    public void setReserve1(String reserve1) {
-        this.reserve1 = reserve1 == null ? null : reserve1.trim();
-    }
-
-    public String getReserve2() {
-        return reserve2;
-    }
-
-    public void setReserve2(String reserve2) {
-        this.reserve2 = reserve2 == null ? null : reserve2.trim();
-    }
-
-    public String getReserve3() {
-        return reserve3;
-    }
-
-    public void setReserve3(String reserve3) {
-        this.reserve3 = reserve3 == null ? null : reserve3.trim();
-    }
-
-    public String getReserve4() {
-        return reserve4;
-    }
-
-    public void setReserve4(String reserve4) {
-        this.reserve4 = reserve4 == null ? null : reserve4.trim();
-    }
-
-    public String getOuternorms() {
-        return outernorms;
-    }
-
-    public void setOuternorms(String outernorms) {
-        this.outernorms = outernorms == null ? null : outernorms.trim();
-    }
-
-    public String getOuterlevel() {
-        return outerlevel;
-    }
-
-    public void setOuterlevel(String outerlevel) {
-        this.outerlevel = outerlevel == null ? null : outerlevel.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -1115,22 +1115,28 @@ public class DbPurchaseflow implements Serializable {
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
             && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()))
             && (this.getArrivedate() == null ? other.getArrivedate() == null : this.getArrivedate().equals(other.getArrivedate()))
+            && (this.getPosition() == null ? other.getPosition() == null : this.getPosition().equals(other.getPosition()))
             && (this.getFollowupoper() == null ? other.getFollowupoper() == null : this.getFollowupoper().equals(other.getFollowupoper()))
             && (this.getPoorderflag() == null ? other.getPoorderflag() == null : this.getPoorderflag().equals(other.getPoorderflag()))
+            && (this.getCompany() == null ? other.getCompany() == null : this.getCompany().equals(other.getCompany()))
             && (this.getProductid() == null ? other.getProductid() == null : this.getProductid().equals(other.getProductid()))
+            && (this.getProductname() == null ? other.getProductname() == null : this.getProductname().equals(other.getProductname()))
             && (this.getPayment() == null ? other.getPayment() == null : this.getPayment().equals(other.getPayment()))
             && (this.getAllmoney() == null ? other.getAllmoney() == null : this.getAllmoney().equals(other.getAllmoney()))
             && (this.getDeposit() == null ? other.getDeposit() == null : this.getDeposit().equals(other.getDeposit()))
             && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
             && (this.getDollar() == null ? other.getDollar() == null : this.getDollar().equals(other.getDollar()))
             && (this.getPosure() == null ? other.getPosure() == null : this.getPosure().equals(other.getPosure()))
+            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
             && (this.getPhotoqcdate() == null ? other.getPhotoqcdate() == null : this.getPhotoqcdate().equals(other.getPhotoqcdate()))
+            && (this.getNote() == null ? other.getNote() == null : this.getNote().equals(other.getNote()))
             && (this.getSamplenum() == null ? other.getSamplenum() == null : this.getSamplenum().equals(other.getSamplenum()))
             && (this.getSamplearrivedate() == null ? other.getSamplearrivedate() == null : this.getSamplearrivedate().equals(other.getSamplearrivedate()))
             && (this.getFtcbm() == null ? other.getFtcbm() == null : this.getFtcbm().equals(other.getFtcbm()))
             && (this.getDeliverydate() == null ? other.getDeliverydate() == null : this.getDeliverydate().equals(other.getDeliverydate()))
             && (this.getFinishorderdate() == null ? other.getFinishorderdate() == null : this.getFinishorderdate().equals(other.getFinishorderdate()))
             && (this.getDrawbackdate() == null ? other.getDrawbackdate() == null : this.getDrawbackdate().equals(other.getDrawbackdate()))
+            && (this.getCity() == null ? other.getCity() == null : this.getCity().equals(other.getCity()))
             && (this.getExpressdate() == null ? other.getExpressdate() == null : this.getExpressdate().equals(other.getExpressdate()))
             && (this.getCky() == null ? other.getCky() == null : this.getCky().equals(other.getCky()))
             && (this.getFpx() == null ? other.getFpx() == null : this.getFpx().equals(other.getFpx()))
@@ -1140,8 +1146,12 @@ public class DbPurchaseflow implements Serializable {
             && (this.getEtaharbourdate() == null ? other.getEtaharbourdate() == null : this.getEtaharbourdate().equals(other.getEtaharbourdate()))
             && (this.getEtaarrivedate() == null ? other.getEtaarrivedate() == null : this.getEtaarrivedate().equals(other.getEtaarrivedate()))
             && (this.getArrivestoredate() == null ? other.getArrivestoredate() == null : this.getArrivestoredate().equals(other.getArrivestoredate()))
+            && (this.getContainernote() == null ? other.getContainernote() == null : this.getContainernote().equals(other.getContainernote()))
             && (this.getAugarnereddate() == null ? other.getAugarnereddate() == null : this.getAugarnereddate().equals(other.getAugarnereddate()))
+            && (this.getPackinglist() == null ? other.getPackinglist() == null : this.getPackinglist().equals(other.getPackinglist()))
             && (this.getBilloflading() == null ? other.getBilloflading() == null : this.getBilloflading().equals(other.getBilloflading()))
+            && (this.getShipmentupdateinventory() == null ? other.getShipmentupdateinventory() == null : this.getShipmentupdateinventory().equals(other.getShipmentupdateinventory()))
+            && (this.getGarneredupdateinventory() == null ? other.getGarneredupdateinventory() == null : this.getGarneredupdateinventory().equals(other.getGarneredupdateinventory()))
             && (this.getClosedate() == null ? other.getClosedate() == null : this.getClosedate().equals(other.getClosedate()))
             && (this.getGroupid() == null ? other.getGroupid() == null : this.getGroupid().equals(other.getGroupid()))
             && (this.getDepositdate() == null ? other.getDepositdate() == null : this.getDepositdate().equals(other.getDepositdate()))
@@ -1156,7 +1166,12 @@ public class DbPurchaseflow implements Serializable {
             && (this.getArrivalmoney() == null ? other.getArrivalmoney() == null : this.getArrivalmoney().equals(other.getArrivalmoney()))
             && (this.getFinalmoney() == null ? other.getFinalmoney() == null : this.getFinalmoney().equals(other.getFinalmoney()))
             && (this.getUrgent() == null ? other.getUrgent() == null : this.getUrgent().equals(other.getUrgent()))
+            && (this.getMoneynote() == null ? other.getMoneynote() == null : this.getMoneynote().equals(other.getMoneynote()))
             && (this.getPicture1() == null ? other.getPicture1() == null : this.getPicture1().equals(other.getPicture1()))
+            && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
+            && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
+            && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
+            && (this.getReserve4() == null ? other.getReserve4() == null : this.getReserve4().equals(other.getReserve4()))
             && (this.getReserve5() == null ? other.getReserve5() == null : this.getReserve5().equals(other.getReserve5()))
             && (this.getReserve6() == null ? other.getReserve6() == null : this.getReserve6().equals(other.getReserve6()))
             && (this.getInporttime() == null ? other.getInporttime() == null : this.getInporttime().equals(other.getInporttime()))
@@ -1173,6 +1188,8 @@ public class DbPurchaseflow implements Serializable {
             && (this.getOutervolume() == null ? other.getOutervolume() == null : this.getOutervolume().equals(other.getOutervolume()))
             && (this.getOutergrossweight() == null ? other.getOutergrossweight() == null : this.getOutergrossweight().equals(other.getOutergrossweight()))
             && (this.getOuternetweight() == null ? other.getOuternetweight() == null : this.getOuternetweight().equals(other.getOuternetweight()))
+            && (this.getOuternorms() == null ? other.getOuternorms() == null : this.getOuternorms().equals(other.getOuternorms()))
+            && (this.getOuterlevel() == null ? other.getOuterlevel() == null : this.getOuterlevel().equals(other.getOuterlevel()))
             && (this.getGrossweight() == null ? other.getGrossweight() == null : this.getGrossweight().equals(other.getGrossweight()))
             && (this.getLength() == null ? other.getLength() == null : this.getLength().equals(other.getLength()))
             && (this.getWidth() == null ? other.getWidth() == null : this.getWidth().equals(other.getWidth()))
@@ -1200,24 +1217,7 @@ public class DbPurchaseflow implements Serializable {
             && (this.getProductstatus() == null ? other.getProductstatus() == null : this.getProductstatus().equals(other.getProductstatus()))
             && (this.getSavenum() == null ? other.getSavenum() == null : this.getSavenum().equals(other.getSavenum()))
             && (this.getSellprice() == null ? other.getSellprice() == null : this.getSellprice().equals(other.getSellprice()))
-            && (this.getDelay() == null ? other.getDelay() == null : this.getDelay().equals(other.getDelay()))
-            && (this.getPosition() == null ? other.getPosition() == null : this.getPosition().equals(other.getPosition()))
-            && (this.getCompany() == null ? other.getCompany() == null : this.getCompany().equals(other.getCompany()))
-            && (this.getProductname() == null ? other.getProductname() == null : this.getProductname().equals(other.getProductname()))
-            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
-            && (this.getNote() == null ? other.getNote() == null : this.getNote().equals(other.getNote()))
-            && (this.getCity() == null ? other.getCity() == null : this.getCity().equals(other.getCity()))
-            && (this.getContainernote() == null ? other.getContainernote() == null : this.getContainernote().equals(other.getContainernote()))
-            && (this.getPackinglist() == null ? other.getPackinglist() == null : this.getPackinglist().equals(other.getPackinglist()))
-            && (this.getShipmentupdateinventory() == null ? other.getShipmentupdateinventory() == null : this.getShipmentupdateinventory().equals(other.getShipmentupdateinventory()))
-            && (this.getGarneredupdateinventory() == null ? other.getGarneredupdateinventory() == null : this.getGarneredupdateinventory().equals(other.getGarneredupdateinventory()))
-            && (this.getMoneynote() == null ? other.getMoneynote() == null : this.getMoneynote().equals(other.getMoneynote()))
-            && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
-            && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
-            && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
-            && (this.getReserve4() == null ? other.getReserve4() == null : this.getReserve4().equals(other.getReserve4()))
-            && (this.getOuternorms() == null ? other.getOuternorms() == null : this.getOuternorms().equals(other.getOuternorms()))
-            && (this.getOuterlevel() == null ? other.getOuterlevel() == null : this.getOuterlevel().equals(other.getOuterlevel()));
+            && (this.getDelay() == null ? other.getDelay() == null : this.getDelay().equals(other.getDelay()));
     }
 
     @Override
@@ -1230,22 +1230,28 @@ public class DbPurchaseflow implements Serializable {
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getCorpid() == null) ? 0 : getCorpid().hashCode());
         result = prime * result + ((getArrivedate() == null) ? 0 : getArrivedate().hashCode());
+        result = prime * result + ((getPosition() == null) ? 0 : getPosition().hashCode());
         result = prime * result + ((getFollowupoper() == null) ? 0 : getFollowupoper().hashCode());
         result = prime * result + ((getPoorderflag() == null) ? 0 : getPoorderflag().hashCode());
+        result = prime * result + ((getCompany() == null) ? 0 : getCompany().hashCode());
         result = prime * result + ((getProductid() == null) ? 0 : getProductid().hashCode());
+        result = prime * result + ((getProductname() == null) ? 0 : getProductname().hashCode());
         result = prime * result + ((getPayment() == null) ? 0 : getPayment().hashCode());
         result = prime * result + ((getAllmoney() == null) ? 0 : getAllmoney().hashCode());
         result = prime * result + ((getDeposit() == null) ? 0 : getDeposit().hashCode());
         result = prime * result + ((getStatus() == null) ? 0 : getStatus().hashCode());
         result = prime * result + ((getDollar() == null) ? 0 : getDollar().hashCode());
         result = prime * result + ((getPosure() == null) ? 0 : getPosure().hashCode());
+        result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
         result = prime * result + ((getPhotoqcdate() == null) ? 0 : getPhotoqcdate().hashCode());
+        result = prime * result + ((getNote() == null) ? 0 : getNote().hashCode());
         result = prime * result + ((getSamplenum() == null) ? 0 : getSamplenum().hashCode());
         result = prime * result + ((getSamplearrivedate() == null) ? 0 : getSamplearrivedate().hashCode());
         result = prime * result + ((getFtcbm() == null) ? 0 : getFtcbm().hashCode());
         result = prime * result + ((getDeliverydate() == null) ? 0 : getDeliverydate().hashCode());
         result = prime * result + ((getFinishorderdate() == null) ? 0 : getFinishorderdate().hashCode());
         result = prime * result + ((getDrawbackdate() == null) ? 0 : getDrawbackdate().hashCode());
+        result = prime * result + ((getCity() == null) ? 0 : getCity().hashCode());
         result = prime * result + ((getExpressdate() == null) ? 0 : getExpressdate().hashCode());
         result = prime * result + ((getCky() == null) ? 0 : getCky().hashCode());
         result = prime * result + ((getFpx() == null) ? 0 : getFpx().hashCode());
@@ -1255,8 +1261,12 @@ public class DbPurchaseflow implements Serializable {
         result = prime * result + ((getEtaharbourdate() == null) ? 0 : getEtaharbourdate().hashCode());
         result = prime * result + ((getEtaarrivedate() == null) ? 0 : getEtaarrivedate().hashCode());
         result = prime * result + ((getArrivestoredate() == null) ? 0 : getArrivestoredate().hashCode());
+        result = prime * result + ((getContainernote() == null) ? 0 : getContainernote().hashCode());
         result = prime * result + ((getAugarnereddate() == null) ? 0 : getAugarnereddate().hashCode());
+        result = prime * result + ((getPackinglist() == null) ? 0 : getPackinglist().hashCode());
         result = prime * result + ((getBilloflading() == null) ? 0 : getBilloflading().hashCode());
+        result = prime * result + ((getShipmentupdateinventory() == null) ? 0 : getShipmentupdateinventory().hashCode());
+        result = prime * result + ((getGarneredupdateinventory() == null) ? 0 : getGarneredupdateinventory().hashCode());
         result = prime * result + ((getClosedate() == null) ? 0 : getClosedate().hashCode());
         result = prime * result + ((getGroupid() == null) ? 0 : getGroupid().hashCode());
         result = prime * result + ((getDepositdate() == null) ? 0 : getDepositdate().hashCode());
@@ -1271,7 +1281,12 @@ public class DbPurchaseflow implements Serializable {
         result = prime * result + ((getArrivalmoney() == null) ? 0 : getArrivalmoney().hashCode());
         result = prime * result + ((getFinalmoney() == null) ? 0 : getFinalmoney().hashCode());
         result = prime * result + ((getUrgent() == null) ? 0 : getUrgent().hashCode());
+        result = prime * result + ((getMoneynote() == null) ? 0 : getMoneynote().hashCode());
         result = prime * result + ((getPicture1() == null) ? 0 : getPicture1().hashCode());
+        result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
+        result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
+        result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
+        result = prime * result + ((getReserve4() == null) ? 0 : getReserve4().hashCode());
         result = prime * result + ((getReserve5() == null) ? 0 : getReserve5().hashCode());
         result = prime * result + ((getReserve6() == null) ? 0 : getReserve6().hashCode());
         result = prime * result + ((getInporttime() == null) ? 0 : getInporttime().hashCode());
@@ -1288,6 +1303,8 @@ public class DbPurchaseflow implements Serializable {
         result = prime * result + ((getOutervolume() == null) ? 0 : getOutervolume().hashCode());
         result = prime * result + ((getOutergrossweight() == null) ? 0 : getOutergrossweight().hashCode());
         result = prime * result + ((getOuternetweight() == null) ? 0 : getOuternetweight().hashCode());
+        result = prime * result + ((getOuternorms() == null) ? 0 : getOuternorms().hashCode());
+        result = prime * result + ((getOuterlevel() == null) ? 0 : getOuterlevel().hashCode());
         result = prime * result + ((getGrossweight() == null) ? 0 : getGrossweight().hashCode());
         result = prime * result + ((getLength() == null) ? 0 : getLength().hashCode());
         result = prime * result + ((getWidth() == null) ? 0 : getWidth().hashCode());
@@ -1316,23 +1333,6 @@ public class DbPurchaseflow implements Serializable {
         result = prime * result + ((getSavenum() == null) ? 0 : getSavenum().hashCode());
         result = prime * result + ((getSellprice() == null) ? 0 : getSellprice().hashCode());
         result = prime * result + ((getDelay() == null) ? 0 : getDelay().hashCode());
-        result = prime * result + ((getPosition() == null) ? 0 : getPosition().hashCode());
-        result = prime * result + ((getCompany() == null) ? 0 : getCompany().hashCode());
-        result = prime * result + ((getProductname() == null) ? 0 : getProductname().hashCode());
-        result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
-        result = prime * result + ((getNote() == null) ? 0 : getNote().hashCode());
-        result = prime * result + ((getCity() == null) ? 0 : getCity().hashCode());
-        result = prime * result + ((getContainernote() == null) ? 0 : getContainernote().hashCode());
-        result = prime * result + ((getPackinglist() == null) ? 0 : getPackinglist().hashCode());
-        result = prime * result + ((getShipmentupdateinventory() == null) ? 0 : getShipmentupdateinventory().hashCode());
-        result = prime * result + ((getGarneredupdateinventory() == null) ? 0 : getGarneredupdateinventory().hashCode());
-        result = prime * result + ((getMoneynote() == null) ? 0 : getMoneynote().hashCode());
-        result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
-        result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
-        result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
-        result = prime * result + ((getReserve4() == null) ? 0 : getReserve4().hashCode());
-        result = prime * result + ((getOuternorms() == null) ? 0 : getOuternorms().hashCode());
-        result = prime * result + ((getOuterlevel() == null) ? 0 : getOuterlevel().hashCode());
         return result;
     }
 
@@ -1348,22 +1348,28 @@ public class DbPurchaseflow implements Serializable {
         sb.append(", opertime=").append(opertime);
         sb.append(", corpid=").append(corpid);
         sb.append(", arrivedate=").append(arrivedate);
+        sb.append(", position=").append(position);
         sb.append(", followupoper=").append(followupoper);
         sb.append(", poorderflag=").append(poorderflag);
+        sb.append(", company=").append(company);
         sb.append(", productid=").append(productid);
+        sb.append(", productname=").append(productname);
         sb.append(", payment=").append(payment);
         sb.append(", allmoney=").append(allmoney);
         sb.append(", deposit=").append(deposit);
         sb.append(", status=").append(status);
         sb.append(", dollar=").append(dollar);
         sb.append(", posure=").append(posure);
+        sb.append(", content=").append(content);
         sb.append(", photoqcdate=").append(photoqcdate);
+        sb.append(", note=").append(note);
         sb.append(", samplenum=").append(samplenum);
         sb.append(", samplearrivedate=").append(samplearrivedate);
         sb.append(", ftcbm=").append(ftcbm);
         sb.append(", deliverydate=").append(deliverydate);
         sb.append(", finishorderdate=").append(finishorderdate);
         sb.append(", drawbackdate=").append(drawbackdate);
+        sb.append(", city=").append(city);
         sb.append(", expressdate=").append(expressdate);
         sb.append(", cky=").append(cky);
         sb.append(", fpx=").append(fpx);
@@ -1373,8 +1379,12 @@ public class DbPurchaseflow implements Serializable {
         sb.append(", etaharbourdate=").append(etaharbourdate);
         sb.append(", etaarrivedate=").append(etaarrivedate);
         sb.append(", arrivestoredate=").append(arrivestoredate);
+        sb.append(", containernote=").append(containernote);
         sb.append(", augarnereddate=").append(augarnereddate);
+        sb.append(", packinglist=").append(packinglist);
         sb.append(", billoflading=").append(billoflading);
+        sb.append(", shipmentupdateinventory=").append(shipmentupdateinventory);
+        sb.append(", garneredupdateinventory=").append(garneredupdateinventory);
         sb.append(", closedate=").append(closedate);
         sb.append(", groupid=").append(groupid);
         sb.append(", depositdate=").append(depositdate);
@@ -1389,7 +1399,12 @@ public class DbPurchaseflow implements Serializable {
         sb.append(", arrivalmoney=").append(arrivalmoney);
         sb.append(", finalmoney=").append(finalmoney);
         sb.append(", urgent=").append(urgent);
+        sb.append(", moneynote=").append(moneynote);
         sb.append(", picture1=").append(picture1);
+        sb.append(", reserve1=").append(reserve1);
+        sb.append(", reserve2=").append(reserve2);
+        sb.append(", reserve3=").append(reserve3);
+        sb.append(", reserve4=").append(reserve4);
         sb.append(", reserve5=").append(reserve5);
         sb.append(", reserve6=").append(reserve6);
         sb.append(", inporttime=").append(inporttime);
@@ -1406,6 +1421,8 @@ public class DbPurchaseflow implements Serializable {
         sb.append(", outervolume=").append(outervolume);
         sb.append(", outergrossweight=").append(outergrossweight);
         sb.append(", outernetweight=").append(outernetweight);
+        sb.append(", outernorms=").append(outernorms);
+        sb.append(", outerlevel=").append(outerlevel);
         sb.append(", grossweight=").append(grossweight);
         sb.append(", length=").append(length);
         sb.append(", width=").append(width);
@@ -1434,23 +1451,6 @@ public class DbPurchaseflow implements Serializable {
         sb.append(", savenum=").append(savenum);
         sb.append(", sellprice=").append(sellprice);
         sb.append(", delay=").append(delay);
-        sb.append(", position=").append(position);
-        sb.append(", company=").append(company);
-        sb.append(", productname=").append(productname);
-        sb.append(", content=").append(content);
-        sb.append(", note=").append(note);
-        sb.append(", city=").append(city);
-        sb.append(", containernote=").append(containernote);
-        sb.append(", packinglist=").append(packinglist);
-        sb.append(", shipmentupdateinventory=").append(shipmentupdateinventory);
-        sb.append(", garneredupdateinventory=").append(garneredupdateinventory);
-        sb.append(", moneynote=").append(moneynote);
-        sb.append(", reserve1=").append(reserve1);
-        sb.append(", reserve2=").append(reserve2);
-        sb.append(", reserve3=").append(reserve3);
-        sb.append(", reserve4=").append(reserve4);
-        sb.append(", outernorms=").append(outernorms);
-        sb.append(", outerlevel=").append(outerlevel);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

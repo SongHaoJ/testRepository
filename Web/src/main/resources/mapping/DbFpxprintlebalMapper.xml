@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbFpxprintlebalMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbFpxprintlebal">
+    <result column="SEQUENCEID" jdbcType="DECIMAL" property="sequenceid" />
+    <result column="ORDERID" jdbcType="VARCHAR" property="orderid" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="CREATTIME" jdbcType="TIMESTAMP" property="creattime" />
+    <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
+    <result column="COMPANYCODE" jdbcType="VARCHAR" property="companycode" />
+    <result column="RETURNADDRESS" jdbcType="VARCHAR" property="returnaddress" />
+    <result column="CONSIGNEENAME" jdbcType="VARCHAR" property="consigneename" />
+    <result column="CONSIGNEEADDRESS1" jdbcType="VARCHAR" property="consigneeaddress1" />
+    <result column="CONSIGNEEADDRESS2" jdbcType="VARCHAR" property="consigneeaddress2" />
+    <result column="CONSIGNEEADDRESS3" jdbcType="VARCHAR" property="consigneeaddress3" />
+    <result column="CONSIGNEETELEPHONE" jdbcType="VARCHAR" property="consigneetelephone" />
+    <result column="POSTCODE" jdbcType="VARCHAR" property="postcode" />
+    <result column="INSURANCESIGN" jdbcType="VARCHAR" property="insurancesign" />
+    <result column="ZONE" jdbcType="VARCHAR" property="zone" />
+    <result column="COUNTRYCODE" jdbcType="VARCHAR" property="countrycode" />
+    <result column="COUNTRYNAME" jdbcType="VARCHAR" property="countryname" />
+    <result column="CUSTOMERSERVICE" jdbcType="VARCHAR" property="customerservice" />
+    <result column="SALES" jdbcType="VARCHAR" property="sales" />
+    <result column="PRODUCTCODE" jdbcType="VARCHAR" property="productcode" />
+    <result column="PRODUCTSHORTNAME" jdbcType="VARCHAR" property="productshortname" />
+    <result column="PRODUCTCNAME" jdbcType="VARCHAR" property="productcname" />
+    <result column="PRODUCTENAME" jdbcType="VARCHAR" property="productename" />
+    <result column="RETURNSIGN" jdbcType="VARCHAR" property="returnsign" />
+    <result column="HIGHINSURESIGN" jdbcType="VARCHAR" property="highinsuresign" />
+    <result column="DIENAME" jdbcType="VARCHAR" property="diename" />
+    <result column="DICNAME" jdbcType="VARCHAR" property="dicname" />
+    <result column="DIPCS" jdbcType="VARCHAR" property="dipcs" />
+    <result column="DINOTE" jdbcType="VARCHAR" property="dinote" />
+    <result column="CARGOTYPE" jdbcType="VARCHAR" property="cargotype" />
+    <result column="DINAME" jdbcType="VARCHAR" property="diname" />
+    <result column="TOTALWEIGHT" jdbcType="VARCHAR" property="totalweight" />
+    <result column="TOTALVALUE" jdbcType="VARCHAR" property="totalvalue" />
+    <result column="DIUNITPRICE" jdbcType="VARCHAR" property="diunitprice" />
+  </resultMap>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, ORDERID, OPER, OPERTIME, CREATTIME, CORPID, COMPANYCODE, RETURNADDRESS, 
+    CONSIGNEENAME, CONSIGNEEADDRESS1, CONSIGNEEADDRESS2, CONSIGNEEADDRESS3, CONSIGNEETELEPHONE, 
+    POSTCODE, INSURANCESIGN, ZONE, COUNTRYCODE, COUNTRYNAME, CUSTOMERSERVICE, SALES, 
+    PRODUCTCODE, PRODUCTSHORTNAME, PRODUCTCNAME, PRODUCTENAME, RETURNSIGN, HIGHINSURESIGN, 
+    DIENAME, DICNAME, DIPCS, DINOTE, CARGOTYPE, DINAME, TOTALWEIGHT, TOTALVALUE, DIUNITPRICE
+    from DB_FPXPRINTLEBAL
+  </select>
+  <sql id="TableName">
+    DB_FPXPRINTLEBAL
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=DECIMAL} , 
+     #{orderid,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{creattime,jdbcType=TIMESTAMP} , 
+     #{corpid,jdbcType=VARCHAR} , 
+     #{companycode,jdbcType=VARCHAR} , 
+     #{returnaddress,jdbcType=VARCHAR} , 
+     #{consigneename,jdbcType=VARCHAR} , 
+     #{consigneeaddress1,jdbcType=VARCHAR} , 
+     #{consigneeaddress2,jdbcType=VARCHAR} , 
+     #{consigneeaddress3,jdbcType=VARCHAR} , 
+     #{consigneetelephone,jdbcType=VARCHAR} , 
+     #{postcode,jdbcType=VARCHAR} , 
+     #{insurancesign,jdbcType=VARCHAR} , 
+     #{zone,jdbcType=VARCHAR} , 
+     #{countrycode,jdbcType=VARCHAR} , 
+     #{countryname,jdbcType=VARCHAR} , 
+     #{customerservice,jdbcType=VARCHAR} , 
+     #{sales,jdbcType=VARCHAR} , 
+     #{productcode,jdbcType=VARCHAR} , 
+     #{productshortname,jdbcType=VARCHAR} , 
+     #{productcname,jdbcType=VARCHAR} , 
+     #{productename,jdbcType=VARCHAR} , 
+     #{returnsign,jdbcType=VARCHAR} , 
+     #{highinsuresign,jdbcType=VARCHAR} , 
+     #{diename,jdbcType=VARCHAR} , 
+     #{dicname,jdbcType=VARCHAR} , 
+     #{dipcs,jdbcType=VARCHAR} , 
+     #{dinote,jdbcType=VARCHAR} , 
+     #{cargotype,jdbcType=VARCHAR} , 
+     #{diname,jdbcType=VARCHAR} , 
+     #{totalweight,jdbcType=VARCHAR} , 
+     #{totalvalue,jdbcType=VARCHAR} , 
+     #{diunitprice,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    ORDERID , 
+    OPER , 
+    OPERTIME , 
+    CREATTIME , 
+    CORPID , 
+    COMPANYCODE , 
+    RETURNADDRESS , 
+    CONSIGNEENAME , 
+    CONSIGNEEADDRESS1 , 
+    CONSIGNEEADDRESS2 , 
+    CONSIGNEEADDRESS3 , 
+    CONSIGNEETELEPHONE , 
+    POSTCODE , 
+    INSURANCESIGN , 
+    ZONE , 
+    COUNTRYCODE , 
+    COUNTRYNAME , 
+    CUSTOMERSERVICE , 
+    SALES , 
+    PRODUCTCODE , 
+    PRODUCTSHORTNAME , 
+    PRODUCTCNAME , 
+    PRODUCTENAME , 
+    RETURNSIGN , 
+    HIGHINSURESIGN , 
+    DIENAME , 
+    DICNAME , 
+    DIPCS , 
+    DINOTE , 
+    CARGOTYPE , 
+    DINAME , 
+    TOTALWEIGHT , 
+    TOTALVALUE , 
+    DIUNITPRICE , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="orderid != null">
+      orderid = #{orderid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="creattime != null">
+      creattime = #{creattime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="companycode != null">
+      companycode = #{companycode,jdbcType=VARCHAR} and 
+    </if>
+    <if test="returnaddress != null">
+      returnaddress = #{returnaddress,jdbcType=VARCHAR} and 
+    </if>
+    <if test="consigneename != null">
+      consigneename = #{consigneename,jdbcType=VARCHAR} and 
+    </if>
+    <if test="consigneeaddress1 != null">
+      consigneeaddress1 = #{consigneeaddress1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="consigneeaddress2 != null">
+      consigneeaddress2 = #{consigneeaddress2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="consigneeaddress3 != null">
+      consigneeaddress3 = #{consigneeaddress3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="consigneetelephone != null">
+      consigneetelephone = #{consigneetelephone,jdbcType=VARCHAR} and 
+    </if>
+    <if test="postcode != null">
+      postcode = #{postcode,jdbcType=VARCHAR} and 
+    </if>
+    <if test="insurancesign != null">
+      insurancesign = #{insurancesign,jdbcType=VARCHAR} and 
+    </if>
+    <if test="zone != null">
+      zone = #{zone,jdbcType=VARCHAR} and 
+    </if>
+    <if test="countrycode != null">
+      countrycode = #{countrycode,jdbcType=VARCHAR} and 
+    </if>
+    <if test="countryname != null">
+      countryname = #{countryname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="customerservice != null">
+      customerservice = #{customerservice,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sales != null">
+      sales = #{sales,jdbcType=VARCHAR} and 
+    </if>
+    <if test="productcode != null">
+      productcode = #{productcode,jdbcType=VARCHAR} and 
+    </if>
+    <if test="productshortname != null">
+      productshortname = #{productshortname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="productcname != null">
+      productcname = #{productcname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="productename != null">
+      productename = #{productename,jdbcType=VARCHAR} and 
+    </if>
+    <if test="returnsign != null">
+      returnsign = #{returnsign,jdbcType=VARCHAR} and 
+    </if>
+    <if test="highinsuresign != null">
+      highinsuresign = #{highinsuresign,jdbcType=VARCHAR} and 
+    </if>
+    <if test="diename != null">
+      diename = #{diename,jdbcType=VARCHAR} and 
+    </if>
+    <if test="dicname != null">
+      dicname = #{dicname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="dipcs != null">
+      dipcs = #{dipcs,jdbcType=VARCHAR} and 
+    </if>
+    <if test="dinote != null">
+      dinote = #{dinote,jdbcType=VARCHAR} and 
+    </if>
+    <if test="cargotype != null">
+      cargotype = #{cargotype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="diname != null">
+      diname = #{diname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="totalweight != null">
+      totalweight = #{totalweight,jdbcType=VARCHAR} and 
+    </if>
+    <if test="totalvalue != null">
+      totalvalue = #{totalvalue,jdbcType=VARCHAR} and 
+    </if>
+    <if test="diunitprice != null">
+      diunitprice = #{diunitprice,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="orderid != null">
+      orderid = #{orderid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="creattime != null">
+      creattime = #{creattime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="companycode != null">
+      companycode = #{companycode,jdbcType=VARCHAR} , 
+    </if>
+    <if test="returnaddress != null">
+      returnaddress = #{returnaddress,jdbcType=VARCHAR} , 
+    </if>
+    <if test="consigneename != null">
+      consigneename = #{consigneename,jdbcType=VARCHAR} , 
+    </if>
+    <if test="consigneeaddress1 != null">
+      consigneeaddress1 = #{consigneeaddress1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="consigneeaddress2 != null">
+      consigneeaddress2 = #{consigneeaddress2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="consigneeaddress3 != null">
+      consigneeaddress3 = #{consigneeaddress3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="consigneetelephone != null">
+      consigneetelephone = #{consigneetelephone,jdbcType=VARCHAR} , 
+    </if>
+    <if test="postcode != null">
+      postcode = #{postcode,jdbcType=VARCHAR} , 
+    </if>
+    <if test="insurancesign != null">
+      insurancesign = #{insurancesign,jdbcType=VARCHAR} , 
+    </if>
+    <if test="zone != null">
+      zone = #{zone,jdbcType=VARCHAR} , 
+    </if>
+    <if test="countrycode != null">
+      countrycode = #{countrycode,jdbcType=VARCHAR} , 
+    </if>
+    <if test="countryname != null">
+      countryname = #{countryname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="customerservice != null">
+      customerservice = #{customerservice,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sales != null">
+      sales = #{sales,jdbcType=VARCHAR} , 
+    </if>
+    <if test="productcode != null">
+      productcode = #{productcode,jdbcType=VARCHAR} , 
+    </if>
+    <if test="productshortname != null">
+      productshortname = #{productshortname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="productcname != null">
+      productcname = #{productcname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="productename != null">
+      productename = #{productename,jdbcType=VARCHAR} , 
+    </if>
+    <if test="returnsign != null">
+      returnsign = #{returnsign,jdbcType=VARCHAR} , 
+    </if>
+    <if test="highinsuresign != null">
+      highinsuresign = #{highinsuresign,jdbcType=VARCHAR} , 
+    </if>
+    <if test="diename != null">
+      diename = #{diename,jdbcType=VARCHAR} , 
+    </if>
+    <if test="dicname != null">
+      dicname = #{dicname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="dipcs != null">
+      dipcs = #{dipcs,jdbcType=VARCHAR} , 
+    </if>
+    <if test="dinote != null">
+      dinote = #{dinote,jdbcType=VARCHAR} , 
+    </if>
+    <if test="cargotype != null">
+      cargotype = #{cargotype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="diname != null">
+      diname = #{diname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="totalweight != null">
+      totalweight = #{totalweight,jdbcType=VARCHAR} , 
+    </if>
+    <if test="totalvalue != null">
+      totalvalue = #{totalvalue,jdbcType=VARCHAR} , 
+    </if>
+    <if test="diunitprice != null">
+      diunitprice = #{diunitprice,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbFpxprintlebal" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="Long">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbFpxprintlebal">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbFpxprintlebal">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbFpxprintlebal">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

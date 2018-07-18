@@ -9,98 +9,89 @@
     <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
     <result column="DITEN" jdbcType="VARCHAR" property="diten" />
   </resultMap>
-  <sql id="Base_Column_List">
-    DITID, DITNAME, CITID, CORPID, OPENFLAG, DITEN
-  </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from db_eubdistrict
+    select DITID, DITNAME, CITID, CORPID, OPENFLAG, DITEN
+    from DB_EUBDISTRICT
     where DITID = #{ditid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_eubdistrict
-    where DITID = #{ditid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select DITID, DITNAME, CITID, CORPID, OPENFLAG, DITEN
+    from DB_EUBDISTRICT
+  </select>
+  <sql id="TableName">
+    DB_EUBDISTRICT
+  </sql>
+  <sql id="Values">
+     #{ditid,jdbcType=VARCHAR} , 
+     #{ditname,jdbcType=VARCHAR} , 
+     #{citid,jdbcType=VARCHAR} , 
+     #{corpid,jdbcType=VARCHAR} , 
+     #{openflag,jdbcType=VARCHAR} , 
+     #{diten,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    DITID , 
+    DITNAME , 
+    CITID , 
+    CORPID , 
+    OPENFLAG , 
+    DITEN , 
+  </sql>
+  <sql id="Criteria">
+    <if test="ditid != null">
+      ditid = #{ditid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ditname != null">
+      ditname = #{ditname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="citid != null">
+      citid = #{citid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="diten != null">
+      diten = #{diten,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="ditid != null">
+      ditid = #{ditid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ditname != null">
+      ditname = #{ditname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="citid != null">
+      citid = #{citid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="diten != null">
+      diten = #{diten,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbEubdistrict" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where DITID=#{DITID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbEubdistrict">
-    insert into db_eubdistrict (DITID, DITNAME, CITID, 
-      CORPID, OPENFLAG, DITEN
-      )
-    values (#{ditid,jdbcType=VARCHAR}, #{ditname,jdbcType=VARCHAR}, #{citid,jdbcType=VARCHAR}, 
-      #{corpid,jdbcType=VARCHAR}, #{openflag,jdbcType=VARCHAR}, #{diten,jdbcType=VARCHAR}
-      )
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbEubdistrict">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbEubdistrict">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbEubdistrict">
-    insert into db_eubdistrict
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="ditid != null">
-        DITID,
-      </if>
-      <if test="ditname != null">
-        DITNAME,
-      </if>
-      <if test="citid != null">
-        CITID,
-      </if>
-      <if test="corpid != null">
-        CORPID,
-      </if>
-      <if test="openflag != null">
-        OPENFLAG,
-      </if>
-      <if test="diten != null">
-        DITEN,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="ditid != null">
-        #{ditid,jdbcType=VARCHAR},
-      </if>
-      <if test="ditname != null">
-        #{ditname,jdbcType=VARCHAR},
-      </if>
-      <if test="citid != null">
-        #{citid,jdbcType=VARCHAR},
-      </if>
-      <if test="corpid != null">
-        #{corpid,jdbcType=VARCHAR},
-      </if>
-      <if test="openflag != null">
-        #{openflag,jdbcType=VARCHAR},
-      </if>
-      <if test="diten != null">
-        #{diten,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbEubdistrict">
-    update db_eubdistrict
-    <set>
-      <if test="ditname != null">
-        DITNAME = #{ditname,jdbcType=VARCHAR},
-      </if>
-      <if test="citid != null">
-        CITID = #{citid,jdbcType=VARCHAR},
-      </if>
-      <if test="corpid != null">
-        CORPID = #{corpid,jdbcType=VARCHAR},
-      </if>
-      <if test="openflag != null">
-        OPENFLAG = #{openflag,jdbcType=VARCHAR},
-      </if>
-      <if test="diten != null">
-        DITEN = #{diten,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where DITID = #{ditid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbEubdistrict">
-    update db_eubdistrict
-    set DITNAME = #{ditname,jdbcType=VARCHAR},
-      CITID = #{citid,jdbcType=VARCHAR},
-      CORPID = #{corpid,jdbcType=VARCHAR},
-      OPENFLAG = #{openflag,jdbcType=VARCHAR},
-      DITEN = #{diten,jdbcType=VARCHAR}
-    where DITID = #{ditid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbEubdistrict">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

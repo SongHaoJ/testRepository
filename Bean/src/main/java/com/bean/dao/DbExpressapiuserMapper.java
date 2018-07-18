@@ -1,20 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbExpressapiuser;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbExpressapiuserMapper {
-    int deleteByPrimaryKey(BigDecimal id);
+    DbExpressapiuser selectByCriteria(DbExpressapiuser DbExpressapiuser);
 
-    int insert(DbExpressapiuser record);
+    void deleteByPrimaryKey(String ID);
 
-    int insertSelective(DbExpressapiuser record);
+    void deleteByCriteria(DbExpressapiuser DbExpressapiuser);
+
+    int insertByCriteria(DbExpressapiuser DbExpressapiuser);
+
+    int updateByCriteria(DbExpressapiuser DbExpressapiuser);
 
     DbExpressapiuser selectByPrimaryKey(BigDecimal id);
 
-    int updateByPrimaryKeySelective(DbExpressapiuser record);
-
-    int updateByPrimaryKeyWithBLOBs(DbExpressapiuser record);
-
-    int updateByPrimaryKey(DbExpressapiuser record);
+    List<DbExpressapiuser> selectAll();
 }

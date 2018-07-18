@@ -7,7 +7,11 @@ import java.util.Date;
 public class DbForumtopic implements Serializable {
     private String sequenceid;
 
+    private String topicname;
+
     private String stype;
+
+    private String content;
 
     private String openflag;
 
@@ -41,10 +45,6 @@ public class DbForumtopic implements Serializable {
 
     private String reserve4;
 
-    private String topicname;
-
-    private String content;
-
     private static final long serialVersionUID = 1L;
 
     public String getSequenceid() {
@@ -55,12 +55,28 @@ public class DbForumtopic implements Serializable {
         this.sequenceid = sequenceid == null ? null : sequenceid.trim();
     }
 
+    public String getTopicname() {
+        return topicname;
+    }
+
+    public void setTopicname(String topicname) {
+        this.topicname = topicname == null ? null : topicname.trim();
+    }
+
     public String getStype() {
         return stype;
     }
 
     public void setStype(String stype) {
         this.stype = stype == null ? null : stype.trim();
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content == null ? null : content.trim();
     }
 
     public String getOpenflag() {
@@ -191,22 +207,6 @@ public class DbForumtopic implements Serializable {
         this.reserve4 = reserve4 == null ? null : reserve4.trim();
     }
 
-    public String getTopicname() {
-        return topicname;
-    }
-
-    public void setTopicname(String topicname) {
-        this.topicname = topicname == null ? null : topicname.trim();
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content == null ? null : content.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -220,7 +220,9 @@ public class DbForumtopic implements Serializable {
         }
         DbForumtopic other = (DbForumtopic) that;
         return (this.getSequenceid() == null ? other.getSequenceid() == null : this.getSequenceid().equals(other.getSequenceid()))
+            && (this.getTopicname() == null ? other.getTopicname() == null : this.getTopicname().equals(other.getTopicname()))
             && (this.getStype() == null ? other.getStype() == null : this.getStype().equals(other.getStype()))
+            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
             && (this.getOpenflag() == null ? other.getOpenflag() == null : this.getOpenflag().equals(other.getOpenflag()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
@@ -236,9 +238,7 @@ public class DbForumtopic implements Serializable {
             && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
             && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
             && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
-            && (this.getReserve4() == null ? other.getReserve4() == null : this.getReserve4().equals(other.getReserve4()))
-            && (this.getTopicname() == null ? other.getTopicname() == null : this.getTopicname().equals(other.getTopicname()))
-            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()));
+            && (this.getReserve4() == null ? other.getReserve4() == null : this.getReserve4().equals(other.getReserve4()));
     }
 
     @Override
@@ -246,7 +246,9 @@ public class DbForumtopic implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getSequenceid() == null) ? 0 : getSequenceid().hashCode());
+        result = prime * result + ((getTopicname() == null) ? 0 : getTopicname().hashCode());
         result = prime * result + ((getStype() == null) ? 0 : getStype().hashCode());
+        result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
         result = prime * result + ((getOpenflag() == null) ? 0 : getOpenflag().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
@@ -263,8 +265,6 @@ public class DbForumtopic implements Serializable {
         result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
         result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
         result = prime * result + ((getReserve4() == null) ? 0 : getReserve4().hashCode());
-        result = prime * result + ((getTopicname() == null) ? 0 : getTopicname().hashCode());
-        result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
         return result;
     }
 
@@ -275,7 +275,9 @@ public class DbForumtopic implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", sequenceid=").append(sequenceid);
+        sb.append(", topicname=").append(topicname);
         sb.append(", stype=").append(stype);
+        sb.append(", content=").append(content);
         sb.append(", openflag=").append(openflag);
         sb.append(", oper=").append(oper);
         sb.append(", opertime=").append(opertime);
@@ -292,8 +294,6 @@ public class DbForumtopic implements Serializable {
         sb.append(", reserve2=").append(reserve2);
         sb.append(", reserve3=").append(reserve3);
         sb.append(", reserve4=").append(reserve4);
-        sb.append(", topicname=").append(topicname);
-        sb.append(", content=").append(content);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

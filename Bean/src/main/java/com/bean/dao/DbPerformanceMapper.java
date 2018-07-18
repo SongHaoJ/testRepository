@@ -1,20 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbPerformance;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbPerformanceMapper {
-    int deleteByPrimaryKey(BigDecimal sequenceid);
+    DbPerformance selectByCriteria(DbPerformance DbPerformance);
 
-    int insert(DbPerformance record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbPerformance record);
+    void deleteByCriteria(DbPerformance DbPerformance);
+
+    int insertByCriteria(DbPerformance DbPerformance);
+
+    int updateByCriteria(DbPerformance DbPerformance);
 
     DbPerformance selectByPrimaryKey(BigDecimal sequenceid);
 
-    int updateByPrimaryKeySelective(DbPerformance record);
-
-    int updateByPrimaryKeyWithBLOBs(DbPerformance record);
-
-    int updateByPrimaryKey(DbPerformance record);
+    List<DbPerformance> selectAll();
 }

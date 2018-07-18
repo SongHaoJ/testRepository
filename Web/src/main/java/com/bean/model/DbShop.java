@@ -11,6 +11,8 @@ public class DbShop implements Serializable {
 
     private String name;
 
+    private String descr;
+
     private String password;
 
     private String slevel;
@@ -27,9 +29,13 @@ public class DbShop implements Serializable {
 
     private String fax;
 
+    private String email;
+
     private BigDecimal ordernum;
 
     private String templetfile;
+
+    private String templetcontent;
 
     private String oper;
 
@@ -61,6 +67,8 @@ public class DbShop implements Serializable {
 
     private String reserve12;
 
+    private String reserve13;
+
     private String reserve14;
 
     private BigDecimal reserve15;
@@ -71,15 +79,33 @@ public class DbShop implements Serializable {
 
     private BigDecimal reserve18;
 
+    private String reserve19;
+
+    private String reserve20;
+
     private String itemid;
+
+    private String tokenid;
 
     private String openflag;
 
     private String tokenflag;
 
+    private String tokendescr;
+
     private String contact;
 
     private String contacte;
+
+    private String street;
+
+    private String streete;
+
+    private String province;
+
+    private String city;
+
+    private String district;
 
     private String postcode;
 
@@ -91,6 +117,10 @@ public class DbShop implements Serializable {
 
     private String devuserid;
 
+    private String eubtonken;
+
+    private String selluserid;
+
     private String version;
 
     private String ebaysitid;
@@ -100,6 +130,18 @@ public class DbShop implements Serializable {
     private String cityen;
 
     private String districten;
+
+    private String ebayfeemoneyrate;
+
+    private String accesskeyid;
+
+    private String secretaccesskey;
+
+    private String applicationname;
+
+    private String sellerid;
+
+    private String marketplaceid;
 
     private String starttime;
 
@@ -127,49 +169,7 @@ public class DbShop implements Serializable {
 
     private String cscartemail;
 
-    private String descr;
-
-    private String email;
-
-    private String templetcontent;
-
     private String templetclob;
-
-    private String reserve13;
-
-    private String reserve19;
-
-    private String reserve20;
-
-    private String tokenid;
-
-    private String tokendescr;
-
-    private String street;
-
-    private String streete;
-
-    private String province;
-
-    private String city;
-
-    private String district;
-
-    private String eubtonken;
-
-    private String selluserid;
-
-    private String ebayfeemoneyrate;
-
-    private String accesskeyid;
-
-    private String secretaccesskey;
-
-    private String applicationname;
-
-    private String sellerid;
-
-    private String marketplaceid;
 
     private static final long serialVersionUID = 1L;
 
@@ -195,6 +195,14 @@ public class DbShop implements Serializable {
 
     public void setName(String name) {
         this.name = name == null ? null : name.trim();
+    }
+
+    public String getDescr() {
+        return descr;
+    }
+
+    public void setDescr(String descr) {
+        this.descr = descr == null ? null : descr.trim();
     }
 
     public String getPassword() {
@@ -261,6 +269,14 @@ public class DbShop implements Serializable {
         this.fax = fax == null ? null : fax.trim();
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email == null ? null : email.trim();
+    }
+
     public BigDecimal getOrdernum() {
         return ordernum;
     }
@@ -275,6 +291,14 @@ public class DbShop implements Serializable {
 
     public void setTempletfile(String templetfile) {
         this.templetfile = templetfile == null ? null : templetfile.trim();
+    }
+
+    public String getTempletcontent() {
+        return templetcontent;
+    }
+
+    public void setTempletcontent(String templetcontent) {
+        this.templetcontent = templetcontent == null ? null : templetcontent.trim();
     }
 
     public String getOper() {
@@ -397,6 +421,14 @@ public class DbShop implements Serializable {
         this.reserve12 = reserve12 == null ? null : reserve12.trim();
     }
 
+    public String getReserve13() {
+        return reserve13;
+    }
+
+    public void setReserve13(String reserve13) {
+        this.reserve13 = reserve13 == null ? null : reserve13.trim();
+    }
+
     public String getReserve14() {
         return reserve14;
     }
@@ -437,12 +469,36 @@ public class DbShop implements Serializable {
         this.reserve18 = reserve18;
     }
 
+    public String getReserve19() {
+        return reserve19;
+    }
+
+    public void setReserve19(String reserve19) {
+        this.reserve19 = reserve19 == null ? null : reserve19.trim();
+    }
+
+    public String getReserve20() {
+        return reserve20;
+    }
+
+    public void setReserve20(String reserve20) {
+        this.reserve20 = reserve20 == null ? null : reserve20.trim();
+    }
+
     public String getItemid() {
         return itemid;
     }
 
     public void setItemid(String itemid) {
         this.itemid = itemid == null ? null : itemid.trim();
+    }
+
+    public String getTokenid() {
+        return tokenid;
+    }
+
+    public void setTokenid(String tokenid) {
+        this.tokenid = tokenid == null ? null : tokenid.trim();
     }
 
     public String getOpenflag() {
@@ -461,6 +517,14 @@ public class DbShop implements Serializable {
         this.tokenflag = tokenflag == null ? null : tokenflag.trim();
     }
 
+    public String getTokendescr() {
+        return tokendescr;
+    }
+
+    public void setTokendescr(String tokendescr) {
+        this.tokendescr = tokendescr == null ? null : tokendescr.trim();
+    }
+
     public String getContact() {
         return contact;
     }
@@ -475,6 +539,46 @@ public class DbShop implements Serializable {
 
     public void setContacte(String contacte) {
         this.contacte = contacte == null ? null : contacte.trim();
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street == null ? null : street.trim();
+    }
+
+    public String getStreete() {
+        return streete;
+    }
+
+    public void setStreete(String streete) {
+        this.streete = streete == null ? null : streete.trim();
+    }
+
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province == null ? null : province.trim();
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city == null ? null : city.trim();
+    }
+
+    public String getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(String district) {
+        this.district = district == null ? null : district.trim();
     }
 
     public String getPostcode() {
@@ -517,6 +621,22 @@ public class DbShop implements Serializable {
         this.devuserid = devuserid == null ? null : devuserid.trim();
     }
 
+    public String getEubtonken() {
+        return eubtonken;
+    }
+
+    public void setEubtonken(String eubtonken) {
+        this.eubtonken = eubtonken == null ? null : eubtonken.trim();
+    }
+
+    public String getSelluserid() {
+        return selluserid;
+    }
+
+    public void setSelluserid(String selluserid) {
+        this.selluserid = selluserid == null ? null : selluserid.trim();
+    }
+
     public String getVersion() {
         return version;
     }
@@ -555,6 +675,54 @@ public class DbShop implements Serializable {
 
     public void setDistricten(String districten) {
         this.districten = districten == null ? null : districten.trim();
+    }
+
+    public String getEbayfeemoneyrate() {
+        return ebayfeemoneyrate;
+    }
+
+    public void setEbayfeemoneyrate(String ebayfeemoneyrate) {
+        this.ebayfeemoneyrate = ebayfeemoneyrate == null ? null : ebayfeemoneyrate.trim();
+    }
+
+    public String getAccesskeyid() {
+        return accesskeyid;
+    }
+
+    public void setAccesskeyid(String accesskeyid) {
+        this.accesskeyid = accesskeyid == null ? null : accesskeyid.trim();
+    }
+
+    public String getSecretaccesskey() {
+        return secretaccesskey;
+    }
+
+    public void setSecretaccesskey(String secretaccesskey) {
+        this.secretaccesskey = secretaccesskey == null ? null : secretaccesskey.trim();
+    }
+
+    public String getApplicationname() {
+        return applicationname;
+    }
+
+    public void setApplicationname(String applicationname) {
+        this.applicationname = applicationname == null ? null : applicationname.trim();
+    }
+
+    public String getSellerid() {
+        return sellerid;
+    }
+
+    public void setSellerid(String sellerid) {
+        this.sellerid = sellerid == null ? null : sellerid.trim();
+    }
+
+    public String getMarketplaceid() {
+        return marketplaceid;
+    }
+
+    public void setMarketplaceid(String marketplaceid) {
+        this.marketplaceid = marketplaceid == null ? null : marketplaceid.trim();
     }
 
     public String getStarttime() {
@@ -661,180 +829,12 @@ public class DbShop implements Serializable {
         this.cscartemail = cscartemail == null ? null : cscartemail.trim();
     }
 
-    public String getDescr() {
-        return descr;
-    }
-
-    public void setDescr(String descr) {
-        this.descr = descr == null ? null : descr.trim();
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email == null ? null : email.trim();
-    }
-
-    public String getTempletcontent() {
-        return templetcontent;
-    }
-
-    public void setTempletcontent(String templetcontent) {
-        this.templetcontent = templetcontent == null ? null : templetcontent.trim();
-    }
-
     public String getTempletclob() {
         return templetclob;
     }
 
     public void setTempletclob(String templetclob) {
         this.templetclob = templetclob == null ? null : templetclob.trim();
-    }
-
-    public String getReserve13() {
-        return reserve13;
-    }
-
-    public void setReserve13(String reserve13) {
-        this.reserve13 = reserve13 == null ? null : reserve13.trim();
-    }
-
-    public String getReserve19() {
-        return reserve19;
-    }
-
-    public void setReserve19(String reserve19) {
-        this.reserve19 = reserve19 == null ? null : reserve19.trim();
-    }
-
-    public String getReserve20() {
-        return reserve20;
-    }
-
-    public void setReserve20(String reserve20) {
-        this.reserve20 = reserve20 == null ? null : reserve20.trim();
-    }
-
-    public String getTokenid() {
-        return tokenid;
-    }
-
-    public void setTokenid(String tokenid) {
-        this.tokenid = tokenid == null ? null : tokenid.trim();
-    }
-
-    public String getTokendescr() {
-        return tokendescr;
-    }
-
-    public void setTokendescr(String tokendescr) {
-        this.tokendescr = tokendescr == null ? null : tokendescr.trim();
-    }
-
-    public String getStreet() {
-        return street;
-    }
-
-    public void setStreet(String street) {
-        this.street = street == null ? null : street.trim();
-    }
-
-    public String getStreete() {
-        return streete;
-    }
-
-    public void setStreete(String streete) {
-        this.streete = streete == null ? null : streete.trim();
-    }
-
-    public String getProvince() {
-        return province;
-    }
-
-    public void setProvince(String province) {
-        this.province = province == null ? null : province.trim();
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city == null ? null : city.trim();
-    }
-
-    public String getDistrict() {
-        return district;
-    }
-
-    public void setDistrict(String district) {
-        this.district = district == null ? null : district.trim();
-    }
-
-    public String getEubtonken() {
-        return eubtonken;
-    }
-
-    public void setEubtonken(String eubtonken) {
-        this.eubtonken = eubtonken == null ? null : eubtonken.trim();
-    }
-
-    public String getSelluserid() {
-        return selluserid;
-    }
-
-    public void setSelluserid(String selluserid) {
-        this.selluserid = selluserid == null ? null : selluserid.trim();
-    }
-
-    public String getEbayfeemoneyrate() {
-        return ebayfeemoneyrate;
-    }
-
-    public void setEbayfeemoneyrate(String ebayfeemoneyrate) {
-        this.ebayfeemoneyrate = ebayfeemoneyrate == null ? null : ebayfeemoneyrate.trim();
-    }
-
-    public String getAccesskeyid() {
-        return accesskeyid;
-    }
-
-    public void setAccesskeyid(String accesskeyid) {
-        this.accesskeyid = accesskeyid == null ? null : accesskeyid.trim();
-    }
-
-    public String getSecretaccesskey() {
-        return secretaccesskey;
-    }
-
-    public void setSecretaccesskey(String secretaccesskey) {
-        this.secretaccesskey = secretaccesskey == null ? null : secretaccesskey.trim();
-    }
-
-    public String getApplicationname() {
-        return applicationname;
-    }
-
-    public void setApplicationname(String applicationname) {
-        this.applicationname = applicationname == null ? null : applicationname.trim();
-    }
-
-    public String getSellerid() {
-        return sellerid;
-    }
-
-    public void setSellerid(String sellerid) {
-        this.sellerid = sellerid == null ? null : sellerid.trim();
-    }
-
-    public String getMarketplaceid() {
-        return marketplaceid;
-    }
-
-    public void setMarketplaceid(String marketplaceid) {
-        this.marketplaceid = marketplaceid == null ? null : marketplaceid.trim();
     }
 
     @Override
@@ -852,6 +852,7 @@ public class DbShop implements Serializable {
         return (this.getSid() == null ? other.getSid() == null : this.getSid().equals(other.getSid()))
             && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()))
             && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
+            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
             && (this.getPassword() == null ? other.getPassword() == null : this.getPassword().equals(other.getPassword()))
             && (this.getSlevel() == null ? other.getSlevel() == null : this.getSlevel().equals(other.getSlevel()))
             && (this.getCredit1() == null ? other.getCredit1() == null : this.getCredit1().equals(other.getCredit1()))
@@ -860,8 +861,10 @@ public class DbShop implements Serializable {
             && (this.getManager() == null ? other.getManager() == null : this.getManager().equals(other.getManager()))
             && (this.getTele() == null ? other.getTele() == null : this.getTele().equals(other.getTele()))
             && (this.getFax() == null ? other.getFax() == null : this.getFax().equals(other.getFax()))
+            && (this.getEmail() == null ? other.getEmail() == null : this.getEmail().equals(other.getEmail()))
             && (this.getOrdernum() == null ? other.getOrdernum() == null : this.getOrdernum().equals(other.getOrdernum()))
             && (this.getTempletfile() == null ? other.getTempletfile() == null : this.getTempletfile().equals(other.getTempletfile()))
+            && (this.getTempletcontent() == null ? other.getTempletcontent() == null : this.getTempletcontent().equals(other.getTempletcontent()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
             && (this.getRate() == null ? other.getRate() == null : this.getRate().equals(other.getRate()))
@@ -877,26 +880,44 @@ public class DbShop implements Serializable {
             && (this.getReserve10() == null ? other.getReserve10() == null : this.getReserve10().equals(other.getReserve10()))
             && (this.getReserve11() == null ? other.getReserve11() == null : this.getReserve11().equals(other.getReserve11()))
             && (this.getReserve12() == null ? other.getReserve12() == null : this.getReserve12().equals(other.getReserve12()))
+            && (this.getReserve13() == null ? other.getReserve13() == null : this.getReserve13().equals(other.getReserve13()))
             && (this.getReserve14() == null ? other.getReserve14() == null : this.getReserve14().equals(other.getReserve14()))
             && (this.getReserve15() == null ? other.getReserve15() == null : this.getReserve15().equals(other.getReserve15()))
             && (this.getReserve16() == null ? other.getReserve16() == null : this.getReserve16().equals(other.getReserve16()))
             && (this.getReserve17() == null ? other.getReserve17() == null : this.getReserve17().equals(other.getReserve17()))
             && (this.getReserve18() == null ? other.getReserve18() == null : this.getReserve18().equals(other.getReserve18()))
+            && (this.getReserve19() == null ? other.getReserve19() == null : this.getReserve19().equals(other.getReserve19()))
+            && (this.getReserve20() == null ? other.getReserve20() == null : this.getReserve20().equals(other.getReserve20()))
             && (this.getItemid() == null ? other.getItemid() == null : this.getItemid().equals(other.getItemid()))
+            && (this.getTokenid() == null ? other.getTokenid() == null : this.getTokenid().equals(other.getTokenid()))
             && (this.getOpenflag() == null ? other.getOpenflag() == null : this.getOpenflag().equals(other.getOpenflag()))
             && (this.getTokenflag() == null ? other.getTokenflag() == null : this.getTokenflag().equals(other.getTokenflag()))
+            && (this.getTokendescr() == null ? other.getTokendescr() == null : this.getTokendescr().equals(other.getTokendescr()))
             && (this.getContact() == null ? other.getContact() == null : this.getContact().equals(other.getContact()))
             && (this.getContacte() == null ? other.getContacte() == null : this.getContacte().equals(other.getContacte()))
+            && (this.getStreet() == null ? other.getStreet() == null : this.getStreet().equals(other.getStreet()))
+            && (this.getStreete() == null ? other.getStreete() == null : this.getStreete().equals(other.getStreete()))
+            && (this.getProvince() == null ? other.getProvince() == null : this.getProvince().equals(other.getProvince()))
+            && (this.getCity() == null ? other.getCity() == null : this.getCity().equals(other.getCity()))
+            && (this.getDistrict() == null ? other.getDistrict() == null : this.getDistrict().equals(other.getDistrict()))
             && (this.getPostcode() == null ? other.getPostcode() == null : this.getPostcode().equals(other.getPostcode()))
             && (this.getMobile() == null ? other.getMobile() == null : this.getMobile().equals(other.getMobile()))
             && (this.getPhone() == null ? other.getPhone() == null : this.getPhone().equals(other.getPhone()))
             && (this.getEubemail() == null ? other.getEubemail() == null : this.getEubemail().equals(other.getEubemail()))
             && (this.getDevuserid() == null ? other.getDevuserid() == null : this.getDevuserid().equals(other.getDevuserid()))
+            && (this.getEubtonken() == null ? other.getEubtonken() == null : this.getEubtonken().equals(other.getEubtonken()))
+            && (this.getSelluserid() == null ? other.getSelluserid() == null : this.getSelluserid().equals(other.getSelluserid()))
             && (this.getVersion() == null ? other.getVersion() == null : this.getVersion().equals(other.getVersion()))
             && (this.getEbaysitid() == null ? other.getEbaysitid() == null : this.getEbaysitid().equals(other.getEbaysitid()))
             && (this.getProvinceen() == null ? other.getProvinceen() == null : this.getProvinceen().equals(other.getProvinceen()))
             && (this.getCityen() == null ? other.getCityen() == null : this.getCityen().equals(other.getCityen()))
             && (this.getDistricten() == null ? other.getDistricten() == null : this.getDistricten().equals(other.getDistricten()))
+            && (this.getEbayfeemoneyrate() == null ? other.getEbayfeemoneyrate() == null : this.getEbayfeemoneyrate().equals(other.getEbayfeemoneyrate()))
+            && (this.getAccesskeyid() == null ? other.getAccesskeyid() == null : this.getAccesskeyid().equals(other.getAccesskeyid()))
+            && (this.getSecretaccesskey() == null ? other.getSecretaccesskey() == null : this.getSecretaccesskey().equals(other.getSecretaccesskey()))
+            && (this.getApplicationname() == null ? other.getApplicationname() == null : this.getApplicationname().equals(other.getApplicationname()))
+            && (this.getSellerid() == null ? other.getSellerid() == null : this.getSellerid().equals(other.getSellerid()))
+            && (this.getMarketplaceid() == null ? other.getMarketplaceid() == null : this.getMarketplaceid().equals(other.getMarketplaceid()))
             && (this.getStarttime() == null ? other.getStarttime() == null : this.getStarttime().equals(other.getStarttime()))
             && (this.getEndtime() == null ? other.getEndtime() == null : this.getEndtime().equals(other.getEndtime()))
             && (this.getAmazon() == null ? other.getAmazon() == null : this.getAmazon().equals(other.getAmazon()))
@@ -910,28 +931,7 @@ public class DbShop implements Serializable {
             && (this.getPaypalemail() == null ? other.getPaypalemail() == null : this.getPaypalemail().equals(other.getPaypalemail()))
             && (this.getShopmanager() == null ? other.getShopmanager() == null : this.getShopmanager().equals(other.getShopmanager()))
             && (this.getCscartemail() == null ? other.getCscartemail() == null : this.getCscartemail().equals(other.getCscartemail()))
-            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
-            && (this.getEmail() == null ? other.getEmail() == null : this.getEmail().equals(other.getEmail()))
-            && (this.getTempletcontent() == null ? other.getTempletcontent() == null : this.getTempletcontent().equals(other.getTempletcontent()))
-            && (this.getTempletclob() == null ? other.getTempletclob() == null : this.getTempletclob().equals(other.getTempletclob()))
-            && (this.getReserve13() == null ? other.getReserve13() == null : this.getReserve13().equals(other.getReserve13()))
-            && (this.getReserve19() == null ? other.getReserve19() == null : this.getReserve19().equals(other.getReserve19()))
-            && (this.getReserve20() == null ? other.getReserve20() == null : this.getReserve20().equals(other.getReserve20()))
-            && (this.getTokenid() == null ? other.getTokenid() == null : this.getTokenid().equals(other.getTokenid()))
-            && (this.getTokendescr() == null ? other.getTokendescr() == null : this.getTokendescr().equals(other.getTokendescr()))
-            && (this.getStreet() == null ? other.getStreet() == null : this.getStreet().equals(other.getStreet()))
-            && (this.getStreete() == null ? other.getStreete() == null : this.getStreete().equals(other.getStreete()))
-            && (this.getProvince() == null ? other.getProvince() == null : this.getProvince().equals(other.getProvince()))
-            && (this.getCity() == null ? other.getCity() == null : this.getCity().equals(other.getCity()))
-            && (this.getDistrict() == null ? other.getDistrict() == null : this.getDistrict().equals(other.getDistrict()))
-            && (this.getEubtonken() == null ? other.getEubtonken() == null : this.getEubtonken().equals(other.getEubtonken()))
-            && (this.getSelluserid() == null ? other.getSelluserid() == null : this.getSelluserid().equals(other.getSelluserid()))
-            && (this.getEbayfeemoneyrate() == null ? other.getEbayfeemoneyrate() == null : this.getEbayfeemoneyrate().equals(other.getEbayfeemoneyrate()))
-            && (this.getAccesskeyid() == null ? other.getAccesskeyid() == null : this.getAccesskeyid().equals(other.getAccesskeyid()))
-            && (this.getSecretaccesskey() == null ? other.getSecretaccesskey() == null : this.getSecretaccesskey().equals(other.getSecretaccesskey()))
-            && (this.getApplicationname() == null ? other.getApplicationname() == null : this.getApplicationname().equals(other.getApplicationname()))
-            && (this.getSellerid() == null ? other.getSellerid() == null : this.getSellerid().equals(other.getSellerid()))
-            && (this.getMarketplaceid() == null ? other.getMarketplaceid() == null : this.getMarketplaceid().equals(other.getMarketplaceid()));
+            && (this.getTempletclob() == null ? other.getTempletclob() == null : this.getTempletclob().equals(other.getTempletclob()));
     }
 
     @Override
@@ -941,6 +941,7 @@ public class DbShop implements Serializable {
         result = prime * result + ((getSid() == null) ? 0 : getSid().hashCode());
         result = prime * result + ((getCorpid() == null) ? 0 : getCorpid().hashCode());
         result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
+        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
         result = prime * result + ((getPassword() == null) ? 0 : getPassword().hashCode());
         result = prime * result + ((getSlevel() == null) ? 0 : getSlevel().hashCode());
         result = prime * result + ((getCredit1() == null) ? 0 : getCredit1().hashCode());
@@ -949,8 +950,10 @@ public class DbShop implements Serializable {
         result = prime * result + ((getManager() == null) ? 0 : getManager().hashCode());
         result = prime * result + ((getTele() == null) ? 0 : getTele().hashCode());
         result = prime * result + ((getFax() == null) ? 0 : getFax().hashCode());
+        result = prime * result + ((getEmail() == null) ? 0 : getEmail().hashCode());
         result = prime * result + ((getOrdernum() == null) ? 0 : getOrdernum().hashCode());
         result = prime * result + ((getTempletfile() == null) ? 0 : getTempletfile().hashCode());
+        result = prime * result + ((getTempletcontent() == null) ? 0 : getTempletcontent().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getRate() == null) ? 0 : getRate().hashCode());
@@ -966,26 +969,44 @@ public class DbShop implements Serializable {
         result = prime * result + ((getReserve10() == null) ? 0 : getReserve10().hashCode());
         result = prime * result + ((getReserve11() == null) ? 0 : getReserve11().hashCode());
         result = prime * result + ((getReserve12() == null) ? 0 : getReserve12().hashCode());
+        result = prime * result + ((getReserve13() == null) ? 0 : getReserve13().hashCode());
         result = prime * result + ((getReserve14() == null) ? 0 : getReserve14().hashCode());
         result = prime * result + ((getReserve15() == null) ? 0 : getReserve15().hashCode());
         result = prime * result + ((getReserve16() == null) ? 0 : getReserve16().hashCode());
         result = prime * result + ((getReserve17() == null) ? 0 : getReserve17().hashCode());
         result = prime * result + ((getReserve18() == null) ? 0 : getReserve18().hashCode());
+        result = prime * result + ((getReserve19() == null) ? 0 : getReserve19().hashCode());
+        result = prime * result + ((getReserve20() == null) ? 0 : getReserve20().hashCode());
         result = prime * result + ((getItemid() == null) ? 0 : getItemid().hashCode());
+        result = prime * result + ((getTokenid() == null) ? 0 : getTokenid().hashCode());
         result = prime * result + ((getOpenflag() == null) ? 0 : getOpenflag().hashCode());
         result = prime * result + ((getTokenflag() == null) ? 0 : getTokenflag().hashCode());
+        result = prime * result + ((getTokendescr() == null) ? 0 : getTokendescr().hashCode());
         result = prime * result + ((getContact() == null) ? 0 : getContact().hashCode());
         result = prime * result + ((getContacte() == null) ? 0 : getContacte().hashCode());
+        result = prime * result + ((getStreet() == null) ? 0 : getStreet().hashCode());
+        result = prime * result + ((getStreete() == null) ? 0 : getStreete().hashCode());
+        result = prime * result + ((getProvince() == null) ? 0 : getProvince().hashCode());
+        result = prime * result + ((getCity() == null) ? 0 : getCity().hashCode());
+        result = prime * result + ((getDistrict() == null) ? 0 : getDistrict().hashCode());
         result = prime * result + ((getPostcode() == null) ? 0 : getPostcode().hashCode());
         result = prime * result + ((getMobile() == null) ? 0 : getMobile().hashCode());
         result = prime * result + ((getPhone() == null) ? 0 : getPhone().hashCode());
         result = prime * result + ((getEubemail() == null) ? 0 : getEubemail().hashCode());
         result = prime * result + ((getDevuserid() == null) ? 0 : getDevuserid().hashCode());
+        result = prime * result + ((getEubtonken() == null) ? 0 : getEubtonken().hashCode());
+        result = prime * result + ((getSelluserid() == null) ? 0 : getSelluserid().hashCode());
         result = prime * result + ((getVersion() == null) ? 0 : getVersion().hashCode());
         result = prime * result + ((getEbaysitid() == null) ? 0 : getEbaysitid().hashCode());
         result = prime * result + ((getProvinceen() == null) ? 0 : getProvinceen().hashCode());
         result = prime * result + ((getCityen() == null) ? 0 : getCityen().hashCode());
         result = prime * result + ((getDistricten() == null) ? 0 : getDistricten().hashCode());
+        result = prime * result + ((getEbayfeemoneyrate() == null) ? 0 : getEbayfeemoneyrate().hashCode());
+        result = prime * result + ((getAccesskeyid() == null) ? 0 : getAccesskeyid().hashCode());
+        result = prime * result + ((getSecretaccesskey() == null) ? 0 : getSecretaccesskey().hashCode());
+        result = prime * result + ((getApplicationname() == null) ? 0 : getApplicationname().hashCode());
+        result = prime * result + ((getSellerid() == null) ? 0 : getSellerid().hashCode());
+        result = prime * result + ((getMarketplaceid() == null) ? 0 : getMarketplaceid().hashCode());
         result = prime * result + ((getStarttime() == null) ? 0 : getStarttime().hashCode());
         result = prime * result + ((getEndtime() == null) ? 0 : getEndtime().hashCode());
         result = prime * result + ((getAmazon() == null) ? 0 : getAmazon().hashCode());
@@ -999,28 +1020,7 @@ public class DbShop implements Serializable {
         result = prime * result + ((getPaypalemail() == null) ? 0 : getPaypalemail().hashCode());
         result = prime * result + ((getShopmanager() == null) ? 0 : getShopmanager().hashCode());
         result = prime * result + ((getCscartemail() == null) ? 0 : getCscartemail().hashCode());
-        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
-        result = prime * result + ((getEmail() == null) ? 0 : getEmail().hashCode());
-        result = prime * result + ((getTempletcontent() == null) ? 0 : getTempletcontent().hashCode());
         result = prime * result + ((getTempletclob() == null) ? 0 : getTempletclob().hashCode());
-        result = prime * result + ((getReserve13() == null) ? 0 : getReserve13().hashCode());
-        result = prime * result + ((getReserve19() == null) ? 0 : getReserve19().hashCode());
-        result = prime * result + ((getReserve20() == null) ? 0 : getReserve20().hashCode());
-        result = prime * result + ((getTokenid() == null) ? 0 : getTokenid().hashCode());
-        result = prime * result + ((getTokendescr() == null) ? 0 : getTokendescr().hashCode());
-        result = prime * result + ((getStreet() == null) ? 0 : getStreet().hashCode());
-        result = prime * result + ((getStreete() == null) ? 0 : getStreete().hashCode());
-        result = prime * result + ((getProvince() == null) ? 0 : getProvince().hashCode());
-        result = prime * result + ((getCity() == null) ? 0 : getCity().hashCode());
-        result = prime * result + ((getDistrict() == null) ? 0 : getDistrict().hashCode());
-        result = prime * result + ((getEubtonken() == null) ? 0 : getEubtonken().hashCode());
-        result = prime * result + ((getSelluserid() == null) ? 0 : getSelluserid().hashCode());
-        result = prime * result + ((getEbayfeemoneyrate() == null) ? 0 : getEbayfeemoneyrate().hashCode());
-        result = prime * result + ((getAccesskeyid() == null) ? 0 : getAccesskeyid().hashCode());
-        result = prime * result + ((getSecretaccesskey() == null) ? 0 : getSecretaccesskey().hashCode());
-        result = prime * result + ((getApplicationname() == null) ? 0 : getApplicationname().hashCode());
-        result = prime * result + ((getSellerid() == null) ? 0 : getSellerid().hashCode());
-        result = prime * result + ((getMarketplaceid() == null) ? 0 : getMarketplaceid().hashCode());
         return result;
     }
 
@@ -1033,6 +1033,7 @@ public class DbShop implements Serializable {
         sb.append(", sid=").append(sid);
         sb.append(", corpid=").append(corpid);
         sb.append(", name=").append(name);
+        sb.append(", descr=").append(descr);
         sb.append(", password=").append(password);
         sb.append(", slevel=").append(slevel);
         sb.append(", credit1=").append(credit1);
@@ -1041,8 +1042,10 @@ public class DbShop implements Serializable {
         sb.append(", manager=").append(manager);
         sb.append(", tele=").append(tele);
         sb.append(", fax=").append(fax);
+        sb.append(", email=").append(email);
         sb.append(", ordernum=").append(ordernum);
         sb.append(", templetfile=").append(templetfile);
+        sb.append(", templetcontent=").append(templetcontent);
         sb.append(", oper=").append(oper);
         sb.append(", opertime=").append(opertime);
         sb.append(", rate=").append(rate);
@@ -1058,26 +1061,44 @@ public class DbShop implements Serializable {
         sb.append(", reserve10=").append(reserve10);
         sb.append(", reserve11=").append(reserve11);
         sb.append(", reserve12=").append(reserve12);
+        sb.append(", reserve13=").append(reserve13);
         sb.append(", reserve14=").append(reserve14);
         sb.append(", reserve15=").append(reserve15);
         sb.append(", reserve16=").append(reserve16);
         sb.append(", reserve17=").append(reserve17);
         sb.append(", reserve18=").append(reserve18);
+        sb.append(", reserve19=").append(reserve19);
+        sb.append(", reserve20=").append(reserve20);
         sb.append(", itemid=").append(itemid);
+        sb.append(", tokenid=").append(tokenid);
         sb.append(", openflag=").append(openflag);
         sb.append(", tokenflag=").append(tokenflag);
+        sb.append(", tokendescr=").append(tokendescr);
         sb.append(", contact=").append(contact);
         sb.append(", contacte=").append(contacte);
+        sb.append(", street=").append(street);
+        sb.append(", streete=").append(streete);
+        sb.append(", province=").append(province);
+        sb.append(", city=").append(city);
+        sb.append(", district=").append(district);
         sb.append(", postcode=").append(postcode);
         sb.append(", mobile=").append(mobile);
         sb.append(", phone=").append(phone);
         sb.append(", eubemail=").append(eubemail);
         sb.append(", devuserid=").append(devuserid);
+        sb.append(", eubtonken=").append(eubtonken);
+        sb.append(", selluserid=").append(selluserid);
         sb.append(", version=").append(version);
         sb.append(", ebaysitid=").append(ebaysitid);
         sb.append(", provinceen=").append(provinceen);
         sb.append(", cityen=").append(cityen);
         sb.append(", districten=").append(districten);
+        sb.append(", ebayfeemoneyrate=").append(ebayfeemoneyrate);
+        sb.append(", accesskeyid=").append(accesskeyid);
+        sb.append(", secretaccesskey=").append(secretaccesskey);
+        sb.append(", applicationname=").append(applicationname);
+        sb.append(", sellerid=").append(sellerid);
+        sb.append(", marketplaceid=").append(marketplaceid);
         sb.append(", starttime=").append(starttime);
         sb.append(", endtime=").append(endtime);
         sb.append(", amazon=").append(amazon);
@@ -1091,28 +1112,7 @@ public class DbShop implements Serializable {
         sb.append(", paypalemail=").append(paypalemail);
         sb.append(", shopmanager=").append(shopmanager);
         sb.append(", cscartemail=").append(cscartemail);
-        sb.append(", descr=").append(descr);
-        sb.append(", email=").append(email);
-        sb.append(", templetcontent=").append(templetcontent);
         sb.append(", templetclob=").append(templetclob);
-        sb.append(", reserve13=").append(reserve13);
-        sb.append(", reserve19=").append(reserve19);
-        sb.append(", reserve20=").append(reserve20);
-        sb.append(", tokenid=").append(tokenid);
-        sb.append(", tokendescr=").append(tokendescr);
-        sb.append(", street=").append(street);
-        sb.append(", streete=").append(streete);
-        sb.append(", province=").append(province);
-        sb.append(", city=").append(city);
-        sb.append(", district=").append(district);
-        sb.append(", eubtonken=").append(eubtonken);
-        sb.append(", selluserid=").append(selluserid);
-        sb.append(", ebayfeemoneyrate=").append(ebayfeemoneyrate);
-        sb.append(", accesskeyid=").append(accesskeyid);
-        sb.append(", secretaccesskey=").append(secretaccesskey);
-        sb.append(", applicationname=").append(applicationname);
-        sb.append(", sellerid=").append(sellerid);
-        sb.append(", marketplaceid=").append(marketplaceid);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

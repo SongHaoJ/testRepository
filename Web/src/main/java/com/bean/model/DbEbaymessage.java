@@ -9,6 +9,12 @@ public class DbEbaymessage implements Serializable {
 
     private String messageid;
 
+    private String subject;
+
+    private String content;
+
+    private String descr;
+
     private String sender;
 
     private String itemid;
@@ -24,6 +30,8 @@ public class DbEbaymessage implements Serializable {
     private String sendtoname;
 
     private String productid;
+
+    private String productname;
 
     private String stype;
 
@@ -49,6 +57,8 @@ public class DbEbaymessage implements Serializable {
 
     private Date opertime;
 
+    private String answer;
+
     private String assignoper;
 
     private Date assignopertime;
@@ -73,6 +83,10 @@ public class DbEbaymessage implements Serializable {
 
     private BigDecimal reserve8;
 
+    private String reserve9;
+
+    private String reserve10;
+
     private String typeid;
 
     private String typename;
@@ -81,23 +95,9 @@ public class DbEbaymessage implements Serializable {
 
     private BigDecimal errorcount;
 
-    private String parentmessageid;
-
-    private String subject;
-
-    private String content;
-
-    private String descr;
-
-    private String productname;
-
-    private String answer;
-
-    private String reserve9;
-
-    private String reserve10;
-
     private String errordescr;
+
+    private String parentmessageid;
 
     private static final long serialVersionUID = 1L;
 
@@ -115,6 +115,30 @@ public class DbEbaymessage implements Serializable {
 
     public void setMessageid(String messageid) {
         this.messageid = messageid == null ? null : messageid.trim();
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject == null ? null : subject.trim();
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content == null ? null : content.trim();
+    }
+
+    public String getDescr() {
+        return descr;
+    }
+
+    public void setDescr(String descr) {
+        this.descr = descr == null ? null : descr.trim();
     }
 
     public String getSender() {
@@ -179,6 +203,14 @@ public class DbEbaymessage implements Serializable {
 
     public void setProductid(String productid) {
         this.productid = productid == null ? null : productid.trim();
+    }
+
+    public String getProductname() {
+        return productname;
+    }
+
+    public void setProductname(String productname) {
+        this.productname = productname == null ? null : productname.trim();
     }
 
     public String getStype() {
@@ -277,6 +309,14 @@ public class DbEbaymessage implements Serializable {
         this.opertime = opertime;
     }
 
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer == null ? null : answer.trim();
+    }
+
     public String getAssignoper() {
         return assignoper;
     }
@@ -373,6 +413,22 @@ public class DbEbaymessage implements Serializable {
         this.reserve8 = reserve8;
     }
 
+    public String getReserve9() {
+        return reserve9;
+    }
+
+    public void setReserve9(String reserve9) {
+        this.reserve9 = reserve9 == null ? null : reserve9.trim();
+    }
+
+    public String getReserve10() {
+        return reserve10;
+    }
+
+    public void setReserve10(String reserve10) {
+        this.reserve10 = reserve10 == null ? null : reserve10.trim();
+    }
+
     public String getTypeid() {
         return typeid;
     }
@@ -405,76 +461,20 @@ public class DbEbaymessage implements Serializable {
         this.errorcount = errorcount;
     }
 
-    public String getParentmessageid() {
-        return parentmessageid;
-    }
-
-    public void setParentmessageid(String parentmessageid) {
-        this.parentmessageid = parentmessageid == null ? null : parentmessageid.trim();
-    }
-
-    public String getSubject() {
-        return subject;
-    }
-
-    public void setSubject(String subject) {
-        this.subject = subject == null ? null : subject.trim();
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content == null ? null : content.trim();
-    }
-
-    public String getDescr() {
-        return descr;
-    }
-
-    public void setDescr(String descr) {
-        this.descr = descr == null ? null : descr.trim();
-    }
-
-    public String getProductname() {
-        return productname;
-    }
-
-    public void setProductname(String productname) {
-        this.productname = productname == null ? null : productname.trim();
-    }
-
-    public String getAnswer() {
-        return answer;
-    }
-
-    public void setAnswer(String answer) {
-        this.answer = answer == null ? null : answer.trim();
-    }
-
-    public String getReserve9() {
-        return reserve9;
-    }
-
-    public void setReserve9(String reserve9) {
-        this.reserve9 = reserve9 == null ? null : reserve9.trim();
-    }
-
-    public String getReserve10() {
-        return reserve10;
-    }
-
-    public void setReserve10(String reserve10) {
-        this.reserve10 = reserve10 == null ? null : reserve10.trim();
-    }
-
     public String getErrordescr() {
         return errordescr;
     }
 
     public void setErrordescr(String errordescr) {
         this.errordescr = errordescr == null ? null : errordescr.trim();
+    }
+
+    public String getParentmessageid() {
+        return parentmessageid;
+    }
+
+    public void setParentmessageid(String parentmessageid) {
+        this.parentmessageid = parentmessageid == null ? null : parentmessageid.trim();
     }
 
     @Override
@@ -491,6 +491,9 @@ public class DbEbaymessage implements Serializable {
         DbEbaymessage other = (DbEbaymessage) that;
         return (this.getSequenceid() == null ? other.getSequenceid() == null : this.getSequenceid().equals(other.getSequenceid()))
             && (this.getMessageid() == null ? other.getMessageid() == null : this.getMessageid().equals(other.getMessageid()))
+            && (this.getSubject() == null ? other.getSubject() == null : this.getSubject().equals(other.getSubject()))
+            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
+            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
             && (this.getSender() == null ? other.getSender() == null : this.getSender().equals(other.getSender()))
             && (this.getItemid() == null ? other.getItemid() == null : this.getItemid().equals(other.getItemid()))
             && (this.getFlaged() == null ? other.getFlaged() == null : this.getFlaged().equals(other.getFlaged()))
@@ -499,6 +502,7 @@ public class DbEbaymessage implements Serializable {
             && (this.getReceivedate() == null ? other.getReceivedate() == null : this.getReceivedate().equals(other.getReceivedate()))
             && (this.getSendtoname() == null ? other.getSendtoname() == null : this.getSendtoname().equals(other.getSendtoname()))
             && (this.getProductid() == null ? other.getProductid() == null : this.getProductid().equals(other.getProductid()))
+            && (this.getProductname() == null ? other.getProductname() == null : this.getProductname().equals(other.getProductname()))
             && (this.getStype() == null ? other.getStype() == null : this.getStype().equals(other.getStype()))
             && (this.getShoptypeid() == null ? other.getShoptypeid() == null : this.getShoptypeid().equals(other.getShoptypeid()))
             && (this.getShoptypename() == null ? other.getShoptypename() == null : this.getShoptypename().equals(other.getShoptypename()))
@@ -511,6 +515,7 @@ public class DbEbaymessage implements Serializable {
             && (this.getApplyoper() == null ? other.getApplyoper() == null : this.getApplyoper().equals(other.getApplyoper()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
+            && (this.getAnswer() == null ? other.getAnswer() == null : this.getAnswer().equals(other.getAnswer()))
             && (this.getAssignoper() == null ? other.getAssignoper() == null : this.getAssignoper().equals(other.getAssignoper()))
             && (this.getAssignopertime() == null ? other.getAssignopertime() == null : this.getAssignopertime().equals(other.getAssignopertime()))
             && (this.getUpdateflag() == null ? other.getUpdateflag() == null : this.getUpdateflag().equals(other.getUpdateflag()))
@@ -523,19 +528,14 @@ public class DbEbaymessage implements Serializable {
             && (this.getReserve6() == null ? other.getReserve6() == null : this.getReserve6().equals(other.getReserve6()))
             && (this.getReserve7() == null ? other.getReserve7() == null : this.getReserve7().equals(other.getReserve7()))
             && (this.getReserve8() == null ? other.getReserve8() == null : this.getReserve8().equals(other.getReserve8()))
+            && (this.getReserve9() == null ? other.getReserve9() == null : this.getReserve9().equals(other.getReserve9()))
+            && (this.getReserve10() == null ? other.getReserve10() == null : this.getReserve10().equals(other.getReserve10()))
             && (this.getTypeid() == null ? other.getTypeid() == null : this.getTypeid().equals(other.getTypeid()))
             && (this.getTypename() == null ? other.getTypename() == null : this.getTypename().equals(other.getTypename()))
             && (this.getTypecolor() == null ? other.getTypecolor() == null : this.getTypecolor().equals(other.getTypecolor()))
             && (this.getErrorcount() == null ? other.getErrorcount() == null : this.getErrorcount().equals(other.getErrorcount()))
-            && (this.getParentmessageid() == null ? other.getParentmessageid() == null : this.getParentmessageid().equals(other.getParentmessageid()))
-            && (this.getSubject() == null ? other.getSubject() == null : this.getSubject().equals(other.getSubject()))
-            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
-            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
-            && (this.getProductname() == null ? other.getProductname() == null : this.getProductname().equals(other.getProductname()))
-            && (this.getAnswer() == null ? other.getAnswer() == null : this.getAnswer().equals(other.getAnswer()))
-            && (this.getReserve9() == null ? other.getReserve9() == null : this.getReserve9().equals(other.getReserve9()))
-            && (this.getReserve10() == null ? other.getReserve10() == null : this.getReserve10().equals(other.getReserve10()))
-            && (this.getErrordescr() == null ? other.getErrordescr() == null : this.getErrordescr().equals(other.getErrordescr()));
+            && (this.getErrordescr() == null ? other.getErrordescr() == null : this.getErrordescr().equals(other.getErrordescr()))
+            && (this.getParentmessageid() == null ? other.getParentmessageid() == null : this.getParentmessageid().equals(other.getParentmessageid()));
     }
 
     @Override
@@ -544,6 +544,9 @@ public class DbEbaymessage implements Serializable {
         int result = 1;
         result = prime * result + ((getSequenceid() == null) ? 0 : getSequenceid().hashCode());
         result = prime * result + ((getMessageid() == null) ? 0 : getMessageid().hashCode());
+        result = prime * result + ((getSubject() == null) ? 0 : getSubject().hashCode());
+        result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
+        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
         result = prime * result + ((getSender() == null) ? 0 : getSender().hashCode());
         result = prime * result + ((getItemid() == null) ? 0 : getItemid().hashCode());
         result = prime * result + ((getFlaged() == null) ? 0 : getFlaged().hashCode());
@@ -552,6 +555,7 @@ public class DbEbaymessage implements Serializable {
         result = prime * result + ((getReceivedate() == null) ? 0 : getReceivedate().hashCode());
         result = prime * result + ((getSendtoname() == null) ? 0 : getSendtoname().hashCode());
         result = prime * result + ((getProductid() == null) ? 0 : getProductid().hashCode());
+        result = prime * result + ((getProductname() == null) ? 0 : getProductname().hashCode());
         result = prime * result + ((getStype() == null) ? 0 : getStype().hashCode());
         result = prime * result + ((getShoptypeid() == null) ? 0 : getShoptypeid().hashCode());
         result = prime * result + ((getShoptypename() == null) ? 0 : getShoptypename().hashCode());
@@ -564,6 +568,7 @@ public class DbEbaymessage implements Serializable {
         result = prime * result + ((getApplyoper() == null) ? 0 : getApplyoper().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
+        result = prime * result + ((getAnswer() == null) ? 0 : getAnswer().hashCode());
         result = prime * result + ((getAssignoper() == null) ? 0 : getAssignoper().hashCode());
         result = prime * result + ((getAssignopertime() == null) ? 0 : getAssignopertime().hashCode());
         result = prime * result + ((getUpdateflag() == null) ? 0 : getUpdateflag().hashCode());
@@ -576,19 +581,14 @@ public class DbEbaymessage implements Serializable {
         result = prime * result + ((getReserve6() == null) ? 0 : getReserve6().hashCode());
         result = prime * result + ((getReserve7() == null) ? 0 : getReserve7().hashCode());
         result = prime * result + ((getReserve8() == null) ? 0 : getReserve8().hashCode());
+        result = prime * result + ((getReserve9() == null) ? 0 : getReserve9().hashCode());
+        result = prime * result + ((getReserve10() == null) ? 0 : getReserve10().hashCode());
         result = prime * result + ((getTypeid() == null) ? 0 : getTypeid().hashCode());
         result = prime * result + ((getTypename() == null) ? 0 : getTypename().hashCode());
         result = prime * result + ((getTypecolor() == null) ? 0 : getTypecolor().hashCode());
         result = prime * result + ((getErrorcount() == null) ? 0 : getErrorcount().hashCode());
-        result = prime * result + ((getParentmessageid() == null) ? 0 : getParentmessageid().hashCode());
-        result = prime * result + ((getSubject() == null) ? 0 : getSubject().hashCode());
-        result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
-        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
-        result = prime * result + ((getProductname() == null) ? 0 : getProductname().hashCode());
-        result = prime * result + ((getAnswer() == null) ? 0 : getAnswer().hashCode());
-        result = prime * result + ((getReserve9() == null) ? 0 : getReserve9().hashCode());
-        result = prime * result + ((getReserve10() == null) ? 0 : getReserve10().hashCode());
         result = prime * result + ((getErrordescr() == null) ? 0 : getErrordescr().hashCode());
+        result = prime * result + ((getParentmessageid() == null) ? 0 : getParentmessageid().hashCode());
         return result;
     }
 
@@ -600,6 +600,9 @@ public class DbEbaymessage implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", sequenceid=").append(sequenceid);
         sb.append(", messageid=").append(messageid);
+        sb.append(", subject=").append(subject);
+        sb.append(", content=").append(content);
+        sb.append(", descr=").append(descr);
         sb.append(", sender=").append(sender);
         sb.append(", itemid=").append(itemid);
         sb.append(", flaged=").append(flaged);
@@ -608,6 +611,7 @@ public class DbEbaymessage implements Serializable {
         sb.append(", receivedate=").append(receivedate);
         sb.append(", sendtoname=").append(sendtoname);
         sb.append(", productid=").append(productid);
+        sb.append(", productname=").append(productname);
         sb.append(", stype=").append(stype);
         sb.append(", shoptypeid=").append(shoptypeid);
         sb.append(", shoptypename=").append(shoptypename);
@@ -620,6 +624,7 @@ public class DbEbaymessage implements Serializable {
         sb.append(", applyoper=").append(applyoper);
         sb.append(", oper=").append(oper);
         sb.append(", opertime=").append(opertime);
+        sb.append(", answer=").append(answer);
         sb.append(", assignoper=").append(assignoper);
         sb.append(", assignopertime=").append(assignopertime);
         sb.append(", updateflag=").append(updateflag);
@@ -632,19 +637,14 @@ public class DbEbaymessage implements Serializable {
         sb.append(", reserve6=").append(reserve6);
         sb.append(", reserve7=").append(reserve7);
         sb.append(", reserve8=").append(reserve8);
+        sb.append(", reserve9=").append(reserve9);
+        sb.append(", reserve10=").append(reserve10);
         sb.append(", typeid=").append(typeid);
         sb.append(", typename=").append(typename);
         sb.append(", typecolor=").append(typecolor);
         sb.append(", errorcount=").append(errorcount);
-        sb.append(", parentmessageid=").append(parentmessageid);
-        sb.append(", subject=").append(subject);
-        sb.append(", content=").append(content);
-        sb.append(", descr=").append(descr);
-        sb.append(", productname=").append(productname);
-        sb.append(", answer=").append(answer);
-        sb.append(", reserve9=").append(reserve9);
-        sb.append(", reserve10=").append(reserve10);
         sb.append(", errordescr=").append(errordescr);
+        sb.append(", parentmessageid=").append(parentmessageid);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

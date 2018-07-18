@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbFaqquestion;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbFaqquestionMapper {
-    int deleteByPrimaryKey(Integer sequenceid);
+    DbFaqquestion selectByCriteria(DbFaqquestion DbFaqquestion);
 
-    int insert(DbFaqquestion record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbFaqquestion record);
+    void deleteByCriteria(DbFaqquestion DbFaqquestion);
+
+    int insertByCriteria(DbFaqquestion DbFaqquestion);
+
+    int updateByCriteria(DbFaqquestion DbFaqquestion);
 
     DbFaqquestion selectByPrimaryKey(Integer sequenceid);
 
-    int updateByPrimaryKeySelective(DbFaqquestion record);
-
-    int updateByPrimaryKeyWithBLOBs(DbFaqquestion record);
-
-    int updateByPrimaryKey(DbFaqquestion record);
+    List<DbFaqquestion> selectAll();
 }

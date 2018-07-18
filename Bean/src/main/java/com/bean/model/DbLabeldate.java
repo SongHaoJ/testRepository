@@ -47,14 +47,6 @@ public class DbLabeldate implements Serializable {
 
     private BigDecimal orderweight;
 
-    private BigDecimal reserve4;
-
-    private BigDecimal reserve10;
-
-    private BigDecimal reserve11;
-
-    private BigDecimal reserve12;
-
     private String content;
 
     private String products;
@@ -69,6 +61,8 @@ public class DbLabeldate implements Serializable {
 
     private String reserve3;
 
+    private BigDecimal reserve4;
+
     private String reserve5;
 
     private String reserve6;
@@ -78,6 +72,12 @@ public class DbLabeldate implements Serializable {
     private String reserve8;
 
     private String reserve9;
+
+    private BigDecimal reserve10;
+
+    private BigDecimal reserve11;
+
+    private BigDecimal reserve12;
 
     private static final long serialVersionUID = 1L;
 
@@ -249,38 +249,6 @@ public class DbLabeldate implements Serializable {
         this.orderweight = orderweight;
     }
 
-    public BigDecimal getReserve4() {
-        return reserve4;
-    }
-
-    public void setReserve4(BigDecimal reserve4) {
-        this.reserve4 = reserve4;
-    }
-
-    public BigDecimal getReserve10() {
-        return reserve10;
-    }
-
-    public void setReserve10(BigDecimal reserve10) {
-        this.reserve10 = reserve10;
-    }
-
-    public BigDecimal getReserve11() {
-        return reserve11;
-    }
-
-    public void setReserve11(BigDecimal reserve11) {
-        this.reserve11 = reserve11;
-    }
-
-    public BigDecimal getReserve12() {
-        return reserve12;
-    }
-
-    public void setReserve12(BigDecimal reserve12) {
-        this.reserve12 = reserve12;
-    }
-
     public String getContent() {
         return content;
     }
@@ -337,6 +305,14 @@ public class DbLabeldate implements Serializable {
         this.reserve3 = reserve3 == null ? null : reserve3.trim();
     }
 
+    public BigDecimal getReserve4() {
+        return reserve4;
+    }
+
+    public void setReserve4(BigDecimal reserve4) {
+        this.reserve4 = reserve4;
+    }
+
     public String getReserve5() {
         return reserve5;
     }
@@ -377,6 +353,30 @@ public class DbLabeldate implements Serializable {
         this.reserve9 = reserve9 == null ? null : reserve9.trim();
     }
 
+    public BigDecimal getReserve10() {
+        return reserve10;
+    }
+
+    public void setReserve10(BigDecimal reserve10) {
+        this.reserve10 = reserve10;
+    }
+
+    public BigDecimal getReserve11() {
+        return reserve11;
+    }
+
+    public void setReserve11(BigDecimal reserve11) {
+        this.reserve11 = reserve11;
+    }
+
+    public BigDecimal getReserve12() {
+        return reserve12;
+    }
+
+    public void setReserve12(BigDecimal reserve12) {
+        this.reserve12 = reserve12;
+    }
+
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -410,10 +410,6 @@ public class DbLabeldate implements Serializable {
             && (this.getExpresstype() == null ? other.getExpresstype() == null : this.getExpresstype().equals(other.getExpresstype()))
             && (this.getExpressid() == null ? other.getExpressid() == null : this.getExpressid().equals(other.getExpressid()))
             && (this.getOrderweight() == null ? other.getOrderweight() == null : this.getOrderweight().equals(other.getOrderweight()))
-            && (this.getReserve4() == null ? other.getReserve4() == null : this.getReserve4().equals(other.getReserve4()))
-            && (this.getReserve10() == null ? other.getReserve10() == null : this.getReserve10().equals(other.getReserve10()))
-            && (this.getReserve11() == null ? other.getReserve11() == null : this.getReserve11().equals(other.getReserve11()))
-            && (this.getReserve12() == null ? other.getReserve12() == null : this.getReserve12().equals(other.getReserve12()))
             && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
             && (this.getProducts() == null ? other.getProducts() == null : this.getProducts().equals(other.getProducts()))
             && (this.getPostageservice() == null ? other.getPostageservice() == null : this.getPostageservice().equals(other.getPostageservice()))
@@ -421,11 +417,15 @@ public class DbLabeldate implements Serializable {
             && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
             && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
             && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
+            && (this.getReserve4() == null ? other.getReserve4() == null : this.getReserve4().equals(other.getReserve4()))
             && (this.getReserve5() == null ? other.getReserve5() == null : this.getReserve5().equals(other.getReserve5()))
             && (this.getReserve6() == null ? other.getReserve6() == null : this.getReserve6().equals(other.getReserve6()))
             && (this.getReserve7() == null ? other.getReserve7() == null : this.getReserve7().equals(other.getReserve7()))
             && (this.getReserve8() == null ? other.getReserve8() == null : this.getReserve8().equals(other.getReserve8()))
-            && (this.getReserve9() == null ? other.getReserve9() == null : this.getReserve9().equals(other.getReserve9()));
+            && (this.getReserve9() == null ? other.getReserve9() == null : this.getReserve9().equals(other.getReserve9()))
+            && (this.getReserve10() == null ? other.getReserve10() == null : this.getReserve10().equals(other.getReserve10()))
+            && (this.getReserve11() == null ? other.getReserve11() == null : this.getReserve11().equals(other.getReserve11()))
+            && (this.getReserve12() == null ? other.getReserve12() == null : this.getReserve12().equals(other.getReserve12()));
     }
 
     @Override
@@ -453,10 +453,6 @@ public class DbLabeldate implements Serializable {
         result = prime * result + ((getExpresstype() == null) ? 0 : getExpresstype().hashCode());
         result = prime * result + ((getExpressid() == null) ? 0 : getExpressid().hashCode());
         result = prime * result + ((getOrderweight() == null) ? 0 : getOrderweight().hashCode());
-        result = prime * result + ((getReserve4() == null) ? 0 : getReserve4().hashCode());
-        result = prime * result + ((getReserve10() == null) ? 0 : getReserve10().hashCode());
-        result = prime * result + ((getReserve11() == null) ? 0 : getReserve11().hashCode());
-        result = prime * result + ((getReserve12() == null) ? 0 : getReserve12().hashCode());
         result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
         result = prime * result + ((getProducts() == null) ? 0 : getProducts().hashCode());
         result = prime * result + ((getPostageservice() == null) ? 0 : getPostageservice().hashCode());
@@ -464,11 +460,15 @@ public class DbLabeldate implements Serializable {
         result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
         result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
         result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
+        result = prime * result + ((getReserve4() == null) ? 0 : getReserve4().hashCode());
         result = prime * result + ((getReserve5() == null) ? 0 : getReserve5().hashCode());
         result = prime * result + ((getReserve6() == null) ? 0 : getReserve6().hashCode());
         result = prime * result + ((getReserve7() == null) ? 0 : getReserve7().hashCode());
         result = prime * result + ((getReserve8() == null) ? 0 : getReserve8().hashCode());
         result = prime * result + ((getReserve9() == null) ? 0 : getReserve9().hashCode());
+        result = prime * result + ((getReserve10() == null) ? 0 : getReserve10().hashCode());
+        result = prime * result + ((getReserve11() == null) ? 0 : getReserve11().hashCode());
+        result = prime * result + ((getReserve12() == null) ? 0 : getReserve12().hashCode());
         return result;
     }
 
@@ -499,10 +499,6 @@ public class DbLabeldate implements Serializable {
         sb.append(", expresstype=").append(expresstype);
         sb.append(", expressid=").append(expressid);
         sb.append(", orderweight=").append(orderweight);
-        sb.append(", reserve4=").append(reserve4);
-        sb.append(", reserve10=").append(reserve10);
-        sb.append(", reserve11=").append(reserve11);
-        sb.append(", reserve12=").append(reserve12);
         sb.append(", content=").append(content);
         sb.append(", products=").append(products);
         sb.append(", postageservice=").append(postageservice);
@@ -510,11 +506,15 @@ public class DbLabeldate implements Serializable {
         sb.append(", reserve1=").append(reserve1);
         sb.append(", reserve2=").append(reserve2);
         sb.append(", reserve3=").append(reserve3);
+        sb.append(", reserve4=").append(reserve4);
         sb.append(", reserve5=").append(reserve5);
         sb.append(", reserve6=").append(reserve6);
         sb.append(", reserve7=").append(reserve7);
         sb.append(", reserve8=").append(reserve8);
         sb.append(", reserve9=").append(reserve9);
+        sb.append(", reserve10=").append(reserve10);
+        sb.append(", reserve11=").append(reserve11);
+        sb.append(", reserve12=").append(reserve12);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

@@ -3,7 +3,9 @@
 <mapper namespace="com.bean.dao.DbExpressapiMapper">
   <resultMap id="BaseResultMap" type="com.bean.model.DbExpressapi">
     <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="APINAME" jdbcType="VARCHAR" property="apiname" />
     <result column="SORT" jdbcType="DECIMAL" property="sort" />
+    <result column="CONTENT" jdbcType="VARCHAR" property="content" />
     <result column="OPENFLAG" jdbcType="DECIMAL" property="openflag" />
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
@@ -11,26 +13,26 @@
     <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
     <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
     <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
-    <result column="APINAME" jdbcType="LONGVARCHAR" property="apiname" />
-    <result column="CONTENT" jdbcType="LONGVARCHAR" property="content" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select ID, SORT, OPENFLAG, OPER, OPERTIME, URL, RESERVE1, RESERVE2, RESERVE3, APINAME, 
-    CONTENT
-    from db_expressapi
+    select ID, APINAME, SORT, CONTENT, OPENFLAG, OPER, OPERTIME, URL, RESERVE1, RESERVE2, 
+    RESERVE3
+    from DB_EXPRESSAPI
     where ID = #{id,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select ID, SORT, OPENFLAG, OPER, OPERTIME, URL, RESERVE1, RESERVE2, RESERVE3, APINAME, 
-    CONTENT
-    from db_expressapi
+    select ID, APINAME, SORT, CONTENT, OPENFLAG, OPER, OPERTIME, URL, RESERVE1, RESERVE2, 
+    RESERVE3
+    from DB_EXPRESSAPI
   </select>
   <sql id="TableName">
-    db_expressapi
+    DB_EXPRESSAPI
   </sql>
   <sql id="Values">
      #{id,jdbcType=DECIMAL} , 
+     #{apiname,jdbcType=VARCHAR} , 
      #{sort,jdbcType=DECIMAL} , 
+     #{content,jdbcType=VARCHAR} , 
      #{openflag,jdbcType=DECIMAL} , 
      #{oper,jdbcType=VARCHAR} , 
      #{opertime,jdbcType=TIMESTAMP} , 
@@ -38,12 +40,12 @@
      #{reserve1,jdbcType=VARCHAR} , 
      #{reserve2,jdbcType=VARCHAR} , 
      #{reserve3,jdbcType=VARCHAR} , 
-     #{apiname,jdbcType=LONGVARCHAR} , 
-     #{content,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     ID , 
+    APINAME , 
     SORT , 
+    CONTENT , 
     OPENFLAG , 
     OPER , 
     OPERTIME , 
@@ -51,80 +53,78 @@
     RESERVE1 , 
     RESERVE2 , 
     RESERVE3 , 
-    APINAME , 
-    CONTENT
   </sql>
   <sql id="Criteria">
     <if test="id != null">
-      ID = #{id,jdbcType=DECIMAL} and 
-    </if>
-    <if test="sort != null">
-      SORT = #{sort,jdbcType=DECIMAL} and 
-    </if>
-    <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=DECIMAL} and 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="url != null">
-      URL = #{url,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR} and 
+      id = #{id,jdbcType=DECIMAL} and 
     </if>
     <if test="apiname != null">
-      APINAME = #{apiname,jdbcType=LONGVARCHAR} and 
+      apiname = #{apiname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sort != null">
+      sort = #{sort,jdbcType=DECIMAL} and 
     </if>
     <if test="content != null">
-      CONTENT = #{content,jdbcType=LONGVARCHAR}
+      content = #{content,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="url != null">
+      url = #{url,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="id != null">
-      ID = #{id,jdbcType=DECIMAL} , 
-    </if>
-    <if test="sort != null">
-      SORT = #{sort,jdbcType=DECIMAL} , 
-    </if>
-    <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=DECIMAL} , 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="url != null">
-      URL = #{url,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR} , 
+      id = #{id,jdbcType=DECIMAL} , 
     </if>
     <if test="apiname != null">
-      APINAME = #{apiname,jdbcType=LONGVARCHAR} , 
+      apiname = #{apiname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sort != null">
+      sort = #{sort,jdbcType=DECIMAL} , 
     </if>
     <if test="content != null">
-      CONTENT = #{content,jdbcType=LONGVARCHAR}
+      content = #{content,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="url != null">
+      url = #{url,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbExpressapi" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

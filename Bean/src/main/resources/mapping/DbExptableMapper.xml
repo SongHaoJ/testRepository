@@ -5,71 +5,97 @@
     <result column="SID" jdbcType="VARCHAR" property="sid" />
     <result column="NAME" jdbcType="VARCHAR" property="name" />
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="CONTENT" jdbcType="VARCHAR" property="content" />
     <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
     <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbExptable">
-    <result column="CONTENT" jdbcType="LONGVARCHAR" property="content" />
-  </resultMap>
-  <sql id="Blob_Column_List">
-    CONTENT
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, NAME, OPER, CONTENT, CREATETIME, OPENFLAG, OPERTIME
+    from DB_EXPTABLE
+  </select>
+  <sql id="TableName">
+    DB_EXPTABLE
   </sql>
-  <insert id="insert" parameterType="com.bean.model.DbExptable">
-    insert into db_exptable (SID, 'NAME', OPER, 
-      CREATETIME, OPENFLAG, OPERTIME, 
-      CONTENT)
-    values (#{sid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{oper,jdbcType=VARCHAR}, 
-      #{createtime,jdbcType=TIMESTAMP}, #{openflag,jdbcType=VARCHAR}, #{opertime,jdbcType=TIMESTAMP}, 
-      #{content,jdbcType=LONGVARCHAR})
+  <sql id="Values">
+     #{sid,jdbcType=VARCHAR} , 
+     #{name,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{content,jdbcType=VARCHAR} , 
+     #{createtime,jdbcType=TIMESTAMP} , 
+     #{openflag,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+  </sql>
+  <sql id="Columns">
+    SID , 
+    NAME , 
+    OPER , 
+    CONTENT , 
+    CREATETIME , 
+    OPENFLAG , 
+    OPERTIME , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="content != null">
+      content = #{content,jdbcType=VARCHAR} and 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="content != null">
+      content = #{content,jdbcType=VARCHAR} , 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbExptable" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SID=#{SID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbExptable">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbExptable">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbExptable">
-    insert into db_exptable
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        SID,
-      </if>
-      <if test="name != null">
-        'NAME',
-      </if>
-      <if test="oper != null">
-        OPER,
-      </if>
-      <if test="createtime != null">
-        CREATETIME,
-      </if>
-      <if test="openflag != null">
-        OPENFLAG,
-      </if>
-      <if test="opertime != null">
-        OPERTIME,
-      </if>
-      <if test="content != null">
-        CONTENT,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        #{sid,jdbcType=VARCHAR},
-      </if>
-      <if test="name != null">
-        #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="oper != null">
-        #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="createtime != null">
-        #{createtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="openflag != null">
-        #{openflag,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="content != null">
-        #{content,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbExptable">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
 </mapper>

@@ -14,6 +14,7 @@
     <result column="EBAYPICTURE3" jdbcType="VARCHAR" property="ebaypicture3" />
     <result column="EBAYPICTURE4" jdbcType="VARCHAR" property="ebaypicture4" />
     <result column="EBAYVIEWITEMURL" jdbcType="VARCHAR" property="ebayviewitemurl" />
+    <result column="EBAYDECSR" jdbcType="VARCHAR" property="ebaydecsr" />
     <result column="EBAYPAYMETHOD" jdbcType="VARCHAR" property="ebaypaymethod" />
     <result column="EBAYCATEGORYID" jdbcType="VARCHAR" property="ebaycategoryid" />
     <result column="EBAYCATEGORYNAME" jdbcType="VARCHAR" property="ebaycategoryname" />
@@ -23,6 +24,7 @@
     <result column="EBAYSITE" jdbcType="VARCHAR" property="ebaysite" />
     <result column="EBAYSHOPNAME" jdbcType="VARCHAR" property="ebayshopname" />
     <result column="EBAYITEMSTATUS" jdbcType="VARCHAR" property="ebayitemstatus" />
+    <result column="EBAYTITLE" jdbcType="VARCHAR" property="ebaytitle" />
     <result column="FLAG" jdbcType="DECIMAL" property="flag" />
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
@@ -31,6 +33,10 @@
     <result column="TITLEFLAG" jdbcType="DECIMAL" property="titleflag" />
     <result column="PICTUREFLAG" jdbcType="DECIMAL" property="pictureflag" />
     <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
+    <result column="RESERVE4" jdbcType="VARCHAR" property="reserve4" />
     <result column="RESERVE5" jdbcType="DECIMAL" property="reserve5" />
     <result column="RESERVE6" jdbcType="DECIMAL" property="reserve6" />
     <result column="RESERVE7" jdbcType="DECIMAL" property="reserve7" />
@@ -52,6 +58,7 @@
     <result column="EBAYBUYITNEWPRICE" jdbcType="DECIMAL" property="ebaybuyitnewprice" />
     <result column="EBAYBUYITNEWPRICEMONEYTYPE" jdbcType="VARCHAR" property="ebaybuyitnewpricemoneytype" />
     <result column="EBAYCOUNTRY" jdbcType="VARCHAR" property="ebaycountry" />
+    <result column="EBAYDESCRIPTION" jdbcType="VARCHAR" property="ebaydescription" />
     <result column="EBAYHITCOUNT" jdbcType="DECIMAL" property="ebayhitcount" />
     <result column="EBAYSTARTTIME" jdbcType="TIMESTAMP" property="ebaystarttime" />
     <result column="EBAYENDTIME" jdbcType="TIMESTAMP" property="ebayendtime" />
@@ -64,6 +71,7 @@
     <result column="EBAYPHOTODISPLAY" jdbcType="VARCHAR" property="ebayphotodisplay" />
     <result column="EBAYPICTURESOURCE" jdbcType="VARCHAR" property="ebaypicturesource" />
     <result column="EBAYQUANTITYSOLD" jdbcType="DECIMAL" property="ebayquantitysold" />
+    <result column="EBAYFEEDBACKTATINGSTAR" jdbcType="VARCHAR" property="ebayfeedbacktatingstar" />
     <result column="EBAYFEEDBACKSCORE" jdbcType="DECIMAL" property="ebayfeedbackscore" />
     <result column="EBAYPOSITIVEFEEDBACKPERCENT" jdbcType="DECIMAL" property="ebaypositivefeedbackpercent" />
     <result column="EBAYSELLERBUSINESSTYPE" jdbcType="VARCHAR" property="ebaysellerbusinesstype" />
@@ -104,60 +112,52 @@
     <result column="RESERVE16" jdbcType="DECIMAL" property="reserve16" />
     <result column="RESERVE15" jdbcType="DECIMAL" property="reserve15" />
     <result column="CREATEOPER" jdbcType="VARCHAR" property="createoper" />
-    <result column="EBAYDECSR" jdbcType="LONGVARCHAR" property="ebaydecsr" />
-    <result column="EBAYTITLE" jdbcType="LONGVARCHAR" property="ebaytitle" />
-    <result column="RESERVE1" jdbcType="LONGVARCHAR" property="reserve1" />
-    <result column="RESERVE2" jdbcType="LONGVARCHAR" property="reserve2" />
-    <result column="RESERVE3" jdbcType="LONGVARCHAR" property="reserve3" />
-    <result column="RESERVE4" jdbcType="LONGVARCHAR" property="reserve4" />
-    <result column="EBAYDESCRIPTION" jdbcType="LONGVARCHAR" property="ebaydescription" />
-    <result column="EBAYFEEDBACKTATINGSTAR" jdbcType="LONGVARCHAR" property="ebayfeedbacktatingstar" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select SID, SKU, ITEMID, EBAYSKU, EBAYITEMID, EBAYMONEYTYPE, EBAYSELLPRICE, EBAYPICTURE1, 
-    EBAYPICTURE2, EBAYPICTURE3, EBAYPICTURE4, EBAYVIEWITEMURL, EBAYPAYMETHOD, EBAYCATEGORYID, 
-    EBAYCATEGORYNAME, EBAYQUANTITY, EBAYQUATITYTHRESTHOD, EBAYQUATITYTHOD, EBAYSITE, 
-    EBAYSHOPNAME, EBAYITEMSTATUS, FLAG, OPER, OPERTIME, CREATETIME, PRICEFLAG, TITLEFLAG, 
-    PICTUREFLAG, CORPID, RESERVE5, RESERVE6, RESERVE7, RESERVE8, RESERVE9, RESERVE10, 
-    CALCULATEFLAG, ENMITYID, SHOWFLAG, SELLNUMBERAVGONEDAY, SELLNUMBERDAY, SELLNUMBERWEEK, 
-    SELLNUMBERMONTH, SELLNUMBERTOTAL, SELLNUMBERAVG, SELLNUMBERSITE, DOWNCOUNT, PRODUCTINDEX, 
-    EBAYBUYITNEWPRICE, EBAYBUYITNEWPRICEMONEYTYPE, EBAYCOUNTRY, EBAYHITCOUNT, EBAYSTARTTIME, 
-    EBAYENDTIME, EBAYHASRESERVEPRICE, EBAYITEMURL, EBAYLISTDURATION, EBAYLOCATION, EBAYGALLERYTYPE, 
-    EBAYGALLERYURL, EBAYPHOTODISPLAY, EBAYPICTURESOURCE, EBAYQUANTITYSOLD, EBAYFEEDBACKSCORE, 
-    EBAYPOSITIVEFEEDBACKPERCENT, EBAYSELLERBUSINESSTYPE, EBAYSTOREFRONT, EBAYSTOREURL, 
-    EBAYSTATUS, EBAYUSERID, EBAYUSERIDCHANGED, EBAYSTARTPRICE, EBAYDDLEFT, EBAYHHLEFT, 
-    EBAYMMLEFT, UPDATETIME, PICTRUEFLAG, RESERVE11, RESERVE12, RESERVE13, EXPRESSMONEYTYPE2, 
-    EXPRESSMONEYTYPE3, EXPRESSMONEYTYPE4, INTERNATIONALEXPRESS1, INTERNATIONALEXPRESS2, 
-    EXPRESS1, EXPRESS2, WEEKHITCOUNTER, MONTHHITCOUNTER, HITCOUNTERALL, WEEKTRANSFORMRATE, 
-    MONTHTRANSFORMRATE, TOTALTTRANSFORMRATE, EXPRESSFLAG1, EXPRESSFLAG2, EXPRESSFLAG3, 
-    EXPRESSFLAG4, THREEDAYSNUM, EXPRESSMONEYTYPE1, RESERVE14, RESERVE16, RESERVE15, CREATEOPER, 
-    EBAYDECSR, EBAYTITLE, RESERVE1, RESERVE2, RESERVE3, RESERVE4, EBAYDESCRIPTION, EBAYFEEDBACKTATINGSTAR
-    from db_itemresult
+    EBAYPICTURE2, EBAYPICTURE3, EBAYPICTURE4, EBAYVIEWITEMURL, EBAYDECSR, EBAYPAYMETHOD, 
+    EBAYCATEGORYID, EBAYCATEGORYNAME, EBAYQUANTITY, EBAYQUATITYTHRESTHOD, EBAYQUATITYTHOD, 
+    EBAYSITE, EBAYSHOPNAME, EBAYITEMSTATUS, EBAYTITLE, FLAG, OPER, OPERTIME, CREATETIME, 
+    PRICEFLAG, TITLEFLAG, PICTUREFLAG, CORPID, RESERVE1, RESERVE2, RESERVE3, RESERVE4, 
+    RESERVE5, RESERVE6, RESERVE7, RESERVE8, RESERVE9, RESERVE10, CALCULATEFLAG, ENMITYID, 
+    SHOWFLAG, SELLNUMBERAVGONEDAY, SELLNUMBERDAY, SELLNUMBERWEEK, SELLNUMBERMONTH, SELLNUMBERTOTAL, 
+    SELLNUMBERAVG, SELLNUMBERSITE, DOWNCOUNT, PRODUCTINDEX, EBAYBUYITNEWPRICE, EBAYBUYITNEWPRICEMONEYTYPE, 
+    EBAYCOUNTRY, EBAYDESCRIPTION, EBAYHITCOUNT, EBAYSTARTTIME, EBAYENDTIME, EBAYHASRESERVEPRICE, 
+    EBAYITEMURL, EBAYLISTDURATION, EBAYLOCATION, EBAYGALLERYTYPE, EBAYGALLERYURL, EBAYPHOTODISPLAY, 
+    EBAYPICTURESOURCE, EBAYQUANTITYSOLD, EBAYFEEDBACKTATINGSTAR, EBAYFEEDBACKSCORE, EBAYPOSITIVEFEEDBACKPERCENT, 
+    EBAYSELLERBUSINESSTYPE, EBAYSTOREFRONT, EBAYSTOREURL, EBAYSTATUS, EBAYUSERID, EBAYUSERIDCHANGED, 
+    EBAYSTARTPRICE, EBAYDDLEFT, EBAYHHLEFT, EBAYMMLEFT, UPDATETIME, PICTRUEFLAG, RESERVE11, 
+    RESERVE12, RESERVE13, EXPRESSMONEYTYPE2, EXPRESSMONEYTYPE3, EXPRESSMONEYTYPE4, INTERNATIONALEXPRESS1, 
+    INTERNATIONALEXPRESS2, EXPRESS1, EXPRESS2, WEEKHITCOUNTER, MONTHHITCOUNTER, HITCOUNTERALL, 
+    WEEKTRANSFORMRATE, MONTHTRANSFORMRATE, TOTALTTRANSFORMRATE, EXPRESSFLAG1, EXPRESSFLAG2, 
+    EXPRESSFLAG3, EXPRESSFLAG4, THREEDAYSNUM, EXPRESSMONEYTYPE1, RESERVE14, RESERVE16, 
+    RESERVE15, CREATEOPER
+    from DB_ITEMRESULT
     where SID = #{sid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SID, SKU, ITEMID, EBAYSKU, EBAYITEMID, EBAYMONEYTYPE, EBAYSELLPRICE, EBAYPICTURE1, 
-    EBAYPICTURE2, EBAYPICTURE3, EBAYPICTURE4, EBAYVIEWITEMURL, EBAYPAYMETHOD, EBAYCATEGORYID, 
-    EBAYCATEGORYNAME, EBAYQUANTITY, EBAYQUATITYTHRESTHOD, EBAYQUATITYTHOD, EBAYSITE, 
-    EBAYSHOPNAME, EBAYITEMSTATUS, FLAG, OPER, OPERTIME, CREATETIME, PRICEFLAG, TITLEFLAG, 
-    PICTUREFLAG, CORPID, RESERVE5, RESERVE6, RESERVE7, RESERVE8, RESERVE9, RESERVE10, 
-    CALCULATEFLAG, ENMITYID, SHOWFLAG, SELLNUMBERAVGONEDAY, SELLNUMBERDAY, SELLNUMBERWEEK, 
-    SELLNUMBERMONTH, SELLNUMBERTOTAL, SELLNUMBERAVG, SELLNUMBERSITE, DOWNCOUNT, PRODUCTINDEX, 
-    EBAYBUYITNEWPRICE, EBAYBUYITNEWPRICEMONEYTYPE, EBAYCOUNTRY, EBAYHITCOUNT, EBAYSTARTTIME, 
-    EBAYENDTIME, EBAYHASRESERVEPRICE, EBAYITEMURL, EBAYLISTDURATION, EBAYLOCATION, EBAYGALLERYTYPE, 
-    EBAYGALLERYURL, EBAYPHOTODISPLAY, EBAYPICTURESOURCE, EBAYQUANTITYSOLD, EBAYFEEDBACKSCORE, 
-    EBAYPOSITIVEFEEDBACKPERCENT, EBAYSELLERBUSINESSTYPE, EBAYSTOREFRONT, EBAYSTOREURL, 
-    EBAYSTATUS, EBAYUSERID, EBAYUSERIDCHANGED, EBAYSTARTPRICE, EBAYDDLEFT, EBAYHHLEFT, 
-    EBAYMMLEFT, UPDATETIME, PICTRUEFLAG, RESERVE11, RESERVE12, RESERVE13, EXPRESSMONEYTYPE2, 
-    EXPRESSMONEYTYPE3, EXPRESSMONEYTYPE4, INTERNATIONALEXPRESS1, INTERNATIONALEXPRESS2, 
-    EXPRESS1, EXPRESS2, WEEKHITCOUNTER, MONTHHITCOUNTER, HITCOUNTERALL, WEEKTRANSFORMRATE, 
-    MONTHTRANSFORMRATE, TOTALTTRANSFORMRATE, EXPRESSFLAG1, EXPRESSFLAG2, EXPRESSFLAG3, 
-    EXPRESSFLAG4, THREEDAYSNUM, EXPRESSMONEYTYPE1, RESERVE14, RESERVE16, RESERVE15, CREATEOPER, 
-    EBAYDECSR, EBAYTITLE, RESERVE1, RESERVE2, RESERVE3, RESERVE4, EBAYDESCRIPTION, EBAYFEEDBACKTATINGSTAR
-    from db_itemresult
+    EBAYPICTURE2, EBAYPICTURE3, EBAYPICTURE4, EBAYVIEWITEMURL, EBAYDECSR, EBAYPAYMETHOD, 
+    EBAYCATEGORYID, EBAYCATEGORYNAME, EBAYQUANTITY, EBAYQUATITYTHRESTHOD, EBAYQUATITYTHOD, 
+    EBAYSITE, EBAYSHOPNAME, EBAYITEMSTATUS, EBAYTITLE, FLAG, OPER, OPERTIME, CREATETIME, 
+    PRICEFLAG, TITLEFLAG, PICTUREFLAG, CORPID, RESERVE1, RESERVE2, RESERVE3, RESERVE4, 
+    RESERVE5, RESERVE6, RESERVE7, RESERVE8, RESERVE9, RESERVE10, CALCULATEFLAG, ENMITYID, 
+    SHOWFLAG, SELLNUMBERAVGONEDAY, SELLNUMBERDAY, SELLNUMBERWEEK, SELLNUMBERMONTH, SELLNUMBERTOTAL, 
+    SELLNUMBERAVG, SELLNUMBERSITE, DOWNCOUNT, PRODUCTINDEX, EBAYBUYITNEWPRICE, EBAYBUYITNEWPRICEMONEYTYPE, 
+    EBAYCOUNTRY, EBAYDESCRIPTION, EBAYHITCOUNT, EBAYSTARTTIME, EBAYENDTIME, EBAYHASRESERVEPRICE, 
+    EBAYITEMURL, EBAYLISTDURATION, EBAYLOCATION, EBAYGALLERYTYPE, EBAYGALLERYURL, EBAYPHOTODISPLAY, 
+    EBAYPICTURESOURCE, EBAYQUANTITYSOLD, EBAYFEEDBACKTATINGSTAR, EBAYFEEDBACKSCORE, EBAYPOSITIVEFEEDBACKPERCENT, 
+    EBAYSELLERBUSINESSTYPE, EBAYSTOREFRONT, EBAYSTOREURL, EBAYSTATUS, EBAYUSERID, EBAYUSERIDCHANGED, 
+    EBAYSTARTPRICE, EBAYDDLEFT, EBAYHHLEFT, EBAYMMLEFT, UPDATETIME, PICTRUEFLAG, RESERVE11, 
+    RESERVE12, RESERVE13, EXPRESSMONEYTYPE2, EXPRESSMONEYTYPE3, EXPRESSMONEYTYPE4, INTERNATIONALEXPRESS1, 
+    INTERNATIONALEXPRESS2, EXPRESS1, EXPRESS2, WEEKHITCOUNTER, MONTHHITCOUNTER, HITCOUNTERALL, 
+    WEEKTRANSFORMRATE, MONTHTRANSFORMRATE, TOTALTTRANSFORMRATE, EXPRESSFLAG1, EXPRESSFLAG2, 
+    EXPRESSFLAG3, EXPRESSFLAG4, THREEDAYSNUM, EXPRESSMONEYTYPE1, RESERVE14, RESERVE16, 
+    RESERVE15, CREATEOPER
+    from DB_ITEMRESULT
   </select>
   <sql id="TableName">
-    db_itemresult
+    DB_ITEMRESULT
   </sql>
   <sql id="Values">
      #{sid,jdbcType=VARCHAR} , 
@@ -172,6 +172,7 @@
      #{ebaypicture3,jdbcType=VARCHAR} , 
      #{ebaypicture4,jdbcType=VARCHAR} , 
      #{ebayviewitemurl,jdbcType=VARCHAR} , 
+     #{ebaydecsr,jdbcType=VARCHAR} , 
      #{ebaypaymethod,jdbcType=VARCHAR} , 
      #{ebaycategoryid,jdbcType=VARCHAR} , 
      #{ebaycategoryname,jdbcType=VARCHAR} , 
@@ -181,6 +182,7 @@
      #{ebaysite,jdbcType=VARCHAR} , 
      #{ebayshopname,jdbcType=VARCHAR} , 
      #{ebayitemstatus,jdbcType=VARCHAR} , 
+     #{ebaytitle,jdbcType=VARCHAR} , 
      #{flag,jdbcType=DECIMAL} , 
      #{oper,jdbcType=VARCHAR} , 
      #{opertime,jdbcType=TIMESTAMP} , 
@@ -189,6 +191,10 @@
      #{titleflag,jdbcType=DECIMAL} , 
      #{pictureflag,jdbcType=DECIMAL} , 
      #{corpid,jdbcType=VARCHAR} , 
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+     #{reserve3,jdbcType=VARCHAR} , 
+     #{reserve4,jdbcType=VARCHAR} , 
      #{reserve5,jdbcType=DECIMAL} , 
      #{reserve6,jdbcType=DECIMAL} , 
      #{reserve7,jdbcType=DECIMAL} , 
@@ -210,6 +216,7 @@
      #{ebaybuyitnewprice,jdbcType=DECIMAL} , 
      #{ebaybuyitnewpricemoneytype,jdbcType=VARCHAR} , 
      #{ebaycountry,jdbcType=VARCHAR} , 
+     #{ebaydescription,jdbcType=VARCHAR} , 
      #{ebayhitcount,jdbcType=DECIMAL} , 
      #{ebaystarttime,jdbcType=TIMESTAMP} , 
      #{ebayendtime,jdbcType=TIMESTAMP} , 
@@ -222,6 +229,7 @@
      #{ebayphotodisplay,jdbcType=VARCHAR} , 
      #{ebaypicturesource,jdbcType=VARCHAR} , 
      #{ebayquantitysold,jdbcType=DECIMAL} , 
+     #{ebayfeedbacktatingstar,jdbcType=VARCHAR} , 
      #{ebayfeedbackscore,jdbcType=DECIMAL} , 
      #{ebaypositivefeedbackpercent,jdbcType=DECIMAL} , 
      #{ebaysellerbusinesstype,jdbcType=VARCHAR} , 
@@ -262,14 +270,6 @@
      #{reserve16,jdbcType=DECIMAL} , 
      #{reserve15,jdbcType=DECIMAL} , 
      #{createoper,jdbcType=VARCHAR} , 
-     #{ebaydecsr,jdbcType=LONGVARCHAR} , 
-     #{ebaytitle,jdbcType=LONGVARCHAR} , 
-     #{reserve1,jdbcType=LONGVARCHAR} , 
-     #{reserve2,jdbcType=LONGVARCHAR} , 
-     #{reserve3,jdbcType=LONGVARCHAR} , 
-     #{reserve4,jdbcType=LONGVARCHAR} , 
-     #{ebaydescription,jdbcType=LONGVARCHAR} , 
-     #{ebayfeedbacktatingstar,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     SID , 
@@ -284,6 +284,7 @@
     EBAYPICTURE3 , 
     EBAYPICTURE4 , 
     EBAYVIEWITEMURL , 
+    EBAYDECSR , 
     EBAYPAYMETHOD , 
     EBAYCATEGORYID , 
     EBAYCATEGORYNAME , 
@@ -293,6 +294,7 @@
     EBAYSITE , 
     EBAYSHOPNAME , 
     EBAYITEMSTATUS , 
+    EBAYTITLE , 
     FLAG , 
     OPER , 
     OPERTIME , 
@@ -301,6 +303,10 @@
     TITLEFLAG , 
     PICTUREFLAG , 
     CORPID , 
+    RESERVE1 , 
+    RESERVE2 , 
+    RESERVE3 , 
+    RESERVE4 , 
     RESERVE5 , 
     RESERVE6 , 
     RESERVE7 , 
@@ -322,6 +328,7 @@
     EBAYBUYITNEWPRICE , 
     EBAYBUYITNEWPRICEMONEYTYPE , 
     EBAYCOUNTRY , 
+    EBAYDESCRIPTION , 
     EBAYHITCOUNT , 
     EBAYSTARTTIME , 
     EBAYENDTIME , 
@@ -334,6 +341,7 @@
     EBAYPHOTODISPLAY , 
     EBAYPICTURESOURCE , 
     EBAYQUANTITYSOLD , 
+    EBAYFEEDBACKTATINGSTAR , 
     EBAYFEEDBACKSCORE , 
     EBAYPOSITIVEFEEDBACKPERCENT , 
     EBAYSELLERBUSINESSTYPE , 
@@ -374,680 +382,672 @@
     RESERVE16 , 
     RESERVE15 , 
     CREATEOPER , 
-    EBAYDECSR , 
-    EBAYTITLE , 
-    RESERVE1 , 
-    RESERVE2 , 
-    RESERVE3 , 
-    RESERVE4 , 
-    EBAYDESCRIPTION , 
-    EBAYFEEDBACKTATINGSTAR
   </sql>
   <sql id="Criteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} and 
+      sid = #{sid,jdbcType=VARCHAR} and 
     </if>
     <if test="sku != null">
-      SKU = #{sku,jdbcType=VARCHAR} and 
+      sku = #{sku,jdbcType=VARCHAR} and 
     </if>
     <if test="itemid != null">
-      ITEMID = #{itemid,jdbcType=VARCHAR} and 
+      itemid = #{itemid,jdbcType=VARCHAR} and 
     </if>
     <if test="ebaysku != null">
-      EBAYSKU = #{ebaysku,jdbcType=VARCHAR} and 
+      ebaysku = #{ebaysku,jdbcType=VARCHAR} and 
     </if>
     <if test="ebayitemid != null">
-      EBAYITEMID = #{ebayitemid,jdbcType=VARCHAR} and 
+      ebayitemid = #{ebayitemid,jdbcType=VARCHAR} and 
     </if>
     <if test="ebaymoneytype != null">
-      EBAYMONEYTYPE = #{ebaymoneytype,jdbcType=VARCHAR} and 
+      ebaymoneytype = #{ebaymoneytype,jdbcType=VARCHAR} and 
     </if>
     <if test="ebaysellprice != null">
-      EBAYSELLPRICE = #{ebaysellprice,jdbcType=DECIMAL} and 
+      ebaysellprice = #{ebaysellprice,jdbcType=DECIMAL} and 
     </if>
     <if test="ebaypicture1 != null">
-      EBAYPICTURE1 = #{ebaypicture1,jdbcType=VARCHAR} and 
+      ebaypicture1 = #{ebaypicture1,jdbcType=VARCHAR} and 
     </if>
     <if test="ebaypicture2 != null">
-      EBAYPICTURE2 = #{ebaypicture2,jdbcType=VARCHAR} and 
+      ebaypicture2 = #{ebaypicture2,jdbcType=VARCHAR} and 
     </if>
     <if test="ebaypicture3 != null">
-      EBAYPICTURE3 = #{ebaypicture3,jdbcType=VARCHAR} and 
+      ebaypicture3 = #{ebaypicture3,jdbcType=VARCHAR} and 
     </if>
     <if test="ebaypicture4 != null">
-      EBAYPICTURE4 = #{ebaypicture4,jdbcType=VARCHAR} and 
+      ebaypicture4 = #{ebaypicture4,jdbcType=VARCHAR} and 
     </if>
     <if test="ebayviewitemurl != null">
-      EBAYVIEWITEMURL = #{ebayviewitemurl,jdbcType=VARCHAR} and 
-    </if>
-    <if test="ebaypaymethod != null">
-      EBAYPAYMETHOD = #{ebaypaymethod,jdbcType=VARCHAR} and 
-    </if>
-    <if test="ebaycategoryid != null">
-      EBAYCATEGORYID = #{ebaycategoryid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="ebaycategoryname != null">
-      EBAYCATEGORYNAME = #{ebaycategoryname,jdbcType=VARCHAR} and 
-    </if>
-    <if test="ebayquantity != null">
-      EBAYQUANTITY = #{ebayquantity,jdbcType=DECIMAL} and 
-    </if>
-    <if test="ebayquatitythresthod != null">
-      EBAYQUATITYTHRESTHOD = #{ebayquatitythresthod,jdbcType=DECIMAL} and 
-    </if>
-    <if test="ebayquatitythod != null">
-      EBAYQUATITYTHOD = #{ebayquatitythod,jdbcType=DECIMAL} and 
-    </if>
-    <if test="ebaysite != null">
-      EBAYSITE = #{ebaysite,jdbcType=VARCHAR} and 
-    </if>
-    <if test="ebayshopname != null">
-      EBAYSHOPNAME = #{ebayshopname,jdbcType=VARCHAR} and 
-    </if>
-    <if test="ebayitemstatus != null">
-      EBAYITEMSTATUS = #{ebayitemstatus,jdbcType=VARCHAR} and 
-    </if>
-    <if test="flag != null">
-      FLAG = #{flag,jdbcType=DECIMAL} and 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="createtime != null">
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="priceflag != null">
-      PRICEFLAG = #{priceflag,jdbcType=DECIMAL} and 
-    </if>
-    <if test="titleflag != null">
-      TITLEFLAG = #{titleflag,jdbcType=DECIMAL} and 
-    </if>
-    <if test="pictureflag != null">
-      PICTUREFLAG = #{pictureflag,jdbcType=DECIMAL} and 
-    </if>
-    <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=DECIMAL} and 
-    </if>
-    <if test="reserve6 != null">
-      RESERVE6 = #{reserve6,jdbcType=DECIMAL} and 
-    </if>
-    <if test="reserve7 != null">
-      RESERVE7 = #{reserve7,jdbcType=DECIMAL} and 
-    </if>
-    <if test="reserve8 != null">
-      RESERVE8 = #{reserve8,jdbcType=DECIMAL} and 
-    </if>
-    <if test="reserve9 != null">
-      RESERVE9 = #{reserve9,jdbcType=DECIMAL} and 
-    </if>
-    <if test="reserve10 != null">
-      RESERVE10 = #{reserve10,jdbcType=DECIMAL} and 
-    </if>
-    <if test="calculateflag != null">
-      CALCULATEFLAG = #{calculateflag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="enmityid != null">
-      ENMITYID = #{enmityid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="showflag != null">
-      SHOWFLAG = #{showflag,jdbcType=DECIMAL} and 
-    </if>
-    <if test="sellnumberavgoneday != null">
-      SELLNUMBERAVGONEDAY = #{sellnumberavgoneday,jdbcType=DECIMAL} and 
-    </if>
-    <if test="sellnumberday != null">
-      SELLNUMBERDAY = #{sellnumberday,jdbcType=DECIMAL} and 
-    </if>
-    <if test="sellnumberweek != null">
-      SELLNUMBERWEEK = #{sellnumberweek,jdbcType=DECIMAL} and 
-    </if>
-    <if test="sellnumbermonth != null">
-      SELLNUMBERMONTH = #{sellnumbermonth,jdbcType=DECIMAL} and 
-    </if>
-    <if test="sellnumbertotal != null">
-      SELLNUMBERTOTAL = #{sellnumbertotal,jdbcType=DECIMAL} and 
-    </if>
-    <if test="sellnumberavg != null">
-      SELLNUMBERAVG = #{sellnumberavg,jdbcType=DECIMAL} and 
-    </if>
-    <if test="sellnumbersite != null">
-      SELLNUMBERSITE = #{sellnumbersite,jdbcType=DECIMAL} and 
-    </if>
-    <if test="downcount != null">
-      DOWNCOUNT = #{downcount,jdbcType=DECIMAL} and 
-    </if>
-    <if test="productindex != null">
-      PRODUCTINDEX = #{productindex,jdbcType=VARCHAR} and 
-    </if>
-    <if test="ebaybuyitnewprice != null">
-      EBAYBUYITNEWPRICE = #{ebaybuyitnewprice,jdbcType=DECIMAL} and 
-    </if>
-    <if test="ebaybuyitnewpricemoneytype != null">
-      EBAYBUYITNEWPRICEMONEYTYPE = #{ebaybuyitnewpricemoneytype,jdbcType=VARCHAR} and 
-    </if>
-    <if test="ebaycountry != null">
-      EBAYCOUNTRY = #{ebaycountry,jdbcType=VARCHAR} and 
-    </if>
-    <if test="ebayhitcount != null">
-      EBAYHITCOUNT = #{ebayhitcount,jdbcType=DECIMAL} and 
-    </if>
-    <if test="ebaystarttime != null">
-      EBAYSTARTTIME = #{ebaystarttime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="ebayendtime != null">
-      EBAYENDTIME = #{ebayendtime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="ebayhasreserveprice != null">
-      EBAYHASRESERVEPRICE = #{ebayhasreserveprice,jdbcType=VARCHAR} and 
-    </if>
-    <if test="ebayitemurl != null">
-      EBAYITEMURL = #{ebayitemurl,jdbcType=VARCHAR} and 
-    </if>
-    <if test="ebaylistduration != null">
-      EBAYLISTDURATION = #{ebaylistduration,jdbcType=VARCHAR} and 
-    </if>
-    <if test="ebaylocation != null">
-      EBAYLOCATION = #{ebaylocation,jdbcType=VARCHAR} and 
-    </if>
-    <if test="ebaygallerytype != null">
-      EBAYGALLERYTYPE = #{ebaygallerytype,jdbcType=VARCHAR} and 
-    </if>
-    <if test="ebaygalleryurl != null">
-      EBAYGALLERYURL = #{ebaygalleryurl,jdbcType=VARCHAR} and 
-    </if>
-    <if test="ebayphotodisplay != null">
-      EBAYPHOTODISPLAY = #{ebayphotodisplay,jdbcType=VARCHAR} and 
-    </if>
-    <if test="ebaypicturesource != null">
-      EBAYPICTURESOURCE = #{ebaypicturesource,jdbcType=VARCHAR} and 
-    </if>
-    <if test="ebayquantitysold != null">
-      EBAYQUANTITYSOLD = #{ebayquantitysold,jdbcType=DECIMAL} and 
-    </if>
-    <if test="ebayfeedbackscore != null">
-      EBAYFEEDBACKSCORE = #{ebayfeedbackscore,jdbcType=DECIMAL} and 
-    </if>
-    <if test="ebaypositivefeedbackpercent != null">
-      EBAYPOSITIVEFEEDBACKPERCENT = #{ebaypositivefeedbackpercent,jdbcType=DECIMAL} and 
-    </if>
-    <if test="ebaysellerbusinesstype != null">
-      EBAYSELLERBUSINESSTYPE = #{ebaysellerbusinesstype,jdbcType=VARCHAR} and 
-    </if>
-    <if test="ebaystorefront != null">
-      EBAYSTOREFRONT = #{ebaystorefront,jdbcType=VARCHAR} and 
-    </if>
-    <if test="ebaystoreurl != null">
-      EBAYSTOREURL = #{ebaystoreurl,jdbcType=VARCHAR} and 
-    </if>
-    <if test="ebaystatus != null">
-      EBAYSTATUS = #{ebaystatus,jdbcType=VARCHAR} and 
-    </if>
-    <if test="ebayuserid != null">
-      EBAYUSERID = #{ebayuserid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="ebayuseridchanged != null">
-      EBAYUSERIDCHANGED = #{ebayuseridchanged,jdbcType=VARCHAR} and 
-    </if>
-    <if test="ebaystartprice != null">
-      EBAYSTARTPRICE = #{ebaystartprice,jdbcType=DECIMAL} and 
-    </if>
-    <if test="ebayddleft != null">
-      EBAYDDLEFT = #{ebayddleft,jdbcType=DECIMAL} and 
-    </if>
-    <if test="ebayhhleft != null">
-      EBAYHHLEFT = #{ebayhhleft,jdbcType=DECIMAL} and 
-    </if>
-    <if test="ebaymmleft != null">
-      EBAYMMLEFT = #{ebaymmleft,jdbcType=DECIMAL} and 
-    </if>
-    <if test="updatetime != null">
-      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="pictrueflag != null">
-      PICTRUEFLAG = #{pictrueflag,jdbcType=DECIMAL} and 
-    </if>
-    <if test="reserve11 != null">
-      RESERVE11 = #{reserve11,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="reserve12 != null">
-      RESERVE12 = #{reserve12,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="reserve13 != null">
-      RESERVE13 = #{reserve13,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="expressmoneytype2 != null">
-      EXPRESSMONEYTYPE2 = #{expressmoneytype2,jdbcType=VARCHAR} and 
-    </if>
-    <if test="expressmoneytype3 != null">
-      EXPRESSMONEYTYPE3 = #{expressmoneytype3,jdbcType=VARCHAR} and 
-    </if>
-    <if test="expressmoneytype4 != null">
-      EXPRESSMONEYTYPE4 = #{expressmoneytype4,jdbcType=VARCHAR} and 
-    </if>
-    <if test="internationalexpress1 != null">
-      INTERNATIONALEXPRESS1 = #{internationalexpress1,jdbcType=DECIMAL} and 
-    </if>
-    <if test="internationalexpress2 != null">
-      INTERNATIONALEXPRESS2 = #{internationalexpress2,jdbcType=DECIMAL} and 
-    </if>
-    <if test="express1 != null">
-      EXPRESS1 = #{express1,jdbcType=DECIMAL} and 
-    </if>
-    <if test="express2 != null">
-      EXPRESS2 = #{express2,jdbcType=DECIMAL} and 
-    </if>
-    <if test="weekhitcounter != null">
-      WEEKHITCOUNTER = #{weekhitcounter,jdbcType=DECIMAL} and 
-    </if>
-    <if test="monthhitcounter != null">
-      MONTHHITCOUNTER = #{monthhitcounter,jdbcType=DECIMAL} and 
-    </if>
-    <if test="hitcounterall != null">
-      HITCOUNTERALL = #{hitcounterall,jdbcType=DECIMAL} and 
-    </if>
-    <if test="weektransformrate != null">
-      WEEKTRANSFORMRATE = #{weektransformrate,jdbcType=DECIMAL} and 
-    </if>
-    <if test="monthtransformrate != null">
-      MONTHTRANSFORMRATE = #{monthtransformrate,jdbcType=DECIMAL} and 
-    </if>
-    <if test="totalttransformrate != null">
-      TOTALTTRANSFORMRATE = #{totalttransformrate,jdbcType=DECIMAL} and 
-    </if>
-    <if test="expressflag1 != null">
-      EXPRESSFLAG1 = #{expressflag1,jdbcType=DECIMAL} and 
-    </if>
-    <if test="expressflag2 != null">
-      EXPRESSFLAG2 = #{expressflag2,jdbcType=DECIMAL} and 
-    </if>
-    <if test="expressflag3 != null">
-      EXPRESSFLAG3 = #{expressflag3,jdbcType=DECIMAL} and 
-    </if>
-    <if test="expressflag4 != null">
-      EXPRESSFLAG4 = #{expressflag4,jdbcType=DECIMAL} and 
-    </if>
-    <if test="threedaysnum != null">
-      THREEDAYSNUM = #{threedaysnum,jdbcType=DECIMAL} and 
-    </if>
-    <if test="expressmoneytype1 != null">
-      EXPRESSMONEYTYPE1 = #{expressmoneytype1,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve14 != null">
-      RESERVE14 = #{reserve14,jdbcType=DECIMAL} and 
-    </if>
-    <if test="reserve16 != null">
-      RESERVE16 = #{reserve16,jdbcType=DECIMAL} and 
-    </if>
-    <if test="reserve15 != null">
-      RESERVE15 = #{reserve15,jdbcType=DECIMAL} and 
-    </if>
-    <if test="createoper != null">
-      CREATEOPER = #{createoper,jdbcType=VARCHAR} and 
+      ebayviewitemurl = #{ebayviewitemurl,jdbcType=VARCHAR} and 
     </if>
     <if test="ebaydecsr != null">
-      EBAYDECSR = #{ebaydecsr,jdbcType=LONGVARCHAR} and 
+      ebaydecsr = #{ebaydecsr,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebaypaymethod != null">
+      ebaypaymethod = #{ebaypaymethod,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebaycategoryid != null">
+      ebaycategoryid = #{ebaycategoryid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebaycategoryname != null">
+      ebaycategoryname = #{ebaycategoryname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebayquantity != null">
+      ebayquantity = #{ebayquantity,jdbcType=DECIMAL} and 
+    </if>
+    <if test="ebayquatitythresthod != null">
+      ebayquatitythresthod = #{ebayquatitythresthod,jdbcType=DECIMAL} and 
+    </if>
+    <if test="ebayquatitythod != null">
+      ebayquatitythod = #{ebayquatitythod,jdbcType=DECIMAL} and 
+    </if>
+    <if test="ebaysite != null">
+      ebaysite = #{ebaysite,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebayshopname != null">
+      ebayshopname = #{ebayshopname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebayitemstatus != null">
+      ebayitemstatus = #{ebayitemstatus,jdbcType=VARCHAR} and 
     </if>
     <if test="ebaytitle != null">
-      EBAYTITLE = #{ebaytitle,jdbcType=LONGVARCHAR} and 
+      ebaytitle = #{ebaytitle,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="priceflag != null">
+      priceflag = #{priceflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="titleflag != null">
+      titleflag = #{titleflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="pictureflag != null">
+      pictureflag = #{pictureflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR} and 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR} and 
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR} and 
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=LONGVARCHAR} and 
+      reserve4 = #{reserve4,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve6 != null">
+      reserve6 = #{reserve6,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve7 != null">
+      reserve7 = #{reserve7,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve8 != null">
+      reserve8 = #{reserve8,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve9 != null">
+      reserve9 = #{reserve9,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve10 != null">
+      reserve10 = #{reserve10,jdbcType=DECIMAL} and 
+    </if>
+    <if test="calculateflag != null">
+      calculateflag = #{calculateflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="enmityid != null">
+      enmityid = #{enmityid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="showflag != null">
+      showflag = #{showflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sellnumberavgoneday != null">
+      sellnumberavgoneday = #{sellnumberavgoneday,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sellnumberday != null">
+      sellnumberday = #{sellnumberday,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sellnumberweek != null">
+      sellnumberweek = #{sellnumberweek,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sellnumbermonth != null">
+      sellnumbermonth = #{sellnumbermonth,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sellnumbertotal != null">
+      sellnumbertotal = #{sellnumbertotal,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sellnumberavg != null">
+      sellnumberavg = #{sellnumberavg,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sellnumbersite != null">
+      sellnumbersite = #{sellnumbersite,jdbcType=DECIMAL} and 
+    </if>
+    <if test="downcount != null">
+      downcount = #{downcount,jdbcType=DECIMAL} and 
+    </if>
+    <if test="productindex != null">
+      productindex = #{productindex,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebaybuyitnewprice != null">
+      ebaybuyitnewprice = #{ebaybuyitnewprice,jdbcType=DECIMAL} and 
+    </if>
+    <if test="ebaybuyitnewpricemoneytype != null">
+      ebaybuyitnewpricemoneytype = #{ebaybuyitnewpricemoneytype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebaycountry != null">
+      ebaycountry = #{ebaycountry,jdbcType=VARCHAR} and 
     </if>
     <if test="ebaydescription != null">
-      EBAYDESCRIPTION = #{ebaydescription,jdbcType=LONGVARCHAR} and 
+      ebaydescription = #{ebaydescription,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebayhitcount != null">
+      ebayhitcount = #{ebayhitcount,jdbcType=DECIMAL} and 
+    </if>
+    <if test="ebaystarttime != null">
+      ebaystarttime = #{ebaystarttime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="ebayendtime != null">
+      ebayendtime = #{ebayendtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="ebayhasreserveprice != null">
+      ebayhasreserveprice = #{ebayhasreserveprice,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebayitemurl != null">
+      ebayitemurl = #{ebayitemurl,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebaylistduration != null">
+      ebaylistduration = #{ebaylistduration,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebaylocation != null">
+      ebaylocation = #{ebaylocation,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebaygallerytype != null">
+      ebaygallerytype = #{ebaygallerytype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebaygalleryurl != null">
+      ebaygalleryurl = #{ebaygalleryurl,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebayphotodisplay != null">
+      ebayphotodisplay = #{ebayphotodisplay,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebaypicturesource != null">
+      ebaypicturesource = #{ebaypicturesource,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebayquantitysold != null">
+      ebayquantitysold = #{ebayquantitysold,jdbcType=DECIMAL} and 
     </if>
     <if test="ebayfeedbacktatingstar != null">
-      EBAYFEEDBACKTATINGSTAR = #{ebayfeedbacktatingstar,jdbcType=LONGVARCHAR}
+      ebayfeedbacktatingstar = #{ebayfeedbacktatingstar,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="ebayfeedbackscore != null">
+      ebayfeedbackscore = #{ebayfeedbackscore,jdbcType=DECIMAL} and 
+    </if>
+    <if test="ebaypositivefeedbackpercent != null">
+      ebaypositivefeedbackpercent = #{ebaypositivefeedbackpercent,jdbcType=DECIMAL} and 
+    </if>
+    <if test="ebaysellerbusinesstype != null">
+      ebaysellerbusinesstype = #{ebaysellerbusinesstype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebaystorefront != null">
+      ebaystorefront = #{ebaystorefront,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebaystoreurl != null">
+      ebaystoreurl = #{ebaystoreurl,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebaystatus != null">
+      ebaystatus = #{ebaystatus,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebayuserid != null">
+      ebayuserid = #{ebayuserid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebayuseridchanged != null">
+      ebayuseridchanged = #{ebayuseridchanged,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebaystartprice != null">
+      ebaystartprice = #{ebaystartprice,jdbcType=DECIMAL} and 
+    </if>
+    <if test="ebayddleft != null">
+      ebayddleft = #{ebayddleft,jdbcType=DECIMAL} and 
+    </if>
+    <if test="ebayhhleft != null">
+      ebayhhleft = #{ebayhhleft,jdbcType=DECIMAL} and 
+    </if>
+    <if test="ebaymmleft != null">
+      ebaymmleft = #{ebaymmleft,jdbcType=DECIMAL} and 
+    </if>
+    <if test="updatetime != null">
+      updatetime = #{updatetime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="pictrueflag != null">
+      pictrueflag = #{pictrueflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve11 != null">
+      reserve11 = #{reserve11,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="reserve12 != null">
+      reserve12 = #{reserve12,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="reserve13 != null">
+      reserve13 = #{reserve13,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="expressmoneytype2 != null">
+      expressmoneytype2 = #{expressmoneytype2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="expressmoneytype3 != null">
+      expressmoneytype3 = #{expressmoneytype3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="expressmoneytype4 != null">
+      expressmoneytype4 = #{expressmoneytype4,jdbcType=VARCHAR} and 
+    </if>
+    <if test="internationalexpress1 != null">
+      internationalexpress1 = #{internationalexpress1,jdbcType=DECIMAL} and 
+    </if>
+    <if test="internationalexpress2 != null">
+      internationalexpress2 = #{internationalexpress2,jdbcType=DECIMAL} and 
+    </if>
+    <if test="express1 != null">
+      express1 = #{express1,jdbcType=DECIMAL} and 
+    </if>
+    <if test="express2 != null">
+      express2 = #{express2,jdbcType=DECIMAL} and 
+    </if>
+    <if test="weekhitcounter != null">
+      weekhitcounter = #{weekhitcounter,jdbcType=DECIMAL} and 
+    </if>
+    <if test="monthhitcounter != null">
+      monthhitcounter = #{monthhitcounter,jdbcType=DECIMAL} and 
+    </if>
+    <if test="hitcounterall != null">
+      hitcounterall = #{hitcounterall,jdbcType=DECIMAL} and 
+    </if>
+    <if test="weektransformrate != null">
+      weektransformrate = #{weektransformrate,jdbcType=DECIMAL} and 
+    </if>
+    <if test="monthtransformrate != null">
+      monthtransformrate = #{monthtransformrate,jdbcType=DECIMAL} and 
+    </if>
+    <if test="totalttransformrate != null">
+      totalttransformrate = #{totalttransformrate,jdbcType=DECIMAL} and 
+    </if>
+    <if test="expressflag1 != null">
+      expressflag1 = #{expressflag1,jdbcType=DECIMAL} and 
+    </if>
+    <if test="expressflag2 != null">
+      expressflag2 = #{expressflag2,jdbcType=DECIMAL} and 
+    </if>
+    <if test="expressflag3 != null">
+      expressflag3 = #{expressflag3,jdbcType=DECIMAL} and 
+    </if>
+    <if test="expressflag4 != null">
+      expressflag4 = #{expressflag4,jdbcType=DECIMAL} and 
+    </if>
+    <if test="threedaysnum != null">
+      threedaysnum = #{threedaysnum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="expressmoneytype1 != null">
+      expressmoneytype1 = #{expressmoneytype1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve14 != null">
+      reserve14 = #{reserve14,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve16 != null">
+      reserve16 = #{reserve16,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve15 != null">
+      reserve15 = #{reserve15,jdbcType=DECIMAL} and 
+    </if>
+    <if test="createoper != null">
+      createoper = #{createoper,jdbcType=VARCHAR} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} , 
+      sid = #{sid,jdbcType=VARCHAR} , 
     </if>
     <if test="sku != null">
-      SKU = #{sku,jdbcType=VARCHAR} , 
+      sku = #{sku,jdbcType=VARCHAR} , 
     </if>
     <if test="itemid != null">
-      ITEMID = #{itemid,jdbcType=VARCHAR} , 
+      itemid = #{itemid,jdbcType=VARCHAR} , 
     </if>
     <if test="ebaysku != null">
-      EBAYSKU = #{ebaysku,jdbcType=VARCHAR} , 
+      ebaysku = #{ebaysku,jdbcType=VARCHAR} , 
     </if>
     <if test="ebayitemid != null">
-      EBAYITEMID = #{ebayitemid,jdbcType=VARCHAR} , 
+      ebayitemid = #{ebayitemid,jdbcType=VARCHAR} , 
     </if>
     <if test="ebaymoneytype != null">
-      EBAYMONEYTYPE = #{ebaymoneytype,jdbcType=VARCHAR} , 
+      ebaymoneytype = #{ebaymoneytype,jdbcType=VARCHAR} , 
     </if>
     <if test="ebaysellprice != null">
-      EBAYSELLPRICE = #{ebaysellprice,jdbcType=DECIMAL} , 
+      ebaysellprice = #{ebaysellprice,jdbcType=DECIMAL} , 
     </if>
     <if test="ebaypicture1 != null">
-      EBAYPICTURE1 = #{ebaypicture1,jdbcType=VARCHAR} , 
+      ebaypicture1 = #{ebaypicture1,jdbcType=VARCHAR} , 
     </if>
     <if test="ebaypicture2 != null">
-      EBAYPICTURE2 = #{ebaypicture2,jdbcType=VARCHAR} , 
+      ebaypicture2 = #{ebaypicture2,jdbcType=VARCHAR} , 
     </if>
     <if test="ebaypicture3 != null">
-      EBAYPICTURE3 = #{ebaypicture3,jdbcType=VARCHAR} , 
+      ebaypicture3 = #{ebaypicture3,jdbcType=VARCHAR} , 
     </if>
     <if test="ebaypicture4 != null">
-      EBAYPICTURE4 = #{ebaypicture4,jdbcType=VARCHAR} , 
+      ebaypicture4 = #{ebaypicture4,jdbcType=VARCHAR} , 
     </if>
     <if test="ebayviewitemurl != null">
-      EBAYVIEWITEMURL = #{ebayviewitemurl,jdbcType=VARCHAR} , 
-    </if>
-    <if test="ebaypaymethod != null">
-      EBAYPAYMETHOD = #{ebaypaymethod,jdbcType=VARCHAR} , 
-    </if>
-    <if test="ebaycategoryid != null">
-      EBAYCATEGORYID = #{ebaycategoryid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="ebaycategoryname != null">
-      EBAYCATEGORYNAME = #{ebaycategoryname,jdbcType=VARCHAR} , 
-    </if>
-    <if test="ebayquantity != null">
-      EBAYQUANTITY = #{ebayquantity,jdbcType=DECIMAL} , 
-    </if>
-    <if test="ebayquatitythresthod != null">
-      EBAYQUATITYTHRESTHOD = #{ebayquatitythresthod,jdbcType=DECIMAL} , 
-    </if>
-    <if test="ebayquatitythod != null">
-      EBAYQUATITYTHOD = #{ebayquatitythod,jdbcType=DECIMAL} , 
-    </if>
-    <if test="ebaysite != null">
-      EBAYSITE = #{ebaysite,jdbcType=VARCHAR} , 
-    </if>
-    <if test="ebayshopname != null">
-      EBAYSHOPNAME = #{ebayshopname,jdbcType=VARCHAR} , 
-    </if>
-    <if test="ebayitemstatus != null">
-      EBAYITEMSTATUS = #{ebayitemstatus,jdbcType=VARCHAR} , 
-    </if>
-    <if test="flag != null">
-      FLAG = #{flag,jdbcType=DECIMAL} , 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="createtime != null">
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="priceflag != null">
-      PRICEFLAG = #{priceflag,jdbcType=DECIMAL} , 
-    </if>
-    <if test="titleflag != null">
-      TITLEFLAG = #{titleflag,jdbcType=DECIMAL} , 
-    </if>
-    <if test="pictureflag != null">
-      PICTUREFLAG = #{pictureflag,jdbcType=DECIMAL} , 
-    </if>
-    <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=DECIMAL} , 
-    </if>
-    <if test="reserve6 != null">
-      RESERVE6 = #{reserve6,jdbcType=DECIMAL} , 
-    </if>
-    <if test="reserve7 != null">
-      RESERVE7 = #{reserve7,jdbcType=DECIMAL} , 
-    </if>
-    <if test="reserve8 != null">
-      RESERVE8 = #{reserve8,jdbcType=DECIMAL} , 
-    </if>
-    <if test="reserve9 != null">
-      RESERVE9 = #{reserve9,jdbcType=DECIMAL} , 
-    </if>
-    <if test="reserve10 != null">
-      RESERVE10 = #{reserve10,jdbcType=DECIMAL} , 
-    </if>
-    <if test="calculateflag != null">
-      CALCULATEFLAG = #{calculateflag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="enmityid != null">
-      ENMITYID = #{enmityid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="showflag != null">
-      SHOWFLAG = #{showflag,jdbcType=DECIMAL} , 
-    </if>
-    <if test="sellnumberavgoneday != null">
-      SELLNUMBERAVGONEDAY = #{sellnumberavgoneday,jdbcType=DECIMAL} , 
-    </if>
-    <if test="sellnumberday != null">
-      SELLNUMBERDAY = #{sellnumberday,jdbcType=DECIMAL} , 
-    </if>
-    <if test="sellnumberweek != null">
-      SELLNUMBERWEEK = #{sellnumberweek,jdbcType=DECIMAL} , 
-    </if>
-    <if test="sellnumbermonth != null">
-      SELLNUMBERMONTH = #{sellnumbermonth,jdbcType=DECIMAL} , 
-    </if>
-    <if test="sellnumbertotal != null">
-      SELLNUMBERTOTAL = #{sellnumbertotal,jdbcType=DECIMAL} , 
-    </if>
-    <if test="sellnumberavg != null">
-      SELLNUMBERAVG = #{sellnumberavg,jdbcType=DECIMAL} , 
-    </if>
-    <if test="sellnumbersite != null">
-      SELLNUMBERSITE = #{sellnumbersite,jdbcType=DECIMAL} , 
-    </if>
-    <if test="downcount != null">
-      DOWNCOUNT = #{downcount,jdbcType=DECIMAL} , 
-    </if>
-    <if test="productindex != null">
-      PRODUCTINDEX = #{productindex,jdbcType=VARCHAR} , 
-    </if>
-    <if test="ebaybuyitnewprice != null">
-      EBAYBUYITNEWPRICE = #{ebaybuyitnewprice,jdbcType=DECIMAL} , 
-    </if>
-    <if test="ebaybuyitnewpricemoneytype != null">
-      EBAYBUYITNEWPRICEMONEYTYPE = #{ebaybuyitnewpricemoneytype,jdbcType=VARCHAR} , 
-    </if>
-    <if test="ebaycountry != null">
-      EBAYCOUNTRY = #{ebaycountry,jdbcType=VARCHAR} , 
-    </if>
-    <if test="ebayhitcount != null">
-      EBAYHITCOUNT = #{ebayhitcount,jdbcType=DECIMAL} , 
-    </if>
-    <if test="ebaystarttime != null">
-      EBAYSTARTTIME = #{ebaystarttime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="ebayendtime != null">
-      EBAYENDTIME = #{ebayendtime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="ebayhasreserveprice != null">
-      EBAYHASRESERVEPRICE = #{ebayhasreserveprice,jdbcType=VARCHAR} , 
-    </if>
-    <if test="ebayitemurl != null">
-      EBAYITEMURL = #{ebayitemurl,jdbcType=VARCHAR} , 
-    </if>
-    <if test="ebaylistduration != null">
-      EBAYLISTDURATION = #{ebaylistduration,jdbcType=VARCHAR} , 
-    </if>
-    <if test="ebaylocation != null">
-      EBAYLOCATION = #{ebaylocation,jdbcType=VARCHAR} , 
-    </if>
-    <if test="ebaygallerytype != null">
-      EBAYGALLERYTYPE = #{ebaygallerytype,jdbcType=VARCHAR} , 
-    </if>
-    <if test="ebaygalleryurl != null">
-      EBAYGALLERYURL = #{ebaygalleryurl,jdbcType=VARCHAR} , 
-    </if>
-    <if test="ebayphotodisplay != null">
-      EBAYPHOTODISPLAY = #{ebayphotodisplay,jdbcType=VARCHAR} , 
-    </if>
-    <if test="ebaypicturesource != null">
-      EBAYPICTURESOURCE = #{ebaypicturesource,jdbcType=VARCHAR} , 
-    </if>
-    <if test="ebayquantitysold != null">
-      EBAYQUANTITYSOLD = #{ebayquantitysold,jdbcType=DECIMAL} , 
-    </if>
-    <if test="ebayfeedbackscore != null">
-      EBAYFEEDBACKSCORE = #{ebayfeedbackscore,jdbcType=DECIMAL} , 
-    </if>
-    <if test="ebaypositivefeedbackpercent != null">
-      EBAYPOSITIVEFEEDBACKPERCENT = #{ebaypositivefeedbackpercent,jdbcType=DECIMAL} , 
-    </if>
-    <if test="ebaysellerbusinesstype != null">
-      EBAYSELLERBUSINESSTYPE = #{ebaysellerbusinesstype,jdbcType=VARCHAR} , 
-    </if>
-    <if test="ebaystorefront != null">
-      EBAYSTOREFRONT = #{ebaystorefront,jdbcType=VARCHAR} , 
-    </if>
-    <if test="ebaystoreurl != null">
-      EBAYSTOREURL = #{ebaystoreurl,jdbcType=VARCHAR} , 
-    </if>
-    <if test="ebaystatus != null">
-      EBAYSTATUS = #{ebaystatus,jdbcType=VARCHAR} , 
-    </if>
-    <if test="ebayuserid != null">
-      EBAYUSERID = #{ebayuserid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="ebayuseridchanged != null">
-      EBAYUSERIDCHANGED = #{ebayuseridchanged,jdbcType=VARCHAR} , 
-    </if>
-    <if test="ebaystartprice != null">
-      EBAYSTARTPRICE = #{ebaystartprice,jdbcType=DECIMAL} , 
-    </if>
-    <if test="ebayddleft != null">
-      EBAYDDLEFT = #{ebayddleft,jdbcType=DECIMAL} , 
-    </if>
-    <if test="ebayhhleft != null">
-      EBAYHHLEFT = #{ebayhhleft,jdbcType=DECIMAL} , 
-    </if>
-    <if test="ebaymmleft != null">
-      EBAYMMLEFT = #{ebaymmleft,jdbcType=DECIMAL} , 
-    </if>
-    <if test="updatetime != null">
-      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="pictrueflag != null">
-      PICTRUEFLAG = #{pictrueflag,jdbcType=DECIMAL} , 
-    </if>
-    <if test="reserve11 != null">
-      RESERVE11 = #{reserve11,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="reserve12 != null">
-      RESERVE12 = #{reserve12,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="reserve13 != null">
-      RESERVE13 = #{reserve13,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="expressmoneytype2 != null">
-      EXPRESSMONEYTYPE2 = #{expressmoneytype2,jdbcType=VARCHAR} , 
-    </if>
-    <if test="expressmoneytype3 != null">
-      EXPRESSMONEYTYPE3 = #{expressmoneytype3,jdbcType=VARCHAR} , 
-    </if>
-    <if test="expressmoneytype4 != null">
-      EXPRESSMONEYTYPE4 = #{expressmoneytype4,jdbcType=VARCHAR} , 
-    </if>
-    <if test="internationalexpress1 != null">
-      INTERNATIONALEXPRESS1 = #{internationalexpress1,jdbcType=DECIMAL} , 
-    </if>
-    <if test="internationalexpress2 != null">
-      INTERNATIONALEXPRESS2 = #{internationalexpress2,jdbcType=DECIMAL} , 
-    </if>
-    <if test="express1 != null">
-      EXPRESS1 = #{express1,jdbcType=DECIMAL} , 
-    </if>
-    <if test="express2 != null">
-      EXPRESS2 = #{express2,jdbcType=DECIMAL} , 
-    </if>
-    <if test="weekhitcounter != null">
-      WEEKHITCOUNTER = #{weekhitcounter,jdbcType=DECIMAL} , 
-    </if>
-    <if test="monthhitcounter != null">
-      MONTHHITCOUNTER = #{monthhitcounter,jdbcType=DECIMAL} , 
-    </if>
-    <if test="hitcounterall != null">
-      HITCOUNTERALL = #{hitcounterall,jdbcType=DECIMAL} , 
-    </if>
-    <if test="weektransformrate != null">
-      WEEKTRANSFORMRATE = #{weektransformrate,jdbcType=DECIMAL} , 
-    </if>
-    <if test="monthtransformrate != null">
-      MONTHTRANSFORMRATE = #{monthtransformrate,jdbcType=DECIMAL} , 
-    </if>
-    <if test="totalttransformrate != null">
-      TOTALTTRANSFORMRATE = #{totalttransformrate,jdbcType=DECIMAL} , 
-    </if>
-    <if test="expressflag1 != null">
-      EXPRESSFLAG1 = #{expressflag1,jdbcType=DECIMAL} , 
-    </if>
-    <if test="expressflag2 != null">
-      EXPRESSFLAG2 = #{expressflag2,jdbcType=DECIMAL} , 
-    </if>
-    <if test="expressflag3 != null">
-      EXPRESSFLAG3 = #{expressflag3,jdbcType=DECIMAL} , 
-    </if>
-    <if test="expressflag4 != null">
-      EXPRESSFLAG4 = #{expressflag4,jdbcType=DECIMAL} , 
-    </if>
-    <if test="threedaysnum != null">
-      THREEDAYSNUM = #{threedaysnum,jdbcType=DECIMAL} , 
-    </if>
-    <if test="expressmoneytype1 != null">
-      EXPRESSMONEYTYPE1 = #{expressmoneytype1,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve14 != null">
-      RESERVE14 = #{reserve14,jdbcType=DECIMAL} , 
-    </if>
-    <if test="reserve16 != null">
-      RESERVE16 = #{reserve16,jdbcType=DECIMAL} , 
-    </if>
-    <if test="reserve15 != null">
-      RESERVE15 = #{reserve15,jdbcType=DECIMAL} , 
-    </if>
-    <if test="createoper != null">
-      CREATEOPER = #{createoper,jdbcType=VARCHAR} , 
+      ebayviewitemurl = #{ebayviewitemurl,jdbcType=VARCHAR} , 
     </if>
     <if test="ebaydecsr != null">
-      EBAYDECSR = #{ebaydecsr,jdbcType=LONGVARCHAR} , 
+      ebaydecsr = #{ebaydecsr,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebaypaymethod != null">
+      ebaypaymethod = #{ebaypaymethod,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebaycategoryid != null">
+      ebaycategoryid = #{ebaycategoryid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebaycategoryname != null">
+      ebaycategoryname = #{ebaycategoryname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebayquantity != null">
+      ebayquantity = #{ebayquantity,jdbcType=DECIMAL} , 
+    </if>
+    <if test="ebayquatitythresthod != null">
+      ebayquatitythresthod = #{ebayquatitythresthod,jdbcType=DECIMAL} , 
+    </if>
+    <if test="ebayquatitythod != null">
+      ebayquatitythod = #{ebayquatitythod,jdbcType=DECIMAL} , 
+    </if>
+    <if test="ebaysite != null">
+      ebaysite = #{ebaysite,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebayshopname != null">
+      ebayshopname = #{ebayshopname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebayitemstatus != null">
+      ebayitemstatus = #{ebayitemstatus,jdbcType=VARCHAR} , 
     </if>
     <if test="ebaytitle != null">
-      EBAYTITLE = #{ebaytitle,jdbcType=LONGVARCHAR} , 
+      ebaytitle = #{ebaytitle,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="priceflag != null">
+      priceflag = #{priceflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="titleflag != null">
+      titleflag = #{titleflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="pictureflag != null">
+      pictureflag = #{pictureflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR} , 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR} , 
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR} , 
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=LONGVARCHAR} , 
+      reserve4 = #{reserve4,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve6 != null">
+      reserve6 = #{reserve6,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve7 != null">
+      reserve7 = #{reserve7,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve8 != null">
+      reserve8 = #{reserve8,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve9 != null">
+      reserve9 = #{reserve9,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve10 != null">
+      reserve10 = #{reserve10,jdbcType=DECIMAL} , 
+    </if>
+    <if test="calculateflag != null">
+      calculateflag = #{calculateflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="enmityid != null">
+      enmityid = #{enmityid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="showflag != null">
+      showflag = #{showflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sellnumberavgoneday != null">
+      sellnumberavgoneday = #{sellnumberavgoneday,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sellnumberday != null">
+      sellnumberday = #{sellnumberday,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sellnumberweek != null">
+      sellnumberweek = #{sellnumberweek,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sellnumbermonth != null">
+      sellnumbermonth = #{sellnumbermonth,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sellnumbertotal != null">
+      sellnumbertotal = #{sellnumbertotal,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sellnumberavg != null">
+      sellnumberavg = #{sellnumberavg,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sellnumbersite != null">
+      sellnumbersite = #{sellnumbersite,jdbcType=DECIMAL} , 
+    </if>
+    <if test="downcount != null">
+      downcount = #{downcount,jdbcType=DECIMAL} , 
+    </if>
+    <if test="productindex != null">
+      productindex = #{productindex,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebaybuyitnewprice != null">
+      ebaybuyitnewprice = #{ebaybuyitnewprice,jdbcType=DECIMAL} , 
+    </if>
+    <if test="ebaybuyitnewpricemoneytype != null">
+      ebaybuyitnewpricemoneytype = #{ebaybuyitnewpricemoneytype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebaycountry != null">
+      ebaycountry = #{ebaycountry,jdbcType=VARCHAR} , 
     </if>
     <if test="ebaydescription != null">
-      EBAYDESCRIPTION = #{ebaydescription,jdbcType=LONGVARCHAR} , 
+      ebaydescription = #{ebaydescription,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebayhitcount != null">
+      ebayhitcount = #{ebayhitcount,jdbcType=DECIMAL} , 
+    </if>
+    <if test="ebaystarttime != null">
+      ebaystarttime = #{ebaystarttime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="ebayendtime != null">
+      ebayendtime = #{ebayendtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="ebayhasreserveprice != null">
+      ebayhasreserveprice = #{ebayhasreserveprice,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebayitemurl != null">
+      ebayitemurl = #{ebayitemurl,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebaylistduration != null">
+      ebaylistduration = #{ebaylistduration,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebaylocation != null">
+      ebaylocation = #{ebaylocation,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebaygallerytype != null">
+      ebaygallerytype = #{ebaygallerytype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebaygalleryurl != null">
+      ebaygalleryurl = #{ebaygalleryurl,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebayphotodisplay != null">
+      ebayphotodisplay = #{ebayphotodisplay,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebaypicturesource != null">
+      ebaypicturesource = #{ebaypicturesource,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebayquantitysold != null">
+      ebayquantitysold = #{ebayquantitysold,jdbcType=DECIMAL} , 
     </if>
     <if test="ebayfeedbacktatingstar != null">
-      EBAYFEEDBACKTATINGSTAR = #{ebayfeedbacktatingstar,jdbcType=LONGVARCHAR}
+      ebayfeedbacktatingstar = #{ebayfeedbacktatingstar,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="ebayfeedbackscore != null">
+      ebayfeedbackscore = #{ebayfeedbackscore,jdbcType=DECIMAL} , 
+    </if>
+    <if test="ebaypositivefeedbackpercent != null">
+      ebaypositivefeedbackpercent = #{ebaypositivefeedbackpercent,jdbcType=DECIMAL} , 
+    </if>
+    <if test="ebaysellerbusinesstype != null">
+      ebaysellerbusinesstype = #{ebaysellerbusinesstype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebaystorefront != null">
+      ebaystorefront = #{ebaystorefront,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebaystoreurl != null">
+      ebaystoreurl = #{ebaystoreurl,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebaystatus != null">
+      ebaystatus = #{ebaystatus,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebayuserid != null">
+      ebayuserid = #{ebayuserid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebayuseridchanged != null">
+      ebayuseridchanged = #{ebayuseridchanged,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebaystartprice != null">
+      ebaystartprice = #{ebaystartprice,jdbcType=DECIMAL} , 
+    </if>
+    <if test="ebayddleft != null">
+      ebayddleft = #{ebayddleft,jdbcType=DECIMAL} , 
+    </if>
+    <if test="ebayhhleft != null">
+      ebayhhleft = #{ebayhhleft,jdbcType=DECIMAL} , 
+    </if>
+    <if test="ebaymmleft != null">
+      ebaymmleft = #{ebaymmleft,jdbcType=DECIMAL} , 
+    </if>
+    <if test="updatetime != null">
+      updatetime = #{updatetime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="pictrueflag != null">
+      pictrueflag = #{pictrueflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve11 != null">
+      reserve11 = #{reserve11,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="reserve12 != null">
+      reserve12 = #{reserve12,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="reserve13 != null">
+      reserve13 = #{reserve13,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="expressmoneytype2 != null">
+      expressmoneytype2 = #{expressmoneytype2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="expressmoneytype3 != null">
+      expressmoneytype3 = #{expressmoneytype3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="expressmoneytype4 != null">
+      expressmoneytype4 = #{expressmoneytype4,jdbcType=VARCHAR} , 
+    </if>
+    <if test="internationalexpress1 != null">
+      internationalexpress1 = #{internationalexpress1,jdbcType=DECIMAL} , 
+    </if>
+    <if test="internationalexpress2 != null">
+      internationalexpress2 = #{internationalexpress2,jdbcType=DECIMAL} , 
+    </if>
+    <if test="express1 != null">
+      express1 = #{express1,jdbcType=DECIMAL} , 
+    </if>
+    <if test="express2 != null">
+      express2 = #{express2,jdbcType=DECIMAL} , 
+    </if>
+    <if test="weekhitcounter != null">
+      weekhitcounter = #{weekhitcounter,jdbcType=DECIMAL} , 
+    </if>
+    <if test="monthhitcounter != null">
+      monthhitcounter = #{monthhitcounter,jdbcType=DECIMAL} , 
+    </if>
+    <if test="hitcounterall != null">
+      hitcounterall = #{hitcounterall,jdbcType=DECIMAL} , 
+    </if>
+    <if test="weektransformrate != null">
+      weektransformrate = #{weektransformrate,jdbcType=DECIMAL} , 
+    </if>
+    <if test="monthtransformrate != null">
+      monthtransformrate = #{monthtransformrate,jdbcType=DECIMAL} , 
+    </if>
+    <if test="totalttransformrate != null">
+      totalttransformrate = #{totalttransformrate,jdbcType=DECIMAL} , 
+    </if>
+    <if test="expressflag1 != null">
+      expressflag1 = #{expressflag1,jdbcType=DECIMAL} , 
+    </if>
+    <if test="expressflag2 != null">
+      expressflag2 = #{expressflag2,jdbcType=DECIMAL} , 
+    </if>
+    <if test="expressflag3 != null">
+      expressflag3 = #{expressflag3,jdbcType=DECIMAL} , 
+    </if>
+    <if test="expressflag4 != null">
+      expressflag4 = #{expressflag4,jdbcType=DECIMAL} , 
+    </if>
+    <if test="threedaysnum != null">
+      threedaysnum = #{threedaysnum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="expressmoneytype1 != null">
+      expressmoneytype1 = #{expressmoneytype1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve14 != null">
+      reserve14 = #{reserve14,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve16 != null">
+      reserve16 = #{reserve16,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve15 != null">
+      reserve15 = #{reserve15,jdbcType=DECIMAL} , 
+    </if>
+    <if test="createoper != null">
+      createoper = #{createoper,jdbcType=VARCHAR} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbItemresult" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

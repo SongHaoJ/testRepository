@@ -7,13 +7,13 @@ public class DbBirdproduct implements Serializable {
 
     private String birdname;
 
+    private String descr;
+
     private String mabangsku;
 
     private String birdsku;
 
     private String mabangname;
-
-    private String descr;
 
     private static final long serialVersionUID = 1L;
 
@@ -31,6 +31,14 @@ public class DbBirdproduct implements Serializable {
 
     public void setBirdname(String birdname) {
         this.birdname = birdname == null ? null : birdname.trim();
+    }
+
+    public String getDescr() {
+        return descr;
+    }
+
+    public void setDescr(String descr) {
+        this.descr = descr == null ? null : descr.trim();
     }
 
     public String getMabangsku() {
@@ -57,14 +65,6 @@ public class DbBirdproduct implements Serializable {
         this.mabangname = mabangname == null ? null : mabangname.trim();
     }
 
-    public String getDescr() {
-        return descr;
-    }
-
-    public void setDescr(String descr) {
-        this.descr = descr == null ? null : descr.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -79,10 +79,10 @@ public class DbBirdproduct implements Serializable {
         DbBirdproduct other = (DbBirdproduct) that;
         return (this.getSid() == null ? other.getSid() == null : this.getSid().equals(other.getSid()))
             && (this.getBirdname() == null ? other.getBirdname() == null : this.getBirdname().equals(other.getBirdname()))
+            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
             && (this.getMabangsku() == null ? other.getMabangsku() == null : this.getMabangsku().equals(other.getMabangsku()))
             && (this.getBirdsku() == null ? other.getBirdsku() == null : this.getBirdsku().equals(other.getBirdsku()))
-            && (this.getMabangname() == null ? other.getMabangname() == null : this.getMabangname().equals(other.getMabangname()))
-            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()));
+            && (this.getMabangname() == null ? other.getMabangname() == null : this.getMabangname().equals(other.getMabangname()));
     }
 
     @Override
@@ -91,10 +91,10 @@ public class DbBirdproduct implements Serializable {
         int result = 1;
         result = prime * result + ((getSid() == null) ? 0 : getSid().hashCode());
         result = prime * result + ((getBirdname() == null) ? 0 : getBirdname().hashCode());
+        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
         result = prime * result + ((getMabangsku() == null) ? 0 : getMabangsku().hashCode());
         result = prime * result + ((getBirdsku() == null) ? 0 : getBirdsku().hashCode());
         result = prime * result + ((getMabangname() == null) ? 0 : getMabangname().hashCode());
-        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
         return result;
     }
 
@@ -106,10 +106,10 @@ public class DbBirdproduct implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", sid=").append(sid);
         sb.append(", birdname=").append(birdname);
+        sb.append(", descr=").append(descr);
         sb.append(", mabangsku=").append(mabangsku);
         sb.append(", birdsku=").append(birdsku);
         sb.append(", mabangname=").append(mabangname);
-        sb.append(", descr=").append(descr);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

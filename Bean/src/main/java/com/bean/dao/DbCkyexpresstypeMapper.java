@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbCkyexpresstype;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbCkyexpresstypeMapper {
-    int deleteByPrimaryKey(String sid);
+    DbCkyexpresstype selectByCriteria(DbCkyexpresstype DbCkyexpresstype);
 
-    int insert(DbCkyexpresstype record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbCkyexpresstype record);
+    void deleteByCriteria(DbCkyexpresstype DbCkyexpresstype);
+
+    int insertByCriteria(DbCkyexpresstype DbCkyexpresstype);
+
+    int updateByCriteria(DbCkyexpresstype DbCkyexpresstype);
 
     DbCkyexpresstype selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbCkyexpresstype record);
-
-    int updateByPrimaryKey(DbCkyexpresstype record);
+    List<DbCkyexpresstype> selectAll();
 }

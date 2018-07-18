@@ -4,11 +4,32 @@
   <resultMap id="BaseResultMap" type="com.bean.model.DbProductsearch">
     <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
     <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="DESCR" jdbcType="VARCHAR" property="descr" />
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
     <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
+    <result column="SQLFILTER1" jdbcType="VARCHAR" property="sqlfilter1" />
+    <result column="SQLFILTER2" jdbcType="VARCHAR" property="sqlfilter2" />
     <result column="FILED1" jdbcType="DECIMAL" property="filed1" />
     <result column="FILED2" jdbcType="DECIMAL" property="filed2" />
+    <result column="FILED3" jdbcType="VARCHAR" property="filed3" />
+    <result column="FILED4" jdbcType="VARCHAR" property="filed4" />
+    <result column="FILED5" jdbcType="VARCHAR" property="filed5" />
+    <result column="FILED6" jdbcType="VARCHAR" property="filed6" />
+    <result column="FILED7" jdbcType="VARCHAR" property="filed7" />
+    <result column="FILED8" jdbcType="VARCHAR" property="filed8" />
+    <result column="FILED9" jdbcType="VARCHAR" property="filed9" />
+    <result column="FILED10" jdbcType="VARCHAR" property="filed10" />
+    <result column="FILED11" jdbcType="VARCHAR" property="filed11" />
+    <result column="FILED12" jdbcType="VARCHAR" property="filed12" />
+    <result column="FILED13" jdbcType="VARCHAR" property="filed13" />
+    <result column="FILED14" jdbcType="VARCHAR" property="filed14" />
+    <result column="FILED15" jdbcType="VARCHAR" property="filed15" />
+    <result column="FILED16" jdbcType="VARCHAR" property="filed16" />
+    <result column="FILED17" jdbcType="VARCHAR" property="filed17" />
+    <result column="FILED18" jdbcType="VARCHAR" property="filed18" />
+    <result column="FILED19" jdbcType="VARCHAR" property="filed19" />
+    <result column="FILED20" jdbcType="VARCHAR" property="filed20" />
     <result column="FLAG1" jdbcType="VARCHAR" property="flag1" />
     <result column="FLAG2" jdbcType="VARCHAR" property="flag2" />
     <result column="FLAG3" jdbcType="VARCHAR" property="flag3" />
@@ -30,608 +51,433 @@
     <result column="FLAG19" jdbcType="VARCHAR" property="flag19" />
     <result column="FLAG20" jdbcType="VARCHAR" property="flag20" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbProductsearch">
-    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
-    <result column="SQLFILTER1" jdbcType="LONGVARCHAR" property="sqlfilter1" />
-    <result column="SQLFILTER2" jdbcType="LONGVARCHAR" property="sqlfilter2" />
-    <result column="FILED3" jdbcType="LONGVARCHAR" property="filed3" />
-    <result column="FILED4" jdbcType="LONGVARCHAR" property="filed4" />
-    <result column="FILED5" jdbcType="LONGVARCHAR" property="filed5" />
-    <result column="FILED6" jdbcType="LONGVARCHAR" property="filed6" />
-    <result column="FILED7" jdbcType="LONGVARCHAR" property="filed7" />
-    <result column="FILED8" jdbcType="LONGVARCHAR" property="filed8" />
-    <result column="FILED9" jdbcType="LONGVARCHAR" property="filed9" />
-    <result column="FILED10" jdbcType="LONGVARCHAR" property="filed10" />
-    <result column="FILED11" jdbcType="LONGVARCHAR" property="filed11" />
-    <result column="FILED12" jdbcType="LONGVARCHAR" property="filed12" />
-    <result column="FILED13" jdbcType="LONGVARCHAR" property="filed13" />
-    <result column="FILED14" jdbcType="LONGVARCHAR" property="filed14" />
-    <result column="FILED15" jdbcType="LONGVARCHAR" property="filed15" />
-    <result column="FILED16" jdbcType="LONGVARCHAR" property="filed16" />
-    <result column="FILED17" jdbcType="LONGVARCHAR" property="filed17" />
-    <result column="FILED18" jdbcType="LONGVARCHAR" property="filed18" />
-    <result column="FILED19" jdbcType="LONGVARCHAR" property="filed19" />
-    <result column="FILED20" jdbcType="LONGVARCHAR" property="filed20" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    SEQUENCEID, 'NAME', OPER, OPERTIME, OPENFLAG, FILED1, FILED2, FLAG1, FLAG2, FLAG3, 
-    FLAG4, FLAG5, FLAG6, FLAG7, FLAG8, FLAG9, FLAG10, FLAG11, FLAG12, FLAG13, FLAG14, 
-    FLAG15, FLAG16, FLAG17, FLAG18, FLAG19, FLAG20
-  </sql>
-  <sql id="Blob_Column_List">
-    DESCR, SQLFILTER1, SQLFILTER2, FILED3, FILED4, FILED5, FILED6, FILED7, FILED8, FILED9, 
-    FILED10, FILED11, FILED12, FILED13, FILED14, FILED15, FILED16, FILED17, FILED18, 
-    FILED19, FILED20
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from db_productsearch
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SEQUENCEID, NAME, DESCR, OPER, OPERTIME, OPENFLAG, SQLFILTER1, SQLFILTER2, 
+    FILED1, FILED2, FILED3, FILED4, FILED5, FILED6, FILED7, FILED8, FILED9, FILED10, 
+    FILED11, FILED12, FILED13, FILED14, FILED15, FILED16, FILED17, FILED18, FILED19, 
+    FILED20, FLAG1, FLAG2, FLAG3, FLAG4, FLAG5, FLAG6, FLAG7, FLAG8, FLAG9, FLAG10, FLAG11, 
+    FLAG12, FLAG13, FLAG14, FLAG15, FLAG16, FLAG17, FLAG18, FLAG19, FLAG20
+    from DB_PRODUCTSEARCH
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_productsearch
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, NAME, DESCR, OPER, OPERTIME, OPENFLAG, SQLFILTER1, SQLFILTER2, 
+    FILED1, FILED2, FILED3, FILED4, FILED5, FILED6, FILED7, FILED8, FILED9, FILED10, 
+    FILED11, FILED12, FILED13, FILED14, FILED15, FILED16, FILED17, FILED18, FILED19, 
+    FILED20, FLAG1, FLAG2, FLAG3, FLAG4, FLAG5, FLAG6, FLAG7, FLAG8, FLAG9, FLAG10, FLAG11, 
+    FLAG12, FLAG13, FLAG14, FLAG15, FLAG16, FLAG17, FLAG18, FLAG19, FLAG20
+    from DB_PRODUCTSEARCH
+  </select>
+  <sql id="TableName">
+    DB_PRODUCTSEARCH
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=VARCHAR} , 
+     #{name,jdbcType=VARCHAR} , 
+     #{descr,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{openflag,jdbcType=VARCHAR} , 
+     #{sqlfilter1,jdbcType=VARCHAR} , 
+     #{sqlfilter2,jdbcType=VARCHAR} , 
+     #{filed1,jdbcType=DECIMAL} , 
+     #{filed2,jdbcType=DECIMAL} , 
+     #{filed3,jdbcType=VARCHAR} , 
+     #{filed4,jdbcType=VARCHAR} , 
+     #{filed5,jdbcType=VARCHAR} , 
+     #{filed6,jdbcType=VARCHAR} , 
+     #{filed7,jdbcType=VARCHAR} , 
+     #{filed8,jdbcType=VARCHAR} , 
+     #{filed9,jdbcType=VARCHAR} , 
+     #{filed10,jdbcType=VARCHAR} , 
+     #{filed11,jdbcType=VARCHAR} , 
+     #{filed12,jdbcType=VARCHAR} , 
+     #{filed13,jdbcType=VARCHAR} , 
+     #{filed14,jdbcType=VARCHAR} , 
+     #{filed15,jdbcType=VARCHAR} , 
+     #{filed16,jdbcType=VARCHAR} , 
+     #{filed17,jdbcType=VARCHAR} , 
+     #{filed18,jdbcType=VARCHAR} , 
+     #{filed19,jdbcType=VARCHAR} , 
+     #{filed20,jdbcType=VARCHAR} , 
+     #{flag1,jdbcType=VARCHAR} , 
+     #{flag2,jdbcType=VARCHAR} , 
+     #{flag3,jdbcType=VARCHAR} , 
+     #{flag4,jdbcType=VARCHAR} , 
+     #{flag5,jdbcType=VARCHAR} , 
+     #{flag6,jdbcType=VARCHAR} , 
+     #{flag7,jdbcType=VARCHAR} , 
+     #{flag8,jdbcType=VARCHAR} , 
+     #{flag9,jdbcType=VARCHAR} , 
+     #{flag10,jdbcType=VARCHAR} , 
+     #{flag11,jdbcType=VARCHAR} , 
+     #{flag12,jdbcType=VARCHAR} , 
+     #{flag13,jdbcType=VARCHAR} , 
+     #{flag14,jdbcType=VARCHAR} , 
+     #{flag15,jdbcType=VARCHAR} , 
+     #{flag16,jdbcType=VARCHAR} , 
+     #{flag17,jdbcType=VARCHAR} , 
+     #{flag18,jdbcType=VARCHAR} , 
+     #{flag19,jdbcType=VARCHAR} , 
+     #{flag20,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    NAME , 
+    DESCR , 
+    OPER , 
+    OPERTIME , 
+    OPENFLAG , 
+    SQLFILTER1 , 
+    SQLFILTER2 , 
+    FILED1 , 
+    FILED2 , 
+    FILED3 , 
+    FILED4 , 
+    FILED5 , 
+    FILED6 , 
+    FILED7 , 
+    FILED8 , 
+    FILED9 , 
+    FILED10 , 
+    FILED11 , 
+    FILED12 , 
+    FILED13 , 
+    FILED14 , 
+    FILED15 , 
+    FILED16 , 
+    FILED17 , 
+    FILED18 , 
+    FILED19 , 
+    FILED20 , 
+    FLAG1 , 
+    FLAG2 , 
+    FLAG3 , 
+    FLAG4 , 
+    FLAG5 , 
+    FLAG6 , 
+    FLAG7 , 
+    FLAG8 , 
+    FLAG9 , 
+    FLAG10 , 
+    FLAG11 , 
+    FLAG12 , 
+    FLAG13 , 
+    FLAG14 , 
+    FLAG15 , 
+    FLAG16 , 
+    FLAG17 , 
+    FLAG18 , 
+    FLAG19 , 
+    FLAG20 , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} and 
+    </if>
+    <if test="descr != null">
+      descr = #{descr,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sqlfilter1 != null">
+      sqlfilter1 = #{sqlfilter1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sqlfilter2 != null">
+      sqlfilter2 = #{sqlfilter2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="filed1 != null">
+      filed1 = #{filed1,jdbcType=DECIMAL} and 
+    </if>
+    <if test="filed2 != null">
+      filed2 = #{filed2,jdbcType=DECIMAL} and 
+    </if>
+    <if test="filed3 != null">
+      filed3 = #{filed3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="filed4 != null">
+      filed4 = #{filed4,jdbcType=VARCHAR} and 
+    </if>
+    <if test="filed5 != null">
+      filed5 = #{filed5,jdbcType=VARCHAR} and 
+    </if>
+    <if test="filed6 != null">
+      filed6 = #{filed6,jdbcType=VARCHAR} and 
+    </if>
+    <if test="filed7 != null">
+      filed7 = #{filed7,jdbcType=VARCHAR} and 
+    </if>
+    <if test="filed8 != null">
+      filed8 = #{filed8,jdbcType=VARCHAR} and 
+    </if>
+    <if test="filed9 != null">
+      filed9 = #{filed9,jdbcType=VARCHAR} and 
+    </if>
+    <if test="filed10 != null">
+      filed10 = #{filed10,jdbcType=VARCHAR} and 
+    </if>
+    <if test="filed11 != null">
+      filed11 = #{filed11,jdbcType=VARCHAR} and 
+    </if>
+    <if test="filed12 != null">
+      filed12 = #{filed12,jdbcType=VARCHAR} and 
+    </if>
+    <if test="filed13 != null">
+      filed13 = #{filed13,jdbcType=VARCHAR} and 
+    </if>
+    <if test="filed14 != null">
+      filed14 = #{filed14,jdbcType=VARCHAR} and 
+    </if>
+    <if test="filed15 != null">
+      filed15 = #{filed15,jdbcType=VARCHAR} and 
+    </if>
+    <if test="filed16 != null">
+      filed16 = #{filed16,jdbcType=VARCHAR} and 
+    </if>
+    <if test="filed17 != null">
+      filed17 = #{filed17,jdbcType=VARCHAR} and 
+    </if>
+    <if test="filed18 != null">
+      filed18 = #{filed18,jdbcType=VARCHAR} and 
+    </if>
+    <if test="filed19 != null">
+      filed19 = #{filed19,jdbcType=VARCHAR} and 
+    </if>
+    <if test="filed20 != null">
+      filed20 = #{filed20,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag1 != null">
+      flag1 = #{flag1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag2 != null">
+      flag2 = #{flag2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag3 != null">
+      flag3 = #{flag3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag4 != null">
+      flag4 = #{flag4,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag5 != null">
+      flag5 = #{flag5,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag6 != null">
+      flag6 = #{flag6,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag7 != null">
+      flag7 = #{flag7,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag8 != null">
+      flag8 = #{flag8,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag9 != null">
+      flag9 = #{flag9,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag10 != null">
+      flag10 = #{flag10,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag11 != null">
+      flag11 = #{flag11,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag12 != null">
+      flag12 = #{flag12,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag13 != null">
+      flag13 = #{flag13,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag14 != null">
+      flag14 = #{flag14,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag15 != null">
+      flag15 = #{flag15,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag16 != null">
+      flag16 = #{flag16,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag17 != null">
+      flag17 = #{flag17,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag18 != null">
+      flag18 = #{flag18,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag19 != null">
+      flag19 = #{flag19,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag20 != null">
+      flag20 = #{flag20,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} , 
+    </if>
+    <if test="descr != null">
+      descr = #{descr,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sqlfilter1 != null">
+      sqlfilter1 = #{sqlfilter1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sqlfilter2 != null">
+      sqlfilter2 = #{sqlfilter2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="filed1 != null">
+      filed1 = #{filed1,jdbcType=DECIMAL} , 
+    </if>
+    <if test="filed2 != null">
+      filed2 = #{filed2,jdbcType=DECIMAL} , 
+    </if>
+    <if test="filed3 != null">
+      filed3 = #{filed3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="filed4 != null">
+      filed4 = #{filed4,jdbcType=VARCHAR} , 
+    </if>
+    <if test="filed5 != null">
+      filed5 = #{filed5,jdbcType=VARCHAR} , 
+    </if>
+    <if test="filed6 != null">
+      filed6 = #{filed6,jdbcType=VARCHAR} , 
+    </if>
+    <if test="filed7 != null">
+      filed7 = #{filed7,jdbcType=VARCHAR} , 
+    </if>
+    <if test="filed8 != null">
+      filed8 = #{filed8,jdbcType=VARCHAR} , 
+    </if>
+    <if test="filed9 != null">
+      filed9 = #{filed9,jdbcType=VARCHAR} , 
+    </if>
+    <if test="filed10 != null">
+      filed10 = #{filed10,jdbcType=VARCHAR} , 
+    </if>
+    <if test="filed11 != null">
+      filed11 = #{filed11,jdbcType=VARCHAR} , 
+    </if>
+    <if test="filed12 != null">
+      filed12 = #{filed12,jdbcType=VARCHAR} , 
+    </if>
+    <if test="filed13 != null">
+      filed13 = #{filed13,jdbcType=VARCHAR} , 
+    </if>
+    <if test="filed14 != null">
+      filed14 = #{filed14,jdbcType=VARCHAR} , 
+    </if>
+    <if test="filed15 != null">
+      filed15 = #{filed15,jdbcType=VARCHAR} , 
+    </if>
+    <if test="filed16 != null">
+      filed16 = #{filed16,jdbcType=VARCHAR} , 
+    </if>
+    <if test="filed17 != null">
+      filed17 = #{filed17,jdbcType=VARCHAR} , 
+    </if>
+    <if test="filed18 != null">
+      filed18 = #{filed18,jdbcType=VARCHAR} , 
+    </if>
+    <if test="filed19 != null">
+      filed19 = #{filed19,jdbcType=VARCHAR} , 
+    </if>
+    <if test="filed20 != null">
+      filed20 = #{filed20,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag1 != null">
+      flag1 = #{flag1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag2 != null">
+      flag2 = #{flag2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag3 != null">
+      flag3 = #{flag3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag4 != null">
+      flag4 = #{flag4,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag5 != null">
+      flag5 = #{flag5,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag6 != null">
+      flag6 = #{flag6,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag7 != null">
+      flag7 = #{flag7,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag8 != null">
+      flag8 = #{flag8,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag9 != null">
+      flag9 = #{flag9,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag10 != null">
+      flag10 = #{flag10,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag11 != null">
+      flag11 = #{flag11,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag12 != null">
+      flag12 = #{flag12,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag13 != null">
+      flag13 = #{flag13,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag14 != null">
+      flag14 = #{flag14,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag15 != null">
+      flag15 = #{flag15,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag16 != null">
+      flag16 = #{flag16,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag17 != null">
+      flag17 = #{flag17,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag18 != null">
+      flag18 = #{flag18,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag19 != null">
+      flag19 = #{flag19,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag20 != null">
+      flag20 = #{flag20,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbProductsearch" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbProductsearch">
-    insert into db_productsearch (SEQUENCEID, 'NAME', OPER, 
-      OPERTIME, OPENFLAG, FILED1, 
-      FILED2, FLAG1, FLAG2, 
-      FLAG3, FLAG4, FLAG5, 
-      FLAG6, FLAG7, FLAG8, 
-      FLAG9, FLAG10, FLAG11, 
-      FLAG12, FLAG13, FLAG14, 
-      FLAG15, FLAG16, FLAG17, 
-      FLAG18, FLAG19, FLAG20, 
-      DESCR, SQLFILTER1, SQLFILTER2, 
-      FILED3, FILED4, FILED5, 
-      FILED6, FILED7, FILED8, 
-      FILED9, FILED10, FILED11, 
-      FILED12, FILED13, FILED14, 
-      FILED15, FILED16, FILED17, 
-      FILED18, FILED19, FILED20
-      )
-    values (#{sequenceid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{oper,jdbcType=VARCHAR}, 
-      #{opertime,jdbcType=TIMESTAMP}, #{openflag,jdbcType=VARCHAR}, #{filed1,jdbcType=DECIMAL}, 
-      #{filed2,jdbcType=DECIMAL}, #{flag1,jdbcType=VARCHAR}, #{flag2,jdbcType=VARCHAR}, 
-      #{flag3,jdbcType=VARCHAR}, #{flag4,jdbcType=VARCHAR}, #{flag5,jdbcType=VARCHAR}, 
-      #{flag6,jdbcType=VARCHAR}, #{flag7,jdbcType=VARCHAR}, #{flag8,jdbcType=VARCHAR}, 
-      #{flag9,jdbcType=VARCHAR}, #{flag10,jdbcType=VARCHAR}, #{flag11,jdbcType=VARCHAR}, 
-      #{flag12,jdbcType=VARCHAR}, #{flag13,jdbcType=VARCHAR}, #{flag14,jdbcType=VARCHAR}, 
-      #{flag15,jdbcType=VARCHAR}, #{flag16,jdbcType=VARCHAR}, #{flag17,jdbcType=VARCHAR}, 
-      #{flag18,jdbcType=VARCHAR}, #{flag19,jdbcType=VARCHAR}, #{flag20,jdbcType=VARCHAR}, 
-      #{descr,jdbcType=LONGVARCHAR}, #{sqlfilter1,jdbcType=LONGVARCHAR}, #{sqlfilter2,jdbcType=LONGVARCHAR}, 
-      #{filed3,jdbcType=LONGVARCHAR}, #{filed4,jdbcType=LONGVARCHAR}, #{filed5,jdbcType=LONGVARCHAR}, 
-      #{filed6,jdbcType=LONGVARCHAR}, #{filed7,jdbcType=LONGVARCHAR}, #{filed8,jdbcType=LONGVARCHAR}, 
-      #{filed9,jdbcType=LONGVARCHAR}, #{filed10,jdbcType=LONGVARCHAR}, #{filed11,jdbcType=LONGVARCHAR}, 
-      #{filed12,jdbcType=LONGVARCHAR}, #{filed13,jdbcType=LONGVARCHAR}, #{filed14,jdbcType=LONGVARCHAR}, 
-      #{filed15,jdbcType=LONGVARCHAR}, #{filed16,jdbcType=LONGVARCHAR}, #{filed17,jdbcType=LONGVARCHAR}, 
-      #{filed18,jdbcType=LONGVARCHAR}, #{filed19,jdbcType=LONGVARCHAR}, #{filed20,jdbcType=LONGVARCHAR}
-      )
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbProductsearch">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbProductsearch">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbProductsearch">
-    insert into db_productsearch
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        SEQUENCEID,
-      </if>
-      <if test="name != null">
-        'NAME',
-      </if>
-      <if test="oper != null">
-        OPER,
-      </if>
-      <if test="opertime != null">
-        OPERTIME,
-      </if>
-      <if test="openflag != null">
-        OPENFLAG,
-      </if>
-      <if test="filed1 != null">
-        FILED1,
-      </if>
-      <if test="filed2 != null">
-        FILED2,
-      </if>
-      <if test="flag1 != null">
-        FLAG1,
-      </if>
-      <if test="flag2 != null">
-        FLAG2,
-      </if>
-      <if test="flag3 != null">
-        FLAG3,
-      </if>
-      <if test="flag4 != null">
-        FLAG4,
-      </if>
-      <if test="flag5 != null">
-        FLAG5,
-      </if>
-      <if test="flag6 != null">
-        FLAG6,
-      </if>
-      <if test="flag7 != null">
-        FLAG7,
-      </if>
-      <if test="flag8 != null">
-        FLAG8,
-      </if>
-      <if test="flag9 != null">
-        FLAG9,
-      </if>
-      <if test="flag10 != null">
-        FLAG10,
-      </if>
-      <if test="flag11 != null">
-        FLAG11,
-      </if>
-      <if test="flag12 != null">
-        FLAG12,
-      </if>
-      <if test="flag13 != null">
-        FLAG13,
-      </if>
-      <if test="flag14 != null">
-        FLAG14,
-      </if>
-      <if test="flag15 != null">
-        FLAG15,
-      </if>
-      <if test="flag16 != null">
-        FLAG16,
-      </if>
-      <if test="flag17 != null">
-        FLAG17,
-      </if>
-      <if test="flag18 != null">
-        FLAG18,
-      </if>
-      <if test="flag19 != null">
-        FLAG19,
-      </if>
-      <if test="flag20 != null">
-        FLAG20,
-      </if>
-      <if test="descr != null">
-        DESCR,
-      </if>
-      <if test="sqlfilter1 != null">
-        SQLFILTER1,
-      </if>
-      <if test="sqlfilter2 != null">
-        SQLFILTER2,
-      </if>
-      <if test="filed3 != null">
-        FILED3,
-      </if>
-      <if test="filed4 != null">
-        FILED4,
-      </if>
-      <if test="filed5 != null">
-        FILED5,
-      </if>
-      <if test="filed6 != null">
-        FILED6,
-      </if>
-      <if test="filed7 != null">
-        FILED7,
-      </if>
-      <if test="filed8 != null">
-        FILED8,
-      </if>
-      <if test="filed9 != null">
-        FILED9,
-      </if>
-      <if test="filed10 != null">
-        FILED10,
-      </if>
-      <if test="filed11 != null">
-        FILED11,
-      </if>
-      <if test="filed12 != null">
-        FILED12,
-      </if>
-      <if test="filed13 != null">
-        FILED13,
-      </if>
-      <if test="filed14 != null">
-        FILED14,
-      </if>
-      <if test="filed15 != null">
-        FILED15,
-      </if>
-      <if test="filed16 != null">
-        FILED16,
-      </if>
-      <if test="filed17 != null">
-        FILED17,
-      </if>
-      <if test="filed18 != null">
-        FILED18,
-      </if>
-      <if test="filed19 != null">
-        FILED19,
-      </if>
-      <if test="filed20 != null">
-        FILED20,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        #{sequenceid,jdbcType=VARCHAR},
-      </if>
-      <if test="name != null">
-        #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="oper != null">
-        #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="openflag != null">
-        #{openflag,jdbcType=VARCHAR},
-      </if>
-      <if test="filed1 != null">
-        #{filed1,jdbcType=DECIMAL},
-      </if>
-      <if test="filed2 != null">
-        #{filed2,jdbcType=DECIMAL},
-      </if>
-      <if test="flag1 != null">
-        #{flag1,jdbcType=VARCHAR},
-      </if>
-      <if test="flag2 != null">
-        #{flag2,jdbcType=VARCHAR},
-      </if>
-      <if test="flag3 != null">
-        #{flag3,jdbcType=VARCHAR},
-      </if>
-      <if test="flag4 != null">
-        #{flag4,jdbcType=VARCHAR},
-      </if>
-      <if test="flag5 != null">
-        #{flag5,jdbcType=VARCHAR},
-      </if>
-      <if test="flag6 != null">
-        #{flag6,jdbcType=VARCHAR},
-      </if>
-      <if test="flag7 != null">
-        #{flag7,jdbcType=VARCHAR},
-      </if>
-      <if test="flag8 != null">
-        #{flag8,jdbcType=VARCHAR},
-      </if>
-      <if test="flag9 != null">
-        #{flag9,jdbcType=VARCHAR},
-      </if>
-      <if test="flag10 != null">
-        #{flag10,jdbcType=VARCHAR},
-      </if>
-      <if test="flag11 != null">
-        #{flag11,jdbcType=VARCHAR},
-      </if>
-      <if test="flag12 != null">
-        #{flag12,jdbcType=VARCHAR},
-      </if>
-      <if test="flag13 != null">
-        #{flag13,jdbcType=VARCHAR},
-      </if>
-      <if test="flag14 != null">
-        #{flag14,jdbcType=VARCHAR},
-      </if>
-      <if test="flag15 != null">
-        #{flag15,jdbcType=VARCHAR},
-      </if>
-      <if test="flag16 != null">
-        #{flag16,jdbcType=VARCHAR},
-      </if>
-      <if test="flag17 != null">
-        #{flag17,jdbcType=VARCHAR},
-      </if>
-      <if test="flag18 != null">
-        #{flag18,jdbcType=VARCHAR},
-      </if>
-      <if test="flag19 != null">
-        #{flag19,jdbcType=VARCHAR},
-      </if>
-      <if test="flag20 != null">
-        #{flag20,jdbcType=VARCHAR},
-      </if>
-      <if test="descr != null">
-        #{descr,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="sqlfilter1 != null">
-        #{sqlfilter1,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="sqlfilter2 != null">
-        #{sqlfilter2,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed3 != null">
-        #{filed3,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed4 != null">
-        #{filed4,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed5 != null">
-        #{filed5,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed6 != null">
-        #{filed6,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed7 != null">
-        #{filed7,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed8 != null">
-        #{filed8,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed9 != null">
-        #{filed9,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed10 != null">
-        #{filed10,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed11 != null">
-        #{filed11,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed12 != null">
-        #{filed12,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed13 != null">
-        #{filed13,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed14 != null">
-        #{filed14,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed15 != null">
-        #{filed15,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed16 != null">
-        #{filed16,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed17 != null">
-        #{filed17,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed18 != null">
-        #{filed18,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed19 != null">
-        #{filed19,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed20 != null">
-        #{filed20,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbProductsearch">
-    update db_productsearch
-    <set>
-      <if test="name != null">
-        'NAME' = #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="oper != null">
-        OPER = #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="openflag != null">
-        OPENFLAG = #{openflag,jdbcType=VARCHAR},
-      </if>
-      <if test="filed1 != null">
-        FILED1 = #{filed1,jdbcType=DECIMAL},
-      </if>
-      <if test="filed2 != null">
-        FILED2 = #{filed2,jdbcType=DECIMAL},
-      </if>
-      <if test="flag1 != null">
-        FLAG1 = #{flag1,jdbcType=VARCHAR},
-      </if>
-      <if test="flag2 != null">
-        FLAG2 = #{flag2,jdbcType=VARCHAR},
-      </if>
-      <if test="flag3 != null">
-        FLAG3 = #{flag3,jdbcType=VARCHAR},
-      </if>
-      <if test="flag4 != null">
-        FLAG4 = #{flag4,jdbcType=VARCHAR},
-      </if>
-      <if test="flag5 != null">
-        FLAG5 = #{flag5,jdbcType=VARCHAR},
-      </if>
-      <if test="flag6 != null">
-        FLAG6 = #{flag6,jdbcType=VARCHAR},
-      </if>
-      <if test="flag7 != null">
-        FLAG7 = #{flag7,jdbcType=VARCHAR},
-      </if>
-      <if test="flag8 != null">
-        FLAG8 = #{flag8,jdbcType=VARCHAR},
-      </if>
-      <if test="flag9 != null">
-        FLAG9 = #{flag9,jdbcType=VARCHAR},
-      </if>
-      <if test="flag10 != null">
-        FLAG10 = #{flag10,jdbcType=VARCHAR},
-      </if>
-      <if test="flag11 != null">
-        FLAG11 = #{flag11,jdbcType=VARCHAR},
-      </if>
-      <if test="flag12 != null">
-        FLAG12 = #{flag12,jdbcType=VARCHAR},
-      </if>
-      <if test="flag13 != null">
-        FLAG13 = #{flag13,jdbcType=VARCHAR},
-      </if>
-      <if test="flag14 != null">
-        FLAG14 = #{flag14,jdbcType=VARCHAR},
-      </if>
-      <if test="flag15 != null">
-        FLAG15 = #{flag15,jdbcType=VARCHAR},
-      </if>
-      <if test="flag16 != null">
-        FLAG16 = #{flag16,jdbcType=VARCHAR},
-      </if>
-      <if test="flag17 != null">
-        FLAG17 = #{flag17,jdbcType=VARCHAR},
-      </if>
-      <if test="flag18 != null">
-        FLAG18 = #{flag18,jdbcType=VARCHAR},
-      </if>
-      <if test="flag19 != null">
-        FLAG19 = #{flag19,jdbcType=VARCHAR},
-      </if>
-      <if test="flag20 != null">
-        FLAG20 = #{flag20,jdbcType=VARCHAR},
-      </if>
-      <if test="descr != null">
-        DESCR = #{descr,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="sqlfilter1 != null">
-        SQLFILTER1 = #{sqlfilter1,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="sqlfilter2 != null">
-        SQLFILTER2 = #{sqlfilter2,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed3 != null">
-        FILED3 = #{filed3,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed4 != null">
-        FILED4 = #{filed4,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed5 != null">
-        FILED5 = #{filed5,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed6 != null">
-        FILED6 = #{filed6,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed7 != null">
-        FILED7 = #{filed7,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed8 != null">
-        FILED8 = #{filed8,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed9 != null">
-        FILED9 = #{filed9,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed10 != null">
-        FILED10 = #{filed10,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed11 != null">
-        FILED11 = #{filed11,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed12 != null">
-        FILED12 = #{filed12,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed13 != null">
-        FILED13 = #{filed13,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed14 != null">
-        FILED14 = #{filed14,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed15 != null">
-        FILED15 = #{filed15,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed16 != null">
-        FILED16 = #{filed16,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed17 != null">
-        FILED17 = #{filed17,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed18 != null">
-        FILED18 = #{filed18,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed19 != null">
-        FILED19 = #{filed19,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed20 != null">
-        FILED20 = #{filed20,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbProductsearch">
-    update db_productsearch
-    set 'NAME' = #{name,jdbcType=VARCHAR},
-      OPER = #{oper,jdbcType=VARCHAR},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      OPENFLAG = #{openflag,jdbcType=VARCHAR},
-      FILED1 = #{filed1,jdbcType=DECIMAL},
-      FILED2 = #{filed2,jdbcType=DECIMAL},
-      FLAG1 = #{flag1,jdbcType=VARCHAR},
-      FLAG2 = #{flag2,jdbcType=VARCHAR},
-      FLAG3 = #{flag3,jdbcType=VARCHAR},
-      FLAG4 = #{flag4,jdbcType=VARCHAR},
-      FLAG5 = #{flag5,jdbcType=VARCHAR},
-      FLAG6 = #{flag6,jdbcType=VARCHAR},
-      FLAG7 = #{flag7,jdbcType=VARCHAR},
-      FLAG8 = #{flag8,jdbcType=VARCHAR},
-      FLAG9 = #{flag9,jdbcType=VARCHAR},
-      FLAG10 = #{flag10,jdbcType=VARCHAR},
-      FLAG11 = #{flag11,jdbcType=VARCHAR},
-      FLAG12 = #{flag12,jdbcType=VARCHAR},
-      FLAG13 = #{flag13,jdbcType=VARCHAR},
-      FLAG14 = #{flag14,jdbcType=VARCHAR},
-      FLAG15 = #{flag15,jdbcType=VARCHAR},
-      FLAG16 = #{flag16,jdbcType=VARCHAR},
-      FLAG17 = #{flag17,jdbcType=VARCHAR},
-      FLAG18 = #{flag18,jdbcType=VARCHAR},
-      FLAG19 = #{flag19,jdbcType=VARCHAR},
-      FLAG20 = #{flag20,jdbcType=VARCHAR},
-      DESCR = #{descr,jdbcType=LONGVARCHAR},
-      SQLFILTER1 = #{sqlfilter1,jdbcType=LONGVARCHAR},
-      SQLFILTER2 = #{sqlfilter2,jdbcType=LONGVARCHAR},
-      FILED3 = #{filed3,jdbcType=LONGVARCHAR},
-      FILED4 = #{filed4,jdbcType=LONGVARCHAR},
-      FILED5 = #{filed5,jdbcType=LONGVARCHAR},
-      FILED6 = #{filed6,jdbcType=LONGVARCHAR},
-      FILED7 = #{filed7,jdbcType=LONGVARCHAR},
-      FILED8 = #{filed8,jdbcType=LONGVARCHAR},
-      FILED9 = #{filed9,jdbcType=LONGVARCHAR},
-      FILED10 = #{filed10,jdbcType=LONGVARCHAR},
-      FILED11 = #{filed11,jdbcType=LONGVARCHAR},
-      FILED12 = #{filed12,jdbcType=LONGVARCHAR},
-      FILED13 = #{filed13,jdbcType=LONGVARCHAR},
-      FILED14 = #{filed14,jdbcType=LONGVARCHAR},
-      FILED15 = #{filed15,jdbcType=LONGVARCHAR},
-      FILED16 = #{filed16,jdbcType=LONGVARCHAR},
-      FILED17 = #{filed17,jdbcType=LONGVARCHAR},
-      FILED18 = #{filed18,jdbcType=LONGVARCHAR},
-      FILED19 = #{filed19,jdbcType=LONGVARCHAR},
-      FILED20 = #{filed20,jdbcType=LONGVARCHAR}
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbProductsearch">
-    update db_productsearch
-    set 'NAME' = #{name,jdbcType=VARCHAR},
-      OPER = #{oper,jdbcType=VARCHAR},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      OPENFLAG = #{openflag,jdbcType=VARCHAR},
-      FILED1 = #{filed1,jdbcType=DECIMAL},
-      FILED2 = #{filed2,jdbcType=DECIMAL},
-      FLAG1 = #{flag1,jdbcType=VARCHAR},
-      FLAG2 = #{flag2,jdbcType=VARCHAR},
-      FLAG3 = #{flag3,jdbcType=VARCHAR},
-      FLAG4 = #{flag4,jdbcType=VARCHAR},
-      FLAG5 = #{flag5,jdbcType=VARCHAR},
-      FLAG6 = #{flag6,jdbcType=VARCHAR},
-      FLAG7 = #{flag7,jdbcType=VARCHAR},
-      FLAG8 = #{flag8,jdbcType=VARCHAR},
-      FLAG9 = #{flag9,jdbcType=VARCHAR},
-      FLAG10 = #{flag10,jdbcType=VARCHAR},
-      FLAG11 = #{flag11,jdbcType=VARCHAR},
-      FLAG12 = #{flag12,jdbcType=VARCHAR},
-      FLAG13 = #{flag13,jdbcType=VARCHAR},
-      FLAG14 = #{flag14,jdbcType=VARCHAR},
-      FLAG15 = #{flag15,jdbcType=VARCHAR},
-      FLAG16 = #{flag16,jdbcType=VARCHAR},
-      FLAG17 = #{flag17,jdbcType=VARCHAR},
-      FLAG18 = #{flag18,jdbcType=VARCHAR},
-      FLAG19 = #{flag19,jdbcType=VARCHAR},
-      FLAG20 = #{flag20,jdbcType=VARCHAR}
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbProductsearch">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

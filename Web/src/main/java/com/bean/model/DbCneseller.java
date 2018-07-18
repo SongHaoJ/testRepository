@@ -12,6 +12,8 @@ public class DbCneseller implements Serializable {
 
     private String postcode;
 
+    private String contact;
+
     private String mobile;
 
     private String openflag;
@@ -23,6 +25,8 @@ public class DbCneseller implements Serializable {
     private String provinceen;
 
     private String name;
+
+    private String district;
 
     private String cityen;
 
@@ -36,15 +40,25 @@ public class DbCneseller implements Serializable {
 
     private String phone;
 
+    private String company;
+
     private String province;
 
     private String countryid;
 
+    private String districten;
+
     private String email;
+
+    private String streeten;
+
+    private String contacten;
 
     private String provinceid;
 
     private Date createtime;
+
+    private String companyen;
 
     private String reserve1;
 
@@ -56,6 +70,8 @@ public class DbCneseller implements Serializable {
 
     private String countryen;
 
+    private String street;
+
     private String tokentype;
 
     private String flag;
@@ -63,22 +79,6 @@ public class DbCneseller implements Serializable {
     private String password;
 
     private String districtid;
-
-    private String contact;
-
-    private String district;
-
-    private String company;
-
-    private String districten;
-
-    private String streeten;
-
-    private String contacten;
-
-    private String companyen;
-
-    private String street;
 
     private static final long serialVersionUID = 1L;
 
@@ -112,6 +112,14 @@ public class DbCneseller implements Serializable {
 
     public void setPostcode(String postcode) {
         this.postcode = postcode == null ? null : postcode.trim();
+    }
+
+    public String getContact() {
+        return contact;
+    }
+
+    public void setContact(String contact) {
+        this.contact = contact == null ? null : contact.trim();
     }
 
     public String getMobile() {
@@ -162,6 +170,14 @@ public class DbCneseller implements Serializable {
         this.name = name == null ? null : name.trim();
     }
 
+    public String getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(String district) {
+        this.district = district == null ? null : district.trim();
+    }
+
     public String getCityen() {
         return cityen;
     }
@@ -210,6 +226,14 @@ public class DbCneseller implements Serializable {
         this.phone = phone == null ? null : phone.trim();
     }
 
+    public String getCompany() {
+        return company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company == null ? null : company.trim();
+    }
+
     public String getProvince() {
         return province;
     }
@@ -226,12 +250,36 @@ public class DbCneseller implements Serializable {
         this.countryid = countryid == null ? null : countryid.trim();
     }
 
+    public String getDistricten() {
+        return districten;
+    }
+
+    public void setDistricten(String districten) {
+        this.districten = districten == null ? null : districten.trim();
+    }
+
     public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
         this.email = email == null ? null : email.trim();
+    }
+
+    public String getStreeten() {
+        return streeten;
+    }
+
+    public void setStreeten(String streeten) {
+        this.streeten = streeten == null ? null : streeten.trim();
+    }
+
+    public String getContacten() {
+        return contacten;
+    }
+
+    public void setContacten(String contacten) {
+        this.contacten = contacten == null ? null : contacten.trim();
     }
 
     public String getProvinceid() {
@@ -248,6 +296,14 @@ public class DbCneseller implements Serializable {
 
     public void setCreatetime(Date createtime) {
         this.createtime = createtime;
+    }
+
+    public String getCompanyen() {
+        return companyen;
+    }
+
+    public void setCompanyen(String companyen) {
+        this.companyen = companyen == null ? null : companyen.trim();
     }
 
     public String getReserve1() {
@@ -290,6 +346,14 @@ public class DbCneseller implements Serializable {
         this.countryen = countryen == null ? null : countryen.trim();
     }
 
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street == null ? null : street.trim();
+    }
+
     public String getTokentype() {
         return tokentype;
     }
@@ -322,70 +386,6 @@ public class DbCneseller implements Serializable {
         this.districtid = districtid == null ? null : districtid.trim();
     }
 
-    public String getContact() {
-        return contact;
-    }
-
-    public void setContact(String contact) {
-        this.contact = contact == null ? null : contact.trim();
-    }
-
-    public String getDistrict() {
-        return district;
-    }
-
-    public void setDistrict(String district) {
-        this.district = district == null ? null : district.trim();
-    }
-
-    public String getCompany() {
-        return company;
-    }
-
-    public void setCompany(String company) {
-        this.company = company == null ? null : company.trim();
-    }
-
-    public String getDistricten() {
-        return districten;
-    }
-
-    public void setDistricten(String districten) {
-        this.districten = districten == null ? null : districten.trim();
-    }
-
-    public String getStreeten() {
-        return streeten;
-    }
-
-    public void setStreeten(String streeten) {
-        this.streeten = streeten == null ? null : streeten.trim();
-    }
-
-    public String getContacten() {
-        return contacten;
-    }
-
-    public void setContacten(String contacten) {
-        this.contacten = contacten == null ? null : contacten.trim();
-    }
-
-    public String getCompanyen() {
-        return companyen;
-    }
-
-    public void setCompanyen(String companyen) {
-        this.companyen = companyen == null ? null : companyen.trim();
-    }
-
-    public String getStreet() {
-        return street;
-    }
-
-    public void setStreet(String street) {
-        this.street = street == null ? null : street.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -402,40 +402,40 @@ public class DbCneseller implements Serializable {
             && (this.getTokenid() == null ? other.getTokenid() == null : this.getTokenid().equals(other.getTokenid()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getPostcode() == null ? other.getPostcode() == null : this.getPostcode().equals(other.getPostcode()))
+            && (this.getContact() == null ? other.getContact() == null : this.getContact().equals(other.getContact()))
             && (this.getMobile() == null ? other.getMobile() == null : this.getMobile().equals(other.getMobile()))
             && (this.getOpenflag() == null ? other.getOpenflag() == null : this.getOpenflag().equals(other.getOpenflag()))
             && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
             && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
             && (this.getProvinceen() == null ? other.getProvinceen() == null : this.getProvinceen().equals(other.getProvinceen()))
             && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
+            && (this.getDistrict() == null ? other.getDistrict() == null : this.getDistrict().equals(other.getDistrict()))
             && (this.getCityen() == null ? other.getCityen() == null : this.getCityen().equals(other.getCityen()))
             && (this.getUsername() == null ? other.getUsername() == null : this.getUsername().equals(other.getUsername()))
             && (this.getCityid() == null ? other.getCityid() == null : this.getCityid().equals(other.getCityid()))
             && (this.getPostcode2() == null ? other.getPostcode2() == null : this.getPostcode2().equals(other.getPostcode2()))
             && (this.getCity() == null ? other.getCity() == null : this.getCity().equals(other.getCity()))
             && (this.getPhone() == null ? other.getPhone() == null : this.getPhone().equals(other.getPhone()))
+            && (this.getCompany() == null ? other.getCompany() == null : this.getCompany().equals(other.getCompany()))
             && (this.getProvince() == null ? other.getProvince() == null : this.getProvince().equals(other.getProvince()))
             && (this.getCountryid() == null ? other.getCountryid() == null : this.getCountryid().equals(other.getCountryid()))
+            && (this.getDistricten() == null ? other.getDistricten() == null : this.getDistricten().equals(other.getDistricten()))
             && (this.getEmail() == null ? other.getEmail() == null : this.getEmail().equals(other.getEmail()))
+            && (this.getStreeten() == null ? other.getStreeten() == null : this.getStreeten().equals(other.getStreeten()))
+            && (this.getContacten() == null ? other.getContacten() == null : this.getContacten().equals(other.getContacten()))
             && (this.getProvinceid() == null ? other.getProvinceid() == null : this.getProvinceid().equals(other.getProvinceid()))
             && (this.getCreatetime() == null ? other.getCreatetime() == null : this.getCreatetime().equals(other.getCreatetime()))
+            && (this.getCompanyen() == null ? other.getCompanyen() == null : this.getCompanyen().equals(other.getCompanyen()))
             && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
             && (this.getReserve4() == null ? other.getReserve4() == null : this.getReserve4().equals(other.getReserve4()))
             && (this.getCountry() == null ? other.getCountry() == null : this.getCountry().equals(other.getCountry()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
             && (this.getCountryen() == null ? other.getCountryen() == null : this.getCountryen().equals(other.getCountryen()))
+            && (this.getStreet() == null ? other.getStreet() == null : this.getStreet().equals(other.getStreet()))
             && (this.getTokentype() == null ? other.getTokentype() == null : this.getTokentype().equals(other.getTokentype()))
             && (this.getFlag() == null ? other.getFlag() == null : this.getFlag().equals(other.getFlag()))
             && (this.getPassword() == null ? other.getPassword() == null : this.getPassword().equals(other.getPassword()))
-            && (this.getDistrictid() == null ? other.getDistrictid() == null : this.getDistrictid().equals(other.getDistrictid()))
-            && (this.getContact() == null ? other.getContact() == null : this.getContact().equals(other.getContact()))
-            && (this.getDistrict() == null ? other.getDistrict() == null : this.getDistrict().equals(other.getDistrict()))
-            && (this.getCompany() == null ? other.getCompany() == null : this.getCompany().equals(other.getCompany()))
-            && (this.getDistricten() == null ? other.getDistricten() == null : this.getDistricten().equals(other.getDistricten()))
-            && (this.getStreeten() == null ? other.getStreeten() == null : this.getStreeten().equals(other.getStreeten()))
-            && (this.getContacten() == null ? other.getContacten() == null : this.getContacten().equals(other.getContacten()))
-            && (this.getCompanyen() == null ? other.getCompanyen() == null : this.getCompanyen().equals(other.getCompanyen()))
-            && (this.getStreet() == null ? other.getStreet() == null : this.getStreet().equals(other.getStreet()));
+            && (this.getDistrictid() == null ? other.getDistrictid() == null : this.getDistrictid().equals(other.getDistrictid()));
     }
 
     @Override
@@ -446,40 +446,40 @@ public class DbCneseller implements Serializable {
         result = prime * result + ((getTokenid() == null) ? 0 : getTokenid().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getPostcode() == null) ? 0 : getPostcode().hashCode());
+        result = prime * result + ((getContact() == null) ? 0 : getContact().hashCode());
         result = prime * result + ((getMobile() == null) ? 0 : getMobile().hashCode());
         result = prime * result + ((getOpenflag() == null) ? 0 : getOpenflag().hashCode());
         result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
         result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
         result = prime * result + ((getProvinceen() == null) ? 0 : getProvinceen().hashCode());
         result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
+        result = prime * result + ((getDistrict() == null) ? 0 : getDistrict().hashCode());
         result = prime * result + ((getCityen() == null) ? 0 : getCityen().hashCode());
         result = prime * result + ((getUsername() == null) ? 0 : getUsername().hashCode());
         result = prime * result + ((getCityid() == null) ? 0 : getCityid().hashCode());
         result = prime * result + ((getPostcode2() == null) ? 0 : getPostcode2().hashCode());
         result = prime * result + ((getCity() == null) ? 0 : getCity().hashCode());
         result = prime * result + ((getPhone() == null) ? 0 : getPhone().hashCode());
+        result = prime * result + ((getCompany() == null) ? 0 : getCompany().hashCode());
         result = prime * result + ((getProvince() == null) ? 0 : getProvince().hashCode());
         result = prime * result + ((getCountryid() == null) ? 0 : getCountryid().hashCode());
+        result = prime * result + ((getDistricten() == null) ? 0 : getDistricten().hashCode());
         result = prime * result + ((getEmail() == null) ? 0 : getEmail().hashCode());
+        result = prime * result + ((getStreeten() == null) ? 0 : getStreeten().hashCode());
+        result = prime * result + ((getContacten() == null) ? 0 : getContacten().hashCode());
         result = prime * result + ((getProvinceid() == null) ? 0 : getProvinceid().hashCode());
         result = prime * result + ((getCreatetime() == null) ? 0 : getCreatetime().hashCode());
+        result = prime * result + ((getCompanyen() == null) ? 0 : getCompanyen().hashCode());
         result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
         result = prime * result + ((getReserve4() == null) ? 0 : getReserve4().hashCode());
         result = prime * result + ((getCountry() == null) ? 0 : getCountry().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getCountryen() == null) ? 0 : getCountryen().hashCode());
+        result = prime * result + ((getStreet() == null) ? 0 : getStreet().hashCode());
         result = prime * result + ((getTokentype() == null) ? 0 : getTokentype().hashCode());
         result = prime * result + ((getFlag() == null) ? 0 : getFlag().hashCode());
         result = prime * result + ((getPassword() == null) ? 0 : getPassword().hashCode());
         result = prime * result + ((getDistrictid() == null) ? 0 : getDistrictid().hashCode());
-        result = prime * result + ((getContact() == null) ? 0 : getContact().hashCode());
-        result = prime * result + ((getDistrict() == null) ? 0 : getDistrict().hashCode());
-        result = prime * result + ((getCompany() == null) ? 0 : getCompany().hashCode());
-        result = prime * result + ((getDistricten() == null) ? 0 : getDistricten().hashCode());
-        result = prime * result + ((getStreeten() == null) ? 0 : getStreeten().hashCode());
-        result = prime * result + ((getContacten() == null) ? 0 : getContacten().hashCode());
-        result = prime * result + ((getCompanyen() == null) ? 0 : getCompanyen().hashCode());
-        result = prime * result + ((getStreet() == null) ? 0 : getStreet().hashCode());
         return result;
     }
 
@@ -493,40 +493,40 @@ public class DbCneseller implements Serializable {
         sb.append(", tokenid=").append(tokenid);
         sb.append(", oper=").append(oper);
         sb.append(", postcode=").append(postcode);
+        sb.append(", contact=").append(contact);
         sb.append(", mobile=").append(mobile);
         sb.append(", openflag=").append(openflag);
         sb.append(", reserve3=").append(reserve3);
         sb.append(", reserve2=").append(reserve2);
         sb.append(", provinceen=").append(provinceen);
         sb.append(", name=").append(name);
+        sb.append(", district=").append(district);
         sb.append(", cityen=").append(cityen);
         sb.append(", username=").append(username);
         sb.append(", cityid=").append(cityid);
         sb.append(", postcode2=").append(postcode2);
         sb.append(", city=").append(city);
         sb.append(", phone=").append(phone);
+        sb.append(", company=").append(company);
         sb.append(", province=").append(province);
         sb.append(", countryid=").append(countryid);
+        sb.append(", districten=").append(districten);
         sb.append(", email=").append(email);
+        sb.append(", streeten=").append(streeten);
+        sb.append(", contacten=").append(contacten);
         sb.append(", provinceid=").append(provinceid);
         sb.append(", createtime=").append(createtime);
+        sb.append(", companyen=").append(companyen);
         sb.append(", reserve1=").append(reserve1);
         sb.append(", reserve4=").append(reserve4);
         sb.append(", country=").append(country);
         sb.append(", opertime=").append(opertime);
         sb.append(", countryen=").append(countryen);
+        sb.append(", street=").append(street);
         sb.append(", tokentype=").append(tokentype);
         sb.append(", flag=").append(flag);
         sb.append(", password=").append(password);
         sb.append(", districtid=").append(districtid);
-        sb.append(", contact=").append(contact);
-        sb.append(", district=").append(district);
-        sb.append(", company=").append(company);
-        sb.append(", districten=").append(districten);
-        sb.append(", streeten=").append(streeten);
-        sb.append(", contacten=").append(contacten);
-        sb.append(", companyen=").append(companyen);
-        sb.append(", street=").append(street);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

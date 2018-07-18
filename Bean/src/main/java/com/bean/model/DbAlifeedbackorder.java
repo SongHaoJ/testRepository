@@ -10,11 +10,11 @@ public class DbAlifeedbackorder implements Serializable {
 
     private String flag;
 
+    private String descr;
+
     private String shopid;
 
     private String updateflag;
-
-    private String descr;
 
     private static final long serialVersionUID = 1L;
 
@@ -42,6 +42,14 @@ public class DbAlifeedbackorder implements Serializable {
         this.flag = flag == null ? null : flag.trim();
     }
 
+    public String getDescr() {
+        return descr;
+    }
+
+    public void setDescr(String descr) {
+        this.descr = descr == null ? null : descr.trim();
+    }
+
     public String getShopid() {
         return shopid;
     }
@@ -56,14 +64,6 @@ public class DbAlifeedbackorder implements Serializable {
 
     public void setUpdateflag(String updateflag) {
         this.updateflag = updateflag == null ? null : updateflag.trim();
-    }
-
-    public String getDescr() {
-        return descr;
-    }
-
-    public void setDescr(String descr) {
-        this.descr = descr == null ? null : descr.trim();
     }
 
     @Override
@@ -81,9 +81,9 @@ public class DbAlifeedbackorder implements Serializable {
         return (this.getTradeid() == null ? other.getTradeid() == null : this.getTradeid().equals(other.getTradeid()))
             && (this.getFeedbacktime() == null ? other.getFeedbacktime() == null : this.getFeedbacktime().equals(other.getFeedbacktime()))
             && (this.getFlag() == null ? other.getFlag() == null : this.getFlag().equals(other.getFlag()))
+            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
             && (this.getShopid() == null ? other.getShopid() == null : this.getShopid().equals(other.getShopid()))
-            && (this.getUpdateflag() == null ? other.getUpdateflag() == null : this.getUpdateflag().equals(other.getUpdateflag()))
-            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()));
+            && (this.getUpdateflag() == null ? other.getUpdateflag() == null : this.getUpdateflag().equals(other.getUpdateflag()));
     }
 
     @Override
@@ -93,9 +93,9 @@ public class DbAlifeedbackorder implements Serializable {
         result = prime * result + ((getTradeid() == null) ? 0 : getTradeid().hashCode());
         result = prime * result + ((getFeedbacktime() == null) ? 0 : getFeedbacktime().hashCode());
         result = prime * result + ((getFlag() == null) ? 0 : getFlag().hashCode());
+        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
         result = prime * result + ((getShopid() == null) ? 0 : getShopid().hashCode());
         result = prime * result + ((getUpdateflag() == null) ? 0 : getUpdateflag().hashCode());
-        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
         return result;
     }
 
@@ -108,9 +108,9 @@ public class DbAlifeedbackorder implements Serializable {
         sb.append(", tradeid=").append(tradeid);
         sb.append(", feedbacktime=").append(feedbacktime);
         sb.append(", flag=").append(flag);
+        sb.append(", descr=").append(descr);
         sb.append(", shopid=").append(shopid);
         sb.append(", updateflag=").append(updateflag);
-        sb.append(", descr=").append(descr);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

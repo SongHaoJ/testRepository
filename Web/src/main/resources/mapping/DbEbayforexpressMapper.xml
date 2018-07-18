@@ -16,16 +16,16 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select SEQUENCEID, OPER, EBAYEXPRESSTYPE, EBAYEXPRESSID, MABANGEXPRESSID, OPENFLAG, 
     OPERTIME, MABANGEXPRESSTYPE, SITE, SITEFLAG
-    from db_ebayforexpress
+    from DB_EBAYFOREXPRESS
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SEQUENCEID, OPER, EBAYEXPRESSTYPE, EBAYEXPRESSID, MABANGEXPRESSID, OPENFLAG, 
     OPERTIME, MABANGEXPRESSTYPE, SITE, SITEFLAG
-    from db_ebayforexpress
+    from DB_EBAYFOREXPRESS
   </select>
   <sql id="TableName">
-    db_ebayforexpress
+    DB_EBAYFOREXPRESS
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=VARCHAR} , 
@@ -37,7 +37,7 @@
      #{opertime,jdbcType=TIMESTAMP} , 
      #{mabangexpresstype,jdbcType=VARCHAR} , 
      #{site,jdbcType=VARCHAR} , 
-     #{siteflag,jdbcType=VARCHAR}
+     #{siteflag,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
@@ -49,73 +49,73 @@
     OPERTIME , 
     MABANGEXPRESSTYPE , 
     SITE , 
-    SITEFLAG
+    SITEFLAG , 
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
+      oper = #{oper,jdbcType=VARCHAR} and 
     </if>
     <if test="ebayexpresstype != null">
-      EBAYEXPRESSTYPE = #{ebayexpresstype,jdbcType=VARCHAR} and 
+      ebayexpresstype = #{ebayexpresstype,jdbcType=VARCHAR} and 
     </if>
     <if test="ebayexpressid != null">
-      EBAYEXPRESSID = #{ebayexpressid,jdbcType=VARCHAR} and 
+      ebayexpressid = #{ebayexpressid,jdbcType=VARCHAR} and 
     </if>
     <if test="mabangexpressid != null">
-      MABANGEXPRESSID = #{mabangexpressid,jdbcType=VARCHAR} and 
+      mabangexpressid = #{mabangexpressid,jdbcType=VARCHAR} and 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
+      openflag = #{openflag,jdbcType=VARCHAR} and 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="mabangexpresstype != null">
-      MABANGEXPRESSTYPE = #{mabangexpresstype,jdbcType=VARCHAR} and 
+      mabangexpresstype = #{mabangexpresstype,jdbcType=VARCHAR} and 
     </if>
     <if test="site != null">
-      SITE = #{site,jdbcType=VARCHAR} and 
+      site = #{site,jdbcType=VARCHAR} and 
     </if>
     <if test="siteflag != null">
-      SITEFLAG = #{siteflag,jdbcType=VARCHAR}
+      siteflag = #{siteflag,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
+      oper = #{oper,jdbcType=VARCHAR} , 
     </if>
     <if test="ebayexpresstype != null">
-      EBAYEXPRESSTYPE = #{ebayexpresstype,jdbcType=VARCHAR} , 
+      ebayexpresstype = #{ebayexpresstype,jdbcType=VARCHAR} , 
     </if>
     <if test="ebayexpressid != null">
-      EBAYEXPRESSID = #{ebayexpressid,jdbcType=VARCHAR} , 
+      ebayexpressid = #{ebayexpressid,jdbcType=VARCHAR} , 
     </if>
     <if test="mabangexpressid != null">
-      MABANGEXPRESSID = #{mabangexpressid,jdbcType=VARCHAR} , 
+      mabangexpressid = #{mabangexpressid,jdbcType=VARCHAR} , 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
+      openflag = #{openflag,jdbcType=VARCHAR} , 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="mabangexpresstype != null">
-      MABANGEXPRESSTYPE = #{mabangexpresstype,jdbcType=VARCHAR} , 
+      mabangexpresstype = #{mabangexpresstype,jdbcType=VARCHAR} , 
     </if>
     <if test="site != null">
-      SITE = #{site,jdbcType=VARCHAR} , 
+      site = #{site,jdbcType=VARCHAR} , 
     </if>
     <if test="siteflag != null">
-      SITEFLAG = #{siteflag,jdbcType=VARCHAR}
+      siteflag = #{siteflag,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbEbayforexpress" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

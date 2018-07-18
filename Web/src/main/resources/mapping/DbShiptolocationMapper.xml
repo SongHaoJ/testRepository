@@ -9,57 +9,57 @@
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select SID, EBAYITEMID, EBAYSHIPTO, FLAG
-    from db_shiptolocation
+    from DB_SHIPTOLOCATION
     where SID = #{sid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SID, EBAYITEMID, EBAYSHIPTO, FLAG
-    from db_shiptolocation
+    from DB_SHIPTOLOCATION
   </select>
   <sql id="TableName">
-    db_shiptolocation
+    DB_SHIPTOLOCATION
   </sql>
   <sql id="Values">
      #{sid,jdbcType=VARCHAR} , 
      #{ebayitemid,jdbcType=VARCHAR} , 
      #{ebayshipto,jdbcType=VARCHAR} , 
-     #{flag,jdbcType=VARCHAR}
+     #{flag,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     SID , 
     EBAYITEMID , 
     EBAYSHIPTO , 
-    FLAG
+    FLAG , 
   </sql>
   <sql id="Criteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} and 
+      sid = #{sid,jdbcType=VARCHAR} and 
     </if>
     <if test="ebayitemid != null">
-      EBAYITEMID = #{ebayitemid,jdbcType=VARCHAR} and 
+      ebayitemid = #{ebayitemid,jdbcType=VARCHAR} and 
     </if>
     <if test="ebayshipto != null">
-      EBAYSHIPTO = #{ebayshipto,jdbcType=VARCHAR} and 
+      ebayshipto = #{ebayshipto,jdbcType=VARCHAR} and 
     </if>
     <if test="flag != null">
-      FLAG = #{flag,jdbcType=VARCHAR}
+      flag = #{flag,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} , 
+      sid = #{sid,jdbcType=VARCHAR} , 
     </if>
     <if test="ebayitemid != null">
-      EBAYITEMID = #{ebayitemid,jdbcType=VARCHAR} , 
+      ebayitemid = #{ebayitemid,jdbcType=VARCHAR} , 
     </if>
     <if test="ebayshipto != null">
-      EBAYSHIPTO = #{ebayshipto,jdbcType=VARCHAR} , 
+      ebayshipto = #{ebayshipto,jdbcType=VARCHAR} , 
     </if>
     <if test="flag != null">
-      FLAG = #{flag,jdbcType=VARCHAR}
+      flag = #{flag,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbShiptolocation" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

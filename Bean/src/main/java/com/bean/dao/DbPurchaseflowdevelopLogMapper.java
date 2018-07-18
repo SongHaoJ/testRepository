@@ -1,20 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbPurchaseflowdevelopLog;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbPurchaseflowdevelopLogMapper {
-    int deleteByPrimaryKey(BigDecimal sequenceid);
+    DbPurchaseflowdevelopLog selectByCriteria(DbPurchaseflowdevelopLog DbPurchaseflowdevelopLog);
 
-    int insert(DbPurchaseflowdevelopLog record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbPurchaseflowdevelopLog record);
+    void deleteByCriteria(DbPurchaseflowdevelopLog DbPurchaseflowdevelopLog);
+
+    int insertByCriteria(DbPurchaseflowdevelopLog DbPurchaseflowdevelopLog);
+
+    int updateByCriteria(DbPurchaseflowdevelopLog DbPurchaseflowdevelopLog);
 
     DbPurchaseflowdevelopLog selectByPrimaryKey(BigDecimal sequenceid);
 
-    int updateByPrimaryKeySelective(DbPurchaseflowdevelopLog record);
-
-    int updateByPrimaryKeyWithBLOBs(DbPurchaseflowdevelopLog record);
-
-    int updateByPrimaryKey(DbPurchaseflowdevelopLog record);
+    List<DbPurchaseflowdevelopLog> selectAll();
 }

@@ -6,11 +6,11 @@ import java.util.Date;
 public class DbBacknote implements Serializable {
     private String sequenceid;
 
+    private String name;
+
     private String oper;
 
     private Date opertime;
-
-    private String name;
 
     private static final long serialVersionUID = 1L;
 
@@ -20,6 +20,14 @@ public class DbBacknote implements Serializable {
 
     public void setSequenceid(String sequenceid) {
         this.sequenceid = sequenceid == null ? null : sequenceid.trim();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
     }
 
     public String getOper() {
@@ -38,14 +46,6 @@ public class DbBacknote implements Serializable {
         this.opertime = opertime;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -59,9 +59,9 @@ public class DbBacknote implements Serializable {
         }
         DbBacknote other = (DbBacknote) that;
         return (this.getSequenceid() == null ? other.getSequenceid() == null : this.getSequenceid().equals(other.getSequenceid()))
+            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
-            && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
-            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()));
+            && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()));
     }
 
     @Override
@@ -69,9 +69,9 @@ public class DbBacknote implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getSequenceid() == null) ? 0 : getSequenceid().hashCode());
+        result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
-        result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
         return result;
     }
 
@@ -82,9 +82,9 @@ public class DbBacknote implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", sequenceid=").append(sequenceid);
+        sb.append(", name=").append(name);
         sb.append(", oper=").append(oper);
         sb.append(", opertime=").append(opertime);
-        sb.append(", name=").append(name);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

@@ -7,7 +7,15 @@ import java.util.Date;
 public class DbProject implements Serializable {
     private String sid;
 
+    private String name;
+
     private String descr;
+
+    private String shoptype;
+
+    private String salesource;
+
+    private String productid;
 
     private String flag;
 
@@ -29,22 +37,6 @@ public class DbProject implements Serializable {
 
     private String publicgroup;
 
-    private String reserve5;
-
-    private Date endtime;
-
-    private BigDecimal datediff;
-
-    private String corpid;
-
-    private String name;
-
-    private String shoptype;
-
-    private String salesource;
-
-    private String productid;
-
     private String reserve1;
 
     private String reserve2;
@@ -52,6 +44,14 @@ public class DbProject implements Serializable {
     private String reserve3;
 
     private String reserve4;
+
+    private String reserve5;
+
+    private Date endtime;
+
+    private BigDecimal datediff;
+
+    private String corpid;
 
     private String productsku;
 
@@ -65,12 +65,44 @@ public class DbProject implements Serializable {
         this.sid = sid == null ? null : sid.trim();
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
+    }
+
     public String getDescr() {
         return descr;
     }
 
     public void setDescr(String descr) {
         this.descr = descr == null ? null : descr.trim();
+    }
+
+    public String getShoptype() {
+        return shoptype;
+    }
+
+    public void setShoptype(String shoptype) {
+        this.shoptype = shoptype == null ? null : shoptype.trim();
+    }
+
+    public String getSalesource() {
+        return salesource;
+    }
+
+    public void setSalesource(String salesource) {
+        this.salesource = salesource == null ? null : salesource.trim();
+    }
+
+    public String getProductid() {
+        return productid;
+    }
+
+    public void setProductid(String productid) {
+        this.productid = productid == null ? null : productid.trim();
     }
 
     public String getFlag() {
@@ -153,70 +185,6 @@ public class DbProject implements Serializable {
         this.publicgroup = publicgroup == null ? null : publicgroup.trim();
     }
 
-    public String getReserve5() {
-        return reserve5;
-    }
-
-    public void setReserve5(String reserve5) {
-        this.reserve5 = reserve5 == null ? null : reserve5.trim();
-    }
-
-    public Date getEndtime() {
-        return endtime;
-    }
-
-    public void setEndtime(Date endtime) {
-        this.endtime = endtime;
-    }
-
-    public BigDecimal getDatediff() {
-        return datediff;
-    }
-
-    public void setDatediff(BigDecimal datediff) {
-        this.datediff = datediff;
-    }
-
-    public String getCorpid() {
-        return corpid;
-    }
-
-    public void setCorpid(String corpid) {
-        this.corpid = corpid == null ? null : corpid.trim();
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
-    }
-
-    public String getShoptype() {
-        return shoptype;
-    }
-
-    public void setShoptype(String shoptype) {
-        this.shoptype = shoptype == null ? null : shoptype.trim();
-    }
-
-    public String getSalesource() {
-        return salesource;
-    }
-
-    public void setSalesource(String salesource) {
-        this.salesource = salesource == null ? null : salesource.trim();
-    }
-
-    public String getProductid() {
-        return productid;
-    }
-
-    public void setProductid(String productid) {
-        this.productid = productid == null ? null : productid.trim();
-    }
-
     public String getReserve1() {
         return reserve1;
     }
@@ -249,6 +217,38 @@ public class DbProject implements Serializable {
         this.reserve4 = reserve4 == null ? null : reserve4.trim();
     }
 
+    public String getReserve5() {
+        return reserve5;
+    }
+
+    public void setReserve5(String reserve5) {
+        this.reserve5 = reserve5 == null ? null : reserve5.trim();
+    }
+
+    public Date getEndtime() {
+        return endtime;
+    }
+
+    public void setEndtime(Date endtime) {
+        this.endtime = endtime;
+    }
+
+    public BigDecimal getDatediff() {
+        return datediff;
+    }
+
+    public void setDatediff(BigDecimal datediff) {
+        this.datediff = datediff;
+    }
+
+    public String getCorpid() {
+        return corpid;
+    }
+
+    public void setCorpid(String corpid) {
+        this.corpid = corpid == null ? null : corpid.trim();
+    }
+
     public String getProductsku() {
         return productsku;
     }
@@ -270,7 +270,11 @@ public class DbProject implements Serializable {
         }
         DbProject other = (DbProject) that;
         return (this.getSid() == null ? other.getSid() == null : this.getSid().equals(other.getSid()))
+            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
             && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
+            && (this.getShoptype() == null ? other.getShoptype() == null : this.getShoptype().equals(other.getShoptype()))
+            && (this.getSalesource() == null ? other.getSalesource() == null : this.getSalesource().equals(other.getSalesource()))
+            && (this.getProductid() == null ? other.getProductid() == null : this.getProductid().equals(other.getProductid()))
             && (this.getFlag() == null ? other.getFlag() == null : this.getFlag().equals(other.getFlag()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
@@ -281,18 +285,14 @@ public class DbProject implements Serializable {
             && (this.getDesigngroup() == null ? other.getDesigngroup() == null : this.getDesigngroup().equals(other.getDesigngroup()))
             && (this.getCheckgroup() == null ? other.getCheckgroup() == null : this.getCheckgroup().equals(other.getCheckgroup()))
             && (this.getPublicgroup() == null ? other.getPublicgroup() == null : this.getPublicgroup().equals(other.getPublicgroup()))
-            && (this.getReserve5() == null ? other.getReserve5() == null : this.getReserve5().equals(other.getReserve5()))
-            && (this.getEndtime() == null ? other.getEndtime() == null : this.getEndtime().equals(other.getEndtime()))
-            && (this.getDatediff() == null ? other.getDatediff() == null : this.getDatediff().equals(other.getDatediff()))
-            && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()))
-            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
-            && (this.getShoptype() == null ? other.getShoptype() == null : this.getShoptype().equals(other.getShoptype()))
-            && (this.getSalesource() == null ? other.getSalesource() == null : this.getSalesource().equals(other.getSalesource()))
-            && (this.getProductid() == null ? other.getProductid() == null : this.getProductid().equals(other.getProductid()))
             && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
             && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
             && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
             && (this.getReserve4() == null ? other.getReserve4() == null : this.getReserve4().equals(other.getReserve4()))
+            && (this.getReserve5() == null ? other.getReserve5() == null : this.getReserve5().equals(other.getReserve5()))
+            && (this.getEndtime() == null ? other.getEndtime() == null : this.getEndtime().equals(other.getEndtime()))
+            && (this.getDatediff() == null ? other.getDatediff() == null : this.getDatediff().equals(other.getDatediff()))
+            && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()))
             && (this.getProductsku() == null ? other.getProductsku() == null : this.getProductsku().equals(other.getProductsku()));
     }
 
@@ -301,7 +301,11 @@ public class DbProject implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getSid() == null) ? 0 : getSid().hashCode());
+        result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
         result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
+        result = prime * result + ((getShoptype() == null) ? 0 : getShoptype().hashCode());
+        result = prime * result + ((getSalesource() == null) ? 0 : getSalesource().hashCode());
+        result = prime * result + ((getProductid() == null) ? 0 : getProductid().hashCode());
         result = prime * result + ((getFlag() == null) ? 0 : getFlag().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
@@ -312,18 +316,14 @@ public class DbProject implements Serializable {
         result = prime * result + ((getDesigngroup() == null) ? 0 : getDesigngroup().hashCode());
         result = prime * result + ((getCheckgroup() == null) ? 0 : getCheckgroup().hashCode());
         result = prime * result + ((getPublicgroup() == null) ? 0 : getPublicgroup().hashCode());
-        result = prime * result + ((getReserve5() == null) ? 0 : getReserve5().hashCode());
-        result = prime * result + ((getEndtime() == null) ? 0 : getEndtime().hashCode());
-        result = prime * result + ((getDatediff() == null) ? 0 : getDatediff().hashCode());
-        result = prime * result + ((getCorpid() == null) ? 0 : getCorpid().hashCode());
-        result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
-        result = prime * result + ((getShoptype() == null) ? 0 : getShoptype().hashCode());
-        result = prime * result + ((getSalesource() == null) ? 0 : getSalesource().hashCode());
-        result = prime * result + ((getProductid() == null) ? 0 : getProductid().hashCode());
         result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
         result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
         result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
         result = prime * result + ((getReserve4() == null) ? 0 : getReserve4().hashCode());
+        result = prime * result + ((getReserve5() == null) ? 0 : getReserve5().hashCode());
+        result = prime * result + ((getEndtime() == null) ? 0 : getEndtime().hashCode());
+        result = prime * result + ((getDatediff() == null) ? 0 : getDatediff().hashCode());
+        result = prime * result + ((getCorpid() == null) ? 0 : getCorpid().hashCode());
         result = prime * result + ((getProductsku() == null) ? 0 : getProductsku().hashCode());
         return result;
     }
@@ -335,7 +335,11 @@ public class DbProject implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", sid=").append(sid);
+        sb.append(", name=").append(name);
         sb.append(", descr=").append(descr);
+        sb.append(", shoptype=").append(shoptype);
+        sb.append(", salesource=").append(salesource);
+        sb.append(", productid=").append(productid);
         sb.append(", flag=").append(flag);
         sb.append(", oper=").append(oper);
         sb.append(", opertime=").append(opertime);
@@ -346,18 +350,14 @@ public class DbProject implements Serializable {
         sb.append(", designgroup=").append(designgroup);
         sb.append(", checkgroup=").append(checkgroup);
         sb.append(", publicgroup=").append(publicgroup);
-        sb.append(", reserve5=").append(reserve5);
-        sb.append(", endtime=").append(endtime);
-        sb.append(", datediff=").append(datediff);
-        sb.append(", corpid=").append(corpid);
-        sb.append(", name=").append(name);
-        sb.append(", shoptype=").append(shoptype);
-        sb.append(", salesource=").append(salesource);
-        sb.append(", productid=").append(productid);
         sb.append(", reserve1=").append(reserve1);
         sb.append(", reserve2=").append(reserve2);
         sb.append(", reserve3=").append(reserve3);
         sb.append(", reserve4=").append(reserve4);
+        sb.append(", reserve5=").append(reserve5);
+        sb.append(", endtime=").append(endtime);
+        sb.append(", datediff=").append(datediff);
+        sb.append(", corpid=").append(corpid);
         sb.append(", productsku=").append(productsku);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");

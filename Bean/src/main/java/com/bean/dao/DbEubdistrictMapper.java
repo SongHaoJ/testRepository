@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbEubdistrict;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbEubdistrictMapper {
-    int deleteByPrimaryKey(String ditid);
+    DbEubdistrict selectByCriteria(DbEubdistrict DbEubdistrict);
 
-    int insert(DbEubdistrict record);
+    void deleteByPrimaryKey(String DITID);
 
-    int insertSelective(DbEubdistrict record);
+    void deleteByCriteria(DbEubdistrict DbEubdistrict);
+
+    int insertByCriteria(DbEubdistrict DbEubdistrict);
+
+    int updateByCriteria(DbEubdistrict DbEubdistrict);
 
     DbEubdistrict selectByPrimaryKey(String ditid);
 
-    int updateByPrimaryKeySelective(DbEubdistrict record);
-
-    int updateByPrimaryKey(DbEubdistrict record);
+    List<DbEubdistrict> selectAll();
 }

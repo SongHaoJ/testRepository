@@ -45,6 +45,8 @@ public class DbExpressapiuser implements Serializable {
 
     private BigDecimal flag1;
 
+    private String address1;
+
     private String email;
 
     private String token3;
@@ -57,6 +59,8 @@ public class DbExpressapiuser implements Serializable {
 
     private Date opertime;
 
+    private String address;
+
     private BigDecimal accounttype;
 
     private BigDecimal flag3;
@@ -68,10 +72,6 @@ public class DbExpressapiuser implements Serializable {
     private BigDecimal apiid;
 
     private String ordertype;
-
-    private String address1;
-
-    private String address;
 
     private static final long serialVersionUID = 1L;
 
@@ -235,6 +235,14 @@ public class DbExpressapiuser implements Serializable {
         this.flag1 = flag1;
     }
 
+    public String getAddress1() {
+        return address1;
+    }
+
+    public void setAddress1(String address1) {
+        this.address1 = address1 == null ? null : address1.trim();
+    }
+
     public String getEmail() {
         return email;
     }
@@ -281,6 +289,14 @@ public class DbExpressapiuser implements Serializable {
 
     public void setOpertime(Date opertime) {
         this.opertime = opertime;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address == null ? null : address.trim();
     }
 
     public BigDecimal getAccounttype() {
@@ -331,22 +347,6 @@ public class DbExpressapiuser implements Serializable {
         this.ordertype = ordertype == null ? null : ordertype.trim();
     }
 
-    public String getAddress1() {
-        return address1;
-    }
-
-    public void setAddress1(String address1) {
-        this.address1 = address1 == null ? null : address1.trim();
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address == null ? null : address.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -379,20 +379,20 @@ public class DbExpressapiuser implements Serializable {
             && (this.getLastname() == null ? other.getLastname() == null : this.getLastname().equals(other.getLastname()))
             && (this.getProvince() == null ? other.getProvince() == null : this.getProvince().equals(other.getProvince()))
             && (this.getFlag1() == null ? other.getFlag1() == null : this.getFlag1().equals(other.getFlag1()))
+            && (this.getAddress1() == null ? other.getAddress1() == null : this.getAddress1().equals(other.getAddress1()))
             && (this.getEmail() == null ? other.getEmail() == null : this.getEmail().equals(other.getEmail()))
             && (this.getToken3() == null ? other.getToken3() == null : this.getToken3().equals(other.getToken3()))
             && (this.getFlag2() == null ? other.getFlag2() == null : this.getFlag2().equals(other.getFlag2()))
             && (this.getCountry() == null ? other.getCountry() == null : this.getCountry().equals(other.getCountry()))
             && (this.getPwd() == null ? other.getPwd() == null : this.getPwd().equals(other.getPwd()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
+            && (this.getAddress() == null ? other.getAddress() == null : this.getAddress().equals(other.getAddress()))
             && (this.getAccounttype() == null ? other.getAccounttype() == null : this.getAccounttype().equals(other.getAccounttype()))
             && (this.getFlag3() == null ? other.getFlag3() == null : this.getFlag3().equals(other.getFlag3()))
             && (this.getFlag() == null ? other.getFlag() == null : this.getFlag().equals(other.getFlag()))
             && (this.getSender() == null ? other.getSender() == null : this.getSender().equals(other.getSender()))
             && (this.getApiid() == null ? other.getApiid() == null : this.getApiid().equals(other.getApiid()))
-            && (this.getOrdertype() == null ? other.getOrdertype() == null : this.getOrdertype().equals(other.getOrdertype()))
-            && (this.getAddress1() == null ? other.getAddress1() == null : this.getAddress1().equals(other.getAddress1()))
-            && (this.getAddress() == null ? other.getAddress() == null : this.getAddress().equals(other.getAddress()));
+            && (this.getOrdertype() == null ? other.getOrdertype() == null : this.getOrdertype().equals(other.getOrdertype()));
     }
 
     @Override
@@ -419,20 +419,20 @@ public class DbExpressapiuser implements Serializable {
         result = prime * result + ((getLastname() == null) ? 0 : getLastname().hashCode());
         result = prime * result + ((getProvince() == null) ? 0 : getProvince().hashCode());
         result = prime * result + ((getFlag1() == null) ? 0 : getFlag1().hashCode());
+        result = prime * result + ((getAddress1() == null) ? 0 : getAddress1().hashCode());
         result = prime * result + ((getEmail() == null) ? 0 : getEmail().hashCode());
         result = prime * result + ((getToken3() == null) ? 0 : getToken3().hashCode());
         result = prime * result + ((getFlag2() == null) ? 0 : getFlag2().hashCode());
         result = prime * result + ((getCountry() == null) ? 0 : getCountry().hashCode());
         result = prime * result + ((getPwd() == null) ? 0 : getPwd().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
+        result = prime * result + ((getAddress() == null) ? 0 : getAddress().hashCode());
         result = prime * result + ((getAccounttype() == null) ? 0 : getAccounttype().hashCode());
         result = prime * result + ((getFlag3() == null) ? 0 : getFlag3().hashCode());
         result = prime * result + ((getFlag() == null) ? 0 : getFlag().hashCode());
         result = prime * result + ((getSender() == null) ? 0 : getSender().hashCode());
         result = prime * result + ((getApiid() == null) ? 0 : getApiid().hashCode());
         result = prime * result + ((getOrdertype() == null) ? 0 : getOrdertype().hashCode());
-        result = prime * result + ((getAddress1() == null) ? 0 : getAddress1().hashCode());
-        result = prime * result + ((getAddress() == null) ? 0 : getAddress().hashCode());
         return result;
     }
 
@@ -462,20 +462,20 @@ public class DbExpressapiuser implements Serializable {
         sb.append(", lastname=").append(lastname);
         sb.append(", province=").append(province);
         sb.append(", flag1=").append(flag1);
+        sb.append(", address1=").append(address1);
         sb.append(", email=").append(email);
         sb.append(", token3=").append(token3);
         sb.append(", flag2=").append(flag2);
         sb.append(", country=").append(country);
         sb.append(", pwd=").append(pwd);
         sb.append(", opertime=").append(opertime);
+        sb.append(", address=").append(address);
         sb.append(", accounttype=").append(accounttype);
         sb.append(", flag3=").append(flag3);
         sb.append(", flag=").append(flag);
         sb.append(", sender=").append(sender);
         sb.append(", apiid=").append(apiid);
         sb.append(", ordertype=").append(ordertype);
-        sb.append(", address1=").append(address1);
-        sb.append(", address=").append(address);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

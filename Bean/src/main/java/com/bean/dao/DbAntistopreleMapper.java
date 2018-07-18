@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbAntistoprele;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbAntistopreleMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbAntistoprele selectByCriteria(DbAntistoprele DbAntistoprele);
 
-    int insert(DbAntistoprele record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbAntistoprele record);
+    void deleteByCriteria(DbAntistoprele DbAntistoprele);
+
+    int insertByCriteria(DbAntistoprele DbAntistoprele);
+
+    int updateByCriteria(DbAntistoprele DbAntistoprele);
 
     DbAntistoprele selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbAntistoprele record);
-
-    int updateByPrimaryKeyWithBLOBs(DbAntistoprele record);
-
-    int updateByPrimaryKey(DbAntistoprele record);
+    List<DbAntistoprele> selectAll();
 }

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbShopifyexpresstypeMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbShopifyexpresstype">
+    <id column="SID" jdbcType="VARCHAR" property="sid" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="SHOWNAME" jdbcType="VARCHAR" property="showname" />
+    <result column="SERVICENAME" jdbcType="VARCHAR" property="servicename" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
+    <result column="DESCR" jdbcType="VARCHAR" property="descr" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SID, NAME, SHOWNAME, SERVICENAME, OPER, OPERTIME, OPENFLAG, DESCR, RESERVE1, 
+    RESERVE2, RESERVE3
+    from DB_SHOPIFYEXPRESSTYPE
+    where SID = #{sid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, NAME, SHOWNAME, SERVICENAME, OPER, OPERTIME, OPENFLAG, DESCR, RESERVE1, 
+    RESERVE2, RESERVE3
+    from DB_SHOPIFYEXPRESSTYPE
+  </select>
+  <sql id="TableName">
+    DB_SHOPIFYEXPRESSTYPE
+  </sql>
+  <sql id="Values">
+     #{sid,jdbcType=VARCHAR} , 
+     #{name,jdbcType=VARCHAR} , 
+     #{showname,jdbcType=VARCHAR} , 
+     #{servicename,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{openflag,jdbcType=VARCHAR} , 
+     #{descr,jdbcType=VARCHAR} , 
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+     #{reserve3,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    SID , 
+    NAME , 
+    SHOWNAME , 
+    SERVICENAME , 
+    OPER , 
+    OPERTIME , 
+    OPENFLAG , 
+    DESCR , 
+    RESERVE1 , 
+    RESERVE2 , 
+    RESERVE3 , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} and 
+    </if>
+    <if test="showname != null">
+      showname = #{showname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="servicename != null">
+      servicename = #{servicename,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="descr != null">
+      descr = #{descr,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} , 
+    </if>
+    <if test="showname != null">
+      showname = #{showname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="servicename != null">
+      servicename = #{servicename,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="descr != null">
+      descr = #{descr,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbShopifyexpresstype" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SID=#{SID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbShopifyexpresstype">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbShopifyexpresstype">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbShopifyexpresstype">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

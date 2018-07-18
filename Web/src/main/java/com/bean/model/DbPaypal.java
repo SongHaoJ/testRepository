@@ -9,9 +9,15 @@ public class DbPaypal implements Serializable {
 
     private String transactionid;
 
+    private String address;
+
     private String oper;
 
     private Date opertime;
+
+    private String emailaddress;
+
+    private String status;
 
     private BigDecimal feeamount;
 
@@ -21,6 +27,10 @@ public class DbPaypal implements Serializable {
 
     private Date paytime;
 
+    private String filed1;
+
+    private String filed2;
+
     private BigDecimal filed3;
 
     private BigDecimal filed4;
@@ -28,22 +38,6 @@ public class DbPaypal implements Serializable {
     private String corpid;
 
     private String openflag;
-
-    private BigDecimal filed11;
-
-    private BigDecimal filed12;
-
-    private BigDecimal filed13;
-
-    private String address;
-
-    private String emailaddress;
-
-    private String status;
-
-    private String filed1;
-
-    private String filed2;
 
     private String customerprovince;
 
@@ -71,6 +65,12 @@ public class DbPaypal implements Serializable {
 
     private String filed10;
 
+    private BigDecimal filed11;
+
+    private BigDecimal filed12;
+
+    private BigDecimal filed13;
+
     private String paypalcustomeraddress;
 
     private static final long serialVersionUID = 1L;
@@ -91,6 +91,14 @@ public class DbPaypal implements Serializable {
         this.transactionid = transactionid == null ? null : transactionid.trim();
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address == null ? null : address.trim();
+    }
+
     public String getOper() {
         return oper;
     }
@@ -105,6 +113,22 @@ public class DbPaypal implements Serializable {
 
     public void setOpertime(Date opertime) {
         this.opertime = opertime;
+    }
+
+    public String getEmailaddress() {
+        return emailaddress;
+    }
+
+    public void setEmailaddress(String emailaddress) {
+        this.emailaddress = emailaddress == null ? null : emailaddress.trim();
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status == null ? null : status.trim();
     }
 
     public BigDecimal getFeeamount() {
@@ -139,6 +163,22 @@ public class DbPaypal implements Serializable {
         this.paytime = paytime;
     }
 
+    public String getFiled1() {
+        return filed1;
+    }
+
+    public void setFiled1(String filed1) {
+        this.filed1 = filed1 == null ? null : filed1.trim();
+    }
+
+    public String getFiled2() {
+        return filed2;
+    }
+
+    public void setFiled2(String filed2) {
+        this.filed2 = filed2 == null ? null : filed2.trim();
+    }
+
     public BigDecimal getFiled3() {
         return filed3;
     }
@@ -169,70 +209,6 @@ public class DbPaypal implements Serializable {
 
     public void setOpenflag(String openflag) {
         this.openflag = openflag == null ? null : openflag.trim();
-    }
-
-    public BigDecimal getFiled11() {
-        return filed11;
-    }
-
-    public void setFiled11(BigDecimal filed11) {
-        this.filed11 = filed11;
-    }
-
-    public BigDecimal getFiled12() {
-        return filed12;
-    }
-
-    public void setFiled12(BigDecimal filed12) {
-        this.filed12 = filed12;
-    }
-
-    public BigDecimal getFiled13() {
-        return filed13;
-    }
-
-    public void setFiled13(BigDecimal filed13) {
-        this.filed13 = filed13;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address == null ? null : address.trim();
-    }
-
-    public String getEmailaddress() {
-        return emailaddress;
-    }
-
-    public void setEmailaddress(String emailaddress) {
-        this.emailaddress = emailaddress == null ? null : emailaddress.trim();
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status == null ? null : status.trim();
-    }
-
-    public String getFiled1() {
-        return filed1;
-    }
-
-    public void setFiled1(String filed1) {
-        this.filed1 = filed1 == null ? null : filed1.trim();
-    }
-
-    public String getFiled2() {
-        return filed2;
-    }
-
-    public void setFiled2(String filed2) {
-        this.filed2 = filed2 == null ? null : filed2.trim();
     }
 
     public String getCustomerprovince() {
@@ -339,6 +315,30 @@ public class DbPaypal implements Serializable {
         this.filed10 = filed10 == null ? null : filed10.trim();
     }
 
+    public BigDecimal getFiled11() {
+        return filed11;
+    }
+
+    public void setFiled11(BigDecimal filed11) {
+        this.filed11 = filed11;
+    }
+
+    public BigDecimal getFiled12() {
+        return filed12;
+    }
+
+    public void setFiled12(BigDecimal filed12) {
+        this.filed12 = filed12;
+    }
+
+    public BigDecimal getFiled13() {
+        return filed13;
+    }
+
+    public void setFiled13(BigDecimal filed13) {
+        this.filed13 = filed13;
+    }
+
     public String getPaypalcustomeraddress() {
         return paypalcustomeraddress;
     }
@@ -361,24 +361,21 @@ public class DbPaypal implements Serializable {
         DbPaypal other = (DbPaypal) that;
         return (this.getSequenceid() == null ? other.getSequenceid() == null : this.getSequenceid().equals(other.getSequenceid()))
             && (this.getTransactionid() == null ? other.getTransactionid() == null : this.getTransactionid().equals(other.getTransactionid()))
+            && (this.getAddress() == null ? other.getAddress() == null : this.getAddress().equals(other.getAddress()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
+            && (this.getEmailaddress() == null ? other.getEmailaddress() == null : this.getEmailaddress().equals(other.getEmailaddress()))
+            && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
             && (this.getFeeamount() == null ? other.getFeeamount() == null : this.getFeeamount().equals(other.getFeeamount()))
             && (this.getGrossamount() == null ? other.getGrossamount() == null : this.getGrossamount().equals(other.getGrossamount()))
             && (this.getNetamount() == null ? other.getNetamount() == null : this.getNetamount().equals(other.getNetamount()))
             && (this.getPaytime() == null ? other.getPaytime() == null : this.getPaytime().equals(other.getPaytime()))
+            && (this.getFiled1() == null ? other.getFiled1() == null : this.getFiled1().equals(other.getFiled1()))
+            && (this.getFiled2() == null ? other.getFiled2() == null : this.getFiled2().equals(other.getFiled2()))
             && (this.getFiled3() == null ? other.getFiled3() == null : this.getFiled3().equals(other.getFiled3()))
             && (this.getFiled4() == null ? other.getFiled4() == null : this.getFiled4().equals(other.getFiled4()))
             && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()))
             && (this.getOpenflag() == null ? other.getOpenflag() == null : this.getOpenflag().equals(other.getOpenflag()))
-            && (this.getFiled11() == null ? other.getFiled11() == null : this.getFiled11().equals(other.getFiled11()))
-            && (this.getFiled12() == null ? other.getFiled12() == null : this.getFiled12().equals(other.getFiled12()))
-            && (this.getFiled13() == null ? other.getFiled13() == null : this.getFiled13().equals(other.getFiled13()))
-            && (this.getAddress() == null ? other.getAddress() == null : this.getAddress().equals(other.getAddress()))
-            && (this.getEmailaddress() == null ? other.getEmailaddress() == null : this.getEmailaddress().equals(other.getEmailaddress()))
-            && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
-            && (this.getFiled1() == null ? other.getFiled1() == null : this.getFiled1().equals(other.getFiled1()))
-            && (this.getFiled2() == null ? other.getFiled2() == null : this.getFiled2().equals(other.getFiled2()))
             && (this.getCustomerprovince() == null ? other.getCustomerprovince() == null : this.getCustomerprovince().equals(other.getCustomerprovince()))
             && (this.getCustomercity() == null ? other.getCustomercity() == null : this.getCustomercity().equals(other.getCustomercity()))
             && (this.getCustomercountry() == null ? other.getCustomercountry() == null : this.getCustomercountry().equals(other.getCustomercountry()))
@@ -392,6 +389,9 @@ public class DbPaypal implements Serializable {
             && (this.getFiled8() == null ? other.getFiled8() == null : this.getFiled8().equals(other.getFiled8()))
             && (this.getFiled9() == null ? other.getFiled9() == null : this.getFiled9().equals(other.getFiled9()))
             && (this.getFiled10() == null ? other.getFiled10() == null : this.getFiled10().equals(other.getFiled10()))
+            && (this.getFiled11() == null ? other.getFiled11() == null : this.getFiled11().equals(other.getFiled11()))
+            && (this.getFiled12() == null ? other.getFiled12() == null : this.getFiled12().equals(other.getFiled12()))
+            && (this.getFiled13() == null ? other.getFiled13() == null : this.getFiled13().equals(other.getFiled13()))
             && (this.getPaypalcustomeraddress() == null ? other.getPaypalcustomeraddress() == null : this.getPaypalcustomeraddress().equals(other.getPaypalcustomeraddress()));
     }
 
@@ -401,24 +401,21 @@ public class DbPaypal implements Serializable {
         int result = 1;
         result = prime * result + ((getSequenceid() == null) ? 0 : getSequenceid().hashCode());
         result = prime * result + ((getTransactionid() == null) ? 0 : getTransactionid().hashCode());
+        result = prime * result + ((getAddress() == null) ? 0 : getAddress().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
+        result = prime * result + ((getEmailaddress() == null) ? 0 : getEmailaddress().hashCode());
+        result = prime * result + ((getStatus() == null) ? 0 : getStatus().hashCode());
         result = prime * result + ((getFeeamount() == null) ? 0 : getFeeamount().hashCode());
         result = prime * result + ((getGrossamount() == null) ? 0 : getGrossamount().hashCode());
         result = prime * result + ((getNetamount() == null) ? 0 : getNetamount().hashCode());
         result = prime * result + ((getPaytime() == null) ? 0 : getPaytime().hashCode());
+        result = prime * result + ((getFiled1() == null) ? 0 : getFiled1().hashCode());
+        result = prime * result + ((getFiled2() == null) ? 0 : getFiled2().hashCode());
         result = prime * result + ((getFiled3() == null) ? 0 : getFiled3().hashCode());
         result = prime * result + ((getFiled4() == null) ? 0 : getFiled4().hashCode());
         result = prime * result + ((getCorpid() == null) ? 0 : getCorpid().hashCode());
         result = prime * result + ((getOpenflag() == null) ? 0 : getOpenflag().hashCode());
-        result = prime * result + ((getFiled11() == null) ? 0 : getFiled11().hashCode());
-        result = prime * result + ((getFiled12() == null) ? 0 : getFiled12().hashCode());
-        result = prime * result + ((getFiled13() == null) ? 0 : getFiled13().hashCode());
-        result = prime * result + ((getAddress() == null) ? 0 : getAddress().hashCode());
-        result = prime * result + ((getEmailaddress() == null) ? 0 : getEmailaddress().hashCode());
-        result = prime * result + ((getStatus() == null) ? 0 : getStatus().hashCode());
-        result = prime * result + ((getFiled1() == null) ? 0 : getFiled1().hashCode());
-        result = prime * result + ((getFiled2() == null) ? 0 : getFiled2().hashCode());
         result = prime * result + ((getCustomerprovince() == null) ? 0 : getCustomerprovince().hashCode());
         result = prime * result + ((getCustomercity() == null) ? 0 : getCustomercity().hashCode());
         result = prime * result + ((getCustomercountry() == null) ? 0 : getCustomercountry().hashCode());
@@ -432,6 +429,9 @@ public class DbPaypal implements Serializable {
         result = prime * result + ((getFiled8() == null) ? 0 : getFiled8().hashCode());
         result = prime * result + ((getFiled9() == null) ? 0 : getFiled9().hashCode());
         result = prime * result + ((getFiled10() == null) ? 0 : getFiled10().hashCode());
+        result = prime * result + ((getFiled11() == null) ? 0 : getFiled11().hashCode());
+        result = prime * result + ((getFiled12() == null) ? 0 : getFiled12().hashCode());
+        result = prime * result + ((getFiled13() == null) ? 0 : getFiled13().hashCode());
         result = prime * result + ((getPaypalcustomeraddress() == null) ? 0 : getPaypalcustomeraddress().hashCode());
         return result;
     }
@@ -444,24 +444,21 @@ public class DbPaypal implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", sequenceid=").append(sequenceid);
         sb.append(", transactionid=").append(transactionid);
+        sb.append(", address=").append(address);
         sb.append(", oper=").append(oper);
         sb.append(", opertime=").append(opertime);
+        sb.append(", emailaddress=").append(emailaddress);
+        sb.append(", status=").append(status);
         sb.append(", feeamount=").append(feeamount);
         sb.append(", grossamount=").append(grossamount);
         sb.append(", netamount=").append(netamount);
         sb.append(", paytime=").append(paytime);
+        sb.append(", filed1=").append(filed1);
+        sb.append(", filed2=").append(filed2);
         sb.append(", filed3=").append(filed3);
         sb.append(", filed4=").append(filed4);
         sb.append(", corpid=").append(corpid);
         sb.append(", openflag=").append(openflag);
-        sb.append(", filed11=").append(filed11);
-        sb.append(", filed12=").append(filed12);
-        sb.append(", filed13=").append(filed13);
-        sb.append(", address=").append(address);
-        sb.append(", emailaddress=").append(emailaddress);
-        sb.append(", status=").append(status);
-        sb.append(", filed1=").append(filed1);
-        sb.append(", filed2=").append(filed2);
         sb.append(", customerprovince=").append(customerprovince);
         sb.append(", customercity=").append(customercity);
         sb.append(", customercountry=").append(customercountry);
@@ -475,6 +472,9 @@ public class DbPaypal implements Serializable {
         sb.append(", filed8=").append(filed8);
         sb.append(", filed9=").append(filed9);
         sb.append(", filed10=").append(filed10);
+        sb.append(", filed11=").append(filed11);
+        sb.append(", filed12=").append(filed12);
+        sb.append(", filed13=").append(filed13);
         sb.append(", paypalcustomeraddress=").append(paypalcustomeraddress);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");

@@ -2,8 +2,8 @@ package com.bean.dao;
 
 import com.bean.model.Emp;
 
-public interface EmpMapper {
-    int insert(Emp record);
+import java.util.List;
 
-    int insertSelective(Emp record);
+public interface EmpMapper {
+    List<Emp> selectAll();
 }

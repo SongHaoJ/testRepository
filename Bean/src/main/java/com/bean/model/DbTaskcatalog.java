@@ -6,6 +6,8 @@ import java.util.Date;
 public class DbTaskcatalog implements Serializable {
     private String sid;
 
+    private String name;
+
     private String tasktype;
 
     private Date opertime;
@@ -15,8 +17,6 @@ public class DbTaskcatalog implements Serializable {
     private String classes;
 
     private String fathersid;
-
-    private String name;
 
     private String descr;
 
@@ -28,6 +28,14 @@ public class DbTaskcatalog implements Serializable {
 
     public void setSid(String sid) {
         this.sid = sid == null ? null : sid.trim();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
     }
 
     public String getTasktype() {
@@ -70,14 +78,6 @@ public class DbTaskcatalog implements Serializable {
         this.fathersid = fathersid == null ? null : fathersid.trim();
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
-    }
-
     public String getDescr() {
         return descr;
     }
@@ -99,12 +99,12 @@ public class DbTaskcatalog implements Serializable {
         }
         DbTaskcatalog other = (DbTaskcatalog) that;
         return (this.getSid() == null ? other.getSid() == null : this.getSid().equals(other.getSid()))
+            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
             && (this.getTasktype() == null ? other.getTasktype() == null : this.getTasktype().equals(other.getTasktype()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getClasses() == null ? other.getClasses() == null : this.getClasses().equals(other.getClasses()))
             && (this.getFathersid() == null ? other.getFathersid() == null : this.getFathersid().equals(other.getFathersid()))
-            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
             && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()));
     }
 
@@ -113,12 +113,12 @@ public class DbTaskcatalog implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getSid() == null) ? 0 : getSid().hashCode());
+        result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
         result = prime * result + ((getTasktype() == null) ? 0 : getTasktype().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getClasses() == null) ? 0 : getClasses().hashCode());
         result = prime * result + ((getFathersid() == null) ? 0 : getFathersid().hashCode());
-        result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
         result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
         return result;
     }
@@ -130,12 +130,12 @@ public class DbTaskcatalog implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", sid=").append(sid);
+        sb.append(", name=").append(name);
         sb.append(", tasktype=").append(tasktype);
         sb.append(", opertime=").append(opertime);
         sb.append(", oper=").append(oper);
         sb.append(", classes=").append(classes);
         sb.append(", fathersid=").append(fathersid);
-        sb.append(", name=").append(name);
         sb.append(", descr=").append(descr);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");

@@ -4,181 +4,181 @@
   <resultMap id="BaseResultMap" type="com.bean.model.DbQtuser">
     <id column="USERID" jdbcType="VARCHAR" property="userid" />
     <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
+    <result column="TOKEN" jdbcType="VARCHAR" property="token" />
     <result column="USERNAME" jdbcType="VARCHAR" property="username" />
     <result column="CUSTCD" jdbcType="VARCHAR" property="custcd" />
     <result column="CUSTNAME" jdbcType="VARCHAR" property="custname" />
     <result column="PROVINCE" jdbcType="VARCHAR" property="province" />
     <result column="CITY" jdbcType="VARCHAR" property="city" />
+    <result column="AREA" jdbcType="VARCHAR" property="area" />
+    <result column="ADDRESS" jdbcType="VARCHAR" property="address" />
+    <result column="POST" jdbcType="VARCHAR" property="post" />
     <result column="PHONE" jdbcType="VARCHAR" property="phone" />
     <result column="FAX" jdbcType="VARCHAR" property="fax" />
     <result column="EMAIL" jdbcType="VARCHAR" property="email" />
     <result column="OPERFLAG" jdbcType="DECIMAL" property="operflag" />
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
-    <result column="TOKEN" jdbcType="LONGVARCHAR" property="token" />
-    <result column="AREA" jdbcType="LONGVARCHAR" property="area" />
-    <result column="ADDRESS" jdbcType="LONGVARCHAR" property="address" />
-    <result column="POST" jdbcType="LONGVARCHAR" property="post" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select USERID, PASSWORD, USERNAME, CUSTCD, CUSTNAME, PROVINCE, CITY, PHONE, FAX, 
-    EMAIL, OPERFLAG, OPER, OPERTIME, TOKEN, AREA, ADDRESS, POST
-    from db_qtuser
+    select USERID, PASSWORD, TOKEN, USERNAME, CUSTCD, CUSTNAME, PROVINCE, CITY, AREA, 
+    ADDRESS, POST, PHONE, FAX, EMAIL, OPERFLAG, OPER, OPERTIME
+    from DB_QTUSER
     where USERID = #{userid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select USERID, PASSWORD, USERNAME, CUSTCD, CUSTNAME, PROVINCE, CITY, PHONE, FAX, 
-    EMAIL, OPERFLAG, OPER, OPERTIME, TOKEN, AREA, ADDRESS, POST
-    from db_qtuser
+    select USERID, PASSWORD, TOKEN, USERNAME, CUSTCD, CUSTNAME, PROVINCE, CITY, AREA, 
+    ADDRESS, POST, PHONE, FAX, EMAIL, OPERFLAG, OPER, OPERTIME
+    from DB_QTUSER
   </select>
   <sql id="TableName">
-    db_qtuser
+    DB_QTUSER
   </sql>
   <sql id="Values">
      #{userid,jdbcType=VARCHAR} , 
      #{password,jdbcType=VARCHAR} , 
+     #{token,jdbcType=VARCHAR} , 
      #{username,jdbcType=VARCHAR} , 
      #{custcd,jdbcType=VARCHAR} , 
      #{custname,jdbcType=VARCHAR} , 
      #{province,jdbcType=VARCHAR} , 
      #{city,jdbcType=VARCHAR} , 
+     #{area,jdbcType=VARCHAR} , 
+     #{address,jdbcType=VARCHAR} , 
+     #{post,jdbcType=VARCHAR} , 
      #{phone,jdbcType=VARCHAR} , 
      #{fax,jdbcType=VARCHAR} , 
      #{email,jdbcType=VARCHAR} , 
      #{operflag,jdbcType=DECIMAL} , 
      #{oper,jdbcType=VARCHAR} , 
      #{opertime,jdbcType=TIMESTAMP} , 
-     #{token,jdbcType=LONGVARCHAR} , 
-     #{area,jdbcType=LONGVARCHAR} , 
-     #{address,jdbcType=LONGVARCHAR} , 
-     #{post,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     USERID , 
     PASSWORD , 
+    TOKEN , 
     USERNAME , 
     CUSTCD , 
     CUSTNAME , 
     PROVINCE , 
     CITY , 
+    AREA , 
+    ADDRESS , 
+    POST , 
     PHONE , 
     FAX , 
     EMAIL , 
     OPERFLAG , 
     OPER , 
     OPERTIME , 
-    TOKEN , 
-    AREA , 
-    ADDRESS , 
-    POST
   </sql>
   <sql id="Criteria">
     <if test="userid != null">
-      USERID = #{userid,jdbcType=VARCHAR} and 
+      userid = #{userid,jdbcType=VARCHAR} and 
     </if>
     <if test="password != null">
-      PASSWORD = #{password,jdbcType=VARCHAR} and 
-    </if>
-    <if test="username != null">
-      USERNAME = #{username,jdbcType=VARCHAR} and 
-    </if>
-    <if test="custcd != null">
-      CUSTCD = #{custcd,jdbcType=VARCHAR} and 
-    </if>
-    <if test="custname != null">
-      CUSTNAME = #{custname,jdbcType=VARCHAR} and 
-    </if>
-    <if test="province != null">
-      PROVINCE = #{province,jdbcType=VARCHAR} and 
-    </if>
-    <if test="city != null">
-      CITY = #{city,jdbcType=VARCHAR} and 
-    </if>
-    <if test="phone != null">
-      PHONE = #{phone,jdbcType=VARCHAR} and 
-    </if>
-    <if test="fax != null">
-      FAX = #{fax,jdbcType=VARCHAR} and 
-    </if>
-    <if test="email != null">
-      EMAIL = #{email,jdbcType=VARCHAR} and 
-    </if>
-    <if test="operflag != null">
-      OPERFLAG = #{operflag,jdbcType=DECIMAL} and 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+      password = #{password,jdbcType=VARCHAR} and 
     </if>
     <if test="token != null">
-      TOKEN = #{token,jdbcType=LONGVARCHAR} and 
+      token = #{token,jdbcType=VARCHAR} and 
+    </if>
+    <if test="username != null">
+      username = #{username,jdbcType=VARCHAR} and 
+    </if>
+    <if test="custcd != null">
+      custcd = #{custcd,jdbcType=VARCHAR} and 
+    </if>
+    <if test="custname != null">
+      custname = #{custname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="province != null">
+      province = #{province,jdbcType=VARCHAR} and 
+    </if>
+    <if test="city != null">
+      city = #{city,jdbcType=VARCHAR} and 
     </if>
     <if test="area != null">
-      AREA = #{area,jdbcType=LONGVARCHAR} and 
+      area = #{area,jdbcType=VARCHAR} and 
     </if>
     <if test="address != null">
-      ADDRESS = #{address,jdbcType=LONGVARCHAR} and 
+      address = #{address,jdbcType=VARCHAR} and 
     </if>
     <if test="post != null">
-      POST = #{post,jdbcType=LONGVARCHAR}
+      post = #{post,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="phone != null">
+      phone = #{phone,jdbcType=VARCHAR} and 
+    </if>
+    <if test="fax != null">
+      fax = #{fax,jdbcType=VARCHAR} and 
+    </if>
+    <if test="email != null">
+      email = #{email,jdbcType=VARCHAR} and 
+    </if>
+    <if test="operflag != null">
+      operflag = #{operflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="userid != null">
-      USERID = #{userid,jdbcType=VARCHAR} , 
+      userid = #{userid,jdbcType=VARCHAR} , 
     </if>
     <if test="password != null">
-      PASSWORD = #{password,jdbcType=VARCHAR} , 
-    </if>
-    <if test="username != null">
-      USERNAME = #{username,jdbcType=VARCHAR} , 
-    </if>
-    <if test="custcd != null">
-      CUSTCD = #{custcd,jdbcType=VARCHAR} , 
-    </if>
-    <if test="custname != null">
-      CUSTNAME = #{custname,jdbcType=VARCHAR} , 
-    </if>
-    <if test="province != null">
-      PROVINCE = #{province,jdbcType=VARCHAR} , 
-    </if>
-    <if test="city != null">
-      CITY = #{city,jdbcType=VARCHAR} , 
-    </if>
-    <if test="phone != null">
-      PHONE = #{phone,jdbcType=VARCHAR} , 
-    </if>
-    <if test="fax != null">
-      FAX = #{fax,jdbcType=VARCHAR} , 
-    </if>
-    <if test="email != null">
-      EMAIL = #{email,jdbcType=VARCHAR} , 
-    </if>
-    <if test="operflag != null">
-      OPERFLAG = #{operflag,jdbcType=DECIMAL} , 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+      password = #{password,jdbcType=VARCHAR} , 
     </if>
     <if test="token != null">
-      TOKEN = #{token,jdbcType=LONGVARCHAR} , 
+      token = #{token,jdbcType=VARCHAR} , 
+    </if>
+    <if test="username != null">
+      username = #{username,jdbcType=VARCHAR} , 
+    </if>
+    <if test="custcd != null">
+      custcd = #{custcd,jdbcType=VARCHAR} , 
+    </if>
+    <if test="custname != null">
+      custname = #{custname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="province != null">
+      province = #{province,jdbcType=VARCHAR} , 
+    </if>
+    <if test="city != null">
+      city = #{city,jdbcType=VARCHAR} , 
     </if>
     <if test="area != null">
-      AREA = #{area,jdbcType=LONGVARCHAR} , 
+      area = #{area,jdbcType=VARCHAR} , 
     </if>
     <if test="address != null">
-      ADDRESS = #{address,jdbcType=LONGVARCHAR} , 
+      address = #{address,jdbcType=VARCHAR} , 
     </if>
     <if test="post != null">
-      POST = #{post,jdbcType=LONGVARCHAR}
+      post = #{post,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="phone != null">
+      phone = #{phone,jdbcType=VARCHAR} , 
+    </if>
+    <if test="fax != null">
+      fax = #{fax,jdbcType=VARCHAR} , 
+    </if>
+    <if test="email != null">
+      email = #{email,jdbcType=VARCHAR} , 
+    </if>
+    <if test="operflag != null">
+      operflag = #{operflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbQtuser" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

@@ -4,6 +4,7 @@
   <resultMap id="BaseResultMap" type="com.bean.model.DbYwuser">
     <id column="SID" jdbcType="VARCHAR" property="sid" />
     <result column="USERID" jdbcType="VARCHAR" property="userid" />
+    <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
     <result column="NAME" jdbcType="VARCHAR" property="name" />
     <result column="FLAG" jdbcType="DECIMAL" property="flag" />
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
@@ -11,149 +12,113 @@
     <result column="APITOKEN" jdbcType="VARCHAR" property="apitoken" />
     <result column="LEVEL0" jdbcType="VARCHAR" property="level0" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbYwuser">
-    <result column="PASSWORD" jdbcType="LONGVARCHAR" property="password" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    SID, USERID, 'NAME', FLAG, OPER, OPERTIME, APITOKEN, LEVEL0
-  </sql>
-  <sql id="Blob_Column_List">
-    'PASSWORD'
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from db_ywuser
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SID, USERID, PASSWORD, NAME, FLAG, OPER, OPERTIME, APITOKEN, LEVEL0
+    from DB_YWUSER
     where SID = #{sid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_ywuser
-    where SID = #{sid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, USERID, PASSWORD, NAME, FLAG, OPER, OPERTIME, APITOKEN, LEVEL0
+    from DB_YWUSER
+  </select>
+  <sql id="TableName">
+    DB_YWUSER
+  </sql>
+  <sql id="Values">
+     #{sid,jdbcType=VARCHAR} , 
+     #{userid,jdbcType=VARCHAR} , 
+     #{password,jdbcType=VARCHAR} , 
+     #{name,jdbcType=VARCHAR} , 
+     #{flag,jdbcType=DECIMAL} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{apitoken,jdbcType=VARCHAR} , 
+     #{level0,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    SID , 
+    USERID , 
+    PASSWORD , 
+    NAME , 
+    FLAG , 
+    OPER , 
+    OPERTIME , 
+    APITOKEN , 
+    LEVEL0 , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="userid != null">
+      userid = #{userid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="password != null">
+      password = #{password,jdbcType=VARCHAR} and 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="apitoken != null">
+      apitoken = #{apitoken,jdbcType=VARCHAR} and 
+    </if>
+    <if test="level0 != null">
+      level0 = #{level0,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="userid != null">
+      userid = #{userid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="password != null">
+      password = #{password,jdbcType=VARCHAR} , 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="apitoken != null">
+      apitoken = #{apitoken,jdbcType=VARCHAR} , 
+    </if>
+    <if test="level0 != null">
+      level0 = #{level0,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbYwuser" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SID=#{SID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbYwuser">
-    insert into db_ywuser (SID, USERID, 'NAME', 
-      FLAG, OPER, OPERTIME, 
-      APITOKEN, LEVEL0, 'PASSWORD'
-      )
-    values (#{sid,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
-      #{flag,jdbcType=DECIMAL}, #{oper,jdbcType=VARCHAR}, #{opertime,jdbcType=TIMESTAMP}, 
-      #{apitoken,jdbcType=VARCHAR}, #{level0,jdbcType=VARCHAR}, #{password,jdbcType=LONGVARCHAR}
-      )
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbYwuser">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbYwuser">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbYwuser">
-    insert into db_ywuser
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        SID,
-      </if>
-      <if test="userid != null">
-        USERID,
-      </if>
-      <if test="name != null">
-        'NAME',
-      </if>
-      <if test="flag != null">
-        FLAG,
-      </if>
-      <if test="oper != null">
-        OPER,
-      </if>
-      <if test="opertime != null">
-        OPERTIME,
-      </if>
-      <if test="apitoken != null">
-        APITOKEN,
-      </if>
-      <if test="level0 != null">
-        LEVEL0,
-      </if>
-      <if test="password != null">
-        'PASSWORD',
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        #{sid,jdbcType=VARCHAR},
-      </if>
-      <if test="userid != null">
-        #{userid,jdbcType=VARCHAR},
-      </if>
-      <if test="name != null">
-        #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="flag != null">
-        #{flag,jdbcType=DECIMAL},
-      </if>
-      <if test="oper != null">
-        #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="apitoken != null">
-        #{apitoken,jdbcType=VARCHAR},
-      </if>
-      <if test="level0 != null">
-        #{level0,jdbcType=VARCHAR},
-      </if>
-      <if test="password != null">
-        #{password,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbYwuser">
-    update db_ywuser
-    <set>
-      <if test="userid != null">
-        USERID = #{userid,jdbcType=VARCHAR},
-      </if>
-      <if test="name != null">
-        'NAME' = #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="flag != null">
-        FLAG = #{flag,jdbcType=DECIMAL},
-      </if>
-      <if test="oper != null">
-        OPER = #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="apitoken != null">
-        APITOKEN = #{apitoken,jdbcType=VARCHAR},
-      </if>
-      <if test="level0 != null">
-        LEVEL0 = #{level0,jdbcType=VARCHAR},
-      </if>
-      <if test="password != null">
-        'PASSWORD' = #{password,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where SID = #{sid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbYwuser">
-    update db_ywuser
-    set USERID = #{userid,jdbcType=VARCHAR},
-      'NAME' = #{name,jdbcType=VARCHAR},
-      FLAG = #{flag,jdbcType=DECIMAL},
-      OPER = #{oper,jdbcType=VARCHAR},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      APITOKEN = #{apitoken,jdbcType=VARCHAR},
-      LEVEL0 = #{level0,jdbcType=VARCHAR},
-      'PASSWORD' = #{password,jdbcType=LONGVARCHAR}
-    where SID = #{sid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbYwuser">
-    update db_ywuser
-    set USERID = #{userid,jdbcType=VARCHAR},
-      'NAME' = #{name,jdbcType=VARCHAR},
-      FLAG = #{flag,jdbcType=DECIMAL},
-      OPER = #{oper,jdbcType=VARCHAR},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      APITOKEN = #{apitoken,jdbcType=VARCHAR},
-      LEVEL0 = #{level0,jdbcType=VARCHAR}
-    where SID = #{sid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbYwuser">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

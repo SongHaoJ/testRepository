@@ -23,249 +23,207 @@
     <result column="OPER" jdbcType="CHAR" property="oper" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
   </resultMap>
-  <sql id="Base_Column_List">
-    SID, SHOPNAME, SENDERCITY, SENDERCOUNTRY, SENDERCOUNTY, SENDERNAME, SENDERPHONE, 
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SID, SHOPNAME, SENDERCITY, SENDERCOUNTRY, SENDERCOUNTY, SENDERNAME, SENDERPHONE, 
     SENDERPOSTCODE, SENDERPROVINCE, SENDERSTREETADDRESS, PICKUPCITY, PICKUPCOUNTY, PICKUPCOUNTRY, 
     PICKUPPHONE, PICKUPNAME, PICKUPPOSTCODE, PICKUPPROVINCE, PICKUPSTREETADDRESS, OPER, 
     OPERTIME
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from db_aliaddress
+    from DB_ALIADDRESS
     where SID = #{sid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_aliaddress
-    where SID = #{sid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, SHOPNAME, SENDERCITY, SENDERCOUNTRY, SENDERCOUNTY, SENDERNAME, SENDERPHONE, 
+    SENDERPOSTCODE, SENDERPROVINCE, SENDERSTREETADDRESS, PICKUPCITY, PICKUPCOUNTY, PICKUPCOUNTRY, 
+    PICKUPPHONE, PICKUPNAME, PICKUPPOSTCODE, PICKUPPROVINCE, PICKUPSTREETADDRESS, OPER, 
+    OPERTIME
+    from DB_ALIADDRESS
+  </select>
+  <sql id="TableName">
+    DB_ALIADDRESS
+  </sql>
+  <sql id="Values">
+     #{sid,jdbcType=VARCHAR} , 
+     #{shopname,jdbcType=VARCHAR} , 
+     #{sendercity,jdbcType=VARCHAR} , 
+     #{sendercountry,jdbcType=VARCHAR} , 
+     #{sendercounty,jdbcType=VARCHAR} , 
+     #{sendername,jdbcType=VARCHAR} , 
+     #{senderphone,jdbcType=VARCHAR} , 
+     #{senderpostcode,jdbcType=VARCHAR} , 
+     #{senderprovince,jdbcType=VARCHAR} , 
+     #{senderstreetaddress,jdbcType=VARCHAR} , 
+     #{pickupcity,jdbcType=VARCHAR} , 
+     #{pickupcounty,jdbcType=VARCHAR} , 
+     #{pickupcountry,jdbcType=VARCHAR} , 
+     #{pickupphone,jdbcType=VARCHAR} , 
+     #{pickupname,jdbcType=VARCHAR} , 
+     #{pickuppostcode,jdbcType=VARCHAR} , 
+     #{pickupprovince,jdbcType=VARCHAR} , 
+     #{pickupstreetaddress,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=CHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+  </sql>
+  <sql id="Columns">
+    SID , 
+    SHOPNAME , 
+    SENDERCITY , 
+    SENDERCOUNTRY , 
+    SENDERCOUNTY , 
+    SENDERNAME , 
+    SENDERPHONE , 
+    SENDERPOSTCODE , 
+    SENDERPROVINCE , 
+    SENDERSTREETADDRESS , 
+    PICKUPCITY , 
+    PICKUPCOUNTY , 
+    PICKUPCOUNTRY , 
+    PICKUPPHONE , 
+    PICKUPNAME , 
+    PICKUPPOSTCODE , 
+    PICKUPPROVINCE , 
+    PICKUPSTREETADDRESS , 
+    OPER , 
+    OPERTIME , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shopname != null">
+      shopname = #{shopname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sendercity != null">
+      sendercity = #{sendercity,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sendercountry != null">
+      sendercountry = #{sendercountry,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sendercounty != null">
+      sendercounty = #{sendercounty,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sendername != null">
+      sendername = #{sendername,jdbcType=VARCHAR} and 
+    </if>
+    <if test="senderphone != null">
+      senderphone = #{senderphone,jdbcType=VARCHAR} and 
+    </if>
+    <if test="senderpostcode != null">
+      senderpostcode = #{senderpostcode,jdbcType=VARCHAR} and 
+    </if>
+    <if test="senderprovince != null">
+      senderprovince = #{senderprovince,jdbcType=VARCHAR} and 
+    </if>
+    <if test="senderstreetaddress != null">
+      senderstreetaddress = #{senderstreetaddress,jdbcType=VARCHAR} and 
+    </if>
+    <if test="pickupcity != null">
+      pickupcity = #{pickupcity,jdbcType=VARCHAR} and 
+    </if>
+    <if test="pickupcounty != null">
+      pickupcounty = #{pickupcounty,jdbcType=VARCHAR} and 
+    </if>
+    <if test="pickupcountry != null">
+      pickupcountry = #{pickupcountry,jdbcType=VARCHAR} and 
+    </if>
+    <if test="pickupphone != null">
+      pickupphone = #{pickupphone,jdbcType=VARCHAR} and 
+    </if>
+    <if test="pickupname != null">
+      pickupname = #{pickupname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="pickuppostcode != null">
+      pickuppostcode = #{pickuppostcode,jdbcType=VARCHAR} and 
+    </if>
+    <if test="pickupprovince != null">
+      pickupprovince = #{pickupprovince,jdbcType=VARCHAR} and 
+    </if>
+    <if test="pickupstreetaddress != null">
+      pickupstreetaddress = #{pickupstreetaddress,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=CHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shopname != null">
+      shopname = #{shopname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sendercity != null">
+      sendercity = #{sendercity,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sendercountry != null">
+      sendercountry = #{sendercountry,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sendercounty != null">
+      sendercounty = #{sendercounty,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sendername != null">
+      sendername = #{sendername,jdbcType=VARCHAR} , 
+    </if>
+    <if test="senderphone != null">
+      senderphone = #{senderphone,jdbcType=VARCHAR} , 
+    </if>
+    <if test="senderpostcode != null">
+      senderpostcode = #{senderpostcode,jdbcType=VARCHAR} , 
+    </if>
+    <if test="senderprovince != null">
+      senderprovince = #{senderprovince,jdbcType=VARCHAR} , 
+    </if>
+    <if test="senderstreetaddress != null">
+      senderstreetaddress = #{senderstreetaddress,jdbcType=VARCHAR} , 
+    </if>
+    <if test="pickupcity != null">
+      pickupcity = #{pickupcity,jdbcType=VARCHAR} , 
+    </if>
+    <if test="pickupcounty != null">
+      pickupcounty = #{pickupcounty,jdbcType=VARCHAR} , 
+    </if>
+    <if test="pickupcountry != null">
+      pickupcountry = #{pickupcountry,jdbcType=VARCHAR} , 
+    </if>
+    <if test="pickupphone != null">
+      pickupphone = #{pickupphone,jdbcType=VARCHAR} , 
+    </if>
+    <if test="pickupname != null">
+      pickupname = #{pickupname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="pickuppostcode != null">
+      pickuppostcode = #{pickuppostcode,jdbcType=VARCHAR} , 
+    </if>
+    <if test="pickupprovince != null">
+      pickupprovince = #{pickupprovince,jdbcType=VARCHAR} , 
+    </if>
+    <if test="pickupstreetaddress != null">
+      pickupstreetaddress = #{pickupstreetaddress,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=CHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbAliaddress" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SID=#{SID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbAliaddress">
-    insert into db_aliaddress (SID, SHOPNAME, SENDERCITY, 
-      SENDERCOUNTRY, SENDERCOUNTY, SENDERNAME, 
-      SENDERPHONE, SENDERPOSTCODE, SENDERPROVINCE, 
-      SENDERSTREETADDRESS, PICKUPCITY, PICKUPCOUNTY, 
-      PICKUPCOUNTRY, PICKUPPHONE, PICKUPNAME, 
-      PICKUPPOSTCODE, PICKUPPROVINCE, PICKUPSTREETADDRESS, 
-      OPER, OPERTIME)
-    values (#{sid,jdbcType=VARCHAR}, #{shopname,jdbcType=VARCHAR}, #{sendercity,jdbcType=VARCHAR}, 
-      #{sendercountry,jdbcType=VARCHAR}, #{sendercounty,jdbcType=VARCHAR}, #{sendername,jdbcType=VARCHAR}, 
-      #{senderphone,jdbcType=VARCHAR}, #{senderpostcode,jdbcType=VARCHAR}, #{senderprovince,jdbcType=VARCHAR}, 
-      #{senderstreetaddress,jdbcType=VARCHAR}, #{pickupcity,jdbcType=VARCHAR}, #{pickupcounty,jdbcType=VARCHAR}, 
-      #{pickupcountry,jdbcType=VARCHAR}, #{pickupphone,jdbcType=VARCHAR}, #{pickupname,jdbcType=VARCHAR}, 
-      #{pickuppostcode,jdbcType=VARCHAR}, #{pickupprovince,jdbcType=VARCHAR}, #{pickupstreetaddress,jdbcType=VARCHAR}, 
-      #{oper,jdbcType=CHAR}, #{opertime,jdbcType=TIMESTAMP})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbAliaddress">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbAliaddress">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbAliaddress">
-    insert into db_aliaddress
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        SID,
-      </if>
-      <if test="shopname != null">
-        SHOPNAME,
-      </if>
-      <if test="sendercity != null">
-        SENDERCITY,
-      </if>
-      <if test="sendercountry != null">
-        SENDERCOUNTRY,
-      </if>
-      <if test="sendercounty != null">
-        SENDERCOUNTY,
-      </if>
-      <if test="sendername != null">
-        SENDERNAME,
-      </if>
-      <if test="senderphone != null">
-        SENDERPHONE,
-      </if>
-      <if test="senderpostcode != null">
-        SENDERPOSTCODE,
-      </if>
-      <if test="senderprovince != null">
-        SENDERPROVINCE,
-      </if>
-      <if test="senderstreetaddress != null">
-        SENDERSTREETADDRESS,
-      </if>
-      <if test="pickupcity != null">
-        PICKUPCITY,
-      </if>
-      <if test="pickupcounty != null">
-        PICKUPCOUNTY,
-      </if>
-      <if test="pickupcountry != null">
-        PICKUPCOUNTRY,
-      </if>
-      <if test="pickupphone != null">
-        PICKUPPHONE,
-      </if>
-      <if test="pickupname != null">
-        PICKUPNAME,
-      </if>
-      <if test="pickuppostcode != null">
-        PICKUPPOSTCODE,
-      </if>
-      <if test="pickupprovince != null">
-        PICKUPPROVINCE,
-      </if>
-      <if test="pickupstreetaddress != null">
-        PICKUPSTREETADDRESS,
-      </if>
-      <if test="oper != null">
-        OPER,
-      </if>
-      <if test="opertime != null">
-        OPERTIME,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        #{sid,jdbcType=VARCHAR},
-      </if>
-      <if test="shopname != null">
-        #{shopname,jdbcType=VARCHAR},
-      </if>
-      <if test="sendercity != null">
-        #{sendercity,jdbcType=VARCHAR},
-      </if>
-      <if test="sendercountry != null">
-        #{sendercountry,jdbcType=VARCHAR},
-      </if>
-      <if test="sendercounty != null">
-        #{sendercounty,jdbcType=VARCHAR},
-      </if>
-      <if test="sendername != null">
-        #{sendername,jdbcType=VARCHAR},
-      </if>
-      <if test="senderphone != null">
-        #{senderphone,jdbcType=VARCHAR},
-      </if>
-      <if test="senderpostcode != null">
-        #{senderpostcode,jdbcType=VARCHAR},
-      </if>
-      <if test="senderprovince != null">
-        #{senderprovince,jdbcType=VARCHAR},
-      </if>
-      <if test="senderstreetaddress != null">
-        #{senderstreetaddress,jdbcType=VARCHAR},
-      </if>
-      <if test="pickupcity != null">
-        #{pickupcity,jdbcType=VARCHAR},
-      </if>
-      <if test="pickupcounty != null">
-        #{pickupcounty,jdbcType=VARCHAR},
-      </if>
-      <if test="pickupcountry != null">
-        #{pickupcountry,jdbcType=VARCHAR},
-      </if>
-      <if test="pickupphone != null">
-        #{pickupphone,jdbcType=VARCHAR},
-      </if>
-      <if test="pickupname != null">
-        #{pickupname,jdbcType=VARCHAR},
-      </if>
-      <if test="pickuppostcode != null">
-        #{pickuppostcode,jdbcType=VARCHAR},
-      </if>
-      <if test="pickupprovince != null">
-        #{pickupprovince,jdbcType=VARCHAR},
-      </if>
-      <if test="pickupstreetaddress != null">
-        #{pickupstreetaddress,jdbcType=VARCHAR},
-      </if>
-      <if test="oper != null">
-        #{oper,jdbcType=CHAR},
-      </if>
-      <if test="opertime != null">
-        #{opertime,jdbcType=TIMESTAMP},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbAliaddress">
-    update db_aliaddress
-    <set>
-      <if test="shopname != null">
-        SHOPNAME = #{shopname,jdbcType=VARCHAR},
-      </if>
-      <if test="sendercity != null">
-        SENDERCITY = #{sendercity,jdbcType=VARCHAR},
-      </if>
-      <if test="sendercountry != null">
-        SENDERCOUNTRY = #{sendercountry,jdbcType=VARCHAR},
-      </if>
-      <if test="sendercounty != null">
-        SENDERCOUNTY = #{sendercounty,jdbcType=VARCHAR},
-      </if>
-      <if test="sendername != null">
-        SENDERNAME = #{sendername,jdbcType=VARCHAR},
-      </if>
-      <if test="senderphone != null">
-        SENDERPHONE = #{senderphone,jdbcType=VARCHAR},
-      </if>
-      <if test="senderpostcode != null">
-        SENDERPOSTCODE = #{senderpostcode,jdbcType=VARCHAR},
-      </if>
-      <if test="senderprovince != null">
-        SENDERPROVINCE = #{senderprovince,jdbcType=VARCHAR},
-      </if>
-      <if test="senderstreetaddress != null">
-        SENDERSTREETADDRESS = #{senderstreetaddress,jdbcType=VARCHAR},
-      </if>
-      <if test="pickupcity != null">
-        PICKUPCITY = #{pickupcity,jdbcType=VARCHAR},
-      </if>
-      <if test="pickupcounty != null">
-        PICKUPCOUNTY = #{pickupcounty,jdbcType=VARCHAR},
-      </if>
-      <if test="pickupcountry != null">
-        PICKUPCOUNTRY = #{pickupcountry,jdbcType=VARCHAR},
-      </if>
-      <if test="pickupphone != null">
-        PICKUPPHONE = #{pickupphone,jdbcType=VARCHAR},
-      </if>
-      <if test="pickupname != null">
-        PICKUPNAME = #{pickupname,jdbcType=VARCHAR},
-      </if>
-      <if test="pickuppostcode != null">
-        PICKUPPOSTCODE = #{pickuppostcode,jdbcType=VARCHAR},
-      </if>
-      <if test="pickupprovince != null">
-        PICKUPPROVINCE = #{pickupprovince,jdbcType=VARCHAR},
-      </if>
-      <if test="pickupstreetaddress != null">
-        PICKUPSTREETADDRESS = #{pickupstreetaddress,jdbcType=VARCHAR},
-      </if>
-      <if test="oper != null">
-        OPER = #{oper,jdbcType=CHAR},
-      </if>
-      <if test="opertime != null">
-        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    where SID = #{sid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbAliaddress">
-    update db_aliaddress
-    set SHOPNAME = #{shopname,jdbcType=VARCHAR},
-      SENDERCITY = #{sendercity,jdbcType=VARCHAR},
-      SENDERCOUNTRY = #{sendercountry,jdbcType=VARCHAR},
-      SENDERCOUNTY = #{sendercounty,jdbcType=VARCHAR},
-      SENDERNAME = #{sendername,jdbcType=VARCHAR},
-      SENDERPHONE = #{senderphone,jdbcType=VARCHAR},
-      SENDERPOSTCODE = #{senderpostcode,jdbcType=VARCHAR},
-      SENDERPROVINCE = #{senderprovince,jdbcType=VARCHAR},
-      SENDERSTREETADDRESS = #{senderstreetaddress,jdbcType=VARCHAR},
-      PICKUPCITY = #{pickupcity,jdbcType=VARCHAR},
-      PICKUPCOUNTY = #{pickupcounty,jdbcType=VARCHAR},
-      PICKUPCOUNTRY = #{pickupcountry,jdbcType=VARCHAR},
-      PICKUPPHONE = #{pickupphone,jdbcType=VARCHAR},
-      PICKUPNAME = #{pickupname,jdbcType=VARCHAR},
-      PICKUPPOSTCODE = #{pickuppostcode,jdbcType=VARCHAR},
-      PICKUPPROVINCE = #{pickupprovince,jdbcType=VARCHAR},
-      PICKUPSTREETADDRESS = #{pickupstreetaddress,jdbcType=VARCHAR},
-      OPER = #{oper,jdbcType=CHAR},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP}
-    where SID = #{sid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbAliaddress">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

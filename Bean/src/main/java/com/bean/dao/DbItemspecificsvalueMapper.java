@@ -1,18 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbItemspecificsvalue;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbItemspecificsvalueMapper {
-    int deleteByPrimaryKey(BigDecimal sid);
+    DbItemspecificsvalue selectByCriteria(DbItemspecificsvalue DbItemspecificsvalue);
 
-    int insert(DbItemspecificsvalue record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbItemspecificsvalue record);
+    void deleteByCriteria(DbItemspecificsvalue DbItemspecificsvalue);
+
+    int insertByCriteria(DbItemspecificsvalue DbItemspecificsvalue);
+
+    int updateByCriteria(DbItemspecificsvalue DbItemspecificsvalue);
 
     DbItemspecificsvalue selectByPrimaryKey(BigDecimal sid);
 
-    int updateByPrimaryKeySelective(DbItemspecificsvalue record);
-
-    int updateByPrimaryKey(DbItemspecificsvalue record);
+    List<DbItemspecificsvalue> selectAll();
 }

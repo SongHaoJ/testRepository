@@ -9,22 +9,22 @@
     <result column="ORDERNUM" jdbcType="DECIMAL" property="ordernum" />
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
     <result column="OPERTIME" jdbcType="VARCHAR" property="opertime" />
+    <result column="NOTES" jdbcType="VARCHAR" property="notes" />
     <result column="OUTBOUNDNUM" jdbcType="DECIMAL" property="outboundnum" />
-    <result column="NOTES" jdbcType="LONGVARCHAR" property="notes" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
     select SEQUENCEID, PRODUCTID, PRODUCTNAME, SAVENUMBER, ORDERNUM, OPER, OPERTIME, 
-    OUTBOUNDNUM, NOTES
-    from db_outbound
+    NOTES, OUTBOUNDNUM
+    from DB_OUTBOUND
     where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SEQUENCEID, PRODUCTID, PRODUCTNAME, SAVENUMBER, ORDERNUM, OPER, OPERTIME, 
-    OUTBOUNDNUM, NOTES
-    from db_outbound
+    NOTES, OUTBOUNDNUM
+    from DB_OUTBOUND
   </select>
   <sql id="TableName">
-    db_outbound
+    DB_OUTBOUND
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=DECIMAL} , 
@@ -34,8 +34,8 @@
      #{ordernum,jdbcType=DECIMAL} , 
      #{oper,jdbcType=VARCHAR} , 
      #{opertime,jdbcType=VARCHAR} , 
+     #{notes,jdbcType=VARCHAR} , 
      #{outboundnum,jdbcType=DECIMAL} , 
-     #{notes,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
@@ -45,68 +45,68 @@
     ORDERNUM , 
     OPER , 
     OPERTIME , 
+    NOTES , 
     OUTBOUNDNUM , 
-    NOTES
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} and 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} and 
     </if>
     <if test="productid != null">
-      PRODUCTID = #{productid,jdbcType=VARCHAR} and 
+      productid = #{productid,jdbcType=VARCHAR} and 
     </if>
     <if test="productname != null">
-      PRODUCTNAME = #{productname,jdbcType=VARCHAR} and 
+      productname = #{productname,jdbcType=VARCHAR} and 
     </if>
     <if test="savenumber != null">
-      SAVENUMBER = #{savenumber,jdbcType=DECIMAL} and 
+      savenumber = #{savenumber,jdbcType=DECIMAL} and 
     </if>
     <if test="ordernum != null">
-      ORDERNUM = #{ordernum,jdbcType=DECIMAL} and 
+      ordernum = #{ordernum,jdbcType=DECIMAL} and 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
+      oper = #{oper,jdbcType=VARCHAR} and 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=VARCHAR} and 
-    </if>
-    <if test="outboundnum != null">
-      OUTBOUNDNUM = #{outboundnum,jdbcType=DECIMAL} and 
+      opertime = #{opertime,jdbcType=VARCHAR} and 
     </if>
     <if test="notes != null">
-      NOTES = #{notes,jdbcType=LONGVARCHAR}
+      notes = #{notes,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="outboundnum != null">
+      outboundnum = #{outboundnum,jdbcType=DECIMAL} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} , 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} , 
     </if>
     <if test="productid != null">
-      PRODUCTID = #{productid,jdbcType=VARCHAR} , 
+      productid = #{productid,jdbcType=VARCHAR} , 
     </if>
     <if test="productname != null">
-      PRODUCTNAME = #{productname,jdbcType=VARCHAR} , 
+      productname = #{productname,jdbcType=VARCHAR} , 
     </if>
     <if test="savenumber != null">
-      SAVENUMBER = #{savenumber,jdbcType=DECIMAL} , 
+      savenumber = #{savenumber,jdbcType=DECIMAL} , 
     </if>
     <if test="ordernum != null">
-      ORDERNUM = #{ordernum,jdbcType=DECIMAL} , 
+      ordernum = #{ordernum,jdbcType=DECIMAL} , 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
+      oper = #{oper,jdbcType=VARCHAR} , 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=VARCHAR} , 
-    </if>
-    <if test="outboundnum != null">
-      OUTBOUNDNUM = #{outboundnum,jdbcType=DECIMAL} , 
+      opertime = #{opertime,jdbcType=VARCHAR} , 
     </if>
     <if test="notes != null">
-      NOTES = #{notes,jdbcType=LONGVARCHAR}
+      notes = #{notes,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="outboundnum != null">
+      outboundnum = #{outboundnum,jdbcType=DECIMAL} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbOutbound" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

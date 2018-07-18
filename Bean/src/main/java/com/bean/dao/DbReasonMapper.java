@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbReason;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbReasonMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbReason selectByCriteria(DbReason DbReason);
 
-    int insert(DbReason record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbReason record);
+    void deleteByCriteria(DbReason DbReason);
+
+    int insertByCriteria(DbReason DbReason);
+
+    int updateByCriteria(DbReason DbReason);
 
     DbReason selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbReason record);
-
-    int updateByPrimaryKeyWithBLOBs(DbReason record);
+    List<DbReason> selectAll();
 }

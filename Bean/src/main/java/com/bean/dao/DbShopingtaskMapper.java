@@ -1,18 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbShopingtask;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbShopingtaskMapper {
-    int deleteByPrimaryKey(BigDecimal itemid);
+    DbShopingtask selectByCriteria(DbShopingtask DbShopingtask);
 
-    int insert(DbShopingtask record);
+    void deleteByPrimaryKey(String ITEMID);
 
-    int insertSelective(DbShopingtask record);
+    void deleteByCriteria(DbShopingtask DbShopingtask);
+
+    int insertByCriteria(DbShopingtask DbShopingtask);
+
+    int updateByCriteria(DbShopingtask DbShopingtask);
 
     DbShopingtask selectByPrimaryKey(BigDecimal itemid);
 
-    int updateByPrimaryKeySelective(DbShopingtask record);
-
-    int updateByPrimaryKey(DbShopingtask record);
+    List<DbShopingtask> selectAll();
 }

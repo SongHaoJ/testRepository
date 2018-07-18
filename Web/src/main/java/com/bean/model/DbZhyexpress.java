@@ -14,9 +14,9 @@ public class DbZhyexpress implements Serializable {
 
     private String shippintimgurl;
 
-    private String status;
-
     private String shippintaddress;
+
+    private String status;
 
     private static final long serialVersionUID = 1L;
 
@@ -60,20 +60,20 @@ public class DbZhyexpress implements Serializable {
         this.shippintimgurl = shippintimgurl == null ? null : shippintimgurl.trim();
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status == null ? null : status.trim();
-    }
-
     public String getShippintaddress() {
         return shippintaddress;
     }
 
     public void setShippintaddress(String shippintaddress) {
         this.shippintaddress = shippintaddress == null ? null : shippintaddress.trim();
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status == null ? null : status.trim();
     }
 
     @Override
@@ -93,8 +93,8 @@ public class DbZhyexpress implements Serializable {
             && (this.getShippingnamecn() == null ? other.getShippingnamecn() == null : this.getShippingnamecn().equals(other.getShippingnamecn()))
             && (this.getShippingnameen() == null ? other.getShippingnameen() == null : this.getShippingnameen().equals(other.getShippingnameen()))
             && (this.getShippintimgurl() == null ? other.getShippintimgurl() == null : this.getShippintimgurl().equals(other.getShippintimgurl()))
-            && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
-            && (this.getShippintaddress() == null ? other.getShippintaddress() == null : this.getShippintaddress().equals(other.getShippintaddress()));
+            && (this.getShippintaddress() == null ? other.getShippintaddress() == null : this.getShippintaddress().equals(other.getShippintaddress()))
+            && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()));
     }
 
     @Override
@@ -106,8 +106,8 @@ public class DbZhyexpress implements Serializable {
         result = prime * result + ((getShippingnamecn() == null) ? 0 : getShippingnamecn().hashCode());
         result = prime * result + ((getShippingnameen() == null) ? 0 : getShippingnameen().hashCode());
         result = prime * result + ((getShippintimgurl() == null) ? 0 : getShippintimgurl().hashCode());
-        result = prime * result + ((getStatus() == null) ? 0 : getStatus().hashCode());
         result = prime * result + ((getShippintaddress() == null) ? 0 : getShippintaddress().hashCode());
+        result = prime * result + ((getStatus() == null) ? 0 : getStatus().hashCode());
         return result;
     }
 
@@ -122,8 +122,8 @@ public class DbZhyexpress implements Serializable {
         sb.append(", shippingnamecn=").append(shippingnamecn);
         sb.append(", shippingnameen=").append(shippingnameen);
         sb.append(", shippintimgurl=").append(shippintimgurl);
-        sb.append(", status=").append(status);
         sb.append(", shippintaddress=").append(shippintaddress);
+        sb.append(", status=").append(status);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

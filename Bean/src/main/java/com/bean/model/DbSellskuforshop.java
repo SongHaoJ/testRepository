@@ -25,9 +25,13 @@ public class DbSellskuforshop implements Serializable {
 
     private BigDecimal numforde;
 
+    private String temporary;
+
     private BigDecimal total;
 
     private String reserve1;
+
+    private String reserve2;
 
     private BigDecimal reserve3;
 
@@ -54,10 +58,6 @@ public class DbSellskuforshop implements Serializable {
     private BigDecimal flagca;
 
     private BigDecimal flagde;
-
-    private String temporary;
-
-    private String reserve2;
 
     private static final long serialVersionUID = 1L;
 
@@ -141,6 +141,14 @@ public class DbSellskuforshop implements Serializable {
         this.numforde = numforde;
     }
 
+    public String getTemporary() {
+        return temporary;
+    }
+
+    public void setTemporary(String temporary) {
+        this.temporary = temporary == null ? null : temporary.trim();
+    }
+
     public BigDecimal getTotal() {
         return total;
     }
@@ -155,6 +163,14 @@ public class DbSellskuforshop implements Serializable {
 
     public void setReserve1(String reserve1) {
         this.reserve1 = reserve1 == null ? null : reserve1.trim();
+    }
+
+    public String getReserve2() {
+        return reserve2;
+    }
+
+    public void setReserve2(String reserve2) {
+        this.reserve2 = reserve2 == null ? null : reserve2.trim();
     }
 
     public BigDecimal getReserve3() {
@@ -261,22 +277,6 @@ public class DbSellskuforshop implements Serializable {
         this.flagde = flagde;
     }
 
-    public String getTemporary() {
-        return temporary;
-    }
-
-    public void setTemporary(String temporary) {
-        this.temporary = temporary == null ? null : temporary.trim();
-    }
-
-    public String getReserve2() {
-        return reserve2;
-    }
-
-    public void setReserve2(String reserve2) {
-        this.reserve2 = reserve2 == null ? null : reserve2.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -299,8 +299,10 @@ public class DbSellskuforshop implements Serializable {
             && (this.getNumforuk() == null ? other.getNumforuk() == null : this.getNumforuk().equals(other.getNumforuk()))
             && (this.getNumforca() == null ? other.getNumforca() == null : this.getNumforca().equals(other.getNumforca()))
             && (this.getNumforde() == null ? other.getNumforde() == null : this.getNumforde().equals(other.getNumforde()))
+            && (this.getTemporary() == null ? other.getTemporary() == null : this.getTemporary().equals(other.getTemporary()))
             && (this.getTotal() == null ? other.getTotal() == null : this.getTotal().equals(other.getTotal()))
             && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
+            && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
             && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
             && (this.getReserve4() == null ? other.getReserve4() == null : this.getReserve4().equals(other.getReserve4()))
             && (this.getReserve5() == null ? other.getReserve5() == null : this.getReserve5().equals(other.getReserve5()))
@@ -313,9 +315,7 @@ public class DbSellskuforshop implements Serializable {
             && (this.getFlagau() == null ? other.getFlagau() == null : this.getFlagau().equals(other.getFlagau()))
             && (this.getFlaguk() == null ? other.getFlaguk() == null : this.getFlaguk().equals(other.getFlaguk()))
             && (this.getFlagca() == null ? other.getFlagca() == null : this.getFlagca().equals(other.getFlagca()))
-            && (this.getFlagde() == null ? other.getFlagde() == null : this.getFlagde().equals(other.getFlagde()))
-            && (this.getTemporary() == null ? other.getTemporary() == null : this.getTemporary().equals(other.getTemporary()))
-            && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()));
+            && (this.getFlagde() == null ? other.getFlagde() == null : this.getFlagde().equals(other.getFlagde()));
     }
 
     @Override
@@ -332,8 +332,10 @@ public class DbSellskuforshop implements Serializable {
         result = prime * result + ((getNumforuk() == null) ? 0 : getNumforuk().hashCode());
         result = prime * result + ((getNumforca() == null) ? 0 : getNumforca().hashCode());
         result = prime * result + ((getNumforde() == null) ? 0 : getNumforde().hashCode());
+        result = prime * result + ((getTemporary() == null) ? 0 : getTemporary().hashCode());
         result = prime * result + ((getTotal() == null) ? 0 : getTotal().hashCode());
         result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
+        result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
         result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
         result = prime * result + ((getReserve4() == null) ? 0 : getReserve4().hashCode());
         result = prime * result + ((getReserve5() == null) ? 0 : getReserve5().hashCode());
@@ -347,8 +349,6 @@ public class DbSellskuforshop implements Serializable {
         result = prime * result + ((getFlaguk() == null) ? 0 : getFlaguk().hashCode());
         result = prime * result + ((getFlagca() == null) ? 0 : getFlagca().hashCode());
         result = prime * result + ((getFlagde() == null) ? 0 : getFlagde().hashCode());
-        result = prime * result + ((getTemporary() == null) ? 0 : getTemporary().hashCode());
-        result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
         return result;
     }
 
@@ -368,8 +368,10 @@ public class DbSellskuforshop implements Serializable {
         sb.append(", numforuk=").append(numforuk);
         sb.append(", numforca=").append(numforca);
         sb.append(", numforde=").append(numforde);
+        sb.append(", temporary=").append(temporary);
         sb.append(", total=").append(total);
         sb.append(", reserve1=").append(reserve1);
+        sb.append(", reserve2=").append(reserve2);
         sb.append(", reserve3=").append(reserve3);
         sb.append(", reserve4=").append(reserve4);
         sb.append(", reserve5=").append(reserve5);
@@ -383,8 +385,6 @@ public class DbSellskuforshop implements Serializable {
         sb.append(", flaguk=").append(flaguk);
         sb.append(", flagca=").append(flagca);
         sb.append(", flagde=").append(flagde);
-        sb.append(", temporary=").append(temporary);
-        sb.append(", reserve2=").append(reserve2);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

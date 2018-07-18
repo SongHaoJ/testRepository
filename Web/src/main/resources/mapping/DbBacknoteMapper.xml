@@ -3,63 +3,63 @@
 <mapper namespace="com.bean.dao.DbBacknoteMapper">
   <resultMap id="BaseResultMap" type="com.bean.model.DbBacknote">
     <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
-    <result column="NAME" jdbcType="LONGVARCHAR" property="name" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select SEQUENCEID, OPER, OPERTIME, NAME
-    from db_backnote
+    select SEQUENCEID, NAME, OPER, OPERTIME
+    from DB_BACKNOTE
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select SEQUENCEID, OPER, OPERTIME, NAME
-    from db_backnote
+    select SEQUENCEID, NAME, OPER, OPERTIME
+    from DB_BACKNOTE
   </select>
   <sql id="TableName">
-    db_backnote
+    DB_BACKNOTE
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=VARCHAR} , 
+     #{name,jdbcType=VARCHAR} , 
      #{oper,jdbcType=VARCHAR} , 
      #{opertime,jdbcType=TIMESTAMP} , 
-     #{name,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
+    NAME , 
     OPER , 
     OPERTIME , 
-    NAME
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
     </if>
     <if test="name != null">
-      NAME = #{name,jdbcType=LONGVARCHAR}
+      name = #{name,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
     </if>
     <if test="name != null">
-      NAME = #{name,jdbcType=LONGVARCHAR}
+      name = #{name,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbBacknote" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

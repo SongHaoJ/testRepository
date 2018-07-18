@@ -2,8 +2,8 @@ package com.bean.dao;
 
 import com.bean.model.StatMoneyDaily;
 
-public interface StatMoneyDailyMapper {
-    int insert(StatMoneyDaily record);
+import java.util.List;
 
-    int insertSelective(StatMoneyDaily record);
+public interface StatMoneyDailyMapper {
+    List<StatMoneyDaily> selectAll();
 }

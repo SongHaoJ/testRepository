@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbProduceNew;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbProduceNewMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbProduceNew selectByCriteria(DbProduceNew DbProduceNew);
 
-    int insert(DbProduceNew record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbProduceNew record);
+    void deleteByCriteria(DbProduceNew DbProduceNew);
+
+    int insertByCriteria(DbProduceNew DbProduceNew);
+
+    int updateByCriteria(DbProduceNew DbProduceNew);
 
     DbProduceNew selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbProduceNew record);
-
-    int updateByPrimaryKey(DbProduceNew record);
+    List<DbProduceNew> selectAll();
 }

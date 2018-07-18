@@ -6,6 +6,12 @@
     <result column="SHOPID" jdbcType="VARCHAR" property="shopid" />
     <result column="SHOPNAME" jdbcType="VARCHAR" property="shopname" />
     <result column="COUNTRY" jdbcType="VARCHAR" property="country" />
+    <result column="PROVINCE" jdbcType="VARCHAR" property="province" />
+    <result column="COUNTY" jdbcType="VARCHAR" property="county" />
+    <result column="CITY" jdbcType="VARCHAR" property="city" />
+    <result column="AREA" jdbcType="VARCHAR" property="area" />
+    <result column="STREET" jdbcType="VARCHAR" property="street" />
+    <result column="STREETADDRESS" jdbcType="VARCHAR" property="streetaddress" />
     <result column="NAME" jdbcType="VARCHAR" property="name" />
     <result column="PHONE" jdbcType="VARCHAR" property="phone" />
     <result column="MEMBERTYPE" jdbcType="VARCHAR" property="membertype" />
@@ -17,277 +23,205 @@
     <result column="ISNEEDTOUPDATE" jdbcType="VARCHAR" property="isneedtoupdate" />
     <result column="OPENFLAG" jdbcType="DECIMAL" property="openflag" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbSmtaddress">
-    <result column="PROVINCE" jdbcType="LONGVARCHAR" property="province" />
-    <result column="COUNTY" jdbcType="LONGVARCHAR" property="county" />
-    <result column="CITY" jdbcType="LONGVARCHAR" property="city" />
-    <result column="AREA" jdbcType="LONGVARCHAR" property="area" />
-    <result column="STREET" jdbcType="LONGVARCHAR" property="street" />
-    <result column="STREETADDRESS" jdbcType="LONGVARCHAR" property="streetaddress" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    ID, SHOPID, SHOPNAME, COUNTRY, 'NAME', PHONE, MEMBERTYPE, POSTCODE, ADDRESSID, TRADEMANAGEID, 
-    ISDEFAULT, EMAIL, ISNEEDTOUPDATE, OPENFLAG
-  </sql>
-  <sql id="Blob_Column_List">
-    PROVINCE, COUNTY, CITY, AREA, STREET, STREETADDRESS
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from db_smtaddress
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select ID, SHOPID, SHOPNAME, COUNTRY, PROVINCE, COUNTY, CITY, AREA, STREET, STREETADDRESS, 
+    NAME, PHONE, MEMBERTYPE, POSTCODE, ADDRESSID, TRADEMANAGEID, ISDEFAULT, EMAIL, ISNEEDTOUPDATE, 
+    OPENFLAG
+    from DB_SMTADDRESS
     where ID = #{id,jdbcType=DECIMAL}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from db_smtaddress
-    where ID = #{id,jdbcType=DECIMAL}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ID, SHOPID, SHOPNAME, COUNTRY, PROVINCE, COUNTY, CITY, AREA, STREET, STREETADDRESS, 
+    NAME, PHONE, MEMBERTYPE, POSTCODE, ADDRESSID, TRADEMANAGEID, ISDEFAULT, EMAIL, ISNEEDTOUPDATE, 
+    OPENFLAG
+    from DB_SMTADDRESS
+  </select>
+  <sql id="TableName">
+    DB_SMTADDRESS
+  </sql>
+  <sql id="Values">
+     #{id,jdbcType=DECIMAL} , 
+     #{shopid,jdbcType=VARCHAR} , 
+     #{shopname,jdbcType=VARCHAR} , 
+     #{country,jdbcType=VARCHAR} , 
+     #{province,jdbcType=VARCHAR} , 
+     #{county,jdbcType=VARCHAR} , 
+     #{city,jdbcType=VARCHAR} , 
+     #{area,jdbcType=VARCHAR} , 
+     #{street,jdbcType=VARCHAR} , 
+     #{streetaddress,jdbcType=VARCHAR} , 
+     #{name,jdbcType=VARCHAR} , 
+     #{phone,jdbcType=VARCHAR} , 
+     #{membertype,jdbcType=VARCHAR} , 
+     #{postcode,jdbcType=VARCHAR} , 
+     #{addressid,jdbcType=VARCHAR} , 
+     #{trademanageid,jdbcType=VARCHAR} , 
+     #{isdefault,jdbcType=DECIMAL} , 
+     #{email,jdbcType=VARCHAR} , 
+     #{isneedtoupdate,jdbcType=VARCHAR} , 
+     #{openflag,jdbcType=DECIMAL} , 
+  </sql>
+  <sql id="Columns">
+    ID , 
+    SHOPID , 
+    SHOPNAME , 
+    COUNTRY , 
+    PROVINCE , 
+    COUNTY , 
+    CITY , 
+    AREA , 
+    STREET , 
+    STREETADDRESS , 
+    NAME , 
+    PHONE , 
+    MEMBERTYPE , 
+    POSTCODE , 
+    ADDRESSID , 
+    TRADEMANAGEID , 
+    ISDEFAULT , 
+    EMAIL , 
+    ISNEEDTOUPDATE , 
+    OPENFLAG , 
+  </sql>
+  <sql id="Criteria">
+    <if test="id != null">
+      id = #{id,jdbcType=DECIMAL} and 
+    </if>
+    <if test="shopid != null">
+      shopid = #{shopid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shopname != null">
+      shopname = #{shopname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="country != null">
+      country = #{country,jdbcType=VARCHAR} and 
+    </if>
+    <if test="province != null">
+      province = #{province,jdbcType=VARCHAR} and 
+    </if>
+    <if test="county != null">
+      county = #{county,jdbcType=VARCHAR} and 
+    </if>
+    <if test="city != null">
+      city = #{city,jdbcType=VARCHAR} and 
+    </if>
+    <if test="area != null">
+      area = #{area,jdbcType=VARCHAR} and 
+    </if>
+    <if test="street != null">
+      street = #{street,jdbcType=VARCHAR} and 
+    </if>
+    <if test="streetaddress != null">
+      streetaddress = #{streetaddress,jdbcType=VARCHAR} and 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} and 
+    </if>
+    <if test="phone != null">
+      phone = #{phone,jdbcType=VARCHAR} and 
+    </if>
+    <if test="membertype != null">
+      membertype = #{membertype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="postcode != null">
+      postcode = #{postcode,jdbcType=VARCHAR} and 
+    </if>
+    <if test="addressid != null">
+      addressid = #{addressid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="trademanageid != null">
+      trademanageid = #{trademanageid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="isdefault != null">
+      isdefault = #{isdefault,jdbcType=DECIMAL} and 
+    </if>
+    <if test="email != null">
+      email = #{email,jdbcType=VARCHAR} and 
+    </if>
+    <if test="isneedtoupdate != null">
+      isneedtoupdate = #{isneedtoupdate,jdbcType=VARCHAR} and 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=DECIMAL} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="id != null">
+      id = #{id,jdbcType=DECIMAL} , 
+    </if>
+    <if test="shopid != null">
+      shopid = #{shopid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shopname != null">
+      shopname = #{shopname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="country != null">
+      country = #{country,jdbcType=VARCHAR} , 
+    </if>
+    <if test="province != null">
+      province = #{province,jdbcType=VARCHAR} , 
+    </if>
+    <if test="county != null">
+      county = #{county,jdbcType=VARCHAR} , 
+    </if>
+    <if test="city != null">
+      city = #{city,jdbcType=VARCHAR} , 
+    </if>
+    <if test="area != null">
+      area = #{area,jdbcType=VARCHAR} , 
+    </if>
+    <if test="street != null">
+      street = #{street,jdbcType=VARCHAR} , 
+    </if>
+    <if test="streetaddress != null">
+      streetaddress = #{streetaddress,jdbcType=VARCHAR} , 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} , 
+    </if>
+    <if test="phone != null">
+      phone = #{phone,jdbcType=VARCHAR} , 
+    </if>
+    <if test="membertype != null">
+      membertype = #{membertype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="postcode != null">
+      postcode = #{postcode,jdbcType=VARCHAR} , 
+    </if>
+    <if test="addressid != null">
+      addressid = #{addressid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="trademanageid != null">
+      trademanageid = #{trademanageid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="isdefault != null">
+      isdefault = #{isdefault,jdbcType=DECIMAL} , 
+    </if>
+    <if test="email != null">
+      email = #{email,jdbcType=VARCHAR} , 
+    </if>
+    <if test="isneedtoupdate != null">
+      isneedtoupdate = #{isneedtoupdate,jdbcType=VARCHAR} , 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=DECIMAL} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbSmtaddress" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="Long">
+    delete from <include refid="TableName"/> where ID=#{ID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbSmtaddress">
-    insert into db_smtaddress (ID, SHOPID, SHOPNAME, 
-      COUNTRY, 'NAME', PHONE, 
-      MEMBERTYPE, POSTCODE, ADDRESSID, 
-      TRADEMANAGEID, ISDEFAULT, EMAIL, 
-      ISNEEDTOUPDATE, OPENFLAG, PROVINCE, 
-      COUNTY, CITY, AREA, 
-      STREET, STREETADDRESS)
-    values (#{id,jdbcType=DECIMAL}, #{shopid,jdbcType=VARCHAR}, #{shopname,jdbcType=VARCHAR}, 
-      #{country,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
-      #{membertype,jdbcType=VARCHAR}, #{postcode,jdbcType=VARCHAR}, #{addressid,jdbcType=VARCHAR}, 
-      #{trademanageid,jdbcType=VARCHAR}, #{isdefault,jdbcType=DECIMAL}, #{email,jdbcType=VARCHAR}, 
-      #{isneedtoupdate,jdbcType=VARCHAR}, #{openflag,jdbcType=DECIMAL}, #{province,jdbcType=LONGVARCHAR}, 
-      #{county,jdbcType=LONGVARCHAR}, #{city,jdbcType=LONGVARCHAR}, #{area,jdbcType=LONGVARCHAR}, 
-      #{street,jdbcType=LONGVARCHAR}, #{streetaddress,jdbcType=LONGVARCHAR})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbSmtaddress">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbSmtaddress">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbSmtaddress">
-    insert into db_smtaddress
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        ID,
-      </if>
-      <if test="shopid != null">
-        SHOPID,
-      </if>
-      <if test="shopname != null">
-        SHOPNAME,
-      </if>
-      <if test="country != null">
-        COUNTRY,
-      </if>
-      <if test="name != null">
-        'NAME',
-      </if>
-      <if test="phone != null">
-        PHONE,
-      </if>
-      <if test="membertype != null">
-        MEMBERTYPE,
-      </if>
-      <if test="postcode != null">
-        POSTCODE,
-      </if>
-      <if test="addressid != null">
-        ADDRESSID,
-      </if>
-      <if test="trademanageid != null">
-        TRADEMANAGEID,
-      </if>
-      <if test="isdefault != null">
-        ISDEFAULT,
-      </if>
-      <if test="email != null">
-        EMAIL,
-      </if>
-      <if test="isneedtoupdate != null">
-        ISNEEDTOUPDATE,
-      </if>
-      <if test="openflag != null">
-        OPENFLAG,
-      </if>
-      <if test="province != null">
-        PROVINCE,
-      </if>
-      <if test="county != null">
-        COUNTY,
-      </if>
-      <if test="city != null">
-        CITY,
-      </if>
-      <if test="area != null">
-        AREA,
-      </if>
-      <if test="street != null">
-        STREET,
-      </if>
-      <if test="streetaddress != null">
-        STREETADDRESS,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=DECIMAL},
-      </if>
-      <if test="shopid != null">
-        #{shopid,jdbcType=VARCHAR},
-      </if>
-      <if test="shopname != null">
-        #{shopname,jdbcType=VARCHAR},
-      </if>
-      <if test="country != null">
-        #{country,jdbcType=VARCHAR},
-      </if>
-      <if test="name != null">
-        #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="phone != null">
-        #{phone,jdbcType=VARCHAR},
-      </if>
-      <if test="membertype != null">
-        #{membertype,jdbcType=VARCHAR},
-      </if>
-      <if test="postcode != null">
-        #{postcode,jdbcType=VARCHAR},
-      </if>
-      <if test="addressid != null">
-        #{addressid,jdbcType=VARCHAR},
-      </if>
-      <if test="trademanageid != null">
-        #{trademanageid,jdbcType=VARCHAR},
-      </if>
-      <if test="isdefault != null">
-        #{isdefault,jdbcType=DECIMAL},
-      </if>
-      <if test="email != null">
-        #{email,jdbcType=VARCHAR},
-      </if>
-      <if test="isneedtoupdate != null">
-        #{isneedtoupdate,jdbcType=VARCHAR},
-      </if>
-      <if test="openflag != null">
-        #{openflag,jdbcType=DECIMAL},
-      </if>
-      <if test="province != null">
-        #{province,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="county != null">
-        #{county,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="city != null">
-        #{city,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="area != null">
-        #{area,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="street != null">
-        #{street,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="streetaddress != null">
-        #{streetaddress,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbSmtaddress">
-    update db_smtaddress
-    <set>
-      <if test="shopid != null">
-        SHOPID = #{shopid,jdbcType=VARCHAR},
-      </if>
-      <if test="shopname != null">
-        SHOPNAME = #{shopname,jdbcType=VARCHAR},
-      </if>
-      <if test="country != null">
-        COUNTRY = #{country,jdbcType=VARCHAR},
-      </if>
-      <if test="name != null">
-        'NAME' = #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="phone != null">
-        PHONE = #{phone,jdbcType=VARCHAR},
-      </if>
-      <if test="membertype != null">
-        MEMBERTYPE = #{membertype,jdbcType=VARCHAR},
-      </if>
-      <if test="postcode != null">
-        POSTCODE = #{postcode,jdbcType=VARCHAR},
-      </if>
-      <if test="addressid != null">
-        ADDRESSID = #{addressid,jdbcType=VARCHAR},
-      </if>
-      <if test="trademanageid != null">
-        TRADEMANAGEID = #{trademanageid,jdbcType=VARCHAR},
-      </if>
-      <if test="isdefault != null">
-        ISDEFAULT = #{isdefault,jdbcType=DECIMAL},
-      </if>
-      <if test="email != null">
-        EMAIL = #{email,jdbcType=VARCHAR},
-      </if>
-      <if test="isneedtoupdate != null">
-        ISNEEDTOUPDATE = #{isneedtoupdate,jdbcType=VARCHAR},
-      </if>
-      <if test="openflag != null">
-        OPENFLAG = #{openflag,jdbcType=DECIMAL},
-      </if>
-      <if test="province != null">
-        PROVINCE = #{province,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="county != null">
-        COUNTY = #{county,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="city != null">
-        CITY = #{city,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="area != null">
-        AREA = #{area,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="street != null">
-        STREET = #{street,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="streetaddress != null">
-        STREETADDRESS = #{streetaddress,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where ID = #{id,jdbcType=DECIMAL}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbSmtaddress">
-    update db_smtaddress
-    set SHOPID = #{shopid,jdbcType=VARCHAR},
-      SHOPNAME = #{shopname,jdbcType=VARCHAR},
-      COUNTRY = #{country,jdbcType=VARCHAR},
-      'NAME' = #{name,jdbcType=VARCHAR},
-      PHONE = #{phone,jdbcType=VARCHAR},
-      MEMBERTYPE = #{membertype,jdbcType=VARCHAR},
-      POSTCODE = #{postcode,jdbcType=VARCHAR},
-      ADDRESSID = #{addressid,jdbcType=VARCHAR},
-      TRADEMANAGEID = #{trademanageid,jdbcType=VARCHAR},
-      ISDEFAULT = #{isdefault,jdbcType=DECIMAL},
-      EMAIL = #{email,jdbcType=VARCHAR},
-      ISNEEDTOUPDATE = #{isneedtoupdate,jdbcType=VARCHAR},
-      OPENFLAG = #{openflag,jdbcType=DECIMAL},
-      PROVINCE = #{province,jdbcType=LONGVARCHAR},
-      COUNTY = #{county,jdbcType=LONGVARCHAR},
-      CITY = #{city,jdbcType=LONGVARCHAR},
-      AREA = #{area,jdbcType=LONGVARCHAR},
-      STREET = #{street,jdbcType=LONGVARCHAR},
-      STREETADDRESS = #{streetaddress,jdbcType=LONGVARCHAR}
-    where ID = #{id,jdbcType=DECIMAL}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbSmtaddress">
-    update db_smtaddress
-    set SHOPID = #{shopid,jdbcType=VARCHAR},
-      SHOPNAME = #{shopname,jdbcType=VARCHAR},
-      COUNTRY = #{country,jdbcType=VARCHAR},
-      'NAME' = #{name,jdbcType=VARCHAR},
-      PHONE = #{phone,jdbcType=VARCHAR},
-      MEMBERTYPE = #{membertype,jdbcType=VARCHAR},
-      POSTCODE = #{postcode,jdbcType=VARCHAR},
-      ADDRESSID = #{addressid,jdbcType=VARCHAR},
-      TRADEMANAGEID = #{trademanageid,jdbcType=VARCHAR},
-      ISDEFAULT = #{isdefault,jdbcType=DECIMAL},
-      EMAIL = #{email,jdbcType=VARCHAR},
-      ISNEEDTOUPDATE = #{isneedtoupdate,jdbcType=VARCHAR},
-      OPENFLAG = #{openflag,jdbcType=DECIMAL}
-    where ID = #{id,jdbcType=DECIMAL}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbSmtaddress">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

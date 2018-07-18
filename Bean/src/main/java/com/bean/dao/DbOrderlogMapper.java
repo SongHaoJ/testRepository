@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbOrderlog;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbOrderlogMapper {
-    int deleteByPrimaryKey(String sid);
+    DbOrderlog selectByCriteria(DbOrderlog DbOrderlog);
 
-    int insert(DbOrderlog record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbOrderlog record);
+    void deleteByCriteria(DbOrderlog DbOrderlog);
+
+    int insertByCriteria(DbOrderlog DbOrderlog);
+
+    int updateByCriteria(DbOrderlog DbOrderlog);
 
     DbOrderlog selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbOrderlog record);
-
-    int updateByPrimaryKeyWithBLOBs(DbOrderlog record);
-
-    int updateByPrimaryKey(DbOrderlog record);
+    List<DbOrderlog> selectAll();
 }

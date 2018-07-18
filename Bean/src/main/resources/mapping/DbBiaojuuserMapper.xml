@@ -5,54 +5,57 @@
     <id column="ID" jdbcType="DECIMAL" property="id" />
     <result column="BIAOJUTOKEN" jdbcType="VARCHAR" property="biaojutoken" />
   </resultMap>
-  <sql id="Base_Column_List">
-    ID, BIAOJUTOKEN
-  </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from db_biaojuuser
+    select ID, BIAOJUTOKEN
+    from DB_BIAOJUUSER
     where ID = #{id,jdbcType=DECIMAL}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from db_biaojuuser
-    where ID = #{id,jdbcType=DECIMAL}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ID, BIAOJUTOKEN
+    from DB_BIAOJUUSER
+  </select>
+  <sql id="TableName">
+    DB_BIAOJUUSER
+  </sql>
+  <sql id="Values">
+     #{id,jdbcType=DECIMAL} , 
+     #{biaojutoken,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    ID , 
+    BIAOJUTOKEN , 
+  </sql>
+  <sql id="Criteria">
+    <if test="id != null">
+      id = #{id,jdbcType=DECIMAL} and 
+    </if>
+    <if test="biaojutoken != null">
+      biaojutoken = #{biaojutoken,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="id != null">
+      id = #{id,jdbcType=DECIMAL} , 
+    </if>
+    <if test="biaojutoken != null">
+      biaojutoken = #{biaojutoken,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbBiaojuuser" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="Integer">
+    delete from <include refid="TableName"/> where ID=#{ID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbBiaojuuser">
-    insert into db_biaojuuser (ID, BIAOJUTOKEN)
-    values (#{id,jdbcType=DECIMAL}, #{biaojutoken,jdbcType=VARCHAR})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbBiaojuuser">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbBiaojuuser">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbBiaojuuser">
-    insert into db_biaojuuser
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        ID,
-      </if>
-      <if test="biaojutoken != null">
-        BIAOJUTOKEN,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=DECIMAL},
-      </if>
-      <if test="biaojutoken != null">
-        #{biaojutoken,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbBiaojuuser">
-    update db_biaojuuser
-    <set>
-      <if test="biaojutoken != null">
-        BIAOJUTOKEN = #{biaojutoken,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where ID = #{id,jdbcType=DECIMAL}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbBiaojuuser">
-    update db_biaojuuser
-    set BIAOJUTOKEN = #{biaojutoken,jdbcType=VARCHAR}
-    where ID = #{id,jdbcType=DECIMAL}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbBiaojuuser">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

@@ -15,6 +15,10 @@ public class DbSavenumtasklog implements Serializable {
 
     private Long quantity;
 
+    private String descr;
+
+    private String origindescr;
+
     private Long costprice;
 
     private Short type;
@@ -26,10 +30,6 @@ public class DbSavenumtasklog implements Serializable {
     private Short change;
 
     private String relationid;
-
-    private String descr;
-
-    private String origindescr;
 
     private static final long serialVersionUID = 1L;
 
@@ -71,6 +71,22 @@ public class DbSavenumtasklog implements Serializable {
 
     public void setQuantity(Long quantity) {
         this.quantity = quantity;
+    }
+
+    public String getDescr() {
+        return descr;
+    }
+
+    public void setDescr(String descr) {
+        this.descr = descr == null ? null : descr.trim();
+    }
+
+    public String getOrigindescr() {
+        return origindescr;
+    }
+
+    public void setOrigindescr(String origindescr) {
+        this.origindescr = origindescr == null ? null : origindescr.trim();
     }
 
     public Long getCostprice() {
@@ -121,22 +137,6 @@ public class DbSavenumtasklog implements Serializable {
         this.relationid = relationid == null ? null : relationid.trim();
     }
 
-    public String getDescr() {
-        return descr;
-    }
-
-    public void setDescr(String descr) {
-        this.descr = descr == null ? null : descr.trim();
-    }
-
-    public String getOrigindescr() {
-        return origindescr;
-    }
-
-    public void setOrigindescr(String origindescr) {
-        this.origindescr = origindescr == null ? null : origindescr.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -154,14 +154,14 @@ public class DbSavenumtasklog implements Serializable {
             && (this.getSourceid() == null ? other.getSourceid() == null : this.getSourceid().equals(other.getSourceid()))
             && (this.getProductid() == null ? other.getProductid() == null : this.getProductid().equals(other.getProductid()))
             && (this.getQuantity() == null ? other.getQuantity() == null : this.getQuantity().equals(other.getQuantity()))
+            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
+            && (this.getOrigindescr() == null ? other.getOrigindescr() == null : this.getOrigindescr().equals(other.getOrigindescr()))
             && (this.getCostprice() == null ? other.getCostprice() == null : this.getCostprice().equals(other.getCostprice()))
             && (this.getType() == null ? other.getType() == null : this.getType().equals(other.getType()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
             && (this.getChange() == null ? other.getChange() == null : this.getChange().equals(other.getChange()))
-            && (this.getRelationid() == null ? other.getRelationid() == null : this.getRelationid().equals(other.getRelationid()))
-            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
-            && (this.getOrigindescr() == null ? other.getOrigindescr() == null : this.getOrigindescr().equals(other.getOrigindescr()));
+            && (this.getRelationid() == null ? other.getRelationid() == null : this.getRelationid().equals(other.getRelationid()));
     }
 
     @Override
@@ -173,14 +173,14 @@ public class DbSavenumtasklog implements Serializable {
         result = prime * result + ((getSourceid() == null) ? 0 : getSourceid().hashCode());
         result = prime * result + ((getProductid() == null) ? 0 : getProductid().hashCode());
         result = prime * result + ((getQuantity() == null) ? 0 : getQuantity().hashCode());
+        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
+        result = prime * result + ((getOrigindescr() == null) ? 0 : getOrigindescr().hashCode());
         result = prime * result + ((getCostprice() == null) ? 0 : getCostprice().hashCode());
         result = prime * result + ((getType() == null) ? 0 : getType().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getChange() == null) ? 0 : getChange().hashCode());
         result = prime * result + ((getRelationid() == null) ? 0 : getRelationid().hashCode());
-        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
-        result = prime * result + ((getOrigindescr() == null) ? 0 : getOrigindescr().hashCode());
         return result;
     }
 
@@ -195,14 +195,14 @@ public class DbSavenumtasklog implements Serializable {
         sb.append(", sourceid=").append(sourceid);
         sb.append(", productid=").append(productid);
         sb.append(", quantity=").append(quantity);
+        sb.append(", descr=").append(descr);
+        sb.append(", origindescr=").append(origindescr);
         sb.append(", costprice=").append(costprice);
         sb.append(", type=").append(type);
         sb.append(", oper=").append(oper);
         sb.append(", opertime=").append(opertime);
         sb.append(", change=").append(change);
         sb.append(", relationid=").append(relationid);
-        sb.append(", descr=").append(descr);
-        sb.append(", origindescr=").append(origindescr);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

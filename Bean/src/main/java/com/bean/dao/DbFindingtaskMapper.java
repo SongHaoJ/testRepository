@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbFindingtask;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbFindingtaskMapper {
-    int deleteByPrimaryKey(String sid);
+    DbFindingtask selectByCriteria(DbFindingtask DbFindingtask);
 
-    int insert(DbFindingtask record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbFindingtask record);
+    void deleteByCriteria(DbFindingtask DbFindingtask);
+
+    int insertByCriteria(DbFindingtask DbFindingtask);
+
+    int updateByCriteria(DbFindingtask DbFindingtask);
 
     DbFindingtask selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbFindingtask record);
-
-    int updateByPrimaryKeyWithBLOBs(DbFindingtask record);
-
-    int updateByPrimaryKey(DbFindingtask record);
+    List<DbFindingtask> selectAll();
 }

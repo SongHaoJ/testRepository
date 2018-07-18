@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbCompetitorsearchMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbCompetitorsearch">
+    <id column="SEQUENCEID" jdbcType="DECIMAL" property="sequenceid" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="DAYSELLNUM" jdbcType="DECIMAL" property="daysellnum" />
+    <result column="TRANSLATRATE" jdbcType="DECIMAL" property="translatrate" />
+    <result column="PUBLISHTIME" jdbcType="TIMESTAMP" property="publishtime" />
+    <result column="SELLPRICESTART" jdbcType="DECIMAL" property="sellpricestart" />
+    <result column="SELLPRICEEND" jdbcType="DECIMAL" property="sellpriceend" />
+    <result column="ROVERLAPENUM" jdbcType="DECIMAL" property="roverlapenum" />
+    <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
+    <result column="CORPID" jdbcType="DECIMAL" property="corpid" />
+    <result column="DAYSELLNUM2" jdbcType="DECIMAL" property="daysellnum2" />
+    <result column="TRANSLATRATE2" jdbcType="DECIMAL" property="translatrate2" />
+    <result column="PUBLISHTIME2" jdbcType="TIMESTAMP" property="publishtime2" />
+    <result column="ROVERLAPENUM2" jdbcType="DECIMAL" property="roverlapenum2" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbCompetitorsearch">
+    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
+    <result column="SQLFILTER" jdbcType="LONGVARCHAR" property="sqlfilter" />
+    <result column="JSONSTR" jdbcType="LONGVARCHAR" property="jsonstr" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SEQUENCEID, 'NAME', OPER, OPERTIME, DAYSELLNUM, TRANSLATRATE, PUBLISHTIME, SELLPRICESTART, 
+    SELLPRICEEND, ROVERLAPENUM, OPENFLAG, CORPID, DAYSELLNUM2, TRANSLATRATE2, PUBLISHTIME2, 
+    ROVERLAPENUM2
+  </sql>
+  <sql id="Blob_Column_List">
+    DESCR, SQLFILTER, JSONSTR
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from db_competitorsearch
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
+    delete from db_competitorsearch
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.bean.model.DbCompetitorsearch">
+    insert into db_competitorsearch (SEQUENCEID, 'NAME', OPER, 
+      OPERTIME, DAYSELLNUM, TRANSLATRATE, 
+      PUBLISHTIME, SELLPRICESTART, SELLPRICEEND, 
+      ROVERLAPENUM, OPENFLAG, CORPID, 
+      DAYSELLNUM2, TRANSLATRATE2, PUBLISHTIME2, 
+      ROVERLAPENUM2, DESCR, SQLFILTER, 
+      JSONSTR)
+    values (#{sequenceid,jdbcType=DECIMAL}, #{name,jdbcType=VARCHAR}, #{oper,jdbcType=VARCHAR}, 
+      #{opertime,jdbcType=TIMESTAMP}, #{daysellnum,jdbcType=DECIMAL}, #{translatrate,jdbcType=DECIMAL}, 
+      #{publishtime,jdbcType=TIMESTAMP}, #{sellpricestart,jdbcType=DECIMAL}, #{sellpriceend,jdbcType=DECIMAL}, 
+      #{roverlapenum,jdbcType=DECIMAL}, #{openflag,jdbcType=VARCHAR}, #{corpid,jdbcType=DECIMAL}, 
+      #{daysellnum2,jdbcType=DECIMAL}, #{translatrate2,jdbcType=DECIMAL}, #{publishtime2,jdbcType=TIMESTAMP}, 
+      #{roverlapenum2,jdbcType=DECIMAL}, #{descr,jdbcType=LONGVARCHAR}, #{sqlfilter,jdbcType=LONGVARCHAR}, 
+      #{jsonstr,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbCompetitorsearch">
+    insert into db_competitorsearch
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        SEQUENCEID,
+      </if>
+      <if test="name != null">
+        'NAME',
+      </if>
+      <if test="oper != null">
+        OPER,
+      </if>
+      <if test="opertime != null">
+        OPERTIME,
+      </if>
+      <if test="daysellnum != null">
+        DAYSELLNUM,
+      </if>
+      <if test="translatrate != null">
+        TRANSLATRATE,
+      </if>
+      <if test="publishtime != null">
+        PUBLISHTIME,
+      </if>
+      <if test="sellpricestart != null">
+        SELLPRICESTART,
+      </if>
+      <if test="sellpriceend != null">
+        SELLPRICEEND,
+      </if>
+      <if test="roverlapenum != null">
+        ROVERLAPENUM,
+      </if>
+      <if test="openflag != null">
+        OPENFLAG,
+      </if>
+      <if test="corpid != null">
+        CORPID,
+      </if>
+      <if test="daysellnum2 != null">
+        DAYSELLNUM2,
+      </if>
+      <if test="translatrate2 != null">
+        TRANSLATRATE2,
+      </if>
+      <if test="publishtime2 != null">
+        PUBLISHTIME2,
+      </if>
+      <if test="roverlapenum2 != null">
+        ROVERLAPENUM2,
+      </if>
+      <if test="descr != null">
+        DESCR,
+      </if>
+      <if test="sqlfilter != null">
+        SQLFILTER,
+      </if>
+      <if test="jsonstr != null">
+        JSONSTR,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        #{sequenceid,jdbcType=DECIMAL},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="oper != null">
+        #{oper,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null">
+        #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="daysellnum != null">
+        #{daysellnum,jdbcType=DECIMAL},
+      </if>
+      <if test="translatrate != null">
+        #{translatrate,jdbcType=DECIMAL},
+      </if>
+      <if test="publishtime != null">
+        #{publishtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sellpricestart != null">
+        #{sellpricestart,jdbcType=DECIMAL},
+      </if>
+      <if test="sellpriceend != null">
+        #{sellpriceend,jdbcType=DECIMAL},
+      </if>
+      <if test="roverlapenum != null">
+        #{roverlapenum,jdbcType=DECIMAL},
+      </if>
+      <if test="openflag != null">
+        #{openflag,jdbcType=VARCHAR},
+      </if>
+      <if test="corpid != null">
+        #{corpid,jdbcType=DECIMAL},
+      </if>
+      <if test="daysellnum2 != null">
+        #{daysellnum2,jdbcType=DECIMAL},
+      </if>
+      <if test="translatrate2 != null">
+        #{translatrate2,jdbcType=DECIMAL},
+      </if>
+      <if test="publishtime2 != null">
+        #{publishtime2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="roverlapenum2 != null">
+        #{roverlapenum2,jdbcType=DECIMAL},
+      </if>
+      <if test="descr != null">
+        #{descr,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sqlfilter != null">
+        #{sqlfilter,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="jsonstr != null">
+        #{jsonstr,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbCompetitorsearch">
+    update db_competitorsearch
+    <set>
+      <if test="name != null">
+        'NAME' = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="oper != null">
+        OPER = #{oper,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null">
+        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="daysellnum != null">
+        DAYSELLNUM = #{daysellnum,jdbcType=DECIMAL},
+      </if>
+      <if test="translatrate != null">
+        TRANSLATRATE = #{translatrate,jdbcType=DECIMAL},
+      </if>
+      <if test="publishtime != null">
+        PUBLISHTIME = #{publishtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sellpricestart != null">
+        SELLPRICESTART = #{sellpricestart,jdbcType=DECIMAL},
+      </if>
+      <if test="sellpriceend != null">
+        SELLPRICEEND = #{sellpriceend,jdbcType=DECIMAL},
+      </if>
+      <if test="roverlapenum != null">
+        ROVERLAPENUM = #{roverlapenum,jdbcType=DECIMAL},
+      </if>
+      <if test="openflag != null">
+        OPENFLAG = #{openflag,jdbcType=VARCHAR},
+      </if>
+      <if test="corpid != null">
+        CORPID = #{corpid,jdbcType=DECIMAL},
+      </if>
+      <if test="daysellnum2 != null">
+        DAYSELLNUM2 = #{daysellnum2,jdbcType=DECIMAL},
+      </if>
+      <if test="translatrate2 != null">
+        TRANSLATRATE2 = #{translatrate2,jdbcType=DECIMAL},
+      </if>
+      <if test="publishtime2 != null">
+        PUBLISHTIME2 = #{publishtime2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="roverlapenum2 != null">
+        ROVERLAPENUM2 = #{roverlapenum2,jdbcType=DECIMAL},
+      </if>
+      <if test="descr != null">
+        DESCR = #{descr,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sqlfilter != null">
+        SQLFILTER = #{sqlfilter,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="jsonstr != null">
+        JSONSTR = #{jsonstr,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbCompetitorsearch">
+    update db_competitorsearch
+    set 'NAME' = #{name,jdbcType=VARCHAR},
+      OPER = #{oper,jdbcType=VARCHAR},
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      DAYSELLNUM = #{daysellnum,jdbcType=DECIMAL},
+      TRANSLATRATE = #{translatrate,jdbcType=DECIMAL},
+      PUBLISHTIME = #{publishtime,jdbcType=TIMESTAMP},
+      SELLPRICESTART = #{sellpricestart,jdbcType=DECIMAL},
+      SELLPRICEEND = #{sellpriceend,jdbcType=DECIMAL},
+      ROVERLAPENUM = #{roverlapenum,jdbcType=DECIMAL},
+      OPENFLAG = #{openflag,jdbcType=VARCHAR},
+      CORPID = #{corpid,jdbcType=DECIMAL},
+      DAYSELLNUM2 = #{daysellnum2,jdbcType=DECIMAL},
+      TRANSLATRATE2 = #{translatrate2,jdbcType=DECIMAL},
+      PUBLISHTIME2 = #{publishtime2,jdbcType=TIMESTAMP},
+      ROVERLAPENUM2 = #{roverlapenum2,jdbcType=DECIMAL},
+      DESCR = #{descr,jdbcType=LONGVARCHAR},
+      SQLFILTER = #{sqlfilter,jdbcType=LONGVARCHAR},
+      JSONSTR = #{jsonstr,jdbcType=LONGVARCHAR}
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbCompetitorsearch">
+    update db_competitorsearch
+    set 'NAME' = #{name,jdbcType=VARCHAR},
+      OPER = #{oper,jdbcType=VARCHAR},
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      DAYSELLNUM = #{daysellnum,jdbcType=DECIMAL},
+      TRANSLATRATE = #{translatrate,jdbcType=DECIMAL},
+      PUBLISHTIME = #{publishtime,jdbcType=TIMESTAMP},
+      SELLPRICESTART = #{sellpricestart,jdbcType=DECIMAL},
+      SELLPRICEEND = #{sellpriceend,jdbcType=DECIMAL},
+      ROVERLAPENUM = #{roverlapenum,jdbcType=DECIMAL},
+      OPENFLAG = #{openflag,jdbcType=VARCHAR},
+      CORPID = #{corpid,jdbcType=DECIMAL},
+      DAYSELLNUM2 = #{daysellnum2,jdbcType=DECIMAL},
+      TRANSLATRATE2 = #{translatrate2,jdbcType=DECIMAL},
+      PUBLISHTIME2 = #{publishtime2,jdbcType=TIMESTAMP},
+      ROVERLAPENUM2 = #{roverlapenum2,jdbcType=DECIMAL}
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </update>
+</mapper>

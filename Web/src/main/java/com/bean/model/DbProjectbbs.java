@@ -7,6 +7,8 @@ import java.util.Date;
 public class DbProjectbbs implements Serializable {
     private BigDecimal sequenceid;
 
+    private String projectname;
+
     private BigDecimal limittime;
 
     private String principaloper;
@@ -41,8 +43,6 @@ public class DbProjectbbs implements Serializable {
 
     private BigDecimal status;
 
-    private String projectname;
-
     private static final long serialVersionUID = 1L;
 
     public BigDecimal getSequenceid() {
@@ -51,6 +51,14 @@ public class DbProjectbbs implements Serializable {
 
     public void setSequenceid(BigDecimal sequenceid) {
         this.sequenceid = sequenceid;
+    }
+
+    public String getProjectname() {
+        return projectname;
+    }
+
+    public void setProjectname(String projectname) {
+        this.projectname = projectname == null ? null : projectname.trim();
     }
 
     public BigDecimal getLimittime() {
@@ -189,14 +197,6 @@ public class DbProjectbbs implements Serializable {
         this.status = status;
     }
 
-    public String getProjectname() {
-        return projectname;
-    }
-
-    public void setProjectname(String projectname) {
-        this.projectname = projectname == null ? null : projectname.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -210,6 +210,7 @@ public class DbProjectbbs implements Serializable {
         }
         DbProjectbbs other = (DbProjectbbs) that;
         return (this.getSequenceid() == null ? other.getSequenceid() == null : this.getSequenceid().equals(other.getSequenceid()))
+            && (this.getProjectname() == null ? other.getProjectname() == null : this.getProjectname().equals(other.getProjectname()))
             && (this.getLimittime() == null ? other.getLimittime() == null : this.getLimittime().equals(other.getLimittime()))
             && (this.getPrincipaloper() == null ? other.getPrincipaloper() == null : this.getPrincipaloper().equals(other.getPrincipaloper()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
@@ -226,8 +227,7 @@ public class DbProjectbbs implements Serializable {
             && (this.getEstimatedendtime() == null ? other.getEstimatedendtime() == null : this.getEstimatedendtime().equals(other.getEstimatedendtime()))
             && (this.getStarttime() == null ? other.getStarttime() == null : this.getStarttime().equals(other.getStarttime()))
             && (this.getEndtime() == null ? other.getEndtime() == null : this.getEndtime().equals(other.getEndtime()))
-            && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
-            && (this.getProjectname() == null ? other.getProjectname() == null : this.getProjectname().equals(other.getProjectname()));
+            && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()));
     }
 
     @Override
@@ -235,6 +235,7 @@ public class DbProjectbbs implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getSequenceid() == null) ? 0 : getSequenceid().hashCode());
+        result = prime * result + ((getProjectname() == null) ? 0 : getProjectname().hashCode());
         result = prime * result + ((getLimittime() == null) ? 0 : getLimittime().hashCode());
         result = prime * result + ((getPrincipaloper() == null) ? 0 : getPrincipaloper().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
@@ -252,7 +253,6 @@ public class DbProjectbbs implements Serializable {
         result = prime * result + ((getStarttime() == null) ? 0 : getStarttime().hashCode());
         result = prime * result + ((getEndtime() == null) ? 0 : getEndtime().hashCode());
         result = prime * result + ((getStatus() == null) ? 0 : getStatus().hashCode());
-        result = prime * result + ((getProjectname() == null) ? 0 : getProjectname().hashCode());
         return result;
     }
 
@@ -263,6 +263,7 @@ public class DbProjectbbs implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", sequenceid=").append(sequenceid);
+        sb.append(", projectname=").append(projectname);
         sb.append(", limittime=").append(limittime);
         sb.append(", principaloper=").append(principaloper);
         sb.append(", oper=").append(oper);
@@ -280,7 +281,6 @@ public class DbProjectbbs implements Serializable {
         sb.append(", starttime=").append(starttime);
         sb.append(", endtime=").append(endtime);
         sb.append(", status=").append(status);
-        sb.append(", projectname=").append(projectname);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

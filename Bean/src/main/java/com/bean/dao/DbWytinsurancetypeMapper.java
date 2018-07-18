@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbWytinsurancetype;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbWytinsurancetypeMapper {
-    int deleteByPrimaryKey(String insurancetype);
+    DbWytinsurancetype selectByCriteria(DbWytinsurancetype DbWytinsurancetype);
 
-    int insert(DbWytinsurancetype record);
+    void deleteByPrimaryKey(String INSURANCETYPE);
 
-    int insertSelective(DbWytinsurancetype record);
+    void deleteByCriteria(DbWytinsurancetype DbWytinsurancetype);
+
+    int insertByCriteria(DbWytinsurancetype DbWytinsurancetype);
+
+    int updateByCriteria(DbWytinsurancetype DbWytinsurancetype);
 
     DbWytinsurancetype selectByPrimaryKey(String insurancetype);
 
-    int updateByPrimaryKeySelective(DbWytinsurancetype record);
-
-    int updateByPrimaryKey(DbWytinsurancetype record);
+    List<DbWytinsurancetype> selectAll();
 }

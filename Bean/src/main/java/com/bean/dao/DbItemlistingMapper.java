@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbItemlisting;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbItemlistingMapper {
-    int deleteByPrimaryKey(String itemid);
+    DbItemlisting selectByCriteria(DbItemlisting DbItemlisting);
 
-    int insert(DbItemlisting record);
+    void deleteByPrimaryKey(String ITEMID);
 
-    int insertSelective(DbItemlisting record);
+    void deleteByCriteria(DbItemlisting DbItemlisting);
+
+    int insertByCriteria(DbItemlisting DbItemlisting);
+
+    int updateByCriteria(DbItemlisting DbItemlisting);
 
     DbItemlisting selectByPrimaryKey(String itemid);
 
-    int updateByPrimaryKeySelective(DbItemlisting record);
-
-    int updateByPrimaryKeyWithBLOBs(DbItemlisting record);
+    List<DbItemlisting> selectAll();
 }

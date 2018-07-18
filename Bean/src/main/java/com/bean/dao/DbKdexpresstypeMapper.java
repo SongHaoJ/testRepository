@@ -2,8 +2,8 @@ package com.bean.dao;
 
 import com.bean.model.DbKdexpresstype;
 
-public interface DbKdexpresstypeMapper {
-    int insert(DbKdexpresstype record);
+import java.util.List;
 
-    int insertSelective(DbKdexpresstype record);
+public interface DbKdexpresstypeMapper {
+    List<DbKdexpresstype> selectAll();
 }

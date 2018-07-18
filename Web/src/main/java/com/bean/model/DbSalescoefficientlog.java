@@ -23,6 +23,8 @@ public class DbSalescoefficientlog implements Serializable {
 
     private String opertype;
 
+    private String content;
+
     private String filed1;
 
     private String filed2;
@@ -38,8 +40,6 @@ public class DbSalescoefficientlog implements Serializable {
     private BigDecimal purchasenum;
 
     private BigDecimal sort;
-
-    private String content;
 
     private static final long serialVersionUID = 1L;
 
@@ -115,6 +115,14 @@ public class DbSalescoefficientlog implements Serializable {
         this.opertype = opertype == null ? null : opertype.trim();
     }
 
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content == null ? null : content.trim();
+    }
+
     public String getFiled1() {
         return filed1;
     }
@@ -179,14 +187,6 @@ public class DbSalescoefficientlog implements Serializable {
         this.sort = sort;
     }
 
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content == null ? null : content.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -208,6 +208,7 @@ public class DbSalescoefficientlog implements Serializable {
             && (this.getOpenflag() == null ? other.getOpenflag() == null : this.getOpenflag().equals(other.getOpenflag()))
             && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()))
             && (this.getOpertype() == null ? other.getOpertype() == null : this.getOpertype().equals(other.getOpertype()))
+            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
             && (this.getFiled1() == null ? other.getFiled1() == null : this.getFiled1().equals(other.getFiled1()))
             && (this.getFiled2() == null ? other.getFiled2() == null : this.getFiled2().equals(other.getFiled2()))
             && (this.getFiled3() == null ? other.getFiled3() == null : this.getFiled3().equals(other.getFiled3()))
@@ -215,8 +216,7 @@ public class DbSalescoefficientlog implements Serializable {
             && (this.getFiled5() == null ? other.getFiled5() == null : this.getFiled5().equals(other.getFiled5()))
             && (this.getAlertnum() == null ? other.getAlertnum() == null : this.getAlertnum().equals(other.getAlertnum()))
             && (this.getPurchasenum() == null ? other.getPurchasenum() == null : this.getPurchasenum().equals(other.getPurchasenum()))
-            && (this.getSort() == null ? other.getSort() == null : this.getSort().equals(other.getSort()))
-            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()));
+            && (this.getSort() == null ? other.getSort() == null : this.getSort().equals(other.getSort()));
     }
 
     @Override
@@ -232,6 +232,7 @@ public class DbSalescoefficientlog implements Serializable {
         result = prime * result + ((getOpenflag() == null) ? 0 : getOpenflag().hashCode());
         result = prime * result + ((getCorpid() == null) ? 0 : getCorpid().hashCode());
         result = prime * result + ((getOpertype() == null) ? 0 : getOpertype().hashCode());
+        result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
         result = prime * result + ((getFiled1() == null) ? 0 : getFiled1().hashCode());
         result = prime * result + ((getFiled2() == null) ? 0 : getFiled2().hashCode());
         result = prime * result + ((getFiled3() == null) ? 0 : getFiled3().hashCode());
@@ -240,7 +241,6 @@ public class DbSalescoefficientlog implements Serializable {
         result = prime * result + ((getAlertnum() == null) ? 0 : getAlertnum().hashCode());
         result = prime * result + ((getPurchasenum() == null) ? 0 : getPurchasenum().hashCode());
         result = prime * result + ((getSort() == null) ? 0 : getSort().hashCode());
-        result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
         return result;
     }
 
@@ -259,6 +259,7 @@ public class DbSalescoefficientlog implements Serializable {
         sb.append(", openflag=").append(openflag);
         sb.append(", corpid=").append(corpid);
         sb.append(", opertype=").append(opertype);
+        sb.append(", content=").append(content);
         sb.append(", filed1=").append(filed1);
         sb.append(", filed2=").append(filed2);
         sb.append(", filed3=").append(filed3);
@@ -267,7 +268,6 @@ public class DbSalescoefficientlog implements Serializable {
         sb.append(", alertnum=").append(alertnum);
         sb.append(", purchasenum=").append(purchasenum);
         sb.append(", sort=").append(sort);
-        sb.append(", content=").append(content);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

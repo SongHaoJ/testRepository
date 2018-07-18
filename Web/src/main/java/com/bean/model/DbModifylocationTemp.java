@@ -13,6 +13,8 @@ public class DbModifylocationTemp implements Serializable {
 
     private Date createdate;
 
+    private String filed1;
+
     private String filed2;
 
     private String filed3;
@@ -26,8 +28,6 @@ public class DbModifylocationTemp implements Serializable {
     private String storageid;
 
     private String storagename;
-
-    private String filed1;
 
     private static final long serialVersionUID = 1L;
 
@@ -61,6 +61,14 @@ public class DbModifylocationTemp implements Serializable {
 
     public void setCreatedate(Date createdate) {
         this.createdate = createdate;
+    }
+
+    public String getFiled1() {
+        return filed1;
+    }
+
+    public void setFiled1(String filed1) {
+        this.filed1 = filed1 == null ? null : filed1.trim();
     }
 
     public String getFiled2() {
@@ -119,14 +127,6 @@ public class DbModifylocationTemp implements Serializable {
         this.storagename = storagename == null ? null : storagename.trim();
     }
 
-    public String getFiled1() {
-        return filed1;
-    }
-
-    public void setFiled1(String filed1) {
-        this.filed1 = filed1 == null ? null : filed1.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -143,14 +143,14 @@ public class DbModifylocationTemp implements Serializable {
             && (this.getProductid() == null ? other.getProductid() == null : this.getProductid().equals(other.getProductid()))
             && (this.getLocationname() == null ? other.getLocationname() == null : this.getLocationname().equals(other.getLocationname()))
             && (this.getCreatedate() == null ? other.getCreatedate() == null : this.getCreatedate().equals(other.getCreatedate()))
+            && (this.getFiled1() == null ? other.getFiled1() == null : this.getFiled1().equals(other.getFiled1()))
             && (this.getFiled2() == null ? other.getFiled2() == null : this.getFiled2().equals(other.getFiled2()))
             && (this.getFiled3() == null ? other.getFiled3() == null : this.getFiled3().equals(other.getFiled3()))
             && (this.getFiled4() == null ? other.getFiled4() == null : this.getFiled4().equals(other.getFiled4()))
             && (this.getFiled5() == null ? other.getFiled5() == null : this.getFiled5().equals(other.getFiled5()))
             && (this.getFiled6() == null ? other.getFiled6() == null : this.getFiled6().equals(other.getFiled6()))
             && (this.getStorageid() == null ? other.getStorageid() == null : this.getStorageid().equals(other.getStorageid()))
-            && (this.getStoragename() == null ? other.getStoragename() == null : this.getStoragename().equals(other.getStoragename()))
-            && (this.getFiled1() == null ? other.getFiled1() == null : this.getFiled1().equals(other.getFiled1()));
+            && (this.getStoragename() == null ? other.getStoragename() == null : this.getStoragename().equals(other.getStoragename()));
     }
 
     @Override
@@ -161,6 +161,7 @@ public class DbModifylocationTemp implements Serializable {
         result = prime * result + ((getProductid() == null) ? 0 : getProductid().hashCode());
         result = prime * result + ((getLocationname() == null) ? 0 : getLocationname().hashCode());
         result = prime * result + ((getCreatedate() == null) ? 0 : getCreatedate().hashCode());
+        result = prime * result + ((getFiled1() == null) ? 0 : getFiled1().hashCode());
         result = prime * result + ((getFiled2() == null) ? 0 : getFiled2().hashCode());
         result = prime * result + ((getFiled3() == null) ? 0 : getFiled3().hashCode());
         result = prime * result + ((getFiled4() == null) ? 0 : getFiled4().hashCode());
@@ -168,7 +169,6 @@ public class DbModifylocationTemp implements Serializable {
         result = prime * result + ((getFiled6() == null) ? 0 : getFiled6().hashCode());
         result = prime * result + ((getStorageid() == null) ? 0 : getStorageid().hashCode());
         result = prime * result + ((getStoragename() == null) ? 0 : getStoragename().hashCode());
-        result = prime * result + ((getFiled1() == null) ? 0 : getFiled1().hashCode());
         return result;
     }
 
@@ -182,6 +182,7 @@ public class DbModifylocationTemp implements Serializable {
         sb.append(", productid=").append(productid);
         sb.append(", locationname=").append(locationname);
         sb.append(", createdate=").append(createdate);
+        sb.append(", filed1=").append(filed1);
         sb.append(", filed2=").append(filed2);
         sb.append(", filed3=").append(filed3);
         sb.append(", filed4=").append(filed4);
@@ -189,7 +190,6 @@ public class DbModifylocationTemp implements Serializable {
         sb.append(", filed6=").append(filed6);
         sb.append(", storageid=").append(storageid);
         sb.append(", storagename=").append(storagename);
-        sb.append(", filed1=").append(filed1);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

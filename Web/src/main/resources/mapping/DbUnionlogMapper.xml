@@ -6,96 +6,98 @@
     <result column="UNIONORDERID" jdbcType="VARCHAR" property="unionorderid" />
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
     <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="SOURCESELLID" jdbcType="VARCHAR" property="sourcesellid" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
     <result column="SOURCEORDERID" jdbcType="VARCHAR" property="sourceorderid" />
     <result column="FLAG" jdbcType="DECIMAL" property="flag" />
-    <result column="SOURCESELLID" jdbcType="LONGVARCHAR" property="sourcesellid" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select SEQUENCEID, UNIONORDERID, OPER, RESERVE1, OPERTIME, SOURCEORDERID, FLAG, SOURCESELLID
-    from db_unionlog
+    select SEQUENCEID, UNIONORDERID, OPER, RESERVE1, SOURCESELLID, OPERTIME, SOURCEORDERID, 
+    FLAG
+    from DB_UNIONLOG
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select SEQUENCEID, UNIONORDERID, OPER, RESERVE1, OPERTIME, SOURCEORDERID, FLAG, SOURCESELLID
-    from db_unionlog
+    select SEQUENCEID, UNIONORDERID, OPER, RESERVE1, SOURCESELLID, OPERTIME, SOURCEORDERID, 
+    FLAG
+    from DB_UNIONLOG
   </select>
   <sql id="TableName">
-    db_unionlog
+    DB_UNIONLOG
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=VARCHAR} , 
      #{unionorderid,jdbcType=VARCHAR} , 
      #{oper,jdbcType=VARCHAR} , 
      #{reserve1,jdbcType=VARCHAR} , 
+     #{sourcesellid,jdbcType=VARCHAR} , 
      #{opertime,jdbcType=TIMESTAMP} , 
      #{sourceorderid,jdbcType=VARCHAR} , 
      #{flag,jdbcType=DECIMAL} , 
-     #{sourcesellid,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
     UNIONORDERID , 
     OPER , 
     RESERVE1 , 
+    SOURCESELLID , 
     OPERTIME , 
     SOURCEORDERID , 
     FLAG , 
-    SOURCESELLID
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
     </if>
     <if test="unionorderid != null">
-      UNIONORDERID = #{unionorderid,jdbcType=VARCHAR} and 
+      unionorderid = #{unionorderid,jdbcType=VARCHAR} and 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
+      oper = #{oper,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="sourceorderid != null">
-      SOURCEORDERID = #{sourceorderid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="flag != null">
-      FLAG = #{flag,jdbcType=DECIMAL} and 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
     </if>
     <if test="sourcesellid != null">
-      SOURCESELLID = #{sourcesellid,jdbcType=LONGVARCHAR}
+      sourcesellid = #{sourcesellid,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="sourceorderid != null">
+      sourceorderid = #{sourceorderid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=DECIMAL} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
     </if>
     <if test="unionorderid != null">
-      UNIONORDERID = #{unionorderid,jdbcType=VARCHAR} , 
+      unionorderid = #{unionorderid,jdbcType=VARCHAR} , 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
+      oper = #{oper,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="sourceorderid != null">
-      SOURCEORDERID = #{sourceorderid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="flag != null">
-      FLAG = #{flag,jdbcType=DECIMAL} , 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
     </if>
     <if test="sourcesellid != null">
-      SOURCESELLID = #{sourcesellid,jdbcType=LONGVARCHAR}
+      sourcesellid = #{sourcesellid,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="sourceorderid != null">
+      sourceorderid = #{sourceorderid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=DECIMAL} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbUnionlog" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

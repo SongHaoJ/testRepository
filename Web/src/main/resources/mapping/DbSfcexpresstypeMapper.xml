@@ -8,49 +8,49 @@
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select CODE, ENNAME, CNNAME
-    from db_sfcexpresstype
+    from DB_SFCEXPRESSTYPE
     where CODE = #{code,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select CODE, ENNAME, CNNAME
-    from db_sfcexpresstype
+    from DB_SFCEXPRESSTYPE
   </select>
   <sql id="TableName">
-    db_sfcexpresstype
+    DB_SFCEXPRESSTYPE
   </sql>
   <sql id="Values">
      #{code,jdbcType=VARCHAR} , 
      #{enname,jdbcType=VARCHAR} , 
-     #{cnname,jdbcType=VARCHAR}
+     #{cnname,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     CODE , 
     ENNAME , 
-    CNNAME
+    CNNAME , 
   </sql>
   <sql id="Criteria">
     <if test="code != null">
-      CODE = #{code,jdbcType=VARCHAR} and 
+      code = #{code,jdbcType=VARCHAR} and 
     </if>
     <if test="enname != null">
-      ENNAME = #{enname,jdbcType=VARCHAR} and 
+      enname = #{enname,jdbcType=VARCHAR} and 
     </if>
     <if test="cnname != null">
-      CNNAME = #{cnname,jdbcType=VARCHAR}
+      cnname = #{cnname,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="code != null">
-      CODE = #{code,jdbcType=VARCHAR} , 
+      code = #{code,jdbcType=VARCHAR} , 
     </if>
     <if test="enname != null">
-      ENNAME = #{enname,jdbcType=VARCHAR} , 
+      enname = #{enname,jdbcType=VARCHAR} , 
     </if>
     <if test="cnname != null">
-      CNNAME = #{cnname,jdbcType=VARCHAR}
+      cnname = #{cnname,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbSfcexpresstype" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

@@ -29,7 +29,7 @@
     DHNUMBER, COUNTRY, RATE, NEWPRODUCTID, EXPRESSFEE, STATUS, GENERALDELIVERY, GENERALDELIVERYFEE, 
     EXPEDITEDCOURIER, EXPEDITEDCOURIERFEE, WAREHOUSERENTAL, HANDLINGCHARGES, QUALITYRATING, 
     SELLSTATUS
-    from db_produce_new
+    from DB_PRODUCE_NEW
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
@@ -37,10 +37,10 @@
     DHNUMBER, COUNTRY, RATE, NEWPRODUCTID, EXPRESSFEE, STATUS, GENERALDELIVERY, GENERALDELIVERYFEE, 
     EXPEDITEDCOURIER, EXPEDITEDCOURIERFEE, WAREHOUSERENTAL, HANDLINGCHARGES, QUALITYRATING, 
     SELLSTATUS
-    from db_produce_new
+    from DB_PRODUCE_NEW
   </select>
   <sql id="TableName">
-    db_produce_new
+    DB_PRODUCE_NEW
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=VARCHAR} , 
@@ -63,7 +63,7 @@
      #{warehouserental,jdbcType=DECIMAL} , 
      #{handlingcharges,jdbcType=DECIMAL} , 
      #{qualityrating,jdbcType=VARCHAR} , 
-     #{sellstatus,jdbcType=DECIMAL}
+     #{sellstatus,jdbcType=DECIMAL} , 
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
@@ -86,139 +86,139 @@
     WAREHOUSERENTAL , 
     HANDLINGCHARGES , 
     QUALITYRATING , 
-    SELLSTATUS
+    SELLSTATUS , 
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
     </if>
     <if test="productid != null">
-      PRODUCTID = #{productid,jdbcType=VARCHAR} and 
+      productid = #{productid,jdbcType=VARCHAR} and 
     </if>
     <if test="gstprice != null">
-      GSTPRICE = #{gstprice,jdbcType=DECIMAL} and 
+      gstprice = #{gstprice,jdbcType=DECIMAL} and 
     </if>
     <if test="oceanshipprice != null">
-      OCEANSHIPPRICE = #{oceanshipprice,jdbcType=DECIMAL} and 
+      oceanshipprice = #{oceanshipprice,jdbcType=DECIMAL} and 
     </if>
     <if test="expressprice != null">
-      EXPRESSPRICE = #{expressprice,jdbcType=DECIMAL} and 
+      expressprice = #{expressprice,jdbcType=DECIMAL} and 
     </if>
     <if test="profit != null">
-      PROFIT = #{profit,jdbcType=DECIMAL} and 
+      profit = #{profit,jdbcType=DECIMAL} and 
     </if>
     <if test="storerent != null">
-      STORERENT = #{storerent,jdbcType=DECIMAL} and 
+      storerent = #{storerent,jdbcType=DECIMAL} and 
     </if>
     <if test="dhnumber != null">
-      DHNUMBER = #{dhnumber,jdbcType=DECIMAL} and 
+      dhnumber = #{dhnumber,jdbcType=DECIMAL} and 
     </if>
     <if test="country != null">
-      COUNTRY = #{country,jdbcType=VARCHAR} and 
+      country = #{country,jdbcType=VARCHAR} and 
     </if>
     <if test="rate != null">
-      RATE = #{rate,jdbcType=DECIMAL} and 
+      rate = #{rate,jdbcType=DECIMAL} and 
     </if>
     <if test="newproductid != null">
-      NEWPRODUCTID = #{newproductid,jdbcType=VARCHAR} and 
+      newproductid = #{newproductid,jdbcType=VARCHAR} and 
     </if>
     <if test="expressfee != null">
-      EXPRESSFEE = #{expressfee,jdbcType=DECIMAL} and 
+      expressfee = #{expressfee,jdbcType=DECIMAL} and 
     </if>
     <if test="status != null">
-      STATUS = #{status,jdbcType=DECIMAL} and 
+      status = #{status,jdbcType=DECIMAL} and 
     </if>
     <if test="generaldelivery != null">
-      GENERALDELIVERY = #{generaldelivery,jdbcType=VARCHAR} and 
+      generaldelivery = #{generaldelivery,jdbcType=VARCHAR} and 
     </if>
     <if test="generaldeliveryfee != null">
-      GENERALDELIVERYFEE = #{generaldeliveryfee,jdbcType=DECIMAL} and 
+      generaldeliveryfee = #{generaldeliveryfee,jdbcType=DECIMAL} and 
     </if>
     <if test="expeditedcourier != null">
-      EXPEDITEDCOURIER = #{expeditedcourier,jdbcType=VARCHAR} and 
+      expeditedcourier = #{expeditedcourier,jdbcType=VARCHAR} and 
     </if>
     <if test="expeditedcourierfee != null">
-      EXPEDITEDCOURIERFEE = #{expeditedcourierfee,jdbcType=DECIMAL} and 
+      expeditedcourierfee = #{expeditedcourierfee,jdbcType=DECIMAL} and 
     </if>
     <if test="warehouserental != null">
-      WAREHOUSERENTAL = #{warehouserental,jdbcType=DECIMAL} and 
+      warehouserental = #{warehouserental,jdbcType=DECIMAL} and 
     </if>
     <if test="handlingcharges != null">
-      HANDLINGCHARGES = #{handlingcharges,jdbcType=DECIMAL} and 
+      handlingcharges = #{handlingcharges,jdbcType=DECIMAL} and 
     </if>
     <if test="qualityrating != null">
-      QUALITYRATING = #{qualityrating,jdbcType=VARCHAR} and 
+      qualityrating = #{qualityrating,jdbcType=VARCHAR} and 
     </if>
     <if test="sellstatus != null">
-      SELLSTATUS = #{sellstatus,jdbcType=DECIMAL}
+      sellstatus = #{sellstatus,jdbcType=DECIMAL} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
     </if>
     <if test="productid != null">
-      PRODUCTID = #{productid,jdbcType=VARCHAR} , 
+      productid = #{productid,jdbcType=VARCHAR} , 
     </if>
     <if test="gstprice != null">
-      GSTPRICE = #{gstprice,jdbcType=DECIMAL} , 
+      gstprice = #{gstprice,jdbcType=DECIMAL} , 
     </if>
     <if test="oceanshipprice != null">
-      OCEANSHIPPRICE = #{oceanshipprice,jdbcType=DECIMAL} , 
+      oceanshipprice = #{oceanshipprice,jdbcType=DECIMAL} , 
     </if>
     <if test="expressprice != null">
-      EXPRESSPRICE = #{expressprice,jdbcType=DECIMAL} , 
+      expressprice = #{expressprice,jdbcType=DECIMAL} , 
     </if>
     <if test="profit != null">
-      PROFIT = #{profit,jdbcType=DECIMAL} , 
+      profit = #{profit,jdbcType=DECIMAL} , 
     </if>
     <if test="storerent != null">
-      STORERENT = #{storerent,jdbcType=DECIMAL} , 
+      storerent = #{storerent,jdbcType=DECIMAL} , 
     </if>
     <if test="dhnumber != null">
-      DHNUMBER = #{dhnumber,jdbcType=DECIMAL} , 
+      dhnumber = #{dhnumber,jdbcType=DECIMAL} , 
     </if>
     <if test="country != null">
-      COUNTRY = #{country,jdbcType=VARCHAR} , 
+      country = #{country,jdbcType=VARCHAR} , 
     </if>
     <if test="rate != null">
-      RATE = #{rate,jdbcType=DECIMAL} , 
+      rate = #{rate,jdbcType=DECIMAL} , 
     </if>
     <if test="newproductid != null">
-      NEWPRODUCTID = #{newproductid,jdbcType=VARCHAR} , 
+      newproductid = #{newproductid,jdbcType=VARCHAR} , 
     </if>
     <if test="expressfee != null">
-      EXPRESSFEE = #{expressfee,jdbcType=DECIMAL} , 
+      expressfee = #{expressfee,jdbcType=DECIMAL} , 
     </if>
     <if test="status != null">
-      STATUS = #{status,jdbcType=DECIMAL} , 
+      status = #{status,jdbcType=DECIMAL} , 
     </if>
     <if test="generaldelivery != null">
-      GENERALDELIVERY = #{generaldelivery,jdbcType=VARCHAR} , 
+      generaldelivery = #{generaldelivery,jdbcType=VARCHAR} , 
     </if>
     <if test="generaldeliveryfee != null">
-      GENERALDELIVERYFEE = #{generaldeliveryfee,jdbcType=DECIMAL} , 
+      generaldeliveryfee = #{generaldeliveryfee,jdbcType=DECIMAL} , 
     </if>
     <if test="expeditedcourier != null">
-      EXPEDITEDCOURIER = #{expeditedcourier,jdbcType=VARCHAR} , 
+      expeditedcourier = #{expeditedcourier,jdbcType=VARCHAR} , 
     </if>
     <if test="expeditedcourierfee != null">
-      EXPEDITEDCOURIERFEE = #{expeditedcourierfee,jdbcType=DECIMAL} , 
+      expeditedcourierfee = #{expeditedcourierfee,jdbcType=DECIMAL} , 
     </if>
     <if test="warehouserental != null">
-      WAREHOUSERENTAL = #{warehouserental,jdbcType=DECIMAL} , 
+      warehouserental = #{warehouserental,jdbcType=DECIMAL} , 
     </if>
     <if test="handlingcharges != null">
-      HANDLINGCHARGES = #{handlingcharges,jdbcType=DECIMAL} , 
+      handlingcharges = #{handlingcharges,jdbcType=DECIMAL} , 
     </if>
     <if test="qualityrating != null">
-      QUALITYRATING = #{qualityrating,jdbcType=VARCHAR} , 
+      qualityrating = #{qualityrating,jdbcType=VARCHAR} , 
     </if>
     <if test="sellstatus != null">
-      SELLSTATUS = #{sellstatus,jdbcType=DECIMAL}
+      sellstatus = #{sellstatus,jdbcType=DECIMAL} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbProduceNew" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

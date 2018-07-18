@@ -16,16 +16,16 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select SEQUENCEID, DBHOST, DBNAME, DBUSERNAME, DBPASSWORD, RESERVE1, RESERVE2, RESERVE3, 
     RESERVE4, RESERVE5
-    from db_mysql
+    from DB_MYSQL
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SEQUENCEID, DBHOST, DBNAME, DBUSERNAME, DBPASSWORD, RESERVE1, RESERVE2, RESERVE3, 
     RESERVE4, RESERVE5
-    from db_mysql
+    from DB_MYSQL
   </select>
   <sql id="TableName">
-    db_mysql
+    DB_MYSQL
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=VARCHAR} , 
@@ -37,7 +37,7 @@
      #{reserve2,jdbcType=VARCHAR} , 
      #{reserve3,jdbcType=VARCHAR} , 
      #{reserve4,jdbcType=VARCHAR} , 
-     #{reserve5,jdbcType=VARCHAR}
+     #{reserve5,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
@@ -49,73 +49,73 @@
     RESERVE2 , 
     RESERVE3 , 
     RESERVE4 , 
-    RESERVE5
+    RESERVE5 , 
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
     </if>
     <if test="dbhost != null">
-      DBHOST = #{dbhost,jdbcType=VARCHAR} and 
+      dbhost = #{dbhost,jdbcType=VARCHAR} and 
     </if>
     <if test="dbname != null">
-      DBNAME = #{dbname,jdbcType=VARCHAR} and 
+      dbname = #{dbname,jdbcType=VARCHAR} and 
     </if>
     <if test="dbusername != null">
-      DBUSERNAME = #{dbusername,jdbcType=VARCHAR} and 
+      dbusername = #{dbusername,jdbcType=VARCHAR} and 
     </if>
     <if test="dbpassword != null">
-      DBPASSWORD = #{dbpassword,jdbcType=VARCHAR} and 
+      dbpassword = #{dbpassword,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR} and 
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=VARCHAR} and 
+      reserve4 = #{reserve4,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=VARCHAR}
+      reserve5 = #{reserve5,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
     </if>
     <if test="dbhost != null">
-      DBHOST = #{dbhost,jdbcType=VARCHAR} , 
+      dbhost = #{dbhost,jdbcType=VARCHAR} , 
     </if>
     <if test="dbname != null">
-      DBNAME = #{dbname,jdbcType=VARCHAR} , 
+      dbname = #{dbname,jdbcType=VARCHAR} , 
     </if>
     <if test="dbusername != null">
-      DBUSERNAME = #{dbusername,jdbcType=VARCHAR} , 
+      dbusername = #{dbusername,jdbcType=VARCHAR} , 
     </if>
     <if test="dbpassword != null">
-      DBPASSWORD = #{dbpassword,jdbcType=VARCHAR} , 
+      dbpassword = #{dbpassword,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR} , 
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=VARCHAR} , 
+      reserve4 = #{reserve4,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=VARCHAR}
+      reserve5 = #{reserve5,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbMysql" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

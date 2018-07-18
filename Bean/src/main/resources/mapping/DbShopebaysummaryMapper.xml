@@ -16,173 +16,147 @@
     <result column="RESERVE3" jdbcType="DECIMAL" property="reserve3" />
     <result column="RESERVE4" jdbcType="DECIMAL" property="reserve4" />
   </resultMap>
-  <sql id="Base_Column_List">
-    SID, SHOPTYPEID, SHOPTYPENAME, YYYYMMDD, QUANTITYLIMITREMAINING, AMOUNTLIMITREMAINING, 
-    TOTALSOLDCOUNT, TOTALSOLDVALUE, OPERTIME, RESERVE1, RESERVE2, RESERVE3, RESERVE4
-  </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from db_shopebaysummary
+    select SID, SHOPTYPEID, SHOPTYPENAME, YYYYMMDD, QUANTITYLIMITREMAINING, AMOUNTLIMITREMAINING, 
+    TOTALSOLDCOUNT, TOTALSOLDVALUE, OPERTIME, RESERVE1, RESERVE2, RESERVE3, RESERVE4
+    from DB_SHOPEBAYSUMMARY
     where SID = #{sid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_shopebaysummary
-    where SID = #{sid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, SHOPTYPEID, SHOPTYPENAME, YYYYMMDD, QUANTITYLIMITREMAINING, AMOUNTLIMITREMAINING, 
+    TOTALSOLDCOUNT, TOTALSOLDVALUE, OPERTIME, RESERVE1, RESERVE2, RESERVE3, RESERVE4
+    from DB_SHOPEBAYSUMMARY
+  </select>
+  <sql id="TableName">
+    DB_SHOPEBAYSUMMARY
+  </sql>
+  <sql id="Values">
+     #{sid,jdbcType=VARCHAR} , 
+     #{shoptypeid,jdbcType=VARCHAR} , 
+     #{shoptypename,jdbcType=VARCHAR} , 
+     #{yyyymmdd,jdbcType=VARCHAR} , 
+     #{quantitylimitremaining,jdbcType=DECIMAL} , 
+     #{amountlimitremaining,jdbcType=DECIMAL} , 
+     #{totalsoldcount,jdbcType=DECIMAL} , 
+     #{totalsoldvalue,jdbcType=DECIMAL} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{reserve1,jdbcType=DECIMAL} , 
+     #{reserve2,jdbcType=DECIMAL} , 
+     #{reserve3,jdbcType=DECIMAL} , 
+     #{reserve4,jdbcType=DECIMAL} , 
+  </sql>
+  <sql id="Columns">
+    SID , 
+    SHOPTYPEID , 
+    SHOPTYPENAME , 
+    YYYYMMDD , 
+    QUANTITYLIMITREMAINING , 
+    AMOUNTLIMITREMAINING , 
+    TOTALSOLDCOUNT , 
+    TOTALSOLDVALUE , 
+    OPERTIME , 
+    RESERVE1 , 
+    RESERVE2 , 
+    RESERVE3 , 
+    RESERVE4 , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shoptypeid != null">
+      shoptypeid = #{shoptypeid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shoptypename != null">
+      shoptypename = #{shoptypename,jdbcType=VARCHAR} and 
+    </if>
+    <if test="yyyymmdd != null">
+      yyyymmdd = #{yyyymmdd,jdbcType=VARCHAR} and 
+    </if>
+    <if test="quantitylimitremaining != null">
+      quantitylimitremaining = #{quantitylimitremaining,jdbcType=DECIMAL} and 
+    </if>
+    <if test="amountlimitremaining != null">
+      amountlimitremaining = #{amountlimitremaining,jdbcType=DECIMAL} and 
+    </if>
+    <if test="totalsoldcount != null">
+      totalsoldcount = #{totalsoldcount,jdbcType=DECIMAL} and 
+    </if>
+    <if test="totalsoldvalue != null">
+      totalsoldvalue = #{totalsoldvalue,jdbcType=DECIMAL} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=DECIMAL} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shoptypeid != null">
+      shoptypeid = #{shoptypeid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shoptypename != null">
+      shoptypename = #{shoptypename,jdbcType=VARCHAR} , 
+    </if>
+    <if test="yyyymmdd != null">
+      yyyymmdd = #{yyyymmdd,jdbcType=VARCHAR} , 
+    </if>
+    <if test="quantitylimitremaining != null">
+      quantitylimitremaining = #{quantitylimitremaining,jdbcType=DECIMAL} , 
+    </if>
+    <if test="amountlimitremaining != null">
+      amountlimitremaining = #{amountlimitremaining,jdbcType=DECIMAL} , 
+    </if>
+    <if test="totalsoldcount != null">
+      totalsoldcount = #{totalsoldcount,jdbcType=DECIMAL} , 
+    </if>
+    <if test="totalsoldvalue != null">
+      totalsoldvalue = #{totalsoldvalue,jdbcType=DECIMAL} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=DECIMAL} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbShopebaysummary" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SID=#{SID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbShopebaysummary">
-    insert into db_shopebaysummary (SID, SHOPTYPEID, SHOPTYPENAME, 
-      YYYYMMDD, QUANTITYLIMITREMAINING, AMOUNTLIMITREMAINING, 
-      TOTALSOLDCOUNT, TOTALSOLDVALUE, OPERTIME, 
-      RESERVE1, RESERVE2, RESERVE3, 
-      RESERVE4)
-    values (#{sid,jdbcType=VARCHAR}, #{shoptypeid,jdbcType=VARCHAR}, #{shoptypename,jdbcType=VARCHAR}, 
-      #{yyyymmdd,jdbcType=VARCHAR}, #{quantitylimitremaining,jdbcType=DECIMAL}, #{amountlimitremaining,jdbcType=DECIMAL}, 
-      #{totalsoldcount,jdbcType=DECIMAL}, #{totalsoldvalue,jdbcType=DECIMAL}, #{opertime,jdbcType=TIMESTAMP}, 
-      #{reserve1,jdbcType=DECIMAL}, #{reserve2,jdbcType=DECIMAL}, #{reserve3,jdbcType=DECIMAL}, 
-      #{reserve4,jdbcType=DECIMAL})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbShopebaysummary">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbShopebaysummary">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbShopebaysummary">
-    insert into db_shopebaysummary
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        SID,
-      </if>
-      <if test="shoptypeid != null">
-        SHOPTYPEID,
-      </if>
-      <if test="shoptypename != null">
-        SHOPTYPENAME,
-      </if>
-      <if test="yyyymmdd != null">
-        YYYYMMDD,
-      </if>
-      <if test="quantitylimitremaining != null">
-        QUANTITYLIMITREMAINING,
-      </if>
-      <if test="amountlimitremaining != null">
-        AMOUNTLIMITREMAINING,
-      </if>
-      <if test="totalsoldcount != null">
-        TOTALSOLDCOUNT,
-      </if>
-      <if test="totalsoldvalue != null">
-        TOTALSOLDVALUE,
-      </if>
-      <if test="opertime != null">
-        OPERTIME,
-      </if>
-      <if test="reserve1 != null">
-        RESERVE1,
-      </if>
-      <if test="reserve2 != null">
-        RESERVE2,
-      </if>
-      <if test="reserve3 != null">
-        RESERVE3,
-      </if>
-      <if test="reserve4 != null">
-        RESERVE4,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        #{sid,jdbcType=VARCHAR},
-      </if>
-      <if test="shoptypeid != null">
-        #{shoptypeid,jdbcType=VARCHAR},
-      </if>
-      <if test="shoptypename != null">
-        #{shoptypename,jdbcType=VARCHAR},
-      </if>
-      <if test="yyyymmdd != null">
-        #{yyyymmdd,jdbcType=VARCHAR},
-      </if>
-      <if test="quantitylimitremaining != null">
-        #{quantitylimitremaining,jdbcType=DECIMAL},
-      </if>
-      <if test="amountlimitremaining != null">
-        #{amountlimitremaining,jdbcType=DECIMAL},
-      </if>
-      <if test="totalsoldcount != null">
-        #{totalsoldcount,jdbcType=DECIMAL},
-      </if>
-      <if test="totalsoldvalue != null">
-        #{totalsoldvalue,jdbcType=DECIMAL},
-      </if>
-      <if test="opertime != null">
-        #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="reserve1 != null">
-        #{reserve1,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve2 != null">
-        #{reserve2,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve3 != null">
-        #{reserve3,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve4 != null">
-        #{reserve4,jdbcType=DECIMAL},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbShopebaysummary">
-    update db_shopebaysummary
-    <set>
-      <if test="shoptypeid != null">
-        SHOPTYPEID = #{shoptypeid,jdbcType=VARCHAR},
-      </if>
-      <if test="shoptypename != null">
-        SHOPTYPENAME = #{shoptypename,jdbcType=VARCHAR},
-      </if>
-      <if test="yyyymmdd != null">
-        YYYYMMDD = #{yyyymmdd,jdbcType=VARCHAR},
-      </if>
-      <if test="quantitylimitremaining != null">
-        QUANTITYLIMITREMAINING = #{quantitylimitremaining,jdbcType=DECIMAL},
-      </if>
-      <if test="amountlimitremaining != null">
-        AMOUNTLIMITREMAINING = #{amountlimitremaining,jdbcType=DECIMAL},
-      </if>
-      <if test="totalsoldcount != null">
-        TOTALSOLDCOUNT = #{totalsoldcount,jdbcType=DECIMAL},
-      </if>
-      <if test="totalsoldvalue != null">
-        TOTALSOLDVALUE = #{totalsoldvalue,jdbcType=DECIMAL},
-      </if>
-      <if test="opertime != null">
-        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="reserve1 != null">
-        RESERVE1 = #{reserve1,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve2 != null">
-        RESERVE2 = #{reserve2,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve3 != null">
-        RESERVE3 = #{reserve3,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve4 != null">
-        RESERVE4 = #{reserve4,jdbcType=DECIMAL},
-      </if>
-    </set>
-    where SID = #{sid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbShopebaysummary">
-    update db_shopebaysummary
-    set SHOPTYPEID = #{shoptypeid,jdbcType=VARCHAR},
-      SHOPTYPENAME = #{shoptypename,jdbcType=VARCHAR},
-      YYYYMMDD = #{yyyymmdd,jdbcType=VARCHAR},
-      QUANTITYLIMITREMAINING = #{quantitylimitremaining,jdbcType=DECIMAL},
-      AMOUNTLIMITREMAINING = #{amountlimitremaining,jdbcType=DECIMAL},
-      TOTALSOLDCOUNT = #{totalsoldcount,jdbcType=DECIMAL},
-      TOTALSOLDVALUE = #{totalsoldvalue,jdbcType=DECIMAL},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      RESERVE1 = #{reserve1,jdbcType=DECIMAL},
-      RESERVE2 = #{reserve2,jdbcType=DECIMAL},
-      RESERVE3 = #{reserve3,jdbcType=DECIMAL},
-      RESERVE4 = #{reserve4,jdbcType=DECIMAL}
-    where SID = #{sid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbShopebaysummary">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

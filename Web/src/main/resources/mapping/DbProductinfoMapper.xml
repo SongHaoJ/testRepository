@@ -7,26 +7,26 @@
     <result column="SKU" jdbcType="VARCHAR" property="sku" />
     <result column="SONSKU" jdbcType="VARCHAR" property="sonsku" />
     <result column="CATEGORYID" jdbcType="VARCHAR" property="categoryid" />
+    <result column="PRODUCTTYPE" jdbcType="VARCHAR" property="producttype" />
     <result column="WEIGHT" jdbcType="DECIMAL" property="weight" />
     <result column="ATTRIBUTEID" jdbcType="VARCHAR" property="attributeid" />
     <result column="ATTRIBUTENAME" jdbcType="VARCHAR" property="attributename" />
     <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
     <result column="MODEFIEDTIME" jdbcType="TIMESTAMP" property="modefiedtime" />
-    <result column="PRODUCTTYPE" jdbcType="LONGVARCHAR" property="producttype" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select SKUID, ITEMID, SKU, SONSKU, CATEGORYID, WEIGHT, ATTRIBUTEID, ATTRIBUTENAME, 
-    CREATETIME, MODEFIEDTIME, PRODUCTTYPE
-    from db_productinfo
+    select SKUID, ITEMID, SKU, SONSKU, CATEGORYID, PRODUCTTYPE, WEIGHT, ATTRIBUTEID, 
+    ATTRIBUTENAME, CREATETIME, MODEFIEDTIME
+    from DB_PRODUCTINFO
     where SKUID = #{skuid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select SKUID, ITEMID, SKU, SONSKU, CATEGORYID, WEIGHT, ATTRIBUTEID, ATTRIBUTENAME, 
-    CREATETIME, MODEFIEDTIME, PRODUCTTYPE
-    from db_productinfo
+    select SKUID, ITEMID, SKU, SONSKU, CATEGORYID, PRODUCTTYPE, WEIGHT, ATTRIBUTEID, 
+    ATTRIBUTENAME, CREATETIME, MODEFIEDTIME
+    from DB_PRODUCTINFO
   </select>
   <sql id="TableName">
-    db_productinfo
+    DB_PRODUCTINFO
   </sql>
   <sql id="Values">
      #{skuid,jdbcType=VARCHAR} , 
@@ -34,12 +34,12 @@
      #{sku,jdbcType=VARCHAR} , 
      #{sonsku,jdbcType=VARCHAR} , 
      #{categoryid,jdbcType=VARCHAR} , 
+     #{producttype,jdbcType=VARCHAR} , 
      #{weight,jdbcType=DECIMAL} , 
      #{attributeid,jdbcType=VARCHAR} , 
      #{attributename,jdbcType=VARCHAR} , 
      #{createtime,jdbcType=TIMESTAMP} , 
      #{modefiedtime,jdbcType=TIMESTAMP} , 
-     #{producttype,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     SKUID , 
@@ -47,84 +47,84 @@
     SKU , 
     SONSKU , 
     CATEGORYID , 
+    PRODUCTTYPE , 
     WEIGHT , 
     ATTRIBUTEID , 
     ATTRIBUTENAME , 
     CREATETIME , 
     MODEFIEDTIME , 
-    PRODUCTTYPE
   </sql>
   <sql id="Criteria">
     <if test="skuid != null">
-      SKUID = #{skuid,jdbcType=VARCHAR} and 
+      skuid = #{skuid,jdbcType=VARCHAR} and 
     </if>
     <if test="itemid != null">
-      ITEMID = #{itemid,jdbcType=VARCHAR} and 
+      itemid = #{itemid,jdbcType=VARCHAR} and 
     </if>
     <if test="sku != null">
-      SKU = #{sku,jdbcType=VARCHAR} and 
+      sku = #{sku,jdbcType=VARCHAR} and 
     </if>
     <if test="sonsku != null">
-      SONSKU = #{sonsku,jdbcType=VARCHAR} and 
+      sonsku = #{sonsku,jdbcType=VARCHAR} and 
     </if>
     <if test="categoryid != null">
-      CATEGORYID = #{categoryid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="weight != null">
-      WEIGHT = #{weight,jdbcType=DECIMAL} and 
-    </if>
-    <if test="attributeid != null">
-      ATTRIBUTEID = #{attributeid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="attributename != null">
-      ATTRIBUTENAME = #{attributename,jdbcType=VARCHAR} and 
-    </if>
-    <if test="createtime != null">
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="modefiedtime != null">
-      MODEFIEDTIME = #{modefiedtime,jdbcType=TIMESTAMP} and 
+      categoryid = #{categoryid,jdbcType=VARCHAR} and 
     </if>
     <if test="producttype != null">
-      PRODUCTTYPE = #{producttype,jdbcType=LONGVARCHAR}
+      producttype = #{producttype,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="weight != null">
+      weight = #{weight,jdbcType=DECIMAL} and 
+    </if>
+    <if test="attributeid != null">
+      attributeid = #{attributeid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="attributename != null">
+      attributename = #{attributename,jdbcType=VARCHAR} and 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="modefiedtime != null">
+      modefiedtime = #{modefiedtime,jdbcType=TIMESTAMP} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="skuid != null">
-      SKUID = #{skuid,jdbcType=VARCHAR} , 
+      skuid = #{skuid,jdbcType=VARCHAR} , 
     </if>
     <if test="itemid != null">
-      ITEMID = #{itemid,jdbcType=VARCHAR} , 
+      itemid = #{itemid,jdbcType=VARCHAR} , 
     </if>
     <if test="sku != null">
-      SKU = #{sku,jdbcType=VARCHAR} , 
+      sku = #{sku,jdbcType=VARCHAR} , 
     </if>
     <if test="sonsku != null">
-      SONSKU = #{sonsku,jdbcType=VARCHAR} , 
+      sonsku = #{sonsku,jdbcType=VARCHAR} , 
     </if>
     <if test="categoryid != null">
-      CATEGORYID = #{categoryid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="weight != null">
-      WEIGHT = #{weight,jdbcType=DECIMAL} , 
-    </if>
-    <if test="attributeid != null">
-      ATTRIBUTEID = #{attributeid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="attributename != null">
-      ATTRIBUTENAME = #{attributename,jdbcType=VARCHAR} , 
-    </if>
-    <if test="createtime != null">
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="modefiedtime != null">
-      MODEFIEDTIME = #{modefiedtime,jdbcType=TIMESTAMP} , 
+      categoryid = #{categoryid,jdbcType=VARCHAR} , 
     </if>
     <if test="producttype != null">
-      PRODUCTTYPE = #{producttype,jdbcType=LONGVARCHAR}
+      producttype = #{producttype,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="weight != null">
+      weight = #{weight,jdbcType=DECIMAL} , 
+    </if>
+    <if test="attributeid != null">
+      attributeid = #{attributeid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="attributename != null">
+      attributename = #{attributename,jdbcType=VARCHAR} , 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="modefiedtime != null">
+      modefiedtime = #{modefiedtime,jdbcType=TIMESTAMP} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbProductinfo" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

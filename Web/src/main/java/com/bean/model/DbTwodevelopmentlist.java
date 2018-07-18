@@ -9,6 +9,8 @@ public class DbTwodevelopmentlist implements Serializable {
 
     private String bindid;
 
+    private String alias1;
+
     private BigDecimal num;
 
     private Date opertime;
@@ -24,8 +26,6 @@ public class DbTwodevelopmentlist implements Serializable {
     private BigDecimal reserve4;
 
     private BigDecimal reserve5;
-
-    private String alias1;
 
     private static final long serialVersionUID = 1L;
 
@@ -43,6 +43,14 @@ public class DbTwodevelopmentlist implements Serializable {
 
     public void setBindid(String bindid) {
         this.bindid = bindid == null ? null : bindid.trim();
+    }
+
+    public String getAlias1() {
+        return alias1;
+    }
+
+    public void setAlias1(String alias1) {
+        this.alias1 = alias1 == null ? null : alias1.trim();
     }
 
     public BigDecimal getNum() {
@@ -109,14 +117,6 @@ public class DbTwodevelopmentlist implements Serializable {
         this.reserve5 = reserve5;
     }
 
-    public String getAlias1() {
-        return alias1;
-    }
-
-    public void setAlias1(String alias1) {
-        this.alias1 = alias1 == null ? null : alias1.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -131,6 +131,7 @@ public class DbTwodevelopmentlist implements Serializable {
         DbTwodevelopmentlist other = (DbTwodevelopmentlist) that;
         return (this.getSid() == null ? other.getSid() == null : this.getSid().equals(other.getSid()))
             && (this.getBindid() == null ? other.getBindid() == null : this.getBindid().equals(other.getBindid()))
+            && (this.getAlias1() == null ? other.getAlias1() == null : this.getAlias1().equals(other.getAlias1()))
             && (this.getNum() == null ? other.getNum() == null : this.getNum().equals(other.getNum()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
             && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()))
@@ -138,8 +139,7 @@ public class DbTwodevelopmentlist implements Serializable {
             && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
             && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
             && (this.getReserve4() == null ? other.getReserve4() == null : this.getReserve4().equals(other.getReserve4()))
-            && (this.getReserve5() == null ? other.getReserve5() == null : this.getReserve5().equals(other.getReserve5()))
-            && (this.getAlias1() == null ? other.getAlias1() == null : this.getAlias1().equals(other.getAlias1()));
+            && (this.getReserve5() == null ? other.getReserve5() == null : this.getReserve5().equals(other.getReserve5()));
     }
 
     @Override
@@ -148,6 +148,7 @@ public class DbTwodevelopmentlist implements Serializable {
         int result = 1;
         result = prime * result + ((getSid() == null) ? 0 : getSid().hashCode());
         result = prime * result + ((getBindid() == null) ? 0 : getBindid().hashCode());
+        result = prime * result + ((getAlias1() == null) ? 0 : getAlias1().hashCode());
         result = prime * result + ((getNum() == null) ? 0 : getNum().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getCorpid() == null) ? 0 : getCorpid().hashCode());
@@ -156,7 +157,6 @@ public class DbTwodevelopmentlist implements Serializable {
         result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
         result = prime * result + ((getReserve4() == null) ? 0 : getReserve4().hashCode());
         result = prime * result + ((getReserve5() == null) ? 0 : getReserve5().hashCode());
-        result = prime * result + ((getAlias1() == null) ? 0 : getAlias1().hashCode());
         return result;
     }
 
@@ -168,6 +168,7 @@ public class DbTwodevelopmentlist implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", sid=").append(sid);
         sb.append(", bindid=").append(bindid);
+        sb.append(", alias1=").append(alias1);
         sb.append(", num=").append(num);
         sb.append(", opertime=").append(opertime);
         sb.append(", corpid=").append(corpid);
@@ -176,7 +177,6 @@ public class DbTwodevelopmentlist implements Serializable {
         sb.append(", reserve3=").append(reserve3);
         sb.append(", reserve4=").append(reserve4);
         sb.append(", reserve5=").append(reserve5);
-        sb.append(", alias1=").append(alias1);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

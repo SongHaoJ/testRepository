@@ -7,6 +7,10 @@ import java.util.Date;
 public class DbTask implements Serializable {
     private String sid;
 
+    private String title;
+
+    private String question;
+
     private String stype;
 
     private String stypename;
@@ -19,6 +23,8 @@ public class DbTask implements Serializable {
 
     private Date toopertime;
 
+    private String answer;
+
     private String status;
 
     private String statusname;
@@ -30,6 +36,8 @@ public class DbTask implements Serializable {
     private String checkresult;
 
     private BigDecimal scores;
+
+    private String checkdescr;
 
     private String checkoper;
 
@@ -55,35 +63,15 @@ public class DbTask implements Serializable {
 
     private String openflag;
 
+    private String member;
+
     private String customertype;
+
+    private String customername;
 
     private BigDecimal reserve6;
 
     private BigDecimal reserve7;
-
-    private BigDecimal reserve12;
-
-    private BigDecimal reserve13;
-
-    private BigDecimal reserve14;
-
-    private BigDecimal reserve15;
-
-    private BigDecimal reserve16;
-
-    private BigDecimal reserve17;
-
-    private String title;
-
-    private String question;
-
-    private String answer;
-
-    private String checkdescr;
-
-    private String member;
-
-    private String customername;
 
     private String alias1;
 
@@ -103,6 +91,18 @@ public class DbTask implements Serializable {
 
     private String reserve11;
 
+    private BigDecimal reserve12;
+
+    private BigDecimal reserve13;
+
+    private BigDecimal reserve14;
+
+    private BigDecimal reserve15;
+
+    private BigDecimal reserve16;
+
+    private BigDecimal reserve17;
+
     private static final long serialVersionUID = 1L;
 
     public String getSid() {
@@ -111,6 +111,22 @@ public class DbTask implements Serializable {
 
     public void setSid(String sid) {
         this.sid = sid == null ? null : sid.trim();
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title == null ? null : title.trim();
+    }
+
+    public String getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(String question) {
+        this.question = question == null ? null : question.trim();
     }
 
     public String getStype() {
@@ -161,6 +177,14 @@ public class DbTask implements Serializable {
         this.toopertime = toopertime;
     }
 
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer == null ? null : answer.trim();
+    }
+
     public String getStatus() {
         return status;
     }
@@ -207,6 +231,14 @@ public class DbTask implements Serializable {
 
     public void setScores(BigDecimal scores) {
         this.scores = scores;
+    }
+
+    public String getCheckdescr() {
+        return checkdescr;
+    }
+
+    public void setCheckdescr(String checkdescr) {
+        this.checkdescr = checkdescr == null ? null : checkdescr.trim();
     }
 
     public String getCheckoper() {
@@ -305,12 +337,28 @@ public class DbTask implements Serializable {
         this.openflag = openflag == null ? null : openflag.trim();
     }
 
+    public String getMember() {
+        return member;
+    }
+
+    public void setMember(String member) {
+        this.member = member == null ? null : member.trim();
+    }
+
     public String getCustomertype() {
         return customertype;
     }
 
     public void setCustomertype(String customertype) {
         this.customertype = customertype == null ? null : customertype.trim();
+    }
+
+    public String getCustomername() {
+        return customername;
+    }
+
+    public void setCustomername(String customername) {
+        this.customername = customername == null ? null : customername.trim();
     }
 
     public BigDecimal getReserve6() {
@@ -327,102 +375,6 @@ public class DbTask implements Serializable {
 
     public void setReserve7(BigDecimal reserve7) {
         this.reserve7 = reserve7;
-    }
-
-    public BigDecimal getReserve12() {
-        return reserve12;
-    }
-
-    public void setReserve12(BigDecimal reserve12) {
-        this.reserve12 = reserve12;
-    }
-
-    public BigDecimal getReserve13() {
-        return reserve13;
-    }
-
-    public void setReserve13(BigDecimal reserve13) {
-        this.reserve13 = reserve13;
-    }
-
-    public BigDecimal getReserve14() {
-        return reserve14;
-    }
-
-    public void setReserve14(BigDecimal reserve14) {
-        this.reserve14 = reserve14;
-    }
-
-    public BigDecimal getReserve15() {
-        return reserve15;
-    }
-
-    public void setReserve15(BigDecimal reserve15) {
-        this.reserve15 = reserve15;
-    }
-
-    public BigDecimal getReserve16() {
-        return reserve16;
-    }
-
-    public void setReserve16(BigDecimal reserve16) {
-        this.reserve16 = reserve16;
-    }
-
-    public BigDecimal getReserve17() {
-        return reserve17;
-    }
-
-    public void setReserve17(BigDecimal reserve17) {
-        this.reserve17 = reserve17;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title == null ? null : title.trim();
-    }
-
-    public String getQuestion() {
-        return question;
-    }
-
-    public void setQuestion(String question) {
-        this.question = question == null ? null : question.trim();
-    }
-
-    public String getAnswer() {
-        return answer;
-    }
-
-    public void setAnswer(String answer) {
-        this.answer = answer == null ? null : answer.trim();
-    }
-
-    public String getCheckdescr() {
-        return checkdescr;
-    }
-
-    public void setCheckdescr(String checkdescr) {
-        this.checkdescr = checkdescr == null ? null : checkdescr.trim();
-    }
-
-    public String getMember() {
-        return member;
-    }
-
-    public void setMember(String member) {
-        this.member = member == null ? null : member.trim();
-    }
-
-    public String getCustomername() {
-        return customername;
-    }
-
-    public void setCustomername(String customername) {
-        this.customername = customername == null ? null : customername.trim();
     }
 
     public String getAlias1() {
@@ -497,6 +449,54 @@ public class DbTask implements Serializable {
         this.reserve11 = reserve11 == null ? null : reserve11.trim();
     }
 
+    public BigDecimal getReserve12() {
+        return reserve12;
+    }
+
+    public void setReserve12(BigDecimal reserve12) {
+        this.reserve12 = reserve12;
+    }
+
+    public BigDecimal getReserve13() {
+        return reserve13;
+    }
+
+    public void setReserve13(BigDecimal reserve13) {
+        this.reserve13 = reserve13;
+    }
+
+    public BigDecimal getReserve14() {
+        return reserve14;
+    }
+
+    public void setReserve14(BigDecimal reserve14) {
+        this.reserve14 = reserve14;
+    }
+
+    public BigDecimal getReserve15() {
+        return reserve15;
+    }
+
+    public void setReserve15(BigDecimal reserve15) {
+        this.reserve15 = reserve15;
+    }
+
+    public BigDecimal getReserve16() {
+        return reserve16;
+    }
+
+    public void setReserve16(BigDecimal reserve16) {
+        this.reserve16 = reserve16;
+    }
+
+    public BigDecimal getReserve17() {
+        return reserve17;
+    }
+
+    public void setReserve17(BigDecimal reserve17) {
+        this.reserve17 = reserve17;
+    }
+
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -510,18 +510,22 @@ public class DbTask implements Serializable {
         }
         DbTask other = (DbTask) that;
         return (this.getSid() == null ? other.getSid() == null : this.getSid().equals(other.getSid()))
+            && (this.getTitle() == null ? other.getTitle() == null : this.getTitle().equals(other.getTitle()))
+            && (this.getQuestion() == null ? other.getQuestion() == null : this.getQuestion().equals(other.getQuestion()))
             && (this.getStype() == null ? other.getStype() == null : this.getStype().equals(other.getStype()))
             && (this.getStypename() == null ? other.getStypename() == null : this.getStypename().equals(other.getStypename()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
             && (this.getTooper() == null ? other.getTooper() == null : this.getTooper().equals(other.getTooper()))
             && (this.getToopertime() == null ? other.getToopertime() == null : this.getToopertime().equals(other.getToopertime()))
+            && (this.getAnswer() == null ? other.getAnswer() == null : this.getAnswer().equals(other.getAnswer()))
             && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
             && (this.getStatusname() == null ? other.getStatusname() == null : this.getStatusname().equals(other.getStatusname()))
             && (this.getStatusflag() == null ? other.getStatusflag() == null : this.getStatusflag().equals(other.getStatusflag()))
             && (this.getSlevel() == null ? other.getSlevel() == null : this.getSlevel().equals(other.getSlevel()))
             && (this.getCheckresult() == null ? other.getCheckresult() == null : this.getCheckresult().equals(other.getCheckresult()))
             && (this.getScores() == null ? other.getScores() == null : this.getScores().equals(other.getScores()))
+            && (this.getCheckdescr() == null ? other.getCheckdescr() == null : this.getCheckdescr().equals(other.getCheckdescr()))
             && (this.getCheckoper() == null ? other.getCheckoper() == null : this.getCheckoper().equals(other.getCheckoper()))
             && (this.getChecktime() == null ? other.getChecktime() == null : this.getChecktime().equals(other.getChecktime()))
             && (this.getPublicflag() == null ? other.getPublicflag() == null : this.getPublicflag().equals(other.getPublicflag()))
@@ -534,21 +538,11 @@ public class DbTask implements Serializable {
             && (this.getDatediff() == null ? other.getDatediff() == null : this.getDatediff().equals(other.getDatediff()))
             && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()))
             && (this.getOpenflag() == null ? other.getOpenflag() == null : this.getOpenflag().equals(other.getOpenflag()))
+            && (this.getMember() == null ? other.getMember() == null : this.getMember().equals(other.getMember()))
             && (this.getCustomertype() == null ? other.getCustomertype() == null : this.getCustomertype().equals(other.getCustomertype()))
+            && (this.getCustomername() == null ? other.getCustomername() == null : this.getCustomername().equals(other.getCustomername()))
             && (this.getReserve6() == null ? other.getReserve6() == null : this.getReserve6().equals(other.getReserve6()))
             && (this.getReserve7() == null ? other.getReserve7() == null : this.getReserve7().equals(other.getReserve7()))
-            && (this.getReserve12() == null ? other.getReserve12() == null : this.getReserve12().equals(other.getReserve12()))
-            && (this.getReserve13() == null ? other.getReserve13() == null : this.getReserve13().equals(other.getReserve13()))
-            && (this.getReserve14() == null ? other.getReserve14() == null : this.getReserve14().equals(other.getReserve14()))
-            && (this.getReserve15() == null ? other.getReserve15() == null : this.getReserve15().equals(other.getReserve15()))
-            && (this.getReserve16() == null ? other.getReserve16() == null : this.getReserve16().equals(other.getReserve16()))
-            && (this.getReserve17() == null ? other.getReserve17() == null : this.getReserve17().equals(other.getReserve17()))
-            && (this.getTitle() == null ? other.getTitle() == null : this.getTitle().equals(other.getTitle()))
-            && (this.getQuestion() == null ? other.getQuestion() == null : this.getQuestion().equals(other.getQuestion()))
-            && (this.getAnswer() == null ? other.getAnswer() == null : this.getAnswer().equals(other.getAnswer()))
-            && (this.getCheckdescr() == null ? other.getCheckdescr() == null : this.getCheckdescr().equals(other.getCheckdescr()))
-            && (this.getMember() == null ? other.getMember() == null : this.getMember().equals(other.getMember()))
-            && (this.getCustomername() == null ? other.getCustomername() == null : this.getCustomername().equals(other.getCustomername()))
             && (this.getAlias1() == null ? other.getAlias1() == null : this.getAlias1().equals(other.getAlias1()))
             && (this.getAlias2() == null ? other.getAlias2() == null : this.getAlias2().equals(other.getAlias2()))
             && (this.getAlias3() == null ? other.getAlias3() == null : this.getAlias3().equals(other.getAlias3()))
@@ -557,7 +551,13 @@ public class DbTask implements Serializable {
             && (this.getReserve8() == null ? other.getReserve8() == null : this.getReserve8().equals(other.getReserve8()))
             && (this.getReserve9() == null ? other.getReserve9() == null : this.getReserve9().equals(other.getReserve9()))
             && (this.getReserve10() == null ? other.getReserve10() == null : this.getReserve10().equals(other.getReserve10()))
-            && (this.getReserve11() == null ? other.getReserve11() == null : this.getReserve11().equals(other.getReserve11()));
+            && (this.getReserve11() == null ? other.getReserve11() == null : this.getReserve11().equals(other.getReserve11()))
+            && (this.getReserve12() == null ? other.getReserve12() == null : this.getReserve12().equals(other.getReserve12()))
+            && (this.getReserve13() == null ? other.getReserve13() == null : this.getReserve13().equals(other.getReserve13()))
+            && (this.getReserve14() == null ? other.getReserve14() == null : this.getReserve14().equals(other.getReserve14()))
+            && (this.getReserve15() == null ? other.getReserve15() == null : this.getReserve15().equals(other.getReserve15()))
+            && (this.getReserve16() == null ? other.getReserve16() == null : this.getReserve16().equals(other.getReserve16()))
+            && (this.getReserve17() == null ? other.getReserve17() == null : this.getReserve17().equals(other.getReserve17()));
     }
 
     @Override
@@ -565,18 +565,22 @@ public class DbTask implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getSid() == null) ? 0 : getSid().hashCode());
+        result = prime * result + ((getTitle() == null) ? 0 : getTitle().hashCode());
+        result = prime * result + ((getQuestion() == null) ? 0 : getQuestion().hashCode());
         result = prime * result + ((getStype() == null) ? 0 : getStype().hashCode());
         result = prime * result + ((getStypename() == null) ? 0 : getStypename().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getTooper() == null) ? 0 : getTooper().hashCode());
         result = prime * result + ((getToopertime() == null) ? 0 : getToopertime().hashCode());
+        result = prime * result + ((getAnswer() == null) ? 0 : getAnswer().hashCode());
         result = prime * result + ((getStatus() == null) ? 0 : getStatus().hashCode());
         result = prime * result + ((getStatusname() == null) ? 0 : getStatusname().hashCode());
         result = prime * result + ((getStatusflag() == null) ? 0 : getStatusflag().hashCode());
         result = prime * result + ((getSlevel() == null) ? 0 : getSlevel().hashCode());
         result = prime * result + ((getCheckresult() == null) ? 0 : getCheckresult().hashCode());
         result = prime * result + ((getScores() == null) ? 0 : getScores().hashCode());
+        result = prime * result + ((getCheckdescr() == null) ? 0 : getCheckdescr().hashCode());
         result = prime * result + ((getCheckoper() == null) ? 0 : getCheckoper().hashCode());
         result = prime * result + ((getChecktime() == null) ? 0 : getChecktime().hashCode());
         result = prime * result + ((getPublicflag() == null) ? 0 : getPublicflag().hashCode());
@@ -589,21 +593,11 @@ public class DbTask implements Serializable {
         result = prime * result + ((getDatediff() == null) ? 0 : getDatediff().hashCode());
         result = prime * result + ((getCorpid() == null) ? 0 : getCorpid().hashCode());
         result = prime * result + ((getOpenflag() == null) ? 0 : getOpenflag().hashCode());
+        result = prime * result + ((getMember() == null) ? 0 : getMember().hashCode());
         result = prime * result + ((getCustomertype() == null) ? 0 : getCustomertype().hashCode());
+        result = prime * result + ((getCustomername() == null) ? 0 : getCustomername().hashCode());
         result = prime * result + ((getReserve6() == null) ? 0 : getReserve6().hashCode());
         result = prime * result + ((getReserve7() == null) ? 0 : getReserve7().hashCode());
-        result = prime * result + ((getReserve12() == null) ? 0 : getReserve12().hashCode());
-        result = prime * result + ((getReserve13() == null) ? 0 : getReserve13().hashCode());
-        result = prime * result + ((getReserve14() == null) ? 0 : getReserve14().hashCode());
-        result = prime * result + ((getReserve15() == null) ? 0 : getReserve15().hashCode());
-        result = prime * result + ((getReserve16() == null) ? 0 : getReserve16().hashCode());
-        result = prime * result + ((getReserve17() == null) ? 0 : getReserve17().hashCode());
-        result = prime * result + ((getTitle() == null) ? 0 : getTitle().hashCode());
-        result = prime * result + ((getQuestion() == null) ? 0 : getQuestion().hashCode());
-        result = prime * result + ((getAnswer() == null) ? 0 : getAnswer().hashCode());
-        result = prime * result + ((getCheckdescr() == null) ? 0 : getCheckdescr().hashCode());
-        result = prime * result + ((getMember() == null) ? 0 : getMember().hashCode());
-        result = prime * result + ((getCustomername() == null) ? 0 : getCustomername().hashCode());
         result = prime * result + ((getAlias1() == null) ? 0 : getAlias1().hashCode());
         result = prime * result + ((getAlias2() == null) ? 0 : getAlias2().hashCode());
         result = prime * result + ((getAlias3() == null) ? 0 : getAlias3().hashCode());
@@ -613,6 +607,12 @@ public class DbTask implements Serializable {
         result = prime * result + ((getReserve9() == null) ? 0 : getReserve9().hashCode());
         result = prime * result + ((getReserve10() == null) ? 0 : getReserve10().hashCode());
         result = prime * result + ((getReserve11() == null) ? 0 : getReserve11().hashCode());
+        result = prime * result + ((getReserve12() == null) ? 0 : getReserve12().hashCode());
+        result = prime * result + ((getReserve13() == null) ? 0 : getReserve13().hashCode());
+        result = prime * result + ((getReserve14() == null) ? 0 : getReserve14().hashCode());
+        result = prime * result + ((getReserve15() == null) ? 0 : getReserve15().hashCode());
+        result = prime * result + ((getReserve16() == null) ? 0 : getReserve16().hashCode());
+        result = prime * result + ((getReserve17() == null) ? 0 : getReserve17().hashCode());
         return result;
     }
 
@@ -623,18 +623,22 @@ public class DbTask implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", sid=").append(sid);
+        sb.append(", title=").append(title);
+        sb.append(", question=").append(question);
         sb.append(", stype=").append(stype);
         sb.append(", stypename=").append(stypename);
         sb.append(", oper=").append(oper);
         sb.append(", opertime=").append(opertime);
         sb.append(", tooper=").append(tooper);
         sb.append(", toopertime=").append(toopertime);
+        sb.append(", answer=").append(answer);
         sb.append(", status=").append(status);
         sb.append(", statusname=").append(statusname);
         sb.append(", statusflag=").append(statusflag);
         sb.append(", slevel=").append(slevel);
         sb.append(", checkresult=").append(checkresult);
         sb.append(", scores=").append(scores);
+        sb.append(", checkdescr=").append(checkdescr);
         sb.append(", checkoper=").append(checkoper);
         sb.append(", checktime=").append(checktime);
         sb.append(", publicflag=").append(publicflag);
@@ -647,21 +651,11 @@ public class DbTask implements Serializable {
         sb.append(", datediff=").append(datediff);
         sb.append(", corpid=").append(corpid);
         sb.append(", openflag=").append(openflag);
+        sb.append(", member=").append(member);
         sb.append(", customertype=").append(customertype);
+        sb.append(", customername=").append(customername);
         sb.append(", reserve6=").append(reserve6);
         sb.append(", reserve7=").append(reserve7);
-        sb.append(", reserve12=").append(reserve12);
-        sb.append(", reserve13=").append(reserve13);
-        sb.append(", reserve14=").append(reserve14);
-        sb.append(", reserve15=").append(reserve15);
-        sb.append(", reserve16=").append(reserve16);
-        sb.append(", reserve17=").append(reserve17);
-        sb.append(", title=").append(title);
-        sb.append(", question=").append(question);
-        sb.append(", answer=").append(answer);
-        sb.append(", checkdescr=").append(checkdescr);
-        sb.append(", member=").append(member);
-        sb.append(", customername=").append(customername);
         sb.append(", alias1=").append(alias1);
         sb.append(", alias2=").append(alias2);
         sb.append(", alias3=").append(alias3);
@@ -671,6 +665,12 @@ public class DbTask implements Serializable {
         sb.append(", reserve9=").append(reserve9);
         sb.append(", reserve10=").append(reserve10);
         sb.append(", reserve11=").append(reserve11);
+        sb.append(", reserve12=").append(reserve12);
+        sb.append(", reserve13=").append(reserve13);
+        sb.append(", reserve14=").append(reserve14);
+        sb.append(", reserve15=").append(reserve15);
+        sb.append(", reserve16=").append(reserve16);
+        sb.append(", reserve17=").append(reserve17);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

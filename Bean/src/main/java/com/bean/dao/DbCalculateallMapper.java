@@ -1,18 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbCalculateall;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbCalculateallMapper {
-    int deleteByPrimaryKey(BigDecimal sequenceid);
+    DbCalculateall selectByCriteria(DbCalculateall DbCalculateall);
 
-    int insert(DbCalculateall record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbCalculateall record);
+    void deleteByCriteria(DbCalculateall DbCalculateall);
+
+    int insertByCriteria(DbCalculateall DbCalculateall);
+
+    int updateByCriteria(DbCalculateall DbCalculateall);
 
     DbCalculateall selectByPrimaryKey(BigDecimal sequenceid);
 
-    int updateByPrimaryKeySelective(DbCalculateall record);
-
-    int updateByPrimaryKey(DbCalculateall record);
+    List<DbCalculateall> selectAll();
 }

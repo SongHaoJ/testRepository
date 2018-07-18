@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbCalculateitem;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbCalculateitemMapper {
-    int deleteByPrimaryKey(String sid);
+    DbCalculateitem selectByCriteria(DbCalculateitem DbCalculateitem);
 
-    int insert(DbCalculateitem record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbCalculateitem record);
+    void deleteByCriteria(DbCalculateitem DbCalculateitem);
+
+    int insertByCriteria(DbCalculateitem DbCalculateitem);
+
+    int updateByCriteria(DbCalculateitem DbCalculateitem);
 
     DbCalculateitem selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbCalculateitem record);
-
-    int updateByPrimaryKey(DbCalculateitem record);
+    List<DbCalculateitem> selectAll();
 }

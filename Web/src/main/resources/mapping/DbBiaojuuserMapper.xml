@@ -7,41 +7,41 @@
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select ID, BIAOJUTOKEN
-    from db_biaojuuser
+    from DB_BIAOJUUSER
     where ID = #{id,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select ID, BIAOJUTOKEN
-    from db_biaojuuser
+    from DB_BIAOJUUSER
   </select>
   <sql id="TableName">
-    db_biaojuuser
+    DB_BIAOJUUSER
   </sql>
   <sql id="Values">
      #{id,jdbcType=DECIMAL} , 
-     #{biaojutoken,jdbcType=VARCHAR}
+     #{biaojutoken,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     ID , 
-    BIAOJUTOKEN
+    BIAOJUTOKEN , 
   </sql>
   <sql id="Criteria">
     <if test="id != null">
-      ID = #{id,jdbcType=DECIMAL} and 
+      id = #{id,jdbcType=DECIMAL} and 
     </if>
     <if test="biaojutoken != null">
-      BIAOJUTOKEN = #{biaojutoken,jdbcType=VARCHAR}
+      biaojutoken = #{biaojutoken,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="id != null">
-      ID = #{id,jdbcType=DECIMAL} , 
+      id = #{id,jdbcType=DECIMAL} , 
     </if>
     <if test="biaojutoken != null">
-      BIAOJUTOKEN = #{biaojutoken,jdbcType=VARCHAR}
+      biaojutoken = #{biaojutoken,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbBiaojuuser" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

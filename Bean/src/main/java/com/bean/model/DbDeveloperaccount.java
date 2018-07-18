@@ -18,11 +18,11 @@ public class DbDeveloperaccount implements Serializable {
 
     private String platfrom;
 
+    private String url;
+
     private Date createtime;
 
     private Date updatetime;
-
-    private String url;
 
     private static final long serialVersionUID = 1L;
 
@@ -82,6 +82,14 @@ public class DbDeveloperaccount implements Serializable {
         this.platfrom = platfrom == null ? null : platfrom.trim();
     }
 
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url == null ? null : url.trim();
+    }
+
     public Date getCreatetime() {
         return createtime;
     }
@@ -96,14 +104,6 @@ public class DbDeveloperaccount implements Serializable {
 
     public void setUpdatetime(Date updatetime) {
         this.updatetime = updatetime;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url == null ? null : url.trim();
     }
 
     @Override
@@ -125,9 +125,9 @@ public class DbDeveloperaccount implements Serializable {
             && (this.getOpenflag() == null ? other.getOpenflag() == null : this.getOpenflag().equals(other.getOpenflag()))
             && (this.getShopids() == null ? other.getShopids() == null : this.getShopids().equals(other.getShopids()))
             && (this.getPlatfrom() == null ? other.getPlatfrom() == null : this.getPlatfrom().equals(other.getPlatfrom()))
+            && (this.getUrl() == null ? other.getUrl() == null : this.getUrl().equals(other.getUrl()))
             && (this.getCreatetime() == null ? other.getCreatetime() == null : this.getCreatetime().equals(other.getCreatetime()))
-            && (this.getUpdatetime() == null ? other.getUpdatetime() == null : this.getUpdatetime().equals(other.getUpdatetime()))
-            && (this.getUrl() == null ? other.getUrl() == null : this.getUrl().equals(other.getUrl()));
+            && (this.getUpdatetime() == null ? other.getUpdatetime() == null : this.getUpdatetime().equals(other.getUpdatetime()));
     }
 
     @Override
@@ -141,9 +141,9 @@ public class DbDeveloperaccount implements Serializable {
         result = prime * result + ((getOpenflag() == null) ? 0 : getOpenflag().hashCode());
         result = prime * result + ((getShopids() == null) ? 0 : getShopids().hashCode());
         result = prime * result + ((getPlatfrom() == null) ? 0 : getPlatfrom().hashCode());
+        result = prime * result + ((getUrl() == null) ? 0 : getUrl().hashCode());
         result = prime * result + ((getCreatetime() == null) ? 0 : getCreatetime().hashCode());
         result = prime * result + ((getUpdatetime() == null) ? 0 : getUpdatetime().hashCode());
-        result = prime * result + ((getUrl() == null) ? 0 : getUrl().hashCode());
         return result;
     }
 
@@ -160,9 +160,9 @@ public class DbDeveloperaccount implements Serializable {
         sb.append(", openflag=").append(openflag);
         sb.append(", shopids=").append(shopids);
         sb.append(", platfrom=").append(platfrom);
+        sb.append(", url=").append(url);
         sb.append(", createtime=").append(createtime);
         sb.append(", updatetime=").append(updatetime);
-        sb.append(", url=").append(url);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

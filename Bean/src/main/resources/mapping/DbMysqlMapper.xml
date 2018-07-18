@@ -13,141 +13,123 @@
     <result column="RESERVE4" jdbcType="VARCHAR" property="reserve4" />
     <result column="RESERVE5" jdbcType="VARCHAR" property="reserve5" />
   </resultMap>
-  <sql id="Base_Column_List">
-    SEQUENCEID, DBHOST, DBNAME, DBUSERNAME, DBPASSWORD, RESERVE1, RESERVE2, RESERVE3, 
-    RESERVE4, RESERVE5
-  </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from db_mysql
+    select SEQUENCEID, DBHOST, DBNAME, DBUSERNAME, DBPASSWORD, RESERVE1, RESERVE2, RESERVE3, 
+    RESERVE4, RESERVE5
+    from DB_MYSQL
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_mysql
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, DBHOST, DBNAME, DBUSERNAME, DBPASSWORD, RESERVE1, RESERVE2, RESERVE3, 
+    RESERVE4, RESERVE5
+    from DB_MYSQL
+  </select>
+  <sql id="TableName">
+    DB_MYSQL
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=VARCHAR} , 
+     #{dbhost,jdbcType=VARCHAR} , 
+     #{dbname,jdbcType=VARCHAR} , 
+     #{dbusername,jdbcType=VARCHAR} , 
+     #{dbpassword,jdbcType=VARCHAR} , 
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+     #{reserve3,jdbcType=VARCHAR} , 
+     #{reserve4,jdbcType=VARCHAR} , 
+     #{reserve5,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    DBHOST , 
+    DBNAME , 
+    DBUSERNAME , 
+    DBPASSWORD , 
+    RESERVE1 , 
+    RESERVE2 , 
+    RESERVE3 , 
+    RESERVE4 , 
+    RESERVE5 , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="dbhost != null">
+      dbhost = #{dbhost,jdbcType=VARCHAR} and 
+    </if>
+    <if test="dbname != null">
+      dbname = #{dbname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="dbusername != null">
+      dbusername = #{dbusername,jdbcType=VARCHAR} and 
+    </if>
+    <if test="dbpassword != null">
+      dbpassword = #{dbpassword,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="dbhost != null">
+      dbhost = #{dbhost,jdbcType=VARCHAR} , 
+    </if>
+    <if test="dbname != null">
+      dbname = #{dbname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="dbusername != null">
+      dbusername = #{dbusername,jdbcType=VARCHAR} , 
+    </if>
+    <if test="dbpassword != null">
+      dbpassword = #{dbpassword,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbMysql" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbMysql">
-    insert into db_mysql (SEQUENCEID, DBHOST, DBNAME, 
-      DBUSERNAME, DBPASSWORD, RESERVE1, 
-      RESERVE2, RESERVE3, RESERVE4, 
-      RESERVE5)
-    values (#{sequenceid,jdbcType=VARCHAR}, #{dbhost,jdbcType=VARCHAR}, #{dbname,jdbcType=VARCHAR}, 
-      #{dbusername,jdbcType=VARCHAR}, #{dbpassword,jdbcType=VARCHAR}, #{reserve1,jdbcType=VARCHAR}, 
-      #{reserve2,jdbcType=VARCHAR}, #{reserve3,jdbcType=VARCHAR}, #{reserve4,jdbcType=VARCHAR}, 
-      #{reserve5,jdbcType=VARCHAR})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbMysql">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbMysql">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbMysql">
-    insert into db_mysql
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        SEQUENCEID,
-      </if>
-      <if test="dbhost != null">
-        DBHOST,
-      </if>
-      <if test="dbname != null">
-        DBNAME,
-      </if>
-      <if test="dbusername != null">
-        DBUSERNAME,
-      </if>
-      <if test="dbpassword != null">
-        DBPASSWORD,
-      </if>
-      <if test="reserve1 != null">
-        RESERVE1,
-      </if>
-      <if test="reserve2 != null">
-        RESERVE2,
-      </if>
-      <if test="reserve3 != null">
-        RESERVE3,
-      </if>
-      <if test="reserve4 != null">
-        RESERVE4,
-      </if>
-      <if test="reserve5 != null">
-        RESERVE5,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        #{sequenceid,jdbcType=VARCHAR},
-      </if>
-      <if test="dbhost != null">
-        #{dbhost,jdbcType=VARCHAR},
-      </if>
-      <if test="dbname != null">
-        #{dbname,jdbcType=VARCHAR},
-      </if>
-      <if test="dbusername != null">
-        #{dbusername,jdbcType=VARCHAR},
-      </if>
-      <if test="dbpassword != null">
-        #{dbpassword,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve1 != null">
-        #{reserve1,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve2 != null">
-        #{reserve2,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve3 != null">
-        #{reserve3,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve4 != null">
-        #{reserve4,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve5 != null">
-        #{reserve5,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbMysql">
-    update db_mysql
-    <set>
-      <if test="dbhost != null">
-        DBHOST = #{dbhost,jdbcType=VARCHAR},
-      </if>
-      <if test="dbname != null">
-        DBNAME = #{dbname,jdbcType=VARCHAR},
-      </if>
-      <if test="dbusername != null">
-        DBUSERNAME = #{dbusername,jdbcType=VARCHAR},
-      </if>
-      <if test="dbpassword != null">
-        DBPASSWORD = #{dbpassword,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve1 != null">
-        RESERVE1 = #{reserve1,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve2 != null">
-        RESERVE2 = #{reserve2,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve3 != null">
-        RESERVE3 = #{reserve3,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve4 != null">
-        RESERVE4 = #{reserve4,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve5 != null">
-        RESERVE5 = #{reserve5,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbMysql">
-    update db_mysql
-    set DBHOST = #{dbhost,jdbcType=VARCHAR},
-      DBNAME = #{dbname,jdbcType=VARCHAR},
-      DBUSERNAME = #{dbusername,jdbcType=VARCHAR},
-      DBPASSWORD = #{dbpassword,jdbcType=VARCHAR},
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR},
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR},
-      RESERVE4 = #{reserve4,jdbcType=VARCHAR},
-      RESERVE5 = #{reserve5,jdbcType=VARCHAR}
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbMysql">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

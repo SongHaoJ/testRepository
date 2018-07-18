@@ -17,183 +17,155 @@
     <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
     <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
   </resultMap>
-  <sql id="Base_Column_List">
-    ID, MLSKU, MABANGSKU, PRODUCTNAME, OPENFLAG, WEIGHT, 'LENGTH', WIDTH, HEIGHT, PRICE, 
-    STOCK, RESERVE1, RESERVE2, RESERVE3
-  </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from db_muliproduct
+    select ID, MLSKU, MABANGSKU, PRODUCTNAME, OPENFLAG, WEIGHT, LENGTH, WIDTH, HEIGHT, 
+    PRICE, STOCK, RESERVE1, RESERVE2, RESERVE3
+    from DB_MULIPRODUCT
     where ID = #{id,jdbcType=DECIMAL}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from db_muliproduct
-    where ID = #{id,jdbcType=DECIMAL}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ID, MLSKU, MABANGSKU, PRODUCTNAME, OPENFLAG, WEIGHT, LENGTH, WIDTH, HEIGHT, 
+    PRICE, STOCK, RESERVE1, RESERVE2, RESERVE3
+    from DB_MULIPRODUCT
+  </select>
+  <sql id="TableName">
+    DB_MULIPRODUCT
+  </sql>
+  <sql id="Values">
+     #{id,jdbcType=DECIMAL} , 
+     #{mlsku,jdbcType=VARCHAR} , 
+     #{mabangsku,jdbcType=VARCHAR} , 
+     #{productname,jdbcType=VARCHAR} , 
+     #{openflag,jdbcType=DECIMAL} , 
+     #{weight,jdbcType=DECIMAL} , 
+     #{length,jdbcType=DECIMAL} , 
+     #{width,jdbcType=DECIMAL} , 
+     #{height,jdbcType=DECIMAL} , 
+     #{price,jdbcType=DECIMAL} , 
+     #{stock,jdbcType=DECIMAL} , 
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+     #{reserve3,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    ID , 
+    MLSKU , 
+    MABANGSKU , 
+    PRODUCTNAME , 
+    OPENFLAG , 
+    WEIGHT , 
+    LENGTH , 
+    WIDTH , 
+    HEIGHT , 
+    PRICE , 
+    STOCK , 
+    RESERVE1 , 
+    RESERVE2 , 
+    RESERVE3 , 
+  </sql>
+  <sql id="Criteria">
+    <if test="id != null">
+      id = #{id,jdbcType=DECIMAL} and 
+    </if>
+    <if test="mlsku != null">
+      mlsku = #{mlsku,jdbcType=VARCHAR} and 
+    </if>
+    <if test="mabangsku != null">
+      mabangsku = #{mabangsku,jdbcType=VARCHAR} and 
+    </if>
+    <if test="productname != null">
+      productname = #{productname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="weight != null">
+      weight = #{weight,jdbcType=DECIMAL} and 
+    </if>
+    <if test="length != null">
+      length = #{length,jdbcType=DECIMAL} and 
+    </if>
+    <if test="width != null">
+      width = #{width,jdbcType=DECIMAL} and 
+    </if>
+    <if test="height != null">
+      height = #{height,jdbcType=DECIMAL} and 
+    </if>
+    <if test="price != null">
+      price = #{price,jdbcType=DECIMAL} and 
+    </if>
+    <if test="stock != null">
+      stock = #{stock,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="id != null">
+      id = #{id,jdbcType=DECIMAL} , 
+    </if>
+    <if test="mlsku != null">
+      mlsku = #{mlsku,jdbcType=VARCHAR} , 
+    </if>
+    <if test="mabangsku != null">
+      mabangsku = #{mabangsku,jdbcType=VARCHAR} , 
+    </if>
+    <if test="productname != null">
+      productname = #{productname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="weight != null">
+      weight = #{weight,jdbcType=DECIMAL} , 
+    </if>
+    <if test="length != null">
+      length = #{length,jdbcType=DECIMAL} , 
+    </if>
+    <if test="width != null">
+      width = #{width,jdbcType=DECIMAL} , 
+    </if>
+    <if test="height != null">
+      height = #{height,jdbcType=DECIMAL} , 
+    </if>
+    <if test="price != null">
+      price = #{price,jdbcType=DECIMAL} , 
+    </if>
+    <if test="stock != null">
+      stock = #{stock,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbMuliproduct" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="Integer">
+    delete from <include refid="TableName"/> where ID=#{ID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbMuliproduct">
-    insert into db_muliproduct (ID, MLSKU, MABANGSKU, 
-      PRODUCTNAME, OPENFLAG, WEIGHT, 
-      'LENGTH', WIDTH, HEIGHT, 
-      PRICE, STOCK, RESERVE1, 
-      RESERVE2, RESERVE3)
-    values (#{id,jdbcType=DECIMAL}, #{mlsku,jdbcType=VARCHAR}, #{mabangsku,jdbcType=VARCHAR}, 
-      #{productname,jdbcType=VARCHAR}, #{openflag,jdbcType=DECIMAL}, #{weight,jdbcType=DECIMAL}, 
-      #{length,jdbcType=DECIMAL}, #{width,jdbcType=DECIMAL}, #{height,jdbcType=DECIMAL}, 
-      #{price,jdbcType=DECIMAL}, #{stock,jdbcType=DECIMAL}, #{reserve1,jdbcType=VARCHAR}, 
-      #{reserve2,jdbcType=VARCHAR}, #{reserve3,jdbcType=VARCHAR})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbMuliproduct">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbMuliproduct">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbMuliproduct">
-    insert into db_muliproduct
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        ID,
-      </if>
-      <if test="mlsku != null">
-        MLSKU,
-      </if>
-      <if test="mabangsku != null">
-        MABANGSKU,
-      </if>
-      <if test="productname != null">
-        PRODUCTNAME,
-      </if>
-      <if test="openflag != null">
-        OPENFLAG,
-      </if>
-      <if test="weight != null">
-        WEIGHT,
-      </if>
-      <if test="length != null">
-        'LENGTH',
-      </if>
-      <if test="width != null">
-        WIDTH,
-      </if>
-      <if test="height != null">
-        HEIGHT,
-      </if>
-      <if test="price != null">
-        PRICE,
-      </if>
-      <if test="stock != null">
-        STOCK,
-      </if>
-      <if test="reserve1 != null">
-        RESERVE1,
-      </if>
-      <if test="reserve2 != null">
-        RESERVE2,
-      </if>
-      <if test="reserve3 != null">
-        RESERVE3,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=DECIMAL},
-      </if>
-      <if test="mlsku != null">
-        #{mlsku,jdbcType=VARCHAR},
-      </if>
-      <if test="mabangsku != null">
-        #{mabangsku,jdbcType=VARCHAR},
-      </if>
-      <if test="productname != null">
-        #{productname,jdbcType=VARCHAR},
-      </if>
-      <if test="openflag != null">
-        #{openflag,jdbcType=DECIMAL},
-      </if>
-      <if test="weight != null">
-        #{weight,jdbcType=DECIMAL},
-      </if>
-      <if test="length != null">
-        #{length,jdbcType=DECIMAL},
-      </if>
-      <if test="width != null">
-        #{width,jdbcType=DECIMAL},
-      </if>
-      <if test="height != null">
-        #{height,jdbcType=DECIMAL},
-      </if>
-      <if test="price != null">
-        #{price,jdbcType=DECIMAL},
-      </if>
-      <if test="stock != null">
-        #{stock,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve1 != null">
-        #{reserve1,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve2 != null">
-        #{reserve2,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve3 != null">
-        #{reserve3,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbMuliproduct">
-    update db_muliproduct
-    <set>
-      <if test="mlsku != null">
-        MLSKU = #{mlsku,jdbcType=VARCHAR},
-      </if>
-      <if test="mabangsku != null">
-        MABANGSKU = #{mabangsku,jdbcType=VARCHAR},
-      </if>
-      <if test="productname != null">
-        PRODUCTNAME = #{productname,jdbcType=VARCHAR},
-      </if>
-      <if test="openflag != null">
-        OPENFLAG = #{openflag,jdbcType=DECIMAL},
-      </if>
-      <if test="weight != null">
-        WEIGHT = #{weight,jdbcType=DECIMAL},
-      </if>
-      <if test="length != null">
-        'LENGTH' = #{length,jdbcType=DECIMAL},
-      </if>
-      <if test="width != null">
-        WIDTH = #{width,jdbcType=DECIMAL},
-      </if>
-      <if test="height != null">
-        HEIGHT = #{height,jdbcType=DECIMAL},
-      </if>
-      <if test="price != null">
-        PRICE = #{price,jdbcType=DECIMAL},
-      </if>
-      <if test="stock != null">
-        STOCK = #{stock,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve1 != null">
-        RESERVE1 = #{reserve1,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve2 != null">
-        RESERVE2 = #{reserve2,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve3 != null">
-        RESERVE3 = #{reserve3,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where ID = #{id,jdbcType=DECIMAL}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbMuliproduct">
-    update db_muliproduct
-    set MLSKU = #{mlsku,jdbcType=VARCHAR},
-      MABANGSKU = #{mabangsku,jdbcType=VARCHAR},
-      PRODUCTNAME = #{productname,jdbcType=VARCHAR},
-      OPENFLAG = #{openflag,jdbcType=DECIMAL},
-      WEIGHT = #{weight,jdbcType=DECIMAL},
-      'LENGTH' = #{length,jdbcType=DECIMAL},
-      WIDTH = #{width,jdbcType=DECIMAL},
-      HEIGHT = #{height,jdbcType=DECIMAL},
-      PRICE = #{price,jdbcType=DECIMAL},
-      STOCK = #{stock,jdbcType=DECIMAL},
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR},
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR}
-    where ID = #{id,jdbcType=DECIMAL}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbMuliproduct">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

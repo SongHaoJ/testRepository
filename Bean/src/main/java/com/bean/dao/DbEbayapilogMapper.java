@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbEbayapilog;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbEbayapilogMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbEbayapilog selectByCriteria(DbEbayapilog DbEbayapilog);
 
-    int insert(DbEbayapilog record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbEbayapilog record);
+    void deleteByCriteria(DbEbayapilog DbEbayapilog);
+
+    int insertByCriteria(DbEbayapilog DbEbayapilog);
+
+    int updateByCriteria(DbEbayapilog DbEbayapilog);
 
     DbEbayapilog selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbEbayapilog record);
-
-
+    List<DbEbayapilog> selectAll();
 }

@@ -4,6 +4,7 @@
   <resultMap id="BaseResultMap" type="com.bean.model.DbTwodevelopmentlist">
     <id column="SID" jdbcType="VARCHAR" property="sid" />
     <result column="BINDID" jdbcType="VARCHAR" property="bindid" />
+    <result column="ALIAS1" jdbcType="VARCHAR" property="alias1" />
     <result column="NUM" jdbcType="DECIMAL" property="num" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
     <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
@@ -12,25 +13,25 @@
     <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
     <result column="RESERVE4" jdbcType="DECIMAL" property="reserve4" />
     <result column="RESERVE5" jdbcType="DECIMAL" property="reserve5" />
-    <result column="ALIAS1" jdbcType="LONGVARCHAR" property="alias1" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select SID, BINDID, NUM, OPERTIME, CORPID, RESERVE1, RESERVE2, RESERVE3, RESERVE4, 
-    RESERVE5, ALIAS1
-    from db_twodevelopmentlist
+    select SID, BINDID, ALIAS1, NUM, OPERTIME, CORPID, RESERVE1, RESERVE2, RESERVE3, 
+    RESERVE4, RESERVE5
+    from DB_TWODEVELOPMENTLIST
     where SID = #{sid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select SID, BINDID, NUM, OPERTIME, CORPID, RESERVE1, RESERVE2, RESERVE3, RESERVE4, 
-    RESERVE5, ALIAS1
-    from db_twodevelopmentlist
+    select SID, BINDID, ALIAS1, NUM, OPERTIME, CORPID, RESERVE1, RESERVE2, RESERVE3, 
+    RESERVE4, RESERVE5
+    from DB_TWODEVELOPMENTLIST
   </select>
   <sql id="TableName">
-    db_twodevelopmentlist
+    DB_TWODEVELOPMENTLIST
   </sql>
   <sql id="Values">
      #{sid,jdbcType=VARCHAR} , 
      #{bindid,jdbcType=VARCHAR} , 
+     #{alias1,jdbcType=VARCHAR} , 
      #{num,jdbcType=DECIMAL} , 
      #{opertime,jdbcType=TIMESTAMP} , 
      #{corpid,jdbcType=VARCHAR} , 
@@ -39,11 +40,11 @@
      #{reserve3,jdbcType=VARCHAR} , 
      #{reserve4,jdbcType=DECIMAL} , 
      #{reserve5,jdbcType=DECIMAL} , 
-     #{alias1,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     SID , 
     BINDID , 
+    ALIAS1 , 
     NUM , 
     OPERTIME , 
     CORPID , 
@@ -52,79 +53,78 @@
     RESERVE3 , 
     RESERVE4 , 
     RESERVE5 , 
-    ALIAS1
   </sql>
   <sql id="Criteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} and 
+      sid = #{sid,jdbcType=VARCHAR} and 
     </if>
     <if test="bindid != null">
-      BINDID = #{bindid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="num != null">
-      NUM = #{num,jdbcType=DECIMAL} and 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=DECIMAL} and 
-    </if>
-    <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=DECIMAL} and 
+      bindid = #{bindid,jdbcType=VARCHAR} and 
     </if>
     <if test="alias1 != null">
-      ALIAS1 = #{alias1,jdbcType=LONGVARCHAR}
+      alias1 = #{alias1,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="num != null">
+      num = #{num,jdbcType=DECIMAL} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=DECIMAL} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} , 
+      sid = #{sid,jdbcType=VARCHAR} , 
     </if>
     <if test="bindid != null">
-      BINDID = #{bindid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="num != null">
-      NUM = #{num,jdbcType=DECIMAL} , 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=DECIMAL} , 
-    </if>
-    <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=DECIMAL} , 
+      bindid = #{bindid,jdbcType=VARCHAR} , 
     </if>
     <if test="alias1 != null">
-      ALIAS1 = #{alias1,jdbcType=LONGVARCHAR}
+      alias1 = #{alias1,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="num != null">
+      num = #{num,jdbcType=DECIMAL} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=DECIMAL} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbTwodevelopmentlist" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

@@ -3,6 +3,7 @@
 <mapper namespace="com.bean.dao.DbMytoolMapper">
   <resultMap id="BaseResultMap" type="com.bean.model.DbMytool">
     <id column="SEQUENCEID" jdbcType="DECIMAL" property="sequenceid" />
+    <result column="EPASSWD" jdbcType="VARCHAR" property="epasswd" />
     <result column="IFNUM" jdbcType="VARCHAR" property="ifnum" />
     <result column="PAYMENT" jdbcType="VARCHAR" property="payment" />
     <result column="ENDTIME" jdbcType="VARCHAR" property="endtime" />
@@ -11,24 +12,24 @@
     <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
     <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
     <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
-    <result column="EPASSWD" jdbcType="LONGVARCHAR" property="epasswd" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
-    select SEQUENCEID, IFNUM, PAYMENT, ENDTIME, NUM, NAME, RESERVE1, RESERVE2, CREATETIME, 
-    EPASSWD
-    from db_mytool
+    select SEQUENCEID, EPASSWD, IFNUM, PAYMENT, ENDTIME, NUM, NAME, RESERVE1, RESERVE2, 
+    CREATETIME
+    from DB_MYTOOL
     where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select SEQUENCEID, IFNUM, PAYMENT, ENDTIME, NUM, NAME, RESERVE1, RESERVE2, CREATETIME, 
-    EPASSWD
-    from db_mytool
+    select SEQUENCEID, EPASSWD, IFNUM, PAYMENT, ENDTIME, NUM, NAME, RESERVE1, RESERVE2, 
+    CREATETIME
+    from DB_MYTOOL
   </select>
   <sql id="TableName">
-    db_mytool
+    DB_MYTOOL
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=DECIMAL} , 
+     #{epasswd,jdbcType=VARCHAR} , 
      #{ifnum,jdbcType=VARCHAR} , 
      #{payment,jdbcType=VARCHAR} , 
      #{endtime,jdbcType=VARCHAR} , 
@@ -37,10 +38,10 @@
      #{reserve1,jdbcType=VARCHAR} , 
      #{reserve2,jdbcType=VARCHAR} , 
      #{createtime,jdbcType=TIMESTAMP} , 
-     #{epasswd,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
+    EPASSWD , 
     IFNUM , 
     PAYMENT , 
     ENDTIME , 
@@ -49,73 +50,72 @@
     RESERVE1 , 
     RESERVE2 , 
     CREATETIME , 
-    EPASSWD
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} and 
-    </if>
-    <if test="ifnum != null">
-      IFNUM = #{ifnum,jdbcType=VARCHAR} and 
-    </if>
-    <if test="payment != null">
-      PAYMENT = #{payment,jdbcType=VARCHAR} and 
-    </if>
-    <if test="endtime != null">
-      ENDTIME = #{endtime,jdbcType=VARCHAR} and 
-    </if>
-    <if test="num != null">
-      NUM = #{num,jdbcType=DECIMAL} and 
-    </if>
-    <if test="name != null">
-      NAME = #{name,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
-    </if>
-    <if test="createtime != null">
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP} and 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} and 
     </if>
     <if test="epasswd != null">
-      EPASSWD = #{epasswd,jdbcType=LONGVARCHAR}
+      epasswd = #{epasswd,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="ifnum != null">
+      ifnum = #{ifnum,jdbcType=VARCHAR} and 
+    </if>
+    <if test="payment != null">
+      payment = #{payment,jdbcType=VARCHAR} and 
+    </if>
+    <if test="endtime != null">
+      endtime = #{endtime,jdbcType=VARCHAR} and 
+    </if>
+    <if test="num != null">
+      num = #{num,jdbcType=DECIMAL} and 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} , 
-    </if>
-    <if test="ifnum != null">
-      IFNUM = #{ifnum,jdbcType=VARCHAR} , 
-    </if>
-    <if test="payment != null">
-      PAYMENT = #{payment,jdbcType=VARCHAR} , 
-    </if>
-    <if test="endtime != null">
-      ENDTIME = #{endtime,jdbcType=VARCHAR} , 
-    </if>
-    <if test="num != null">
-      NUM = #{num,jdbcType=DECIMAL} , 
-    </if>
-    <if test="name != null">
-      NAME = #{name,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
-    </if>
-    <if test="createtime != null">
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP} , 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} , 
     </if>
     <if test="epasswd != null">
-      EPASSWD = #{epasswd,jdbcType=LONGVARCHAR}
+      epasswd = #{epasswd,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="ifnum != null">
+      ifnum = #{ifnum,jdbcType=VARCHAR} , 
+    </if>
+    <if test="payment != null">
+      payment = #{payment,jdbcType=VARCHAR} , 
+    </if>
+    <if test="endtime != null">
+      endtime = #{endtime,jdbcType=VARCHAR} , 
+    </if>
+    <if test="num != null">
+      num = #{num,jdbcType=DECIMAL} , 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbMytool" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbDownloadcount;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbDownloadcountMapper {
-    int deleteByPrimaryKey(String sid);
+    DbDownloadcount selectByCriteria(DbDownloadcount DbDownloadcount);
 
-    int insert(DbDownloadcount record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbDownloadcount record);
+    void deleteByCriteria(DbDownloadcount DbDownloadcount);
+
+    int insertByCriteria(DbDownloadcount DbDownloadcount);
+
+    int updateByCriteria(DbDownloadcount DbDownloadcount);
 
     DbDownloadcount selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbDownloadcount record);
-
-    int updateByPrimaryKey(DbDownloadcount record);
+    List<DbDownloadcount> selectAll();
 }

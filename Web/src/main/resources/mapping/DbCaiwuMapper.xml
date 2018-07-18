@@ -8,6 +8,10 @@
     <result column="MONEYRATE" jdbcType="VARCHAR" property="moneyrate" />
     <result column="MONEY" jdbcType="DECIMAL" property="money" />
     <result column="GROUPID" jdbcType="VARCHAR" property="groupid" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
     <result column="RESERVE4" jdbcType="DECIMAL" property="reserve4" />
     <result column="RESERVE5" jdbcType="DECIMAL" property="reserve5" />
     <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
@@ -50,37 +54,33 @@
     <result column="TOPORTMONEYTIME" jdbcType="TIMESTAMP" property="toportmoneytime" />
     <result column="FINALMONEYTIME" jdbcType="TIMESTAMP" property="finalmoneytime" />
     <result column="DEPOSITSSTIME" jdbcType="TIMESTAMP" property="depositsstime" />
-    <result column="REMARK" jdbcType="LONGVARCHAR" property="remark" />
-    <result column="RESERVE1" jdbcType="LONGVARCHAR" property="reserve1" />
-    <result column="RESERVE2" jdbcType="LONGVARCHAR" property="reserve2" />
-    <result column="RESERVE3" jdbcType="LONGVARCHAR" property="reserve3" />
-    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
+    <result column="DESCR" jdbcType="VARCHAR" property="descr" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select SEQUENCEID, SOURCE, SOURCEID, MONEYRATE, MONEY, GROUPID, RESERVE4, RESERVE5, 
-    CORPID, OPENFLAG, STATUS, OPER, OPERTIME, CREATEOPER, CREATETIME, OPER1, FLAG, COUNTRY, 
-    PONUMBER, MENUFUNCTER, MENUFUNCTERID, PAYMENTTYPE, SENDTIME, TOPORTTIME, DEPOSITSTIME, 
-    SENDPAYTIME, TOPORTPAYTIME, FINALPAYTIME, AMOUNTRMB, AMOUNTUSD, DEPOSITS, PAYMENTMONEY, 
-    NOPAYMENYMONEY, SENDMONEY, TOPORTMONEY, FINALMONEY, PRODUCTID, AMOUNTRMBFLAG, DEPOSITSFLAG, 
-    SENDMONEYFLAG, TOPORTMONEYFLAG, FINALMONEYFLAG, ACCOUNTMONEY, NONPAYMENTMONEY, SENDMONEYTIME, 
-    TOPORTMONEYTIME, FINALMONEYTIME, DEPOSITSSTIME, REMARK, RESERVE1, RESERVE2, RESERVE3, 
-    DESCR
-    from db_caiwu
+    select SEQUENCEID, SOURCE, SOURCEID, MONEYRATE, MONEY, GROUPID, REMARK, RESERVE1, 
+    RESERVE2, RESERVE3, RESERVE4, RESERVE5, CORPID, OPENFLAG, STATUS, OPER, OPERTIME, 
+    CREATEOPER, CREATETIME, OPER1, FLAG, COUNTRY, PONUMBER, MENUFUNCTER, MENUFUNCTERID, 
+    PAYMENTTYPE, SENDTIME, TOPORTTIME, DEPOSITSTIME, SENDPAYTIME, TOPORTPAYTIME, FINALPAYTIME, 
+    AMOUNTRMB, AMOUNTUSD, DEPOSITS, PAYMENTMONEY, NOPAYMENYMONEY, SENDMONEY, TOPORTMONEY, 
+    FINALMONEY, PRODUCTID, AMOUNTRMBFLAG, DEPOSITSFLAG, SENDMONEYFLAG, TOPORTMONEYFLAG, 
+    FINALMONEYFLAG, ACCOUNTMONEY, NONPAYMENTMONEY, SENDMONEYTIME, TOPORTMONEYTIME, FINALMONEYTIME, 
+    DEPOSITSSTIME, DESCR
+    from DB_CAIWU
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select SEQUENCEID, SOURCE, SOURCEID, MONEYRATE, MONEY, GROUPID, RESERVE4, RESERVE5, 
-    CORPID, OPENFLAG, STATUS, OPER, OPERTIME, CREATEOPER, CREATETIME, OPER1, FLAG, COUNTRY, 
-    PONUMBER, MENUFUNCTER, MENUFUNCTERID, PAYMENTTYPE, SENDTIME, TOPORTTIME, DEPOSITSTIME, 
-    SENDPAYTIME, TOPORTPAYTIME, FINALPAYTIME, AMOUNTRMB, AMOUNTUSD, DEPOSITS, PAYMENTMONEY, 
-    NOPAYMENYMONEY, SENDMONEY, TOPORTMONEY, FINALMONEY, PRODUCTID, AMOUNTRMBFLAG, DEPOSITSFLAG, 
-    SENDMONEYFLAG, TOPORTMONEYFLAG, FINALMONEYFLAG, ACCOUNTMONEY, NONPAYMENTMONEY, SENDMONEYTIME, 
-    TOPORTMONEYTIME, FINALMONEYTIME, DEPOSITSSTIME, REMARK, RESERVE1, RESERVE2, RESERVE3, 
-    DESCR
-    from db_caiwu
+    select SEQUENCEID, SOURCE, SOURCEID, MONEYRATE, MONEY, GROUPID, REMARK, RESERVE1, 
+    RESERVE2, RESERVE3, RESERVE4, RESERVE5, CORPID, OPENFLAG, STATUS, OPER, OPERTIME, 
+    CREATEOPER, CREATETIME, OPER1, FLAG, COUNTRY, PONUMBER, MENUFUNCTER, MENUFUNCTERID, 
+    PAYMENTTYPE, SENDTIME, TOPORTTIME, DEPOSITSTIME, SENDPAYTIME, TOPORTPAYTIME, FINALPAYTIME, 
+    AMOUNTRMB, AMOUNTUSD, DEPOSITS, PAYMENTMONEY, NOPAYMENYMONEY, SENDMONEY, TOPORTMONEY, 
+    FINALMONEY, PRODUCTID, AMOUNTRMBFLAG, DEPOSITSFLAG, SENDMONEYFLAG, TOPORTMONEYFLAG, 
+    FINALMONEYFLAG, ACCOUNTMONEY, NONPAYMENTMONEY, SENDMONEYTIME, TOPORTMONEYTIME, FINALMONEYTIME, 
+    DEPOSITSSTIME, DESCR
+    from DB_CAIWU
   </select>
   <sql id="TableName">
-    db_caiwu
+    DB_CAIWU
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=VARCHAR} , 
@@ -89,6 +89,10 @@
      #{moneyrate,jdbcType=VARCHAR} , 
      #{money,jdbcType=DECIMAL} , 
      #{groupid,jdbcType=VARCHAR} , 
+     #{remark,jdbcType=VARCHAR} , 
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+     #{reserve3,jdbcType=VARCHAR} , 
      #{reserve4,jdbcType=DECIMAL} , 
      #{reserve5,jdbcType=DECIMAL} , 
      #{corpid,jdbcType=VARCHAR} , 
@@ -131,11 +135,7 @@
      #{toportmoneytime,jdbcType=TIMESTAMP} , 
      #{finalmoneytime,jdbcType=TIMESTAMP} , 
      #{depositsstime,jdbcType=TIMESTAMP} , 
-     #{remark,jdbcType=LONGVARCHAR} , 
-     #{reserve1,jdbcType=LONGVARCHAR} , 
-     #{reserve2,jdbcType=LONGVARCHAR} , 
-     #{reserve3,jdbcType=LONGVARCHAR} , 
-     #{descr,jdbcType=LONGVARCHAR}
+     #{descr,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
@@ -144,6 +144,10 @@
     MONEYRATE , 
     MONEY , 
     GROUPID , 
+    REMARK , 
+    RESERVE1 , 
+    RESERVE2 , 
+    RESERVE3 , 
     RESERVE4 , 
     RESERVE5 , 
     CORPID , 
@@ -186,335 +190,331 @@
     TOPORTMONEYTIME , 
     FINALMONEYTIME , 
     DEPOSITSSTIME , 
-    REMARK , 
-    RESERVE1 , 
-    RESERVE2 , 
-    RESERVE3 , 
-    DESCR
+    DESCR , 
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
     </if>
     <if test="source != null">
-      SOURCE = #{source,jdbcType=VARCHAR} and 
+      source = #{source,jdbcType=VARCHAR} and 
     </if>
     <if test="sourceid != null">
-      SOURCEID = #{sourceid,jdbcType=VARCHAR} and 
+      sourceid = #{sourceid,jdbcType=VARCHAR} and 
     </if>
     <if test="moneyrate != null">
-      MONEYRATE = #{moneyrate,jdbcType=VARCHAR} and 
+      moneyrate = #{moneyrate,jdbcType=VARCHAR} and 
     </if>
     <if test="money != null">
-      MONEY = #{money,jdbcType=DECIMAL} and 
+      money = #{money,jdbcType=DECIMAL} and 
     </if>
     <if test="groupid != null">
-      GROUPID = #{groupid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=DECIMAL} and 
-    </if>
-    <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=DECIMAL} and 
-    </if>
-    <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="status != null">
-      STATUS = #{status,jdbcType=VARCHAR} and 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="createoper != null">
-      CREATEOPER = #{createoper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="createtime != null">
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="oper1 != null">
-      OPER1 = #{oper1,jdbcType=VARCHAR} and 
-    </if>
-    <if test="flag != null">
-      FLAG = #{flag,jdbcType=DECIMAL} and 
-    </if>
-    <if test="country != null">
-      COUNTRY = #{country,jdbcType=VARCHAR} and 
-    </if>
-    <if test="ponumber != null">
-      PONUMBER = #{ponumber,jdbcType=VARCHAR} and 
-    </if>
-    <if test="menufuncter != null">
-      MENUFUNCTER = #{menufuncter,jdbcType=VARCHAR} and 
-    </if>
-    <if test="menufuncterid != null">
-      MENUFUNCTERID = #{menufuncterid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="paymenttype != null">
-      PAYMENTTYPE = #{paymenttype,jdbcType=VARCHAR} and 
-    </if>
-    <if test="sendtime != null">
-      SENDTIME = #{sendtime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="toporttime != null">
-      TOPORTTIME = #{toporttime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="depositstime != null">
-      DEPOSITSTIME = #{depositstime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="sendpaytime != null">
-      SENDPAYTIME = #{sendpaytime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="toportpaytime != null">
-      TOPORTPAYTIME = #{toportpaytime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="finalpaytime != null">
-      FINALPAYTIME = #{finalpaytime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="amountrmb != null">
-      AMOUNTRMB = #{amountrmb,jdbcType=DECIMAL} and 
-    </if>
-    <if test="amountusd != null">
-      AMOUNTUSD = #{amountusd,jdbcType=DECIMAL} and 
-    </if>
-    <if test="deposits != null">
-      DEPOSITS = #{deposits,jdbcType=DECIMAL} and 
-    </if>
-    <if test="paymentmoney != null">
-      PAYMENTMONEY = #{paymentmoney,jdbcType=DECIMAL} and 
-    </if>
-    <if test="nopaymenymoney != null">
-      NOPAYMENYMONEY = #{nopaymenymoney,jdbcType=DECIMAL} and 
-    </if>
-    <if test="sendmoney != null">
-      SENDMONEY = #{sendmoney,jdbcType=DECIMAL} and 
-    </if>
-    <if test="toportmoney != null">
-      TOPORTMONEY = #{toportmoney,jdbcType=DECIMAL} and 
-    </if>
-    <if test="finalmoney != null">
-      FINALMONEY = #{finalmoney,jdbcType=DECIMAL} and 
-    </if>
-    <if test="productid != null">
-      PRODUCTID = #{productid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="amountrmbflag != null">
-      AMOUNTRMBFLAG = #{amountrmbflag,jdbcType=DECIMAL} and 
-    </if>
-    <if test="depositsflag != null">
-      DEPOSITSFLAG = #{depositsflag,jdbcType=DECIMAL} and 
-    </if>
-    <if test="sendmoneyflag != null">
-      SENDMONEYFLAG = #{sendmoneyflag,jdbcType=DECIMAL} and 
-    </if>
-    <if test="toportmoneyflag != null">
-      TOPORTMONEYFLAG = #{toportmoneyflag,jdbcType=DECIMAL} and 
-    </if>
-    <if test="finalmoneyflag != null">
-      FINALMONEYFLAG = #{finalmoneyflag,jdbcType=DECIMAL} and 
-    </if>
-    <if test="accountmoney != null">
-      ACCOUNTMONEY = #{accountmoney,jdbcType=DECIMAL} and 
-    </if>
-    <if test="nonpaymentmoney != null">
-      NONPAYMENTMONEY = #{nonpaymentmoney,jdbcType=DECIMAL} and 
-    </if>
-    <if test="sendmoneytime != null">
-      SENDMONEYTIME = #{sendmoneytime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="toportmoneytime != null">
-      TOPORTMONEYTIME = #{toportmoneytime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="finalmoneytime != null">
-      FINALMONEYTIME = #{finalmoneytime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="depositsstime != null">
-      DEPOSITSSTIME = #{depositsstime,jdbcType=TIMESTAMP} and 
+      groupid = #{groupid,jdbcType=VARCHAR} and 
     </if>
     <if test="remark != null">
-      REMARK = #{remark,jdbcType=LONGVARCHAR} and 
+      remark = #{remark,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR} and 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR} and 
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR} and 
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=DECIMAL} and 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="status != null">
+      status = #{status,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="createoper != null">
+      createoper = #{createoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="oper1 != null">
+      oper1 = #{oper1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="country != null">
+      country = #{country,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ponumber != null">
+      ponumber = #{ponumber,jdbcType=VARCHAR} and 
+    </if>
+    <if test="menufuncter != null">
+      menufuncter = #{menufuncter,jdbcType=VARCHAR} and 
+    </if>
+    <if test="menufuncterid != null">
+      menufuncterid = #{menufuncterid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="paymenttype != null">
+      paymenttype = #{paymenttype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sendtime != null">
+      sendtime = #{sendtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="toporttime != null">
+      toporttime = #{toporttime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="depositstime != null">
+      depositstime = #{depositstime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="sendpaytime != null">
+      sendpaytime = #{sendpaytime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="toportpaytime != null">
+      toportpaytime = #{toportpaytime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="finalpaytime != null">
+      finalpaytime = #{finalpaytime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="amountrmb != null">
+      amountrmb = #{amountrmb,jdbcType=DECIMAL} and 
+    </if>
+    <if test="amountusd != null">
+      amountusd = #{amountusd,jdbcType=DECIMAL} and 
+    </if>
+    <if test="deposits != null">
+      deposits = #{deposits,jdbcType=DECIMAL} and 
+    </if>
+    <if test="paymentmoney != null">
+      paymentmoney = #{paymentmoney,jdbcType=DECIMAL} and 
+    </if>
+    <if test="nopaymenymoney != null">
+      nopaymenymoney = #{nopaymenymoney,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sendmoney != null">
+      sendmoney = #{sendmoney,jdbcType=DECIMAL} and 
+    </if>
+    <if test="toportmoney != null">
+      toportmoney = #{toportmoney,jdbcType=DECIMAL} and 
+    </if>
+    <if test="finalmoney != null">
+      finalmoney = #{finalmoney,jdbcType=DECIMAL} and 
+    </if>
+    <if test="productid != null">
+      productid = #{productid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="amountrmbflag != null">
+      amountrmbflag = #{amountrmbflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="depositsflag != null">
+      depositsflag = #{depositsflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sendmoneyflag != null">
+      sendmoneyflag = #{sendmoneyflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="toportmoneyflag != null">
+      toportmoneyflag = #{toportmoneyflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="finalmoneyflag != null">
+      finalmoneyflag = #{finalmoneyflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="accountmoney != null">
+      accountmoney = #{accountmoney,jdbcType=DECIMAL} and 
+    </if>
+    <if test="nonpaymentmoney != null">
+      nonpaymentmoney = #{nonpaymentmoney,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sendmoneytime != null">
+      sendmoneytime = #{sendmoneytime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="toportmoneytime != null">
+      toportmoneytime = #{toportmoneytime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="finalmoneytime != null">
+      finalmoneytime = #{finalmoneytime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="depositsstime != null">
+      depositsstime = #{depositsstime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR}
+      descr = #{descr,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
     </if>
     <if test="source != null">
-      SOURCE = #{source,jdbcType=VARCHAR} , 
+      source = #{source,jdbcType=VARCHAR} , 
     </if>
     <if test="sourceid != null">
-      SOURCEID = #{sourceid,jdbcType=VARCHAR} , 
+      sourceid = #{sourceid,jdbcType=VARCHAR} , 
     </if>
     <if test="moneyrate != null">
-      MONEYRATE = #{moneyrate,jdbcType=VARCHAR} , 
+      moneyrate = #{moneyrate,jdbcType=VARCHAR} , 
     </if>
     <if test="money != null">
-      MONEY = #{money,jdbcType=DECIMAL} , 
+      money = #{money,jdbcType=DECIMAL} , 
     </if>
     <if test="groupid != null">
-      GROUPID = #{groupid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=DECIMAL} , 
-    </if>
-    <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=DECIMAL} , 
-    </if>
-    <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="status != null">
-      STATUS = #{status,jdbcType=VARCHAR} , 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="createoper != null">
-      CREATEOPER = #{createoper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="createtime != null">
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="oper1 != null">
-      OPER1 = #{oper1,jdbcType=VARCHAR} , 
-    </if>
-    <if test="flag != null">
-      FLAG = #{flag,jdbcType=DECIMAL} , 
-    </if>
-    <if test="country != null">
-      COUNTRY = #{country,jdbcType=VARCHAR} , 
-    </if>
-    <if test="ponumber != null">
-      PONUMBER = #{ponumber,jdbcType=VARCHAR} , 
-    </if>
-    <if test="menufuncter != null">
-      MENUFUNCTER = #{menufuncter,jdbcType=VARCHAR} , 
-    </if>
-    <if test="menufuncterid != null">
-      MENUFUNCTERID = #{menufuncterid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="paymenttype != null">
-      PAYMENTTYPE = #{paymenttype,jdbcType=VARCHAR} , 
-    </if>
-    <if test="sendtime != null">
-      SENDTIME = #{sendtime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="toporttime != null">
-      TOPORTTIME = #{toporttime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="depositstime != null">
-      DEPOSITSTIME = #{depositstime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="sendpaytime != null">
-      SENDPAYTIME = #{sendpaytime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="toportpaytime != null">
-      TOPORTPAYTIME = #{toportpaytime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="finalpaytime != null">
-      FINALPAYTIME = #{finalpaytime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="amountrmb != null">
-      AMOUNTRMB = #{amountrmb,jdbcType=DECIMAL} , 
-    </if>
-    <if test="amountusd != null">
-      AMOUNTUSD = #{amountusd,jdbcType=DECIMAL} , 
-    </if>
-    <if test="deposits != null">
-      DEPOSITS = #{deposits,jdbcType=DECIMAL} , 
-    </if>
-    <if test="paymentmoney != null">
-      PAYMENTMONEY = #{paymentmoney,jdbcType=DECIMAL} , 
-    </if>
-    <if test="nopaymenymoney != null">
-      NOPAYMENYMONEY = #{nopaymenymoney,jdbcType=DECIMAL} , 
-    </if>
-    <if test="sendmoney != null">
-      SENDMONEY = #{sendmoney,jdbcType=DECIMAL} , 
-    </if>
-    <if test="toportmoney != null">
-      TOPORTMONEY = #{toportmoney,jdbcType=DECIMAL} , 
-    </if>
-    <if test="finalmoney != null">
-      FINALMONEY = #{finalmoney,jdbcType=DECIMAL} , 
-    </if>
-    <if test="productid != null">
-      PRODUCTID = #{productid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="amountrmbflag != null">
-      AMOUNTRMBFLAG = #{amountrmbflag,jdbcType=DECIMAL} , 
-    </if>
-    <if test="depositsflag != null">
-      DEPOSITSFLAG = #{depositsflag,jdbcType=DECIMAL} , 
-    </if>
-    <if test="sendmoneyflag != null">
-      SENDMONEYFLAG = #{sendmoneyflag,jdbcType=DECIMAL} , 
-    </if>
-    <if test="toportmoneyflag != null">
-      TOPORTMONEYFLAG = #{toportmoneyflag,jdbcType=DECIMAL} , 
-    </if>
-    <if test="finalmoneyflag != null">
-      FINALMONEYFLAG = #{finalmoneyflag,jdbcType=DECIMAL} , 
-    </if>
-    <if test="accountmoney != null">
-      ACCOUNTMONEY = #{accountmoney,jdbcType=DECIMAL} , 
-    </if>
-    <if test="nonpaymentmoney != null">
-      NONPAYMENTMONEY = #{nonpaymentmoney,jdbcType=DECIMAL} , 
-    </if>
-    <if test="sendmoneytime != null">
-      SENDMONEYTIME = #{sendmoneytime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="toportmoneytime != null">
-      TOPORTMONEYTIME = #{toportmoneytime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="finalmoneytime != null">
-      FINALMONEYTIME = #{finalmoneytime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="depositsstime != null">
-      DEPOSITSSTIME = #{depositsstime,jdbcType=TIMESTAMP} , 
+      groupid = #{groupid,jdbcType=VARCHAR} , 
     </if>
     <if test="remark != null">
-      REMARK = #{remark,jdbcType=LONGVARCHAR} , 
+      remark = #{remark,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR} , 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR} , 
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR} , 
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=DECIMAL} , 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="status != null">
+      status = #{status,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="createoper != null">
+      createoper = #{createoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="oper1 != null">
+      oper1 = #{oper1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="country != null">
+      country = #{country,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ponumber != null">
+      ponumber = #{ponumber,jdbcType=VARCHAR} , 
+    </if>
+    <if test="menufuncter != null">
+      menufuncter = #{menufuncter,jdbcType=VARCHAR} , 
+    </if>
+    <if test="menufuncterid != null">
+      menufuncterid = #{menufuncterid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="paymenttype != null">
+      paymenttype = #{paymenttype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sendtime != null">
+      sendtime = #{sendtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="toporttime != null">
+      toporttime = #{toporttime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="depositstime != null">
+      depositstime = #{depositstime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="sendpaytime != null">
+      sendpaytime = #{sendpaytime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="toportpaytime != null">
+      toportpaytime = #{toportpaytime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="finalpaytime != null">
+      finalpaytime = #{finalpaytime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="amountrmb != null">
+      amountrmb = #{amountrmb,jdbcType=DECIMAL} , 
+    </if>
+    <if test="amountusd != null">
+      amountusd = #{amountusd,jdbcType=DECIMAL} , 
+    </if>
+    <if test="deposits != null">
+      deposits = #{deposits,jdbcType=DECIMAL} , 
+    </if>
+    <if test="paymentmoney != null">
+      paymentmoney = #{paymentmoney,jdbcType=DECIMAL} , 
+    </if>
+    <if test="nopaymenymoney != null">
+      nopaymenymoney = #{nopaymenymoney,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sendmoney != null">
+      sendmoney = #{sendmoney,jdbcType=DECIMAL} , 
+    </if>
+    <if test="toportmoney != null">
+      toportmoney = #{toportmoney,jdbcType=DECIMAL} , 
+    </if>
+    <if test="finalmoney != null">
+      finalmoney = #{finalmoney,jdbcType=DECIMAL} , 
+    </if>
+    <if test="productid != null">
+      productid = #{productid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="amountrmbflag != null">
+      amountrmbflag = #{amountrmbflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="depositsflag != null">
+      depositsflag = #{depositsflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sendmoneyflag != null">
+      sendmoneyflag = #{sendmoneyflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="toportmoneyflag != null">
+      toportmoneyflag = #{toportmoneyflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="finalmoneyflag != null">
+      finalmoneyflag = #{finalmoneyflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="accountmoney != null">
+      accountmoney = #{accountmoney,jdbcType=DECIMAL} , 
+    </if>
+    <if test="nonpaymentmoney != null">
+      nonpaymentmoney = #{nonpaymentmoney,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sendmoneytime != null">
+      sendmoneytime = #{sendmoneytime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="toportmoneytime != null">
+      toportmoneytime = #{toportmoneytime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="finalmoneytime != null">
+      finalmoneytime = #{finalmoneytime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="depositsstime != null">
+      depositsstime = #{depositsstime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR}
+      descr = #{descr,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbCaiwu" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbOutcategoryorder;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbOutcategoryorderMapper {
-    int deleteByPrimaryKey(String ebayorderid);
+    DbOutcategoryorder selectByCriteria(DbOutcategoryorder DbOutcategoryorder);
 
-    int insert(DbOutcategoryorder record);
+    void deleteByPrimaryKey(String EBAYORDERID);
 
-    int insertSelective(DbOutcategoryorder record);
+    void deleteByCriteria(DbOutcategoryorder DbOutcategoryorder);
+
+    int insertByCriteria(DbOutcategoryorder DbOutcategoryorder);
+
+    int updateByCriteria(DbOutcategoryorder DbOutcategoryorder);
 
     DbOutcategoryorder selectByPrimaryKey(String ebayorderid);
 
-    int updateByPrimaryKeySelective(DbOutcategoryorder record);
-
-    int updateByPrimaryKeyWithBLOBs(DbOutcategoryorder record);
-
-    int updateByPrimaryKey(DbOutcategoryorder record);
+    List<DbOutcategoryorder> selectAll();
 }

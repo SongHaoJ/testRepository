@@ -11,6 +11,10 @@ public class DbEndiciauser implements Serializable {
 
     private String accountid;
 
+    private String passphrase;
+
+    private String fromname;
+
     private String fromcompany;
 
     private String returnaddress;
@@ -37,17 +41,13 @@ public class DbEndiciauser implements Serializable {
 
     private Integer updateflag;
 
+    private String updatedescr;
+
     private Integer recreditamount;
 
     private BigDecimal postagebalance;
 
     private BigDecimal ascendingbalance;
-
-    private String passphrase;
-
-    private String fromname;
-
-    private String updatedescr;
 
     private static final long serialVersionUID = 1L;
 
@@ -73,6 +73,22 @@ public class DbEndiciauser implements Serializable {
 
     public void setAccountid(String accountid) {
         this.accountid = accountid == null ? null : accountid.trim();
+    }
+
+    public String getPassphrase() {
+        return passphrase;
+    }
+
+    public void setPassphrase(String passphrase) {
+        this.passphrase = passphrase == null ? null : passphrase.trim();
+    }
+
+    public String getFromname() {
+        return fromname;
+    }
+
+    public void setFromname(String fromname) {
+        this.fromname = fromname == null ? null : fromname.trim();
     }
 
     public String getFromcompany() {
@@ -179,6 +195,14 @@ public class DbEndiciauser implements Serializable {
         this.updateflag = updateflag;
     }
 
+    public String getUpdatedescr() {
+        return updatedescr;
+    }
+
+    public void setUpdatedescr(String updatedescr) {
+        this.updatedescr = updatedescr == null ? null : updatedescr.trim();
+    }
+
     public Integer getRecreditamount() {
         return recreditamount;
     }
@@ -203,30 +227,6 @@ public class DbEndiciauser implements Serializable {
         this.ascendingbalance = ascendingbalance;
     }
 
-    public String getPassphrase() {
-        return passphrase;
-    }
-
-    public void setPassphrase(String passphrase) {
-        this.passphrase = passphrase == null ? null : passphrase.trim();
-    }
-
-    public String getFromname() {
-        return fromname;
-    }
-
-    public void setFromname(String fromname) {
-        this.fromname = fromname == null ? null : fromname.trim();
-    }
-
-    public String getUpdatedescr() {
-        return updatedescr;
-    }
-
-    public void setUpdatedescr(String updatedescr) {
-        this.updatedescr = updatedescr == null ? null : updatedescr.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -242,6 +242,8 @@ public class DbEndiciauser implements Serializable {
         return (this.getSequenceid() == null ? other.getSequenceid() == null : this.getSequenceid().equals(other.getSequenceid()))
             && (this.getRequesterid() == null ? other.getRequesterid() == null : this.getRequesterid().equals(other.getRequesterid()))
             && (this.getAccountid() == null ? other.getAccountid() == null : this.getAccountid().equals(other.getAccountid()))
+            && (this.getPassphrase() == null ? other.getPassphrase() == null : this.getPassphrase().equals(other.getPassphrase()))
+            && (this.getFromname() == null ? other.getFromname() == null : this.getFromname().equals(other.getFromname()))
             && (this.getFromcompany() == null ? other.getFromcompany() == null : this.getFromcompany().equals(other.getFromcompany()))
             && (this.getReturnaddress() == null ? other.getReturnaddress() == null : this.getReturnaddress().equals(other.getReturnaddress()))
             && (this.getFromcity() == null ? other.getFromcity() == null : this.getFromcity().equals(other.getFromcity()))
@@ -255,12 +257,10 @@ public class DbEndiciauser implements Serializable {
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
             && (this.getUpdateflag() == null ? other.getUpdateflag() == null : this.getUpdateflag().equals(other.getUpdateflag()))
+            && (this.getUpdatedescr() == null ? other.getUpdatedescr() == null : this.getUpdatedescr().equals(other.getUpdatedescr()))
             && (this.getRecreditamount() == null ? other.getRecreditamount() == null : this.getRecreditamount().equals(other.getRecreditamount()))
             && (this.getPostagebalance() == null ? other.getPostagebalance() == null : this.getPostagebalance().equals(other.getPostagebalance()))
-            && (this.getAscendingbalance() == null ? other.getAscendingbalance() == null : this.getAscendingbalance().equals(other.getAscendingbalance()))
-            && (this.getPassphrase() == null ? other.getPassphrase() == null : this.getPassphrase().equals(other.getPassphrase()))
-            && (this.getFromname() == null ? other.getFromname() == null : this.getFromname().equals(other.getFromname()))
-            && (this.getUpdatedescr() == null ? other.getUpdatedescr() == null : this.getUpdatedescr().equals(other.getUpdatedescr()));
+            && (this.getAscendingbalance() == null ? other.getAscendingbalance() == null : this.getAscendingbalance().equals(other.getAscendingbalance()));
     }
 
     @Override
@@ -270,6 +270,8 @@ public class DbEndiciauser implements Serializable {
         result = prime * result + ((getSequenceid() == null) ? 0 : getSequenceid().hashCode());
         result = prime * result + ((getRequesterid() == null) ? 0 : getRequesterid().hashCode());
         result = prime * result + ((getAccountid() == null) ? 0 : getAccountid().hashCode());
+        result = prime * result + ((getPassphrase() == null) ? 0 : getPassphrase().hashCode());
+        result = prime * result + ((getFromname() == null) ? 0 : getFromname().hashCode());
         result = prime * result + ((getFromcompany() == null) ? 0 : getFromcompany().hashCode());
         result = prime * result + ((getReturnaddress() == null) ? 0 : getReturnaddress().hashCode());
         result = prime * result + ((getFromcity() == null) ? 0 : getFromcity().hashCode());
@@ -283,12 +285,10 @@ public class DbEndiciauser implements Serializable {
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getUpdateflag() == null) ? 0 : getUpdateflag().hashCode());
+        result = prime * result + ((getUpdatedescr() == null) ? 0 : getUpdatedescr().hashCode());
         result = prime * result + ((getRecreditamount() == null) ? 0 : getRecreditamount().hashCode());
         result = prime * result + ((getPostagebalance() == null) ? 0 : getPostagebalance().hashCode());
         result = prime * result + ((getAscendingbalance() == null) ? 0 : getAscendingbalance().hashCode());
-        result = prime * result + ((getPassphrase() == null) ? 0 : getPassphrase().hashCode());
-        result = prime * result + ((getFromname() == null) ? 0 : getFromname().hashCode());
-        result = prime * result + ((getUpdatedescr() == null) ? 0 : getUpdatedescr().hashCode());
         return result;
     }
 
@@ -301,6 +301,8 @@ public class DbEndiciauser implements Serializable {
         sb.append(", sequenceid=").append(sequenceid);
         sb.append(", requesterid=").append(requesterid);
         sb.append(", accountid=").append(accountid);
+        sb.append(", passphrase=").append(passphrase);
+        sb.append(", fromname=").append(fromname);
         sb.append(", fromcompany=").append(fromcompany);
         sb.append(", returnaddress=").append(returnaddress);
         sb.append(", fromcity=").append(fromcity);
@@ -314,12 +316,10 @@ public class DbEndiciauser implements Serializable {
         sb.append(", oper=").append(oper);
         sb.append(", opertime=").append(opertime);
         sb.append(", updateflag=").append(updateflag);
+        sb.append(", updatedescr=").append(updatedescr);
         sb.append(", recreditamount=").append(recreditamount);
         sb.append(", postagebalance=").append(postagebalance);
         sb.append(", ascendingbalance=").append(ascendingbalance);
-        sb.append(", passphrase=").append(passphrase);
-        sb.append(", fromname=").append(fromname);
-        sb.append(", updatedescr=").append(updatedescr);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

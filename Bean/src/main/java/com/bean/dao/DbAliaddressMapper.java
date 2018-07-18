@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbAliaddress;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbAliaddressMapper {
-    int deleteByPrimaryKey(String sid);
+    DbAliaddress selectByCriteria(DbAliaddress DbAliaddress);
 
-    int insert(DbAliaddress record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbAliaddress record);
+    void deleteByCriteria(DbAliaddress DbAliaddress);
+
+    int insertByCriteria(DbAliaddress DbAliaddress);
+
+    int updateByCriteria(DbAliaddress DbAliaddress);
 
     DbAliaddress selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbAliaddress record);
-
-    int updateByPrimaryKey(DbAliaddress record);
+    List<DbAliaddress> selectAll();
 }

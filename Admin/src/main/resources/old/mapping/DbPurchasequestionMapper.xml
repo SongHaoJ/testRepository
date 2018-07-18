@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbPurchasequestionMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbPurchasequestion">
+    <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
+    <result column="SID" jdbcType="VARCHAR" property="sid" />
+    <result column="PRODUCTID" jdbcType="VARCHAR" property="productid" />
+    <result column="MANUFACTURE" jdbcType="VARCHAR" property="manufacture" />
+    <result column="ORDERNUM" jdbcType="DECIMAL" property="ordernum" />
+    <result column="INPORTPRICE" jdbcType="DECIMAL" property="inportprice" />
+    <result column="AMOUNT" jdbcType="DECIMAL" property="amount" />
+    <result column="INPORTTIME" jdbcType="TIMESTAMP" property="inporttime" />
+    <result column="ACTUALNUM" jdbcType="DECIMAL" property="actualnum" />
+    <result column="ACTUALPRICE" jdbcType="DECIMAL" property="actualprice" />
+    <result column="ACTUALAMOUNT" jdbcType="DECIMAL" property="actualamount" />
+    <result column="STOCKOPER" jdbcType="VARCHAR" property="stockoper" />
+    <result column="STOCKTIME" jdbcType="TIMESTAMP" property="stocktime" />
+    <result column="SLEVEL" jdbcType="VARCHAR" property="slevel" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="RESERVE4" jdbcType="VARCHAR" property="reserve4" />
+    <result column="RESERVE5" jdbcType="VARCHAR" property="reserve5" />
+    <result column="SAVENUM" jdbcType="DECIMAL" property="savenum" />
+    <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
+    <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
+    <result column="MANUFACTUREID" jdbcType="VARCHAR" property="manufactureid" />
+    <result column="GROUPID" jdbcType="VARCHAR" property="groupid" />
+    <result column="RECEIVENUM" jdbcType="DECIMAL" property="receivenum" />
+    <result column="RETURNNUM" jdbcType="DECIMAL" property="returnnum" />
+    <result column="RESULTTYPE" jdbcType="VARCHAR" property="resulttype" />
+    <result column="CREATOPER" jdbcType="VARCHAR" property="creatoper" />
+    <result column="RESERVE6" jdbcType="VARCHAR" property="reserve6" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbPurchasequestion">
+    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
+    <result column="RESERVE3" jdbcType="LONGVARCHAR" property="reserve3" />
+    <result column="NAME" jdbcType="LONGVARCHAR" property="name" />
+    <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
+    <result column="RESULT" jdbcType="LONGVARCHAR" property="result" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SEQUENCEID, SID, PRODUCTID, MANUFACTURE, ORDERNUM, INPORTPRICE, AMOUNT, INPORTTIME, 
+    ACTUALNUM, ACTUALPRICE, ACTUALAMOUNT, STOCKOPER, STOCKTIME, SLEVEL, 'STATUS', OPER, 
+    OPERTIME, RESERVE1, RESERVE2, RESERVE4, RESERVE5, SAVENUM, CORPID, OPENFLAG, MANUFACTUREID, 
+    GROUPID, RECEIVENUM, RETURNNUM, RESULTTYPE, CREATOPER, RESERVE6
+  </sql>
+  <sql id="Blob_Column_List">
+    DESCR, RESERVE3, 'NAME', REMARKS, 'RESULT'
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from db_purchasequestion
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from db_purchasequestion
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bean.model.DbPurchasequestion">
+    insert into db_purchasequestion (SEQUENCEID, SID, PRODUCTID, 
+      MANUFACTURE, ORDERNUM, INPORTPRICE, 
+      AMOUNT, INPORTTIME, ACTUALNUM, 
+      ACTUALPRICE, ACTUALAMOUNT, STOCKOPER, 
+      STOCKTIME, SLEVEL, 'STATUS', 
+      OPER, OPERTIME, RESERVE1, 
+      RESERVE2, RESERVE4, RESERVE5, 
+      SAVENUM, CORPID, OPENFLAG, 
+      MANUFACTUREID, GROUPID, RECEIVENUM, 
+      RETURNNUM, RESULTTYPE, CREATOPER, 
+      RESERVE6, DESCR, RESERVE3, 
+      'NAME', REMARKS, 'RESULT'
+      )
+    values (#{sequenceid,jdbcType=VARCHAR}, #{sid,jdbcType=VARCHAR}, #{productid,jdbcType=VARCHAR}, 
+      #{manufacture,jdbcType=VARCHAR}, #{ordernum,jdbcType=DECIMAL}, #{inportprice,jdbcType=DECIMAL}, 
+      #{amount,jdbcType=DECIMAL}, #{inporttime,jdbcType=TIMESTAMP}, #{actualnum,jdbcType=DECIMAL}, 
+      #{actualprice,jdbcType=DECIMAL}, #{actualamount,jdbcType=DECIMAL}, #{stockoper,jdbcType=VARCHAR}, 
+      #{stocktime,jdbcType=TIMESTAMP}, #{slevel,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{oper,jdbcType=VARCHAR}, #{opertime,jdbcType=TIMESTAMP}, #{reserve1,jdbcType=VARCHAR}, 
+      #{reserve2,jdbcType=VARCHAR}, #{reserve4,jdbcType=VARCHAR}, #{reserve5,jdbcType=VARCHAR}, 
+      #{savenum,jdbcType=DECIMAL}, #{corpid,jdbcType=VARCHAR}, #{openflag,jdbcType=VARCHAR}, 
+      #{manufactureid,jdbcType=VARCHAR}, #{groupid,jdbcType=VARCHAR}, #{receivenum,jdbcType=DECIMAL}, 
+      #{returnnum,jdbcType=DECIMAL}, #{resulttype,jdbcType=VARCHAR}, #{creatoper,jdbcType=VARCHAR}, 
+      #{reserve6,jdbcType=VARCHAR}, #{descr,jdbcType=LONGVARCHAR}, #{reserve3,jdbcType=LONGVARCHAR}, 
+      #{name,jdbcType=LONGVARCHAR}, #{remarks,jdbcType=LONGVARCHAR}, #{result,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbPurchasequestion">
+    insert into db_purchasequestion
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        SEQUENCEID,
+      </if>
+      <if test="sid != null">
+        SID,
+      </if>
+      <if test="productid != null">
+        PRODUCTID,
+      </if>
+      <if test="manufacture != null">
+        MANUFACTURE,
+      </if>
+      <if test="ordernum != null">
+        ORDERNUM,
+      </if>
+      <if test="inportprice != null">
+        INPORTPRICE,
+      </if>
+      <if test="amount != null">
+        AMOUNT,
+      </if>
+      <if test="inporttime != null">
+        INPORTTIME,
+      </if>
+      <if test="actualnum != null">
+        ACTUALNUM,
+      </if>
+      <if test="actualprice != null">
+        ACTUALPRICE,
+      </if>
+      <if test="actualamount != null">
+        ACTUALAMOUNT,
+      </if>
+      <if test="stockoper != null">
+        STOCKOPER,
+      </if>
+      <if test="stocktime != null">
+        STOCKTIME,
+      </if>
+      <if test="slevel != null">
+        SLEVEL,
+      </if>
+      <if test="status != null">
+        'STATUS',
+      </if>
+      <if test="oper != null">
+        OPER,
+      </if>
+      <if test="opertime != null">
+        OPERTIME,
+      </if>
+      <if test="reserve1 != null">
+        RESERVE1,
+      </if>
+      <if test="reserve2 != null">
+        RESERVE2,
+      </if>
+      <if test="reserve4 != null">
+        RESERVE4,
+      </if>
+      <if test="reserve5 != null">
+        RESERVE5,
+      </if>
+      <if test="savenum != null">
+        SAVENUM,
+      </if>
+      <if test="corpid != null">
+        CORPID,
+      </if>
+      <if test="openflag != null">
+        OPENFLAG,
+      </if>
+      <if test="manufactureid != null">
+        MANUFACTUREID,
+      </if>
+      <if test="groupid != null">
+        GROUPID,
+      </if>
+      <if test="receivenum != null">
+        RECEIVENUM,
+      </if>
+      <if test="returnnum != null">
+        RETURNNUM,
+      </if>
+      <if test="resulttype != null">
+        RESULTTYPE,
+      </if>
+      <if test="creatoper != null">
+        CREATOPER,
+      </if>
+      <if test="reserve6 != null">
+        RESERVE6,
+      </if>
+      <if test="descr != null">
+        DESCR,
+      </if>
+      <if test="reserve3 != null">
+        RESERVE3,
+      </if>
+      <if test="name != null">
+        'NAME',
+      </if>
+      <if test="remarks != null">
+        REMARKS,
+      </if>
+      <if test="result != null">
+        'RESULT',
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        #{sequenceid,jdbcType=VARCHAR},
+      </if>
+      <if test="sid != null">
+        #{sid,jdbcType=VARCHAR},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="manufacture != null">
+        #{manufacture,jdbcType=VARCHAR},
+      </if>
+      <if test="ordernum != null">
+        #{ordernum,jdbcType=DECIMAL},
+      </if>
+      <if test="inportprice != null">
+        #{inportprice,jdbcType=DECIMAL},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="inporttime != null">
+        #{inporttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="actualnum != null">
+        #{actualnum,jdbcType=DECIMAL},
+      </if>
+      <if test="actualprice != null">
+        #{actualprice,jdbcType=DECIMAL},
+      </if>
+      <if test="actualamount != null">
+        #{actualamount,jdbcType=DECIMAL},
+      </if>
+      <if test="stockoper != null">
+        #{stockoper,jdbcType=VARCHAR},
+      </if>
+      <if test="stocktime != null">
+        #{stocktime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="slevel != null">
+        #{slevel,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="oper != null">
+        #{oper,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null">
+        #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reserve1 != null">
+        #{reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve2 != null">
+        #{reserve2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve4 != null">
+        #{reserve4,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve5 != null">
+        #{reserve5,jdbcType=VARCHAR},
+      </if>
+      <if test="savenum != null">
+        #{savenum,jdbcType=DECIMAL},
+      </if>
+      <if test="corpid != null">
+        #{corpid,jdbcType=VARCHAR},
+      </if>
+      <if test="openflag != null">
+        #{openflag,jdbcType=VARCHAR},
+      </if>
+      <if test="manufactureid != null">
+        #{manufactureid,jdbcType=VARCHAR},
+      </if>
+      <if test="groupid != null">
+        #{groupid,jdbcType=VARCHAR},
+      </if>
+      <if test="receivenum != null">
+        #{receivenum,jdbcType=DECIMAL},
+      </if>
+      <if test="returnnum != null">
+        #{returnnum,jdbcType=DECIMAL},
+      </if>
+      <if test="resulttype != null">
+        #{resulttype,jdbcType=VARCHAR},
+      </if>
+      <if test="creatoper != null">
+        #{creatoper,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve6 != null">
+        #{reserve6,jdbcType=VARCHAR},
+      </if>
+      <if test="descr != null">
+        #{descr,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reserve3 != null">
+        #{reserve3,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="result != null">
+        #{result,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbPurchasequestion">
+    update db_purchasequestion
+    <set>
+      <if test="sid != null">
+        SID = #{sid,jdbcType=VARCHAR},
+      </if>
+      <if test="productid != null">
+        PRODUCTID = #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="manufacture != null">
+        MANUFACTURE = #{manufacture,jdbcType=VARCHAR},
+      </if>
+      <if test="ordernum != null">
+        ORDERNUM = #{ordernum,jdbcType=DECIMAL},
+      </if>
+      <if test="inportprice != null">
+        INPORTPRICE = #{inportprice,jdbcType=DECIMAL},
+      </if>
+      <if test="amount != null">
+        AMOUNT = #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="inporttime != null">
+        INPORTTIME = #{inporttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="actualnum != null">
+        ACTUALNUM = #{actualnum,jdbcType=DECIMAL},
+      </if>
+      <if test="actualprice != null">
+        ACTUALPRICE = #{actualprice,jdbcType=DECIMAL},
+      </if>
+      <if test="actualamount != null">
+        ACTUALAMOUNT = #{actualamount,jdbcType=DECIMAL},
+      </if>
+      <if test="stockoper != null">
+        STOCKOPER = #{stockoper,jdbcType=VARCHAR},
+      </if>
+      <if test="stocktime != null">
+        STOCKTIME = #{stocktime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="slevel != null">
+        SLEVEL = #{slevel,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        'STATUS' = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="oper != null">
+        OPER = #{oper,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null">
+        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reserve1 != null">
+        RESERVE1 = #{reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve2 != null">
+        RESERVE2 = #{reserve2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve4 != null">
+        RESERVE4 = #{reserve4,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve5 != null">
+        RESERVE5 = #{reserve5,jdbcType=VARCHAR},
+      </if>
+      <if test="savenum != null">
+        SAVENUM = #{savenum,jdbcType=DECIMAL},
+      </if>
+      <if test="corpid != null">
+        CORPID = #{corpid,jdbcType=VARCHAR},
+      </if>
+      <if test="openflag != null">
+        OPENFLAG = #{openflag,jdbcType=VARCHAR},
+      </if>
+      <if test="manufactureid != null">
+        MANUFACTUREID = #{manufactureid,jdbcType=VARCHAR},
+      </if>
+      <if test="groupid != null">
+        GROUPID = #{groupid,jdbcType=VARCHAR},
+      </if>
+      <if test="receivenum != null">
+        RECEIVENUM = #{receivenum,jdbcType=DECIMAL},
+      </if>
+      <if test="returnnum != null">
+        RETURNNUM = #{returnnum,jdbcType=DECIMAL},
+      </if>
+      <if test="resulttype != null">
+        RESULTTYPE = #{resulttype,jdbcType=VARCHAR},
+      </if>
+      <if test="creatoper != null">
+        CREATOPER = #{creatoper,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve6 != null">
+        RESERVE6 = #{reserve6,jdbcType=VARCHAR},
+      </if>
+      <if test="descr != null">
+        DESCR = #{descr,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reserve3 != null">
+        RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="name != null">
+        'NAME' = #{name,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="remarks != null">
+        REMARKS = #{remarks,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="result != null">
+        'RESULT' = #{result,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbPurchasequestion">
+    update db_purchasequestion
+    set SID = #{sid,jdbcType=VARCHAR},
+      PRODUCTID = #{productid,jdbcType=VARCHAR},
+      MANUFACTURE = #{manufacture,jdbcType=VARCHAR},
+      ORDERNUM = #{ordernum,jdbcType=DECIMAL},
+      INPORTPRICE = #{inportprice,jdbcType=DECIMAL},
+      AMOUNT = #{amount,jdbcType=DECIMAL},
+      INPORTTIME = #{inporttime,jdbcType=TIMESTAMP},
+      ACTUALNUM = #{actualnum,jdbcType=DECIMAL},
+      ACTUALPRICE = #{actualprice,jdbcType=DECIMAL},
+      ACTUALAMOUNT = #{actualamount,jdbcType=DECIMAL},
+      STOCKOPER = #{stockoper,jdbcType=VARCHAR},
+      STOCKTIME = #{stocktime,jdbcType=TIMESTAMP},
+      SLEVEL = #{slevel,jdbcType=VARCHAR},
+      'STATUS' = #{status,jdbcType=VARCHAR},
+      OPER = #{oper,jdbcType=VARCHAR},
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR},
+      RESERVE4 = #{reserve4,jdbcType=VARCHAR},
+      RESERVE5 = #{reserve5,jdbcType=VARCHAR},
+      SAVENUM = #{savenum,jdbcType=DECIMAL},
+      CORPID = #{corpid,jdbcType=VARCHAR},
+      OPENFLAG = #{openflag,jdbcType=VARCHAR},
+      MANUFACTUREID = #{manufactureid,jdbcType=VARCHAR},
+      GROUPID = #{groupid,jdbcType=VARCHAR},
+      RECEIVENUM = #{receivenum,jdbcType=DECIMAL},
+      RETURNNUM = #{returnnum,jdbcType=DECIMAL},
+      RESULTTYPE = #{resulttype,jdbcType=VARCHAR},
+      CREATOPER = #{creatoper,jdbcType=VARCHAR},
+      RESERVE6 = #{reserve6,jdbcType=VARCHAR},
+      DESCR = #{descr,jdbcType=LONGVARCHAR},
+      RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR},
+      'NAME' = #{name,jdbcType=LONGVARCHAR},
+      REMARKS = #{remarks,jdbcType=LONGVARCHAR},
+      'RESULT' = #{result,jdbcType=LONGVARCHAR}
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbPurchasequestion">
+    update db_purchasequestion
+    set SID = #{sid,jdbcType=VARCHAR},
+      PRODUCTID = #{productid,jdbcType=VARCHAR},
+      MANUFACTURE = #{manufacture,jdbcType=VARCHAR},
+      ORDERNUM = #{ordernum,jdbcType=DECIMAL},
+      INPORTPRICE = #{inportprice,jdbcType=DECIMAL},
+      AMOUNT = #{amount,jdbcType=DECIMAL},
+      INPORTTIME = #{inporttime,jdbcType=TIMESTAMP},
+      ACTUALNUM = #{actualnum,jdbcType=DECIMAL},
+      ACTUALPRICE = #{actualprice,jdbcType=DECIMAL},
+      ACTUALAMOUNT = #{actualamount,jdbcType=DECIMAL},
+      STOCKOPER = #{stockoper,jdbcType=VARCHAR},
+      STOCKTIME = #{stocktime,jdbcType=TIMESTAMP},
+      SLEVEL = #{slevel,jdbcType=VARCHAR},
+      'STATUS' = #{status,jdbcType=VARCHAR},
+      OPER = #{oper,jdbcType=VARCHAR},
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR},
+      RESERVE4 = #{reserve4,jdbcType=VARCHAR},
+      RESERVE5 = #{reserve5,jdbcType=VARCHAR},
+      SAVENUM = #{savenum,jdbcType=DECIMAL},
+      CORPID = #{corpid,jdbcType=VARCHAR},
+      OPENFLAG = #{openflag,jdbcType=VARCHAR},
+      MANUFACTUREID = #{manufactureid,jdbcType=VARCHAR},
+      GROUPID = #{groupid,jdbcType=VARCHAR},
+      RECEIVENUM = #{receivenum,jdbcType=DECIMAL},
+      RETURNNUM = #{returnnum,jdbcType=DECIMAL},
+      RESULTTYPE = #{resulttype,jdbcType=VARCHAR},
+      CREATOPER = #{creatoper,jdbcType=VARCHAR},
+      RESERVE6 = #{reserve6,jdbcType=VARCHAR}
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </update>
+</mapper>

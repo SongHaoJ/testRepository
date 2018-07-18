@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbExpressapi;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbExpressapiMapper {
-    int deleteByPrimaryKey(Integer id);
+    DbExpressapi selectByCriteria(DbExpressapi DbExpressapi);
 
-    int insert(DbExpressapi record);
+    void deleteByPrimaryKey(String ID);
 
-    int insertSelective(DbExpressapi record);
+    void deleteByCriteria(DbExpressapi DbExpressapi);
+
+    int insertByCriteria(DbExpressapi DbExpressapi);
+
+    int updateByCriteria(DbExpressapi DbExpressapi);
 
     DbExpressapi selectByPrimaryKey(Integer id);
 
-    int updateByPrimaryKeySelective(DbExpressapi record);
-
-    int updateByPrimaryKeyWithBLOBs(DbExpressapi record);
-
-    int updateByPrimaryKey(DbExpressapi record);
+    List<DbExpressapi> selectAll();
 }

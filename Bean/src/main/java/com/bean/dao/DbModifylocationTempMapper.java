@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbModifylocationTemp;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbModifylocationTempMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbModifylocationTemp selectByCriteria(DbModifylocationTemp DbModifylocationTemp);
 
-    int insert(DbModifylocationTemp record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbModifylocationTemp record);
+    void deleteByCriteria(DbModifylocationTemp DbModifylocationTemp);
+
+    int insertByCriteria(DbModifylocationTemp DbModifylocationTemp);
+
+    int updateByCriteria(DbModifylocationTemp DbModifylocationTemp);
 
     DbModifylocationTemp selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbModifylocationTemp record);
-
-    int updateByPrimaryKeyWithBLOBs(DbModifylocationTemp record);
-
-    int updateByPrimaryKey(DbModifylocationTemp record);
+    List<DbModifylocationTemp> selectAll();
 }

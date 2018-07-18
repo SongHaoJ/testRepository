@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbSellResult;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbSellResultMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbSellResult selectByCriteria(DbSellResult DbSellResult);
 
-    int insert(DbSellResult record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbSellResult record);
+    void deleteByCriteria(DbSellResult DbSellResult);
+
+    int insertByCriteria(DbSellResult DbSellResult);
+
+    int updateByCriteria(DbSellResult DbSellResult);
 
     DbSellResult selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbSellResult record);
-
-    int updateByPrimaryKey(DbSellResult record);
+    List<DbSellResult> selectAll();
 }

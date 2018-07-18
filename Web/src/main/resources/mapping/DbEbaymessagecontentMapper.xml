@@ -3,45 +3,45 @@
 <mapper namespace="com.bean.dao.DbEbaymessagecontentMapper">
   <resultMap id="BaseResultMap" type="com.bean.model.DbEbaymessagecontent">
     <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
-    <result column="CONTENT" jdbcType="LONGVARCHAR" property="content" />
+    <result column="CONTENT" jdbcType="CLOB" property="content" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select SEQUENCEID, CONTENT
-    from db_ebaymessagecontent
+    from DB_EBAYMESSAGECONTENT
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SEQUENCEID, CONTENT
-    from db_ebaymessagecontent
+    from DB_EBAYMESSAGECONTENT
   </select>
   <sql id="TableName">
-    db_ebaymessagecontent
+    DB_EBAYMESSAGECONTENT
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=VARCHAR} , 
-     #{content,jdbcType=LONGVARCHAR}
+     #{content,jdbcType=CLOB} , 
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
-    CONTENT
+    CONTENT , 
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
     </if>
     <if test="content != null">
-      CONTENT = #{content,jdbcType=LONGVARCHAR}
+      content = #{content,jdbcType=CLOB} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
     </if>
     <if test="content != null">
-      CONTENT = #{content,jdbcType=LONGVARCHAR}
+      content = #{content,jdbcType=CLOB} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbEbaymessagecontent" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

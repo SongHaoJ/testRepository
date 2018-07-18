@@ -2,8 +2,8 @@ package com.bean.dao;
 
 import com.bean.model.StatHotshopDaily;
 
-public interface StatHotshopDailyMapper {
-    int insert(StatHotshopDaily record);
+import java.util.List;
 
-    int insertSelective(StatHotshopDaily record);
+public interface StatHotshopDailyMapper {
+    List<StatHotshopDaily> selectAll();
 }

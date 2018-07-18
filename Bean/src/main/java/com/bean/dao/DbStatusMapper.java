@@ -1,18 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbStatus;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbStatusMapper {
-    int deleteByPrimaryKey(BigDecimal sid);
+    DbStatus selectByCriteria(DbStatus DbStatus);
 
-    int insert(DbStatus record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbStatus record);
+    void deleteByCriteria(DbStatus DbStatus);
+
+    int insertByCriteria(DbStatus DbStatus);
+
+    int updateByCriteria(DbStatus DbStatus);
 
     DbStatus selectByPrimaryKey(BigDecimal sid);
 
-    int updateByPrimaryKeySelective(DbStatus record);
-
-    int updateByPrimaryKey(DbStatus record);
+    List<DbStatus> selectAll();
 }

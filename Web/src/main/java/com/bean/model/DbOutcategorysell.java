@@ -30,9 +30,9 @@ public class DbOutcategorysell implements Serializable {
 
     private Date updatetime;
 
-    private String recordid;
-
     private String error;
+
+    private String recordid;
 
     private static final long serialVersionUID = 1L;
 
@@ -140,20 +140,20 @@ public class DbOutcategorysell implements Serializable {
         this.updatetime = updatetime;
     }
 
-    public String getRecordid() {
-        return recordid;
-    }
-
-    public void setRecordid(String recordid) {
-        this.recordid = recordid == null ? null : recordid.trim();
-    }
-
     public String getError() {
         return error;
     }
 
     public void setError(String error) {
         this.error = error == null ? null : error.trim();
+    }
+
+    public String getRecordid() {
+        return recordid;
+    }
+
+    public void setRecordid(String recordid) {
+        this.recordid = recordid == null ? null : recordid.trim();
     }
 
     @Override
@@ -181,8 +181,8 @@ public class DbOutcategorysell implements Serializable {
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getOeprtime() == null ? other.getOeprtime() == null : this.getOeprtime().equals(other.getOeprtime()))
             && (this.getUpdatetime() == null ? other.getUpdatetime() == null : this.getUpdatetime().equals(other.getUpdatetime()))
-            && (this.getRecordid() == null ? other.getRecordid() == null : this.getRecordid().equals(other.getRecordid()))
-            && (this.getError() == null ? other.getError() == null : this.getError().equals(other.getError()));
+            && (this.getError() == null ? other.getError() == null : this.getError().equals(other.getError()))
+            && (this.getRecordid() == null ? other.getRecordid() == null : this.getRecordid().equals(other.getRecordid()));
     }
 
     @Override
@@ -202,8 +202,8 @@ public class DbOutcategorysell implements Serializable {
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getOeprtime() == null) ? 0 : getOeprtime().hashCode());
         result = prime * result + ((getUpdatetime() == null) ? 0 : getUpdatetime().hashCode());
-        result = prime * result + ((getRecordid() == null) ? 0 : getRecordid().hashCode());
         result = prime * result + ((getError() == null) ? 0 : getError().hashCode());
+        result = prime * result + ((getRecordid() == null) ? 0 : getRecordid().hashCode());
         return result;
     }
 
@@ -226,8 +226,8 @@ public class DbOutcategorysell implements Serializable {
         sb.append(", oper=").append(oper);
         sb.append(", oeprtime=").append(oeprtime);
         sb.append(", updatetime=").append(updatetime);
-        sb.append(", recordid=").append(recordid);
         sb.append(", error=").append(error);
+        sb.append(", recordid=").append(recordid);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

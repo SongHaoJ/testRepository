@@ -1,18 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbItemHistory;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbItemHistoryMapper {
-    int deleteByPrimaryKey(BigDecimal sequenceid);
+    DbItemHistory selectByCriteria(DbItemHistory DbItemHistory);
 
-    int insert(DbItemHistory record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbItemHistory record);
+    void deleteByCriteria(DbItemHistory DbItemHistory);
+
+    int insertByCriteria(DbItemHistory DbItemHistory);
+
+    int updateByCriteria(DbItemHistory DbItemHistory);
 
     DbItemHistory selectByPrimaryKey(BigDecimal sequenceid);
 
-    int updateByPrimaryKeySelective(DbItemHistory record);
-
-    int updateByPrimaryKey(DbItemHistory record);
+    List<DbItemHistory> selectAll();
 }

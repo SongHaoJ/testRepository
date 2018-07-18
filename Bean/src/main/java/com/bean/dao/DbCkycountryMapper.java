@@ -2,8 +2,8 @@ package com.bean.dao;
 
 import com.bean.model.DbCkycountry;
 
-public interface DbCkycountryMapper {
-    int insert(DbCkycountry record);
+import java.util.List;
 
-    int insertSelective(DbCkycountry record);
+public interface DbCkycountryMapper {
+    List<DbCkycountry> selectAll();
 }

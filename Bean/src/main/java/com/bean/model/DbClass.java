@@ -9,11 +9,11 @@ public class DbClass implements Serializable {
 
     private String spcode;
 
+    private String descr;
+
     private String reserve1;
 
     private String reserve2;
-
-    private String descr;
 
     private static final long serialVersionUID = 1L;
 
@@ -41,6 +41,14 @@ public class DbClass implements Serializable {
         this.spcode = spcode == null ? null : spcode.trim();
     }
 
+    public String getDescr() {
+        return descr;
+    }
+
+    public void setDescr(String descr) {
+        this.descr = descr == null ? null : descr.trim();
+    }
+
     public String getReserve1() {
         return reserve1;
     }
@@ -55,14 +63,6 @@ public class DbClass implements Serializable {
 
     public void setReserve2(String reserve2) {
         this.reserve2 = reserve2 == null ? null : reserve2.trim();
-    }
-
-    public String getDescr() {
-        return descr;
-    }
-
-    public void setDescr(String descr) {
-        this.descr = descr == null ? null : descr.trim();
     }
 
     @Override
@@ -80,9 +80,9 @@ public class DbClass implements Serializable {
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
             && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
             && (this.getSpcode() == null ? other.getSpcode() == null : this.getSpcode().equals(other.getSpcode()))
+            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
             && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
-            && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
-            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()));
+            && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()));
     }
 
     @Override
@@ -92,9 +92,9 @@ public class DbClass implements Serializable {
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
         result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
         result = prime * result + ((getSpcode() == null) ? 0 : getSpcode().hashCode());
+        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
         result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
         result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
-        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
         return result;
     }
 
@@ -107,9 +107,9 @@ public class DbClass implements Serializable {
         sb.append(", id=").append(id);
         sb.append(", name=").append(name);
         sb.append(", spcode=").append(spcode);
+        sb.append(", descr=").append(descr);
         sb.append(", reserve1=").append(reserve1);
         sb.append(", reserve2=").append(reserve2);
-        sb.append(", descr=").append(descr);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

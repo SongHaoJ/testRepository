@@ -18,9 +18,9 @@ public class DbOutbound implements Serializable {
 
     private String opertime;
 
-    private Integer outboundnum;
-
     private String notes;
+
+    private Integer outboundnum;
 
     private static final long serialVersionUID = 1L;
 
@@ -80,20 +80,20 @@ public class DbOutbound implements Serializable {
         this.opertime = opertime == null ? null : opertime.trim();
     }
 
-    public Integer getOutboundnum() {
-        return outboundnum;
-    }
-
-    public void setOutboundnum(Integer outboundnum) {
-        this.outboundnum = outboundnum;
-    }
-
     public String getNotes() {
         return notes;
     }
 
     public void setNotes(String notes) {
         this.notes = notes == null ? null : notes.trim();
+    }
+
+    public Integer getOutboundnum() {
+        return outboundnum;
+    }
+
+    public void setOutboundnum(Integer outboundnum) {
+        this.outboundnum = outboundnum;
     }
 
     @Override
@@ -115,8 +115,8 @@ public class DbOutbound implements Serializable {
             && (this.getOrdernum() == null ? other.getOrdernum() == null : this.getOrdernum().equals(other.getOrdernum()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
-            && (this.getOutboundnum() == null ? other.getOutboundnum() == null : this.getOutboundnum().equals(other.getOutboundnum()))
-            && (this.getNotes() == null ? other.getNotes() == null : this.getNotes().equals(other.getNotes()));
+            && (this.getNotes() == null ? other.getNotes() == null : this.getNotes().equals(other.getNotes()))
+            && (this.getOutboundnum() == null ? other.getOutboundnum() == null : this.getOutboundnum().equals(other.getOutboundnum()));
     }
 
     @Override
@@ -130,8 +130,8 @@ public class DbOutbound implements Serializable {
         result = prime * result + ((getOrdernum() == null) ? 0 : getOrdernum().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
-        result = prime * result + ((getOutboundnum() == null) ? 0 : getOutboundnum().hashCode());
         result = prime * result + ((getNotes() == null) ? 0 : getNotes().hashCode());
+        result = prime * result + ((getOutboundnum() == null) ? 0 : getOutboundnum().hashCode());
         return result;
     }
 
@@ -148,8 +148,8 @@ public class DbOutbound implements Serializable {
         sb.append(", ordernum=").append(ordernum);
         sb.append(", oper=").append(oper);
         sb.append(", opertime=").append(opertime);
-        sb.append(", outboundnum=").append(outboundnum);
         sb.append(", notes=").append(notes);
+        sb.append(", outboundnum=").append(outboundnum);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

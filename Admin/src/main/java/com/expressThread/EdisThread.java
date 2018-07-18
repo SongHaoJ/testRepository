@@ -1,22 +1,19 @@
 package com.expressThread;
 
-import com.bean.model.DbExpressconfig;
-import com.bean.model.DbExpresstype;
-import com.bean.util.RetCode;
+import com.bean.yml.EdisYml;
 import com.service.EdisEbayService;
-import com.service.GetService;
-import com.sun.xml.internal.ws.message.FaultMessage;
+import com.service.GetExpressService;
 import com.threadModel.ThreadModel;
-
-import java.util.ArrayList;
 
 public class EdisThread extends ThreadModel {
 
-    private EdisEbayService edisService;
+    private EdisEbayService service;
 
+    private EdisYml yml;
 
     {
-        edisService = GetService.getEdisEbayService();
+        service = GetExpressService.getService();
+        yml = GetExpressService.getEdisYml();
     }
 
     /**
@@ -30,31 +27,11 @@ public class EdisThread extends ThreadModel {
         super(threadType, type, status, taskNumber, stop);
     }
 
-    private boolean initTableFlag = true;
-    private String url = "https://api.edisebay.com/v1/api";// Edis 正式环境地址
-    // https://sandbox.edisebay.com/v1/api Edis 沙箱环境地址
+    @Override
+    public void run() {
 
-    /**
-     * 最小申报价值（美元）
-     */
-    private double declaredValueMinUSD = 0D;
-    /**
-     * 最大申报价值（美元）
-     */
-    private double declaredValueMaxUSD = 0D;
-    /**
-     * 当前货运方式ID
-     */
-    private String expressSequenceid;
-
-
-
-
-
-
-
-
-
+        service.getChannel();
+    }
 
 
 }

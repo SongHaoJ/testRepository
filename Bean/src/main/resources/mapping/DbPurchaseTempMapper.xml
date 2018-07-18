@@ -5,6 +5,7 @@
     <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
     <result column="PRODUCTID" jdbcType="VARCHAR" property="productid" />
     <result column="INPORTTIME" jdbcType="TIMESTAMP" property="inporttime" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
     <result column="ORPER" jdbcType="VARCHAR" property="orper" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
     <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
@@ -13,172 +14,131 @@
     <result column="RESERVE4" jdbcType="VARCHAR" property="reserve4" />
     <result column="RESERVE5" jdbcType="VARCHAR" property="reserve5" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbPurchaseTemp">
-    <result column="TITLE" jdbcType="LONGVARCHAR" property="title" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    SEQUENCEID, PRODUCTID, INPORTTIME, ORPER, OPERTIME, RESERVE1, RESERVE2, RESERVE3, 
-    RESERVE4, RESERVE5
-  </sql>
-  <sql id="Blob_Column_List">
-    TITLE
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from db_purchase_temp
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SEQUENCEID, PRODUCTID, INPORTTIME, TITLE, ORPER, OPERTIME, RESERVE1, RESERVE2, 
+    RESERVE3, RESERVE4, RESERVE5
+    from DB_PURCHASE_TEMP
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_purchase_temp
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, PRODUCTID, INPORTTIME, TITLE, ORPER, OPERTIME, RESERVE1, RESERVE2, 
+    RESERVE3, RESERVE4, RESERVE5
+    from DB_PURCHASE_TEMP
+  </select>
+  <sql id="TableName">
+    DB_PURCHASE_TEMP
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=VARCHAR} , 
+     #{productid,jdbcType=VARCHAR} , 
+     #{inporttime,jdbcType=TIMESTAMP} , 
+     #{title,jdbcType=VARCHAR} , 
+     #{orper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+     #{reserve3,jdbcType=VARCHAR} , 
+     #{reserve4,jdbcType=VARCHAR} , 
+     #{reserve5,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    PRODUCTID , 
+    INPORTTIME , 
+    TITLE , 
+    ORPER , 
+    OPERTIME , 
+    RESERVE1 , 
+    RESERVE2 , 
+    RESERVE3 , 
+    RESERVE4 , 
+    RESERVE5 , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="productid != null">
+      productid = #{productid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="inporttime != null">
+      inporttime = #{inporttime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="title != null">
+      title = #{title,jdbcType=VARCHAR} and 
+    </if>
+    <if test="orper != null">
+      orper = #{orper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="productid != null">
+      productid = #{productid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="inporttime != null">
+      inporttime = #{inporttime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="title != null">
+      title = #{title,jdbcType=VARCHAR} , 
+    </if>
+    <if test="orper != null">
+      orper = #{orper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbPurchaseTemp" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbPurchaseTemp">
-    insert into db_purchase_temp (SEQUENCEID, PRODUCTID, INPORTTIME, 
-      ORPER, OPERTIME, RESERVE1, 
-      RESERVE2, RESERVE3, RESERVE4, 
-      RESERVE5, TITLE)
-    values (#{sequenceid,jdbcType=VARCHAR}, #{productid,jdbcType=VARCHAR}, #{inporttime,jdbcType=TIMESTAMP}, 
-      #{orper,jdbcType=VARCHAR}, #{opertime,jdbcType=TIMESTAMP}, #{reserve1,jdbcType=VARCHAR}, 
-      #{reserve2,jdbcType=VARCHAR}, #{reserve3,jdbcType=VARCHAR}, #{reserve4,jdbcType=VARCHAR}, 
-      #{reserve5,jdbcType=VARCHAR}, #{title,jdbcType=LONGVARCHAR})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbPurchaseTemp">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbPurchaseTemp">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbPurchaseTemp">
-    insert into db_purchase_temp
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        SEQUENCEID,
-      </if>
-      <if test="productid != null">
-        PRODUCTID,
-      </if>
-      <if test="inporttime != null">
-        INPORTTIME,
-      </if>
-      <if test="orper != null">
-        ORPER,
-      </if>
-      <if test="opertime != null">
-        OPERTIME,
-      </if>
-      <if test="reserve1 != null">
-        RESERVE1,
-      </if>
-      <if test="reserve2 != null">
-        RESERVE2,
-      </if>
-      <if test="reserve3 != null">
-        RESERVE3,
-      </if>
-      <if test="reserve4 != null">
-        RESERVE4,
-      </if>
-      <if test="reserve5 != null">
-        RESERVE5,
-      </if>
-      <if test="title != null">
-        TITLE,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        #{sequenceid,jdbcType=VARCHAR},
-      </if>
-      <if test="productid != null">
-        #{productid,jdbcType=VARCHAR},
-      </if>
-      <if test="inporttime != null">
-        #{inporttime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="orper != null">
-        #{orper,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="reserve1 != null">
-        #{reserve1,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve2 != null">
-        #{reserve2,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve3 != null">
-        #{reserve3,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve4 != null">
-        #{reserve4,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve5 != null">
-        #{reserve5,jdbcType=VARCHAR},
-      </if>
-      <if test="title != null">
-        #{title,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbPurchaseTemp">
-    update db_purchase_temp
-    <set>
-      <if test="productid != null">
-        PRODUCTID = #{productid,jdbcType=VARCHAR},
-      </if>
-      <if test="inporttime != null">
-        INPORTTIME = #{inporttime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="orper != null">
-        ORPER = #{orper,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="reserve1 != null">
-        RESERVE1 = #{reserve1,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve2 != null">
-        RESERVE2 = #{reserve2,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve3 != null">
-        RESERVE3 = #{reserve3,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve4 != null">
-        RESERVE4 = #{reserve4,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve5 != null">
-        RESERVE5 = #{reserve5,jdbcType=VARCHAR},
-      </if>
-      <if test="title != null">
-        TITLE = #{title,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbPurchaseTemp">
-    update db_purchase_temp
-    set PRODUCTID = #{productid,jdbcType=VARCHAR},
-      INPORTTIME = #{inporttime,jdbcType=TIMESTAMP},
-      ORPER = #{orper,jdbcType=VARCHAR},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR},
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR},
-      RESERVE4 = #{reserve4,jdbcType=VARCHAR},
-      RESERVE5 = #{reserve5,jdbcType=VARCHAR},
-      TITLE = #{title,jdbcType=LONGVARCHAR}
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbPurchaseTemp">
-    update db_purchase_temp
-    set PRODUCTID = #{productid,jdbcType=VARCHAR},
-      INPORTTIME = #{inporttime,jdbcType=TIMESTAMP},
-      ORPER = #{orper,jdbcType=VARCHAR},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR},
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR},
-      RESERVE4 = #{reserve4,jdbcType=VARCHAR},
-      RESERVE5 = #{reserve5,jdbcType=VARCHAR}
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbPurchaseTemp">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

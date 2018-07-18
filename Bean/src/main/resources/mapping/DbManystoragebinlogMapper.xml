@@ -4,267 +4,206 @@
   <resultMap id="BaseResultMap" type="com.bean.model.DbManystoragebinlog">
     <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
     <result column="PRODUCTID" jdbcType="VARCHAR" property="productid" />
+    <result column="STORAGEID" jdbcType="VARCHAR" property="storageid" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
     <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
     <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
+    <result column="PRODUCTNAME" jdbcType="VARCHAR" property="productname" />
+    <result column="STORAGENAME" jdbcType="VARCHAR" property="storagename" />
+    <result column="DESCR" jdbcType="VARCHAR" property="descr" />
     <result column="NAME" jdbcType="VARCHAR" property="name" />
     <result column="OPERTYPE" jdbcType="VARCHAR" property="opertype" />
+    <result column="CONTENT" jdbcType="VARCHAR" property="content" />
     <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
     <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
     <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
     <result column="STORAGEBINFLAG" jdbcType="VARCHAR" property="storagebinflag" />
     <result column="MAINSKU" jdbcType="VARCHAR" property="mainsku" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbManystoragebinlog">
-    <result column="STORAGEID" jdbcType="LONGVARCHAR" property="storageid" />
-    <result column="PRODUCTNAME" jdbcType="LONGVARCHAR" property="productname" />
-    <result column="STORAGENAME" jdbcType="LONGVARCHAR" property="storagename" />
-    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
-    <result column="CONTENT" jdbcType="LONGVARCHAR" property="content" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    SEQUENCEID, PRODUCTID, OPERTIME, OPER, OPENFLAG, CORPID, 'NAME', OPERTYPE, RESERVE1, 
-    RESERVE2, RESERVE3, STORAGEBINFLAG, MAINSKU
-  </sql>
-  <sql id="Blob_Column_List">
-    STORAGEID, PRODUCTNAME, STORAGENAME, DESCR, CONTENT
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from db_manystoragebinlog
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SEQUENCEID, PRODUCTID, STORAGEID, OPERTIME, OPER, OPENFLAG, CORPID, PRODUCTNAME, 
+    STORAGENAME, DESCR, NAME, OPERTYPE, CONTENT, RESERVE1, RESERVE2, RESERVE3, STORAGEBINFLAG, 
+    MAINSKU
+    from DB_MANYSTORAGEBINLOG
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_manystoragebinlog
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, PRODUCTID, STORAGEID, OPERTIME, OPER, OPENFLAG, CORPID, PRODUCTNAME, 
+    STORAGENAME, DESCR, NAME, OPERTYPE, CONTENT, RESERVE1, RESERVE2, RESERVE3, STORAGEBINFLAG, 
+    MAINSKU
+    from DB_MANYSTORAGEBINLOG
+  </select>
+  <sql id="TableName">
+    DB_MANYSTORAGEBINLOG
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=VARCHAR} , 
+     #{productid,jdbcType=VARCHAR} , 
+     #{storageid,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{openflag,jdbcType=VARCHAR} , 
+     #{corpid,jdbcType=VARCHAR} , 
+     #{productname,jdbcType=VARCHAR} , 
+     #{storagename,jdbcType=VARCHAR} , 
+     #{descr,jdbcType=VARCHAR} , 
+     #{name,jdbcType=VARCHAR} , 
+     #{opertype,jdbcType=VARCHAR} , 
+     #{content,jdbcType=VARCHAR} , 
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+     #{reserve3,jdbcType=VARCHAR} , 
+     #{storagebinflag,jdbcType=VARCHAR} , 
+     #{mainsku,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    PRODUCTID , 
+    STORAGEID , 
+    OPERTIME , 
+    OPER , 
+    OPENFLAG , 
+    CORPID , 
+    PRODUCTNAME , 
+    STORAGENAME , 
+    DESCR , 
+    NAME , 
+    OPERTYPE , 
+    CONTENT , 
+    RESERVE1 , 
+    RESERVE2 , 
+    RESERVE3 , 
+    STORAGEBINFLAG , 
+    MAINSKU , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="productid != null">
+      productid = #{productid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="storageid != null">
+      storageid = #{storageid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="productname != null">
+      productname = #{productname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="storagename != null">
+      storagename = #{storagename,jdbcType=VARCHAR} and 
+    </if>
+    <if test="descr != null">
+      descr = #{descr,jdbcType=VARCHAR} and 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertype != null">
+      opertype = #{opertype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="content != null">
+      content = #{content,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="storagebinflag != null">
+      storagebinflag = #{storagebinflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="mainsku != null">
+      mainsku = #{mainsku,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="productid != null">
+      productid = #{productid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="storageid != null">
+      storageid = #{storageid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="productname != null">
+      productname = #{productname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="storagename != null">
+      storagename = #{storagename,jdbcType=VARCHAR} , 
+    </if>
+    <if test="descr != null">
+      descr = #{descr,jdbcType=VARCHAR} , 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertype != null">
+      opertype = #{opertype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="content != null">
+      content = #{content,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="storagebinflag != null">
+      storagebinflag = #{storagebinflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="mainsku != null">
+      mainsku = #{mainsku,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbManystoragebinlog" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbManystoragebinlog">
-    insert into db_manystoragebinlog (SEQUENCEID, PRODUCTID, OPERTIME, 
-      OPER, OPENFLAG, CORPID, 
-      'NAME', OPERTYPE, RESERVE1, 
-      RESERVE2, RESERVE3, STORAGEBINFLAG, 
-      MAINSKU, STORAGEID, PRODUCTNAME, 
-      STORAGENAME, DESCR, CONTENT
-      )
-    values (#{sequenceid,jdbcType=VARCHAR}, #{productid,jdbcType=VARCHAR}, #{opertime,jdbcType=TIMESTAMP}, 
-      #{oper,jdbcType=VARCHAR}, #{openflag,jdbcType=VARCHAR}, #{corpid,jdbcType=VARCHAR}, 
-      #{name,jdbcType=VARCHAR}, #{opertype,jdbcType=VARCHAR}, #{reserve1,jdbcType=VARCHAR}, 
-      #{reserve2,jdbcType=VARCHAR}, #{reserve3,jdbcType=VARCHAR}, #{storagebinflag,jdbcType=VARCHAR}, 
-      #{mainsku,jdbcType=VARCHAR}, #{storageid,jdbcType=LONGVARCHAR}, #{productname,jdbcType=LONGVARCHAR}, 
-      #{storagename,jdbcType=LONGVARCHAR}, #{descr,jdbcType=LONGVARCHAR}, #{content,jdbcType=LONGVARCHAR}
-      )
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbManystoragebinlog">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbManystoragebinlog">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbManystoragebinlog">
-    insert into db_manystoragebinlog
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        SEQUENCEID,
-      </if>
-      <if test="productid != null">
-        PRODUCTID,
-      </if>
-      <if test="opertime != null">
-        OPERTIME,
-      </if>
-      <if test="oper != null">
-        OPER,
-      </if>
-      <if test="openflag != null">
-        OPENFLAG,
-      </if>
-      <if test="corpid != null">
-        CORPID,
-      </if>
-      <if test="name != null">
-        'NAME',
-      </if>
-      <if test="opertype != null">
-        OPERTYPE,
-      </if>
-      <if test="reserve1 != null">
-        RESERVE1,
-      </if>
-      <if test="reserve2 != null">
-        RESERVE2,
-      </if>
-      <if test="reserve3 != null">
-        RESERVE3,
-      </if>
-      <if test="storagebinflag != null">
-        STORAGEBINFLAG,
-      </if>
-      <if test="mainsku != null">
-        MAINSKU,
-      </if>
-      <if test="storageid != null">
-        STORAGEID,
-      </if>
-      <if test="productname != null">
-        PRODUCTNAME,
-      </if>
-      <if test="storagename != null">
-        STORAGENAME,
-      </if>
-      <if test="descr != null">
-        DESCR,
-      </if>
-      <if test="content != null">
-        CONTENT,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        #{sequenceid,jdbcType=VARCHAR},
-      </if>
-      <if test="productid != null">
-        #{productid,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="oper != null">
-        #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="openflag != null">
-        #{openflag,jdbcType=VARCHAR},
-      </if>
-      <if test="corpid != null">
-        #{corpid,jdbcType=VARCHAR},
-      </if>
-      <if test="name != null">
-        #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="opertype != null">
-        #{opertype,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve1 != null">
-        #{reserve1,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve2 != null">
-        #{reserve2,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve3 != null">
-        #{reserve3,jdbcType=VARCHAR},
-      </if>
-      <if test="storagebinflag != null">
-        #{storagebinflag,jdbcType=VARCHAR},
-      </if>
-      <if test="mainsku != null">
-        #{mainsku,jdbcType=VARCHAR},
-      </if>
-      <if test="storageid != null">
-        #{storageid,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="productname != null">
-        #{productname,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="storagename != null">
-        #{storagename,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="descr != null">
-        #{descr,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="content != null">
-        #{content,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbManystoragebinlog">
-    update db_manystoragebinlog
-    <set>
-      <if test="productid != null">
-        PRODUCTID = #{productid,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="oper != null">
-        OPER = #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="openflag != null">
-        OPENFLAG = #{openflag,jdbcType=VARCHAR},
-      </if>
-      <if test="corpid != null">
-        CORPID = #{corpid,jdbcType=VARCHAR},
-      </if>
-      <if test="name != null">
-        'NAME' = #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="opertype != null">
-        OPERTYPE = #{opertype,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve1 != null">
-        RESERVE1 = #{reserve1,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve2 != null">
-        RESERVE2 = #{reserve2,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve3 != null">
-        RESERVE3 = #{reserve3,jdbcType=VARCHAR},
-      </if>
-      <if test="storagebinflag != null">
-        STORAGEBINFLAG = #{storagebinflag,jdbcType=VARCHAR},
-      </if>
-      <if test="mainsku != null">
-        MAINSKU = #{mainsku,jdbcType=VARCHAR},
-      </if>
-      <if test="storageid != null">
-        STORAGEID = #{storageid,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="productname != null">
-        PRODUCTNAME = #{productname,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="storagename != null">
-        STORAGENAME = #{storagename,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="descr != null">
-        DESCR = #{descr,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="content != null">
-        CONTENT = #{content,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbManystoragebinlog">
-    update db_manystoragebinlog
-    set PRODUCTID = #{productid,jdbcType=VARCHAR},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      OPER = #{oper,jdbcType=VARCHAR},
-      OPENFLAG = #{openflag,jdbcType=VARCHAR},
-      CORPID = #{corpid,jdbcType=VARCHAR},
-      'NAME' = #{name,jdbcType=VARCHAR},
-      OPERTYPE = #{opertype,jdbcType=VARCHAR},
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR},
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR},
-      STORAGEBINFLAG = #{storagebinflag,jdbcType=VARCHAR},
-      MAINSKU = #{mainsku,jdbcType=VARCHAR},
-      STORAGEID = #{storageid,jdbcType=LONGVARCHAR},
-      PRODUCTNAME = #{productname,jdbcType=LONGVARCHAR},
-      STORAGENAME = #{storagename,jdbcType=LONGVARCHAR},
-      DESCR = #{descr,jdbcType=LONGVARCHAR},
-      CONTENT = #{content,jdbcType=LONGVARCHAR}
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbManystoragebinlog">
-    update db_manystoragebinlog
-    set PRODUCTID = #{productid,jdbcType=VARCHAR},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      OPER = #{oper,jdbcType=VARCHAR},
-      OPENFLAG = #{openflag,jdbcType=VARCHAR},
-      CORPID = #{corpid,jdbcType=VARCHAR},
-      'NAME' = #{name,jdbcType=VARCHAR},
-      OPERTYPE = #{opertype,jdbcType=VARCHAR},
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR},
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR},
-      STORAGEBINFLAG = #{storagebinflag,jdbcType=VARCHAR},
-      MAINSKU = #{mainsku,jdbcType=VARCHAR}
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbManystoragebinlog">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

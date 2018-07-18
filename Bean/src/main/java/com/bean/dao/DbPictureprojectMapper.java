@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbPictureproject;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbPictureprojectMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbPictureproject selectByCriteria(DbPictureproject DbPictureproject);
 
-    int insert(DbPictureproject record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbPictureproject record);
+    void deleteByCriteria(DbPictureproject DbPictureproject);
+
+    int insertByCriteria(DbPictureproject DbPictureproject);
+
+    int updateByCriteria(DbPictureproject DbPictureproject);
 
     DbPictureproject selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbPictureproject record);
-
-    int updateByPrimaryKeyWithBLOBs(DbPictureproject record);
-
-    int updateByPrimaryKey(DbPictureproject record);
+    List<DbPictureproject> selectAll();
 }

@@ -4,6 +4,11 @@
   <resultMap id="BaseResultMap" type="com.bean.model.DbBullet">
     <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
     <result column="SPCODE" jdbcType="VARCHAR" property="spcode" />
+    <result column="BTITLE" jdbcType="VARCHAR" property="btitle" />
+    <result column="CONTENT" jdbcType="VARCHAR" property="content" />
+    <result column="BOPER" jdbcType="VARCHAR" property="boper" />
+    <result column="BGROUP" jdbcType="VARCHAR" property="bgroup" />
+    <result column="BCLASS" jdbcType="VARCHAR" property="bclass" />
     <result column="TARGET" jdbcType="DECIMAL" property="target" />
     <result column="SMSDATE" jdbcType="TIMESTAMP" property="smsdate" />
     <result column="BULLETTYPE" jdbcType="DECIMAL" property="bullettype" />
@@ -11,29 +16,29 @@
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
     <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
     <result column="MYID" jdbcType="DECIMAL" property="myid" />
-    <result column="BTITLE" jdbcType="LONGVARCHAR" property="btitle" />
-    <result column="CONTENT" jdbcType="LONGVARCHAR" property="content" />
-    <result column="BOPER" jdbcType="LONGVARCHAR" property="boper" />
-    <result column="BGROUP" jdbcType="LONGVARCHAR" property="bgroup" />
-    <result column="BCLASS" jdbcType="LONGVARCHAR" property="bclass" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select SEQUENCEID, SPCODE, TARGET, SMSDATE, BULLETTYPE, OPER, OPERTIME, OPENFLAG, 
-    MYID, BTITLE, CONTENT, BOPER, BGROUP, BCLASS
-    from db_bullet
+    select SEQUENCEID, SPCODE, BTITLE, CONTENT, BOPER, BGROUP, BCLASS, TARGET, SMSDATE, 
+    BULLETTYPE, OPER, OPERTIME, OPENFLAG, MYID
+    from DB_BULLET
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select SEQUENCEID, SPCODE, TARGET, SMSDATE, BULLETTYPE, OPER, OPERTIME, OPENFLAG, 
-    MYID, BTITLE, CONTENT, BOPER, BGROUP, BCLASS
-    from db_bullet
+    select SEQUENCEID, SPCODE, BTITLE, CONTENT, BOPER, BGROUP, BCLASS, TARGET, SMSDATE, 
+    BULLETTYPE, OPER, OPERTIME, OPENFLAG, MYID
+    from DB_BULLET
   </select>
   <sql id="TableName">
-    db_bullet
+    DB_BULLET
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=VARCHAR} , 
      #{spcode,jdbcType=VARCHAR} , 
+     #{btitle,jdbcType=VARCHAR} , 
+     #{content,jdbcType=VARCHAR} , 
+     #{boper,jdbcType=VARCHAR} , 
+     #{bgroup,jdbcType=VARCHAR} , 
+     #{bclass,jdbcType=VARCHAR} , 
      #{target,jdbcType=DECIMAL} , 
      #{smsdate,jdbcType=TIMESTAMP} , 
      #{bullettype,jdbcType=DECIMAL} , 
@@ -41,15 +46,15 @@
      #{opertime,jdbcType=TIMESTAMP} , 
      #{openflag,jdbcType=VARCHAR} , 
      #{myid,jdbcType=DECIMAL} , 
-     #{btitle,jdbcType=LONGVARCHAR} , 
-     #{content,jdbcType=LONGVARCHAR} , 
-     #{boper,jdbcType=LONGVARCHAR} , 
-     #{bgroup,jdbcType=LONGVARCHAR} , 
-     #{bclass,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
     SPCODE , 
+    BTITLE , 
+    CONTENT , 
+    BOPER , 
+    BGROUP , 
+    BCLASS , 
     TARGET , 
     SMSDATE , 
     BULLETTYPE , 
@@ -57,101 +62,96 @@
     OPERTIME , 
     OPENFLAG , 
     MYID , 
-    BTITLE , 
-    CONTENT , 
-    BOPER , 
-    BGROUP , 
-    BCLASS
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
     </if>
     <if test="spcode != null">
-      SPCODE = #{spcode,jdbcType=VARCHAR} and 
-    </if>
-    <if test="target != null">
-      TARGET = #{target,jdbcType=DECIMAL} and 
-    </if>
-    <if test="smsdate != null">
-      SMSDATE = #{smsdate,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="bullettype != null">
-      BULLETTYPE = #{bullettype,jdbcType=DECIMAL} and 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="myid != null">
-      MYID = #{myid,jdbcType=DECIMAL} and 
+      spcode = #{spcode,jdbcType=VARCHAR} and 
     </if>
     <if test="btitle != null">
-      BTITLE = #{btitle,jdbcType=LONGVARCHAR} and 
+      btitle = #{btitle,jdbcType=VARCHAR} and 
     </if>
     <if test="content != null">
-      CONTENT = #{content,jdbcType=LONGVARCHAR} and 
+      content = #{content,jdbcType=VARCHAR} and 
     </if>
     <if test="boper != null">
-      BOPER = #{boper,jdbcType=LONGVARCHAR} and 
+      boper = #{boper,jdbcType=VARCHAR} and 
     </if>
     <if test="bgroup != null">
-      BGROUP = #{bgroup,jdbcType=LONGVARCHAR} and 
+      bgroup = #{bgroup,jdbcType=VARCHAR} and 
     </if>
     <if test="bclass != null">
-      BCLASS = #{bclass,jdbcType=LONGVARCHAR}
+      bclass = #{bclass,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="target != null">
+      target = #{target,jdbcType=DECIMAL} and 
+    </if>
+    <if test="smsdate != null">
+      smsdate = #{smsdate,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="bullettype != null">
+      bullettype = #{bullettype,jdbcType=DECIMAL} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="myid != null">
+      myid = #{myid,jdbcType=DECIMAL} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
     </if>
     <if test="spcode != null">
-      SPCODE = #{spcode,jdbcType=VARCHAR} , 
-    </if>
-    <if test="target != null">
-      TARGET = #{target,jdbcType=DECIMAL} , 
-    </if>
-    <if test="smsdate != null">
-      SMSDATE = #{smsdate,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="bullettype != null">
-      BULLETTYPE = #{bullettype,jdbcType=DECIMAL} , 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="myid != null">
-      MYID = #{myid,jdbcType=DECIMAL} , 
+      spcode = #{spcode,jdbcType=VARCHAR} , 
     </if>
     <if test="btitle != null">
-      BTITLE = #{btitle,jdbcType=LONGVARCHAR} , 
+      btitle = #{btitle,jdbcType=VARCHAR} , 
     </if>
     <if test="content != null">
-      CONTENT = #{content,jdbcType=LONGVARCHAR} , 
+      content = #{content,jdbcType=VARCHAR} , 
     </if>
     <if test="boper != null">
-      BOPER = #{boper,jdbcType=LONGVARCHAR} , 
+      boper = #{boper,jdbcType=VARCHAR} , 
     </if>
     <if test="bgroup != null">
-      BGROUP = #{bgroup,jdbcType=LONGVARCHAR} , 
+      bgroup = #{bgroup,jdbcType=VARCHAR} , 
     </if>
     <if test="bclass != null">
-      BCLASS = #{bclass,jdbcType=LONGVARCHAR}
+      bclass = #{bclass,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="target != null">
+      target = #{target,jdbcType=DECIMAL} , 
+    </if>
+    <if test="smsdate != null">
+      smsdate = #{smsdate,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="bullettype != null">
+      bullettype = #{bullettype,jdbcType=DECIMAL} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="myid != null">
+      myid = #{myid,jdbcType=DECIMAL} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbBullet" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

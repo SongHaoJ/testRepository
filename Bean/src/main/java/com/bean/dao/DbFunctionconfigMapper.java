@@ -1,20 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbFunctionconfig;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbFunctionconfigMapper {
-    int deleteByPrimaryKey(BigDecimal sid);
+    DbFunctionconfig selectByCriteria(DbFunctionconfig DbFunctionconfig);
 
-    int insert(DbFunctionconfig record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbFunctionconfig record);
+    void deleteByCriteria(DbFunctionconfig DbFunctionconfig);
+
+    int insertByCriteria(DbFunctionconfig DbFunctionconfig);
+
+    int updateByCriteria(DbFunctionconfig DbFunctionconfig);
 
     DbFunctionconfig selectByPrimaryKey(BigDecimal sid);
 
-    int updateByPrimaryKeySelective(DbFunctionconfig record);
-
-    int updateByPrimaryKeyWithBLOBs(DbFunctionconfig record);
-
-    int updateByPrimaryKey(DbFunctionconfig record);
+    List<DbFunctionconfig> selectAll();
 }

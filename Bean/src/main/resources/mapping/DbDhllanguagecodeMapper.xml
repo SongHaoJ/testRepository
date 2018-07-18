@@ -5,27 +5,52 @@
     <result column="CODE" jdbcType="VARCHAR" property="code" />
     <result column="NAME" jdbcType="VARCHAR" property="name" />
   </resultMap>
-  <insert id="insert" parameterType="com.bean.model.DbDhllanguagecode">
-    insert into db_dhllanguagecode (CODE, 'NAME')
-    values (#{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR})
+  <select id="selectAll" resultMap="BaseResultMap">
+    select CODE, NAME
+    from DB_DHLLANGUAGECODE
+  </select>
+  <sql id="TableName">
+    DB_DHLLANGUAGECODE
+  </sql>
+  <sql id="Values">
+     #{code,jdbcType=VARCHAR} , 
+     #{name,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    CODE , 
+    NAME , 
+  </sql>
+  <sql id="Criteria">
+    <if test="code != null">
+      code = #{code,jdbcType=VARCHAR} and 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="code != null">
+      code = #{code,jdbcType=VARCHAR} , 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbDhllanguagecode" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where CODE=#{CODE}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbDhllanguagecode">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbDhllanguagecode">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbDhllanguagecode">
-    insert into db_dhllanguagecode
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="code != null">
-        CODE,
-      </if>
-      <if test="name != null">
-        'NAME',
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="code != null">
-        #{code,jdbcType=VARCHAR},
-      </if>
-      <if test="name != null">
-        #{name,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbDhllanguagecode">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
 </mapper>

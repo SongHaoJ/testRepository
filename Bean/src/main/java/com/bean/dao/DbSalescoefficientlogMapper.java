@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbSalescoefficientlog;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbSalescoefficientlogMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbSalescoefficientlog selectByCriteria(DbSalescoefficientlog DbSalescoefficientlog);
 
-    int insert(DbSalescoefficientlog record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbSalescoefficientlog record);
+    void deleteByCriteria(DbSalescoefficientlog DbSalescoefficientlog);
+
+    int insertByCriteria(DbSalescoefficientlog DbSalescoefficientlog);
+
+    int updateByCriteria(DbSalescoefficientlog DbSalescoefficientlog);
 
     DbSalescoefficientlog selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbSalescoefficientlog record);
-
-    int updateByPrimaryKeyWithBLOBs(DbSalescoefficientlog record);
-
-    int updateByPrimaryKey(DbSalescoefficientlog record);
+    List<DbSalescoefficientlog> selectAll();
 }

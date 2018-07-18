@@ -32,17 +32,17 @@
     select QTSKU, REFSKU, NAME, STANDARD, SORT, UNIT, NETWEIGHT, GW, LENGTH, WIDTH, HEIGHT, 
     CUSTOMNAMECN, CUSTOMNAMEEN, CUSTOMHSCODE, ORIGIN, CURRENCY, UNITPRICE, UPDATETIME, 
     WAREHOUSEID, WAREHOUSENAME, SKUSTOCK, AVAILABLESTOCK, ERRFLAG, ERRDESC, USERID
-    from db_qtsku
+    from DB_QTSKU
     where QTSKU = #{qtsku,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select QTSKU, REFSKU, NAME, STANDARD, SORT, UNIT, NETWEIGHT, GW, LENGTH, WIDTH, HEIGHT, 
     CUSTOMNAMECN, CUSTOMNAMEEN, CUSTOMHSCODE, ORIGIN, CURRENCY, UNITPRICE, UPDATETIME, 
     WAREHOUSEID, WAREHOUSENAME, SKUSTOCK, AVAILABLESTOCK, ERRFLAG, ERRDESC, USERID
-    from db_qtsku
+    from DB_QTSKU
   </select>
   <sql id="TableName">
-    db_qtsku
+    DB_QTSKU
   </sql>
   <sql id="Values">
      #{qtsku,jdbcType=VARCHAR} , 
@@ -69,7 +69,7 @@
      #{availablestock,jdbcType=DECIMAL} , 
      #{errflag,jdbcType=VARCHAR} , 
      #{errdesc,jdbcType=VARCHAR} , 
-     #{userid,jdbcType=VARCHAR}
+     #{userid,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     QTSKU , 
@@ -96,163 +96,163 @@
     AVAILABLESTOCK , 
     ERRFLAG , 
     ERRDESC , 
-    USERID
+    USERID , 
   </sql>
   <sql id="Criteria">
     <if test="qtsku != null">
-      QTSKU = #{qtsku,jdbcType=VARCHAR} and 
+      qtsku = #{qtsku,jdbcType=VARCHAR} and 
     </if>
     <if test="refsku != null">
-      REFSKU = #{refsku,jdbcType=VARCHAR} and 
+      refsku = #{refsku,jdbcType=VARCHAR} and 
     </if>
     <if test="name != null">
-      NAME = #{name,jdbcType=VARCHAR} and 
+      name = #{name,jdbcType=VARCHAR} and 
     </if>
     <if test="standard != null">
-      STANDARD = #{standard,jdbcType=VARCHAR} and 
+      standard = #{standard,jdbcType=VARCHAR} and 
     </if>
     <if test="sort != null">
-      SORT = #{sort,jdbcType=VARCHAR} and 
+      sort = #{sort,jdbcType=VARCHAR} and 
     </if>
     <if test="unit != null">
-      UNIT = #{unit,jdbcType=VARCHAR} and 
+      unit = #{unit,jdbcType=VARCHAR} and 
     </if>
     <if test="netweight != null">
-      NETWEIGHT = #{netweight,jdbcType=DECIMAL} and 
+      netweight = #{netweight,jdbcType=DECIMAL} and 
     </if>
     <if test="gw != null">
-      GW = #{gw,jdbcType=DECIMAL} and 
+      gw = #{gw,jdbcType=DECIMAL} and 
     </if>
     <if test="length != null">
-      LENGTH = #{length,jdbcType=DECIMAL} and 
+      length = #{length,jdbcType=DECIMAL} and 
     </if>
     <if test="width != null">
-      WIDTH = #{width,jdbcType=DECIMAL} and 
+      width = #{width,jdbcType=DECIMAL} and 
     </if>
     <if test="height != null">
-      HEIGHT = #{height,jdbcType=DECIMAL} and 
+      height = #{height,jdbcType=DECIMAL} and 
     </if>
     <if test="customnamecn != null">
-      CUSTOMNAMECN = #{customnamecn,jdbcType=VARCHAR} and 
+      customnamecn = #{customnamecn,jdbcType=VARCHAR} and 
     </if>
     <if test="customnameen != null">
-      CUSTOMNAMEEN = #{customnameen,jdbcType=VARCHAR} and 
+      customnameen = #{customnameen,jdbcType=VARCHAR} and 
     </if>
     <if test="customhscode != null">
-      CUSTOMHSCODE = #{customhscode,jdbcType=VARCHAR} and 
+      customhscode = #{customhscode,jdbcType=VARCHAR} and 
     </if>
     <if test="origin != null">
-      ORIGIN = #{origin,jdbcType=VARCHAR} and 
+      origin = #{origin,jdbcType=VARCHAR} and 
     </if>
     <if test="currency != null">
-      CURRENCY = #{currency,jdbcType=VARCHAR} and 
+      currency = #{currency,jdbcType=VARCHAR} and 
     </if>
     <if test="unitprice != null">
-      UNITPRICE = #{unitprice,jdbcType=VARCHAR} and 
+      unitprice = #{unitprice,jdbcType=VARCHAR} and 
     </if>
     <if test="updatetime != null">
-      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP} and 
+      updatetime = #{updatetime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="warehouseid != null">
-      WAREHOUSEID = #{warehouseid,jdbcType=VARCHAR} and 
+      warehouseid = #{warehouseid,jdbcType=VARCHAR} and 
     </if>
     <if test="warehousename != null">
-      WAREHOUSENAME = #{warehousename,jdbcType=VARCHAR} and 
+      warehousename = #{warehousename,jdbcType=VARCHAR} and 
     </if>
     <if test="skustock != null">
-      SKUSTOCK = #{skustock,jdbcType=DECIMAL} and 
+      skustock = #{skustock,jdbcType=DECIMAL} and 
     </if>
     <if test="availablestock != null">
-      AVAILABLESTOCK = #{availablestock,jdbcType=DECIMAL} and 
+      availablestock = #{availablestock,jdbcType=DECIMAL} and 
     </if>
     <if test="errflag != null">
-      ERRFLAG = #{errflag,jdbcType=VARCHAR} and 
+      errflag = #{errflag,jdbcType=VARCHAR} and 
     </if>
     <if test="errdesc != null">
-      ERRDESC = #{errdesc,jdbcType=VARCHAR} and 
+      errdesc = #{errdesc,jdbcType=VARCHAR} and 
     </if>
     <if test="userid != null">
-      USERID = #{userid,jdbcType=VARCHAR}
+      userid = #{userid,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="qtsku != null">
-      QTSKU = #{qtsku,jdbcType=VARCHAR} , 
+      qtsku = #{qtsku,jdbcType=VARCHAR} , 
     </if>
     <if test="refsku != null">
-      REFSKU = #{refsku,jdbcType=VARCHAR} , 
+      refsku = #{refsku,jdbcType=VARCHAR} , 
     </if>
     <if test="name != null">
-      NAME = #{name,jdbcType=VARCHAR} , 
+      name = #{name,jdbcType=VARCHAR} , 
     </if>
     <if test="standard != null">
-      STANDARD = #{standard,jdbcType=VARCHAR} , 
+      standard = #{standard,jdbcType=VARCHAR} , 
     </if>
     <if test="sort != null">
-      SORT = #{sort,jdbcType=VARCHAR} , 
+      sort = #{sort,jdbcType=VARCHAR} , 
     </if>
     <if test="unit != null">
-      UNIT = #{unit,jdbcType=VARCHAR} , 
+      unit = #{unit,jdbcType=VARCHAR} , 
     </if>
     <if test="netweight != null">
-      NETWEIGHT = #{netweight,jdbcType=DECIMAL} , 
+      netweight = #{netweight,jdbcType=DECIMAL} , 
     </if>
     <if test="gw != null">
-      GW = #{gw,jdbcType=DECIMAL} , 
+      gw = #{gw,jdbcType=DECIMAL} , 
     </if>
     <if test="length != null">
-      LENGTH = #{length,jdbcType=DECIMAL} , 
+      length = #{length,jdbcType=DECIMAL} , 
     </if>
     <if test="width != null">
-      WIDTH = #{width,jdbcType=DECIMAL} , 
+      width = #{width,jdbcType=DECIMAL} , 
     </if>
     <if test="height != null">
-      HEIGHT = #{height,jdbcType=DECIMAL} , 
+      height = #{height,jdbcType=DECIMAL} , 
     </if>
     <if test="customnamecn != null">
-      CUSTOMNAMECN = #{customnamecn,jdbcType=VARCHAR} , 
+      customnamecn = #{customnamecn,jdbcType=VARCHAR} , 
     </if>
     <if test="customnameen != null">
-      CUSTOMNAMEEN = #{customnameen,jdbcType=VARCHAR} , 
+      customnameen = #{customnameen,jdbcType=VARCHAR} , 
     </if>
     <if test="customhscode != null">
-      CUSTOMHSCODE = #{customhscode,jdbcType=VARCHAR} , 
+      customhscode = #{customhscode,jdbcType=VARCHAR} , 
     </if>
     <if test="origin != null">
-      ORIGIN = #{origin,jdbcType=VARCHAR} , 
+      origin = #{origin,jdbcType=VARCHAR} , 
     </if>
     <if test="currency != null">
-      CURRENCY = #{currency,jdbcType=VARCHAR} , 
+      currency = #{currency,jdbcType=VARCHAR} , 
     </if>
     <if test="unitprice != null">
-      UNITPRICE = #{unitprice,jdbcType=VARCHAR} , 
+      unitprice = #{unitprice,jdbcType=VARCHAR} , 
     </if>
     <if test="updatetime != null">
-      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP} , 
+      updatetime = #{updatetime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="warehouseid != null">
-      WAREHOUSEID = #{warehouseid,jdbcType=VARCHAR} , 
+      warehouseid = #{warehouseid,jdbcType=VARCHAR} , 
     </if>
     <if test="warehousename != null">
-      WAREHOUSENAME = #{warehousename,jdbcType=VARCHAR} , 
+      warehousename = #{warehousename,jdbcType=VARCHAR} , 
     </if>
     <if test="skustock != null">
-      SKUSTOCK = #{skustock,jdbcType=DECIMAL} , 
+      skustock = #{skustock,jdbcType=DECIMAL} , 
     </if>
     <if test="availablestock != null">
-      AVAILABLESTOCK = #{availablestock,jdbcType=DECIMAL} , 
+      availablestock = #{availablestock,jdbcType=DECIMAL} , 
     </if>
     <if test="errflag != null">
-      ERRFLAG = #{errflag,jdbcType=VARCHAR} , 
+      errflag = #{errflag,jdbcType=VARCHAR} , 
     </if>
     <if test="errdesc != null">
-      ERRDESC = #{errdesc,jdbcType=VARCHAR} , 
+      errdesc = #{errdesc,jdbcType=VARCHAR} , 
     </if>
     <if test="userid != null">
-      USERID = #{userid,jdbcType=VARCHAR}
+      userid = #{userid,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbQtsku" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

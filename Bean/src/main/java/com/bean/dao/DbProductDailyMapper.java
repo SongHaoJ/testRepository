@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbProductDaily;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbProductDailyMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbProductDaily selectByCriteria(DbProductDaily DbProductDaily);
 
-    int insert(DbProductDaily record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbProductDaily record);
+    void deleteByCriteria(DbProductDaily DbProductDaily);
+
+    int insertByCriteria(DbProductDaily DbProductDaily);
+
+    int updateByCriteria(DbProductDaily DbProductDaily);
 
     DbProductDaily selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbProductDaily record);
-
-    int updateByPrimaryKey(DbProductDaily record);
+    List<DbProductDaily> selectAll();
 }

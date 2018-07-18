@@ -8,177 +8,137 @@
     <result column="QUANTITY" jdbcType="DECIMAL" property="quantity" />
     <result column="COSTPRICE" jdbcType="DECIMAL" property="costprice" />
     <result column="TYPE" jdbcType="VARCHAR" property="type" />
+    <result column="ORIGINDESCR" jdbcType="VARCHAR" property="origindescr" />
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
     <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
     <result column="CHANGE" jdbcType="VARCHAR" property="change" />
     <result column="RELATIONID" jdbcType="VARCHAR" property="relationid" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbSavenumtask">
-    <result column="ORIGINDESCR" jdbcType="LONGVARCHAR" property="origindescr" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    ID, SOURCEID, PRODUCTID, QUANTITY, COSTPRICE, 'TYPE', OPER, CREATETIME, 'CHANGE', 
-    RELATIONID
-  </sql>
-  <sql id="Blob_Column_List">
-    ORIGINDESCR
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="ResultMapWithBLOBs">
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from db_savenumtask
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select ID, SOURCEID, PRODUCTID, QUANTITY, COSTPRICE, TYPE, ORIGINDESCR, OPER, CREATETIME, 
+    CHANGE, RELATIONID
+    from DB_SAVENUMTASK
     where ID = #{id,jdbcType=DECIMAL}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
-    delete from db_savenumtask
-    where ID = #{id,jdbcType=DECIMAL}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ID, SOURCEID, PRODUCTID, QUANTITY, COSTPRICE, TYPE, ORIGINDESCR, OPER, CREATETIME, 
+    CHANGE, RELATIONID
+    from DB_SAVENUMTASK
+  </select>
+  <sql id="TableName">
+    DB_SAVENUMTASK
+  </sql>
+  <sql id="Values">
+     #{id,jdbcType=DECIMAL} , 
+     #{sourceid,jdbcType=VARCHAR} , 
+     #{productid,jdbcType=VARCHAR} , 
+     #{quantity,jdbcType=DECIMAL} , 
+     #{costprice,jdbcType=DECIMAL} , 
+     #{type,jdbcType=VARCHAR} , 
+     #{origindescr,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{createtime,jdbcType=TIMESTAMP} , 
+     #{change,jdbcType=VARCHAR} , 
+     #{relationid,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    ID , 
+    SOURCEID , 
+    PRODUCTID , 
+    QUANTITY , 
+    COSTPRICE , 
+    TYPE , 
+    ORIGINDESCR , 
+    OPER , 
+    CREATETIME , 
+    CHANGE , 
+    RELATIONID , 
+  </sql>
+  <sql id="Criteria">
+    <if test="id != null">
+      id = #{id,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sourceid != null">
+      sourceid = #{sourceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="productid != null">
+      productid = #{productid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="quantity != null">
+      quantity = #{quantity,jdbcType=DECIMAL} and 
+    </if>
+    <if test="costprice != null">
+      costprice = #{costprice,jdbcType=DECIMAL} and 
+    </if>
+    <if test="type != null">
+      type = #{type,jdbcType=VARCHAR} and 
+    </if>
+    <if test="origindescr != null">
+      origindescr = #{origindescr,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="change != null">
+      change = #{change,jdbcType=VARCHAR} and 
+    </if>
+    <if test="relationid != null">
+      relationid = #{relationid,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="id != null">
+      id = #{id,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sourceid != null">
+      sourceid = #{sourceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="productid != null">
+      productid = #{productid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="quantity != null">
+      quantity = #{quantity,jdbcType=DECIMAL} , 
+    </if>
+    <if test="costprice != null">
+      costprice = #{costprice,jdbcType=DECIMAL} , 
+    </if>
+    <if test="type != null">
+      type = #{type,jdbcType=VARCHAR} , 
+    </if>
+    <if test="origindescr != null">
+      origindescr = #{origindescr,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="change != null">
+      change = #{change,jdbcType=VARCHAR} , 
+    </if>
+    <if test="relationid != null">
+      relationid = #{relationid,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbSavenumtask" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="BigDecimal">
+    delete from <include refid="TableName"/> where ID=#{ID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbSavenumtask">
-    insert into db_savenumtask (ID, SOURCEID, PRODUCTID, 
-      QUANTITY, COSTPRICE, 'TYPE', 
-      OPER, CREATETIME, 'CHANGE', 
-      RELATIONID, ORIGINDESCR)
-    values (#{id,jdbcType=DECIMAL}, #{sourceid,jdbcType=VARCHAR}, #{productid,jdbcType=VARCHAR}, 
-      #{quantity,jdbcType=DECIMAL}, #{costprice,jdbcType=DECIMAL}, #{type,jdbcType=VARCHAR}, 
-      #{oper,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{change,jdbcType=VARCHAR}, 
-      #{relationid,jdbcType=VARCHAR}, #{origindescr,jdbcType=LONGVARCHAR})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbSavenumtask">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbSavenumtask">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbSavenumtask">
-    insert into db_savenumtask
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        ID,
-      </if>
-      <if test="sourceid != null">
-        SOURCEID,
-      </if>
-      <if test="productid != null">
-        PRODUCTID,
-      </if>
-      <if test="quantity != null">
-        QUANTITY,
-      </if>
-      <if test="costprice != null">
-        COSTPRICE,
-      </if>
-      <if test="type != null">
-        'TYPE',
-      </if>
-      <if test="oper != null">
-        OPER,
-      </if>
-      <if test="createtime != null">
-        CREATETIME,
-      </if>
-      <if test="change != null">
-        'CHANGE',
-      </if>
-      <if test="relationid != null">
-        RELATIONID,
-      </if>
-      <if test="origindescr != null">
-        ORIGINDESCR,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=DECIMAL},
-      </if>
-      <if test="sourceid != null">
-        #{sourceid,jdbcType=VARCHAR},
-      </if>
-      <if test="productid != null">
-        #{productid,jdbcType=VARCHAR},
-      </if>
-      <if test="quantity != null">
-        #{quantity,jdbcType=DECIMAL},
-      </if>
-      <if test="costprice != null">
-        #{costprice,jdbcType=DECIMAL},
-      </if>
-      <if test="type != null">
-        #{type,jdbcType=VARCHAR},
-      </if>
-      <if test="oper != null">
-        #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="createtime != null">
-        #{createtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="change != null">
-        #{change,jdbcType=VARCHAR},
-      </if>
-      <if test="relationid != null">
-        #{relationid,jdbcType=VARCHAR},
-      </if>
-      <if test="origindescr != null">
-        #{origindescr,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbSavenumtask">
-    update db_savenumtask
-    <set>
-      <if test="sourceid != null">
-        SOURCEID = #{sourceid,jdbcType=VARCHAR},
-      </if>
-      <if test="productid != null">
-        PRODUCTID = #{productid,jdbcType=VARCHAR},
-      </if>
-      <if test="quantity != null">
-        QUANTITY = #{quantity,jdbcType=DECIMAL},
-      </if>
-      <if test="costprice != null">
-        COSTPRICE = #{costprice,jdbcType=DECIMAL},
-      </if>
-      <if test="type != null">
-        'TYPE' = #{type,jdbcType=VARCHAR},
-      </if>
-      <if test="oper != null">
-        OPER = #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="createtime != null">
-        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="change != null">
-        'CHANGE' = #{change,jdbcType=VARCHAR},
-      </if>
-      <if test="relationid != null">
-        RELATIONID = #{relationid,jdbcType=VARCHAR},
-      </if>
-      <if test="origindescr != null">
-        ORIGINDESCR = #{origindescr,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where ID = #{id,jdbcType=DECIMAL}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbSavenumtask">
-    update db_savenumtask
-    set SOURCEID = #{sourceid,jdbcType=VARCHAR},
-      PRODUCTID = #{productid,jdbcType=VARCHAR},
-      QUANTITY = #{quantity,jdbcType=DECIMAL},
-      COSTPRICE = #{costprice,jdbcType=DECIMAL},
-      'TYPE' = #{type,jdbcType=VARCHAR},
-      OPER = #{oper,jdbcType=VARCHAR},
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
-      'CHANGE' = #{change,jdbcType=VARCHAR},
-      RELATIONID = #{relationid,jdbcType=VARCHAR},
-      ORIGINDESCR = #{origindescr,jdbcType=LONGVARCHAR}
-    where ID = #{id,jdbcType=DECIMAL}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbSavenumtask">
-    update db_savenumtask
-    set SOURCEID = #{sourceid,jdbcType=VARCHAR},
-      PRODUCTID = #{productid,jdbcType=VARCHAR},
-      QUANTITY = #{quantity,jdbcType=DECIMAL},
-      COSTPRICE = #{costprice,jdbcType=DECIMAL},
-      'TYPE' = #{type,jdbcType=VARCHAR},
-      OPER = #{oper,jdbcType=VARCHAR},
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
-      'CHANGE' = #{change,jdbcType=VARCHAR},
-      RELATIONID = #{relationid,jdbcType=VARCHAR}
-    where ID = #{id,jdbcType=DECIMAL}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbSavenumtask">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

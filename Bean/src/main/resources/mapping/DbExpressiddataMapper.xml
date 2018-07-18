@@ -3,9 +3,12 @@
 <mapper namespace="com.bean.dao.DbExpressiddataMapper">
   <resultMap id="BaseResultMap" type="com.bean.model.DbExpressiddata">
     <id column="SID" jdbcType="VARCHAR" property="sid" />
+    <result column="PREFIX" jdbcType="VARCHAR" property="prefix" />
+    <result column="SUFFIX" jdbcType="VARCHAR" property="suffix" />
     <result column="EXPRESSIDBEGIN" jdbcType="DECIMAL" property="expressidbegin" />
     <result column="EXPRESSIDEND" jdbcType="DECIMAL" property="expressidend" />
     <result column="USEEXPRESSID" jdbcType="DECIMAL" property="useexpressid" />
+    <result column="EXPRESSTYPEID" jdbcType="VARCHAR" property="expresstypeid" />
     <result column="EXPRESSTYPE" jdbcType="VARCHAR" property="expresstype" />
     <result column="OPERFLAG" jdbcType="VARCHAR" property="operflag" />
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
@@ -14,207 +17,155 @@
     <result column="CREATTIME" jdbcType="TIMESTAMP" property="creattime" />
     <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbExpressiddata">
-    <result column="PREFIX" jdbcType="LONGVARCHAR" property="prefix" />
-    <result column="SUFFIX" jdbcType="LONGVARCHAR" property="suffix" />
-    <result column="EXPRESSTYPEID" jdbcType="LONGVARCHAR" property="expresstypeid" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    SID, EXPRESSIDBEGIN, EXPRESSIDEND, USEEXPRESSID, EXPRESSTYPE, OPERFLAG, OPER, OPERTIME, 
-    CREATEOPER, CREATTIME, CORPID
-  </sql>
-  <sql id="Blob_Column_List">
-    'PREFIX', SUFFIX, EXPRESSTYPEID
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from db_expressiddata
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SID, PREFIX, SUFFIX, EXPRESSIDBEGIN, EXPRESSIDEND, USEEXPRESSID, EXPRESSTYPEID, 
+    EXPRESSTYPE, OPERFLAG, OPER, OPERTIME, CREATEOPER, CREATTIME, CORPID
+    from DB_EXPRESSIDDATA
     where SID = #{sid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_expressiddata
-    where SID = #{sid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, PREFIX, SUFFIX, EXPRESSIDBEGIN, EXPRESSIDEND, USEEXPRESSID, EXPRESSTYPEID, 
+    EXPRESSTYPE, OPERFLAG, OPER, OPERTIME, CREATEOPER, CREATTIME, CORPID
+    from DB_EXPRESSIDDATA
+  </select>
+  <sql id="TableName">
+    DB_EXPRESSIDDATA
+  </sql>
+  <sql id="Values">
+     #{sid,jdbcType=VARCHAR} , 
+     #{prefix,jdbcType=VARCHAR} , 
+     #{suffix,jdbcType=VARCHAR} , 
+     #{expressidbegin,jdbcType=DECIMAL} , 
+     #{expressidend,jdbcType=DECIMAL} , 
+     #{useexpressid,jdbcType=DECIMAL} , 
+     #{expresstypeid,jdbcType=VARCHAR} , 
+     #{expresstype,jdbcType=VARCHAR} , 
+     #{operflag,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{createoper,jdbcType=VARCHAR} , 
+     #{creattime,jdbcType=TIMESTAMP} , 
+     #{corpid,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    SID , 
+    PREFIX , 
+    SUFFIX , 
+    EXPRESSIDBEGIN , 
+    EXPRESSIDEND , 
+    USEEXPRESSID , 
+    EXPRESSTYPEID , 
+    EXPRESSTYPE , 
+    OPERFLAG , 
+    OPER , 
+    OPERTIME , 
+    CREATEOPER , 
+    CREATTIME , 
+    CORPID , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="prefix != null">
+      prefix = #{prefix,jdbcType=VARCHAR} and 
+    </if>
+    <if test="suffix != null">
+      suffix = #{suffix,jdbcType=VARCHAR} and 
+    </if>
+    <if test="expressidbegin != null">
+      expressidbegin = #{expressidbegin,jdbcType=DECIMAL} and 
+    </if>
+    <if test="expressidend != null">
+      expressidend = #{expressidend,jdbcType=DECIMAL} and 
+    </if>
+    <if test="useexpressid != null">
+      useexpressid = #{useexpressid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="expresstypeid != null">
+      expresstypeid = #{expresstypeid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="expresstype != null">
+      expresstype = #{expresstype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="operflag != null">
+      operflag = #{operflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="createoper != null">
+      createoper = #{createoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="creattime != null">
+      creattime = #{creattime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="prefix != null">
+      prefix = #{prefix,jdbcType=VARCHAR} , 
+    </if>
+    <if test="suffix != null">
+      suffix = #{suffix,jdbcType=VARCHAR} , 
+    </if>
+    <if test="expressidbegin != null">
+      expressidbegin = #{expressidbegin,jdbcType=DECIMAL} , 
+    </if>
+    <if test="expressidend != null">
+      expressidend = #{expressidend,jdbcType=DECIMAL} , 
+    </if>
+    <if test="useexpressid != null">
+      useexpressid = #{useexpressid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="expresstypeid != null">
+      expresstypeid = #{expresstypeid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="expresstype != null">
+      expresstype = #{expresstype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="operflag != null">
+      operflag = #{operflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="createoper != null">
+      createoper = #{createoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="creattime != null">
+      creattime = #{creattime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbExpressiddata" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SID=#{SID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbExpressiddata">
-    insert into db_expressiddata (SID, EXPRESSIDBEGIN, EXPRESSIDEND, 
-      USEEXPRESSID, EXPRESSTYPE, OPERFLAG, 
-      OPER, OPERTIME, CREATEOPER, 
-      CREATTIME, CORPID, 'PREFIX', 
-      SUFFIX, EXPRESSTYPEID)
-    values (#{sid,jdbcType=VARCHAR}, #{expressidbegin,jdbcType=DECIMAL}, #{expressidend,jdbcType=DECIMAL}, 
-      #{useexpressid,jdbcType=DECIMAL}, #{expresstype,jdbcType=VARCHAR}, #{operflag,jdbcType=VARCHAR}, 
-      #{oper,jdbcType=VARCHAR}, #{opertime,jdbcType=TIMESTAMP}, #{createoper,jdbcType=VARCHAR}, 
-      #{creattime,jdbcType=TIMESTAMP}, #{corpid,jdbcType=VARCHAR}, #{prefix,jdbcType=LONGVARCHAR}, 
-      #{suffix,jdbcType=LONGVARCHAR}, #{expresstypeid,jdbcType=LONGVARCHAR})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbExpressiddata">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbExpressiddata">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbExpressiddata">
-    insert into db_expressiddata
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        SID,
-      </if>
-      <if test="expressidbegin != null">
-        EXPRESSIDBEGIN,
-      </if>
-      <if test="expressidend != null">
-        EXPRESSIDEND,
-      </if>
-      <if test="useexpressid != null">
-        USEEXPRESSID,
-      </if>
-      <if test="expresstype != null">
-        EXPRESSTYPE,
-      </if>
-      <if test="operflag != null">
-        OPERFLAG,
-      </if>
-      <if test="oper != null">
-        OPER,
-      </if>
-      <if test="opertime != null">
-        OPERTIME,
-      </if>
-      <if test="createoper != null">
-        CREATEOPER,
-      </if>
-      <if test="creattime != null">
-        CREATTIME,
-      </if>
-      <if test="corpid != null">
-        CORPID,
-      </if>
-      <if test="prefix != null">
-        'PREFIX',
-      </if>
-      <if test="suffix != null">
-        SUFFIX,
-      </if>
-      <if test="expresstypeid != null">
-        EXPRESSTYPEID,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        #{sid,jdbcType=VARCHAR},
-      </if>
-      <if test="expressidbegin != null">
-        #{expressidbegin,jdbcType=DECIMAL},
-      </if>
-      <if test="expressidend != null">
-        #{expressidend,jdbcType=DECIMAL},
-      </if>
-      <if test="useexpressid != null">
-        #{useexpressid,jdbcType=DECIMAL},
-      </if>
-      <if test="expresstype != null">
-        #{expresstype,jdbcType=VARCHAR},
-      </if>
-      <if test="operflag != null">
-        #{operflag,jdbcType=VARCHAR},
-      </if>
-      <if test="oper != null">
-        #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="createoper != null">
-        #{createoper,jdbcType=VARCHAR},
-      </if>
-      <if test="creattime != null">
-        #{creattime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="corpid != null">
-        #{corpid,jdbcType=VARCHAR},
-      </if>
-      <if test="prefix != null">
-        #{prefix,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="suffix != null">
-        #{suffix,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="expresstypeid != null">
-        #{expresstypeid,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbExpressiddata">
-    update db_expressiddata
-    <set>
-      <if test="expressidbegin != null">
-        EXPRESSIDBEGIN = #{expressidbegin,jdbcType=DECIMAL},
-      </if>
-      <if test="expressidend != null">
-        EXPRESSIDEND = #{expressidend,jdbcType=DECIMAL},
-      </if>
-      <if test="useexpressid != null">
-        USEEXPRESSID = #{useexpressid,jdbcType=DECIMAL},
-      </if>
-      <if test="expresstype != null">
-        EXPRESSTYPE = #{expresstype,jdbcType=VARCHAR},
-      </if>
-      <if test="operflag != null">
-        OPERFLAG = #{operflag,jdbcType=VARCHAR},
-      </if>
-      <if test="oper != null">
-        OPER = #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="createoper != null">
-        CREATEOPER = #{createoper,jdbcType=VARCHAR},
-      </if>
-      <if test="creattime != null">
-        CREATTIME = #{creattime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="corpid != null">
-        CORPID = #{corpid,jdbcType=VARCHAR},
-      </if>
-      <if test="prefix != null">
-        'PREFIX' = #{prefix,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="suffix != null">
-        SUFFIX = #{suffix,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="expresstypeid != null">
-        EXPRESSTYPEID = #{expresstypeid,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where SID = #{sid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbExpressiddata">
-    update db_expressiddata
-    set EXPRESSIDBEGIN = #{expressidbegin,jdbcType=DECIMAL},
-      EXPRESSIDEND = #{expressidend,jdbcType=DECIMAL},
-      USEEXPRESSID = #{useexpressid,jdbcType=DECIMAL},
-      EXPRESSTYPE = #{expresstype,jdbcType=VARCHAR},
-      OPERFLAG = #{operflag,jdbcType=VARCHAR},
-      OPER = #{oper,jdbcType=VARCHAR},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      CREATEOPER = #{createoper,jdbcType=VARCHAR},
-      CREATTIME = #{creattime,jdbcType=TIMESTAMP},
-      CORPID = #{corpid,jdbcType=VARCHAR},
-      'PREFIX' = #{prefix,jdbcType=LONGVARCHAR},
-      SUFFIX = #{suffix,jdbcType=LONGVARCHAR},
-      EXPRESSTYPEID = #{expresstypeid,jdbcType=LONGVARCHAR}
-    where SID = #{sid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbExpressiddata">
-    update db_expressiddata
-    set EXPRESSIDBEGIN = #{expressidbegin,jdbcType=DECIMAL},
-      EXPRESSIDEND = #{expressidend,jdbcType=DECIMAL},
-      USEEXPRESSID = #{useexpressid,jdbcType=DECIMAL},
-      EXPRESSTYPE = #{expresstype,jdbcType=VARCHAR},
-      OPERFLAG = #{operflag,jdbcType=VARCHAR},
-      OPER = #{oper,jdbcType=VARCHAR},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      CREATEOPER = #{createoper,jdbcType=VARCHAR},
-      CREATTIME = #{creattime,jdbcType=TIMESTAMP},
-      CORPID = #{corpid,jdbcType=VARCHAR}
-    where SID = #{sid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbExpressiddata">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

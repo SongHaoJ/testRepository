@@ -9,25 +9,25 @@
     <result column="PSCID" jdbcType="VARCHAR" property="pscid" />
     <result column="EXPRESSTYPE" jdbcType="VARCHAR" property="expresstype" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="EXPRESSTYPEID" jdbcType="VARCHAR" property="expresstypeid" />
     <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
     <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="PRINTER" jdbcType="VARCHAR" property="printer" />
     <result column="LABELID" jdbcType="VARCHAR" property="labelid" />
-    <result column="EXPRESSTYPEID" jdbcType="LONGVARCHAR" property="expresstypeid" />
-    <result column="PRINTER" jdbcType="LONGVARCHAR" property="printer" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select SID, OPER, CORPID, RESERVE1, PSCID, EXPRESSTYPE, OPERTIME, RESERVE3, RESERVE2, 
-    LABELID, EXPRESSTYPEID, PRINTER
-    from db_printorderbyskuconfiginfo
+    select SID, OPER, CORPID, RESERVE1, PSCID, EXPRESSTYPE, OPERTIME, EXPRESSTYPEID, 
+    RESERVE3, RESERVE2, PRINTER, LABELID
+    from DB_PRINTORDERBYSKUCONFIGINFO
     where SID = #{sid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select SID, OPER, CORPID, RESERVE1, PSCID, EXPRESSTYPE, OPERTIME, RESERVE3, RESERVE2, 
-    LABELID, EXPRESSTYPEID, PRINTER
-    from db_printorderbyskuconfiginfo
+    select SID, OPER, CORPID, RESERVE1, PSCID, EXPRESSTYPE, OPERTIME, EXPRESSTYPEID, 
+    RESERVE3, RESERVE2, PRINTER, LABELID
+    from DB_PRINTORDERBYSKUCONFIGINFO
   </select>
   <sql id="TableName">
-    db_printorderbyskuconfiginfo
+    DB_PRINTORDERBYSKUCONFIGINFO
   </sql>
   <sql id="Values">
      #{sid,jdbcType=VARCHAR} , 
@@ -37,11 +37,11 @@
      #{pscid,jdbcType=VARCHAR} , 
      #{expresstype,jdbcType=VARCHAR} , 
      #{opertime,jdbcType=TIMESTAMP} , 
+     #{expresstypeid,jdbcType=VARCHAR} , 
      #{reserve3,jdbcType=VARCHAR} , 
      #{reserve2,jdbcType=VARCHAR} , 
+     #{printer,jdbcType=VARCHAR} , 
      #{labelid,jdbcType=VARCHAR} , 
-     #{expresstypeid,jdbcType=LONGVARCHAR} , 
-     #{printer,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     SID , 
@@ -51,89 +51,89 @@
     PSCID , 
     EXPRESSTYPE , 
     OPERTIME , 
+    EXPRESSTYPEID , 
     RESERVE3 , 
     RESERVE2 , 
+    PRINTER , 
     LABELID , 
-    EXPRESSTYPEID , 
-    PRINTER
   </sql>
   <sql id="Criteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} and 
+      sid = #{sid,jdbcType=VARCHAR} and 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
+      oper = #{oper,jdbcType=VARCHAR} and 
     </if>
     <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} and 
+      corpid = #{corpid,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
     </if>
     <if test="pscid != null">
-      PSCID = #{pscid,jdbcType=VARCHAR} and 
+      pscid = #{pscid,jdbcType=VARCHAR} and 
     </if>
     <if test="expresstype != null">
-      EXPRESSTYPE = #{expresstype,jdbcType=VARCHAR} and 
+      expresstype = #{expresstype,jdbcType=VARCHAR} and 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
-    </if>
-    <if test="labelid != null">
-      LABELID = #{labelid,jdbcType=VARCHAR} and 
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="expresstypeid != null">
-      EXPRESSTYPEID = #{expresstypeid,jdbcType=LONGVARCHAR} and 
+      expresstypeid = #{expresstypeid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
     </if>
     <if test="printer != null">
-      PRINTER = #{printer,jdbcType=LONGVARCHAR}
+      printer = #{printer,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="labelid != null">
+      labelid = #{labelid,jdbcType=VARCHAR} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} , 
+      sid = #{sid,jdbcType=VARCHAR} , 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
+      oper = #{oper,jdbcType=VARCHAR} , 
     </if>
     <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} , 
+      corpid = #{corpid,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
     </if>
     <if test="pscid != null">
-      PSCID = #{pscid,jdbcType=VARCHAR} , 
+      pscid = #{pscid,jdbcType=VARCHAR} , 
     </if>
     <if test="expresstype != null">
-      EXPRESSTYPE = #{expresstype,jdbcType=VARCHAR} , 
+      expresstype = #{expresstype,jdbcType=VARCHAR} , 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
-    </if>
-    <if test="labelid != null">
-      LABELID = #{labelid,jdbcType=VARCHAR} , 
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="expresstypeid != null">
-      EXPRESSTYPEID = #{expresstypeid,jdbcType=LONGVARCHAR} , 
+      expresstypeid = #{expresstypeid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
     </if>
     <if test="printer != null">
-      PRINTER = #{printer,jdbcType=LONGVARCHAR}
+      printer = #{printer,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="labelid != null">
+      labelid = #{labelid,jdbcType=VARCHAR} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbPrintorderbyskuconfiginfo" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

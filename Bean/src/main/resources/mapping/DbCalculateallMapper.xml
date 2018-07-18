@@ -29,313 +29,255 @@
     <result column="COSTFILED8" jdbcType="DECIMAL" property="costfiled8" />
     <result column="COSTFILED9" jdbcType="DECIMAL" property="costfiled9" />
   </resultMap>
-  <sql id="Base_Column_List">
-    SEQUENCEID, PLATFORMID, PLATFORMNAME, COSTTYPE, EXPRESSTYPEID, TOCOUNTRY, MAOLI, 
-    OPER, OPERTIME, CORPID, OPENFLAG, 'NAME', PACKAGINGID, EXPRESSTYPE, CURRENCY, EXCHANGERATE, 
-    DEFAULTRATE, PAYPALCOST, PAGECHARGE, FIXEDCHARGE, EXPRESSTYPEFEEID, EXPRESSTYPEFILED8, 
-    PACKWEIGHT, PACKCOST, COSTFILED8, COSTFILED9
-  </sql>
   <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from db_calculateall
+    select SEQUENCEID, PLATFORMID, PLATFORMNAME, COSTTYPE, EXPRESSTYPEID, TOCOUNTRY, 
+    MAOLI, OPER, OPERTIME, CORPID, OPENFLAG, NAME, PACKAGINGID, EXPRESSTYPE, CURRENCY, 
+    EXCHANGERATE, DEFAULTRATE, PAYPALCOST, PAGECHARGE, FIXEDCHARGE, EXPRESSTYPEFEEID, 
+    EXPRESSTYPEFILED8, PACKWEIGHT, PACKCOST, COSTFILED8, COSTFILED9
+    from DB_CALCULATEALL
     where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
-    delete from db_calculateall
-    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, PLATFORMID, PLATFORMNAME, COSTTYPE, EXPRESSTYPEID, TOCOUNTRY, 
+    MAOLI, OPER, OPERTIME, CORPID, OPENFLAG, NAME, PACKAGINGID, EXPRESSTYPE, CURRENCY, 
+    EXCHANGERATE, DEFAULTRATE, PAYPALCOST, PAGECHARGE, FIXEDCHARGE, EXPRESSTYPEFEEID, 
+    EXPRESSTYPEFILED8, PACKWEIGHT, PACKCOST, COSTFILED8, COSTFILED9
+    from DB_CALCULATEALL
+  </select>
+  <sql id="TableName">
+    DB_CALCULATEALL
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=DECIMAL} , 
+     #{platformid,jdbcType=DECIMAL} , 
+     #{platformname,jdbcType=VARCHAR} , 
+     #{costtype,jdbcType=DECIMAL} , 
+     #{expresstypeid,jdbcType=DECIMAL} , 
+     #{tocountry,jdbcType=VARCHAR} , 
+     #{maoli,jdbcType=DECIMAL} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{corpid,jdbcType=DECIMAL} , 
+     #{openflag,jdbcType=DECIMAL} , 
+     #{name,jdbcType=VARCHAR} , 
+     #{packagingid,jdbcType=DECIMAL} , 
+     #{expresstype,jdbcType=VARCHAR} , 
+     #{currency,jdbcType=VARCHAR} , 
+     #{exchangerate,jdbcType=DECIMAL} , 
+     #{defaultrate,jdbcType=DECIMAL} , 
+     #{paypalcost,jdbcType=DECIMAL} , 
+     #{pagecharge,jdbcType=DECIMAL} , 
+     #{fixedcharge,jdbcType=DECIMAL} , 
+     #{expresstypefeeid,jdbcType=VARCHAR} , 
+     #{expresstypefiled8,jdbcType=DECIMAL} , 
+     #{packweight,jdbcType=DECIMAL} , 
+     #{packcost,jdbcType=DECIMAL} , 
+     #{costfiled8,jdbcType=DECIMAL} , 
+     #{costfiled9,jdbcType=DECIMAL} , 
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    PLATFORMID , 
+    PLATFORMNAME , 
+    COSTTYPE , 
+    EXPRESSTYPEID , 
+    TOCOUNTRY , 
+    MAOLI , 
+    OPER , 
+    OPERTIME , 
+    CORPID , 
+    OPENFLAG , 
+    NAME , 
+    PACKAGINGID , 
+    EXPRESSTYPE , 
+    CURRENCY , 
+    EXCHANGERATE , 
+    DEFAULTRATE , 
+    PAYPALCOST , 
+    PAGECHARGE , 
+    FIXEDCHARGE , 
+    EXPRESSTYPEFEEID , 
+    EXPRESSTYPEFILED8 , 
+    PACKWEIGHT , 
+    PACKCOST , 
+    COSTFILED8 , 
+    COSTFILED9 , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="platformid != null">
+      platformid = #{platformid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="platformname != null">
+      platformname = #{platformname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="costtype != null">
+      costtype = #{costtype,jdbcType=DECIMAL} and 
+    </if>
+    <if test="expresstypeid != null">
+      expresstypeid = #{expresstypeid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="tocountry != null">
+      tocountry = #{tocountry,jdbcType=VARCHAR} and 
+    </if>
+    <if test="maoli != null">
+      maoli = #{maoli,jdbcType=DECIMAL} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} and 
+    </if>
+    <if test="packagingid != null">
+      packagingid = #{packagingid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="expresstype != null">
+      expresstype = #{expresstype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="currency != null">
+      currency = #{currency,jdbcType=VARCHAR} and 
+    </if>
+    <if test="exchangerate != null">
+      exchangerate = #{exchangerate,jdbcType=DECIMAL} and 
+    </if>
+    <if test="defaultrate != null">
+      defaultrate = #{defaultrate,jdbcType=DECIMAL} and 
+    </if>
+    <if test="paypalcost != null">
+      paypalcost = #{paypalcost,jdbcType=DECIMAL} and 
+    </if>
+    <if test="pagecharge != null">
+      pagecharge = #{pagecharge,jdbcType=DECIMAL} and 
+    </if>
+    <if test="fixedcharge != null">
+      fixedcharge = #{fixedcharge,jdbcType=DECIMAL} and 
+    </if>
+    <if test="expresstypefeeid != null">
+      expresstypefeeid = #{expresstypefeeid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="expresstypefiled8 != null">
+      expresstypefiled8 = #{expresstypefiled8,jdbcType=DECIMAL} and 
+    </if>
+    <if test="packweight != null">
+      packweight = #{packweight,jdbcType=DECIMAL} and 
+    </if>
+    <if test="packcost != null">
+      packcost = #{packcost,jdbcType=DECIMAL} and 
+    </if>
+    <if test="costfiled8 != null">
+      costfiled8 = #{costfiled8,jdbcType=DECIMAL} and 
+    </if>
+    <if test="costfiled9 != null">
+      costfiled9 = #{costfiled9,jdbcType=DECIMAL} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="platformid != null">
+      platformid = #{platformid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="platformname != null">
+      platformname = #{platformname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="costtype != null">
+      costtype = #{costtype,jdbcType=DECIMAL} , 
+    </if>
+    <if test="expresstypeid != null">
+      expresstypeid = #{expresstypeid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="tocountry != null">
+      tocountry = #{tocountry,jdbcType=VARCHAR} , 
+    </if>
+    <if test="maoli != null">
+      maoli = #{maoli,jdbcType=DECIMAL} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} , 
+    </if>
+    <if test="packagingid != null">
+      packagingid = #{packagingid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="expresstype != null">
+      expresstype = #{expresstype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="currency != null">
+      currency = #{currency,jdbcType=VARCHAR} , 
+    </if>
+    <if test="exchangerate != null">
+      exchangerate = #{exchangerate,jdbcType=DECIMAL} , 
+    </if>
+    <if test="defaultrate != null">
+      defaultrate = #{defaultrate,jdbcType=DECIMAL} , 
+    </if>
+    <if test="paypalcost != null">
+      paypalcost = #{paypalcost,jdbcType=DECIMAL} , 
+    </if>
+    <if test="pagecharge != null">
+      pagecharge = #{pagecharge,jdbcType=DECIMAL} , 
+    </if>
+    <if test="fixedcharge != null">
+      fixedcharge = #{fixedcharge,jdbcType=DECIMAL} , 
+    </if>
+    <if test="expresstypefeeid != null">
+      expresstypefeeid = #{expresstypefeeid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="expresstypefiled8 != null">
+      expresstypefiled8 = #{expresstypefiled8,jdbcType=DECIMAL} , 
+    </if>
+    <if test="packweight != null">
+      packweight = #{packweight,jdbcType=DECIMAL} , 
+    </if>
+    <if test="packcost != null">
+      packcost = #{packcost,jdbcType=DECIMAL} , 
+    </if>
+    <if test="costfiled8 != null">
+      costfiled8 = #{costfiled8,jdbcType=DECIMAL} , 
+    </if>
+    <if test="costfiled9 != null">
+      costfiled9 = #{costfiled9,jdbcType=DECIMAL} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbCalculateall" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="BigDecimal">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbCalculateall">
-    insert into db_calculateall (SEQUENCEID, PLATFORMID, PLATFORMNAME, 
-      COSTTYPE, EXPRESSTYPEID, TOCOUNTRY, 
-      MAOLI, OPER, OPERTIME, 
-      CORPID, OPENFLAG, 'NAME', 
-      PACKAGINGID, EXPRESSTYPE, CURRENCY, 
-      EXCHANGERATE, DEFAULTRATE, PAYPALCOST, 
-      PAGECHARGE, FIXEDCHARGE, EXPRESSTYPEFEEID, 
-      EXPRESSTYPEFILED8, PACKWEIGHT, PACKCOST, 
-      COSTFILED8, COSTFILED9)
-    values (#{sequenceid,jdbcType=DECIMAL}, #{platformid,jdbcType=DECIMAL}, #{platformname,jdbcType=VARCHAR}, 
-      #{costtype,jdbcType=DECIMAL}, #{expresstypeid,jdbcType=DECIMAL}, #{tocountry,jdbcType=VARCHAR}, 
-      #{maoli,jdbcType=DECIMAL}, #{oper,jdbcType=VARCHAR}, #{opertime,jdbcType=TIMESTAMP}, 
-      #{corpid,jdbcType=DECIMAL}, #{openflag,jdbcType=DECIMAL}, #{name,jdbcType=VARCHAR}, 
-      #{packagingid,jdbcType=DECIMAL}, #{expresstype,jdbcType=VARCHAR}, #{currency,jdbcType=VARCHAR}, 
-      #{exchangerate,jdbcType=DECIMAL}, #{defaultrate,jdbcType=DECIMAL}, #{paypalcost,jdbcType=DECIMAL}, 
-      #{pagecharge,jdbcType=DECIMAL}, #{fixedcharge,jdbcType=DECIMAL}, #{expresstypefeeid,jdbcType=VARCHAR}, 
-      #{expresstypefiled8,jdbcType=DECIMAL}, #{packweight,jdbcType=DECIMAL}, #{packcost,jdbcType=DECIMAL}, 
-      #{costfiled8,jdbcType=DECIMAL}, #{costfiled9,jdbcType=DECIMAL})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbCalculateall">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbCalculateall">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbCalculateall">
-    insert into db_calculateall
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        SEQUENCEID,
-      </if>
-      <if test="platformid != null">
-        PLATFORMID,
-      </if>
-      <if test="platformname != null">
-        PLATFORMNAME,
-      </if>
-      <if test="costtype != null">
-        COSTTYPE,
-      </if>
-      <if test="expresstypeid != null">
-        EXPRESSTYPEID,
-      </if>
-      <if test="tocountry != null">
-        TOCOUNTRY,
-      </if>
-      <if test="maoli != null">
-        MAOLI,
-      </if>
-      <if test="oper != null">
-        OPER,
-      </if>
-      <if test="opertime != null">
-        OPERTIME,
-      </if>
-      <if test="corpid != null">
-        CORPID,
-      </if>
-      <if test="openflag != null">
-        OPENFLAG,
-      </if>
-      <if test="name != null">
-        'NAME',
-      </if>
-      <if test="packagingid != null">
-        PACKAGINGID,
-      </if>
-      <if test="expresstype != null">
-        EXPRESSTYPE,
-      </if>
-      <if test="currency != null">
-        CURRENCY,
-      </if>
-      <if test="exchangerate != null">
-        EXCHANGERATE,
-      </if>
-      <if test="defaultrate != null">
-        DEFAULTRATE,
-      </if>
-      <if test="paypalcost != null">
-        PAYPALCOST,
-      </if>
-      <if test="pagecharge != null">
-        PAGECHARGE,
-      </if>
-      <if test="fixedcharge != null">
-        FIXEDCHARGE,
-      </if>
-      <if test="expresstypefeeid != null">
-        EXPRESSTYPEFEEID,
-      </if>
-      <if test="expresstypefiled8 != null">
-        EXPRESSTYPEFILED8,
-      </if>
-      <if test="packweight != null">
-        PACKWEIGHT,
-      </if>
-      <if test="packcost != null">
-        PACKCOST,
-      </if>
-      <if test="costfiled8 != null">
-        COSTFILED8,
-      </if>
-      <if test="costfiled9 != null">
-        COSTFILED9,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        #{sequenceid,jdbcType=DECIMAL},
-      </if>
-      <if test="platformid != null">
-        #{platformid,jdbcType=DECIMAL},
-      </if>
-      <if test="platformname != null">
-        #{platformname,jdbcType=VARCHAR},
-      </if>
-      <if test="costtype != null">
-        #{costtype,jdbcType=DECIMAL},
-      </if>
-      <if test="expresstypeid != null">
-        #{expresstypeid,jdbcType=DECIMAL},
-      </if>
-      <if test="tocountry != null">
-        #{tocountry,jdbcType=VARCHAR},
-      </if>
-      <if test="maoli != null">
-        #{maoli,jdbcType=DECIMAL},
-      </if>
-      <if test="oper != null">
-        #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="corpid != null">
-        #{corpid,jdbcType=DECIMAL},
-      </if>
-      <if test="openflag != null">
-        #{openflag,jdbcType=DECIMAL},
-      </if>
-      <if test="name != null">
-        #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="packagingid != null">
-        #{packagingid,jdbcType=DECIMAL},
-      </if>
-      <if test="expresstype != null">
-        #{expresstype,jdbcType=VARCHAR},
-      </if>
-      <if test="currency != null">
-        #{currency,jdbcType=VARCHAR},
-      </if>
-      <if test="exchangerate != null">
-        #{exchangerate,jdbcType=DECIMAL},
-      </if>
-      <if test="defaultrate != null">
-        #{defaultrate,jdbcType=DECIMAL},
-      </if>
-      <if test="paypalcost != null">
-        #{paypalcost,jdbcType=DECIMAL},
-      </if>
-      <if test="pagecharge != null">
-        #{pagecharge,jdbcType=DECIMAL},
-      </if>
-      <if test="fixedcharge != null">
-        #{fixedcharge,jdbcType=DECIMAL},
-      </if>
-      <if test="expresstypefeeid != null">
-        #{expresstypefeeid,jdbcType=VARCHAR},
-      </if>
-      <if test="expresstypefiled8 != null">
-        #{expresstypefiled8,jdbcType=DECIMAL},
-      </if>
-      <if test="packweight != null">
-        #{packweight,jdbcType=DECIMAL},
-      </if>
-      <if test="packcost != null">
-        #{packcost,jdbcType=DECIMAL},
-      </if>
-      <if test="costfiled8 != null">
-        #{costfiled8,jdbcType=DECIMAL},
-      </if>
-      <if test="costfiled9 != null">
-        #{costfiled9,jdbcType=DECIMAL},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbCalculateall">
-    update db_calculateall
-    <set>
-      <if test="platformid != null">
-        PLATFORMID = #{platformid,jdbcType=DECIMAL},
-      </if>
-      <if test="platformname != null">
-        PLATFORMNAME = #{platformname,jdbcType=VARCHAR},
-      </if>
-      <if test="costtype != null">
-        COSTTYPE = #{costtype,jdbcType=DECIMAL},
-      </if>
-      <if test="expresstypeid != null">
-        EXPRESSTYPEID = #{expresstypeid,jdbcType=DECIMAL},
-      </if>
-      <if test="tocountry != null">
-        TOCOUNTRY = #{tocountry,jdbcType=VARCHAR},
-      </if>
-      <if test="maoli != null">
-        MAOLI = #{maoli,jdbcType=DECIMAL},
-      </if>
-      <if test="oper != null">
-        OPER = #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="corpid != null">
-        CORPID = #{corpid,jdbcType=DECIMAL},
-      </if>
-      <if test="openflag != null">
-        OPENFLAG = #{openflag,jdbcType=DECIMAL},
-      </if>
-      <if test="name != null">
-        'NAME' = #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="packagingid != null">
-        PACKAGINGID = #{packagingid,jdbcType=DECIMAL},
-      </if>
-      <if test="expresstype != null">
-        EXPRESSTYPE = #{expresstype,jdbcType=VARCHAR},
-      </if>
-      <if test="currency != null">
-        CURRENCY = #{currency,jdbcType=VARCHAR},
-      </if>
-      <if test="exchangerate != null">
-        EXCHANGERATE = #{exchangerate,jdbcType=DECIMAL},
-      </if>
-      <if test="defaultrate != null">
-        DEFAULTRATE = #{defaultrate,jdbcType=DECIMAL},
-      </if>
-      <if test="paypalcost != null">
-        PAYPALCOST = #{paypalcost,jdbcType=DECIMAL},
-      </if>
-      <if test="pagecharge != null">
-        PAGECHARGE = #{pagecharge,jdbcType=DECIMAL},
-      </if>
-      <if test="fixedcharge != null">
-        FIXEDCHARGE = #{fixedcharge,jdbcType=DECIMAL},
-      </if>
-      <if test="expresstypefeeid != null">
-        EXPRESSTYPEFEEID = #{expresstypefeeid,jdbcType=VARCHAR},
-      </if>
-      <if test="expresstypefiled8 != null">
-        EXPRESSTYPEFILED8 = #{expresstypefiled8,jdbcType=DECIMAL},
-      </if>
-      <if test="packweight != null">
-        PACKWEIGHT = #{packweight,jdbcType=DECIMAL},
-      </if>
-      <if test="packcost != null">
-        PACKCOST = #{packcost,jdbcType=DECIMAL},
-      </if>
-      <if test="costfiled8 != null">
-        COSTFILED8 = #{costfiled8,jdbcType=DECIMAL},
-      </if>
-      <if test="costfiled9 != null">
-        COSTFILED9 = #{costfiled9,jdbcType=DECIMAL},
-      </if>
-    </set>
-    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbCalculateall">
-    update db_calculateall
-    set PLATFORMID = #{platformid,jdbcType=DECIMAL},
-      PLATFORMNAME = #{platformname,jdbcType=VARCHAR},
-      COSTTYPE = #{costtype,jdbcType=DECIMAL},
-      EXPRESSTYPEID = #{expresstypeid,jdbcType=DECIMAL},
-      TOCOUNTRY = #{tocountry,jdbcType=VARCHAR},
-      MAOLI = #{maoli,jdbcType=DECIMAL},
-      OPER = #{oper,jdbcType=VARCHAR},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      CORPID = #{corpid,jdbcType=DECIMAL},
-      OPENFLAG = #{openflag,jdbcType=DECIMAL},
-      'NAME' = #{name,jdbcType=VARCHAR},
-      PACKAGINGID = #{packagingid,jdbcType=DECIMAL},
-      EXPRESSTYPE = #{expresstype,jdbcType=VARCHAR},
-      CURRENCY = #{currency,jdbcType=VARCHAR},
-      EXCHANGERATE = #{exchangerate,jdbcType=DECIMAL},
-      DEFAULTRATE = #{defaultrate,jdbcType=DECIMAL},
-      PAYPALCOST = #{paypalcost,jdbcType=DECIMAL},
-      PAGECHARGE = #{pagecharge,jdbcType=DECIMAL},
-      FIXEDCHARGE = #{fixedcharge,jdbcType=DECIMAL},
-      EXPRESSTYPEFEEID = #{expresstypefeeid,jdbcType=VARCHAR},
-      EXPRESSTYPEFILED8 = #{expresstypefiled8,jdbcType=DECIMAL},
-      PACKWEIGHT = #{packweight,jdbcType=DECIMAL},
-      PACKCOST = #{packcost,jdbcType=DECIMAL},
-      COSTFILED8 = #{costfiled8,jdbcType=DECIMAL},
-      COSTFILED9 = #{costfiled9,jdbcType=DECIMAL}
-    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbCalculateall">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

@@ -13,6 +13,8 @@ public class DbSelltostat implements Serializable {
 
     private String productid;
 
+    private String productname;
+
     private BigDecimal ordernum;
 
     private BigDecimal sellprice;
@@ -20,6 +22,8 @@ public class DbSelltostat implements Serializable {
     private BigDecimal costprice;
 
     private String customerid;
+
+    private String customername;
 
     private String customeremail;
 
@@ -60,6 +64,8 @@ public class DbSelltostat implements Serializable {
     private String packagingid;
 
     private String packagingname;
+
+    private String englishname;
 
     private BigDecimal insurance;
 
@@ -117,12 +123,6 @@ public class DbSelltostat implements Serializable {
 
     private BigDecimal outpackagingfee;
 
-    private String productname;
-
-    private String customername;
-
-    private String englishname;
-
     private static final long serialVersionUID = 1L;
 
     public String getSid() {
@@ -157,6 +157,14 @@ public class DbSelltostat implements Serializable {
         this.productid = productid == null ? null : productid.trim();
     }
 
+    public String getProductname() {
+        return productname;
+    }
+
+    public void setProductname(String productname) {
+        this.productname = productname == null ? null : productname.trim();
+    }
+
     public BigDecimal getOrdernum() {
         return ordernum;
     }
@@ -187,6 +195,14 @@ public class DbSelltostat implements Serializable {
 
     public void setCustomerid(String customerid) {
         this.customerid = customerid == null ? null : customerid.trim();
+    }
+
+    public String getCustomername() {
+        return customername;
+    }
+
+    public void setCustomername(String customername) {
+        this.customername = customername == null ? null : customername.trim();
     }
 
     public String getCustomeremail() {
@@ -347,6 +363,14 @@ public class DbSelltostat implements Serializable {
 
     public void setPackagingname(String packagingname) {
         this.packagingname = packagingname == null ? null : packagingname.trim();
+    }
+
+    public String getEnglishname() {
+        return englishname;
+    }
+
+    public void setEnglishname(String englishname) {
+        this.englishname = englishname == null ? null : englishname.trim();
     }
 
     public BigDecimal getInsurance() {
@@ -573,30 +597,6 @@ public class DbSelltostat implements Serializable {
         this.outpackagingfee = outpackagingfee;
     }
 
-    public String getProductname() {
-        return productname;
-    }
-
-    public void setProductname(String productname) {
-        this.productname = productname == null ? null : productname.trim();
-    }
-
-    public String getCustomername() {
-        return customername;
-    }
-
-    public void setCustomername(String customername) {
-        this.customername = customername == null ? null : customername.trim();
-    }
-
-    public String getEnglishname() {
-        return englishname;
-    }
-
-    public void setEnglishname(String englishname) {
-        this.englishname = englishname == null ? null : englishname.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -613,10 +613,12 @@ public class DbSelltostat implements Serializable {
             && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()))
             && (this.getOrderid() == null ? other.getOrderid() == null : this.getOrderid().equals(other.getOrderid()))
             && (this.getProductid() == null ? other.getProductid() == null : this.getProductid().equals(other.getProductid()))
+            && (this.getProductname() == null ? other.getProductname() == null : this.getProductname().equals(other.getProductname()))
             && (this.getOrdernum() == null ? other.getOrdernum() == null : this.getOrdernum().equals(other.getOrdernum()))
             && (this.getSellprice() == null ? other.getSellprice() == null : this.getSellprice().equals(other.getSellprice()))
             && (this.getCostprice() == null ? other.getCostprice() == null : this.getCostprice().equals(other.getCostprice()))
             && (this.getCustomerid() == null ? other.getCustomerid() == null : this.getCustomerid().equals(other.getCustomerid()))
+            && (this.getCustomername() == null ? other.getCustomername() == null : this.getCustomername().equals(other.getCustomername()))
             && (this.getCustomeremail() == null ? other.getCustomeremail() == null : this.getCustomeremail().equals(other.getCustomeremail()))
             && (this.getStorageid() == null ? other.getStorageid() == null : this.getStorageid().equals(other.getStorageid()))
             && (this.getStoragename() == null ? other.getStoragename() == null : this.getStoragename().equals(other.getStoragename()))
@@ -637,6 +639,7 @@ public class DbSelltostat implements Serializable {
             && (this.getWeightamount() == null ? other.getWeightamount() == null : this.getWeightamount().equals(other.getWeightamount()))
             && (this.getPackagingid() == null ? other.getPackagingid() == null : this.getPackagingid().equals(other.getPackagingid()))
             && (this.getPackagingname() == null ? other.getPackagingname() == null : this.getPackagingname().equals(other.getPackagingname()))
+            && (this.getEnglishname() == null ? other.getEnglishname() == null : this.getEnglishname().equals(other.getEnglishname()))
             && (this.getInsurance() == null ? other.getInsurance() == null : this.getInsurance().equals(other.getInsurance()))
             && (this.getOrdertime() == null ? other.getOrdertime() == null : this.getOrdertime().equals(other.getOrdertime()))
             && (this.getPurchasetime() == null ? other.getPurchasetime() == null : this.getPurchasetime().equals(other.getPurchasetime()))
@@ -664,10 +667,7 @@ public class DbSelltostat implements Serializable {
             && (this.getReserve10() == null ? other.getReserve10() == null : this.getReserve10().equals(other.getReserve10()))
             && (this.getSource() == null ? other.getSource() == null : this.getSource().equals(other.getSource()))
             && (this.getCreatetime() == null ? other.getCreatetime() == null : this.getCreatetime().equals(other.getCreatetime()))
-            && (this.getOutpackagingfee() == null ? other.getOutpackagingfee() == null : this.getOutpackagingfee().equals(other.getOutpackagingfee()))
-            && (this.getProductname() == null ? other.getProductname() == null : this.getProductname().equals(other.getProductname()))
-            && (this.getCustomername() == null ? other.getCustomername() == null : this.getCustomername().equals(other.getCustomername()))
-            && (this.getEnglishname() == null ? other.getEnglishname() == null : this.getEnglishname().equals(other.getEnglishname()));
+            && (this.getOutpackagingfee() == null ? other.getOutpackagingfee() == null : this.getOutpackagingfee().equals(other.getOutpackagingfee()));
     }
 
     @Override
@@ -678,10 +678,12 @@ public class DbSelltostat implements Serializable {
         result = prime * result + ((getCorpid() == null) ? 0 : getCorpid().hashCode());
         result = prime * result + ((getOrderid() == null) ? 0 : getOrderid().hashCode());
         result = prime * result + ((getProductid() == null) ? 0 : getProductid().hashCode());
+        result = prime * result + ((getProductname() == null) ? 0 : getProductname().hashCode());
         result = prime * result + ((getOrdernum() == null) ? 0 : getOrdernum().hashCode());
         result = prime * result + ((getSellprice() == null) ? 0 : getSellprice().hashCode());
         result = prime * result + ((getCostprice() == null) ? 0 : getCostprice().hashCode());
         result = prime * result + ((getCustomerid() == null) ? 0 : getCustomerid().hashCode());
+        result = prime * result + ((getCustomername() == null) ? 0 : getCustomername().hashCode());
         result = prime * result + ((getCustomeremail() == null) ? 0 : getCustomeremail().hashCode());
         result = prime * result + ((getStorageid() == null) ? 0 : getStorageid().hashCode());
         result = prime * result + ((getStoragename() == null) ? 0 : getStoragename().hashCode());
@@ -702,6 +704,7 @@ public class DbSelltostat implements Serializable {
         result = prime * result + ((getWeightamount() == null) ? 0 : getWeightamount().hashCode());
         result = prime * result + ((getPackagingid() == null) ? 0 : getPackagingid().hashCode());
         result = prime * result + ((getPackagingname() == null) ? 0 : getPackagingname().hashCode());
+        result = prime * result + ((getEnglishname() == null) ? 0 : getEnglishname().hashCode());
         result = prime * result + ((getInsurance() == null) ? 0 : getInsurance().hashCode());
         result = prime * result + ((getOrdertime() == null) ? 0 : getOrdertime().hashCode());
         result = prime * result + ((getPurchasetime() == null) ? 0 : getPurchasetime().hashCode());
@@ -730,9 +733,6 @@ public class DbSelltostat implements Serializable {
         result = prime * result + ((getSource() == null) ? 0 : getSource().hashCode());
         result = prime * result + ((getCreatetime() == null) ? 0 : getCreatetime().hashCode());
         result = prime * result + ((getOutpackagingfee() == null) ? 0 : getOutpackagingfee().hashCode());
-        result = prime * result + ((getProductname() == null) ? 0 : getProductname().hashCode());
-        result = prime * result + ((getCustomername() == null) ? 0 : getCustomername().hashCode());
-        result = prime * result + ((getEnglishname() == null) ? 0 : getEnglishname().hashCode());
         return result;
     }
 
@@ -746,10 +746,12 @@ public class DbSelltostat implements Serializable {
         sb.append(", corpid=").append(corpid);
         sb.append(", orderid=").append(orderid);
         sb.append(", productid=").append(productid);
+        sb.append(", productname=").append(productname);
         sb.append(", ordernum=").append(ordernum);
         sb.append(", sellprice=").append(sellprice);
         sb.append(", costprice=").append(costprice);
         sb.append(", customerid=").append(customerid);
+        sb.append(", customername=").append(customername);
         sb.append(", customeremail=").append(customeremail);
         sb.append(", storageid=").append(storageid);
         sb.append(", storagename=").append(storagename);
@@ -770,6 +772,7 @@ public class DbSelltostat implements Serializable {
         sb.append(", weightamount=").append(weightamount);
         sb.append(", packagingid=").append(packagingid);
         sb.append(", packagingname=").append(packagingname);
+        sb.append(", englishname=").append(englishname);
         sb.append(", insurance=").append(insurance);
         sb.append(", ordertime=").append(ordertime);
         sb.append(", purchasetime=").append(purchasetime);
@@ -798,9 +801,6 @@ public class DbSelltostat implements Serializable {
         sb.append(", source=").append(source);
         sb.append(", createtime=").append(createtime);
         sb.append(", outpackagingfee=").append(outpackagingfee);
-        sb.append(", productname=").append(productname);
-        sb.append(", customername=").append(customername);
-        sb.append(", englishname=").append(englishname);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

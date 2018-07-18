@@ -18,15 +18,15 @@ public class DbPrintorderbyskuconfiginfo implements Serializable {
 
     private Date opertime;
 
+    private String expresstypeid;
+
     private String reserve3;
 
     private String reserve2;
 
-    private String labelid;
-
-    private String expresstypeid;
-
     private String printer;
+
+    private String labelid;
 
     private static final long serialVersionUID = 1L;
 
@@ -86,6 +86,14 @@ public class DbPrintorderbyskuconfiginfo implements Serializable {
         this.opertime = opertime;
     }
 
+    public String getExpresstypeid() {
+        return expresstypeid;
+    }
+
+    public void setExpresstypeid(String expresstypeid) {
+        this.expresstypeid = expresstypeid == null ? null : expresstypeid.trim();
+    }
+
     public String getReserve3() {
         return reserve3;
     }
@@ -102,28 +110,20 @@ public class DbPrintorderbyskuconfiginfo implements Serializable {
         this.reserve2 = reserve2 == null ? null : reserve2.trim();
     }
 
-    public String getLabelid() {
-        return labelid;
-    }
-
-    public void setLabelid(String labelid) {
-        this.labelid = labelid == null ? null : labelid.trim();
-    }
-
-    public String getExpresstypeid() {
-        return expresstypeid;
-    }
-
-    public void setExpresstypeid(String expresstypeid) {
-        this.expresstypeid = expresstypeid == null ? null : expresstypeid.trim();
-    }
-
     public String getPrinter() {
         return printer;
     }
 
     public void setPrinter(String printer) {
         this.printer = printer == null ? null : printer.trim();
+    }
+
+    public String getLabelid() {
+        return labelid;
+    }
+
+    public void setLabelid(String labelid) {
+        this.labelid = labelid == null ? null : labelid.trim();
     }
 
     @Override
@@ -145,11 +145,11 @@ public class DbPrintorderbyskuconfiginfo implements Serializable {
             && (this.getPscid() == null ? other.getPscid() == null : this.getPscid().equals(other.getPscid()))
             && (this.getExpresstype() == null ? other.getExpresstype() == null : this.getExpresstype().equals(other.getExpresstype()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
+            && (this.getExpresstypeid() == null ? other.getExpresstypeid() == null : this.getExpresstypeid().equals(other.getExpresstypeid()))
             && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
             && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
-            && (this.getLabelid() == null ? other.getLabelid() == null : this.getLabelid().equals(other.getLabelid()))
-            && (this.getExpresstypeid() == null ? other.getExpresstypeid() == null : this.getExpresstypeid().equals(other.getExpresstypeid()))
-            && (this.getPrinter() == null ? other.getPrinter() == null : this.getPrinter().equals(other.getPrinter()));
+            && (this.getPrinter() == null ? other.getPrinter() == null : this.getPrinter().equals(other.getPrinter()))
+            && (this.getLabelid() == null ? other.getLabelid() == null : this.getLabelid().equals(other.getLabelid()));
     }
 
     @Override
@@ -163,11 +163,11 @@ public class DbPrintorderbyskuconfiginfo implements Serializable {
         result = prime * result + ((getPscid() == null) ? 0 : getPscid().hashCode());
         result = prime * result + ((getExpresstype() == null) ? 0 : getExpresstype().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
+        result = prime * result + ((getExpresstypeid() == null) ? 0 : getExpresstypeid().hashCode());
         result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
         result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
-        result = prime * result + ((getLabelid() == null) ? 0 : getLabelid().hashCode());
-        result = prime * result + ((getExpresstypeid() == null) ? 0 : getExpresstypeid().hashCode());
         result = prime * result + ((getPrinter() == null) ? 0 : getPrinter().hashCode());
+        result = prime * result + ((getLabelid() == null) ? 0 : getLabelid().hashCode());
         return result;
     }
 
@@ -184,11 +184,11 @@ public class DbPrintorderbyskuconfiginfo implements Serializable {
         sb.append(", pscid=").append(pscid);
         sb.append(", expresstype=").append(expresstype);
         sb.append(", opertime=").append(opertime);
+        sb.append(", expresstypeid=").append(expresstypeid);
         sb.append(", reserve3=").append(reserve3);
         sb.append(", reserve2=").append(reserve2);
-        sb.append(", labelid=").append(labelid);
-        sb.append(", expresstypeid=").append(expresstypeid);
         sb.append(", printer=").append(printer);
+        sb.append(", labelid=").append(labelid);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

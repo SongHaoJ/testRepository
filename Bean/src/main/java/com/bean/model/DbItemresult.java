@@ -29,6 +29,8 @@ public class DbItemresult implements Serializable {
 
     private String ebayviewitemurl;
 
+    private String ebaydecsr;
+
     private String ebaypaymethod;
 
     private String ebaycategoryid;
@@ -47,6 +49,8 @@ public class DbItemresult implements Serializable {
 
     private String ebayitemstatus;
 
+    private String ebaytitle;
+
     private BigDecimal flag;
 
     private String oper;
@@ -62,6 +66,14 @@ public class DbItemresult implements Serializable {
     private Short pictureflag;
 
     private String corpid;
+
+    private String reserve1;
+
+    private String reserve2;
+
+    private String reserve3;
+
+    private String reserve4;
 
     private BigDecimal reserve5;
 
@@ -105,6 +117,8 @@ public class DbItemresult implements Serializable {
 
     private String ebaycountry;
 
+    private String ebaydescription;
+
     private BigDecimal ebayhitcount;
 
     private Date ebaystarttime;
@@ -128,6 +142,8 @@ public class DbItemresult implements Serializable {
     private String ebaypicturesource;
 
     private BigDecimal ebayquantitysold;
+
+    private String ebayfeedbacktatingstar;
 
     private BigDecimal ebayfeedbackscore;
 
@@ -208,22 +224,6 @@ public class DbItemresult implements Serializable {
     private BigDecimal reserve15;
 
     private String createoper;
-
-    private String ebaydecsr;
-
-    private String ebaytitle;
-
-    private String reserve1;
-
-    private String reserve2;
-
-    private String reserve3;
-
-    private String reserve4;
-
-    private String ebaydescription;
-
-    private String ebayfeedbacktatingstar;
 
     private static final long serialVersionUID = 1L;
 
@@ -323,6 +323,14 @@ public class DbItemresult implements Serializable {
         this.ebayviewitemurl = ebayviewitemurl == null ? null : ebayviewitemurl.trim();
     }
 
+    public String getEbaydecsr() {
+        return ebaydecsr;
+    }
+
+    public void setEbaydecsr(String ebaydecsr) {
+        this.ebaydecsr = ebaydecsr == null ? null : ebaydecsr.trim();
+    }
+
     public String getEbaypaymethod() {
         return ebaypaymethod;
     }
@@ -395,6 +403,14 @@ public class DbItemresult implements Serializable {
         this.ebayitemstatus = ebayitemstatus == null ? null : ebayitemstatus.trim();
     }
 
+    public String getEbaytitle() {
+        return ebaytitle;
+    }
+
+    public void setEbaytitle(String ebaytitle) {
+        this.ebaytitle = ebaytitle == null ? null : ebaytitle.trim();
+    }
+
     public BigDecimal getFlag() {
         return flag;
     }
@@ -457,6 +473,38 @@ public class DbItemresult implements Serializable {
 
     public void setCorpid(String corpid) {
         this.corpid = corpid == null ? null : corpid.trim();
+    }
+
+    public String getReserve1() {
+        return reserve1;
+    }
+
+    public void setReserve1(String reserve1) {
+        this.reserve1 = reserve1 == null ? null : reserve1.trim();
+    }
+
+    public String getReserve2() {
+        return reserve2;
+    }
+
+    public void setReserve2(String reserve2) {
+        this.reserve2 = reserve2 == null ? null : reserve2.trim();
+    }
+
+    public String getReserve3() {
+        return reserve3;
+    }
+
+    public void setReserve3(String reserve3) {
+        this.reserve3 = reserve3 == null ? null : reserve3.trim();
+    }
+
+    public String getReserve4() {
+        return reserve4;
+    }
+
+    public void setReserve4(String reserve4) {
+        this.reserve4 = reserve4 == null ? null : reserve4.trim();
     }
 
     public BigDecimal getReserve5() {
@@ -627,6 +675,14 @@ public class DbItemresult implements Serializable {
         this.ebaycountry = ebaycountry == null ? null : ebaycountry.trim();
     }
 
+    public String getEbaydescription() {
+        return ebaydescription;
+    }
+
+    public void setEbaydescription(String ebaydescription) {
+        this.ebaydescription = ebaydescription == null ? null : ebaydescription.trim();
+    }
+
     public BigDecimal getEbayhitcount() {
         return ebayhitcount;
     }
@@ -721,6 +777,14 @@ public class DbItemresult implements Serializable {
 
     public void setEbayquantitysold(BigDecimal ebayquantitysold) {
         this.ebayquantitysold = ebayquantitysold;
+    }
+
+    public String getEbayfeedbacktatingstar() {
+        return ebayfeedbacktatingstar;
+    }
+
+    public void setEbayfeedbacktatingstar(String ebayfeedbacktatingstar) {
+        this.ebayfeedbacktatingstar = ebayfeedbacktatingstar == null ? null : ebayfeedbacktatingstar.trim();
     }
 
     public BigDecimal getEbayfeedbackscore() {
@@ -1043,70 +1107,6 @@ public class DbItemresult implements Serializable {
         this.createoper = createoper == null ? null : createoper.trim();
     }
 
-    public String getEbaydecsr() {
-        return ebaydecsr;
-    }
-
-    public void setEbaydecsr(String ebaydecsr) {
-        this.ebaydecsr = ebaydecsr == null ? null : ebaydecsr.trim();
-    }
-
-    public String getEbaytitle() {
-        return ebaytitle;
-    }
-
-    public void setEbaytitle(String ebaytitle) {
-        this.ebaytitle = ebaytitle == null ? null : ebaytitle.trim();
-    }
-
-    public String getReserve1() {
-        return reserve1;
-    }
-
-    public void setReserve1(String reserve1) {
-        this.reserve1 = reserve1 == null ? null : reserve1.trim();
-    }
-
-    public String getReserve2() {
-        return reserve2;
-    }
-
-    public void setReserve2(String reserve2) {
-        this.reserve2 = reserve2 == null ? null : reserve2.trim();
-    }
-
-    public String getReserve3() {
-        return reserve3;
-    }
-
-    public void setReserve3(String reserve3) {
-        this.reserve3 = reserve3 == null ? null : reserve3.trim();
-    }
-
-    public String getReserve4() {
-        return reserve4;
-    }
-
-    public void setReserve4(String reserve4) {
-        this.reserve4 = reserve4 == null ? null : reserve4.trim();
-    }
-
-    public String getEbaydescription() {
-        return ebaydescription;
-    }
-
-    public void setEbaydescription(String ebaydescription) {
-        this.ebaydescription = ebaydescription == null ? null : ebaydescription.trim();
-    }
-
-    public String getEbayfeedbacktatingstar() {
-        return ebayfeedbacktatingstar;
-    }
-
-    public void setEbayfeedbacktatingstar(String ebayfeedbacktatingstar) {
-        this.ebayfeedbacktatingstar = ebayfeedbacktatingstar == null ? null : ebayfeedbacktatingstar.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -1131,6 +1131,7 @@ public class DbItemresult implements Serializable {
             && (this.getEbaypicture3() == null ? other.getEbaypicture3() == null : this.getEbaypicture3().equals(other.getEbaypicture3()))
             && (this.getEbaypicture4() == null ? other.getEbaypicture4() == null : this.getEbaypicture4().equals(other.getEbaypicture4()))
             && (this.getEbayviewitemurl() == null ? other.getEbayviewitemurl() == null : this.getEbayviewitemurl().equals(other.getEbayviewitemurl()))
+            && (this.getEbaydecsr() == null ? other.getEbaydecsr() == null : this.getEbaydecsr().equals(other.getEbaydecsr()))
             && (this.getEbaypaymethod() == null ? other.getEbaypaymethod() == null : this.getEbaypaymethod().equals(other.getEbaypaymethod()))
             && (this.getEbaycategoryid() == null ? other.getEbaycategoryid() == null : this.getEbaycategoryid().equals(other.getEbaycategoryid()))
             && (this.getEbaycategoryname() == null ? other.getEbaycategoryname() == null : this.getEbaycategoryname().equals(other.getEbaycategoryname()))
@@ -1140,6 +1141,7 @@ public class DbItemresult implements Serializable {
             && (this.getEbaysite() == null ? other.getEbaysite() == null : this.getEbaysite().equals(other.getEbaysite()))
             && (this.getEbayshopname() == null ? other.getEbayshopname() == null : this.getEbayshopname().equals(other.getEbayshopname()))
             && (this.getEbayitemstatus() == null ? other.getEbayitemstatus() == null : this.getEbayitemstatus().equals(other.getEbayitemstatus()))
+            && (this.getEbaytitle() == null ? other.getEbaytitle() == null : this.getEbaytitle().equals(other.getEbaytitle()))
             && (this.getFlag() == null ? other.getFlag() == null : this.getFlag().equals(other.getFlag()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
@@ -1148,6 +1150,10 @@ public class DbItemresult implements Serializable {
             && (this.getTitleflag() == null ? other.getTitleflag() == null : this.getTitleflag().equals(other.getTitleflag()))
             && (this.getPictureflag() == null ? other.getPictureflag() == null : this.getPictureflag().equals(other.getPictureflag()))
             && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()))
+            && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
+            && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
+            && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
+            && (this.getReserve4() == null ? other.getReserve4() == null : this.getReserve4().equals(other.getReserve4()))
             && (this.getReserve5() == null ? other.getReserve5() == null : this.getReserve5().equals(other.getReserve5()))
             && (this.getReserve6() == null ? other.getReserve6() == null : this.getReserve6().equals(other.getReserve6()))
             && (this.getReserve7() == null ? other.getReserve7() == null : this.getReserve7().equals(other.getReserve7()))
@@ -1169,6 +1175,7 @@ public class DbItemresult implements Serializable {
             && (this.getEbaybuyitnewprice() == null ? other.getEbaybuyitnewprice() == null : this.getEbaybuyitnewprice().equals(other.getEbaybuyitnewprice()))
             && (this.getEbaybuyitnewpricemoneytype() == null ? other.getEbaybuyitnewpricemoneytype() == null : this.getEbaybuyitnewpricemoneytype().equals(other.getEbaybuyitnewpricemoneytype()))
             && (this.getEbaycountry() == null ? other.getEbaycountry() == null : this.getEbaycountry().equals(other.getEbaycountry()))
+            && (this.getEbaydescription() == null ? other.getEbaydescription() == null : this.getEbaydescription().equals(other.getEbaydescription()))
             && (this.getEbayhitcount() == null ? other.getEbayhitcount() == null : this.getEbayhitcount().equals(other.getEbayhitcount()))
             && (this.getEbaystarttime() == null ? other.getEbaystarttime() == null : this.getEbaystarttime().equals(other.getEbaystarttime()))
             && (this.getEbayendtime() == null ? other.getEbayendtime() == null : this.getEbayendtime().equals(other.getEbayendtime()))
@@ -1181,6 +1188,7 @@ public class DbItemresult implements Serializable {
             && (this.getEbayphotodisplay() == null ? other.getEbayphotodisplay() == null : this.getEbayphotodisplay().equals(other.getEbayphotodisplay()))
             && (this.getEbaypicturesource() == null ? other.getEbaypicturesource() == null : this.getEbaypicturesource().equals(other.getEbaypicturesource()))
             && (this.getEbayquantitysold() == null ? other.getEbayquantitysold() == null : this.getEbayquantitysold().equals(other.getEbayquantitysold()))
+            && (this.getEbayfeedbacktatingstar() == null ? other.getEbayfeedbacktatingstar() == null : this.getEbayfeedbacktatingstar().equals(other.getEbayfeedbacktatingstar()))
             && (this.getEbayfeedbackscore() == null ? other.getEbayfeedbackscore() == null : this.getEbayfeedbackscore().equals(other.getEbayfeedbackscore()))
             && (this.getEbaypositivefeedbackpercent() == null ? other.getEbaypositivefeedbackpercent() == null : this.getEbaypositivefeedbackpercent().equals(other.getEbaypositivefeedbackpercent()))
             && (this.getEbaysellerbusinesstype() == null ? other.getEbaysellerbusinesstype() == null : this.getEbaysellerbusinesstype().equals(other.getEbaysellerbusinesstype()))
@@ -1220,15 +1228,7 @@ public class DbItemresult implements Serializable {
             && (this.getReserve14() == null ? other.getReserve14() == null : this.getReserve14().equals(other.getReserve14()))
             && (this.getReserve16() == null ? other.getReserve16() == null : this.getReserve16().equals(other.getReserve16()))
             && (this.getReserve15() == null ? other.getReserve15() == null : this.getReserve15().equals(other.getReserve15()))
-            && (this.getCreateoper() == null ? other.getCreateoper() == null : this.getCreateoper().equals(other.getCreateoper()))
-            && (this.getEbaydecsr() == null ? other.getEbaydecsr() == null : this.getEbaydecsr().equals(other.getEbaydecsr()))
-            && (this.getEbaytitle() == null ? other.getEbaytitle() == null : this.getEbaytitle().equals(other.getEbaytitle()))
-            && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
-            && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
-            && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
-            && (this.getReserve4() == null ? other.getReserve4() == null : this.getReserve4().equals(other.getReserve4()))
-            && (this.getEbaydescription() == null ? other.getEbaydescription() == null : this.getEbaydescription().equals(other.getEbaydescription()))
-            && (this.getEbayfeedbacktatingstar() == null ? other.getEbayfeedbacktatingstar() == null : this.getEbayfeedbacktatingstar().equals(other.getEbayfeedbacktatingstar()));
+            && (this.getCreateoper() == null ? other.getCreateoper() == null : this.getCreateoper().equals(other.getCreateoper()));
     }
 
     @Override
@@ -1247,6 +1247,7 @@ public class DbItemresult implements Serializable {
         result = prime * result + ((getEbaypicture3() == null) ? 0 : getEbaypicture3().hashCode());
         result = prime * result + ((getEbaypicture4() == null) ? 0 : getEbaypicture4().hashCode());
         result = prime * result + ((getEbayviewitemurl() == null) ? 0 : getEbayviewitemurl().hashCode());
+        result = prime * result + ((getEbaydecsr() == null) ? 0 : getEbaydecsr().hashCode());
         result = prime * result + ((getEbaypaymethod() == null) ? 0 : getEbaypaymethod().hashCode());
         result = prime * result + ((getEbaycategoryid() == null) ? 0 : getEbaycategoryid().hashCode());
         result = prime * result + ((getEbaycategoryname() == null) ? 0 : getEbaycategoryname().hashCode());
@@ -1256,6 +1257,7 @@ public class DbItemresult implements Serializable {
         result = prime * result + ((getEbaysite() == null) ? 0 : getEbaysite().hashCode());
         result = prime * result + ((getEbayshopname() == null) ? 0 : getEbayshopname().hashCode());
         result = prime * result + ((getEbayitemstatus() == null) ? 0 : getEbayitemstatus().hashCode());
+        result = prime * result + ((getEbaytitle() == null) ? 0 : getEbaytitle().hashCode());
         result = prime * result + ((getFlag() == null) ? 0 : getFlag().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
@@ -1264,6 +1266,10 @@ public class DbItemresult implements Serializable {
         result = prime * result + ((getTitleflag() == null) ? 0 : getTitleflag().hashCode());
         result = prime * result + ((getPictureflag() == null) ? 0 : getPictureflag().hashCode());
         result = prime * result + ((getCorpid() == null) ? 0 : getCorpid().hashCode());
+        result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
+        result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
+        result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
+        result = prime * result + ((getReserve4() == null) ? 0 : getReserve4().hashCode());
         result = prime * result + ((getReserve5() == null) ? 0 : getReserve5().hashCode());
         result = prime * result + ((getReserve6() == null) ? 0 : getReserve6().hashCode());
         result = prime * result + ((getReserve7() == null) ? 0 : getReserve7().hashCode());
@@ -1285,6 +1291,7 @@ public class DbItemresult implements Serializable {
         result = prime * result + ((getEbaybuyitnewprice() == null) ? 0 : getEbaybuyitnewprice().hashCode());
         result = prime * result + ((getEbaybuyitnewpricemoneytype() == null) ? 0 : getEbaybuyitnewpricemoneytype().hashCode());
         result = prime * result + ((getEbaycountry() == null) ? 0 : getEbaycountry().hashCode());
+        result = prime * result + ((getEbaydescription() == null) ? 0 : getEbaydescription().hashCode());
         result = prime * result + ((getEbayhitcount() == null) ? 0 : getEbayhitcount().hashCode());
         result = prime * result + ((getEbaystarttime() == null) ? 0 : getEbaystarttime().hashCode());
         result = prime * result + ((getEbayendtime() == null) ? 0 : getEbayendtime().hashCode());
@@ -1297,6 +1304,7 @@ public class DbItemresult implements Serializable {
         result = prime * result + ((getEbayphotodisplay() == null) ? 0 : getEbayphotodisplay().hashCode());
         result = prime * result + ((getEbaypicturesource() == null) ? 0 : getEbaypicturesource().hashCode());
         result = prime * result + ((getEbayquantitysold() == null) ? 0 : getEbayquantitysold().hashCode());
+        result = prime * result + ((getEbayfeedbacktatingstar() == null) ? 0 : getEbayfeedbacktatingstar().hashCode());
         result = prime * result + ((getEbayfeedbackscore() == null) ? 0 : getEbayfeedbackscore().hashCode());
         result = prime * result + ((getEbaypositivefeedbackpercent() == null) ? 0 : getEbaypositivefeedbackpercent().hashCode());
         result = prime * result + ((getEbaysellerbusinesstype() == null) ? 0 : getEbaysellerbusinesstype().hashCode());
@@ -1337,14 +1345,6 @@ public class DbItemresult implements Serializable {
         result = prime * result + ((getReserve16() == null) ? 0 : getReserve16().hashCode());
         result = prime * result + ((getReserve15() == null) ? 0 : getReserve15().hashCode());
         result = prime * result + ((getCreateoper() == null) ? 0 : getCreateoper().hashCode());
-        result = prime * result + ((getEbaydecsr() == null) ? 0 : getEbaydecsr().hashCode());
-        result = prime * result + ((getEbaytitle() == null) ? 0 : getEbaytitle().hashCode());
-        result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
-        result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
-        result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
-        result = prime * result + ((getReserve4() == null) ? 0 : getReserve4().hashCode());
-        result = prime * result + ((getEbaydescription() == null) ? 0 : getEbaydescription().hashCode());
-        result = prime * result + ((getEbayfeedbacktatingstar() == null) ? 0 : getEbayfeedbacktatingstar().hashCode());
         return result;
     }
 
@@ -1366,6 +1366,7 @@ public class DbItemresult implements Serializable {
         sb.append(", ebaypicture3=").append(ebaypicture3);
         sb.append(", ebaypicture4=").append(ebaypicture4);
         sb.append(", ebayviewitemurl=").append(ebayviewitemurl);
+        sb.append(", ebaydecsr=").append(ebaydecsr);
         sb.append(", ebaypaymethod=").append(ebaypaymethod);
         sb.append(", ebaycategoryid=").append(ebaycategoryid);
         sb.append(", ebaycategoryname=").append(ebaycategoryname);
@@ -1375,6 +1376,7 @@ public class DbItemresult implements Serializable {
         sb.append(", ebaysite=").append(ebaysite);
         sb.append(", ebayshopname=").append(ebayshopname);
         sb.append(", ebayitemstatus=").append(ebayitemstatus);
+        sb.append(", ebaytitle=").append(ebaytitle);
         sb.append(", flag=").append(flag);
         sb.append(", oper=").append(oper);
         sb.append(", opertime=").append(opertime);
@@ -1383,6 +1385,10 @@ public class DbItemresult implements Serializable {
         sb.append(", titleflag=").append(titleflag);
         sb.append(", pictureflag=").append(pictureflag);
         sb.append(", corpid=").append(corpid);
+        sb.append(", reserve1=").append(reserve1);
+        sb.append(", reserve2=").append(reserve2);
+        sb.append(", reserve3=").append(reserve3);
+        sb.append(", reserve4=").append(reserve4);
         sb.append(", reserve5=").append(reserve5);
         sb.append(", reserve6=").append(reserve6);
         sb.append(", reserve7=").append(reserve7);
@@ -1404,6 +1410,7 @@ public class DbItemresult implements Serializable {
         sb.append(", ebaybuyitnewprice=").append(ebaybuyitnewprice);
         sb.append(", ebaybuyitnewpricemoneytype=").append(ebaybuyitnewpricemoneytype);
         sb.append(", ebaycountry=").append(ebaycountry);
+        sb.append(", ebaydescription=").append(ebaydescription);
         sb.append(", ebayhitcount=").append(ebayhitcount);
         sb.append(", ebaystarttime=").append(ebaystarttime);
         sb.append(", ebayendtime=").append(ebayendtime);
@@ -1416,6 +1423,7 @@ public class DbItemresult implements Serializable {
         sb.append(", ebayphotodisplay=").append(ebayphotodisplay);
         sb.append(", ebaypicturesource=").append(ebaypicturesource);
         sb.append(", ebayquantitysold=").append(ebayquantitysold);
+        sb.append(", ebayfeedbacktatingstar=").append(ebayfeedbacktatingstar);
         sb.append(", ebayfeedbackscore=").append(ebayfeedbackscore);
         sb.append(", ebaypositivefeedbackpercent=").append(ebaypositivefeedbackpercent);
         sb.append(", ebaysellerbusinesstype=").append(ebaysellerbusinesstype);
@@ -1456,14 +1464,6 @@ public class DbItemresult implements Serializable {
         sb.append(", reserve16=").append(reserve16);
         sb.append(", reserve15=").append(reserve15);
         sb.append(", createoper=").append(createoper);
-        sb.append(", ebaydecsr=").append(ebaydecsr);
-        sb.append(", ebaytitle=").append(ebaytitle);
-        sb.append(", reserve1=").append(reserve1);
-        sb.append(", reserve2=").append(reserve2);
-        sb.append(", reserve3=").append(reserve3);
-        sb.append(", reserve4=").append(reserve4);
-        sb.append(", ebaydescription=").append(ebaydescription);
-        sb.append(", ebayfeedbacktatingstar=").append(ebayfeedbacktatingstar);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

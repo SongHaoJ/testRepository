@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbSmtmessage;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbSmtmessageMapper {
-    int deleteByPrimaryKey(String sid);
+    DbSmtmessage selectByCriteria(DbSmtmessage DbSmtmessage);
 
-    int insert(DbSmtmessage record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbSmtmessage record);
+    void deleteByCriteria(DbSmtmessage DbSmtmessage);
+
+    int insertByCriteria(DbSmtmessage DbSmtmessage);
+
+    int updateByCriteria(DbSmtmessage DbSmtmessage);
 
     DbSmtmessage selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbSmtmessage record);
-
-    int updateByPrimaryKeyWithBLOBs(DbSmtmessage record);
-
-    int updateByPrimaryKey(DbSmtmessage record);
+    List<DbSmtmessage> selectAll();
 }

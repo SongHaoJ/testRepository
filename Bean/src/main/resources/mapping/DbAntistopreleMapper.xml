@@ -3,130 +3,104 @@
 <mapper namespace="com.bean.dao.DbAntistopreleMapper">
   <resultMap id="BaseResultMap" type="com.bean.model.DbAntistoprele">
     <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
+    <result column="ANTISTOP1" jdbcType="VARCHAR" property="antistop1" />
+    <result column="ANTISTOP2" jdbcType="VARCHAR" property="antistop2" />
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
     <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
     <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbAntistoprele">
-    <result column="ANTISTOP1" jdbcType="LONGVARCHAR" property="antistop1" />
-    <result column="ANTISTOP2" jdbcType="LONGVARCHAR" property="antistop2" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    SEQUENCEID, OPER, OPERTIME, CORPID, OPENFLAG
-  </sql>
-  <sql id="Blob_Column_List">
-    ANTISTOP1, ANTISTOP2
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from db_antistoprele
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SEQUENCEID, ANTISTOP1, ANTISTOP2, OPER, OPERTIME, CORPID, OPENFLAG
+    from DB_ANTISTOPRELE
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_antistoprele
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, ANTISTOP1, ANTISTOP2, OPER, OPERTIME, CORPID, OPENFLAG
+    from DB_ANTISTOPRELE
+  </select>
+  <sql id="TableName">
+    DB_ANTISTOPRELE
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=VARCHAR} , 
+     #{antistop1,jdbcType=VARCHAR} , 
+     #{antistop2,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{corpid,jdbcType=VARCHAR} , 
+     #{openflag,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    ANTISTOP1 , 
+    ANTISTOP2 , 
+    OPER , 
+    OPERTIME , 
+    CORPID , 
+    OPENFLAG , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="antistop1 != null">
+      antistop1 = #{antistop1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="antistop2 != null">
+      antistop2 = #{antistop2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="antistop1 != null">
+      antistop1 = #{antistop1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="antistop2 != null">
+      antistop2 = #{antistop2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbAntistoprele" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbAntistoprele">
-    insert into db_antistoprele (SEQUENCEID, OPER, OPERTIME, 
-      CORPID, OPENFLAG, ANTISTOP1, 
-      ANTISTOP2)
-    values (#{sequenceid,jdbcType=VARCHAR}, #{oper,jdbcType=VARCHAR}, #{opertime,jdbcType=TIMESTAMP}, 
-      #{corpid,jdbcType=VARCHAR}, #{openflag,jdbcType=VARCHAR}, #{antistop1,jdbcType=LONGVARCHAR}, 
-      #{antistop2,jdbcType=LONGVARCHAR})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbAntistoprele">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbAntistoprele">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbAntistoprele">
-    insert into db_antistoprele
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        SEQUENCEID,
-      </if>
-      <if test="oper != null">
-        OPER,
-      </if>
-      <if test="opertime != null">
-        OPERTIME,
-      </if>
-      <if test="corpid != null">
-        CORPID,
-      </if>
-      <if test="openflag != null">
-        OPENFLAG,
-      </if>
-      <if test="antistop1 != null">
-        ANTISTOP1,
-      </if>
-      <if test="antistop2 != null">
-        ANTISTOP2,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        #{sequenceid,jdbcType=VARCHAR},
-      </if>
-      <if test="oper != null">
-        #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="corpid != null">
-        #{corpid,jdbcType=VARCHAR},
-      </if>
-      <if test="openflag != null">
-        #{openflag,jdbcType=VARCHAR},
-      </if>
-      <if test="antistop1 != null">
-        #{antistop1,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="antistop2 != null">
-        #{antistop2,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbAntistoprele">
-    update db_antistoprele
-    <set>
-      <if test="oper != null">
-        OPER = #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="corpid != null">
-        CORPID = #{corpid,jdbcType=VARCHAR},
-      </if>
-      <if test="openflag != null">
-        OPENFLAG = #{openflag,jdbcType=VARCHAR},
-      </if>
-      <if test="antistop1 != null">
-        ANTISTOP1 = #{antistop1,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="antistop2 != null">
-        ANTISTOP2 = #{antistop2,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbAntistoprele">
-    update db_antistoprele
-    set OPER = #{oper,jdbcType=VARCHAR},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      CORPID = #{corpid,jdbcType=VARCHAR},
-      OPENFLAG = #{openflag,jdbcType=VARCHAR},
-      ANTISTOP1 = #{antistop1,jdbcType=LONGVARCHAR},
-      ANTISTOP2 = #{antistop2,jdbcType=LONGVARCHAR}
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbAntistoprele">
-    update db_antistoprele
-    set OPER = #{oper,jdbcType=VARCHAR},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      CORPID = #{corpid,jdbcType=VARCHAR},
-      OPENFLAG = #{openflag,jdbcType=VARCHAR}
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbAntistoprele">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

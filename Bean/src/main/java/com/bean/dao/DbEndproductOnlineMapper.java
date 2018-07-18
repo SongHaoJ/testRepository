@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbEndproductOnline;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbEndproductOnlineMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbEndproductOnline selectByCriteria(DbEndproductOnline DbEndproductOnline);
 
-    int insert(DbEndproductOnline record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbEndproductOnline record);
+    void deleteByCriteria(DbEndproductOnline DbEndproductOnline);
+
+    int insertByCriteria(DbEndproductOnline DbEndproductOnline);
+
+    int updateByCriteria(DbEndproductOnline DbEndproductOnline);
 
     DbEndproductOnline selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbEndproductOnline record);
-
-    int updateByPrimaryKeyWithBLOBs(DbEndproductOnline record);
-
-    int updateByPrimaryKey(DbEndproductOnline record);
+    List<DbEndproductOnline> selectAll();
 }

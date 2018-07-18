@@ -1,24 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbMoneyrate;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Repository
+@Service
 public interface DbMoneyrateMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbMoneyrate selectByCriteria(DbMoneyrate DbMoneyrate);
 
-    int insert(DbMoneyrate record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbMoneyrate record);
+    void deleteByCriteria(DbMoneyrate DbMoneyrate);
+
+    int insertByCriteria(DbMoneyrate DbMoneyrate);
+
+    int updateByCriteria(DbMoneyrate DbMoneyrate);
 
     DbMoneyrate selectByPrimaryKey(String sequenceid);
 
-    List<DbMoneyrate> selectByCriteria(DbMoneyrate moneyrate);
-
-    int updateByPrimaryKeySelective(DbMoneyrate record);
-
-    int selectMaxId();
-
+    List<DbMoneyrate> selectAll();
 }

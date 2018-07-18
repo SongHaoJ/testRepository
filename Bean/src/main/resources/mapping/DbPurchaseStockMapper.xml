@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbPurchaseStockMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbPurchaseStock">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="ORDERID" jdbcType="DECIMAL" property="orderid" />
+    <result column="GROUPID" jdbcType="VARCHAR" property="groupid" />
+    <result column="ITEMID" jdbcType="DECIMAL" property="itemid" />
+    <result column="PRODUCTID" jdbcType="VARCHAR" property="productid" />
+    <result column="ARRIVENUM" jdbcType="DECIMAL" property="arrivenum" />
+    <result column="STOCKNUM" jdbcType="DECIMAL" property="stocknum" />
+    <result column="DAMAGENUM" jdbcType="DECIMAL" property="damagenum" />
+    <result column="SAVENUMBEFORE" jdbcType="DECIMAL" property="savenumbefore" />
+    <result column="SAVENUMAFTER" jdbcType="DECIMAL" property="savenumafter" />
+    <result column="STOCKOPER" jdbcType="VARCHAR" property="stockoper" />
+    <result column="STOCKTIME" jdbcType="TIMESTAMP" property="stocktime" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select ID, ORDERID, GROUPID, ITEMID, PRODUCTID, ARRIVENUM, STOCKNUM, DAMAGENUM, SAVENUMBEFORE, 
+    SAVENUMAFTER, STOCKOPER, STOCKTIME
+    from DB_PURCHASE_STOCK
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ID, ORDERID, GROUPID, ITEMID, PRODUCTID, ARRIVENUM, STOCKNUM, DAMAGENUM, SAVENUMBEFORE, 
+    SAVENUMAFTER, STOCKOPER, STOCKTIME
+    from DB_PURCHASE_STOCK
+  </select>
+  <sql id="TableName">
+    DB_PURCHASE_STOCK
+  </sql>
+  <sql id="Values">
+     #{id,jdbcType=DECIMAL} , 
+     #{orderid,jdbcType=DECIMAL} , 
+     #{groupid,jdbcType=VARCHAR} , 
+     #{itemid,jdbcType=DECIMAL} , 
+     #{productid,jdbcType=VARCHAR} , 
+     #{arrivenum,jdbcType=DECIMAL} , 
+     #{stocknum,jdbcType=DECIMAL} , 
+     #{damagenum,jdbcType=DECIMAL} , 
+     #{savenumbefore,jdbcType=DECIMAL} , 
+     #{savenumafter,jdbcType=DECIMAL} , 
+     #{stockoper,jdbcType=VARCHAR} , 
+     #{stocktime,jdbcType=TIMESTAMP} , 
+  </sql>
+  <sql id="Columns">
+    ID , 
+    ORDERID , 
+    GROUPID , 
+    ITEMID , 
+    PRODUCTID , 
+    ARRIVENUM , 
+    STOCKNUM , 
+    DAMAGENUM , 
+    SAVENUMBEFORE , 
+    SAVENUMAFTER , 
+    STOCKOPER , 
+    STOCKTIME , 
+  </sql>
+  <sql id="Criteria">
+    <if test="id != null">
+      id = #{id,jdbcType=DECIMAL} and 
+    </if>
+    <if test="orderid != null">
+      orderid = #{orderid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="groupid != null">
+      groupid = #{groupid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="itemid != null">
+      itemid = #{itemid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="productid != null">
+      productid = #{productid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="arrivenum != null">
+      arrivenum = #{arrivenum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="stocknum != null">
+      stocknum = #{stocknum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="damagenum != null">
+      damagenum = #{damagenum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="savenumbefore != null">
+      savenumbefore = #{savenumbefore,jdbcType=DECIMAL} and 
+    </if>
+    <if test="savenumafter != null">
+      savenumafter = #{savenumafter,jdbcType=DECIMAL} and 
+    </if>
+    <if test="stockoper != null">
+      stockoper = #{stockoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="stocktime != null">
+      stocktime = #{stocktime,jdbcType=TIMESTAMP} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="id != null">
+      id = #{id,jdbcType=DECIMAL} , 
+    </if>
+    <if test="orderid != null">
+      orderid = #{orderid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="groupid != null">
+      groupid = #{groupid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="itemid != null">
+      itemid = #{itemid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="productid != null">
+      productid = #{productid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="arrivenum != null">
+      arrivenum = #{arrivenum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="stocknum != null">
+      stocknum = #{stocknum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="damagenum != null">
+      damagenum = #{damagenum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="savenumbefore != null">
+      savenumbefore = #{savenumbefore,jdbcType=DECIMAL} , 
+    </if>
+    <if test="savenumafter != null">
+      savenumafter = #{savenumafter,jdbcType=DECIMAL} , 
+    </if>
+    <if test="stockoper != null">
+      stockoper = #{stockoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="stocktime != null">
+      stocktime = #{stocktime,jdbcType=TIMESTAMP} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbPurchaseStock" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="Long">
+    delete from <include refid="TableName"/> where ID=#{ID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbPurchaseStock">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbPurchaseStock">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbPurchaseStock">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

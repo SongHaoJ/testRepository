@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbItemscontent;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbItemscontentMapper {
-    int deleteByPrimaryKey(String sid);
+    DbItemscontent selectByCriteria(DbItemscontent DbItemscontent);
 
-    int insert(DbItemscontent record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbItemscontent record);
+    void deleteByCriteria(DbItemscontent DbItemscontent);
+
+    int insertByCriteria(DbItemscontent DbItemscontent);
+
+    int updateByCriteria(DbItemscontent DbItemscontent);
 
     DbItemscontent selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbItemscontent record);
-
-    int updateByPrimaryKeyWithBLOBs(DbItemscontent record);
-
-    int updateByPrimaryKey(DbItemscontent record);
+    List<DbItemscontent> selectAll();
 }

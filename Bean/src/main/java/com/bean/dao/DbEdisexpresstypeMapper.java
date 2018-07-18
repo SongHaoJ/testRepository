@@ -1,16 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbEdisexpresstype;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbEdisexpresstypeMapper {
-    int deleteByPrimaryKey(String sid);
+    DbEdisexpresstype selectByCriteria(DbEdisexpresstype DbEdisexpresstype);
 
-    int insert(DbEdisexpresstype record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbEdisexpresstype record);
+    void deleteByCriteria(DbEdisexpresstype DbEdisexpresstype);
+
+    int insertByCriteria(DbEdisexpresstype DbEdisexpresstype);
+
+    int updateByCriteria(DbEdisexpresstype DbEdisexpresstype);
 
     DbEdisexpresstype selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbEdisexpresstype record);
-
+    List<DbEdisexpresstype> selectAll();
 }

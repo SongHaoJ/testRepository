@@ -4,206 +4,159 @@
   <resultMap id="BaseResultMap" type="com.bean.model.DbScanorder">
     <id column="ORDERID" jdbcType="VARCHAR" property="orderid" />
     <result column="EXPRESSTYPEID" jdbcType="VARCHAR" property="expresstypeid" />
+    <result column="EXPRESSTYPE" jdbcType="VARCHAR" property="expresstype" />
     <result column="EXPRESSID" jdbcType="VARCHAR" property="expressid" />
     <result column="ORDERWEIGHT" jdbcType="DECIMAL" property="orderweight" />
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
     <result column="FLAG" jdbcType="VARCHAR" property="flag" />
     <result column="MAILFLAG" jdbcType="VARCHAR" property="mailflag" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
     <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
     <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
     <result column="GROUPID" jdbcType="VARCHAR" property="groupid" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbScanorder">
-    <result column="EXPRESSTYPE" jdbcType="LONGVARCHAR" property="expresstype" />
-    <result column="RESERVE1" jdbcType="LONGVARCHAR" property="reserve1" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    ORDERID, EXPRESSTYPEID, EXPRESSID, ORDERWEIGHT, OPER, OPERTIME, FLAG, MAILFLAG, RESERVE2, 
-    RESERVE3, GROUPID
-  </sql>
-  <sql id="Blob_Column_List">
-    EXPRESSTYPE, RESERVE1
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from db_scanorder
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select ORDERID, EXPRESSTYPEID, EXPRESSTYPE, EXPRESSID, ORDERWEIGHT, OPER, OPERTIME, 
+    FLAG, MAILFLAG, RESERVE1, RESERVE2, RESERVE3, GROUPID
+    from DB_SCANORDER
     where ORDERID = #{orderid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_scanorder
-    where ORDERID = #{orderid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ORDERID, EXPRESSTYPEID, EXPRESSTYPE, EXPRESSID, ORDERWEIGHT, OPER, OPERTIME, 
+    FLAG, MAILFLAG, RESERVE1, RESERVE2, RESERVE3, GROUPID
+    from DB_SCANORDER
+  </select>
+  <sql id="TableName">
+    DB_SCANORDER
+  </sql>
+  <sql id="Values">
+     #{orderid,jdbcType=VARCHAR} , 
+     #{expresstypeid,jdbcType=VARCHAR} , 
+     #{expresstype,jdbcType=VARCHAR} , 
+     #{expressid,jdbcType=VARCHAR} , 
+     #{orderweight,jdbcType=DECIMAL} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{flag,jdbcType=VARCHAR} , 
+     #{mailflag,jdbcType=VARCHAR} , 
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+     #{reserve3,jdbcType=VARCHAR} , 
+     #{groupid,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    ORDERID , 
+    EXPRESSTYPEID , 
+    EXPRESSTYPE , 
+    EXPRESSID , 
+    ORDERWEIGHT , 
+    OPER , 
+    OPERTIME , 
+    FLAG , 
+    MAILFLAG , 
+    RESERVE1 , 
+    RESERVE2 , 
+    RESERVE3 , 
+    GROUPID , 
+  </sql>
+  <sql id="Criteria">
+    <if test="orderid != null">
+      orderid = #{orderid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="expresstypeid != null">
+      expresstypeid = #{expresstypeid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="expresstype != null">
+      expresstype = #{expresstype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="expressid != null">
+      expressid = #{expressid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="orderweight != null">
+      orderweight = #{orderweight,jdbcType=DECIMAL} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="mailflag != null">
+      mailflag = #{mailflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="groupid != null">
+      groupid = #{groupid,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="orderid != null">
+      orderid = #{orderid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="expresstypeid != null">
+      expresstypeid = #{expresstypeid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="expresstype != null">
+      expresstype = #{expresstype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="expressid != null">
+      expressid = #{expressid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="orderweight != null">
+      orderweight = #{orderweight,jdbcType=DECIMAL} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="mailflag != null">
+      mailflag = #{mailflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="groupid != null">
+      groupid = #{groupid,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbScanorder" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where ORDERID=#{ORDERID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbScanorder">
-    insert into db_scanorder (ORDERID, EXPRESSTYPEID, EXPRESSID, 
-      ORDERWEIGHT, OPER, OPERTIME, 
-      FLAG, MAILFLAG, RESERVE2, 
-      RESERVE3, GROUPID, EXPRESSTYPE, 
-      RESERVE1)
-    values (#{orderid,jdbcType=VARCHAR}, #{expresstypeid,jdbcType=VARCHAR}, #{expressid,jdbcType=VARCHAR}, 
-      #{orderweight,jdbcType=DECIMAL}, #{oper,jdbcType=VARCHAR}, #{opertime,jdbcType=TIMESTAMP}, 
-      #{flag,jdbcType=VARCHAR}, #{mailflag,jdbcType=VARCHAR}, #{reserve2,jdbcType=VARCHAR}, 
-      #{reserve3,jdbcType=VARCHAR}, #{groupid,jdbcType=VARCHAR}, #{expresstype,jdbcType=LONGVARCHAR}, 
-      #{reserve1,jdbcType=LONGVARCHAR})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbScanorder">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbScanorder">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbScanorder">
-    insert into db_scanorder
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="orderid != null">
-        ORDERID,
-      </if>
-      <if test="expresstypeid != null">
-        EXPRESSTYPEID,
-      </if>
-      <if test="expressid != null">
-        EXPRESSID,
-      </if>
-      <if test="orderweight != null">
-        ORDERWEIGHT,
-      </if>
-      <if test="oper != null">
-        OPER,
-      </if>
-      <if test="opertime != null">
-        OPERTIME,
-      </if>
-      <if test="flag != null">
-        FLAG,
-      </if>
-      <if test="mailflag != null">
-        MAILFLAG,
-      </if>
-      <if test="reserve2 != null">
-        RESERVE2,
-      </if>
-      <if test="reserve3 != null">
-        RESERVE3,
-      </if>
-      <if test="groupid != null">
-        GROUPID,
-      </if>
-      <if test="expresstype != null">
-        EXPRESSTYPE,
-      </if>
-      <if test="reserve1 != null">
-        RESERVE1,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="orderid != null">
-        #{orderid,jdbcType=VARCHAR},
-      </if>
-      <if test="expresstypeid != null">
-        #{expresstypeid,jdbcType=VARCHAR},
-      </if>
-      <if test="expressid != null">
-        #{expressid,jdbcType=VARCHAR},
-      </if>
-      <if test="orderweight != null">
-        #{orderweight,jdbcType=DECIMAL},
-      </if>
-      <if test="oper != null">
-        #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="flag != null">
-        #{flag,jdbcType=VARCHAR},
-      </if>
-      <if test="mailflag != null">
-        #{mailflag,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve2 != null">
-        #{reserve2,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve3 != null">
-        #{reserve3,jdbcType=VARCHAR},
-      </if>
-      <if test="groupid != null">
-        #{groupid,jdbcType=VARCHAR},
-      </if>
-      <if test="expresstype != null">
-        #{expresstype,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="reserve1 != null">
-        #{reserve1,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbScanorder">
-    update db_scanorder
-    <set>
-      <if test="expresstypeid != null">
-        EXPRESSTYPEID = #{expresstypeid,jdbcType=VARCHAR},
-      </if>
-      <if test="expressid != null">
-        EXPRESSID = #{expressid,jdbcType=VARCHAR},
-      </if>
-      <if test="orderweight != null">
-        ORDERWEIGHT = #{orderweight,jdbcType=DECIMAL},
-      </if>
-      <if test="oper != null">
-        OPER = #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="flag != null">
-        FLAG = #{flag,jdbcType=VARCHAR},
-      </if>
-      <if test="mailflag != null">
-        MAILFLAG = #{mailflag,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve2 != null">
-        RESERVE2 = #{reserve2,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve3 != null">
-        RESERVE3 = #{reserve3,jdbcType=VARCHAR},
-      </if>
-      <if test="groupid != null">
-        GROUPID = #{groupid,jdbcType=VARCHAR},
-      </if>
-      <if test="expresstype != null">
-        EXPRESSTYPE = #{expresstype,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="reserve1 != null">
-        RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where ORDERID = #{orderid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbScanorder">
-    update db_scanorder
-    set EXPRESSTYPEID = #{expresstypeid,jdbcType=VARCHAR},
-      EXPRESSID = #{expressid,jdbcType=VARCHAR},
-      ORDERWEIGHT = #{orderweight,jdbcType=DECIMAL},
-      OPER = #{oper,jdbcType=VARCHAR},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      FLAG = #{flag,jdbcType=VARCHAR},
-      MAILFLAG = #{mailflag,jdbcType=VARCHAR},
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR},
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR},
-      GROUPID = #{groupid,jdbcType=VARCHAR},
-      EXPRESSTYPE = #{expresstype,jdbcType=LONGVARCHAR},
-      RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR}
-    where ORDERID = #{orderid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbScanorder">
-    update db_scanorder
-    set EXPRESSTYPEID = #{expresstypeid,jdbcType=VARCHAR},
-      EXPRESSID = #{expressid,jdbcType=VARCHAR},
-      ORDERWEIGHT = #{orderweight,jdbcType=DECIMAL},
-      OPER = #{oper,jdbcType=VARCHAR},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      FLAG = #{flag,jdbcType=VARCHAR},
-      MAILFLAG = #{mailflag,jdbcType=VARCHAR},
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR},
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR},
-      GROUPID = #{groupid,jdbcType=VARCHAR}
-    where ORDERID = #{orderid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbScanorder">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

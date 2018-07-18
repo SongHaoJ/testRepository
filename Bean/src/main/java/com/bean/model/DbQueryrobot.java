@@ -9,6 +9,8 @@ public class DbQueryrobot implements Serializable {
 
     private String expressid;
 
+    private String content;
+
     private Date updatetime;
 
     private BigDecimal sendflag;
@@ -21,13 +23,11 @@ public class DbQueryrobot implements Serializable {
 
     private BigDecimal lastruntime;
 
+    private String internalcontent;
+
     private String searchstatus;
 
     private String trackexpress;
-
-    private String content;
-
-    private String internalcontent;
 
     private static final long serialVersionUID = 1L;
 
@@ -45,6 +45,14 @@ public class DbQueryrobot implements Serializable {
 
     public void setExpressid(String expressid) {
         this.expressid = expressid == null ? null : expressid.trim();
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content == null ? null : content.trim();
     }
 
     public Date getUpdatetime() {
@@ -95,6 +103,14 @@ public class DbQueryrobot implements Serializable {
         this.lastruntime = lastruntime;
     }
 
+    public String getInternalcontent() {
+        return internalcontent;
+    }
+
+    public void setInternalcontent(String internalcontent) {
+        this.internalcontent = internalcontent == null ? null : internalcontent.trim();
+    }
+
     public String getSearchstatus() {
         return searchstatus;
     }
@@ -111,22 +127,6 @@ public class DbQueryrobot implements Serializable {
         this.trackexpress = trackexpress == null ? null : trackexpress.trim();
     }
 
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content == null ? null : content.trim();
-    }
-
-    public String getInternalcontent() {
-        return internalcontent;
-    }
-
-    public void setInternalcontent(String internalcontent) {
-        this.internalcontent = internalcontent == null ? null : internalcontent.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -141,16 +141,16 @@ public class DbQueryrobot implements Serializable {
         DbQueryrobot other = (DbQueryrobot) that;
         return (this.getOrderid() == null ? other.getOrderid() == null : this.getOrderid().equals(other.getOrderid()))
             && (this.getExpressid() == null ? other.getExpressid() == null : this.getExpressid().equals(other.getExpressid()))
+            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
             && (this.getUpdatetime() == null ? other.getUpdatetime() == null : this.getUpdatetime().equals(other.getUpdatetime()))
             && (this.getSendflag() == null ? other.getSendflag() == null : this.getSendflag().equals(other.getSendflag()))
             && (this.getOpenflag() == null ? other.getOpenflag() == null : this.getOpenflag().equals(other.getOpenflag()))
             && (this.getMabangexpress() == null ? other.getMabangexpress() == null : this.getMabangexpress().equals(other.getMabangexpress()))
             && (this.getPackagestatus() == null ? other.getPackagestatus() == null : this.getPackagestatus().equals(other.getPackagestatus()))
             && (this.getLastruntime() == null ? other.getLastruntime() == null : this.getLastruntime().equals(other.getLastruntime()))
+            && (this.getInternalcontent() == null ? other.getInternalcontent() == null : this.getInternalcontent().equals(other.getInternalcontent()))
             && (this.getSearchstatus() == null ? other.getSearchstatus() == null : this.getSearchstatus().equals(other.getSearchstatus()))
-            && (this.getTrackexpress() == null ? other.getTrackexpress() == null : this.getTrackexpress().equals(other.getTrackexpress()))
-            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
-            && (this.getInternalcontent() == null ? other.getInternalcontent() == null : this.getInternalcontent().equals(other.getInternalcontent()));
+            && (this.getTrackexpress() == null ? other.getTrackexpress() == null : this.getTrackexpress().equals(other.getTrackexpress()));
     }
 
     @Override
@@ -159,16 +159,16 @@ public class DbQueryrobot implements Serializable {
         int result = 1;
         result = prime * result + ((getOrderid() == null) ? 0 : getOrderid().hashCode());
         result = prime * result + ((getExpressid() == null) ? 0 : getExpressid().hashCode());
+        result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
         result = prime * result + ((getUpdatetime() == null) ? 0 : getUpdatetime().hashCode());
         result = prime * result + ((getSendflag() == null) ? 0 : getSendflag().hashCode());
         result = prime * result + ((getOpenflag() == null) ? 0 : getOpenflag().hashCode());
         result = prime * result + ((getMabangexpress() == null) ? 0 : getMabangexpress().hashCode());
         result = prime * result + ((getPackagestatus() == null) ? 0 : getPackagestatus().hashCode());
         result = prime * result + ((getLastruntime() == null) ? 0 : getLastruntime().hashCode());
+        result = prime * result + ((getInternalcontent() == null) ? 0 : getInternalcontent().hashCode());
         result = prime * result + ((getSearchstatus() == null) ? 0 : getSearchstatus().hashCode());
         result = prime * result + ((getTrackexpress() == null) ? 0 : getTrackexpress().hashCode());
-        result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
-        result = prime * result + ((getInternalcontent() == null) ? 0 : getInternalcontent().hashCode());
         return result;
     }
 
@@ -180,16 +180,16 @@ public class DbQueryrobot implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", orderid=").append(orderid);
         sb.append(", expressid=").append(expressid);
+        sb.append(", content=").append(content);
         sb.append(", updatetime=").append(updatetime);
         sb.append(", sendflag=").append(sendflag);
         sb.append(", openflag=").append(openflag);
         sb.append(", mabangexpress=").append(mabangexpress);
         sb.append(", packagestatus=").append(packagestatus);
         sb.append(", lastruntime=").append(lastruntime);
+        sb.append(", internalcontent=").append(internalcontent);
         sb.append(", searchstatus=").append(searchstatus);
         sb.append(", trackexpress=").append(trackexpress);
-        sb.append(", content=").append(content);
-        sb.append(", internalcontent=").append(internalcontent);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

@@ -3,63 +3,59 @@
 <mapper namespace="com.bean.dao.DbProductcontentMapper">
   <resultMap id="BaseResultMap" type="com.bean.model.DbProductcontent">
     <id column="PRODUCTID" jdbcType="VARCHAR" property="productid" />
+    <result column="CLOBCONTENT" jdbcType="CLOB" property="clobcontent" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbProductcontent">
-    <result column="CLOBCONTENT" jdbcType="LONGVARCHAR" property="clobcontent" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    PRODUCTID
-  </sql>
-  <sql id="Blob_Column_List">
-    CLOBCONTENT
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from db_productcontent
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select PRODUCTID, CLOBCONTENT
+    from DB_PRODUCTCONTENT
     where PRODUCTID = #{productid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_productcontent
-    where PRODUCTID = #{productid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select PRODUCTID, CLOBCONTENT
+    from DB_PRODUCTCONTENT
+  </select>
+  <sql id="TableName">
+    DB_PRODUCTCONTENT
+  </sql>
+  <sql id="Values">
+     #{productid,jdbcType=VARCHAR} , 
+     #{clobcontent,jdbcType=CLOB} , 
+  </sql>
+  <sql id="Columns">
+    PRODUCTID , 
+    CLOBCONTENT , 
+  </sql>
+  <sql id="Criteria">
+    <if test="productid != null">
+      productid = #{productid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="clobcontent != null">
+      clobcontent = #{clobcontent,jdbcType=CLOB} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="productid != null">
+      productid = #{productid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="clobcontent != null">
+      clobcontent = #{clobcontent,jdbcType=CLOB} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbProductcontent" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where PRODUCTID=#{PRODUCTID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbProductcontent">
-    insert into db_productcontent (PRODUCTID, CLOBCONTENT)
-    values (#{productid,jdbcType=VARCHAR}, #{clobcontent,jdbcType=LONGVARCHAR})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbProductcontent">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbProductcontent">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbProductcontent">
-    insert into db_productcontent
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="productid != null">
-        PRODUCTID,
-      </if>
-      <if test="clobcontent != null">
-        CLOBCONTENT,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="productid != null">
-        #{productid,jdbcType=VARCHAR},
-      </if>
-      <if test="clobcontent != null">
-        #{clobcontent,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbProductcontent">
-    update db_productcontent
-    <set>
-      <if test="clobcontent != null">
-        CLOBCONTENT = #{clobcontent,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where PRODUCTID = #{productid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbProductcontent">
-    update db_productcontent
-    set CLOBCONTENT = #{clobcontent,jdbcType=LONGVARCHAR}
-    where PRODUCTID = #{productid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbProductcontent">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

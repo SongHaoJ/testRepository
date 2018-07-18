@@ -7,42 +7,6 @@ import java.util.Date;
 public class DbOrderTemp implements Serializable {
     private String sequenceid;
 
-    private String groupid;
-
-    private BigDecimal recordnum;
-
-    private String oper;
-
-    private Date opertime;
-
-    private String shopid;
-
-    private String shopname;
-
-    private String shopitemid;
-
-    private String checkflag;
-
-    private String moneytype;
-
-    private BigDecimal moneyrate;
-
-    private BigDecimal originsellprice;
-
-    private BigDecimal rmbsellprice;
-
-    private BigDecimal rmbamount;
-
-    private BigDecimal originexpress;
-
-    private BigDecimal rmbexpressmoney;
-
-    private BigDecimal insurancemoney;
-
-    private BigDecimal rmbinsurancemoney;
-
-    private String corpid;
-
     private String tradeid;
 
     private String customerid;
@@ -103,9 +67,45 @@ public class DbOrderTemp implements Serializable {
 
     private String field30;
 
+    private String groupid;
+
     private String sline;
 
+    private BigDecimal recordnum;
+
+    private String oper;
+
+    private Date opertime;
+
+    private String shopid;
+
+    private String shopname;
+
+    private String shopitemid;
+
+    private String checkflag;
+
     private String errorinfo;
+
+    private String moneytype;
+
+    private BigDecimal moneyrate;
+
+    private BigDecimal originsellprice;
+
+    private BigDecimal rmbsellprice;
+
+    private BigDecimal rmbamount;
+
+    private BigDecimal originexpress;
+
+    private BigDecimal rmbexpressmoney;
+
+    private BigDecimal insurancemoney;
+
+    private BigDecimal rmbinsurancemoney;
+
+    private String corpid;
 
     private String ebaycustomeraddress;
 
@@ -119,150 +119,6 @@ public class DbOrderTemp implements Serializable {
 
     public void setSequenceid(String sequenceid) {
         this.sequenceid = sequenceid == null ? null : sequenceid.trim();
-    }
-
-    public String getGroupid() {
-        return groupid;
-    }
-
-    public void setGroupid(String groupid) {
-        this.groupid = groupid == null ? null : groupid.trim();
-    }
-
-    public BigDecimal getRecordnum() {
-        return recordnum;
-    }
-
-    public void setRecordnum(BigDecimal recordnum) {
-        this.recordnum = recordnum;
-    }
-
-    public String getOper() {
-        return oper;
-    }
-
-    public void setOper(String oper) {
-        this.oper = oper == null ? null : oper.trim();
-    }
-
-    public Date getOpertime() {
-        return opertime;
-    }
-
-    public void setOpertime(Date opertime) {
-        this.opertime = opertime;
-    }
-
-    public String getShopid() {
-        return shopid;
-    }
-
-    public void setShopid(String shopid) {
-        this.shopid = shopid == null ? null : shopid.trim();
-    }
-
-    public String getShopname() {
-        return shopname;
-    }
-
-    public void setShopname(String shopname) {
-        this.shopname = shopname == null ? null : shopname.trim();
-    }
-
-    public String getShopitemid() {
-        return shopitemid;
-    }
-
-    public void setShopitemid(String shopitemid) {
-        this.shopitemid = shopitemid == null ? null : shopitemid.trim();
-    }
-
-    public String getCheckflag() {
-        return checkflag;
-    }
-
-    public void setCheckflag(String checkflag) {
-        this.checkflag = checkflag == null ? null : checkflag.trim();
-    }
-
-    public String getMoneytype() {
-        return moneytype;
-    }
-
-    public void setMoneytype(String moneytype) {
-        this.moneytype = moneytype == null ? null : moneytype.trim();
-    }
-
-    public BigDecimal getMoneyrate() {
-        return moneyrate;
-    }
-
-    public void setMoneyrate(BigDecimal moneyrate) {
-        this.moneyrate = moneyrate;
-    }
-
-    public BigDecimal getOriginsellprice() {
-        return originsellprice;
-    }
-
-    public void setOriginsellprice(BigDecimal originsellprice) {
-        this.originsellprice = originsellprice;
-    }
-
-    public BigDecimal getRmbsellprice() {
-        return rmbsellprice;
-    }
-
-    public void setRmbsellprice(BigDecimal rmbsellprice) {
-        this.rmbsellprice = rmbsellprice;
-    }
-
-    public BigDecimal getRmbamount() {
-        return rmbamount;
-    }
-
-    public void setRmbamount(BigDecimal rmbamount) {
-        this.rmbamount = rmbamount;
-    }
-
-    public BigDecimal getOriginexpress() {
-        return originexpress;
-    }
-
-    public void setOriginexpress(BigDecimal originexpress) {
-        this.originexpress = originexpress;
-    }
-
-    public BigDecimal getRmbexpressmoney() {
-        return rmbexpressmoney;
-    }
-
-    public void setRmbexpressmoney(BigDecimal rmbexpressmoney) {
-        this.rmbexpressmoney = rmbexpressmoney;
-    }
-
-    public BigDecimal getInsurancemoney() {
-        return insurancemoney;
-    }
-
-    public void setInsurancemoney(BigDecimal insurancemoney) {
-        this.insurancemoney = insurancemoney;
-    }
-
-    public BigDecimal getRmbinsurancemoney() {
-        return rmbinsurancemoney;
-    }
-
-    public void setRmbinsurancemoney(BigDecimal rmbinsurancemoney) {
-        this.rmbinsurancemoney = rmbinsurancemoney;
-    }
-
-    public String getCorpid() {
-        return corpid;
-    }
-
-    public void setCorpid(String corpid) {
-        this.corpid = corpid == null ? null : corpid.trim();
     }
 
     public String getTradeid() {
@@ -505,6 +361,14 @@ public class DbOrderTemp implements Serializable {
         this.field30 = field30 == null ? null : field30.trim();
     }
 
+    public String getGroupid() {
+        return groupid;
+    }
+
+    public void setGroupid(String groupid) {
+        this.groupid = groupid == null ? null : groupid.trim();
+    }
+
     public String getSline() {
         return sline;
     }
@@ -513,12 +377,148 @@ public class DbOrderTemp implements Serializable {
         this.sline = sline == null ? null : sline.trim();
     }
 
+    public BigDecimal getRecordnum() {
+        return recordnum;
+    }
+
+    public void setRecordnum(BigDecimal recordnum) {
+        this.recordnum = recordnum;
+    }
+
+    public String getOper() {
+        return oper;
+    }
+
+    public void setOper(String oper) {
+        this.oper = oper == null ? null : oper.trim();
+    }
+
+    public Date getOpertime() {
+        return opertime;
+    }
+
+    public void setOpertime(Date opertime) {
+        this.opertime = opertime;
+    }
+
+    public String getShopid() {
+        return shopid;
+    }
+
+    public void setShopid(String shopid) {
+        this.shopid = shopid == null ? null : shopid.trim();
+    }
+
+    public String getShopname() {
+        return shopname;
+    }
+
+    public void setShopname(String shopname) {
+        this.shopname = shopname == null ? null : shopname.trim();
+    }
+
+    public String getShopitemid() {
+        return shopitemid;
+    }
+
+    public void setShopitemid(String shopitemid) {
+        this.shopitemid = shopitemid == null ? null : shopitemid.trim();
+    }
+
+    public String getCheckflag() {
+        return checkflag;
+    }
+
+    public void setCheckflag(String checkflag) {
+        this.checkflag = checkflag == null ? null : checkflag.trim();
+    }
+
     public String getErrorinfo() {
         return errorinfo;
     }
 
     public void setErrorinfo(String errorinfo) {
         this.errorinfo = errorinfo == null ? null : errorinfo.trim();
+    }
+
+    public String getMoneytype() {
+        return moneytype;
+    }
+
+    public void setMoneytype(String moneytype) {
+        this.moneytype = moneytype == null ? null : moneytype.trim();
+    }
+
+    public BigDecimal getMoneyrate() {
+        return moneyrate;
+    }
+
+    public void setMoneyrate(BigDecimal moneyrate) {
+        this.moneyrate = moneyrate;
+    }
+
+    public BigDecimal getOriginsellprice() {
+        return originsellprice;
+    }
+
+    public void setOriginsellprice(BigDecimal originsellprice) {
+        this.originsellprice = originsellprice;
+    }
+
+    public BigDecimal getRmbsellprice() {
+        return rmbsellprice;
+    }
+
+    public void setRmbsellprice(BigDecimal rmbsellprice) {
+        this.rmbsellprice = rmbsellprice;
+    }
+
+    public BigDecimal getRmbamount() {
+        return rmbamount;
+    }
+
+    public void setRmbamount(BigDecimal rmbamount) {
+        this.rmbamount = rmbamount;
+    }
+
+    public BigDecimal getOriginexpress() {
+        return originexpress;
+    }
+
+    public void setOriginexpress(BigDecimal originexpress) {
+        this.originexpress = originexpress;
+    }
+
+    public BigDecimal getRmbexpressmoney() {
+        return rmbexpressmoney;
+    }
+
+    public void setRmbexpressmoney(BigDecimal rmbexpressmoney) {
+        this.rmbexpressmoney = rmbexpressmoney;
+    }
+
+    public BigDecimal getInsurancemoney() {
+        return insurancemoney;
+    }
+
+    public void setInsurancemoney(BigDecimal insurancemoney) {
+        this.insurancemoney = insurancemoney;
+    }
+
+    public BigDecimal getRmbinsurancemoney() {
+        return rmbinsurancemoney;
+    }
+
+    public void setRmbinsurancemoney(BigDecimal rmbinsurancemoney) {
+        this.rmbinsurancemoney = rmbinsurancemoney;
+    }
+
+    public String getCorpid() {
+        return corpid;
+    }
+
+    public void setCorpid(String corpid) {
+        this.corpid = corpid == null ? null : corpid.trim();
     }
 
     public String getEbaycustomeraddress() {
@@ -550,24 +550,6 @@ public class DbOrderTemp implements Serializable {
         }
         DbOrderTemp other = (DbOrderTemp) that;
         return (this.getSequenceid() == null ? other.getSequenceid() == null : this.getSequenceid().equals(other.getSequenceid()))
-            && (this.getGroupid() == null ? other.getGroupid() == null : this.getGroupid().equals(other.getGroupid()))
-            && (this.getRecordnum() == null ? other.getRecordnum() == null : this.getRecordnum().equals(other.getRecordnum()))
-            && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
-            && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
-            && (this.getShopid() == null ? other.getShopid() == null : this.getShopid().equals(other.getShopid()))
-            && (this.getShopname() == null ? other.getShopname() == null : this.getShopname().equals(other.getShopname()))
-            && (this.getShopitemid() == null ? other.getShopitemid() == null : this.getShopitemid().equals(other.getShopitemid()))
-            && (this.getCheckflag() == null ? other.getCheckflag() == null : this.getCheckflag().equals(other.getCheckflag()))
-            && (this.getMoneytype() == null ? other.getMoneytype() == null : this.getMoneytype().equals(other.getMoneytype()))
-            && (this.getMoneyrate() == null ? other.getMoneyrate() == null : this.getMoneyrate().equals(other.getMoneyrate()))
-            && (this.getOriginsellprice() == null ? other.getOriginsellprice() == null : this.getOriginsellprice().equals(other.getOriginsellprice()))
-            && (this.getRmbsellprice() == null ? other.getRmbsellprice() == null : this.getRmbsellprice().equals(other.getRmbsellprice()))
-            && (this.getRmbamount() == null ? other.getRmbamount() == null : this.getRmbamount().equals(other.getRmbamount()))
-            && (this.getOriginexpress() == null ? other.getOriginexpress() == null : this.getOriginexpress().equals(other.getOriginexpress()))
-            && (this.getRmbexpressmoney() == null ? other.getRmbexpressmoney() == null : this.getRmbexpressmoney().equals(other.getRmbexpressmoney()))
-            && (this.getInsurancemoney() == null ? other.getInsurancemoney() == null : this.getInsurancemoney().equals(other.getInsurancemoney()))
-            && (this.getRmbinsurancemoney() == null ? other.getRmbinsurancemoney() == null : this.getRmbinsurancemoney().equals(other.getRmbinsurancemoney()))
-            && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()))
             && (this.getTradeid() == null ? other.getTradeid() == null : this.getTradeid().equals(other.getTradeid()))
             && (this.getCustomerid() == null ? other.getCustomerid() == null : this.getCustomerid().equals(other.getCustomerid()))
             && (this.getCustomername() == null ? other.getCustomername() == null : this.getCustomername().equals(other.getCustomername()))
@@ -598,8 +580,26 @@ public class DbOrderTemp implements Serializable {
             && (this.getField28() == null ? other.getField28() == null : this.getField28().equals(other.getField28()))
             && (this.getField29() == null ? other.getField29() == null : this.getField29().equals(other.getField29()))
             && (this.getField30() == null ? other.getField30() == null : this.getField30().equals(other.getField30()))
+            && (this.getGroupid() == null ? other.getGroupid() == null : this.getGroupid().equals(other.getGroupid()))
             && (this.getSline() == null ? other.getSline() == null : this.getSline().equals(other.getSline()))
+            && (this.getRecordnum() == null ? other.getRecordnum() == null : this.getRecordnum().equals(other.getRecordnum()))
+            && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
+            && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
+            && (this.getShopid() == null ? other.getShopid() == null : this.getShopid().equals(other.getShopid()))
+            && (this.getShopname() == null ? other.getShopname() == null : this.getShopname().equals(other.getShopname()))
+            && (this.getShopitemid() == null ? other.getShopitemid() == null : this.getShopitemid().equals(other.getShopitemid()))
+            && (this.getCheckflag() == null ? other.getCheckflag() == null : this.getCheckflag().equals(other.getCheckflag()))
             && (this.getErrorinfo() == null ? other.getErrorinfo() == null : this.getErrorinfo().equals(other.getErrorinfo()))
+            && (this.getMoneytype() == null ? other.getMoneytype() == null : this.getMoneytype().equals(other.getMoneytype()))
+            && (this.getMoneyrate() == null ? other.getMoneyrate() == null : this.getMoneyrate().equals(other.getMoneyrate()))
+            && (this.getOriginsellprice() == null ? other.getOriginsellprice() == null : this.getOriginsellprice().equals(other.getOriginsellprice()))
+            && (this.getRmbsellprice() == null ? other.getRmbsellprice() == null : this.getRmbsellprice().equals(other.getRmbsellprice()))
+            && (this.getRmbamount() == null ? other.getRmbamount() == null : this.getRmbamount().equals(other.getRmbamount()))
+            && (this.getOriginexpress() == null ? other.getOriginexpress() == null : this.getOriginexpress().equals(other.getOriginexpress()))
+            && (this.getRmbexpressmoney() == null ? other.getRmbexpressmoney() == null : this.getRmbexpressmoney().equals(other.getRmbexpressmoney()))
+            && (this.getInsurancemoney() == null ? other.getInsurancemoney() == null : this.getInsurancemoney().equals(other.getInsurancemoney()))
+            && (this.getRmbinsurancemoney() == null ? other.getRmbinsurancemoney() == null : this.getRmbinsurancemoney().equals(other.getRmbinsurancemoney()))
+            && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()))
             && (this.getEbaycustomeraddress() == null ? other.getEbaycustomeraddress() == null : this.getEbaycustomeraddress().equals(other.getEbaycustomeraddress()))
             && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()));
     }
@@ -609,24 +609,6 @@ public class DbOrderTemp implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getSequenceid() == null) ? 0 : getSequenceid().hashCode());
-        result = prime * result + ((getGroupid() == null) ? 0 : getGroupid().hashCode());
-        result = prime * result + ((getRecordnum() == null) ? 0 : getRecordnum().hashCode());
-        result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
-        result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
-        result = prime * result + ((getShopid() == null) ? 0 : getShopid().hashCode());
-        result = prime * result + ((getShopname() == null) ? 0 : getShopname().hashCode());
-        result = prime * result + ((getShopitemid() == null) ? 0 : getShopitemid().hashCode());
-        result = prime * result + ((getCheckflag() == null) ? 0 : getCheckflag().hashCode());
-        result = prime * result + ((getMoneytype() == null) ? 0 : getMoneytype().hashCode());
-        result = prime * result + ((getMoneyrate() == null) ? 0 : getMoneyrate().hashCode());
-        result = prime * result + ((getOriginsellprice() == null) ? 0 : getOriginsellprice().hashCode());
-        result = prime * result + ((getRmbsellprice() == null) ? 0 : getRmbsellprice().hashCode());
-        result = prime * result + ((getRmbamount() == null) ? 0 : getRmbamount().hashCode());
-        result = prime * result + ((getOriginexpress() == null) ? 0 : getOriginexpress().hashCode());
-        result = prime * result + ((getRmbexpressmoney() == null) ? 0 : getRmbexpressmoney().hashCode());
-        result = prime * result + ((getInsurancemoney() == null) ? 0 : getInsurancemoney().hashCode());
-        result = prime * result + ((getRmbinsurancemoney() == null) ? 0 : getRmbinsurancemoney().hashCode());
-        result = prime * result + ((getCorpid() == null) ? 0 : getCorpid().hashCode());
         result = prime * result + ((getTradeid() == null) ? 0 : getTradeid().hashCode());
         result = prime * result + ((getCustomerid() == null) ? 0 : getCustomerid().hashCode());
         result = prime * result + ((getCustomername() == null) ? 0 : getCustomername().hashCode());
@@ -657,8 +639,26 @@ public class DbOrderTemp implements Serializable {
         result = prime * result + ((getField28() == null) ? 0 : getField28().hashCode());
         result = prime * result + ((getField29() == null) ? 0 : getField29().hashCode());
         result = prime * result + ((getField30() == null) ? 0 : getField30().hashCode());
+        result = prime * result + ((getGroupid() == null) ? 0 : getGroupid().hashCode());
         result = prime * result + ((getSline() == null) ? 0 : getSline().hashCode());
+        result = prime * result + ((getRecordnum() == null) ? 0 : getRecordnum().hashCode());
+        result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
+        result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
+        result = prime * result + ((getShopid() == null) ? 0 : getShopid().hashCode());
+        result = prime * result + ((getShopname() == null) ? 0 : getShopname().hashCode());
+        result = prime * result + ((getShopitemid() == null) ? 0 : getShopitemid().hashCode());
+        result = prime * result + ((getCheckflag() == null) ? 0 : getCheckflag().hashCode());
         result = prime * result + ((getErrorinfo() == null) ? 0 : getErrorinfo().hashCode());
+        result = prime * result + ((getMoneytype() == null) ? 0 : getMoneytype().hashCode());
+        result = prime * result + ((getMoneyrate() == null) ? 0 : getMoneyrate().hashCode());
+        result = prime * result + ((getOriginsellprice() == null) ? 0 : getOriginsellprice().hashCode());
+        result = prime * result + ((getRmbsellprice() == null) ? 0 : getRmbsellprice().hashCode());
+        result = prime * result + ((getRmbamount() == null) ? 0 : getRmbamount().hashCode());
+        result = prime * result + ((getOriginexpress() == null) ? 0 : getOriginexpress().hashCode());
+        result = prime * result + ((getRmbexpressmoney() == null) ? 0 : getRmbexpressmoney().hashCode());
+        result = prime * result + ((getInsurancemoney() == null) ? 0 : getInsurancemoney().hashCode());
+        result = prime * result + ((getRmbinsurancemoney() == null) ? 0 : getRmbinsurancemoney().hashCode());
+        result = prime * result + ((getCorpid() == null) ? 0 : getCorpid().hashCode());
         result = prime * result + ((getEbaycustomeraddress() == null) ? 0 : getEbaycustomeraddress().hashCode());
         result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
         return result;
@@ -671,24 +671,6 @@ public class DbOrderTemp implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", sequenceid=").append(sequenceid);
-        sb.append(", groupid=").append(groupid);
-        sb.append(", recordnum=").append(recordnum);
-        sb.append(", oper=").append(oper);
-        sb.append(", opertime=").append(opertime);
-        sb.append(", shopid=").append(shopid);
-        sb.append(", shopname=").append(shopname);
-        sb.append(", shopitemid=").append(shopitemid);
-        sb.append(", checkflag=").append(checkflag);
-        sb.append(", moneytype=").append(moneytype);
-        sb.append(", moneyrate=").append(moneyrate);
-        sb.append(", originsellprice=").append(originsellprice);
-        sb.append(", rmbsellprice=").append(rmbsellprice);
-        sb.append(", rmbamount=").append(rmbamount);
-        sb.append(", originexpress=").append(originexpress);
-        sb.append(", rmbexpressmoney=").append(rmbexpressmoney);
-        sb.append(", insurancemoney=").append(insurancemoney);
-        sb.append(", rmbinsurancemoney=").append(rmbinsurancemoney);
-        sb.append(", corpid=").append(corpid);
         sb.append(", tradeid=").append(tradeid);
         sb.append(", customerid=").append(customerid);
         sb.append(", customername=").append(customername);
@@ -719,8 +701,26 @@ public class DbOrderTemp implements Serializable {
         sb.append(", field28=").append(field28);
         sb.append(", field29=").append(field29);
         sb.append(", field30=").append(field30);
+        sb.append(", groupid=").append(groupid);
         sb.append(", sline=").append(sline);
+        sb.append(", recordnum=").append(recordnum);
+        sb.append(", oper=").append(oper);
+        sb.append(", opertime=").append(opertime);
+        sb.append(", shopid=").append(shopid);
+        sb.append(", shopname=").append(shopname);
+        sb.append(", shopitemid=").append(shopitemid);
+        sb.append(", checkflag=").append(checkflag);
         sb.append(", errorinfo=").append(errorinfo);
+        sb.append(", moneytype=").append(moneytype);
+        sb.append(", moneyrate=").append(moneyrate);
+        sb.append(", originsellprice=").append(originsellprice);
+        sb.append(", rmbsellprice=").append(rmbsellprice);
+        sb.append(", rmbamount=").append(rmbamount);
+        sb.append(", originexpress=").append(originexpress);
+        sb.append(", rmbexpressmoney=").append(rmbexpressmoney);
+        sb.append(", insurancemoney=").append(insurancemoney);
+        sb.append(", rmbinsurancemoney=").append(rmbinsurancemoney);
+        sb.append(", corpid=").append(corpid);
         sb.append(", ebaycustomeraddress=").append(ebaycustomeraddress);
         sb.append(", content=").append(content);
         sb.append(", serialVersionUID=").append(serialVersionUID);

@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbShiptolocation;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbShiptolocationMapper {
-    int deleteByPrimaryKey(String sid);
+    DbShiptolocation selectByCriteria(DbShiptolocation DbShiptolocation);
 
-    int insert(DbShiptolocation record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbShiptolocation record);
+    void deleteByCriteria(DbShiptolocation DbShiptolocation);
+
+    int insertByCriteria(DbShiptolocation DbShiptolocation);
+
+    int updateByCriteria(DbShiptolocation DbShiptolocation);
 
     DbShiptolocation selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbShiptolocation record);
-
-    int updateByPrimaryKey(DbShiptolocation record);
+    List<DbShiptolocation> selectAll();
 }

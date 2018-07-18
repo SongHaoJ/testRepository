@@ -9,57 +9,57 @@
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select SID, NAME, SPECIALTYPE, OPERTIME
-    from db_birdexpresstype
+    from DB_BIRDEXPRESSTYPE
     where SID = #{sid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SID, NAME, SPECIALTYPE, OPERTIME
-    from db_birdexpresstype
+    from DB_BIRDEXPRESSTYPE
   </select>
   <sql id="TableName">
-    db_birdexpresstype
+    DB_BIRDEXPRESSTYPE
   </sql>
   <sql id="Values">
      #{sid,jdbcType=VARCHAR} , 
      #{name,jdbcType=VARCHAR} , 
      #{specialtype,jdbcType=VARCHAR} , 
-     #{opertime,jdbcType=TIMESTAMP}
+     #{opertime,jdbcType=TIMESTAMP} , 
   </sql>
   <sql id="Columns">
     SID , 
     NAME , 
     SPECIALTYPE , 
-    OPERTIME
+    OPERTIME , 
   </sql>
   <sql id="Criteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} and 
+      sid = #{sid,jdbcType=VARCHAR} and 
     </if>
     <if test="name != null">
-      NAME = #{name,jdbcType=VARCHAR} and 
+      name = #{name,jdbcType=VARCHAR} and 
     </if>
     <if test="specialtype != null">
-      SPECIALTYPE = #{specialtype,jdbcType=VARCHAR} and 
+      specialtype = #{specialtype,jdbcType=VARCHAR} and 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP}
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} , 
+      sid = #{sid,jdbcType=VARCHAR} , 
     </if>
     <if test="name != null">
-      NAME = #{name,jdbcType=VARCHAR} , 
+      name = #{name,jdbcType=VARCHAR} , 
     </if>
     <if test="specialtype != null">
-      SPECIALTYPE = #{specialtype,jdbcType=VARCHAR} , 
+      specialtype = #{specialtype,jdbcType=VARCHAR} , 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP}
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbBirdexpresstype" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

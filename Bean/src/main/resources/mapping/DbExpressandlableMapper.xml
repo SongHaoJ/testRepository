@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbExpressandlableMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbExpressandlable">
+    <id column="EXPRESSID" jdbcType="VARCHAR" property="expressid" />
+    <result column="EXPRESSNAME" jdbcType="VARCHAR" property="expressname" />
+    <result column="LABLE" jdbcType="VARCHAR" property="lable" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select EXPRESSID, EXPRESSNAME, LABLE
+    from DB_EXPRESSANDLABLE
+    where EXPRESSID = #{expressid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select EXPRESSID, EXPRESSNAME, LABLE
+    from DB_EXPRESSANDLABLE
+  </select>
+  <sql id="TableName">
+    DB_EXPRESSANDLABLE
+  </sql>
+  <sql id="Values">
+     #{expressid,jdbcType=VARCHAR} , 
+     #{expressname,jdbcType=VARCHAR} , 
+     #{lable,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    EXPRESSID , 
+    EXPRESSNAME , 
+    LABLE , 
+  </sql>
+  <sql id="Criteria">
+    <if test="expressid != null">
+      expressid = #{expressid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="expressname != null">
+      expressname = #{expressname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="lable != null">
+      lable = #{lable,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="expressid != null">
+      expressid = #{expressid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="expressname != null">
+      expressname = #{expressname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="lable != null">
+      lable = #{lable,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbExpressandlable" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where EXPRESSID=#{EXPRESSID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbExpressandlable">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbExpressandlable">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbExpressandlable">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

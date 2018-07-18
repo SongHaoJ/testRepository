@@ -7,11 +7,19 @@ import java.util.Date;
 public class DbProductdevelop implements Serializable {
     private String sequenceid;
 
+    private String productsource;
+
     private String productid;
+
+    private String goalaccount;
+
+    private String photourl;
 
     private String producttitle;
 
     private String namechn;
+
+    private String url;
 
     private BigDecimal goalsell;
 
@@ -19,7 +27,11 @@ public class DbProductdevelop implements Serializable {
 
     private BigDecimal estimateweight;
 
+    private String goaladress;
+
     private String antistop;
+
+    private String note;
 
     private String createoper;
 
@@ -57,7 +69,11 @@ public class DbProductdevelop implements Serializable {
 
     private String status;
 
+    private String picture;
+
     private String purchaseflowoper;
+
+    private String content;
 
     private Date finishtime;
 
@@ -72,6 +88,8 @@ public class DbProductdevelop implements Serializable {
     private BigDecimal reserve5;
 
     private Date reserve6;
+
+    private String productnote;
 
     private String reserve11;
 
@@ -121,24 +139,6 @@ public class DbProductdevelop implements Serializable {
 
     private Date checkpurchasetime;
 
-    private String productsource;
-
-    private String goalaccount;
-
-    private String photourl;
-
-    private String url;
-
-    private String goaladress;
-
-    private String note;
-
-    private String picture;
-
-    private String content;
-
-    private String productnote;
-
     private static final long serialVersionUID = 1L;
 
     public String getSequenceid() {
@@ -149,12 +149,36 @@ public class DbProductdevelop implements Serializable {
         this.sequenceid = sequenceid == null ? null : sequenceid.trim();
     }
 
+    public String getProductsource() {
+        return productsource;
+    }
+
+    public void setProductsource(String productsource) {
+        this.productsource = productsource == null ? null : productsource.trim();
+    }
+
     public String getProductid() {
         return productid;
     }
 
     public void setProductid(String productid) {
         this.productid = productid == null ? null : productid.trim();
+    }
+
+    public String getGoalaccount() {
+        return goalaccount;
+    }
+
+    public void setGoalaccount(String goalaccount) {
+        this.goalaccount = goalaccount == null ? null : goalaccount.trim();
+    }
+
+    public String getPhotourl() {
+        return photourl;
+    }
+
+    public void setPhotourl(String photourl) {
+        this.photourl = photourl == null ? null : photourl.trim();
     }
 
     public String getProducttitle() {
@@ -171,6 +195,14 @@ public class DbProductdevelop implements Serializable {
 
     public void setNamechn(String namechn) {
         this.namechn = namechn == null ? null : namechn.trim();
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url == null ? null : url.trim();
     }
 
     public BigDecimal getGoalsell() {
@@ -197,12 +229,28 @@ public class DbProductdevelop implements Serializable {
         this.estimateweight = estimateweight;
     }
 
+    public String getGoaladress() {
+        return goaladress;
+    }
+
+    public void setGoaladress(String goaladress) {
+        this.goaladress = goaladress == null ? null : goaladress.trim();
+    }
+
     public String getAntistop() {
         return antistop;
     }
 
     public void setAntistop(String antistop) {
         this.antistop = antistop == null ? null : antistop.trim();
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note == null ? null : note.trim();
     }
 
     public String getCreateoper() {
@@ -349,12 +397,28 @@ public class DbProductdevelop implements Serializable {
         this.status = status == null ? null : status.trim();
     }
 
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture == null ? null : picture.trim();
+    }
+
     public String getPurchaseflowoper() {
         return purchaseflowoper;
     }
 
     public void setPurchaseflowoper(String purchaseflowoper) {
         this.purchaseflowoper = purchaseflowoper == null ? null : purchaseflowoper.trim();
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content == null ? null : content.trim();
     }
 
     public Date getFinishtime() {
@@ -411,6 +475,14 @@ public class DbProductdevelop implements Serializable {
 
     public void setReserve6(Date reserve6) {
         this.reserve6 = reserve6;
+    }
+
+    public String getProductnote() {
+        return productnote;
+    }
+
+    public void setProductnote(String productnote) {
+        this.productnote = productnote == null ? null : productnote.trim();
     }
 
     public String getReserve11() {
@@ -605,78 +677,6 @@ public class DbProductdevelop implements Serializable {
         this.checkpurchasetime = checkpurchasetime;
     }
 
-    public String getProductsource() {
-        return productsource;
-    }
-
-    public void setProductsource(String productsource) {
-        this.productsource = productsource == null ? null : productsource.trim();
-    }
-
-    public String getGoalaccount() {
-        return goalaccount;
-    }
-
-    public void setGoalaccount(String goalaccount) {
-        this.goalaccount = goalaccount == null ? null : goalaccount.trim();
-    }
-
-    public String getPhotourl() {
-        return photourl;
-    }
-
-    public void setPhotourl(String photourl) {
-        this.photourl = photourl == null ? null : photourl.trim();
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url == null ? null : url.trim();
-    }
-
-    public String getGoaladress() {
-        return goaladress;
-    }
-
-    public void setGoaladress(String goaladress) {
-        this.goaladress = goaladress == null ? null : goaladress.trim();
-    }
-
-    public String getNote() {
-        return note;
-    }
-
-    public void setNote(String note) {
-        this.note = note == null ? null : note.trim();
-    }
-
-    public String getPicture() {
-        return picture;
-    }
-
-    public void setPicture(String picture) {
-        this.picture = picture == null ? null : picture.trim();
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content == null ? null : content.trim();
-    }
-
-    public String getProductnote() {
-        return productnote;
-    }
-
-    public void setProductnote(String productnote) {
-        this.productnote = productnote == null ? null : productnote.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -690,13 +690,19 @@ public class DbProductdevelop implements Serializable {
         }
         DbProductdevelop other = (DbProductdevelop) that;
         return (this.getSequenceid() == null ? other.getSequenceid() == null : this.getSequenceid().equals(other.getSequenceid()))
+            && (this.getProductsource() == null ? other.getProductsource() == null : this.getProductsource().equals(other.getProductsource()))
             && (this.getProductid() == null ? other.getProductid() == null : this.getProductid().equals(other.getProductid()))
+            && (this.getGoalaccount() == null ? other.getGoalaccount() == null : this.getGoalaccount().equals(other.getGoalaccount()))
+            && (this.getPhotourl() == null ? other.getPhotourl() == null : this.getPhotourl().equals(other.getPhotourl()))
             && (this.getProducttitle() == null ? other.getProducttitle() == null : this.getProducttitle().equals(other.getProducttitle()))
             && (this.getNamechn() == null ? other.getNamechn() == null : this.getNamechn().equals(other.getNamechn()))
+            && (this.getUrl() == null ? other.getUrl() == null : this.getUrl().equals(other.getUrl()))
             && (this.getGoalsell() == null ? other.getGoalsell() == null : this.getGoalsell().equals(other.getGoalsell()))
             && (this.getExpresstype() == null ? other.getExpresstype() == null : this.getExpresstype().equals(other.getExpresstype()))
             && (this.getEstimateweight() == null ? other.getEstimateweight() == null : this.getEstimateweight().equals(other.getEstimateweight()))
+            && (this.getGoaladress() == null ? other.getGoaladress() == null : this.getGoaladress().equals(other.getGoaladress()))
             && (this.getAntistop() == null ? other.getAntistop() == null : this.getAntistop().equals(other.getAntistop()))
+            && (this.getNote() == null ? other.getNote() == null : this.getNote().equals(other.getNote()))
             && (this.getCreateoper() == null ? other.getCreateoper() == null : this.getCreateoper().equals(other.getCreateoper()))
             && (this.getCreatetime() == null ? other.getCreatetime() == null : this.getCreatetime().equals(other.getCreatetime()))
             && (this.getCreatecheckoper() == null ? other.getCreatecheckoper() == null : this.getCreatecheckoper().equals(other.getCreatecheckoper()))
@@ -715,7 +721,9 @@ public class DbProductdevelop implements Serializable {
             && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()))
             && (this.getProductnum() == null ? other.getProductnum() == null : this.getProductnum().equals(other.getProductnum()))
             && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
+            && (this.getPicture() == null ? other.getPicture() == null : this.getPicture().equals(other.getPicture()))
             && (this.getPurchaseflowoper() == null ? other.getPurchaseflowoper() == null : this.getPurchaseflowoper().equals(other.getPurchaseflowoper()))
+            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
             && (this.getFinishtime() == null ? other.getFinishtime() == null : this.getFinishtime().equals(other.getFinishtime()))
             && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
             && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
@@ -723,6 +731,7 @@ public class DbProductdevelop implements Serializable {
             && (this.getReserve4() == null ? other.getReserve4() == null : this.getReserve4().equals(other.getReserve4()))
             && (this.getReserve5() == null ? other.getReserve5() == null : this.getReserve5().equals(other.getReserve5()))
             && (this.getReserve6() == null ? other.getReserve6() == null : this.getReserve6().equals(other.getReserve6()))
+            && (this.getProductnote() == null ? other.getProductnote() == null : this.getProductnote().equals(other.getProductnote()))
             && (this.getReserve11() == null ? other.getReserve11() == null : this.getReserve11().equals(other.getReserve11()))
             && (this.getReserve12() == null ? other.getReserve12() == null : this.getReserve12().equals(other.getReserve12()))
             && (this.getReserve13() == null ? other.getReserve13() == null : this.getReserve13().equals(other.getReserve13()))
@@ -746,16 +755,7 @@ public class DbProductdevelop implements Serializable {
             && (this.getFinidhtime() == null ? other.getFinidhtime() == null : this.getFinidhtime().equals(other.getFinidhtime()))
             && (this.getChecksimpletime() == null ? other.getChecksimpletime() == null : this.getChecksimpletime().equals(other.getChecksimpletime()))
             && (this.getCheckoper() == null ? other.getCheckoper() == null : this.getCheckoper().equals(other.getCheckoper()))
-            && (this.getCheckpurchasetime() == null ? other.getCheckpurchasetime() == null : this.getCheckpurchasetime().equals(other.getCheckpurchasetime()))
-            && (this.getProductsource() == null ? other.getProductsource() == null : this.getProductsource().equals(other.getProductsource()))
-            && (this.getGoalaccount() == null ? other.getGoalaccount() == null : this.getGoalaccount().equals(other.getGoalaccount()))
-            && (this.getPhotourl() == null ? other.getPhotourl() == null : this.getPhotourl().equals(other.getPhotourl()))
-            && (this.getUrl() == null ? other.getUrl() == null : this.getUrl().equals(other.getUrl()))
-            && (this.getGoaladress() == null ? other.getGoaladress() == null : this.getGoaladress().equals(other.getGoaladress()))
-            && (this.getNote() == null ? other.getNote() == null : this.getNote().equals(other.getNote()))
-            && (this.getPicture() == null ? other.getPicture() == null : this.getPicture().equals(other.getPicture()))
-            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
-            && (this.getProductnote() == null ? other.getProductnote() == null : this.getProductnote().equals(other.getProductnote()));
+            && (this.getCheckpurchasetime() == null ? other.getCheckpurchasetime() == null : this.getCheckpurchasetime().equals(other.getCheckpurchasetime()));
     }
 
     @Override
@@ -763,13 +763,19 @@ public class DbProductdevelop implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getSequenceid() == null) ? 0 : getSequenceid().hashCode());
+        result = prime * result + ((getProductsource() == null) ? 0 : getProductsource().hashCode());
         result = prime * result + ((getProductid() == null) ? 0 : getProductid().hashCode());
+        result = prime * result + ((getGoalaccount() == null) ? 0 : getGoalaccount().hashCode());
+        result = prime * result + ((getPhotourl() == null) ? 0 : getPhotourl().hashCode());
         result = prime * result + ((getProducttitle() == null) ? 0 : getProducttitle().hashCode());
         result = prime * result + ((getNamechn() == null) ? 0 : getNamechn().hashCode());
+        result = prime * result + ((getUrl() == null) ? 0 : getUrl().hashCode());
         result = prime * result + ((getGoalsell() == null) ? 0 : getGoalsell().hashCode());
         result = prime * result + ((getExpresstype() == null) ? 0 : getExpresstype().hashCode());
         result = prime * result + ((getEstimateweight() == null) ? 0 : getEstimateweight().hashCode());
+        result = prime * result + ((getGoaladress() == null) ? 0 : getGoaladress().hashCode());
         result = prime * result + ((getAntistop() == null) ? 0 : getAntistop().hashCode());
+        result = prime * result + ((getNote() == null) ? 0 : getNote().hashCode());
         result = prime * result + ((getCreateoper() == null) ? 0 : getCreateoper().hashCode());
         result = prime * result + ((getCreatetime() == null) ? 0 : getCreatetime().hashCode());
         result = prime * result + ((getCreatecheckoper() == null) ? 0 : getCreatecheckoper().hashCode());
@@ -788,7 +794,9 @@ public class DbProductdevelop implements Serializable {
         result = prime * result + ((getCorpid() == null) ? 0 : getCorpid().hashCode());
         result = prime * result + ((getProductnum() == null) ? 0 : getProductnum().hashCode());
         result = prime * result + ((getStatus() == null) ? 0 : getStatus().hashCode());
+        result = prime * result + ((getPicture() == null) ? 0 : getPicture().hashCode());
         result = prime * result + ((getPurchaseflowoper() == null) ? 0 : getPurchaseflowoper().hashCode());
+        result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
         result = prime * result + ((getFinishtime() == null) ? 0 : getFinishtime().hashCode());
         result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
         result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
@@ -796,6 +804,7 @@ public class DbProductdevelop implements Serializable {
         result = prime * result + ((getReserve4() == null) ? 0 : getReserve4().hashCode());
         result = prime * result + ((getReserve5() == null) ? 0 : getReserve5().hashCode());
         result = prime * result + ((getReserve6() == null) ? 0 : getReserve6().hashCode());
+        result = prime * result + ((getProductnote() == null) ? 0 : getProductnote().hashCode());
         result = prime * result + ((getReserve11() == null) ? 0 : getReserve11().hashCode());
         result = prime * result + ((getReserve12() == null) ? 0 : getReserve12().hashCode());
         result = prime * result + ((getReserve13() == null) ? 0 : getReserve13().hashCode());
@@ -820,15 +829,6 @@ public class DbProductdevelop implements Serializable {
         result = prime * result + ((getChecksimpletime() == null) ? 0 : getChecksimpletime().hashCode());
         result = prime * result + ((getCheckoper() == null) ? 0 : getCheckoper().hashCode());
         result = prime * result + ((getCheckpurchasetime() == null) ? 0 : getCheckpurchasetime().hashCode());
-        result = prime * result + ((getProductsource() == null) ? 0 : getProductsource().hashCode());
-        result = prime * result + ((getGoalaccount() == null) ? 0 : getGoalaccount().hashCode());
-        result = prime * result + ((getPhotourl() == null) ? 0 : getPhotourl().hashCode());
-        result = prime * result + ((getUrl() == null) ? 0 : getUrl().hashCode());
-        result = prime * result + ((getGoaladress() == null) ? 0 : getGoaladress().hashCode());
-        result = prime * result + ((getNote() == null) ? 0 : getNote().hashCode());
-        result = prime * result + ((getPicture() == null) ? 0 : getPicture().hashCode());
-        result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
-        result = prime * result + ((getProductnote() == null) ? 0 : getProductnote().hashCode());
         return result;
     }
 
@@ -839,13 +839,19 @@ public class DbProductdevelop implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", sequenceid=").append(sequenceid);
+        sb.append(", productsource=").append(productsource);
         sb.append(", productid=").append(productid);
+        sb.append(", goalaccount=").append(goalaccount);
+        sb.append(", photourl=").append(photourl);
         sb.append(", producttitle=").append(producttitle);
         sb.append(", namechn=").append(namechn);
+        sb.append(", url=").append(url);
         sb.append(", goalsell=").append(goalsell);
         sb.append(", expresstype=").append(expresstype);
         sb.append(", estimateweight=").append(estimateweight);
+        sb.append(", goaladress=").append(goaladress);
         sb.append(", antistop=").append(antistop);
+        sb.append(", note=").append(note);
         sb.append(", createoper=").append(createoper);
         sb.append(", createtime=").append(createtime);
         sb.append(", createcheckoper=").append(createcheckoper);
@@ -864,7 +870,9 @@ public class DbProductdevelop implements Serializable {
         sb.append(", corpid=").append(corpid);
         sb.append(", productnum=").append(productnum);
         sb.append(", status=").append(status);
+        sb.append(", picture=").append(picture);
         sb.append(", purchaseflowoper=").append(purchaseflowoper);
+        sb.append(", content=").append(content);
         sb.append(", finishtime=").append(finishtime);
         sb.append(", reserve1=").append(reserve1);
         sb.append(", reserve2=").append(reserve2);
@@ -872,6 +880,7 @@ public class DbProductdevelop implements Serializable {
         sb.append(", reserve4=").append(reserve4);
         sb.append(", reserve5=").append(reserve5);
         sb.append(", reserve6=").append(reserve6);
+        sb.append(", productnote=").append(productnote);
         sb.append(", reserve11=").append(reserve11);
         sb.append(", reserve12=").append(reserve12);
         sb.append(", reserve13=").append(reserve13);
@@ -896,15 +905,6 @@ public class DbProductdevelop implements Serializable {
         sb.append(", checksimpletime=").append(checksimpletime);
         sb.append(", checkoper=").append(checkoper);
         sb.append(", checkpurchasetime=").append(checkpurchasetime);
-        sb.append(", productsource=").append(productsource);
-        sb.append(", goalaccount=").append(goalaccount);
-        sb.append(", photourl=").append(photourl);
-        sb.append(", url=").append(url);
-        sb.append(", goaladress=").append(goaladress);
-        sb.append(", note=").append(note);
-        sb.append(", picture=").append(picture);
-        sb.append(", content=").append(content);
-        sb.append(", productnote=").append(productnote);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

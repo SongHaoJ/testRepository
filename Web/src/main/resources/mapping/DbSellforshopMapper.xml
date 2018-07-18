@@ -14,21 +14,21 @@
     <result column="EBAYSHOPID" jdbcType="VARCHAR" property="ebayshopid" />
     <result column="EBAYSHOPNAME" jdbcType="VARCHAR" property="ebayshopname" />
     <result column="SORT" jdbcType="DECIMAL" property="sort" />
-    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
+    <result column="DESCR" jdbcType="VARCHAR" property="descr" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
     select SEQUENCEID, SELLSKU, SHOPID, SHOPNAME, OPENFLAG, OPER, OPERTIME, CORPID, SELLUSERID, 
     EBAYSHOPID, EBAYSHOPNAME, SORT, DESCR
-    from db_sellforshop
+    from DB_SELLFORSHOP
     where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SEQUENCEID, SELLSKU, SHOPID, SHOPNAME, OPENFLAG, OPER, OPERTIME, CORPID, SELLUSERID, 
     EBAYSHOPID, EBAYSHOPNAME, SORT, DESCR
-    from db_sellforshop
+    from DB_SELLFORSHOP
   </select>
   <sql id="TableName">
-    db_sellforshop
+    DB_SELLFORSHOP
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=DECIMAL} , 
@@ -43,7 +43,7 @@
      #{ebayshopid,jdbcType=VARCHAR} , 
      #{ebayshopname,jdbcType=VARCHAR} , 
      #{sort,jdbcType=DECIMAL} , 
-     #{descr,jdbcType=LONGVARCHAR}
+     #{descr,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
@@ -58,91 +58,91 @@
     EBAYSHOPID , 
     EBAYSHOPNAME , 
     SORT , 
-    DESCR
+    DESCR , 
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} and 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} and 
     </if>
     <if test="sellsku != null">
-      SELLSKU = #{sellsku,jdbcType=VARCHAR} and 
+      sellsku = #{sellsku,jdbcType=VARCHAR} and 
     </if>
     <if test="shopid != null">
-      SHOPID = #{shopid,jdbcType=VARCHAR} and 
+      shopid = #{shopid,jdbcType=VARCHAR} and 
     </if>
     <if test="shopname != null">
-      SHOPNAME = #{shopname,jdbcType=VARCHAR} and 
+      shopname = #{shopname,jdbcType=VARCHAR} and 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
+      openflag = #{openflag,jdbcType=VARCHAR} and 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
+      oper = #{oper,jdbcType=VARCHAR} and 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} and 
+      corpid = #{corpid,jdbcType=VARCHAR} and 
     </if>
     <if test="selluserid != null">
-      SELLUSERID = #{selluserid,jdbcType=VARCHAR} and 
+      selluserid = #{selluserid,jdbcType=VARCHAR} and 
     </if>
     <if test="ebayshopid != null">
-      EBAYSHOPID = #{ebayshopid,jdbcType=VARCHAR} and 
+      ebayshopid = #{ebayshopid,jdbcType=VARCHAR} and 
     </if>
     <if test="ebayshopname != null">
-      EBAYSHOPNAME = #{ebayshopname,jdbcType=VARCHAR} and 
+      ebayshopname = #{ebayshopname,jdbcType=VARCHAR} and 
     </if>
     <if test="sort != null">
-      SORT = #{sort,jdbcType=DECIMAL} and 
+      sort = #{sort,jdbcType=DECIMAL} and 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR}
+      descr = #{descr,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} , 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} , 
     </if>
     <if test="sellsku != null">
-      SELLSKU = #{sellsku,jdbcType=VARCHAR} , 
+      sellsku = #{sellsku,jdbcType=VARCHAR} , 
     </if>
     <if test="shopid != null">
-      SHOPID = #{shopid,jdbcType=VARCHAR} , 
+      shopid = #{shopid,jdbcType=VARCHAR} , 
     </if>
     <if test="shopname != null">
-      SHOPNAME = #{shopname,jdbcType=VARCHAR} , 
+      shopname = #{shopname,jdbcType=VARCHAR} , 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
+      openflag = #{openflag,jdbcType=VARCHAR} , 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
+      oper = #{oper,jdbcType=VARCHAR} , 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} , 
+      corpid = #{corpid,jdbcType=VARCHAR} , 
     </if>
     <if test="selluserid != null">
-      SELLUSERID = #{selluserid,jdbcType=VARCHAR} , 
+      selluserid = #{selluserid,jdbcType=VARCHAR} , 
     </if>
     <if test="ebayshopid != null">
-      EBAYSHOPID = #{ebayshopid,jdbcType=VARCHAR} , 
+      ebayshopid = #{ebayshopid,jdbcType=VARCHAR} , 
     </if>
     <if test="ebayshopname != null">
-      EBAYSHOPNAME = #{ebayshopname,jdbcType=VARCHAR} , 
+      ebayshopname = #{ebayshopname,jdbcType=VARCHAR} , 
     </if>
     <if test="sort != null">
-      SORT = #{sort,jdbcType=DECIMAL} , 
+      sort = #{sort,jdbcType=DECIMAL} , 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR}
+      descr = #{descr,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbSellforshop" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

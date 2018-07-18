@@ -11,6 +11,8 @@ public class DbSmtmessage implements Serializable {
 
     private String senderloginid;
 
+    private String producturl;
+
     private String read;
 
     private String receivename;
@@ -25,15 +27,25 @@ public class DbSmtmessage implements Serializable {
 
     private String havefile;
 
+    private String fileurl;
+
+    private String orderurl;
+
     private String itemid;
 
     private String productid;
+
+    private String productname;
 
     private String orderid;
 
     private String relationid;
 
     private String smttypeid;
+
+    private String content;
+
+    private String descr;
 
     private String shoptypeid;
 
@@ -51,6 +63,8 @@ public class DbSmtmessage implements Serializable {
 
     private Date opertime;
 
+    private String answer;
+
     private String assignoper;
 
     private Date assignopertime;
@@ -58,6 +72,8 @@ public class DbSmtmessage implements Serializable {
     private String updateflag;
 
     private Date updatetime;
+
+    private String updatedescr;
 
     private String openflag;
 
@@ -83,22 +99,6 @@ public class DbSmtmessage implements Serializable {
 
     private String reserve6;
 
-    private String producturl;
-
-    private String fileurl;
-
-    private String orderurl;
-
-    private String productname;
-
-    private String content;
-
-    private String descr;
-
-    private String answer;
-
-    private String updatedescr;
-
     private static final long serialVersionUID = 1L;
 
     public String getSid() {
@@ -123,6 +123,14 @@ public class DbSmtmessage implements Serializable {
 
     public void setSenderloginid(String senderloginid) {
         this.senderloginid = senderloginid == null ? null : senderloginid.trim();
+    }
+
+    public String getProducturl() {
+        return producturl;
+    }
+
+    public void setProducturl(String producturl) {
+        this.producturl = producturl == null ? null : producturl.trim();
     }
 
     public String getRead() {
@@ -181,6 +189,22 @@ public class DbSmtmessage implements Serializable {
         this.havefile = havefile == null ? null : havefile.trim();
     }
 
+    public String getFileurl() {
+        return fileurl;
+    }
+
+    public void setFileurl(String fileurl) {
+        this.fileurl = fileurl == null ? null : fileurl.trim();
+    }
+
+    public String getOrderurl() {
+        return orderurl;
+    }
+
+    public void setOrderurl(String orderurl) {
+        this.orderurl = orderurl == null ? null : orderurl.trim();
+    }
+
     public String getItemid() {
         return itemid;
     }
@@ -195,6 +219,14 @@ public class DbSmtmessage implements Serializable {
 
     public void setProductid(String productid) {
         this.productid = productid == null ? null : productid.trim();
+    }
+
+    public String getProductname() {
+        return productname;
+    }
+
+    public void setProductname(String productname) {
+        this.productname = productname == null ? null : productname.trim();
     }
 
     public String getOrderid() {
@@ -219,6 +251,22 @@ public class DbSmtmessage implements Serializable {
 
     public void setSmttypeid(String smttypeid) {
         this.smttypeid = smttypeid == null ? null : smttypeid.trim();
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content == null ? null : content.trim();
+    }
+
+    public String getDescr() {
+        return descr;
+    }
+
+    public void setDescr(String descr) {
+        this.descr = descr == null ? null : descr.trim();
     }
 
     public String getShoptypeid() {
@@ -285,6 +333,14 @@ public class DbSmtmessage implements Serializable {
         this.opertime = opertime;
     }
 
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer == null ? null : answer.trim();
+    }
+
     public String getAssignoper() {
         return assignoper;
     }
@@ -315,6 +371,14 @@ public class DbSmtmessage implements Serializable {
 
     public void setUpdatetime(Date updatetime) {
         this.updatetime = updatetime;
+    }
+
+    public String getUpdatedescr() {
+        return updatedescr;
+    }
+
+    public void setUpdatedescr(String updatedescr) {
+        this.updatedescr = updatedescr == null ? null : updatedescr.trim();
     }
 
     public String getOpenflag() {
@@ -413,70 +477,6 @@ public class DbSmtmessage implements Serializable {
         this.reserve6 = reserve6 == null ? null : reserve6.trim();
     }
 
-    public String getProducturl() {
-        return producturl;
-    }
-
-    public void setProducturl(String producturl) {
-        this.producturl = producturl == null ? null : producturl.trim();
-    }
-
-    public String getFileurl() {
-        return fileurl;
-    }
-
-    public void setFileurl(String fileurl) {
-        this.fileurl = fileurl == null ? null : fileurl.trim();
-    }
-
-    public String getOrderurl() {
-        return orderurl;
-    }
-
-    public void setOrderurl(String orderurl) {
-        this.orderurl = orderurl == null ? null : orderurl.trim();
-    }
-
-    public String getProductname() {
-        return productname;
-    }
-
-    public void setProductname(String productname) {
-        this.productname = productname == null ? null : productname.trim();
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content == null ? null : content.trim();
-    }
-
-    public String getDescr() {
-        return descr;
-    }
-
-    public void setDescr(String descr) {
-        this.descr = descr == null ? null : descr.trim();
-    }
-
-    public String getAnswer() {
-        return answer;
-    }
-
-    public void setAnswer(String answer) {
-        this.answer = answer == null ? null : answer.trim();
-    }
-
-    public String getUpdatedescr() {
-        return updatedescr;
-    }
-
-    public void setUpdatedescr(String updatedescr) {
-        this.updatedescr = updatedescr == null ? null : updatedescr.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -492,6 +492,7 @@ public class DbSmtmessage implements Serializable {
         return (this.getSid() == null ? other.getSid() == null : this.getSid().equals(other.getSid()))
             && (this.getSendername() == null ? other.getSendername() == null : this.getSendername().equals(other.getSendername()))
             && (this.getSenderloginid() == null ? other.getSenderloginid() == null : this.getSenderloginid().equals(other.getSenderloginid()))
+            && (this.getProducturl() == null ? other.getProducturl() == null : this.getProducturl().equals(other.getProducturl()))
             && (this.getRead() == null ? other.getRead() == null : this.getRead().equals(other.getRead()))
             && (this.getReceivename() == null ? other.getReceivename() == null : this.getReceivename().equals(other.getReceivename()))
             && (this.getReceiveloginid() == null ? other.getReceiveloginid() == null : this.getReceiveloginid().equals(other.getReceiveloginid()))
@@ -499,11 +500,16 @@ public class DbSmtmessage implements Serializable {
             && (this.getReceivedate() == null ? other.getReceivedate() == null : this.getReceivedate().equals(other.getReceivedate()))
             && (this.getMessagetype() == null ? other.getMessagetype() == null : this.getMessagetype().equals(other.getMessagetype()))
             && (this.getHavefile() == null ? other.getHavefile() == null : this.getHavefile().equals(other.getHavefile()))
+            && (this.getFileurl() == null ? other.getFileurl() == null : this.getFileurl().equals(other.getFileurl()))
+            && (this.getOrderurl() == null ? other.getOrderurl() == null : this.getOrderurl().equals(other.getOrderurl()))
             && (this.getItemid() == null ? other.getItemid() == null : this.getItemid().equals(other.getItemid()))
             && (this.getProductid() == null ? other.getProductid() == null : this.getProductid().equals(other.getProductid()))
+            && (this.getProductname() == null ? other.getProductname() == null : this.getProductname().equals(other.getProductname()))
             && (this.getOrderid() == null ? other.getOrderid() == null : this.getOrderid().equals(other.getOrderid()))
             && (this.getRelationid() == null ? other.getRelationid() == null : this.getRelationid().equals(other.getRelationid()))
             && (this.getSmttypeid() == null ? other.getSmttypeid() == null : this.getSmttypeid().equals(other.getSmttypeid()))
+            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
+            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
             && (this.getShoptypeid() == null ? other.getShoptypeid() == null : this.getShoptypeid().equals(other.getShoptypeid()))
             && (this.getShoptypename() == null ? other.getShoptypename() == null : this.getShoptypename().equals(other.getShoptypename()))
             && (this.getCategoryid() == null ? other.getCategoryid() == null : this.getCategoryid().equals(other.getCategoryid()))
@@ -512,10 +518,12 @@ public class DbSmtmessage implements Serializable {
             && (this.getApplyoper() == null ? other.getApplyoper() == null : this.getApplyoper().equals(other.getApplyoper()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
+            && (this.getAnswer() == null ? other.getAnswer() == null : this.getAnswer().equals(other.getAnswer()))
             && (this.getAssignoper() == null ? other.getAssignoper() == null : this.getAssignoper().equals(other.getAssignoper()))
             && (this.getAssignopertime() == null ? other.getAssignopertime() == null : this.getAssignopertime().equals(other.getAssignopertime()))
             && (this.getUpdateflag() == null ? other.getUpdateflag() == null : this.getUpdateflag().equals(other.getUpdateflag()))
             && (this.getUpdatetime() == null ? other.getUpdatetime() == null : this.getUpdatetime().equals(other.getUpdatetime()))
+            && (this.getUpdatedescr() == null ? other.getUpdatedescr() == null : this.getUpdatedescr().equals(other.getUpdatedescr()))
             && (this.getOpenflag() == null ? other.getOpenflag() == null : this.getOpenflag().equals(other.getOpenflag()))
             && (this.getCustomertypeid() == null ? other.getCustomertypeid() == null : this.getCustomertypeid().equals(other.getCustomertypeid()))
             && (this.getCustomertype() == null ? other.getCustomertype() == null : this.getCustomertype().equals(other.getCustomertype()))
@@ -527,15 +535,7 @@ public class DbSmtmessage implements Serializable {
             && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
             && (this.getReserve4() == null ? other.getReserve4() == null : this.getReserve4().equals(other.getReserve4()))
             && (this.getReserve5() == null ? other.getReserve5() == null : this.getReserve5().equals(other.getReserve5()))
-            && (this.getReserve6() == null ? other.getReserve6() == null : this.getReserve6().equals(other.getReserve6()))
-            && (this.getProducturl() == null ? other.getProducturl() == null : this.getProducturl().equals(other.getProducturl()))
-            && (this.getFileurl() == null ? other.getFileurl() == null : this.getFileurl().equals(other.getFileurl()))
-            && (this.getOrderurl() == null ? other.getOrderurl() == null : this.getOrderurl().equals(other.getOrderurl()))
-            && (this.getProductname() == null ? other.getProductname() == null : this.getProductname().equals(other.getProductname()))
-            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
-            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
-            && (this.getAnswer() == null ? other.getAnswer() == null : this.getAnswer().equals(other.getAnswer()))
-            && (this.getUpdatedescr() == null ? other.getUpdatedescr() == null : this.getUpdatedescr().equals(other.getUpdatedescr()));
+            && (this.getReserve6() == null ? other.getReserve6() == null : this.getReserve6().equals(other.getReserve6()));
     }
 
     @Override
@@ -545,6 +545,7 @@ public class DbSmtmessage implements Serializable {
         result = prime * result + ((getSid() == null) ? 0 : getSid().hashCode());
         result = prime * result + ((getSendername() == null) ? 0 : getSendername().hashCode());
         result = prime * result + ((getSenderloginid() == null) ? 0 : getSenderloginid().hashCode());
+        result = prime * result + ((getProducturl() == null) ? 0 : getProducturl().hashCode());
         result = prime * result + ((getRead() == null) ? 0 : getRead().hashCode());
         result = prime * result + ((getReceivename() == null) ? 0 : getReceivename().hashCode());
         result = prime * result + ((getReceiveloginid() == null) ? 0 : getReceiveloginid().hashCode());
@@ -552,11 +553,16 @@ public class DbSmtmessage implements Serializable {
         result = prime * result + ((getReceivedate() == null) ? 0 : getReceivedate().hashCode());
         result = prime * result + ((getMessagetype() == null) ? 0 : getMessagetype().hashCode());
         result = prime * result + ((getHavefile() == null) ? 0 : getHavefile().hashCode());
+        result = prime * result + ((getFileurl() == null) ? 0 : getFileurl().hashCode());
+        result = prime * result + ((getOrderurl() == null) ? 0 : getOrderurl().hashCode());
         result = prime * result + ((getItemid() == null) ? 0 : getItemid().hashCode());
         result = prime * result + ((getProductid() == null) ? 0 : getProductid().hashCode());
+        result = prime * result + ((getProductname() == null) ? 0 : getProductname().hashCode());
         result = prime * result + ((getOrderid() == null) ? 0 : getOrderid().hashCode());
         result = prime * result + ((getRelationid() == null) ? 0 : getRelationid().hashCode());
         result = prime * result + ((getSmttypeid() == null) ? 0 : getSmttypeid().hashCode());
+        result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
+        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
         result = prime * result + ((getShoptypeid() == null) ? 0 : getShoptypeid().hashCode());
         result = prime * result + ((getShoptypename() == null) ? 0 : getShoptypename().hashCode());
         result = prime * result + ((getCategoryid() == null) ? 0 : getCategoryid().hashCode());
@@ -565,10 +571,12 @@ public class DbSmtmessage implements Serializable {
         result = prime * result + ((getApplyoper() == null) ? 0 : getApplyoper().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
+        result = prime * result + ((getAnswer() == null) ? 0 : getAnswer().hashCode());
         result = prime * result + ((getAssignoper() == null) ? 0 : getAssignoper().hashCode());
         result = prime * result + ((getAssignopertime() == null) ? 0 : getAssignopertime().hashCode());
         result = prime * result + ((getUpdateflag() == null) ? 0 : getUpdateflag().hashCode());
         result = prime * result + ((getUpdatetime() == null) ? 0 : getUpdatetime().hashCode());
+        result = prime * result + ((getUpdatedescr() == null) ? 0 : getUpdatedescr().hashCode());
         result = prime * result + ((getOpenflag() == null) ? 0 : getOpenflag().hashCode());
         result = prime * result + ((getCustomertypeid() == null) ? 0 : getCustomertypeid().hashCode());
         result = prime * result + ((getCustomertype() == null) ? 0 : getCustomertype().hashCode());
@@ -581,14 +589,6 @@ public class DbSmtmessage implements Serializable {
         result = prime * result + ((getReserve4() == null) ? 0 : getReserve4().hashCode());
         result = prime * result + ((getReserve5() == null) ? 0 : getReserve5().hashCode());
         result = prime * result + ((getReserve6() == null) ? 0 : getReserve6().hashCode());
-        result = prime * result + ((getProducturl() == null) ? 0 : getProducturl().hashCode());
-        result = prime * result + ((getFileurl() == null) ? 0 : getFileurl().hashCode());
-        result = prime * result + ((getOrderurl() == null) ? 0 : getOrderurl().hashCode());
-        result = prime * result + ((getProductname() == null) ? 0 : getProductname().hashCode());
-        result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
-        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
-        result = prime * result + ((getAnswer() == null) ? 0 : getAnswer().hashCode());
-        result = prime * result + ((getUpdatedescr() == null) ? 0 : getUpdatedescr().hashCode());
         return result;
     }
 
@@ -601,6 +601,7 @@ public class DbSmtmessage implements Serializable {
         sb.append(", sid=").append(sid);
         sb.append(", sendername=").append(sendername);
         sb.append(", senderloginid=").append(senderloginid);
+        sb.append(", producturl=").append(producturl);
         sb.append(", read=").append(read);
         sb.append(", receivename=").append(receivename);
         sb.append(", receiveloginid=").append(receiveloginid);
@@ -608,11 +609,16 @@ public class DbSmtmessage implements Serializable {
         sb.append(", receivedate=").append(receivedate);
         sb.append(", messagetype=").append(messagetype);
         sb.append(", havefile=").append(havefile);
+        sb.append(", fileurl=").append(fileurl);
+        sb.append(", orderurl=").append(orderurl);
         sb.append(", itemid=").append(itemid);
         sb.append(", productid=").append(productid);
+        sb.append(", productname=").append(productname);
         sb.append(", orderid=").append(orderid);
         sb.append(", relationid=").append(relationid);
         sb.append(", smttypeid=").append(smttypeid);
+        sb.append(", content=").append(content);
+        sb.append(", descr=").append(descr);
         sb.append(", shoptypeid=").append(shoptypeid);
         sb.append(", shoptypename=").append(shoptypename);
         sb.append(", categoryid=").append(categoryid);
@@ -621,10 +627,12 @@ public class DbSmtmessage implements Serializable {
         sb.append(", applyoper=").append(applyoper);
         sb.append(", oper=").append(oper);
         sb.append(", opertime=").append(opertime);
+        sb.append(", answer=").append(answer);
         sb.append(", assignoper=").append(assignoper);
         sb.append(", assignopertime=").append(assignopertime);
         sb.append(", updateflag=").append(updateflag);
         sb.append(", updatetime=").append(updatetime);
+        sb.append(", updatedescr=").append(updatedescr);
         sb.append(", openflag=").append(openflag);
         sb.append(", customertypeid=").append(customertypeid);
         sb.append(", customertype=").append(customertype);
@@ -637,14 +645,6 @@ public class DbSmtmessage implements Serializable {
         sb.append(", reserve4=").append(reserve4);
         sb.append(", reserve5=").append(reserve5);
         sb.append(", reserve6=").append(reserve6);
-        sb.append(", producturl=").append(producturl);
-        sb.append(", fileurl=").append(fileurl);
-        sb.append(", orderurl=").append(orderurl);
-        sb.append(", productname=").append(productname);
-        sb.append(", content=").append(content);
-        sb.append(", descr=").append(descr);
-        sb.append(", answer=").append(answer);
-        sb.append(", updatedescr=").append(updatedescr);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

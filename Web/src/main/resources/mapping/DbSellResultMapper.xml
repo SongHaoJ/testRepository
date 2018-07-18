@@ -20,16 +20,16 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select SEQUENCEID, ORDERID, REFUNDTYPE, REFUNDNUM, REFUNDMONEY, REFUNDTIME, OPER1, 
     OPER2, RETRYTYPE, RETRYNUM, RETRYTRADEID, RETRYTIME, RETRYCAUSE, OPER3
-    from db_sell_result
+    from DB_SELL_RESULT
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SEQUENCEID, ORDERID, REFUNDTYPE, REFUNDNUM, REFUNDMONEY, REFUNDTIME, OPER1, 
     OPER2, RETRYTYPE, RETRYNUM, RETRYTRADEID, RETRYTIME, RETRYCAUSE, OPER3
-    from db_sell_result
+    from DB_SELL_RESULT
   </select>
   <sql id="TableName">
-    db_sell_result
+    DB_SELL_RESULT
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=VARCHAR} , 
@@ -45,7 +45,7 @@
      #{retrytradeid,jdbcType=VARCHAR} , 
      #{retrytime,jdbcType=VARCHAR} , 
      #{retrycause,jdbcType=VARCHAR} , 
-     #{oper3,jdbcType=VARCHAR}
+     #{oper3,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
@@ -61,97 +61,97 @@
     RETRYTRADEID , 
     RETRYTIME , 
     RETRYCAUSE , 
-    OPER3
+    OPER3 , 
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
     </if>
     <if test="orderid != null">
-      ORDERID = #{orderid,jdbcType=VARCHAR} and 
+      orderid = #{orderid,jdbcType=VARCHAR} and 
     </if>
     <if test="refundtype != null">
-      REFUNDTYPE = #{refundtype,jdbcType=VARCHAR} and 
+      refundtype = #{refundtype,jdbcType=VARCHAR} and 
     </if>
     <if test="refundnum != null">
-      REFUNDNUM = #{refundnum,jdbcType=VARCHAR} and 
+      refundnum = #{refundnum,jdbcType=VARCHAR} and 
     </if>
     <if test="refundmoney != null">
-      REFUNDMONEY = #{refundmoney,jdbcType=VARCHAR} and 
+      refundmoney = #{refundmoney,jdbcType=VARCHAR} and 
     </if>
     <if test="refundtime != null">
-      REFUNDTIME = #{refundtime,jdbcType=VARCHAR} and 
+      refundtime = #{refundtime,jdbcType=VARCHAR} and 
     </if>
     <if test="oper1 != null">
-      OPER1 = #{oper1,jdbcType=VARCHAR} and 
+      oper1 = #{oper1,jdbcType=VARCHAR} and 
     </if>
     <if test="oper2 != null">
-      OPER2 = #{oper2,jdbcType=VARCHAR} and 
+      oper2 = #{oper2,jdbcType=VARCHAR} and 
     </if>
     <if test="retrytype != null">
-      RETRYTYPE = #{retrytype,jdbcType=VARCHAR} and 
+      retrytype = #{retrytype,jdbcType=VARCHAR} and 
     </if>
     <if test="retrynum != null">
-      RETRYNUM = #{retrynum,jdbcType=VARCHAR} and 
+      retrynum = #{retrynum,jdbcType=VARCHAR} and 
     </if>
     <if test="retrytradeid != null">
-      RETRYTRADEID = #{retrytradeid,jdbcType=VARCHAR} and 
+      retrytradeid = #{retrytradeid,jdbcType=VARCHAR} and 
     </if>
     <if test="retrytime != null">
-      RETRYTIME = #{retrytime,jdbcType=VARCHAR} and 
+      retrytime = #{retrytime,jdbcType=VARCHAR} and 
     </if>
     <if test="retrycause != null">
-      RETRYCAUSE = #{retrycause,jdbcType=VARCHAR} and 
+      retrycause = #{retrycause,jdbcType=VARCHAR} and 
     </if>
     <if test="oper3 != null">
-      OPER3 = #{oper3,jdbcType=VARCHAR}
+      oper3 = #{oper3,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
     </if>
     <if test="orderid != null">
-      ORDERID = #{orderid,jdbcType=VARCHAR} , 
+      orderid = #{orderid,jdbcType=VARCHAR} , 
     </if>
     <if test="refundtype != null">
-      REFUNDTYPE = #{refundtype,jdbcType=VARCHAR} , 
+      refundtype = #{refundtype,jdbcType=VARCHAR} , 
     </if>
     <if test="refundnum != null">
-      REFUNDNUM = #{refundnum,jdbcType=VARCHAR} , 
+      refundnum = #{refundnum,jdbcType=VARCHAR} , 
     </if>
     <if test="refundmoney != null">
-      REFUNDMONEY = #{refundmoney,jdbcType=VARCHAR} , 
+      refundmoney = #{refundmoney,jdbcType=VARCHAR} , 
     </if>
     <if test="refundtime != null">
-      REFUNDTIME = #{refundtime,jdbcType=VARCHAR} , 
+      refundtime = #{refundtime,jdbcType=VARCHAR} , 
     </if>
     <if test="oper1 != null">
-      OPER1 = #{oper1,jdbcType=VARCHAR} , 
+      oper1 = #{oper1,jdbcType=VARCHAR} , 
     </if>
     <if test="oper2 != null">
-      OPER2 = #{oper2,jdbcType=VARCHAR} , 
+      oper2 = #{oper2,jdbcType=VARCHAR} , 
     </if>
     <if test="retrytype != null">
-      RETRYTYPE = #{retrytype,jdbcType=VARCHAR} , 
+      retrytype = #{retrytype,jdbcType=VARCHAR} , 
     </if>
     <if test="retrynum != null">
-      RETRYNUM = #{retrynum,jdbcType=VARCHAR} , 
+      retrynum = #{retrynum,jdbcType=VARCHAR} , 
     </if>
     <if test="retrytradeid != null">
-      RETRYTRADEID = #{retrytradeid,jdbcType=VARCHAR} , 
+      retrytradeid = #{retrytradeid,jdbcType=VARCHAR} , 
     </if>
     <if test="retrytime != null">
-      RETRYTIME = #{retrytime,jdbcType=VARCHAR} , 
+      retrytime = #{retrytime,jdbcType=VARCHAR} , 
     </if>
     <if test="retrycause != null">
-      RETRYCAUSE = #{retrycause,jdbcType=VARCHAR} , 
+      retrycause = #{retrycause,jdbcType=VARCHAR} , 
     </if>
     <if test="oper3 != null">
-      OPER3 = #{oper3,jdbcType=VARCHAR}
+      oper3 = #{oper3,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbSellResult" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

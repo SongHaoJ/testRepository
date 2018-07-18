@@ -3,90 +3,90 @@
 <mapper namespace="com.bean.dao.DbAntistopreleMapper">
   <resultMap id="BaseResultMap" type="com.bean.model.DbAntistoprele">
     <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
+    <result column="ANTISTOP1" jdbcType="VARCHAR" property="antistop1" />
+    <result column="ANTISTOP2" jdbcType="VARCHAR" property="antistop2" />
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
     <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
     <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
-    <result column="ANTISTOP1" jdbcType="LONGVARCHAR" property="antistop1" />
-    <result column="ANTISTOP2" jdbcType="LONGVARCHAR" property="antistop2" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select SEQUENCEID, OPER, OPERTIME, CORPID, OPENFLAG, ANTISTOP1, ANTISTOP2
-    from db_antistoprele
+    select SEQUENCEID, ANTISTOP1, ANTISTOP2, OPER, OPERTIME, CORPID, OPENFLAG
+    from DB_ANTISTOPRELE
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select SEQUENCEID, OPER, OPERTIME, CORPID, OPENFLAG, ANTISTOP1, ANTISTOP2
-    from db_antistoprele
+    select SEQUENCEID, ANTISTOP1, ANTISTOP2, OPER, OPERTIME, CORPID, OPENFLAG
+    from DB_ANTISTOPRELE
   </select>
   <sql id="TableName">
-    db_antistoprele
+    DB_ANTISTOPRELE
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=VARCHAR} , 
+     #{antistop1,jdbcType=VARCHAR} , 
+     #{antistop2,jdbcType=VARCHAR} , 
      #{oper,jdbcType=VARCHAR} , 
      #{opertime,jdbcType=TIMESTAMP} , 
      #{corpid,jdbcType=VARCHAR} , 
      #{openflag,jdbcType=VARCHAR} , 
-     #{antistop1,jdbcType=LONGVARCHAR} , 
-     #{antistop2,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
+    ANTISTOP1 , 
+    ANTISTOP2 , 
     OPER , 
     OPERTIME , 
     CORPID , 
     OPENFLAG , 
-    ANTISTOP1 , 
-    ANTISTOP2
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
     </if>
     <if test="antistop1 != null">
-      ANTISTOP1 = #{antistop1,jdbcType=LONGVARCHAR} and 
+      antistop1 = #{antistop1,jdbcType=VARCHAR} and 
     </if>
     <if test="antistop2 != null">
-      ANTISTOP2 = #{antistop2,jdbcType=LONGVARCHAR}
+      antistop2 = #{antistop2,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
     </if>
     <if test="antistop1 != null">
-      ANTISTOP1 = #{antistop1,jdbcType=LONGVARCHAR} , 
+      antistop1 = #{antistop1,jdbcType=VARCHAR} , 
     </if>
     <if test="antistop2 != null">
-      ANTISTOP2 = #{antistop2,jdbcType=LONGVARCHAR}
+      antistop2 = #{antistop2,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbAntistoprele" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

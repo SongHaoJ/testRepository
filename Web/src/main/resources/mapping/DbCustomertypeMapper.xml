@@ -13,15 +13,15 @@
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
     select SID, NAME, DESCR, OPER, OPERTIME, OPENFLAG, RESERVE1, RESERVE2
-    from db_customertype
+    from DB_CUSTOMERTYPE
     where SID = #{sid,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SID, NAME, DESCR, OPER, OPERTIME, OPENFLAG, RESERVE1, RESERVE2
-    from db_customertype
+    from DB_CUSTOMERTYPE
   </select>
   <sql id="TableName">
-    db_customertype
+    DB_CUSTOMERTYPE
   </sql>
   <sql id="Values">
      #{sid,jdbcType=DECIMAL} , 
@@ -31,7 +31,7 @@
      #{opertime,jdbcType=TIMESTAMP} , 
      #{openflag,jdbcType=VARCHAR} , 
      #{reserve1,jdbcType=VARCHAR} , 
-     #{reserve2,jdbcType=VARCHAR}
+     #{reserve2,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     SID , 
@@ -41,61 +41,61 @@
     OPERTIME , 
     OPENFLAG , 
     RESERVE1 , 
-    RESERVE2
+    RESERVE2 , 
   </sql>
   <sql id="Criteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=DECIMAL} and 
+      sid = #{sid,jdbcType=DECIMAL} and 
     </if>
     <if test="name != null">
-      NAME = #{name,jdbcType=VARCHAR} and 
+      name = #{name,jdbcType=VARCHAR} and 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=VARCHAR} and 
+      descr = #{descr,jdbcType=VARCHAR} and 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
+      oper = #{oper,jdbcType=VARCHAR} and 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
+      openflag = #{openflag,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR}
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=DECIMAL} , 
+      sid = #{sid,jdbcType=DECIMAL} , 
     </if>
     <if test="name != null">
-      NAME = #{name,jdbcType=VARCHAR} , 
+      name = #{name,jdbcType=VARCHAR} , 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=VARCHAR} , 
+      descr = #{descr,jdbcType=VARCHAR} , 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
+      oper = #{oper,jdbcType=VARCHAR} , 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
+      openflag = #{openflag,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR}
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbCustomertype" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

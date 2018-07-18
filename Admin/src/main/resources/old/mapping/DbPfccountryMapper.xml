@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbPfccountryMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbPfccountry">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="COUNTRYID" jdbcType="VARCHAR" property="countryid" />
+    <result column="COUNTRYCODE" jdbcType="VARCHAR" property="countrycode" />
+    <result column="NAMECN" jdbcType="VARCHAR" property="namecn" />
+    <result column="NAMEEN" jdbcType="VARCHAR" property="nameen" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
+    <result column="RESERVE4" jdbcType="VARCHAR" property="reserve4" />
+    <result column="ORDERTYPE" jdbcType="VARCHAR" property="ordertype" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, COUNTRYID, COUNTRYCODE, NAMECN, NAMEEN, RESERVE1, RESERVE2, RESERVE3, RESERVE4, 
+    ORDERTYPE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from db_pfccountry
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from db_pfccountry
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.bean.model.DbPfccountry">
+    insert into db_pfccountry (ID, COUNTRYID, COUNTRYCODE, 
+      NAMECN, NAMEEN, RESERVE1, 
+      RESERVE2, RESERVE3, RESERVE4, 
+      ORDERTYPE)
+    values (#{id,jdbcType=DECIMAL}, #{countryid,jdbcType=VARCHAR}, #{countrycode,jdbcType=VARCHAR}, 
+      #{namecn,jdbcType=VARCHAR}, #{nameen,jdbcType=VARCHAR}, #{reserve1,jdbcType=VARCHAR}, 
+      #{reserve2,jdbcType=VARCHAR}, #{reserve3,jdbcType=VARCHAR}, #{reserve4,jdbcType=VARCHAR}, 
+      #{ordertype,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbPfccountry">
+    insert into db_pfccountry
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="countryid != null">
+        COUNTRYID,
+      </if>
+      <if test="countrycode != null">
+        COUNTRYCODE,
+      </if>
+      <if test="namecn != null">
+        NAMECN,
+      </if>
+      <if test="nameen != null">
+        NAMEEN,
+      </if>
+      <if test="reserve1 != null">
+        RESERVE1,
+      </if>
+      <if test="reserve2 != null">
+        RESERVE2,
+      </if>
+      <if test="reserve3 != null">
+        RESERVE3,
+      </if>
+      <if test="reserve4 != null">
+        RESERVE4,
+      </if>
+      <if test="ordertype != null">
+        ORDERTYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="countryid != null">
+        #{countryid,jdbcType=VARCHAR},
+      </if>
+      <if test="countrycode != null">
+        #{countrycode,jdbcType=VARCHAR},
+      </if>
+      <if test="namecn != null">
+        #{namecn,jdbcType=VARCHAR},
+      </if>
+      <if test="nameen != null">
+        #{nameen,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve1 != null">
+        #{reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve2 != null">
+        #{reserve2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve3 != null">
+        #{reserve3,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve4 != null">
+        #{reserve4,jdbcType=VARCHAR},
+      </if>
+      <if test="ordertype != null">
+        #{ordertype,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbPfccountry">
+    update db_pfccountry
+    <set>
+      <if test="countryid != null">
+        COUNTRYID = #{countryid,jdbcType=VARCHAR},
+      </if>
+      <if test="countrycode != null">
+        COUNTRYCODE = #{countrycode,jdbcType=VARCHAR},
+      </if>
+      <if test="namecn != null">
+        NAMECN = #{namecn,jdbcType=VARCHAR},
+      </if>
+      <if test="nameen != null">
+        NAMEEN = #{nameen,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve1 != null">
+        RESERVE1 = #{reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve2 != null">
+        RESERVE2 = #{reserve2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve3 != null">
+        RESERVE3 = #{reserve3,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve4 != null">
+        RESERVE4 = #{reserve4,jdbcType=VARCHAR},
+      </if>
+      <if test="ordertype != null">
+        ORDERTYPE = #{ordertype,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbPfccountry">
+    update db_pfccountry
+    set COUNTRYID = #{countryid,jdbcType=VARCHAR},
+      COUNTRYCODE = #{countrycode,jdbcType=VARCHAR},
+      NAMECN = #{namecn,jdbcType=VARCHAR},
+      NAMEEN = #{nameen,jdbcType=VARCHAR},
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR},
+      RESERVE3 = #{reserve3,jdbcType=VARCHAR},
+      RESERVE4 = #{reserve4,jdbcType=VARCHAR},
+      ORDERTYPE = #{ordertype,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+</mapper>

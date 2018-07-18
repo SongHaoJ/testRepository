@@ -3,90 +3,90 @@
 <mapper namespace="com.bean.dao.DbBoxcuserMapper">
   <resultMap id="BaseResultMap" type="com.bean.model.DbBoxcuser">
     <id column="SID" jdbcType="VARCHAR" property="sid" />
+    <result column="APISECRET" jdbcType="VARCHAR" property="apisecret" />
     <result column="NAME" jdbcType="VARCHAR" property="name" />
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
     <result column="FLAG" jdbcType="DECIMAL" property="flag" />
     <result column="APIKEY" jdbcType="VARCHAR" property="apikey" />
-    <result column="APISECRET" jdbcType="LONGVARCHAR" property="apisecret" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select SID, NAME, OPER, OPERTIME, FLAG, APIKEY, APISECRET
-    from db_boxcuser
+    select SID, APISECRET, NAME, OPER, OPERTIME, FLAG, APIKEY
+    from DB_BOXCUSER
     where SID = #{sid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select SID, NAME, OPER, OPERTIME, FLAG, APIKEY, APISECRET
-    from db_boxcuser
+    select SID, APISECRET, NAME, OPER, OPERTIME, FLAG, APIKEY
+    from DB_BOXCUSER
   </select>
   <sql id="TableName">
-    db_boxcuser
+    DB_BOXCUSER
   </sql>
   <sql id="Values">
      #{sid,jdbcType=VARCHAR} , 
+     #{apisecret,jdbcType=VARCHAR} , 
      #{name,jdbcType=VARCHAR} , 
      #{oper,jdbcType=VARCHAR} , 
      #{opertime,jdbcType=TIMESTAMP} , 
      #{flag,jdbcType=DECIMAL} , 
      #{apikey,jdbcType=VARCHAR} , 
-     #{apisecret,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     SID , 
+    APISECRET , 
     NAME , 
     OPER , 
     OPERTIME , 
     FLAG , 
     APIKEY , 
-    APISECRET
   </sql>
   <sql id="Criteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="name != null">
-      NAME = #{name,jdbcType=VARCHAR} and 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="flag != null">
-      FLAG = #{flag,jdbcType=DECIMAL} and 
-    </if>
-    <if test="apikey != null">
-      APIKEY = #{apikey,jdbcType=VARCHAR} and 
+      sid = #{sid,jdbcType=VARCHAR} and 
     </if>
     <if test="apisecret != null">
-      APISECRET = #{apisecret,jdbcType=LONGVARCHAR}
+      apisecret = #{apisecret,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="apikey != null">
+      apikey = #{apikey,jdbcType=VARCHAR} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="name != null">
-      NAME = #{name,jdbcType=VARCHAR} , 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="flag != null">
-      FLAG = #{flag,jdbcType=DECIMAL} , 
-    </if>
-    <if test="apikey != null">
-      APIKEY = #{apikey,jdbcType=VARCHAR} , 
+      sid = #{sid,jdbcType=VARCHAR} , 
     </if>
     <if test="apisecret != null">
-      APISECRET = #{apisecret,jdbcType=LONGVARCHAR}
+      apisecret = #{apisecret,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="apikey != null">
+      apikey = #{apikey,jdbcType=VARCHAR} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbBoxcuser" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

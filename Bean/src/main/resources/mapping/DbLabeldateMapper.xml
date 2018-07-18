@@ -23,484 +23,364 @@
     <result column="EXPRESSTYPE" jdbcType="VARCHAR" property="expresstype" />
     <result column="EXPRESSID" jdbcType="VARCHAR" property="expressid" />
     <result column="ORDERWEIGHT" jdbcType="DECIMAL" property="orderweight" />
+    <result column="CONTENT" jdbcType="VARCHAR" property="content" />
+    <result column="PRODUCTS" jdbcType="VARCHAR" property="products" />
+    <result column="POSTAGESERVICE" jdbcType="VARCHAR" property="postageservice" />
+    <result column="SELLINFO" jdbcType="VARCHAR" property="sellinfo" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
     <result column="RESERVE4" jdbcType="DECIMAL" property="reserve4" />
+    <result column="RESERVE5" jdbcType="VARCHAR" property="reserve5" />
+    <result column="RESERVE6" jdbcType="VARCHAR" property="reserve6" />
+    <result column="RESERVE7" jdbcType="VARCHAR" property="reserve7" />
+    <result column="RESERVE8" jdbcType="VARCHAR" property="reserve8" />
+    <result column="RESERVE9" jdbcType="VARCHAR" property="reserve9" />
     <result column="RESERVE10" jdbcType="DECIMAL" property="reserve10" />
     <result column="RESERVE11" jdbcType="DECIMAL" property="reserve11" />
     <result column="RESERVE12" jdbcType="DECIMAL" property="reserve12" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbLabeldate">
-    <result column="CONTENT" jdbcType="LONGVARCHAR" property="content" />
-    <result column="PRODUCTS" jdbcType="LONGVARCHAR" property="products" />
-    <result column="POSTAGESERVICE" jdbcType="LONGVARCHAR" property="postageservice" />
-    <result column="SELLINFO" jdbcType="LONGVARCHAR" property="sellinfo" />
-    <result column="RESERVE1" jdbcType="LONGVARCHAR" property="reserve1" />
-    <result column="RESERVE2" jdbcType="LONGVARCHAR" property="reserve2" />
-    <result column="RESERVE3" jdbcType="LONGVARCHAR" property="reserve3" />
-    <result column="RESERVE5" jdbcType="LONGVARCHAR" property="reserve5" />
-    <result column="RESERVE6" jdbcType="LONGVARCHAR" property="reserve6" />
-    <result column="RESERVE7" jdbcType="LONGVARCHAR" property="reserve7" />
-    <result column="RESERVE8" jdbcType="LONGVARCHAR" property="reserve8" />
-    <result column="RESERVE9" jdbcType="LONGVARCHAR" property="reserve9" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    SEQUENCEID, ORDERID, CUSTOMERNAME, CUSTOMERTEL, CUSTOMERCOUNTRY, CUSTOMERPROVINCE, 
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SEQUENCEID, ORDERID, CUSTOMERNAME, CUSTOMERTEL, CUSTOMERCOUNTRY, CUSTOMERPROVINCE, 
     CUSTOMERCITY, CUSTOMERADDRESS, ORDERMONRY, ORDEREXPRESS, ORDERTIME, TRADEID, CUSTOMERID, 
     CUSTOMEREMAIL, CUSTOMERZIPCODE, CUSTOMERREFAX, SHOPTYPE, PAYID, EXPRESSTYPE, EXPRESSID, 
-    ORDERWEIGHT, RESERVE4, RESERVE10, RESERVE11, RESERVE12
-  </sql>
-  <sql id="Blob_Column_List">
-    CONTENT, PRODUCTS, POSTAGESERVICE, SELLINFO, RESERVE1, RESERVE2, RESERVE3, RESERVE5, 
-    RESERVE6, RESERVE7, RESERVE8, RESERVE9
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from db_labeldate
+    ORDERWEIGHT, CONTENT, PRODUCTS, POSTAGESERVICE, SELLINFO, RESERVE1, RESERVE2, RESERVE3, 
+    RESERVE4, RESERVE5, RESERVE6, RESERVE7, RESERVE8, RESERVE9, RESERVE10, RESERVE11, 
+    RESERVE12
+    from DB_LABELDATE
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_labeldate
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, ORDERID, CUSTOMERNAME, CUSTOMERTEL, CUSTOMERCOUNTRY, CUSTOMERPROVINCE, 
+    CUSTOMERCITY, CUSTOMERADDRESS, ORDERMONRY, ORDEREXPRESS, ORDERTIME, TRADEID, CUSTOMERID, 
+    CUSTOMEREMAIL, CUSTOMERZIPCODE, CUSTOMERREFAX, SHOPTYPE, PAYID, EXPRESSTYPE, EXPRESSID, 
+    ORDERWEIGHT, CONTENT, PRODUCTS, POSTAGESERVICE, SELLINFO, RESERVE1, RESERVE2, RESERVE3, 
+    RESERVE4, RESERVE5, RESERVE6, RESERVE7, RESERVE8, RESERVE9, RESERVE10, RESERVE11, 
+    RESERVE12
+    from DB_LABELDATE
+  </select>
+  <sql id="TableName">
+    DB_LABELDATE
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=VARCHAR} , 
+     #{orderid,jdbcType=VARCHAR} , 
+     #{customername,jdbcType=VARCHAR} , 
+     #{customertel,jdbcType=VARCHAR} , 
+     #{customercountry,jdbcType=VARCHAR} , 
+     #{customerprovince,jdbcType=VARCHAR} , 
+     #{customercity,jdbcType=VARCHAR} , 
+     #{customeraddress,jdbcType=VARCHAR} , 
+     #{ordermonry,jdbcType=DECIMAL} , 
+     #{orderexpress,jdbcType=DECIMAL} , 
+     #{ordertime,jdbcType=TIMESTAMP} , 
+     #{tradeid,jdbcType=VARCHAR} , 
+     #{customerid,jdbcType=VARCHAR} , 
+     #{customeremail,jdbcType=VARCHAR} , 
+     #{customerzipcode,jdbcType=VARCHAR} , 
+     #{customerrefax,jdbcType=VARCHAR} , 
+     #{shoptype,jdbcType=VARCHAR} , 
+     #{payid,jdbcType=VARCHAR} , 
+     #{expresstype,jdbcType=VARCHAR} , 
+     #{expressid,jdbcType=VARCHAR} , 
+     #{orderweight,jdbcType=DECIMAL} , 
+     #{content,jdbcType=VARCHAR} , 
+     #{products,jdbcType=VARCHAR} , 
+     #{postageservice,jdbcType=VARCHAR} , 
+     #{sellinfo,jdbcType=VARCHAR} , 
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+     #{reserve3,jdbcType=VARCHAR} , 
+     #{reserve4,jdbcType=DECIMAL} , 
+     #{reserve5,jdbcType=VARCHAR} , 
+     #{reserve6,jdbcType=VARCHAR} , 
+     #{reserve7,jdbcType=VARCHAR} , 
+     #{reserve8,jdbcType=VARCHAR} , 
+     #{reserve9,jdbcType=VARCHAR} , 
+     #{reserve10,jdbcType=DECIMAL} , 
+     #{reserve11,jdbcType=DECIMAL} , 
+     #{reserve12,jdbcType=DECIMAL} , 
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    ORDERID , 
+    CUSTOMERNAME , 
+    CUSTOMERTEL , 
+    CUSTOMERCOUNTRY , 
+    CUSTOMERPROVINCE , 
+    CUSTOMERCITY , 
+    CUSTOMERADDRESS , 
+    ORDERMONRY , 
+    ORDEREXPRESS , 
+    ORDERTIME , 
+    TRADEID , 
+    CUSTOMERID , 
+    CUSTOMEREMAIL , 
+    CUSTOMERZIPCODE , 
+    CUSTOMERREFAX , 
+    SHOPTYPE , 
+    PAYID , 
+    EXPRESSTYPE , 
+    EXPRESSID , 
+    ORDERWEIGHT , 
+    CONTENT , 
+    PRODUCTS , 
+    POSTAGESERVICE , 
+    SELLINFO , 
+    RESERVE1 , 
+    RESERVE2 , 
+    RESERVE3 , 
+    RESERVE4 , 
+    RESERVE5 , 
+    RESERVE6 , 
+    RESERVE7 , 
+    RESERVE8 , 
+    RESERVE9 , 
+    RESERVE10 , 
+    RESERVE11 , 
+    RESERVE12 , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="orderid != null">
+      orderid = #{orderid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="customername != null">
+      customername = #{customername,jdbcType=VARCHAR} and 
+    </if>
+    <if test="customertel != null">
+      customertel = #{customertel,jdbcType=VARCHAR} and 
+    </if>
+    <if test="customercountry != null">
+      customercountry = #{customercountry,jdbcType=VARCHAR} and 
+    </if>
+    <if test="customerprovince != null">
+      customerprovince = #{customerprovince,jdbcType=VARCHAR} and 
+    </if>
+    <if test="customercity != null">
+      customercity = #{customercity,jdbcType=VARCHAR} and 
+    </if>
+    <if test="customeraddress != null">
+      customeraddress = #{customeraddress,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ordermonry != null">
+      ordermonry = #{ordermonry,jdbcType=DECIMAL} and 
+    </if>
+    <if test="orderexpress != null">
+      orderexpress = #{orderexpress,jdbcType=DECIMAL} and 
+    </if>
+    <if test="ordertime != null">
+      ordertime = #{ordertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="tradeid != null">
+      tradeid = #{tradeid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="customerid != null">
+      customerid = #{customerid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="customeremail != null">
+      customeremail = #{customeremail,jdbcType=VARCHAR} and 
+    </if>
+    <if test="customerzipcode != null">
+      customerzipcode = #{customerzipcode,jdbcType=VARCHAR} and 
+    </if>
+    <if test="customerrefax != null">
+      customerrefax = #{customerrefax,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shoptype != null">
+      shoptype = #{shoptype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="payid != null">
+      payid = #{payid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="expresstype != null">
+      expresstype = #{expresstype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="expressid != null">
+      expressid = #{expressid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="orderweight != null">
+      orderweight = #{orderweight,jdbcType=DECIMAL} and 
+    </if>
+    <if test="content != null">
+      content = #{content,jdbcType=VARCHAR} and 
+    </if>
+    <if test="products != null">
+      products = #{products,jdbcType=VARCHAR} and 
+    </if>
+    <if test="postageservice != null">
+      postageservice = #{postageservice,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sellinfo != null">
+      sellinfo = #{sellinfo,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve6 != null">
+      reserve6 = #{reserve6,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve7 != null">
+      reserve7 = #{reserve7,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve8 != null">
+      reserve8 = #{reserve8,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve9 != null">
+      reserve9 = #{reserve9,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve10 != null">
+      reserve10 = #{reserve10,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve11 != null">
+      reserve11 = #{reserve11,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve12 != null">
+      reserve12 = #{reserve12,jdbcType=DECIMAL} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="orderid != null">
+      orderid = #{orderid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="customername != null">
+      customername = #{customername,jdbcType=VARCHAR} , 
+    </if>
+    <if test="customertel != null">
+      customertel = #{customertel,jdbcType=VARCHAR} , 
+    </if>
+    <if test="customercountry != null">
+      customercountry = #{customercountry,jdbcType=VARCHAR} , 
+    </if>
+    <if test="customerprovince != null">
+      customerprovince = #{customerprovince,jdbcType=VARCHAR} , 
+    </if>
+    <if test="customercity != null">
+      customercity = #{customercity,jdbcType=VARCHAR} , 
+    </if>
+    <if test="customeraddress != null">
+      customeraddress = #{customeraddress,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ordermonry != null">
+      ordermonry = #{ordermonry,jdbcType=DECIMAL} , 
+    </if>
+    <if test="orderexpress != null">
+      orderexpress = #{orderexpress,jdbcType=DECIMAL} , 
+    </if>
+    <if test="ordertime != null">
+      ordertime = #{ordertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="tradeid != null">
+      tradeid = #{tradeid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="customerid != null">
+      customerid = #{customerid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="customeremail != null">
+      customeremail = #{customeremail,jdbcType=VARCHAR} , 
+    </if>
+    <if test="customerzipcode != null">
+      customerzipcode = #{customerzipcode,jdbcType=VARCHAR} , 
+    </if>
+    <if test="customerrefax != null">
+      customerrefax = #{customerrefax,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shoptype != null">
+      shoptype = #{shoptype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="payid != null">
+      payid = #{payid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="expresstype != null">
+      expresstype = #{expresstype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="expressid != null">
+      expressid = #{expressid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="orderweight != null">
+      orderweight = #{orderweight,jdbcType=DECIMAL} , 
+    </if>
+    <if test="content != null">
+      content = #{content,jdbcType=VARCHAR} , 
+    </if>
+    <if test="products != null">
+      products = #{products,jdbcType=VARCHAR} , 
+    </if>
+    <if test="postageservice != null">
+      postageservice = #{postageservice,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sellinfo != null">
+      sellinfo = #{sellinfo,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve6 != null">
+      reserve6 = #{reserve6,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve7 != null">
+      reserve7 = #{reserve7,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve8 != null">
+      reserve8 = #{reserve8,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve9 != null">
+      reserve9 = #{reserve9,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve10 != null">
+      reserve10 = #{reserve10,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve11 != null">
+      reserve11 = #{reserve11,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve12 != null">
+      reserve12 = #{reserve12,jdbcType=DECIMAL} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbLabeldate" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbLabeldate">
-    insert into db_labeldate (SEQUENCEID, ORDERID, CUSTOMERNAME, 
-      CUSTOMERTEL, CUSTOMERCOUNTRY, CUSTOMERPROVINCE, 
-      CUSTOMERCITY, CUSTOMERADDRESS, ORDERMONRY, 
-      ORDEREXPRESS, ORDERTIME, TRADEID, 
-      CUSTOMERID, CUSTOMEREMAIL, CUSTOMERZIPCODE, 
-      CUSTOMERREFAX, SHOPTYPE, PAYID, 
-      EXPRESSTYPE, EXPRESSID, ORDERWEIGHT, 
-      RESERVE4, RESERVE10, RESERVE11, 
-      RESERVE12, CONTENT, PRODUCTS, 
-      POSTAGESERVICE, SELLINFO, RESERVE1, 
-      RESERVE2, RESERVE3, RESERVE5, 
-      RESERVE6, RESERVE7, RESERVE8, 
-      RESERVE9)
-    values (#{sequenceid,jdbcType=VARCHAR}, #{orderid,jdbcType=VARCHAR}, #{customername,jdbcType=VARCHAR}, 
-      #{customertel,jdbcType=VARCHAR}, #{customercountry,jdbcType=VARCHAR}, #{customerprovince,jdbcType=VARCHAR}, 
-      #{customercity,jdbcType=VARCHAR}, #{customeraddress,jdbcType=VARCHAR}, #{ordermonry,jdbcType=DECIMAL}, 
-      #{orderexpress,jdbcType=DECIMAL}, #{ordertime,jdbcType=TIMESTAMP}, #{tradeid,jdbcType=VARCHAR}, 
-      #{customerid,jdbcType=VARCHAR}, #{customeremail,jdbcType=VARCHAR}, #{customerzipcode,jdbcType=VARCHAR}, 
-      #{customerrefax,jdbcType=VARCHAR}, #{shoptype,jdbcType=VARCHAR}, #{payid,jdbcType=VARCHAR}, 
-      #{expresstype,jdbcType=VARCHAR}, #{expressid,jdbcType=VARCHAR}, #{orderweight,jdbcType=DECIMAL}, 
-      #{reserve4,jdbcType=DECIMAL}, #{reserve10,jdbcType=DECIMAL}, #{reserve11,jdbcType=DECIMAL}, 
-      #{reserve12,jdbcType=DECIMAL}, #{content,jdbcType=LONGVARCHAR}, #{products,jdbcType=LONGVARCHAR}, 
-      #{postageservice,jdbcType=LONGVARCHAR}, #{sellinfo,jdbcType=LONGVARCHAR}, #{reserve1,jdbcType=LONGVARCHAR}, 
-      #{reserve2,jdbcType=LONGVARCHAR}, #{reserve3,jdbcType=LONGVARCHAR}, #{reserve5,jdbcType=LONGVARCHAR}, 
-      #{reserve6,jdbcType=LONGVARCHAR}, #{reserve7,jdbcType=LONGVARCHAR}, #{reserve8,jdbcType=LONGVARCHAR}, 
-      #{reserve9,jdbcType=LONGVARCHAR})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbLabeldate">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbLabeldate">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbLabeldate">
-    insert into db_labeldate
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        SEQUENCEID,
-      </if>
-      <if test="orderid != null">
-        ORDERID,
-      </if>
-      <if test="customername != null">
-        CUSTOMERNAME,
-      </if>
-      <if test="customertel != null">
-        CUSTOMERTEL,
-      </if>
-      <if test="customercountry != null">
-        CUSTOMERCOUNTRY,
-      </if>
-      <if test="customerprovince != null">
-        CUSTOMERPROVINCE,
-      </if>
-      <if test="customercity != null">
-        CUSTOMERCITY,
-      </if>
-      <if test="customeraddress != null">
-        CUSTOMERADDRESS,
-      </if>
-      <if test="ordermonry != null">
-        ORDERMONRY,
-      </if>
-      <if test="orderexpress != null">
-        ORDEREXPRESS,
-      </if>
-      <if test="ordertime != null">
-        ORDERTIME,
-      </if>
-      <if test="tradeid != null">
-        TRADEID,
-      </if>
-      <if test="customerid != null">
-        CUSTOMERID,
-      </if>
-      <if test="customeremail != null">
-        CUSTOMEREMAIL,
-      </if>
-      <if test="customerzipcode != null">
-        CUSTOMERZIPCODE,
-      </if>
-      <if test="customerrefax != null">
-        CUSTOMERREFAX,
-      </if>
-      <if test="shoptype != null">
-        SHOPTYPE,
-      </if>
-      <if test="payid != null">
-        PAYID,
-      </if>
-      <if test="expresstype != null">
-        EXPRESSTYPE,
-      </if>
-      <if test="expressid != null">
-        EXPRESSID,
-      </if>
-      <if test="orderweight != null">
-        ORDERWEIGHT,
-      </if>
-      <if test="reserve4 != null">
-        RESERVE4,
-      </if>
-      <if test="reserve10 != null">
-        RESERVE10,
-      </if>
-      <if test="reserve11 != null">
-        RESERVE11,
-      </if>
-      <if test="reserve12 != null">
-        RESERVE12,
-      </if>
-      <if test="content != null">
-        CONTENT,
-      </if>
-      <if test="products != null">
-        PRODUCTS,
-      </if>
-      <if test="postageservice != null">
-        POSTAGESERVICE,
-      </if>
-      <if test="sellinfo != null">
-        SELLINFO,
-      </if>
-      <if test="reserve1 != null">
-        RESERVE1,
-      </if>
-      <if test="reserve2 != null">
-        RESERVE2,
-      </if>
-      <if test="reserve3 != null">
-        RESERVE3,
-      </if>
-      <if test="reserve5 != null">
-        RESERVE5,
-      </if>
-      <if test="reserve6 != null">
-        RESERVE6,
-      </if>
-      <if test="reserve7 != null">
-        RESERVE7,
-      </if>
-      <if test="reserve8 != null">
-        RESERVE8,
-      </if>
-      <if test="reserve9 != null">
-        RESERVE9,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        #{sequenceid,jdbcType=VARCHAR},
-      </if>
-      <if test="orderid != null">
-        #{orderid,jdbcType=VARCHAR},
-      </if>
-      <if test="customername != null">
-        #{customername,jdbcType=VARCHAR},
-      </if>
-      <if test="customertel != null">
-        #{customertel,jdbcType=VARCHAR},
-      </if>
-      <if test="customercountry != null">
-        #{customercountry,jdbcType=VARCHAR},
-      </if>
-      <if test="customerprovince != null">
-        #{customerprovince,jdbcType=VARCHAR},
-      </if>
-      <if test="customercity != null">
-        #{customercity,jdbcType=VARCHAR},
-      </if>
-      <if test="customeraddress != null">
-        #{customeraddress,jdbcType=VARCHAR},
-      </if>
-      <if test="ordermonry != null">
-        #{ordermonry,jdbcType=DECIMAL},
-      </if>
-      <if test="orderexpress != null">
-        #{orderexpress,jdbcType=DECIMAL},
-      </if>
-      <if test="ordertime != null">
-        #{ordertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="tradeid != null">
-        #{tradeid,jdbcType=VARCHAR},
-      </if>
-      <if test="customerid != null">
-        #{customerid,jdbcType=VARCHAR},
-      </if>
-      <if test="customeremail != null">
-        #{customeremail,jdbcType=VARCHAR},
-      </if>
-      <if test="customerzipcode != null">
-        #{customerzipcode,jdbcType=VARCHAR},
-      </if>
-      <if test="customerrefax != null">
-        #{customerrefax,jdbcType=VARCHAR},
-      </if>
-      <if test="shoptype != null">
-        #{shoptype,jdbcType=VARCHAR},
-      </if>
-      <if test="payid != null">
-        #{payid,jdbcType=VARCHAR},
-      </if>
-      <if test="expresstype != null">
-        #{expresstype,jdbcType=VARCHAR},
-      </if>
-      <if test="expressid != null">
-        #{expressid,jdbcType=VARCHAR},
-      </if>
-      <if test="orderweight != null">
-        #{orderweight,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve4 != null">
-        #{reserve4,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve10 != null">
-        #{reserve10,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve11 != null">
-        #{reserve11,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve12 != null">
-        #{reserve12,jdbcType=DECIMAL},
-      </if>
-      <if test="content != null">
-        #{content,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="products != null">
-        #{products,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="postageservice != null">
-        #{postageservice,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="sellinfo != null">
-        #{sellinfo,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="reserve1 != null">
-        #{reserve1,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="reserve2 != null">
-        #{reserve2,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="reserve3 != null">
-        #{reserve3,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="reserve5 != null">
-        #{reserve5,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="reserve6 != null">
-        #{reserve6,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="reserve7 != null">
-        #{reserve7,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="reserve8 != null">
-        #{reserve8,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="reserve9 != null">
-        #{reserve9,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbLabeldate">
-    update db_labeldate
-    <set>
-      <if test="orderid != null">
-        ORDERID = #{orderid,jdbcType=VARCHAR},
-      </if>
-      <if test="customername != null">
-        CUSTOMERNAME = #{customername,jdbcType=VARCHAR},
-      </if>
-      <if test="customertel != null">
-        CUSTOMERTEL = #{customertel,jdbcType=VARCHAR},
-      </if>
-      <if test="customercountry != null">
-        CUSTOMERCOUNTRY = #{customercountry,jdbcType=VARCHAR},
-      </if>
-      <if test="customerprovince != null">
-        CUSTOMERPROVINCE = #{customerprovince,jdbcType=VARCHAR},
-      </if>
-      <if test="customercity != null">
-        CUSTOMERCITY = #{customercity,jdbcType=VARCHAR},
-      </if>
-      <if test="customeraddress != null">
-        CUSTOMERADDRESS = #{customeraddress,jdbcType=VARCHAR},
-      </if>
-      <if test="ordermonry != null">
-        ORDERMONRY = #{ordermonry,jdbcType=DECIMAL},
-      </if>
-      <if test="orderexpress != null">
-        ORDEREXPRESS = #{orderexpress,jdbcType=DECIMAL},
-      </if>
-      <if test="ordertime != null">
-        ORDERTIME = #{ordertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="tradeid != null">
-        TRADEID = #{tradeid,jdbcType=VARCHAR},
-      </if>
-      <if test="customerid != null">
-        CUSTOMERID = #{customerid,jdbcType=VARCHAR},
-      </if>
-      <if test="customeremail != null">
-        CUSTOMEREMAIL = #{customeremail,jdbcType=VARCHAR},
-      </if>
-      <if test="customerzipcode != null">
-        CUSTOMERZIPCODE = #{customerzipcode,jdbcType=VARCHAR},
-      </if>
-      <if test="customerrefax != null">
-        CUSTOMERREFAX = #{customerrefax,jdbcType=VARCHAR},
-      </if>
-      <if test="shoptype != null">
-        SHOPTYPE = #{shoptype,jdbcType=VARCHAR},
-      </if>
-      <if test="payid != null">
-        PAYID = #{payid,jdbcType=VARCHAR},
-      </if>
-      <if test="expresstype != null">
-        EXPRESSTYPE = #{expresstype,jdbcType=VARCHAR},
-      </if>
-      <if test="expressid != null">
-        EXPRESSID = #{expressid,jdbcType=VARCHAR},
-      </if>
-      <if test="orderweight != null">
-        ORDERWEIGHT = #{orderweight,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve4 != null">
-        RESERVE4 = #{reserve4,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve10 != null">
-        RESERVE10 = #{reserve10,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve11 != null">
-        RESERVE11 = #{reserve11,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve12 != null">
-        RESERVE12 = #{reserve12,jdbcType=DECIMAL},
-      </if>
-      <if test="content != null">
-        CONTENT = #{content,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="products != null">
-        PRODUCTS = #{products,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="postageservice != null">
-        POSTAGESERVICE = #{postageservice,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="sellinfo != null">
-        SELLINFO = #{sellinfo,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="reserve1 != null">
-        RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="reserve2 != null">
-        RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="reserve3 != null">
-        RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="reserve5 != null">
-        RESERVE5 = #{reserve5,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="reserve6 != null">
-        RESERVE6 = #{reserve6,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="reserve7 != null">
-        RESERVE7 = #{reserve7,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="reserve8 != null">
-        RESERVE8 = #{reserve8,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="reserve9 != null">
-        RESERVE9 = #{reserve9,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbLabeldate">
-    update db_labeldate
-    set ORDERID = #{orderid,jdbcType=VARCHAR},
-      CUSTOMERNAME = #{customername,jdbcType=VARCHAR},
-      CUSTOMERTEL = #{customertel,jdbcType=VARCHAR},
-      CUSTOMERCOUNTRY = #{customercountry,jdbcType=VARCHAR},
-      CUSTOMERPROVINCE = #{customerprovince,jdbcType=VARCHAR},
-      CUSTOMERCITY = #{customercity,jdbcType=VARCHAR},
-      CUSTOMERADDRESS = #{customeraddress,jdbcType=VARCHAR},
-      ORDERMONRY = #{ordermonry,jdbcType=DECIMAL},
-      ORDEREXPRESS = #{orderexpress,jdbcType=DECIMAL},
-      ORDERTIME = #{ordertime,jdbcType=TIMESTAMP},
-      TRADEID = #{tradeid,jdbcType=VARCHAR},
-      CUSTOMERID = #{customerid,jdbcType=VARCHAR},
-      CUSTOMEREMAIL = #{customeremail,jdbcType=VARCHAR},
-      CUSTOMERZIPCODE = #{customerzipcode,jdbcType=VARCHAR},
-      CUSTOMERREFAX = #{customerrefax,jdbcType=VARCHAR},
-      SHOPTYPE = #{shoptype,jdbcType=VARCHAR},
-      PAYID = #{payid,jdbcType=VARCHAR},
-      EXPRESSTYPE = #{expresstype,jdbcType=VARCHAR},
-      EXPRESSID = #{expressid,jdbcType=VARCHAR},
-      ORDERWEIGHT = #{orderweight,jdbcType=DECIMAL},
-      RESERVE4 = #{reserve4,jdbcType=DECIMAL},
-      RESERVE10 = #{reserve10,jdbcType=DECIMAL},
-      RESERVE11 = #{reserve11,jdbcType=DECIMAL},
-      RESERVE12 = #{reserve12,jdbcType=DECIMAL},
-      CONTENT = #{content,jdbcType=LONGVARCHAR},
-      PRODUCTS = #{products,jdbcType=LONGVARCHAR},
-      POSTAGESERVICE = #{postageservice,jdbcType=LONGVARCHAR},
-      SELLINFO = #{sellinfo,jdbcType=LONGVARCHAR},
-      RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR},
-      RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR},
-      RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR},
-      RESERVE5 = #{reserve5,jdbcType=LONGVARCHAR},
-      RESERVE6 = #{reserve6,jdbcType=LONGVARCHAR},
-      RESERVE7 = #{reserve7,jdbcType=LONGVARCHAR},
-      RESERVE8 = #{reserve8,jdbcType=LONGVARCHAR},
-      RESERVE9 = #{reserve9,jdbcType=LONGVARCHAR}
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbLabeldate">
-    update db_labeldate
-    set ORDERID = #{orderid,jdbcType=VARCHAR},
-      CUSTOMERNAME = #{customername,jdbcType=VARCHAR},
-      CUSTOMERTEL = #{customertel,jdbcType=VARCHAR},
-      CUSTOMERCOUNTRY = #{customercountry,jdbcType=VARCHAR},
-      CUSTOMERPROVINCE = #{customerprovince,jdbcType=VARCHAR},
-      CUSTOMERCITY = #{customercity,jdbcType=VARCHAR},
-      CUSTOMERADDRESS = #{customeraddress,jdbcType=VARCHAR},
-      ORDERMONRY = #{ordermonry,jdbcType=DECIMAL},
-      ORDEREXPRESS = #{orderexpress,jdbcType=DECIMAL},
-      ORDERTIME = #{ordertime,jdbcType=TIMESTAMP},
-      TRADEID = #{tradeid,jdbcType=VARCHAR},
-      CUSTOMERID = #{customerid,jdbcType=VARCHAR},
-      CUSTOMEREMAIL = #{customeremail,jdbcType=VARCHAR},
-      CUSTOMERZIPCODE = #{customerzipcode,jdbcType=VARCHAR},
-      CUSTOMERREFAX = #{customerrefax,jdbcType=VARCHAR},
-      SHOPTYPE = #{shoptype,jdbcType=VARCHAR},
-      PAYID = #{payid,jdbcType=VARCHAR},
-      EXPRESSTYPE = #{expresstype,jdbcType=VARCHAR},
-      EXPRESSID = #{expressid,jdbcType=VARCHAR},
-      ORDERWEIGHT = #{orderweight,jdbcType=DECIMAL},
-      RESERVE4 = #{reserve4,jdbcType=DECIMAL},
-      RESERVE10 = #{reserve10,jdbcType=DECIMAL},
-      RESERVE11 = #{reserve11,jdbcType=DECIMAL},
-      RESERVE12 = #{reserve12,jdbcType=DECIMAL}
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbLabeldate">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

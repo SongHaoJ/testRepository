@@ -20,215 +20,179 @@
     <result column="RESERVE8" jdbcType="VARCHAR" property="reserve8" />
     <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
   </resultMap>
-  <sql id="Base_Column_List">
-    SID, PRODUCTID, SHOPTYPEID, SELLPRICE, EXPRESSFEE, ITEMNO, OPER, OPERTIME, RESERVE1, 
-    RESERVE2, RESERVE3, RESERVE4, RESERVE5, RESERVE6, RESERVE7, RESERVE8, CORPID
-  </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from db_pricelist
+    select SID, PRODUCTID, SHOPTYPEID, SELLPRICE, EXPRESSFEE, ITEMNO, OPER, OPERTIME, 
+    RESERVE1, RESERVE2, RESERVE3, RESERVE4, RESERVE5, RESERVE6, RESERVE7, RESERVE8, CORPID
+    from DB_PRICELIST
     where SID = #{sid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_pricelist
-    where SID = #{sid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, PRODUCTID, SHOPTYPEID, SELLPRICE, EXPRESSFEE, ITEMNO, OPER, OPERTIME, 
+    RESERVE1, RESERVE2, RESERVE3, RESERVE4, RESERVE5, RESERVE6, RESERVE7, RESERVE8, CORPID
+    from DB_PRICELIST
+  </select>
+  <sql id="TableName">
+    DB_PRICELIST
+  </sql>
+  <sql id="Values">
+     #{sid,jdbcType=VARCHAR} , 
+     #{productid,jdbcType=VARCHAR} , 
+     #{shoptypeid,jdbcType=VARCHAR} , 
+     #{sellprice,jdbcType=DECIMAL} , 
+     #{expressfee,jdbcType=DECIMAL} , 
+     #{itemno,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+     #{reserve3,jdbcType=VARCHAR} , 
+     #{reserve4,jdbcType=VARCHAR} , 
+     #{reserve5,jdbcType=VARCHAR} , 
+     #{reserve6,jdbcType=VARCHAR} , 
+     #{reserve7,jdbcType=VARCHAR} , 
+     #{reserve8,jdbcType=VARCHAR} , 
+     #{corpid,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    SID , 
+    PRODUCTID , 
+    SHOPTYPEID , 
+    SELLPRICE , 
+    EXPRESSFEE , 
+    ITEMNO , 
+    OPER , 
+    OPERTIME , 
+    RESERVE1 , 
+    RESERVE2 , 
+    RESERVE3 , 
+    RESERVE4 , 
+    RESERVE5 , 
+    RESERVE6 , 
+    RESERVE7 , 
+    RESERVE8 , 
+    CORPID , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="productid != null">
+      productid = #{productid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shoptypeid != null">
+      shoptypeid = #{shoptypeid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sellprice != null">
+      sellprice = #{sellprice,jdbcType=DECIMAL} and 
+    </if>
+    <if test="expressfee != null">
+      expressfee = #{expressfee,jdbcType=DECIMAL} and 
+    </if>
+    <if test="itemno != null">
+      itemno = #{itemno,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve6 != null">
+      reserve6 = #{reserve6,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve7 != null">
+      reserve7 = #{reserve7,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve8 != null">
+      reserve8 = #{reserve8,jdbcType=VARCHAR} and 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="productid != null">
+      productid = #{productid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shoptypeid != null">
+      shoptypeid = #{shoptypeid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sellprice != null">
+      sellprice = #{sellprice,jdbcType=DECIMAL} , 
+    </if>
+    <if test="expressfee != null">
+      expressfee = #{expressfee,jdbcType=DECIMAL} , 
+    </if>
+    <if test="itemno != null">
+      itemno = #{itemno,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve6 != null">
+      reserve6 = #{reserve6,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve7 != null">
+      reserve7 = #{reserve7,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve8 != null">
+      reserve8 = #{reserve8,jdbcType=VARCHAR} , 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbPricelist" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SID=#{SID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbPricelist">
-    insert into db_pricelist (SID, PRODUCTID, SHOPTYPEID, 
-      SELLPRICE, EXPRESSFEE, ITEMNO, 
-      OPER, OPERTIME, RESERVE1, 
-      RESERVE2, RESERVE3, RESERVE4, 
-      RESERVE5, RESERVE6, RESERVE7, 
-      RESERVE8, CORPID)
-    values (#{sid,jdbcType=VARCHAR}, #{productid,jdbcType=VARCHAR}, #{shoptypeid,jdbcType=VARCHAR}, 
-      #{sellprice,jdbcType=DECIMAL}, #{expressfee,jdbcType=DECIMAL}, #{itemno,jdbcType=VARCHAR}, 
-      #{oper,jdbcType=VARCHAR}, #{opertime,jdbcType=TIMESTAMP}, #{reserve1,jdbcType=VARCHAR}, 
-      #{reserve2,jdbcType=VARCHAR}, #{reserve3,jdbcType=VARCHAR}, #{reserve4,jdbcType=VARCHAR}, 
-      #{reserve5,jdbcType=VARCHAR}, #{reserve6,jdbcType=VARCHAR}, #{reserve7,jdbcType=VARCHAR}, 
-      #{reserve8,jdbcType=VARCHAR}, #{corpid,jdbcType=VARCHAR})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbPricelist">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbPricelist">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbPricelist">
-    insert into db_pricelist
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        SID,
-      </if>
-      <if test="productid != null">
-        PRODUCTID,
-      </if>
-      <if test="shoptypeid != null">
-        SHOPTYPEID,
-      </if>
-      <if test="sellprice != null">
-        SELLPRICE,
-      </if>
-      <if test="expressfee != null">
-        EXPRESSFEE,
-      </if>
-      <if test="itemno != null">
-        ITEMNO,
-      </if>
-      <if test="oper != null">
-        OPER,
-      </if>
-      <if test="opertime != null">
-        OPERTIME,
-      </if>
-      <if test="reserve1 != null">
-        RESERVE1,
-      </if>
-      <if test="reserve2 != null">
-        RESERVE2,
-      </if>
-      <if test="reserve3 != null">
-        RESERVE3,
-      </if>
-      <if test="reserve4 != null">
-        RESERVE4,
-      </if>
-      <if test="reserve5 != null">
-        RESERVE5,
-      </if>
-      <if test="reserve6 != null">
-        RESERVE6,
-      </if>
-      <if test="reserve7 != null">
-        RESERVE7,
-      </if>
-      <if test="reserve8 != null">
-        RESERVE8,
-      </if>
-      <if test="corpid != null">
-        CORPID,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        #{sid,jdbcType=VARCHAR},
-      </if>
-      <if test="productid != null">
-        #{productid,jdbcType=VARCHAR},
-      </if>
-      <if test="shoptypeid != null">
-        #{shoptypeid,jdbcType=VARCHAR},
-      </if>
-      <if test="sellprice != null">
-        #{sellprice,jdbcType=DECIMAL},
-      </if>
-      <if test="expressfee != null">
-        #{expressfee,jdbcType=DECIMAL},
-      </if>
-      <if test="itemno != null">
-        #{itemno,jdbcType=VARCHAR},
-      </if>
-      <if test="oper != null">
-        #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="reserve1 != null">
-        #{reserve1,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve2 != null">
-        #{reserve2,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve3 != null">
-        #{reserve3,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve4 != null">
-        #{reserve4,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve5 != null">
-        #{reserve5,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve6 != null">
-        #{reserve6,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve7 != null">
-        #{reserve7,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve8 != null">
-        #{reserve8,jdbcType=VARCHAR},
-      </if>
-      <if test="corpid != null">
-        #{corpid,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbPricelist">
-    update db_pricelist
-    <set>
-      <if test="productid != null">
-        PRODUCTID = #{productid,jdbcType=VARCHAR},
-      </if>
-      <if test="shoptypeid != null">
-        SHOPTYPEID = #{shoptypeid,jdbcType=VARCHAR},
-      </if>
-      <if test="sellprice != null">
-        SELLPRICE = #{sellprice,jdbcType=DECIMAL},
-      </if>
-      <if test="expressfee != null">
-        EXPRESSFEE = #{expressfee,jdbcType=DECIMAL},
-      </if>
-      <if test="itemno != null">
-        ITEMNO = #{itemno,jdbcType=VARCHAR},
-      </if>
-      <if test="oper != null">
-        OPER = #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="reserve1 != null">
-        RESERVE1 = #{reserve1,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve2 != null">
-        RESERVE2 = #{reserve2,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve3 != null">
-        RESERVE3 = #{reserve3,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve4 != null">
-        RESERVE4 = #{reserve4,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve5 != null">
-        RESERVE5 = #{reserve5,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve6 != null">
-        RESERVE6 = #{reserve6,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve7 != null">
-        RESERVE7 = #{reserve7,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve8 != null">
-        RESERVE8 = #{reserve8,jdbcType=VARCHAR},
-      </if>
-      <if test="corpid != null">
-        CORPID = #{corpid,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where SID = #{sid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbPricelist">
-    update db_pricelist
-    set PRODUCTID = #{productid,jdbcType=VARCHAR},
-      SHOPTYPEID = #{shoptypeid,jdbcType=VARCHAR},
-      SELLPRICE = #{sellprice,jdbcType=DECIMAL},
-      EXPRESSFEE = #{expressfee,jdbcType=DECIMAL},
-      ITEMNO = #{itemno,jdbcType=VARCHAR},
-      OPER = #{oper,jdbcType=VARCHAR},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR},
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR},
-      RESERVE4 = #{reserve4,jdbcType=VARCHAR},
-      RESERVE5 = #{reserve5,jdbcType=VARCHAR},
-      RESERVE6 = #{reserve6,jdbcType=VARCHAR},
-      RESERVE7 = #{reserve7,jdbcType=VARCHAR},
-      RESERVE8 = #{reserve8,jdbcType=VARCHAR},
-      CORPID = #{corpid,jdbcType=VARCHAR}
-    where SID = #{sid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbPricelist">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

@@ -4,7 +4,6 @@ import com.bean.dao.DbAsktradernumberMapper;
 import com.bean.dao.DbExpressconfigMapper;
 import com.bean.dao.DbExpresstypeMapper;
 import com.bean.dao.DbOrderMapper;
-import com.bean.model.DbAsktradernumber;
 import com.bean.model.DbExpressconfig;
 import com.bean.model.DbExpresstype;
 import com.bean.util.RetCode;
@@ -27,6 +26,12 @@ public class ExpressModelImpl implements ExpressModel {
     private DbAsktradernumberMapper asktradernumberMapper;
     @Autowired
     private DbOrderMapper orderMapper;
+
+    @Override
+    public int selectOrInsertExpress() {
+        return 0;
+    }
+
     @Override
     public RetCode findexpressconfig(String ordertype) {
         RetCode rt = new RetCode(1000, "查无记录", "");
@@ -41,7 +46,6 @@ public class ExpressModelImpl implements ExpressModel {
                 rt.setCode(1000);
                 rt.setDesc("无" + ordertype + "物流配置信息");
             }
-
         } catch (Exception e) {
             rt.setCode(999);
             rt.setDesc("查询物流配置标签Exception异常:" + e.getMessage());
@@ -97,13 +101,14 @@ public class ExpressModelImpl implements ExpressModel {
     }
 
     @Override
-    public ExpressInfo selectExpressInfo(String ordertype, BigDecimal errflag) {
+    public List<ExpressInfo> selectExpressInfo(String ordertype, BigDecimal errflag) {
 
         return null;
     }
 
     @Override
     public OrderInfo selectOrderInfo(String orderid) {
+
         return null;
     }
 

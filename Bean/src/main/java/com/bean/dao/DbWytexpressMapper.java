@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbWytexpress;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbWytexpressMapper {
-    int deleteByPrimaryKey(String deliverywayid);
+    DbWytexpress selectByCriteria(DbWytexpress DbWytexpress);
 
-    int insert(DbWytexpress record);
+    void deleteByPrimaryKey(String DELIVERYWAYID);
 
-    int insertSelective(DbWytexpress record);
+    void deleteByCriteria(DbWytexpress DbWytexpress);
+
+    int insertByCriteria(DbWytexpress DbWytexpress);
+
+    int updateByCriteria(DbWytexpress DbWytexpress);
 
     DbWytexpress selectByPrimaryKey(String deliverywayid);
 
-    int updateByPrimaryKeySelective(DbWytexpress record);
-
-    int updateByPrimaryKey(DbWytexpress record);
+    List<DbWytexpress> selectAll();
 }

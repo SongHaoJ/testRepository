@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbEbaymessagebindMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbEbaymessagebind">
+    <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="KEY" jdbcType="VARCHAR" property="key" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
+    <result column="SORT" jdbcType="DECIMAL" property="sort" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbEbaymessagebind">
+    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SEQUENCEID, 'NAME', 'KEY', OPER, OPERTIME, RESERVE1, RESERVE2, RESERVE3, SORT
+  </sql>
+  <sql id="Blob_Column_List">
+    DESCR
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from db_ebaymessagebind
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from db_ebaymessagebind
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bean.model.DbEbaymessagebind">
+    insert into db_ebaymessagebind (SEQUENCEID, 'NAME', 'KEY', 
+      OPER, OPERTIME, RESERVE1, 
+      RESERVE2, RESERVE3, SORT, 
+      DESCR)
+    values (#{sequenceid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{key,jdbcType=VARCHAR}, 
+      #{oper,jdbcType=VARCHAR}, #{opertime,jdbcType=TIMESTAMP}, #{reserve1,jdbcType=VARCHAR}, 
+      #{reserve2,jdbcType=VARCHAR}, #{reserve3,jdbcType=VARCHAR}, #{sort,jdbcType=DECIMAL}, 
+      #{descr,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbEbaymessagebind">
+    insert into db_ebaymessagebind
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        SEQUENCEID,
+      </if>
+      <if test="name != null">
+        'NAME',
+      </if>
+      <if test="key != null">
+        'KEY',
+      </if>
+      <if test="oper != null">
+        OPER,
+      </if>
+      <if test="opertime != null">
+        OPERTIME,
+      </if>
+      <if test="reserve1 != null">
+        RESERVE1,
+      </if>
+      <if test="reserve2 != null">
+        RESERVE2,
+      </if>
+      <if test="reserve3 != null">
+        RESERVE3,
+      </if>
+      <if test="sort != null">
+        SORT,
+      </if>
+      <if test="descr != null">
+        DESCR,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        #{sequenceid,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="key != null">
+        #{key,jdbcType=VARCHAR},
+      </if>
+      <if test="oper != null">
+        #{oper,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null">
+        #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reserve1 != null">
+        #{reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve2 != null">
+        #{reserve2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve3 != null">
+        #{reserve3,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=DECIMAL},
+      </if>
+      <if test="descr != null">
+        #{descr,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbEbaymessagebind">
+    update db_ebaymessagebind
+    <set>
+      <if test="name != null">
+        'NAME' = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="key != null">
+        'KEY' = #{key,jdbcType=VARCHAR},
+      </if>
+      <if test="oper != null">
+        OPER = #{oper,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null">
+        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reserve1 != null">
+        RESERVE1 = #{reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve2 != null">
+        RESERVE2 = #{reserve2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve3 != null">
+        RESERVE3 = #{reserve3,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null">
+        SORT = #{sort,jdbcType=DECIMAL},
+      </if>
+      <if test="descr != null">
+        DESCR = #{descr,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbEbaymessagebind">
+    update db_ebaymessagebind
+    set 'NAME' = #{name,jdbcType=VARCHAR},
+      'KEY' = #{key,jdbcType=VARCHAR},
+      OPER = #{oper,jdbcType=VARCHAR},
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR},
+      RESERVE3 = #{reserve3,jdbcType=VARCHAR},
+      SORT = #{sort,jdbcType=DECIMAL},
+      DESCR = #{descr,jdbcType=LONGVARCHAR}
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbEbaymessagebind">
+    update db_ebaymessagebind
+    set 'NAME' = #{name,jdbcType=VARCHAR},
+      'KEY' = #{key,jdbcType=VARCHAR},
+      OPER = #{oper,jdbcType=VARCHAR},
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR},
+      RESERVE3 = #{reserve3,jdbcType=VARCHAR},
+      SORT = #{sort,jdbcType=DECIMAL}
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </update>
+</mapper>

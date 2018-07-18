@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbBoxcuser;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbBoxcuserMapper {
-    int deleteByPrimaryKey(String sid);
+    DbBoxcuser selectByCriteria(DbBoxcuser DbBoxcuser);
 
-    int insert(DbBoxcuser record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbBoxcuser record);
+    void deleteByCriteria(DbBoxcuser DbBoxcuser);
+
+    int insertByCriteria(DbBoxcuser DbBoxcuser);
+
+    int updateByCriteria(DbBoxcuser DbBoxcuser);
 
     DbBoxcuser selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbBoxcuser record);
-
-    int updateByPrimaryKeyWithBLOBs(DbBoxcuser record);
-
-    int updateByPrimaryKey(DbBoxcuser record);
+    List<DbBoxcuser> selectAll();
 }

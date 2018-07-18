@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbTestpaypal;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbTestpaypalMapper {
-    int deleteByPrimaryKey(String sid);
+    DbTestpaypal selectByCriteria(DbTestpaypal DbTestpaypal);
 
-    int insert(DbTestpaypal record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbTestpaypal record);
+    void deleteByCriteria(DbTestpaypal DbTestpaypal);
+
+    int insertByCriteria(DbTestpaypal DbTestpaypal);
+
+    int updateByCriteria(DbTestpaypal DbTestpaypal);
 
     DbTestpaypal selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbTestpaypal record);
-
-    int updateByPrimaryKey(DbTestpaypal record);
+    List<DbTestpaypal> selectAll();
 }

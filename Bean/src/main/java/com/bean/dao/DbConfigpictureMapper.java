@@ -1,9 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbConfigpicture;
+import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+import java.util.List;
+
+@Service
 public interface DbConfigpictureMapper {
-    int insert(DbConfigpicture record);
+    DbConfigpicture selectByCriteria(DbConfigpicture DbConfigpicture);
 
-    int insertSelective(DbConfigpicture record);
+    void deleteByPrimaryKey(String SEQUENCEID);
+
+    void deleteByCriteria(DbConfigpicture DbConfigpicture);
+
+    int insertByCriteria(DbConfigpicture DbConfigpicture);
+
+    int updateByCriteria(DbConfigpicture DbConfigpicture);
+
+    DbConfigpicture selectByPrimaryKey(BigDecimal sequenceid);
+
+    List<DbConfigpicture> selectAll();
 }

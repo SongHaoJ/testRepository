@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbSelltostat;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbSelltostatMapper {
-    int deleteByPrimaryKey(String sid);
+    DbSelltostat selectByCriteria(DbSelltostat DbSelltostat);
 
-    int insert(DbSelltostat record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbSelltostat record);
+    void deleteByCriteria(DbSelltostat DbSelltostat);
+
+    int insertByCriteria(DbSelltostat DbSelltostat);
+
+    int updateByCriteria(DbSelltostat DbSelltostat);
 
     DbSelltostat selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbSelltostat record);
-
-    int updateByPrimaryKeyWithBLOBs(DbSelltostat record);
-
-    int updateByPrimaryKey(DbSelltostat record);
+    List<DbSelltostat> selectAll();
 }

@@ -9,9 +9,25 @@ public class DbCategory implements Serializable {
 
     private String name;
 
+    private String descr;
+
     private String oper;
 
     private Date opertime;
+
+    private String filed1;
+
+    private String filed2;
+
+    private String filed3;
+
+    private String filed5;
+
+    private String filed6;
+
+    private String filed4;
+
+    private String filed7;
 
     private BigDecimal filed8;
 
@@ -33,22 +49,6 @@ public class DbCategory implements Serializable {
 
     private String customscode;
 
-    private String descr;
-
-    private String filed1;
-
-    private String filed2;
-
-    private String filed3;
-
-    private String filed5;
-
-    private String filed6;
-
-    private String filed4;
-
-    private String filed7;
-
     private static final long serialVersionUID = 1L;
 
     public String getSequenceid() {
@@ -67,6 +67,14 @@ public class DbCategory implements Serializable {
         this.name = name == null ? null : name.trim();
     }
 
+    public String getDescr() {
+        return descr;
+    }
+
+    public void setDescr(String descr) {
+        this.descr = descr == null ? null : descr.trim();
+    }
+
     public String getOper() {
         return oper;
     }
@@ -81,6 +89,62 @@ public class DbCategory implements Serializable {
 
     public void setOpertime(Date opertime) {
         this.opertime = opertime;
+    }
+
+    public String getFiled1() {
+        return filed1;
+    }
+
+    public void setFiled1(String filed1) {
+        this.filed1 = filed1 == null ? null : filed1.trim();
+    }
+
+    public String getFiled2() {
+        return filed2;
+    }
+
+    public void setFiled2(String filed2) {
+        this.filed2 = filed2 == null ? null : filed2.trim();
+    }
+
+    public String getFiled3() {
+        return filed3;
+    }
+
+    public void setFiled3(String filed3) {
+        this.filed3 = filed3 == null ? null : filed3.trim();
+    }
+
+    public String getFiled5() {
+        return filed5;
+    }
+
+    public void setFiled5(String filed5) {
+        this.filed5 = filed5 == null ? null : filed5.trim();
+    }
+
+    public String getFiled6() {
+        return filed6;
+    }
+
+    public void setFiled6(String filed6) {
+        this.filed6 = filed6 == null ? null : filed6.trim();
+    }
+
+    public String getFiled4() {
+        return filed4;
+    }
+
+    public void setFiled4(String filed4) {
+        this.filed4 = filed4 == null ? null : filed4.trim();
+    }
+
+    public String getFiled7() {
+        return filed7;
+    }
+
+    public void setFiled7(String filed7) {
+        this.filed7 = filed7 == null ? null : filed7.trim();
     }
 
     public BigDecimal getFiled8() {
@@ -163,70 +227,6 @@ public class DbCategory implements Serializable {
         this.customscode = customscode == null ? null : customscode.trim();
     }
 
-    public String getDescr() {
-        return descr;
-    }
-
-    public void setDescr(String descr) {
-        this.descr = descr == null ? null : descr.trim();
-    }
-
-    public String getFiled1() {
-        return filed1;
-    }
-
-    public void setFiled1(String filed1) {
-        this.filed1 = filed1 == null ? null : filed1.trim();
-    }
-
-    public String getFiled2() {
-        return filed2;
-    }
-
-    public void setFiled2(String filed2) {
-        this.filed2 = filed2 == null ? null : filed2.trim();
-    }
-
-    public String getFiled3() {
-        return filed3;
-    }
-
-    public void setFiled3(String filed3) {
-        this.filed3 = filed3 == null ? null : filed3.trim();
-    }
-
-    public String getFiled5() {
-        return filed5;
-    }
-
-    public void setFiled5(String filed5) {
-        this.filed5 = filed5 == null ? null : filed5.trim();
-    }
-
-    public String getFiled6() {
-        return filed6;
-    }
-
-    public void setFiled6(String filed6) {
-        this.filed6 = filed6 == null ? null : filed6.trim();
-    }
-
-    public String getFiled4() {
-        return filed4;
-    }
-
-    public void setFiled4(String filed4) {
-        this.filed4 = filed4 == null ? null : filed4.trim();
-    }
-
-    public String getFiled7() {
-        return filed7;
-    }
-
-    public void setFiled7(String filed7) {
-        this.filed7 = filed7 == null ? null : filed7.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -241,8 +241,16 @@ public class DbCategory implements Serializable {
         DbCategory other = (DbCategory) that;
         return (this.getSequenceid() == null ? other.getSequenceid() == null : this.getSequenceid().equals(other.getSequenceid()))
             && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
+            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
+            && (this.getFiled1() == null ? other.getFiled1() == null : this.getFiled1().equals(other.getFiled1()))
+            && (this.getFiled2() == null ? other.getFiled2() == null : this.getFiled2().equals(other.getFiled2()))
+            && (this.getFiled3() == null ? other.getFiled3() == null : this.getFiled3().equals(other.getFiled3()))
+            && (this.getFiled5() == null ? other.getFiled5() == null : this.getFiled5().equals(other.getFiled5()))
+            && (this.getFiled6() == null ? other.getFiled6() == null : this.getFiled6().equals(other.getFiled6()))
+            && (this.getFiled4() == null ? other.getFiled4() == null : this.getFiled4().equals(other.getFiled4()))
+            && (this.getFiled7() == null ? other.getFiled7() == null : this.getFiled7().equals(other.getFiled7()))
             && (this.getFiled8() == null ? other.getFiled8() == null : this.getFiled8().equals(other.getFiled8()))
             && (this.getFiled9() == null ? other.getFiled9() == null : this.getFiled9().equals(other.getFiled9()))
             && (this.getFiled10() == null ? other.getFiled10() == null : this.getFiled10().equals(other.getFiled10()))
@@ -252,15 +260,7 @@ public class DbCategory implements Serializable {
             && (this.getHkcategory() == null ? other.getHkcategory() == null : this.getHkcategory().equals(other.getHkcategory()))
             && (this.getShortsku() == null ? other.getShortsku() == null : this.getShortsku().equals(other.getShortsku()))
             && (this.getTemplet() == null ? other.getTemplet() == null : this.getTemplet().equals(other.getTemplet()))
-            && (this.getCustomscode() == null ? other.getCustomscode() == null : this.getCustomscode().equals(other.getCustomscode()))
-            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
-            && (this.getFiled1() == null ? other.getFiled1() == null : this.getFiled1().equals(other.getFiled1()))
-            && (this.getFiled2() == null ? other.getFiled2() == null : this.getFiled2().equals(other.getFiled2()))
-            && (this.getFiled3() == null ? other.getFiled3() == null : this.getFiled3().equals(other.getFiled3()))
-            && (this.getFiled5() == null ? other.getFiled5() == null : this.getFiled5().equals(other.getFiled5()))
-            && (this.getFiled6() == null ? other.getFiled6() == null : this.getFiled6().equals(other.getFiled6()))
-            && (this.getFiled4() == null ? other.getFiled4() == null : this.getFiled4().equals(other.getFiled4()))
-            && (this.getFiled7() == null ? other.getFiled7() == null : this.getFiled7().equals(other.getFiled7()));
+            && (this.getCustomscode() == null ? other.getCustomscode() == null : this.getCustomscode().equals(other.getCustomscode()));
     }
 
     @Override
@@ -269,8 +269,16 @@ public class DbCategory implements Serializable {
         int result = 1;
         result = prime * result + ((getSequenceid() == null) ? 0 : getSequenceid().hashCode());
         result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
+        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
+        result = prime * result + ((getFiled1() == null) ? 0 : getFiled1().hashCode());
+        result = prime * result + ((getFiled2() == null) ? 0 : getFiled2().hashCode());
+        result = prime * result + ((getFiled3() == null) ? 0 : getFiled3().hashCode());
+        result = prime * result + ((getFiled5() == null) ? 0 : getFiled5().hashCode());
+        result = prime * result + ((getFiled6() == null) ? 0 : getFiled6().hashCode());
+        result = prime * result + ((getFiled4() == null) ? 0 : getFiled4().hashCode());
+        result = prime * result + ((getFiled7() == null) ? 0 : getFiled7().hashCode());
         result = prime * result + ((getFiled8() == null) ? 0 : getFiled8().hashCode());
         result = prime * result + ((getFiled9() == null) ? 0 : getFiled9().hashCode());
         result = prime * result + ((getFiled10() == null) ? 0 : getFiled10().hashCode());
@@ -281,14 +289,6 @@ public class DbCategory implements Serializable {
         result = prime * result + ((getShortsku() == null) ? 0 : getShortsku().hashCode());
         result = prime * result + ((getTemplet() == null) ? 0 : getTemplet().hashCode());
         result = prime * result + ((getCustomscode() == null) ? 0 : getCustomscode().hashCode());
-        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
-        result = prime * result + ((getFiled1() == null) ? 0 : getFiled1().hashCode());
-        result = prime * result + ((getFiled2() == null) ? 0 : getFiled2().hashCode());
-        result = prime * result + ((getFiled3() == null) ? 0 : getFiled3().hashCode());
-        result = prime * result + ((getFiled5() == null) ? 0 : getFiled5().hashCode());
-        result = prime * result + ((getFiled6() == null) ? 0 : getFiled6().hashCode());
-        result = prime * result + ((getFiled4() == null) ? 0 : getFiled4().hashCode());
-        result = prime * result + ((getFiled7() == null) ? 0 : getFiled7().hashCode());
         return result;
     }
 
@@ -300,8 +300,16 @@ public class DbCategory implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", sequenceid=").append(sequenceid);
         sb.append(", name=").append(name);
+        sb.append(", descr=").append(descr);
         sb.append(", oper=").append(oper);
         sb.append(", opertime=").append(opertime);
+        sb.append(", filed1=").append(filed1);
+        sb.append(", filed2=").append(filed2);
+        sb.append(", filed3=").append(filed3);
+        sb.append(", filed5=").append(filed5);
+        sb.append(", filed6=").append(filed6);
+        sb.append(", filed4=").append(filed4);
+        sb.append(", filed7=").append(filed7);
         sb.append(", filed8=").append(filed8);
         sb.append(", filed9=").append(filed9);
         sb.append(", filed10=").append(filed10);
@@ -312,14 +320,6 @@ public class DbCategory implements Serializable {
         sb.append(", shortsku=").append(shortsku);
         sb.append(", templet=").append(templet);
         sb.append(", customscode=").append(customscode);
-        sb.append(", descr=").append(descr);
-        sb.append(", filed1=").append(filed1);
-        sb.append(", filed2=").append(filed2);
-        sb.append(", filed3=").append(filed3);
-        sb.append(", filed5=").append(filed5);
-        sb.append(", filed6=").append(filed6);
-        sb.append(", filed4=").append(filed4);
-        sb.append(", filed7=").append(filed7);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

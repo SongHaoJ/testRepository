@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbTwodevelopmentproduct;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbTwodevelopmentproductMapper {
-    int deleteByPrimaryKey(String sid);
+    DbTwodevelopmentproduct selectByCriteria(DbTwodevelopmentproduct DbTwodevelopmentproduct);
 
-    int insert(DbTwodevelopmentproduct record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbTwodevelopmentproduct record);
+    void deleteByCriteria(DbTwodevelopmentproduct DbTwodevelopmentproduct);
+
+    int insertByCriteria(DbTwodevelopmentproduct DbTwodevelopmentproduct);
+
+    int updateByCriteria(DbTwodevelopmentproduct DbTwodevelopmentproduct);
 
     DbTwodevelopmentproduct selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbTwodevelopmentproduct record);
-
-    int updateByPrimaryKeyWithBLOBs(DbTwodevelopmentproduct record);
-
-    int updateByPrimaryKey(DbTwodevelopmentproduct record);
+    List<DbTwodevelopmentproduct> selectAll();
 }

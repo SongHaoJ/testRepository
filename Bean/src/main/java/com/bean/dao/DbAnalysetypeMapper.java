@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbAnalysetype;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbAnalysetypeMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbAnalysetype selectByCriteria(DbAnalysetype DbAnalysetype);
 
-    int insert(DbAnalysetype record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbAnalysetype record);
+    void deleteByCriteria(DbAnalysetype DbAnalysetype);
+
+    int insertByCriteria(DbAnalysetype DbAnalysetype);
+
+    int updateByCriteria(DbAnalysetype DbAnalysetype);
 
     DbAnalysetype selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbAnalysetype record);
-
-    int updateByPrimaryKeyWithBLOBs(DbAnalysetype record);
-
-    int updateByPrimaryKey(DbAnalysetype record);
+    List<DbAnalysetype> selectAll();
 }

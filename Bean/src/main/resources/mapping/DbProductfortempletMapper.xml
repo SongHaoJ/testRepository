@@ -13,235 +13,177 @@
     <result column="DSECR" jdbcType="VARCHAR" property="dsecr" />
     <result column="RESERVE1" jdbcType="DECIMAL" property="reserve1" />
     <result column="RESERVE2" jdbcType="DECIMAL" property="reserve2" />
+    <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
     <result column="RESERVE4" jdbcType="TIMESTAMP" property="reserve4" />
     <result column="RESERVE5" jdbcType="DECIMAL" property="reserve5" />
     <result column="RESERVE6" jdbcType="DECIMAL" property="reserve6" />
+    <result column="NOTE" jdbcType="VARCHAR" property="note" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbProductfortemplet">
-    <result column="RESERVE3" jdbcType="LONGVARCHAR" property="reserve3" />
-    <result column="NOTE" jdbcType="LONGVARCHAR" property="note" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    SEQUENCEID, CORPID, OPER, OPERTIME, CREATETIME, 'LANGUAGE', CATEGORYID, CATEGORYNAME, 
-    DSECR, RESERVE1, RESERVE2, RESERVE4, RESERVE5, RESERVE6
-  </sql>
-  <sql id="Blob_Column_List">
-    RESERVE3, NOTE
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="ResultMapWithBLOBs">
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from db_productfortemplet
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select SEQUENCEID, CORPID, OPER, OPERTIME, CREATETIME, LANGUAGE, CATEGORYID, CATEGORYNAME, 
+    DSECR, RESERVE1, RESERVE2, RESERVE3, RESERVE4, RESERVE5, RESERVE6, NOTE
+    from DB_PRODUCTFORTEMPLET
     where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
-    delete from db_productfortemplet
-    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, CORPID, OPER, OPERTIME, CREATETIME, LANGUAGE, CATEGORYID, CATEGORYNAME, 
+    DSECR, RESERVE1, RESERVE2, RESERVE3, RESERVE4, RESERVE5, RESERVE6, NOTE
+    from DB_PRODUCTFORTEMPLET
+  </select>
+  <sql id="TableName">
+    DB_PRODUCTFORTEMPLET
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=DECIMAL} , 
+     #{corpid,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{createtime,jdbcType=TIMESTAMP} , 
+     #{language,jdbcType=VARCHAR} , 
+     #{categoryid,jdbcType=VARCHAR} , 
+     #{categoryname,jdbcType=VARCHAR} , 
+     #{dsecr,jdbcType=VARCHAR} , 
+     #{reserve1,jdbcType=DECIMAL} , 
+     #{reserve2,jdbcType=DECIMAL} , 
+     #{reserve3,jdbcType=VARCHAR} , 
+     #{reserve4,jdbcType=TIMESTAMP} , 
+     #{reserve5,jdbcType=DECIMAL} , 
+     #{reserve6,jdbcType=DECIMAL} , 
+     #{note,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    CORPID , 
+    OPER , 
+    OPERTIME , 
+    CREATETIME , 
+    LANGUAGE , 
+    CATEGORYID , 
+    CATEGORYNAME , 
+    DSECR , 
+    RESERVE1 , 
+    RESERVE2 , 
+    RESERVE3 , 
+    RESERVE4 , 
+    RESERVE5 , 
+    RESERVE6 , 
+    NOTE , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="language != null">
+      language = #{language,jdbcType=VARCHAR} and 
+    </if>
+    <if test="categoryid != null">
+      categoryid = #{categoryid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="categoryname != null">
+      categoryname = #{categoryname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="dsecr != null">
+      dsecr = #{dsecr,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve6 != null">
+      reserve6 = #{reserve6,jdbcType=DECIMAL} and 
+    </if>
+    <if test="note != null">
+      note = #{note,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="language != null">
+      language = #{language,jdbcType=VARCHAR} , 
+    </if>
+    <if test="categoryid != null">
+      categoryid = #{categoryid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="categoryname != null">
+      categoryname = #{categoryname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="dsecr != null">
+      dsecr = #{dsecr,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve6 != null">
+      reserve6 = #{reserve6,jdbcType=DECIMAL} , 
+    </if>
+    <if test="note != null">
+      note = #{note,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbProductfortemplet" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="BigDecimal">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbProductfortemplet">
-    insert into db_productfortemplet (SEQUENCEID, CORPID, OPER, 
-      OPERTIME, CREATETIME, 'LANGUAGE', 
-      CATEGORYID, CATEGORYNAME, DSECR, 
-      RESERVE1, RESERVE2, RESERVE4, 
-      RESERVE5, RESERVE6, RESERVE3, 
-      NOTE)
-    values (#{sequenceid,jdbcType=DECIMAL}, #{corpid,jdbcType=VARCHAR}, #{oper,jdbcType=VARCHAR}, 
-      #{opertime,jdbcType=TIMESTAMP}, #{createtime,jdbcType=TIMESTAMP}, #{language,jdbcType=VARCHAR}, 
-      #{categoryid,jdbcType=VARCHAR}, #{categoryname,jdbcType=VARCHAR}, #{dsecr,jdbcType=VARCHAR}, 
-      #{reserve1,jdbcType=DECIMAL}, #{reserve2,jdbcType=DECIMAL}, #{reserve4,jdbcType=TIMESTAMP}, 
-      #{reserve5,jdbcType=DECIMAL}, #{reserve6,jdbcType=DECIMAL}, #{reserve3,jdbcType=LONGVARCHAR}, 
-      #{note,jdbcType=LONGVARCHAR})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbProductfortemplet">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbProductfortemplet">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbProductfortemplet">
-    insert into db_productfortemplet
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        SEQUENCEID,
-      </if>
-      <if test="corpid != null">
-        CORPID,
-      </if>
-      <if test="oper != null">
-        OPER,
-      </if>
-      <if test="opertime != null">
-        OPERTIME,
-      </if>
-      <if test="createtime != null">
-        CREATETIME,
-      </if>
-      <if test="language != null">
-        'LANGUAGE',
-      </if>
-      <if test="categoryid != null">
-        CATEGORYID,
-      </if>
-      <if test="categoryname != null">
-        CATEGORYNAME,
-      </if>
-      <if test="dsecr != null">
-        DSECR,
-      </if>
-      <if test="reserve1 != null">
-        RESERVE1,
-      </if>
-      <if test="reserve2 != null">
-        RESERVE2,
-      </if>
-      <if test="reserve4 != null">
-        RESERVE4,
-      </if>
-      <if test="reserve5 != null">
-        RESERVE5,
-      </if>
-      <if test="reserve6 != null">
-        RESERVE6,
-      </if>
-      <if test="reserve3 != null">
-        RESERVE3,
-      </if>
-      <if test="note != null">
-        NOTE,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        #{sequenceid,jdbcType=DECIMAL},
-      </if>
-      <if test="corpid != null">
-        #{corpid,jdbcType=VARCHAR},
-      </if>
-      <if test="oper != null">
-        #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="createtime != null">
-        #{createtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="language != null">
-        #{language,jdbcType=VARCHAR},
-      </if>
-      <if test="categoryid != null">
-        #{categoryid,jdbcType=VARCHAR},
-      </if>
-      <if test="categoryname != null">
-        #{categoryname,jdbcType=VARCHAR},
-      </if>
-      <if test="dsecr != null">
-        #{dsecr,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve1 != null">
-        #{reserve1,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve2 != null">
-        #{reserve2,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve4 != null">
-        #{reserve4,jdbcType=TIMESTAMP},
-      </if>
-      <if test="reserve5 != null">
-        #{reserve5,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve6 != null">
-        #{reserve6,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve3 != null">
-        #{reserve3,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="note != null">
-        #{note,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbProductfortemplet">
-    update db_productfortemplet
-    <set>
-      <if test="corpid != null">
-        CORPID = #{corpid,jdbcType=VARCHAR},
-      </if>
-      <if test="oper != null">
-        OPER = #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="createtime != null">
-        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="language != null">
-        'LANGUAGE' = #{language,jdbcType=VARCHAR},
-      </if>
-      <if test="categoryid != null">
-        CATEGORYID = #{categoryid,jdbcType=VARCHAR},
-      </if>
-      <if test="categoryname != null">
-        CATEGORYNAME = #{categoryname,jdbcType=VARCHAR},
-      </if>
-      <if test="dsecr != null">
-        DSECR = #{dsecr,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve1 != null">
-        RESERVE1 = #{reserve1,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve2 != null">
-        RESERVE2 = #{reserve2,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve4 != null">
-        RESERVE4 = #{reserve4,jdbcType=TIMESTAMP},
-      </if>
-      <if test="reserve5 != null">
-        RESERVE5 = #{reserve5,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve6 != null">
-        RESERVE6 = #{reserve6,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve3 != null">
-        RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="note != null">
-        NOTE = #{note,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbProductfortemplet">
-    update db_productfortemplet
-    set CORPID = #{corpid,jdbcType=VARCHAR},
-      OPER = #{oper,jdbcType=VARCHAR},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
-      'LANGUAGE' = #{language,jdbcType=VARCHAR},
-      CATEGORYID = #{categoryid,jdbcType=VARCHAR},
-      CATEGORYNAME = #{categoryname,jdbcType=VARCHAR},
-      DSECR = #{dsecr,jdbcType=VARCHAR},
-      RESERVE1 = #{reserve1,jdbcType=DECIMAL},
-      RESERVE2 = #{reserve2,jdbcType=DECIMAL},
-      RESERVE4 = #{reserve4,jdbcType=TIMESTAMP},
-      RESERVE5 = #{reserve5,jdbcType=DECIMAL},
-      RESERVE6 = #{reserve6,jdbcType=DECIMAL},
-      RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR},
-      NOTE = #{note,jdbcType=LONGVARCHAR}
-    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbProductfortemplet">
-    update db_productfortemplet
-    set CORPID = #{corpid,jdbcType=VARCHAR},
-      OPER = #{oper,jdbcType=VARCHAR},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
-      'LANGUAGE' = #{language,jdbcType=VARCHAR},
-      CATEGORYID = #{categoryid,jdbcType=VARCHAR},
-      CATEGORYNAME = #{categoryname,jdbcType=VARCHAR},
-      DSECR = #{dsecr,jdbcType=VARCHAR},
-      RESERVE1 = #{reserve1,jdbcType=DECIMAL},
-      RESERVE2 = #{reserve2,jdbcType=DECIMAL},
-      RESERVE4 = #{reserve4,jdbcType=TIMESTAMP},
-      RESERVE5 = #{reserve5,jdbcType=DECIMAL},
-      RESERVE6 = #{reserve6,jdbcType=DECIMAL}
-    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbProductfortemplet">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

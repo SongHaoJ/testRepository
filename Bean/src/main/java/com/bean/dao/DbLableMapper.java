@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbLable;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbLableMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbLable selectByCriteria(DbLable DbLable);
 
-    int insert(DbLable record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbLable record);
+    void deleteByCriteria(DbLable DbLable);
+
+    int insertByCriteria(DbLable DbLable);
+
+    int updateByCriteria(DbLable DbLable);
 
     DbLable selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbLable record);
-
-    int updateByPrimaryKeyWithBLOBs(DbLable record);
-
-    int updateByPrimaryKey(DbLable record);
+    List<DbLable> selectAll();
 }

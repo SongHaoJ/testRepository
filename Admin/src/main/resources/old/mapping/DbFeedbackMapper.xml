@@ -1,0 +1,662 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbFeedbackMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbFeedback">
+    <id column="FEEDBACKID" jdbcType="VARCHAR" property="feedbackid" />
+    <result column="CUSTOMERID" jdbcType="VARCHAR" property="customerid" />
+    <result column="TRANSACTIONID" jdbcType="VARCHAR" property="transactionid" />
+    <result column="ITEMID" jdbcType="VARCHAR" property="itemid" />
+    <result column="PRODUCTID" jdbcType="VARCHAR" property="productid" />
+    <result column="FEEDBACKTYPEID" jdbcType="VARCHAR" property="feedbacktypeid" />
+    <result column="FEEDBACKTYPE" jdbcType="VARCHAR" property="feedbacktype" />
+    <result column="FEEDBACKTIME" jdbcType="TIMESTAMP" property="feedbacktime" />
+    <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="SHOPTYPEID" jdbcType="VARCHAR" property="shoptypeid" />
+    <result column="EXPRESSTYPEID" jdbcType="VARCHAR" property="expresstypeid" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="MANUFACTUREID" jdbcType="VARCHAR" property="manufactureid" />
+    <result column="MONEY" jdbcType="DECIMAL" property="money" />
+    <result column="RETURNMONEY" jdbcType="DECIMAL" property="returnmoney" />
+    <result column="PAYPALID" jdbcType="VARCHAR" property="paypalid" />
+    <result column="ORDERNUM" jdbcType="DECIMAL" property="ordernum" />
+    <result column="SELLNUM" jdbcType="DECIMAL" property="sellnum" />
+    <result column="WEBSITE" jdbcType="VARCHAR" property="website" />
+    <result column="PURCHASEOPER" jdbcType="VARCHAR" property="purchaseoper" />
+    <result column="SELLOPER" jdbcType="VARCHAR" property="selloper" />
+    <result column="SERVICEOPER" jdbcType="VARCHAR" property="serviceoper" />
+    <result column="PICKUPOPER" jdbcType="VARCHAR" property="pickupoper" />
+    <result column="COUNTRY" jdbcType="VARCHAR" property="country" />
+    <result column="ORDERID" jdbcType="VARCHAR" property="orderid" />
+    <result column="ORDERTIME" jdbcType="TIMESTAMP" property="ordertime" />
+    <result column="EXPRESSTIME" jdbcType="TIMESTAMP" property="expresstime" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="RESERVE4" jdbcType="VARCHAR" property="reserve4" />
+    <result column="RESERVE5" jdbcType="VARCHAR" property="reserve5" />
+    <result column="RESERVE6" jdbcType="DECIMAL" property="reserve6" />
+    <result column="RESERVE7" jdbcType="DECIMAL" property="reserve7" />
+    <result column="RESERVE8" jdbcType="DECIMAL" property="reserve8" />
+    <result column="RESERVE9" jdbcType="DECIMAL" property="reserve9" />
+    <result column="RESERVE10" jdbcType="DECIMAL" property="reserve10" />
+    <result column="IFRETURN" jdbcType="VARCHAR" property="ifreturn" />
+    <result column="ITEMPRICE" jdbcType="DECIMAL" property="itemprice" />
+    <result column="ITEMPRICETYPE" jdbcType="VARCHAR" property="itempricetype" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbFeedback">
+    <result column="PRODUCTNAME" jdbcType="LONGVARCHAR" property="productname" />
+    <result column="CONTENT" jdbcType="LONGVARCHAR" property="content" />
+    <result column="SHOPTYPE" jdbcType="LONGVARCHAR" property="shoptype" />
+    <result column="EXPRESSTYPE" jdbcType="LONGVARCHAR" property="expresstype" />
+    <result column="STYPE" jdbcType="LONGVARCHAR" property="stype" />
+    <result column="ANSWER" jdbcType="LONGVARCHAR" property="answer" />
+    <result column="MANUFACTURE" jdbcType="LONGVARCHAR" property="manufacture" />
+    <result column="RESERVE1" jdbcType="LONGVARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="LONGVARCHAR" property="reserve2" />
+    <result column="RESERVE3" jdbcType="LONGVARCHAR" property="reserve3" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    FEEDBACKID, CUSTOMERID, TRANSACTIONID, ITEMID, PRODUCTID, FEEDBACKTYPEID, FEEDBACKTYPE, 
+    FEEDBACKTIME, CREATETIME, SHOPTYPEID, EXPRESSTYPEID, OPER, OPERTIME, MANUFACTUREID, 
+    MONEY, RETURNMONEY, PAYPALID, ORDERNUM, SELLNUM, WEBSITE, PURCHASEOPER, SELLOPER, 
+    SERVICEOPER, PICKUPOPER, COUNTRY, ORDERID, ORDERTIME, EXPRESSTIME, 'STATUS', RESERVE4, 
+    RESERVE5, RESERVE6, RESERVE7, RESERVE8, RESERVE9, RESERVE10, IFRETURN, ITEMPRICE, 
+    ITEMPRICETYPE
+  </sql>
+  <sql id="Blob_Column_List">
+    PRODUCTNAME, CONTENT, SHOPTYPE, EXPRESSTYPE, STYPE, ANSWER, MANUFACTURE, RESERVE1, 
+    RESERVE2, RESERVE3
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from db_feedback
+    where FEEDBACKID = #{feedbackid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from db_feedback
+    where FEEDBACKID = #{feedbackid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bean.model.DbFeedback">
+    insert into db_feedback (FEEDBACKID, CUSTOMERID, TRANSACTIONID, 
+      ITEMID, PRODUCTID, FEEDBACKTYPEID, 
+      FEEDBACKTYPE, FEEDBACKTIME, CREATETIME, 
+      SHOPTYPEID, EXPRESSTYPEID, OPER, 
+      OPERTIME, MANUFACTUREID, MONEY, 
+      RETURNMONEY, PAYPALID, ORDERNUM, 
+      SELLNUM, WEBSITE, PURCHASEOPER, 
+      SELLOPER, SERVICEOPER, PICKUPOPER, 
+      COUNTRY, ORDERID, ORDERTIME, 
+      EXPRESSTIME, 'STATUS', RESERVE4, 
+      RESERVE5, RESERVE6, RESERVE7, 
+      RESERVE8, RESERVE9, RESERVE10, 
+      IFRETURN, ITEMPRICE, ITEMPRICETYPE, 
+      PRODUCTNAME, CONTENT, SHOPTYPE, 
+      EXPRESSTYPE, STYPE, ANSWER, 
+      MANUFACTURE, RESERVE1, RESERVE2, 
+      RESERVE3)
+    values (#{feedbackid,jdbcType=VARCHAR}, #{customerid,jdbcType=VARCHAR}, #{transactionid,jdbcType=VARCHAR}, 
+      #{itemid,jdbcType=VARCHAR}, #{productid,jdbcType=VARCHAR}, #{feedbacktypeid,jdbcType=VARCHAR}, 
+      #{feedbacktype,jdbcType=VARCHAR}, #{feedbacktime,jdbcType=TIMESTAMP}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{shoptypeid,jdbcType=VARCHAR}, #{expresstypeid,jdbcType=VARCHAR}, #{oper,jdbcType=VARCHAR}, 
+      #{opertime,jdbcType=TIMESTAMP}, #{manufactureid,jdbcType=VARCHAR}, #{money,jdbcType=DECIMAL}, 
+      #{returnmoney,jdbcType=DECIMAL}, #{paypalid,jdbcType=VARCHAR}, #{ordernum,jdbcType=DECIMAL}, 
+      #{sellnum,jdbcType=DECIMAL}, #{website,jdbcType=VARCHAR}, #{purchaseoper,jdbcType=VARCHAR}, 
+      #{selloper,jdbcType=VARCHAR}, #{serviceoper,jdbcType=VARCHAR}, #{pickupoper,jdbcType=VARCHAR}, 
+      #{country,jdbcType=VARCHAR}, #{orderid,jdbcType=VARCHAR}, #{ordertime,jdbcType=TIMESTAMP}, 
+      #{expresstime,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR}, #{reserve4,jdbcType=VARCHAR}, 
+      #{reserve5,jdbcType=VARCHAR}, #{reserve6,jdbcType=DECIMAL}, #{reserve7,jdbcType=DECIMAL}, 
+      #{reserve8,jdbcType=DECIMAL}, #{reserve9,jdbcType=DECIMAL}, #{reserve10,jdbcType=DECIMAL}, 
+      #{ifreturn,jdbcType=VARCHAR}, #{itemprice,jdbcType=DECIMAL}, #{itempricetype,jdbcType=VARCHAR}, 
+      #{productname,jdbcType=LONGVARCHAR}, #{content,jdbcType=LONGVARCHAR}, #{shoptype,jdbcType=LONGVARCHAR}, 
+      #{expresstype,jdbcType=LONGVARCHAR}, #{stype,jdbcType=LONGVARCHAR}, #{answer,jdbcType=LONGVARCHAR}, 
+      #{manufacture,jdbcType=LONGVARCHAR}, #{reserve1,jdbcType=LONGVARCHAR}, #{reserve2,jdbcType=LONGVARCHAR}, 
+      #{reserve3,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbFeedback">
+    insert into db_feedback
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="feedbackid != null">
+        FEEDBACKID,
+      </if>
+      <if test="customerid != null">
+        CUSTOMERID,
+      </if>
+      <if test="transactionid != null">
+        TRANSACTIONID,
+      </if>
+      <if test="itemid != null">
+        ITEMID,
+      </if>
+      <if test="productid != null">
+        PRODUCTID,
+      </if>
+      <if test="feedbacktypeid != null">
+        FEEDBACKTYPEID,
+      </if>
+      <if test="feedbacktype != null">
+        FEEDBACKTYPE,
+      </if>
+      <if test="feedbacktime != null">
+        FEEDBACKTIME,
+      </if>
+      <if test="createtime != null">
+        CREATETIME,
+      </if>
+      <if test="shoptypeid != null">
+        SHOPTYPEID,
+      </if>
+      <if test="expresstypeid != null">
+        EXPRESSTYPEID,
+      </if>
+      <if test="oper != null">
+        OPER,
+      </if>
+      <if test="opertime != null">
+        OPERTIME,
+      </if>
+      <if test="manufactureid != null">
+        MANUFACTUREID,
+      </if>
+      <if test="money != null">
+        MONEY,
+      </if>
+      <if test="returnmoney != null">
+        RETURNMONEY,
+      </if>
+      <if test="paypalid != null">
+        PAYPALID,
+      </if>
+      <if test="ordernum != null">
+        ORDERNUM,
+      </if>
+      <if test="sellnum != null">
+        SELLNUM,
+      </if>
+      <if test="website != null">
+        WEBSITE,
+      </if>
+      <if test="purchaseoper != null">
+        PURCHASEOPER,
+      </if>
+      <if test="selloper != null">
+        SELLOPER,
+      </if>
+      <if test="serviceoper != null">
+        SERVICEOPER,
+      </if>
+      <if test="pickupoper != null">
+        PICKUPOPER,
+      </if>
+      <if test="country != null">
+        COUNTRY,
+      </if>
+      <if test="orderid != null">
+        ORDERID,
+      </if>
+      <if test="ordertime != null">
+        ORDERTIME,
+      </if>
+      <if test="expresstime != null">
+        EXPRESSTIME,
+      </if>
+      <if test="status != null">
+        'STATUS',
+      </if>
+      <if test="reserve4 != null">
+        RESERVE4,
+      </if>
+      <if test="reserve5 != null">
+        RESERVE5,
+      </if>
+      <if test="reserve6 != null">
+        RESERVE6,
+      </if>
+      <if test="reserve7 != null">
+        RESERVE7,
+      </if>
+      <if test="reserve8 != null">
+        RESERVE8,
+      </if>
+      <if test="reserve9 != null">
+        RESERVE9,
+      </if>
+      <if test="reserve10 != null">
+        RESERVE10,
+      </if>
+      <if test="ifreturn != null">
+        IFRETURN,
+      </if>
+      <if test="itemprice != null">
+        ITEMPRICE,
+      </if>
+      <if test="itempricetype != null">
+        ITEMPRICETYPE,
+      </if>
+      <if test="productname != null">
+        PRODUCTNAME,
+      </if>
+      <if test="content != null">
+        CONTENT,
+      </if>
+      <if test="shoptype != null">
+        SHOPTYPE,
+      </if>
+      <if test="expresstype != null">
+        EXPRESSTYPE,
+      </if>
+      <if test="stype != null">
+        STYPE,
+      </if>
+      <if test="answer != null">
+        ANSWER,
+      </if>
+      <if test="manufacture != null">
+        MANUFACTURE,
+      </if>
+      <if test="reserve1 != null">
+        RESERVE1,
+      </if>
+      <if test="reserve2 != null">
+        RESERVE2,
+      </if>
+      <if test="reserve3 != null">
+        RESERVE3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="feedbackid != null">
+        #{feedbackid,jdbcType=VARCHAR},
+      </if>
+      <if test="customerid != null">
+        #{customerid,jdbcType=VARCHAR},
+      </if>
+      <if test="transactionid != null">
+        #{transactionid,jdbcType=VARCHAR},
+      </if>
+      <if test="itemid != null">
+        #{itemid,jdbcType=VARCHAR},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="feedbacktypeid != null">
+        #{feedbacktypeid,jdbcType=VARCHAR},
+      </if>
+      <if test="feedbacktype != null">
+        #{feedbacktype,jdbcType=VARCHAR},
+      </if>
+      <if test="feedbacktime != null">
+        #{feedbacktime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="shoptypeid != null">
+        #{shoptypeid,jdbcType=VARCHAR},
+      </if>
+      <if test="expresstypeid != null">
+        #{expresstypeid,jdbcType=VARCHAR},
+      </if>
+      <if test="oper != null">
+        #{oper,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null">
+        #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="manufactureid != null">
+        #{manufactureid,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null">
+        #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="returnmoney != null">
+        #{returnmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="paypalid != null">
+        #{paypalid,jdbcType=VARCHAR},
+      </if>
+      <if test="ordernum != null">
+        #{ordernum,jdbcType=DECIMAL},
+      </if>
+      <if test="sellnum != null">
+        #{sellnum,jdbcType=DECIMAL},
+      </if>
+      <if test="website != null">
+        #{website,jdbcType=VARCHAR},
+      </if>
+      <if test="purchaseoper != null">
+        #{purchaseoper,jdbcType=VARCHAR},
+      </if>
+      <if test="selloper != null">
+        #{selloper,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceoper != null">
+        #{serviceoper,jdbcType=VARCHAR},
+      </if>
+      <if test="pickupoper != null">
+        #{pickupoper,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null">
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="orderid != null">
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="ordertime != null">
+        #{ordertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expresstime != null">
+        #{expresstime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve4 != null">
+        #{reserve4,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve5 != null">
+        #{reserve5,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve6 != null">
+        #{reserve6,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve7 != null">
+        #{reserve7,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve8 != null">
+        #{reserve8,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve9 != null">
+        #{reserve9,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve10 != null">
+        #{reserve10,jdbcType=DECIMAL},
+      </if>
+      <if test="ifreturn != null">
+        #{ifreturn,jdbcType=VARCHAR},
+      </if>
+      <if test="itemprice != null">
+        #{itemprice,jdbcType=DECIMAL},
+      </if>
+      <if test="itempricetype != null">
+        #{itempricetype,jdbcType=VARCHAR},
+      </if>
+      <if test="productname != null">
+        #{productname,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="shoptype != null">
+        #{shoptype,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="expresstype != null">
+        #{expresstype,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="stype != null">
+        #{stype,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="answer != null">
+        #{answer,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="manufacture != null">
+        #{manufacture,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reserve1 != null">
+        #{reserve1,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reserve2 != null">
+        #{reserve2,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reserve3 != null">
+        #{reserve3,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbFeedback">
+    update db_feedback
+    <set>
+      <if test="customerid != null">
+        CUSTOMERID = #{customerid,jdbcType=VARCHAR},
+      </if>
+      <if test="transactionid != null">
+        TRANSACTIONID = #{transactionid,jdbcType=VARCHAR},
+      </if>
+      <if test="itemid != null">
+        ITEMID = #{itemid,jdbcType=VARCHAR},
+      </if>
+      <if test="productid != null">
+        PRODUCTID = #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="feedbacktypeid != null">
+        FEEDBACKTYPEID = #{feedbacktypeid,jdbcType=VARCHAR},
+      </if>
+      <if test="feedbacktype != null">
+        FEEDBACKTYPE = #{feedbacktype,jdbcType=VARCHAR},
+      </if>
+      <if test="feedbacktime != null">
+        FEEDBACKTIME = #{feedbacktime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createtime != null">
+        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="shoptypeid != null">
+        SHOPTYPEID = #{shoptypeid,jdbcType=VARCHAR},
+      </if>
+      <if test="expresstypeid != null">
+        EXPRESSTYPEID = #{expresstypeid,jdbcType=VARCHAR},
+      </if>
+      <if test="oper != null">
+        OPER = #{oper,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null">
+        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="manufactureid != null">
+        MANUFACTUREID = #{manufactureid,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null">
+        MONEY = #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="returnmoney != null">
+        RETURNMONEY = #{returnmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="paypalid != null">
+        PAYPALID = #{paypalid,jdbcType=VARCHAR},
+      </if>
+      <if test="ordernum != null">
+        ORDERNUM = #{ordernum,jdbcType=DECIMAL},
+      </if>
+      <if test="sellnum != null">
+        SELLNUM = #{sellnum,jdbcType=DECIMAL},
+      </if>
+      <if test="website != null">
+        WEBSITE = #{website,jdbcType=VARCHAR},
+      </if>
+      <if test="purchaseoper != null">
+        PURCHASEOPER = #{purchaseoper,jdbcType=VARCHAR},
+      </if>
+      <if test="selloper != null">
+        SELLOPER = #{selloper,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceoper != null">
+        SERVICEOPER = #{serviceoper,jdbcType=VARCHAR},
+      </if>
+      <if test="pickupoper != null">
+        PICKUPOPER = #{pickupoper,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null">
+        COUNTRY = #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="orderid != null">
+        ORDERID = #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="ordertime != null">
+        ORDERTIME = #{ordertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expresstime != null">
+        EXPRESSTIME = #{expresstime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        'STATUS' = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve4 != null">
+        RESERVE4 = #{reserve4,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve5 != null">
+        RESERVE5 = #{reserve5,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve6 != null">
+        RESERVE6 = #{reserve6,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve7 != null">
+        RESERVE7 = #{reserve7,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve8 != null">
+        RESERVE8 = #{reserve8,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve9 != null">
+        RESERVE9 = #{reserve9,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve10 != null">
+        RESERVE10 = #{reserve10,jdbcType=DECIMAL},
+      </if>
+      <if test="ifreturn != null">
+        IFRETURN = #{ifreturn,jdbcType=VARCHAR},
+      </if>
+      <if test="itemprice != null">
+        ITEMPRICE = #{itemprice,jdbcType=DECIMAL},
+      </if>
+      <if test="itempricetype != null">
+        ITEMPRICETYPE = #{itempricetype,jdbcType=VARCHAR},
+      </if>
+      <if test="productname != null">
+        PRODUCTNAME = #{productname,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="content != null">
+        CONTENT = #{content,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="shoptype != null">
+        SHOPTYPE = #{shoptype,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="expresstype != null">
+        EXPRESSTYPE = #{expresstype,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="stype != null">
+        STYPE = #{stype,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="answer != null">
+        ANSWER = #{answer,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="manufacture != null">
+        MANUFACTURE = #{manufacture,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reserve1 != null">
+        RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reserve2 != null">
+        RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reserve3 != null">
+        RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where FEEDBACKID = #{feedbackid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbFeedback">
+    update db_feedback
+    set CUSTOMERID = #{customerid,jdbcType=VARCHAR},
+      TRANSACTIONID = #{transactionid,jdbcType=VARCHAR},
+      ITEMID = #{itemid,jdbcType=VARCHAR},
+      PRODUCTID = #{productid,jdbcType=VARCHAR},
+      FEEDBACKTYPEID = #{feedbacktypeid,jdbcType=VARCHAR},
+      FEEDBACKTYPE = #{feedbacktype,jdbcType=VARCHAR},
+      FEEDBACKTIME = #{feedbacktime,jdbcType=TIMESTAMP},
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      SHOPTYPEID = #{shoptypeid,jdbcType=VARCHAR},
+      EXPRESSTYPEID = #{expresstypeid,jdbcType=VARCHAR},
+      OPER = #{oper,jdbcType=VARCHAR},
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      MANUFACTUREID = #{manufactureid,jdbcType=VARCHAR},
+      MONEY = #{money,jdbcType=DECIMAL},
+      RETURNMONEY = #{returnmoney,jdbcType=DECIMAL},
+      PAYPALID = #{paypalid,jdbcType=VARCHAR},
+      ORDERNUM = #{ordernum,jdbcType=DECIMAL},
+      SELLNUM = #{sellnum,jdbcType=DECIMAL},
+      WEBSITE = #{website,jdbcType=VARCHAR},
+      PURCHASEOPER = #{purchaseoper,jdbcType=VARCHAR},
+      SELLOPER = #{selloper,jdbcType=VARCHAR},
+      SERVICEOPER = #{serviceoper,jdbcType=VARCHAR},
+      PICKUPOPER = #{pickupoper,jdbcType=VARCHAR},
+      COUNTRY = #{country,jdbcType=VARCHAR},
+      ORDERID = #{orderid,jdbcType=VARCHAR},
+      ORDERTIME = #{ordertime,jdbcType=TIMESTAMP},
+      EXPRESSTIME = #{expresstime,jdbcType=TIMESTAMP},
+      'STATUS' = #{status,jdbcType=VARCHAR},
+      RESERVE4 = #{reserve4,jdbcType=VARCHAR},
+      RESERVE5 = #{reserve5,jdbcType=VARCHAR},
+      RESERVE6 = #{reserve6,jdbcType=DECIMAL},
+      RESERVE7 = #{reserve7,jdbcType=DECIMAL},
+      RESERVE8 = #{reserve8,jdbcType=DECIMAL},
+      RESERVE9 = #{reserve9,jdbcType=DECIMAL},
+      RESERVE10 = #{reserve10,jdbcType=DECIMAL},
+      IFRETURN = #{ifreturn,jdbcType=VARCHAR},
+      ITEMPRICE = #{itemprice,jdbcType=DECIMAL},
+      ITEMPRICETYPE = #{itempricetype,jdbcType=VARCHAR},
+      PRODUCTNAME = #{productname,jdbcType=LONGVARCHAR},
+      CONTENT = #{content,jdbcType=LONGVARCHAR},
+      SHOPTYPE = #{shoptype,jdbcType=LONGVARCHAR},
+      EXPRESSTYPE = #{expresstype,jdbcType=LONGVARCHAR},
+      STYPE = #{stype,jdbcType=LONGVARCHAR},
+      ANSWER = #{answer,jdbcType=LONGVARCHAR},
+      MANUFACTURE = #{manufacture,jdbcType=LONGVARCHAR},
+      RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR},
+      RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR},
+      RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR}
+    where FEEDBACKID = #{feedbackid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbFeedback">
+    update db_feedback
+    set CUSTOMERID = #{customerid,jdbcType=VARCHAR},
+      TRANSACTIONID = #{transactionid,jdbcType=VARCHAR},
+      ITEMID = #{itemid,jdbcType=VARCHAR},
+      PRODUCTID = #{productid,jdbcType=VARCHAR},
+      FEEDBACKTYPEID = #{feedbacktypeid,jdbcType=VARCHAR},
+      FEEDBACKTYPE = #{feedbacktype,jdbcType=VARCHAR},
+      FEEDBACKTIME = #{feedbacktime,jdbcType=TIMESTAMP},
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      SHOPTYPEID = #{shoptypeid,jdbcType=VARCHAR},
+      EXPRESSTYPEID = #{expresstypeid,jdbcType=VARCHAR},
+      OPER = #{oper,jdbcType=VARCHAR},
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      MANUFACTUREID = #{manufactureid,jdbcType=VARCHAR},
+      MONEY = #{money,jdbcType=DECIMAL},
+      RETURNMONEY = #{returnmoney,jdbcType=DECIMAL},
+      PAYPALID = #{paypalid,jdbcType=VARCHAR},
+      ORDERNUM = #{ordernum,jdbcType=DECIMAL},
+      SELLNUM = #{sellnum,jdbcType=DECIMAL},
+      WEBSITE = #{website,jdbcType=VARCHAR},
+      PURCHASEOPER = #{purchaseoper,jdbcType=VARCHAR},
+      SELLOPER = #{selloper,jdbcType=VARCHAR},
+      SERVICEOPER = #{serviceoper,jdbcType=VARCHAR},
+      PICKUPOPER = #{pickupoper,jdbcType=VARCHAR},
+      COUNTRY = #{country,jdbcType=VARCHAR},
+      ORDERID = #{orderid,jdbcType=VARCHAR},
+      ORDERTIME = #{ordertime,jdbcType=TIMESTAMP},
+      EXPRESSTIME = #{expresstime,jdbcType=TIMESTAMP},
+      'STATUS' = #{status,jdbcType=VARCHAR},
+      RESERVE4 = #{reserve4,jdbcType=VARCHAR},
+      RESERVE5 = #{reserve5,jdbcType=VARCHAR},
+      RESERVE6 = #{reserve6,jdbcType=DECIMAL},
+      RESERVE7 = #{reserve7,jdbcType=DECIMAL},
+      RESERVE8 = #{reserve8,jdbcType=DECIMAL},
+      RESERVE9 = #{reserve9,jdbcType=DECIMAL},
+      RESERVE10 = #{reserve10,jdbcType=DECIMAL},
+      IFRETURN = #{ifreturn,jdbcType=VARCHAR},
+      ITEMPRICE = #{itemprice,jdbcType=DECIMAL},
+      ITEMPRICETYPE = #{itempricetype,jdbcType=VARCHAR}
+    where FEEDBACKID = #{feedbackid,jdbcType=VARCHAR}
+  </update>
+</mapper>

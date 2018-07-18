@@ -31,6 +31,8 @@ public class DbItemresultTemp implements Serializable {
 
     private String currencycode;
 
+    private String description;
+
     private Integer dispatchtimemax;
 
     private Integer gifticon;
@@ -53,6 +55,10 @@ public class DbItemresultTemp implements Serializable {
 
     private Date endtime;
 
+    private String viewitemurl;
+
+    private String viewitemurlfornaturalsearch;
+
     private String listingduration;
 
     private String listingtype;
@@ -61,7 +67,13 @@ public class DbItemresultTemp implements Serializable {
 
     private String paypalemailaddress;
 
+    private String gallerurl;
+
+    private String pictureurl;
+
     private String primarycategoryid;
+
+    private String primarycategoryname;
 
     private Long quantity;
 
@@ -72,6 +84,8 @@ public class DbItemresultTemp implements Serializable {
     private Long feedbackscore;
 
     private BigDecimal positivefeedbackpercent;
+
+    private String storeurl;
 
     private String site;
 
@@ -90,6 +104,8 @@ public class DbItemresultTemp implements Serializable {
     private String website;
 
     private String sku;
+
+    private String title;
 
     private String uuid;
 
@@ -111,6 +127,12 @@ public class DbItemresultTemp implements Serializable {
 
     private String stateorprovince;
 
+    private String street;
+
+    private String street1;
+
+    private String street2;
+
     private String sellemail;
 
     private Short flag;
@@ -122,28 +144,6 @@ public class DbItemresultTemp implements Serializable {
     private Short itemtype;
 
     private Short itemflag;
-
-    private String description;
-
-    private String viewitemurl;
-
-    private String viewitemurlfornaturalsearch;
-
-    private String gallerurl;
-
-    private String pictureurl;
-
-    private String primarycategoryname;
-
-    private String storeurl;
-
-    private String title;
-
-    private String street;
-
-    private String street1;
-
-    private String street2;
 
     private static final long serialVersionUID = 1L;
 
@@ -251,6 +251,14 @@ public class DbItemresultTemp implements Serializable {
         this.currencycode = currencycode == null ? null : currencycode.trim();
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description == null ? null : description.trim();
+    }
+
     public Integer getDispatchtimemax() {
         return dispatchtimemax;
     }
@@ -339,6 +347,22 @@ public class DbItemresultTemp implements Serializable {
         this.endtime = endtime;
     }
 
+    public String getViewitemurl() {
+        return viewitemurl;
+    }
+
+    public void setViewitemurl(String viewitemurl) {
+        this.viewitemurl = viewitemurl == null ? null : viewitemurl.trim();
+    }
+
+    public String getViewitemurlfornaturalsearch() {
+        return viewitemurlfornaturalsearch;
+    }
+
+    public void setViewitemurlfornaturalsearch(String viewitemurlfornaturalsearch) {
+        this.viewitemurlfornaturalsearch = viewitemurlfornaturalsearch == null ? null : viewitemurlfornaturalsearch.trim();
+    }
+
     public String getListingduration() {
         return listingduration;
     }
@@ -371,12 +395,36 @@ public class DbItemresultTemp implements Serializable {
         this.paypalemailaddress = paypalemailaddress == null ? null : paypalemailaddress.trim();
     }
 
+    public String getGallerurl() {
+        return gallerurl;
+    }
+
+    public void setGallerurl(String gallerurl) {
+        this.gallerurl = gallerurl == null ? null : gallerurl.trim();
+    }
+
+    public String getPictureurl() {
+        return pictureurl;
+    }
+
+    public void setPictureurl(String pictureurl) {
+        this.pictureurl = pictureurl == null ? null : pictureurl.trim();
+    }
+
     public String getPrimarycategoryid() {
         return primarycategoryid;
     }
 
     public void setPrimarycategoryid(String primarycategoryid) {
         this.primarycategoryid = primarycategoryid == null ? null : primarycategoryid.trim();
+    }
+
+    public String getPrimarycategoryname() {
+        return primarycategoryname;
+    }
+
+    public void setPrimarycategoryname(String primarycategoryname) {
+        this.primarycategoryname = primarycategoryname == null ? null : primarycategoryname.trim();
     }
 
     public Long getQuantity() {
@@ -417,6 +465,14 @@ public class DbItemresultTemp implements Serializable {
 
     public void setPositivefeedbackpercent(BigDecimal positivefeedbackpercent) {
         this.positivefeedbackpercent = positivefeedbackpercent;
+    }
+
+    public String getStoreurl() {
+        return storeurl;
+    }
+
+    public void setStoreurl(String storeurl) {
+        this.storeurl = storeurl == null ? null : storeurl.trim();
     }
 
     public String getSite() {
@@ -489,6 +545,14 @@ public class DbItemresultTemp implements Serializable {
 
     public void setSku(String sku) {
         this.sku = sku == null ? null : sku.trim();
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title == null ? null : title.trim();
     }
 
     public String getUuid() {
@@ -571,6 +635,30 @@ public class DbItemresultTemp implements Serializable {
         this.stateorprovince = stateorprovince == null ? null : stateorprovince.trim();
     }
 
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street == null ? null : street.trim();
+    }
+
+    public String getStreet1() {
+        return street1;
+    }
+
+    public void setStreet1(String street1) {
+        this.street1 = street1 == null ? null : street1.trim();
+    }
+
+    public String getStreet2() {
+        return street2;
+    }
+
+    public void setStreet2(String street2) {
+        this.street2 = street2 == null ? null : street2.trim();
+    }
+
     public String getSellemail() {
         return sellemail;
     }
@@ -619,94 +707,6 @@ public class DbItemresultTemp implements Serializable {
         this.itemflag = itemflag;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description == null ? null : description.trim();
-    }
-
-    public String getViewitemurl() {
-        return viewitemurl;
-    }
-
-    public void setViewitemurl(String viewitemurl) {
-        this.viewitemurl = viewitemurl == null ? null : viewitemurl.trim();
-    }
-
-    public String getViewitemurlfornaturalsearch() {
-        return viewitemurlfornaturalsearch;
-    }
-
-    public void setViewitemurlfornaturalsearch(String viewitemurlfornaturalsearch) {
-        this.viewitemurlfornaturalsearch = viewitemurlfornaturalsearch == null ? null : viewitemurlfornaturalsearch.trim();
-    }
-
-    public String getGallerurl() {
-        return gallerurl;
-    }
-
-    public void setGallerurl(String gallerurl) {
-        this.gallerurl = gallerurl == null ? null : gallerurl.trim();
-    }
-
-    public String getPictureurl() {
-        return pictureurl;
-    }
-
-    public void setPictureurl(String pictureurl) {
-        this.pictureurl = pictureurl == null ? null : pictureurl.trim();
-    }
-
-    public String getPrimarycategoryname() {
-        return primarycategoryname;
-    }
-
-    public void setPrimarycategoryname(String primarycategoryname) {
-        this.primarycategoryname = primarycategoryname == null ? null : primarycategoryname.trim();
-    }
-
-    public String getStoreurl() {
-        return storeurl;
-    }
-
-    public void setStoreurl(String storeurl) {
-        this.storeurl = storeurl == null ? null : storeurl.trim();
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title == null ? null : title.trim();
-    }
-
-    public String getStreet() {
-        return street;
-    }
-
-    public void setStreet(String street) {
-        this.street = street == null ? null : street.trim();
-    }
-
-    public String getStreet1() {
-        return street1;
-    }
-
-    public void setStreet1(String street1) {
-        this.street1 = street1 == null ? null : street1.trim();
-    }
-
-    public String getStreet2() {
-        return street2;
-    }
-
-    public void setStreet2(String street2) {
-        this.street2 = street2 == null ? null : street2.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -732,6 +732,7 @@ public class DbItemresultTemp implements Serializable {
             && (this.getConditionid() == null ? other.getConditionid() == null : this.getConditionid().equals(other.getConditionid()))
             && (this.getCountry() == null ? other.getCountry() == null : this.getCountry().equals(other.getCountry()))
             && (this.getCurrencycode() == null ? other.getCurrencycode() == null : this.getCurrencycode().equals(other.getCurrencycode()))
+            && (this.getDescription() == null ? other.getDescription() == null : this.getDescription().equals(other.getDescription()))
             && (this.getDispatchtimemax() == null ? other.getDispatchtimemax() == null : this.getDispatchtimemax().equals(other.getDispatchtimemax()))
             && (this.getGifticon() == null ? other.getGifticon() == null : this.getGifticon().equals(other.getGifticon()))
             && (this.getHitcount() == null ? other.getHitcount() == null : this.getHitcount().equals(other.getHitcount()))
@@ -743,16 +744,22 @@ public class DbItemresultTemp implements Serializable {
             && (this.getCheckoutenabled() == null ? other.getCheckoutenabled() == null : this.getCheckoutenabled().equals(other.getCheckoutenabled()))
             && (this.getStarttime() == null ? other.getStarttime() == null : this.getStarttime().equals(other.getStarttime()))
             && (this.getEndtime() == null ? other.getEndtime() == null : this.getEndtime().equals(other.getEndtime()))
+            && (this.getViewitemurl() == null ? other.getViewitemurl() == null : this.getViewitemurl().equals(other.getViewitemurl()))
+            && (this.getViewitemurlfornaturalsearch() == null ? other.getViewitemurlfornaturalsearch() == null : this.getViewitemurlfornaturalsearch().equals(other.getViewitemurlfornaturalsearch()))
             && (this.getListingduration() == null ? other.getListingduration() == null : this.getListingduration().equals(other.getListingduration()))
             && (this.getListingtype() == null ? other.getListingtype() == null : this.getListingtype().equals(other.getListingtype()))
             && (this.getLocation() == null ? other.getLocation() == null : this.getLocation().equals(other.getLocation()))
             && (this.getPaypalemailaddress() == null ? other.getPaypalemailaddress() == null : this.getPaypalemailaddress().equals(other.getPaypalemailaddress()))
+            && (this.getGallerurl() == null ? other.getGallerurl() == null : this.getGallerurl().equals(other.getGallerurl()))
+            && (this.getPictureurl() == null ? other.getPictureurl() == null : this.getPictureurl().equals(other.getPictureurl()))
             && (this.getPrimarycategoryid() == null ? other.getPrimarycategoryid() == null : this.getPrimarycategoryid().equals(other.getPrimarycategoryid()))
+            && (this.getPrimarycategoryname() == null ? other.getPrimarycategoryname() == null : this.getPrimarycategoryname().equals(other.getPrimarycategoryname()))
             && (this.getQuantity() == null ? other.getQuantity() == null : this.getQuantity().equals(other.getQuantity()))
             && (this.getEmail() == null ? other.getEmail() == null : this.getEmail().equals(other.getEmail()))
             && (this.getFeedbackratingstar() == null ? other.getFeedbackratingstar() == null : this.getFeedbackratingstar().equals(other.getFeedbackratingstar()))
             && (this.getFeedbackscore() == null ? other.getFeedbackscore() == null : this.getFeedbackscore().equals(other.getFeedbackscore()))
             && (this.getPositivefeedbackpercent() == null ? other.getPositivefeedbackpercent() == null : this.getPositivefeedbackpercent().equals(other.getPositivefeedbackpercent()))
+            && (this.getStoreurl() == null ? other.getStoreurl() == null : this.getStoreurl().equals(other.getStoreurl()))
             && (this.getSite() == null ? other.getSite() == null : this.getSite().equals(other.getSite()))
             && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
             && (this.getUserid() == null ? other.getUserid() == null : this.getUserid().equals(other.getUserid()))
@@ -762,6 +769,7 @@ public class DbItemresultTemp implements Serializable {
             && (this.getPaymentinstructions() == null ? other.getPaymentinstructions() == null : this.getPaymentinstructions().equals(other.getPaymentinstructions()))
             && (this.getWebsite() == null ? other.getWebsite() == null : this.getWebsite().equals(other.getWebsite()))
             && (this.getSku() == null ? other.getSku() == null : this.getSku().equals(other.getSku()))
+            && (this.getTitle() == null ? other.getTitle() == null : this.getTitle().equals(other.getTitle()))
             && (this.getUuid() == null ? other.getUuid() == null : this.getUuid().equals(other.getUuid()))
             && (this.getCompanyname() == null ? other.getCompanyname() == null : this.getCompanyname().equals(other.getCompanyname()))
             && (this.getCityname() == null ? other.getCityname() == null : this.getCityname().equals(other.getCityname()))
@@ -772,23 +780,15 @@ public class DbItemresultTemp implements Serializable {
             && (this.getPhone2() == null ? other.getPhone2() == null : this.getPhone2().equals(other.getPhone2()))
             && (this.getPostalcode() == null ? other.getPostalcode() == null : this.getPostalcode().equals(other.getPostalcode()))
             && (this.getStateorprovince() == null ? other.getStateorprovince() == null : this.getStateorprovince().equals(other.getStateorprovince()))
+            && (this.getStreet() == null ? other.getStreet() == null : this.getStreet().equals(other.getStreet()))
+            && (this.getStreet1() == null ? other.getStreet1() == null : this.getStreet1().equals(other.getStreet1()))
+            && (this.getStreet2() == null ? other.getStreet2() == null : this.getStreet2().equals(other.getStreet2()))
             && (this.getSellemail() == null ? other.getSellemail() == null : this.getSellemail().equals(other.getSellemail()))
             && (this.getFlag() == null ? other.getFlag() == null : this.getFlag().equals(other.getFlag()))
             && (this.getCalculateflag() == null ? other.getCalculateflag() == null : this.getCalculateflag().equals(other.getCalculateflag()))
             && (this.getUpdatetime() == null ? other.getUpdatetime() == null : this.getUpdatetime().equals(other.getUpdatetime()))
             && (this.getItemtype() == null ? other.getItemtype() == null : this.getItemtype().equals(other.getItemtype()))
-            && (this.getItemflag() == null ? other.getItemflag() == null : this.getItemflag().equals(other.getItemflag()))
-            && (this.getDescription() == null ? other.getDescription() == null : this.getDescription().equals(other.getDescription()))
-            && (this.getViewitemurl() == null ? other.getViewitemurl() == null : this.getViewitemurl().equals(other.getViewitemurl()))
-            && (this.getViewitemurlfornaturalsearch() == null ? other.getViewitemurlfornaturalsearch() == null : this.getViewitemurlfornaturalsearch().equals(other.getViewitemurlfornaturalsearch()))
-            && (this.getGallerurl() == null ? other.getGallerurl() == null : this.getGallerurl().equals(other.getGallerurl()))
-            && (this.getPictureurl() == null ? other.getPictureurl() == null : this.getPictureurl().equals(other.getPictureurl()))
-            && (this.getPrimarycategoryname() == null ? other.getPrimarycategoryname() == null : this.getPrimarycategoryname().equals(other.getPrimarycategoryname()))
-            && (this.getStoreurl() == null ? other.getStoreurl() == null : this.getStoreurl().equals(other.getStoreurl()))
-            && (this.getTitle() == null ? other.getTitle() == null : this.getTitle().equals(other.getTitle()))
-            && (this.getStreet() == null ? other.getStreet() == null : this.getStreet().equals(other.getStreet()))
-            && (this.getStreet1() == null ? other.getStreet1() == null : this.getStreet1().equals(other.getStreet1()))
-            && (this.getStreet2() == null ? other.getStreet2() == null : this.getStreet2().equals(other.getStreet2()));
+            && (this.getItemflag() == null ? other.getItemflag() == null : this.getItemflag().equals(other.getItemflag()));
     }
 
     @Override
@@ -808,6 +808,7 @@ public class DbItemresultTemp implements Serializable {
         result = prime * result + ((getConditionid() == null) ? 0 : getConditionid().hashCode());
         result = prime * result + ((getCountry() == null) ? 0 : getCountry().hashCode());
         result = prime * result + ((getCurrencycode() == null) ? 0 : getCurrencycode().hashCode());
+        result = prime * result + ((getDescription() == null) ? 0 : getDescription().hashCode());
         result = prime * result + ((getDispatchtimemax() == null) ? 0 : getDispatchtimemax().hashCode());
         result = prime * result + ((getGifticon() == null) ? 0 : getGifticon().hashCode());
         result = prime * result + ((getHitcount() == null) ? 0 : getHitcount().hashCode());
@@ -819,16 +820,22 @@ public class DbItemresultTemp implements Serializable {
         result = prime * result + ((getCheckoutenabled() == null) ? 0 : getCheckoutenabled().hashCode());
         result = prime * result + ((getStarttime() == null) ? 0 : getStarttime().hashCode());
         result = prime * result + ((getEndtime() == null) ? 0 : getEndtime().hashCode());
+        result = prime * result + ((getViewitemurl() == null) ? 0 : getViewitemurl().hashCode());
+        result = prime * result + ((getViewitemurlfornaturalsearch() == null) ? 0 : getViewitemurlfornaturalsearch().hashCode());
         result = prime * result + ((getListingduration() == null) ? 0 : getListingduration().hashCode());
         result = prime * result + ((getListingtype() == null) ? 0 : getListingtype().hashCode());
         result = prime * result + ((getLocation() == null) ? 0 : getLocation().hashCode());
         result = prime * result + ((getPaypalemailaddress() == null) ? 0 : getPaypalemailaddress().hashCode());
+        result = prime * result + ((getGallerurl() == null) ? 0 : getGallerurl().hashCode());
+        result = prime * result + ((getPictureurl() == null) ? 0 : getPictureurl().hashCode());
         result = prime * result + ((getPrimarycategoryid() == null) ? 0 : getPrimarycategoryid().hashCode());
+        result = prime * result + ((getPrimarycategoryname() == null) ? 0 : getPrimarycategoryname().hashCode());
         result = prime * result + ((getQuantity() == null) ? 0 : getQuantity().hashCode());
         result = prime * result + ((getEmail() == null) ? 0 : getEmail().hashCode());
         result = prime * result + ((getFeedbackratingstar() == null) ? 0 : getFeedbackratingstar().hashCode());
         result = prime * result + ((getFeedbackscore() == null) ? 0 : getFeedbackscore().hashCode());
         result = prime * result + ((getPositivefeedbackpercent() == null) ? 0 : getPositivefeedbackpercent().hashCode());
+        result = prime * result + ((getStoreurl() == null) ? 0 : getStoreurl().hashCode());
         result = prime * result + ((getSite() == null) ? 0 : getSite().hashCode());
         result = prime * result + ((getStatus() == null) ? 0 : getStatus().hashCode());
         result = prime * result + ((getUserid() == null) ? 0 : getUserid().hashCode());
@@ -838,6 +845,7 @@ public class DbItemresultTemp implements Serializable {
         result = prime * result + ((getPaymentinstructions() == null) ? 0 : getPaymentinstructions().hashCode());
         result = prime * result + ((getWebsite() == null) ? 0 : getWebsite().hashCode());
         result = prime * result + ((getSku() == null) ? 0 : getSku().hashCode());
+        result = prime * result + ((getTitle() == null) ? 0 : getTitle().hashCode());
         result = prime * result + ((getUuid() == null) ? 0 : getUuid().hashCode());
         result = prime * result + ((getCompanyname() == null) ? 0 : getCompanyname().hashCode());
         result = prime * result + ((getCityname() == null) ? 0 : getCityname().hashCode());
@@ -848,23 +856,15 @@ public class DbItemresultTemp implements Serializable {
         result = prime * result + ((getPhone2() == null) ? 0 : getPhone2().hashCode());
         result = prime * result + ((getPostalcode() == null) ? 0 : getPostalcode().hashCode());
         result = prime * result + ((getStateorprovince() == null) ? 0 : getStateorprovince().hashCode());
+        result = prime * result + ((getStreet() == null) ? 0 : getStreet().hashCode());
+        result = prime * result + ((getStreet1() == null) ? 0 : getStreet1().hashCode());
+        result = prime * result + ((getStreet2() == null) ? 0 : getStreet2().hashCode());
         result = prime * result + ((getSellemail() == null) ? 0 : getSellemail().hashCode());
         result = prime * result + ((getFlag() == null) ? 0 : getFlag().hashCode());
         result = prime * result + ((getCalculateflag() == null) ? 0 : getCalculateflag().hashCode());
         result = prime * result + ((getUpdatetime() == null) ? 0 : getUpdatetime().hashCode());
         result = prime * result + ((getItemtype() == null) ? 0 : getItemtype().hashCode());
         result = prime * result + ((getItemflag() == null) ? 0 : getItemflag().hashCode());
-        result = prime * result + ((getDescription() == null) ? 0 : getDescription().hashCode());
-        result = prime * result + ((getViewitemurl() == null) ? 0 : getViewitemurl().hashCode());
-        result = prime * result + ((getViewitemurlfornaturalsearch() == null) ? 0 : getViewitemurlfornaturalsearch().hashCode());
-        result = prime * result + ((getGallerurl() == null) ? 0 : getGallerurl().hashCode());
-        result = prime * result + ((getPictureurl() == null) ? 0 : getPictureurl().hashCode());
-        result = prime * result + ((getPrimarycategoryname() == null) ? 0 : getPrimarycategoryname().hashCode());
-        result = prime * result + ((getStoreurl() == null) ? 0 : getStoreurl().hashCode());
-        result = prime * result + ((getTitle() == null) ? 0 : getTitle().hashCode());
-        result = prime * result + ((getStreet() == null) ? 0 : getStreet().hashCode());
-        result = prime * result + ((getStreet1() == null) ? 0 : getStreet1().hashCode());
-        result = prime * result + ((getStreet2() == null) ? 0 : getStreet2().hashCode());
         return result;
     }
 
@@ -887,6 +887,7 @@ public class DbItemresultTemp implements Serializable {
         sb.append(", conditionid=").append(conditionid);
         sb.append(", country=").append(country);
         sb.append(", currencycode=").append(currencycode);
+        sb.append(", description=").append(description);
         sb.append(", dispatchtimemax=").append(dispatchtimemax);
         sb.append(", gifticon=").append(gifticon);
         sb.append(", hitcount=").append(hitcount);
@@ -898,16 +899,22 @@ public class DbItemresultTemp implements Serializable {
         sb.append(", checkoutenabled=").append(checkoutenabled);
         sb.append(", starttime=").append(starttime);
         sb.append(", endtime=").append(endtime);
+        sb.append(", viewitemurl=").append(viewitemurl);
+        sb.append(", viewitemurlfornaturalsearch=").append(viewitemurlfornaturalsearch);
         sb.append(", listingduration=").append(listingduration);
         sb.append(", listingtype=").append(listingtype);
         sb.append(", location=").append(location);
         sb.append(", paypalemailaddress=").append(paypalemailaddress);
+        sb.append(", gallerurl=").append(gallerurl);
+        sb.append(", pictureurl=").append(pictureurl);
         sb.append(", primarycategoryid=").append(primarycategoryid);
+        sb.append(", primarycategoryname=").append(primarycategoryname);
         sb.append(", quantity=").append(quantity);
         sb.append(", email=").append(email);
         sb.append(", feedbackratingstar=").append(feedbackratingstar);
         sb.append(", feedbackscore=").append(feedbackscore);
         sb.append(", positivefeedbackpercent=").append(positivefeedbackpercent);
+        sb.append(", storeurl=").append(storeurl);
         sb.append(", site=").append(site);
         sb.append(", status=").append(status);
         sb.append(", userid=").append(userid);
@@ -917,6 +924,7 @@ public class DbItemresultTemp implements Serializable {
         sb.append(", paymentinstructions=").append(paymentinstructions);
         sb.append(", website=").append(website);
         sb.append(", sku=").append(sku);
+        sb.append(", title=").append(title);
         sb.append(", uuid=").append(uuid);
         sb.append(", companyname=").append(companyname);
         sb.append(", cityname=").append(cityname);
@@ -927,23 +935,15 @@ public class DbItemresultTemp implements Serializable {
         sb.append(", phone2=").append(phone2);
         sb.append(", postalcode=").append(postalcode);
         sb.append(", stateorprovince=").append(stateorprovince);
+        sb.append(", street=").append(street);
+        sb.append(", street1=").append(street1);
+        sb.append(", street2=").append(street2);
         sb.append(", sellemail=").append(sellemail);
         sb.append(", flag=").append(flag);
         sb.append(", calculateflag=").append(calculateflag);
         sb.append(", updatetime=").append(updatetime);
         sb.append(", itemtype=").append(itemtype);
         sb.append(", itemflag=").append(itemflag);
-        sb.append(", description=").append(description);
-        sb.append(", viewitemurl=").append(viewitemurl);
-        sb.append(", viewitemurlfornaturalsearch=").append(viewitemurlfornaturalsearch);
-        sb.append(", gallerurl=").append(gallerurl);
-        sb.append(", pictureurl=").append(pictureurl);
-        sb.append(", primarycategoryname=").append(primarycategoryname);
-        sb.append(", storeurl=").append(storeurl);
-        sb.append(", title=").append(title);
-        sb.append(", street=").append(street);
-        sb.append(", street1=").append(street1);
-        sb.append(", street2=").append(street2);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

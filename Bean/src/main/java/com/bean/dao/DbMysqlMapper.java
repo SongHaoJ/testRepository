@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbMysql;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbMysqlMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbMysql selectByCriteria(DbMysql DbMysql);
 
-    int insert(DbMysql record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbMysql record);
+    void deleteByCriteria(DbMysql DbMysql);
+
+    int insertByCriteria(DbMysql DbMysql);
+
+    int updateByCriteria(DbMysql DbMysql);
 
     DbMysql selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbMysql record);
-
-    int updateByPrimaryKey(DbMysql record);
+    List<DbMysql> selectAll();
 }

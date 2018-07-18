@@ -13,25 +13,25 @@
     <result column="PROVINCE" jdbcType="VARCHAR" property="province" />
     <result column="CITY" jdbcType="VARCHAR" property="city" />
     <result column="DISTRICT" jdbcType="VARCHAR" property="district" />
+    <result column="STREET1" jdbcType="VARCHAR" property="street1" />
+    <result column="STREET2" jdbcType="VARCHAR" property="street2" />
+    <result column="STREET3" jdbcType="VARCHAR" property="street3" />
     <result column="POSTCODE" jdbcType="VARCHAR" property="postcode" />
     <result column="MOBILE" jdbcType="VARCHAR" property="mobile" />
-    <result column="STREET1" jdbcType="LONGVARCHAR" property="street1" />
-    <result column="STREET2" jdbcType="LONGVARCHAR" property="street2" />
-    <result column="STREET3" jdbcType="LONGVARCHAR" property="street3" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select CONSIGNPREFERENCEID, NAME, TYPE, PICKUPTIME, DROPOFFSITEID, CONTACT, COMPANY, 
-    COUNTRYCODE, PROVINCE, CITY, DISTRICT, POSTCODE, MOBILE, STREET1, STREET2, STREET3
-    from db_edispreference
+    COUNTRYCODE, PROVINCE, CITY, DISTRICT, STREET1, STREET2, STREET3, POSTCODE, MOBILE
+    from DB_EDISPREFERENCE
     where CONSIGNPREFERENCEID = #{consignpreferenceid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select CONSIGNPREFERENCEID, NAME, TYPE, PICKUPTIME, DROPOFFSITEID, CONTACT, COMPANY, 
-    COUNTRYCODE, PROVINCE, CITY, DISTRICT, POSTCODE, MOBILE, STREET1, STREET2, STREET3
-    from db_edispreference
+    COUNTRYCODE, PROVINCE, CITY, DISTRICT, STREET1, STREET2, STREET3, POSTCODE, MOBILE
+    from DB_EDISPREFERENCE
   </select>
   <sql id="TableName">
-    db_edispreference
+    DB_EDISPREFERENCE
   </sql>
   <sql id="Values">
      #{consignpreferenceid,jdbcType=VARCHAR} , 
@@ -45,11 +45,11 @@
      #{province,jdbcType=VARCHAR} , 
      #{city,jdbcType=VARCHAR} , 
      #{district,jdbcType=VARCHAR} , 
+     #{street1,jdbcType=VARCHAR} , 
+     #{street2,jdbcType=VARCHAR} , 
+     #{street3,jdbcType=VARCHAR} , 
      #{postcode,jdbcType=VARCHAR} , 
      #{mobile,jdbcType=VARCHAR} , 
-     #{street1,jdbcType=LONGVARCHAR} , 
-     #{street2,jdbcType=LONGVARCHAR} , 
-     #{street3,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     CONSIGNPREFERENCEID , 
@@ -63,113 +63,113 @@
     PROVINCE , 
     CITY , 
     DISTRICT , 
-    POSTCODE , 
-    MOBILE , 
     STREET1 , 
     STREET2 , 
-    STREET3
+    STREET3 , 
+    POSTCODE , 
+    MOBILE , 
   </sql>
   <sql id="Criteria">
     <if test="consignpreferenceid != null">
-      CONSIGNPREFERENCEID = #{consignpreferenceid,jdbcType=VARCHAR} and 
+      consignpreferenceid = #{consignpreferenceid,jdbcType=VARCHAR} and 
     </if>
     <if test="name != null">
-      NAME = #{name,jdbcType=VARCHAR} and 
+      name = #{name,jdbcType=VARCHAR} and 
     </if>
     <if test="type != null">
-      TYPE = #{type,jdbcType=DECIMAL} and 
+      type = #{type,jdbcType=DECIMAL} and 
     </if>
     <if test="pickuptime != null">
-      PICKUPTIME = #{pickuptime,jdbcType=DECIMAL} and 
+      pickuptime = #{pickuptime,jdbcType=DECIMAL} and 
     </if>
     <if test="dropoffsiteid != null">
-      DROPOFFSITEID = #{dropoffsiteid,jdbcType=VARCHAR} and 
+      dropoffsiteid = #{dropoffsiteid,jdbcType=VARCHAR} and 
     </if>
     <if test="contact != null">
-      CONTACT = #{contact,jdbcType=VARCHAR} and 
+      contact = #{contact,jdbcType=VARCHAR} and 
     </if>
     <if test="company != null">
-      COMPANY = #{company,jdbcType=VARCHAR} and 
+      company = #{company,jdbcType=VARCHAR} and 
     </if>
     <if test="countrycode != null">
-      COUNTRYCODE = #{countrycode,jdbcType=VARCHAR} and 
+      countrycode = #{countrycode,jdbcType=VARCHAR} and 
     </if>
     <if test="province != null">
-      PROVINCE = #{province,jdbcType=VARCHAR} and 
+      province = #{province,jdbcType=VARCHAR} and 
     </if>
     <if test="city != null">
-      CITY = #{city,jdbcType=VARCHAR} and 
+      city = #{city,jdbcType=VARCHAR} and 
     </if>
     <if test="district != null">
-      DISTRICT = #{district,jdbcType=VARCHAR} and 
-    </if>
-    <if test="postcode != null">
-      POSTCODE = #{postcode,jdbcType=VARCHAR} and 
-    </if>
-    <if test="mobile != null">
-      MOBILE = #{mobile,jdbcType=VARCHAR} and 
+      district = #{district,jdbcType=VARCHAR} and 
     </if>
     <if test="street1 != null">
-      STREET1 = #{street1,jdbcType=LONGVARCHAR} and 
+      street1 = #{street1,jdbcType=VARCHAR} and 
     </if>
     <if test="street2 != null">
-      STREET2 = #{street2,jdbcType=LONGVARCHAR} and 
+      street2 = #{street2,jdbcType=VARCHAR} and 
     </if>
     <if test="street3 != null">
-      STREET3 = #{street3,jdbcType=LONGVARCHAR}
+      street3 = #{street3,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="postcode != null">
+      postcode = #{postcode,jdbcType=VARCHAR} and 
+    </if>
+    <if test="mobile != null">
+      mobile = #{mobile,jdbcType=VARCHAR} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="consignpreferenceid != null">
-      CONSIGNPREFERENCEID = #{consignpreferenceid,jdbcType=VARCHAR} , 
+      consignpreferenceid = #{consignpreferenceid,jdbcType=VARCHAR} , 
     </if>
     <if test="name != null">
-      NAME = #{name,jdbcType=VARCHAR} , 
+      name = #{name,jdbcType=VARCHAR} , 
     </if>
     <if test="type != null">
-      TYPE = #{type,jdbcType=DECIMAL} , 
+      type = #{type,jdbcType=DECIMAL} , 
     </if>
     <if test="pickuptime != null">
-      PICKUPTIME = #{pickuptime,jdbcType=DECIMAL} , 
+      pickuptime = #{pickuptime,jdbcType=DECIMAL} , 
     </if>
     <if test="dropoffsiteid != null">
-      DROPOFFSITEID = #{dropoffsiteid,jdbcType=VARCHAR} , 
+      dropoffsiteid = #{dropoffsiteid,jdbcType=VARCHAR} , 
     </if>
     <if test="contact != null">
-      CONTACT = #{contact,jdbcType=VARCHAR} , 
+      contact = #{contact,jdbcType=VARCHAR} , 
     </if>
     <if test="company != null">
-      COMPANY = #{company,jdbcType=VARCHAR} , 
+      company = #{company,jdbcType=VARCHAR} , 
     </if>
     <if test="countrycode != null">
-      COUNTRYCODE = #{countrycode,jdbcType=VARCHAR} , 
+      countrycode = #{countrycode,jdbcType=VARCHAR} , 
     </if>
     <if test="province != null">
-      PROVINCE = #{province,jdbcType=VARCHAR} , 
+      province = #{province,jdbcType=VARCHAR} , 
     </if>
     <if test="city != null">
-      CITY = #{city,jdbcType=VARCHAR} , 
+      city = #{city,jdbcType=VARCHAR} , 
     </if>
     <if test="district != null">
-      DISTRICT = #{district,jdbcType=VARCHAR} , 
-    </if>
-    <if test="postcode != null">
-      POSTCODE = #{postcode,jdbcType=VARCHAR} , 
-    </if>
-    <if test="mobile != null">
-      MOBILE = #{mobile,jdbcType=VARCHAR} , 
+      district = #{district,jdbcType=VARCHAR} , 
     </if>
     <if test="street1 != null">
-      STREET1 = #{street1,jdbcType=LONGVARCHAR} , 
+      street1 = #{street1,jdbcType=VARCHAR} , 
     </if>
     <if test="street2 != null">
-      STREET2 = #{street2,jdbcType=LONGVARCHAR} , 
+      street2 = #{street2,jdbcType=VARCHAR} , 
     </if>
     <if test="street3 != null">
-      STREET3 = #{street3,jdbcType=LONGVARCHAR}
+      street3 = #{street3,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="postcode != null">
+      postcode = #{postcode,jdbcType=VARCHAR} , 
+    </if>
+    <if test="mobile != null">
+      mobile = #{mobile,jdbcType=VARCHAR} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbEdispreference" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

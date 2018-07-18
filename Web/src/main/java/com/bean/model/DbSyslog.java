@@ -13,9 +13,9 @@ public class DbSyslog implements Serializable {
 
     private Date opertime;
 
-    private BigDecimal opertype;
-
     private String content;
+
+    private BigDecimal opertype;
 
     private String descr;
 
@@ -53,20 +53,20 @@ public class DbSyslog implements Serializable {
         this.opertime = opertime;
     }
 
-    public BigDecimal getOpertype() {
-        return opertype;
-    }
-
-    public void setOpertype(BigDecimal opertype) {
-        this.opertype = opertype;
-    }
-
     public String getContent() {
         return content;
     }
 
     public void setContent(String content) {
         this.content = content == null ? null : content.trim();
+    }
+
+    public BigDecimal getOpertype() {
+        return opertype;
+    }
+
+    public void setOpertype(BigDecimal opertype) {
+        this.opertype = opertype;
     }
 
     public String getDescr() {
@@ -93,8 +93,8 @@ public class DbSyslog implements Serializable {
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getSpcode() == null ? other.getSpcode() == null : this.getSpcode().equals(other.getSpcode()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
-            && (this.getOpertype() == null ? other.getOpertype() == null : this.getOpertype().equals(other.getOpertype()))
             && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
+            && (this.getOpertype() == null ? other.getOpertype() == null : this.getOpertype().equals(other.getOpertype()))
             && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()));
     }
 
@@ -106,8 +106,8 @@ public class DbSyslog implements Serializable {
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getSpcode() == null) ? 0 : getSpcode().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
-        result = prime * result + ((getOpertype() == null) ? 0 : getOpertype().hashCode());
         result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
+        result = prime * result + ((getOpertype() == null) ? 0 : getOpertype().hashCode());
         result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
         return result;
     }
@@ -122,8 +122,8 @@ public class DbSyslog implements Serializable {
         sb.append(", oper=").append(oper);
         sb.append(", spcode=").append(spcode);
         sb.append(", opertime=").append(opertime);
-        sb.append(", opertype=").append(opertype);
         sb.append(", content=").append(content);
+        sb.append(", opertype=").append(opertype);
         sb.append(", descr=").append(descr);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");

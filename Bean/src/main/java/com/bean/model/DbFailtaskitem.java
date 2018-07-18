@@ -8,9 +8,9 @@ public class DbFailtaskitem implements Serializable {
 
     private String itemid;
 
-    private Date opertime;
-
     private String content;
+
+    private Date opertime;
 
     private static final long serialVersionUID = 1L;
 
@@ -30,20 +30,20 @@ public class DbFailtaskitem implements Serializable {
         this.itemid = itemid == null ? null : itemid.trim();
     }
 
-    public Date getOpertime() {
-        return opertime;
-    }
-
-    public void setOpertime(Date opertime) {
-        this.opertime = opertime;
-    }
-
     public String getContent() {
         return content;
     }
 
     public void setContent(String content) {
         this.content = content == null ? null : content.trim();
+    }
+
+    public Date getOpertime() {
+        return opertime;
+    }
+
+    public void setOpertime(Date opertime) {
+        this.opertime = opertime;
     }
 
     @Override
@@ -60,8 +60,8 @@ public class DbFailtaskitem implements Serializable {
         DbFailtaskitem other = (DbFailtaskitem) that;
         return (this.getSid() == null ? other.getSid() == null : this.getSid().equals(other.getSid()))
             && (this.getItemid() == null ? other.getItemid() == null : this.getItemid().equals(other.getItemid()))
-            && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
-            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()));
+            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
+            && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()));
     }
 
     @Override
@@ -70,8 +70,8 @@ public class DbFailtaskitem implements Serializable {
         int result = 1;
         result = prime * result + ((getSid() == null) ? 0 : getSid().hashCode());
         result = prime * result + ((getItemid() == null) ? 0 : getItemid().hashCode());
-        result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
+        result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         return result;
     }
 
@@ -83,8 +83,8 @@ public class DbFailtaskitem implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", sid=").append(sid);
         sb.append(", itemid=").append(itemid);
-        sb.append(", opertime=").append(opertime);
         sb.append(", content=").append(content);
+        sb.append(", opertime=").append(opertime);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

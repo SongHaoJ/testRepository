@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbStoragetaskMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbStoragetask">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="STOCKSKU" jdbcType="VARCHAR" property="stocksku" />
+    <result column="NAMECN" jdbcType="VARCHAR" property="namecn" />
+    <result column="STORAGEID" jdbcType="VARCHAR" property="storageid" />
+    <result column="STORAGENAME" jdbcType="VARCHAR" property="storagename" />
+    <result column="LOCATIONID" jdbcType="VARCHAR" property="locationid" />
+    <result column="LOCATIONNAME" jdbcType="VARCHAR" property="locationname" />
+    <result column="CAR" jdbcType="VARCHAR" property="car" />
+    <result column="CARLOCATION" jdbcType="VARCHAR" property="carlocation" />
+    <result column="AREA" jdbcType="VARCHAR" property="area" />
+    <result column="IMAGE" jdbcType="VARCHAR" property="image" />
+    <result column="STORAGETYPE" jdbcType="DECIMAL" property="storagetype" />
+    <result column="STATUS" jdbcType="DECIMAL" property="status" />
+    <result column="ARRIVENUM" jdbcType="DECIMAL" property="arrivenum" />
+    <result column="STORAGENUM" jdbcType="DECIMAL" property="storagenum" />
+    <result column="DESTROYNUM" jdbcType="DECIMAL" property="destroynum" />
+    <result column="PURCHASENUM" jdbcType="DECIMAL" property="purchasenum" />
+    <result column="PRINTNUM" jdbcType="DECIMAL" property="printnum" />
+    <result column="GROUPID" jdbcType="VARCHAR" property="groupid" />
+    <result column="ITEMID" jdbcType="VARCHAR" property="itemid" />
+    <result column="SIGNEDOPER" jdbcType="VARCHAR" property="signedoper" />
+    <result column="SIGNEDTIME" jdbcType="TIMESTAMP" property="signedtime" />
+    <result column="LABELINGOPER" jdbcType="VARCHAR" property="labelingoper" />
+    <result column="LABELINGSTARTTIME" jdbcType="TIMESTAMP" property="labelingstarttime" />
+    <result column="LABELINGENDTIME" jdbcType="TIMESTAMP" property="labelingendtime" />
+    <result column="CHECKOPER" jdbcType="VARCHAR" property="checkoper" />
+    <result column="CHECKSTARTTIME" jdbcType="TIMESTAMP" property="checkstarttime" />
+    <result column="CHECKENDTIME" jdbcType="TIMESTAMP" property="checkendtime" />
+    <result column="SPLITOPER" jdbcType="VARCHAR" property="splitoper" />
+    <result column="SPLITTIME" jdbcType="TIMESTAMP" property="splittime" />
+    <result column="STORAGEOPER" jdbcType="VARCHAR" property="storageoper" />
+    <result column="STORAGESTARTTIME" jdbcType="TIMESTAMP" property="storagestarttime" />
+    <result column="STORAGEENDTIME" jdbcType="TIMESTAMP" property="storageendtime" />
+    <result column="BASKETID" jdbcType="VARCHAR" property="basketid" />
+    <result column="CALLFLAG" jdbcType="DECIMAL" property="callflag" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select ID, STOCKSKU, NAMECN, STORAGEID, STORAGENAME, LOCATIONID, LOCATIONNAME, CAR, 
+    CARLOCATION, AREA, IMAGE, STORAGETYPE, STATUS, ARRIVENUM, STORAGENUM, DESTROYNUM, 
+    PURCHASENUM, PRINTNUM, GROUPID, ITEMID, SIGNEDOPER, SIGNEDTIME, LABELINGOPER, LABELINGSTARTTIME, 
+    LABELINGENDTIME, CHECKOPER, CHECKSTARTTIME, CHECKENDTIME, SPLITOPER, SPLITTIME, STORAGEOPER, 
+    STORAGESTARTTIME, STORAGEENDTIME, BASKETID, CALLFLAG, OPER, OPERTIME
+    from DB_STORAGETASK
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ID, STOCKSKU, NAMECN, STORAGEID, STORAGENAME, LOCATIONID, LOCATIONNAME, CAR, 
+    CARLOCATION, AREA, IMAGE, STORAGETYPE, STATUS, ARRIVENUM, STORAGENUM, DESTROYNUM, 
+    PURCHASENUM, PRINTNUM, GROUPID, ITEMID, SIGNEDOPER, SIGNEDTIME, LABELINGOPER, LABELINGSTARTTIME, 
+    LABELINGENDTIME, CHECKOPER, CHECKSTARTTIME, CHECKENDTIME, SPLITOPER, SPLITTIME, STORAGEOPER, 
+    STORAGESTARTTIME, STORAGEENDTIME, BASKETID, CALLFLAG, OPER, OPERTIME
+    from DB_STORAGETASK
+  </select>
+  <sql id="TableName">
+    DB_STORAGETASK
+  </sql>
+  <sql id="Values">
+     #{id,jdbcType=DECIMAL} , 
+     #{stocksku,jdbcType=VARCHAR} , 
+     #{namecn,jdbcType=VARCHAR} , 
+     #{storageid,jdbcType=VARCHAR} , 
+     #{storagename,jdbcType=VARCHAR} , 
+     #{locationid,jdbcType=VARCHAR} , 
+     #{locationname,jdbcType=VARCHAR} , 
+     #{car,jdbcType=VARCHAR} , 
+     #{carlocation,jdbcType=VARCHAR} , 
+     #{area,jdbcType=VARCHAR} , 
+     #{image,jdbcType=VARCHAR} , 
+     #{storagetype,jdbcType=DECIMAL} , 
+     #{status,jdbcType=DECIMAL} , 
+     #{arrivenum,jdbcType=DECIMAL} , 
+     #{storagenum,jdbcType=DECIMAL} , 
+     #{destroynum,jdbcType=DECIMAL} , 
+     #{purchasenum,jdbcType=DECIMAL} , 
+     #{printnum,jdbcType=DECIMAL} , 
+     #{groupid,jdbcType=VARCHAR} , 
+     #{itemid,jdbcType=VARCHAR} , 
+     #{signedoper,jdbcType=VARCHAR} , 
+     #{signedtime,jdbcType=TIMESTAMP} , 
+     #{labelingoper,jdbcType=VARCHAR} , 
+     #{labelingstarttime,jdbcType=TIMESTAMP} , 
+     #{labelingendtime,jdbcType=TIMESTAMP} , 
+     #{checkoper,jdbcType=VARCHAR} , 
+     #{checkstarttime,jdbcType=TIMESTAMP} , 
+     #{checkendtime,jdbcType=TIMESTAMP} , 
+     #{splitoper,jdbcType=VARCHAR} , 
+     #{splittime,jdbcType=TIMESTAMP} , 
+     #{storageoper,jdbcType=VARCHAR} , 
+     #{storagestarttime,jdbcType=TIMESTAMP} , 
+     #{storageendtime,jdbcType=TIMESTAMP} , 
+     #{basketid,jdbcType=VARCHAR} , 
+     #{callflag,jdbcType=DECIMAL} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+  </sql>
+  <sql id="Columns">
+    ID , 
+    STOCKSKU , 
+    NAMECN , 
+    STORAGEID , 
+    STORAGENAME , 
+    LOCATIONID , 
+    LOCATIONNAME , 
+    CAR , 
+    CARLOCATION , 
+    AREA , 
+    IMAGE , 
+    STORAGETYPE , 
+    STATUS , 
+    ARRIVENUM , 
+    STORAGENUM , 
+    DESTROYNUM , 
+    PURCHASENUM , 
+    PRINTNUM , 
+    GROUPID , 
+    ITEMID , 
+    SIGNEDOPER , 
+    SIGNEDTIME , 
+    LABELINGOPER , 
+    LABELINGSTARTTIME , 
+    LABELINGENDTIME , 
+    CHECKOPER , 
+    CHECKSTARTTIME , 
+    CHECKENDTIME , 
+    SPLITOPER , 
+    SPLITTIME , 
+    STORAGEOPER , 
+    STORAGESTARTTIME , 
+    STORAGEENDTIME , 
+    BASKETID , 
+    CALLFLAG , 
+    OPER , 
+    OPERTIME , 
+  </sql>
+  <sql id="Criteria">
+    <if test="id != null">
+      id = #{id,jdbcType=DECIMAL} and 
+    </if>
+    <if test="stocksku != null">
+      stocksku = #{stocksku,jdbcType=VARCHAR} and 
+    </if>
+    <if test="namecn != null">
+      namecn = #{namecn,jdbcType=VARCHAR} and 
+    </if>
+    <if test="storageid != null">
+      storageid = #{storageid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="storagename != null">
+      storagename = #{storagename,jdbcType=VARCHAR} and 
+    </if>
+    <if test="locationid != null">
+      locationid = #{locationid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="locationname != null">
+      locationname = #{locationname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="car != null">
+      car = #{car,jdbcType=VARCHAR} and 
+    </if>
+    <if test="carlocation != null">
+      carlocation = #{carlocation,jdbcType=VARCHAR} and 
+    </if>
+    <if test="area != null">
+      area = #{area,jdbcType=VARCHAR} and 
+    </if>
+    <if test="image != null">
+      image = #{image,jdbcType=VARCHAR} and 
+    </if>
+    <if test="storagetype != null">
+      storagetype = #{storagetype,jdbcType=DECIMAL} and 
+    </if>
+    <if test="status != null">
+      status = #{status,jdbcType=DECIMAL} and 
+    </if>
+    <if test="arrivenum != null">
+      arrivenum = #{arrivenum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="storagenum != null">
+      storagenum = #{storagenum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="destroynum != null">
+      destroynum = #{destroynum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="purchasenum != null">
+      purchasenum = #{purchasenum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="printnum != null">
+      printnum = #{printnum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="groupid != null">
+      groupid = #{groupid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="itemid != null">
+      itemid = #{itemid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="signedoper != null">
+      signedoper = #{signedoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="signedtime != null">
+      signedtime = #{signedtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="labelingoper != null">
+      labelingoper = #{labelingoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="labelingstarttime != null">
+      labelingstarttime = #{labelingstarttime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="labelingendtime != null">
+      labelingendtime = #{labelingendtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="checkoper != null">
+      checkoper = #{checkoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="checkstarttime != null">
+      checkstarttime = #{checkstarttime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="checkendtime != null">
+      checkendtime = #{checkendtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="splitoper != null">
+      splitoper = #{splitoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="splittime != null">
+      splittime = #{splittime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="storageoper != null">
+      storageoper = #{storageoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="storagestarttime != null">
+      storagestarttime = #{storagestarttime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="storageendtime != null">
+      storageendtime = #{storageendtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="basketid != null">
+      basketid = #{basketid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="callflag != null">
+      callflag = #{callflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="id != null">
+      id = #{id,jdbcType=DECIMAL} , 
+    </if>
+    <if test="stocksku != null">
+      stocksku = #{stocksku,jdbcType=VARCHAR} , 
+    </if>
+    <if test="namecn != null">
+      namecn = #{namecn,jdbcType=VARCHAR} , 
+    </if>
+    <if test="storageid != null">
+      storageid = #{storageid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="storagename != null">
+      storagename = #{storagename,jdbcType=VARCHAR} , 
+    </if>
+    <if test="locationid != null">
+      locationid = #{locationid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="locationname != null">
+      locationname = #{locationname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="car != null">
+      car = #{car,jdbcType=VARCHAR} , 
+    </if>
+    <if test="carlocation != null">
+      carlocation = #{carlocation,jdbcType=VARCHAR} , 
+    </if>
+    <if test="area != null">
+      area = #{area,jdbcType=VARCHAR} , 
+    </if>
+    <if test="image != null">
+      image = #{image,jdbcType=VARCHAR} , 
+    </if>
+    <if test="storagetype != null">
+      storagetype = #{storagetype,jdbcType=DECIMAL} , 
+    </if>
+    <if test="status != null">
+      status = #{status,jdbcType=DECIMAL} , 
+    </if>
+    <if test="arrivenum != null">
+      arrivenum = #{arrivenum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="storagenum != null">
+      storagenum = #{storagenum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="destroynum != null">
+      destroynum = #{destroynum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="purchasenum != null">
+      purchasenum = #{purchasenum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="printnum != null">
+      printnum = #{printnum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="groupid != null">
+      groupid = #{groupid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="itemid != null">
+      itemid = #{itemid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="signedoper != null">
+      signedoper = #{signedoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="signedtime != null">
+      signedtime = #{signedtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="labelingoper != null">
+      labelingoper = #{labelingoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="labelingstarttime != null">
+      labelingstarttime = #{labelingstarttime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="labelingendtime != null">
+      labelingendtime = #{labelingendtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="checkoper != null">
+      checkoper = #{checkoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="checkstarttime != null">
+      checkstarttime = #{checkstarttime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="checkendtime != null">
+      checkendtime = #{checkendtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="splitoper != null">
+      splitoper = #{splitoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="splittime != null">
+      splittime = #{splittime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="storageoper != null">
+      storageoper = #{storageoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="storagestarttime != null">
+      storagestarttime = #{storagestarttime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="storageendtime != null">
+      storageendtime = #{storageendtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="basketid != null">
+      basketid = #{basketid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="callflag != null">
+      callflag = #{callflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbStoragetask" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="BigDecimal">
+    delete from <include refid="TableName"/> where ID=#{ID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbStoragetask">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbStoragetask">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbStoragetask">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

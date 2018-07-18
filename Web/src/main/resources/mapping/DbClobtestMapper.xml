@@ -3,45 +3,45 @@
 <mapper namespace="com.bean.dao.DbClobtestMapper">
   <resultMap id="BaseResultMap" type="com.bean.model.DbClobtest">
     <id column="CID" jdbcType="VARCHAR" property="cid" />
-    <result column="CLOBVALUE" jdbcType="LONGVARCHAR" property="clobvalue" />
+    <result column="CLOBVALUE" jdbcType="CLOB" property="clobvalue" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select CID, CLOBVALUE
-    from db_clobtest
+    from DB_CLOBTEST
     where CID = #{cid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select CID, CLOBVALUE
-    from db_clobtest
+    from DB_CLOBTEST
   </select>
   <sql id="TableName">
-    db_clobtest
+    DB_CLOBTEST
   </sql>
   <sql id="Values">
      #{cid,jdbcType=VARCHAR} , 
-     #{clobvalue,jdbcType=LONGVARCHAR}
+     #{clobvalue,jdbcType=CLOB} , 
   </sql>
   <sql id="Columns">
     CID , 
-    CLOBVALUE
+    CLOBVALUE , 
   </sql>
   <sql id="Criteria">
     <if test="cid != null">
-      CID = #{cid,jdbcType=VARCHAR} and 
+      cid = #{cid,jdbcType=VARCHAR} and 
     </if>
     <if test="clobvalue != null">
-      CLOBVALUE = #{clobvalue,jdbcType=LONGVARCHAR}
+      clobvalue = #{clobvalue,jdbcType=CLOB} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="cid != null">
-      CID = #{cid,jdbcType=VARCHAR} , 
+      cid = #{cid,jdbcType=VARCHAR} , 
     </if>
     <if test="clobvalue != null">
-      CLOBVALUE = #{clobvalue,jdbcType=LONGVARCHAR}
+      clobvalue = #{clobvalue,jdbcType=CLOB} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbClobtest" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

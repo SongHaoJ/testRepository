@@ -1,18 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbCompetitionsku;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbCompetitionskuMapper {
-    int deleteByPrimaryKey(BigDecimal sequenceid);
+    DbCompetitionsku selectByCriteria(DbCompetitionsku DbCompetitionsku);
 
-    int insert(DbCompetitionsku record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbCompetitionsku record);
+    void deleteByCriteria(DbCompetitionsku DbCompetitionsku);
+
+    int insertByCriteria(DbCompetitionsku DbCompetitionsku);
+
+    int updateByCriteria(DbCompetitionsku DbCompetitionsku);
 
     DbCompetitionsku selectByPrimaryKey(BigDecimal sequenceid);
 
-    int updateByPrimaryKeySelective(DbCompetitionsku record);
-
-    int updateByPrimaryKey(DbCompetitionsku record);
+    List<DbCompetitionsku> selectAll();
 }

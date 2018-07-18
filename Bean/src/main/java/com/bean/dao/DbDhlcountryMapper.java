@@ -1,9 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbDhlcountry;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbDhlcountryMapper {
-    int insert(DbDhlcountry record);
+    DbDhlcountry selectByCriteria(DbDhlcountry DbDhlcountry);
 
-    int insertSelective(DbDhlcountry record);
+    void deleteByPrimaryKey(String COUNTRYCODE);
+
+    void deleteByCriteria(DbDhlcountry DbDhlcountry);
+
+    int insertByCriteria(DbDhlcountry DbDhlcountry);
+
+    int updateByCriteria(DbDhlcountry DbDhlcountry);
+
+    DbDhlcountry selectByPrimaryKey(String countrycode);
+
+    List<DbDhlcountry> selectAll();
 }

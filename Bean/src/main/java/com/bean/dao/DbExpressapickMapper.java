@@ -1,18 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbExpressapick;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbExpressapickMapper {
-    int deleteByPrimaryKey(BigDecimal id);
+    DbExpressapick selectByCriteria(DbExpressapick DbExpressapick);
 
-    int insert(DbExpressapick record);
+    void deleteByPrimaryKey(String ID);
 
-    int insertSelective(DbExpressapick record);
+    void deleteByCriteria(DbExpressapick DbExpressapick);
+
+    int insertByCriteria(DbExpressapick DbExpressapick);
+
+    int updateByCriteria(DbExpressapick DbExpressapick);
 
     DbExpressapick selectByPrimaryKey(BigDecimal id);
 
-    int updateByPrimaryKeySelective(DbExpressapick record);
-
-    int updateByPrimaryKey(DbExpressapick record);
+    List<DbExpressapick> selectAll();
 }

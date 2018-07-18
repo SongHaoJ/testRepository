@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbClass;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbClassMapper {
-    int deleteByPrimaryKey(String id);
+    DbClass selectByCriteria(DbClass DbClass);
 
-    int insert(DbClass record);
+    void deleteByPrimaryKey(String ID);
 
-    int insertSelective(DbClass record);
+    void deleteByCriteria(DbClass DbClass);
+
+    int insertByCriteria(DbClass DbClass);
+
+    int updateByCriteria(DbClass DbClass);
 
     DbClass selectByPrimaryKey(String id);
 
-    int updateByPrimaryKeySelective(DbClass record);
-
-    int updateByPrimaryKeyWithBLOBs(DbClass record);
-
-    int updateByPrimaryKey(DbClass record);
+    List<DbClass> selectAll();
 }

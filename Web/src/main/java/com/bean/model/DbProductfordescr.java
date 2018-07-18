@@ -19,15 +19,15 @@ public class DbProductfordescr implements Serializable {
 
     private String language;
 
+    private String descr;
+
+    private String reserve1;
+
     private Integer reserve2;
 
     private BigDecimal reserve3;
 
     private Date reserve4;
-
-    private String descr;
-
-    private String reserve1;
 
     private String descr2;
 
@@ -95,6 +95,22 @@ public class DbProductfordescr implements Serializable {
         this.language = language == null ? null : language.trim();
     }
 
+    public String getDescr() {
+        return descr;
+    }
+
+    public void setDescr(String descr) {
+        this.descr = descr == null ? null : descr.trim();
+    }
+
+    public String getReserve1() {
+        return reserve1;
+    }
+
+    public void setReserve1(String reserve1) {
+        this.reserve1 = reserve1 == null ? null : reserve1.trim();
+    }
+
     public Integer getReserve2() {
         return reserve2;
     }
@@ -117,22 +133,6 @@ public class DbProductfordescr implements Serializable {
 
     public void setReserve4(Date reserve4) {
         this.reserve4 = reserve4;
-    }
-
-    public String getDescr() {
-        return descr;
-    }
-
-    public void setDescr(String descr) {
-        this.descr = descr == null ? null : descr.trim();
-    }
-
-    public String getReserve1() {
-        return reserve1;
-    }
-
-    public void setReserve1(String reserve1) {
-        this.reserve1 = reserve1 == null ? null : reserve1.trim();
     }
 
     public String getDescr2() {
@@ -186,11 +186,11 @@ public class DbProductfordescr implements Serializable {
             && (this.getCreatetime() == null ? other.getCreatetime() == null : this.getCreatetime().equals(other.getCreatetime()))
             && (this.getSellsku() == null ? other.getSellsku() == null : this.getSellsku().equals(other.getSellsku()))
             && (this.getLanguage() == null ? other.getLanguage() == null : this.getLanguage().equals(other.getLanguage()))
+            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
+            && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
             && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
             && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
             && (this.getReserve4() == null ? other.getReserve4() == null : this.getReserve4().equals(other.getReserve4()))
-            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
-            && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
             && (this.getDescr2() == null ? other.getDescr2() == null : this.getDescr2().equals(other.getDescr2()))
             && (this.getDescr3() == null ? other.getDescr3() == null : this.getDescr3().equals(other.getDescr3()))
             && (this.getDescr4() == null ? other.getDescr4() == null : this.getDescr4().equals(other.getDescr4()))
@@ -208,11 +208,11 @@ public class DbProductfordescr implements Serializable {
         result = prime * result + ((getCreatetime() == null) ? 0 : getCreatetime().hashCode());
         result = prime * result + ((getSellsku() == null) ? 0 : getSellsku().hashCode());
         result = prime * result + ((getLanguage() == null) ? 0 : getLanguage().hashCode());
+        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
+        result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
         result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
         result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
         result = prime * result + ((getReserve4() == null) ? 0 : getReserve4().hashCode());
-        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
-        result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
         result = prime * result + ((getDescr2() == null) ? 0 : getDescr2().hashCode());
         result = prime * result + ((getDescr3() == null) ? 0 : getDescr3().hashCode());
         result = prime * result + ((getDescr4() == null) ? 0 : getDescr4().hashCode());
@@ -233,11 +233,11 @@ public class DbProductfordescr implements Serializable {
         sb.append(", createtime=").append(createtime);
         sb.append(", sellsku=").append(sellsku);
         sb.append(", language=").append(language);
+        sb.append(", descr=").append(descr);
+        sb.append(", reserve1=").append(reserve1);
         sb.append(", reserve2=").append(reserve2);
         sb.append(", reserve3=").append(reserve3);
         sb.append(", reserve4=").append(reserve4);
-        sb.append(", descr=").append(descr);
-        sb.append(", reserve1=").append(reserve1);
         sb.append(", descr2=").append(descr2);
         sb.append(", descr3=").append(descr3);
         sb.append(", descr4=").append(descr4);

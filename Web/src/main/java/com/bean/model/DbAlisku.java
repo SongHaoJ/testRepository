@@ -11,15 +11,17 @@ public class DbAlisku implements Serializable {
 
     private String mabangsku;
 
-    private String alisku;
-
     private String imgurl;
 
     private String name;
 
+    private String alisku;
+
     private String productlink;
 
     private String skuinfo;
+
+    private Long single;
 
     private static final long serialVersionUID = 1L;
 
@@ -55,14 +57,6 @@ public class DbAlisku implements Serializable {
         this.mabangsku = mabangsku == null ? null : mabangsku.trim();
     }
 
-    public String getAlisku() {
-        return alisku;
-    }
-
-    public void setAlisku(String alisku) {
-        this.alisku = alisku == null ? null : alisku.trim();
-    }
-
     public String getImgurl() {
         return imgurl;
     }
@@ -77,6 +71,14 @@ public class DbAlisku implements Serializable {
 
     public void setName(String name) {
         this.name = name == null ? null : name.trim();
+    }
+
+    public String getAlisku() {
+        return alisku;
+    }
+
+    public void setAlisku(String alisku) {
+        this.alisku = alisku == null ? null : alisku.trim();
     }
 
     public String getProductlink() {
@@ -95,6 +97,14 @@ public class DbAlisku implements Serializable {
         this.skuinfo = skuinfo == null ? null : skuinfo.trim();
     }
 
+    public Long getSingle() {
+        return single;
+    }
+
+    public void setSingle(Long single) {
+        this.single = single;
+    }
+
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -111,11 +121,12 @@ public class DbAlisku implements Serializable {
             && (this.getSpuid() == null ? other.getSpuid() == null : this.getSpuid().equals(other.getSpuid()))
             && (this.getSellerid() == null ? other.getSellerid() == null : this.getSellerid().equals(other.getSellerid()))
             && (this.getMabangsku() == null ? other.getMabangsku() == null : this.getMabangsku().equals(other.getMabangsku()))
-            && (this.getAlisku() == null ? other.getAlisku() == null : this.getAlisku().equals(other.getAlisku()))
             && (this.getImgurl() == null ? other.getImgurl() == null : this.getImgurl().equals(other.getImgurl()))
             && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
+            && (this.getAlisku() == null ? other.getAlisku() == null : this.getAlisku().equals(other.getAlisku()))
             && (this.getProductlink() == null ? other.getProductlink() == null : this.getProductlink().equals(other.getProductlink()))
-            && (this.getSkuinfo() == null ? other.getSkuinfo() == null : this.getSkuinfo().equals(other.getSkuinfo()));
+            && (this.getSkuinfo() == null ? other.getSkuinfo() == null : this.getSkuinfo().equals(other.getSkuinfo()))
+            && (this.getSingle() == null ? other.getSingle() == null : this.getSingle().equals(other.getSingle()));
     }
 
     @Override
@@ -126,11 +137,12 @@ public class DbAlisku implements Serializable {
         result = prime * result + ((getSpuid() == null) ? 0 : getSpuid().hashCode());
         result = prime * result + ((getSellerid() == null) ? 0 : getSellerid().hashCode());
         result = prime * result + ((getMabangsku() == null) ? 0 : getMabangsku().hashCode());
-        result = prime * result + ((getAlisku() == null) ? 0 : getAlisku().hashCode());
         result = prime * result + ((getImgurl() == null) ? 0 : getImgurl().hashCode());
         result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
+        result = prime * result + ((getAlisku() == null) ? 0 : getAlisku().hashCode());
         result = prime * result + ((getProductlink() == null) ? 0 : getProductlink().hashCode());
         result = prime * result + ((getSkuinfo() == null) ? 0 : getSkuinfo().hashCode());
+        result = prime * result + ((getSingle() == null) ? 0 : getSingle().hashCode());
         return result;
     }
 
@@ -144,11 +156,12 @@ public class DbAlisku implements Serializable {
         sb.append(", spuid=").append(spuid);
         sb.append(", sellerid=").append(sellerid);
         sb.append(", mabangsku=").append(mabangsku);
-        sb.append(", alisku=").append(alisku);
         sb.append(", imgurl=").append(imgurl);
         sb.append(", name=").append(name);
+        sb.append(", alisku=").append(alisku);
         sb.append(", productlink=").append(productlink);
         sb.append(", skuinfo=").append(skuinfo);
+        sb.append(", single=").append(single);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

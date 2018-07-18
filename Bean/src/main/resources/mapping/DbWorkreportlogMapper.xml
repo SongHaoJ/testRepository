@@ -3,350 +3,270 @@
 <mapper namespace="com.bean.dao.DbWorkreportlogMapper">
   <resultMap id="BaseResultMap" type="com.bean.model.DbWorkreportlog">
     <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
     <result column="WORKATTRIBUTEID" jdbcType="DECIMAL" property="workattributeid" />
     <result column="WORKMOULDID" jdbcType="DECIMAL" property="workmouldid" />
+    <result column="WORKMOULD" jdbcType="VARCHAR" property="workmould" />
     <result column="CREATEOPER" jdbcType="VARCHAR" property="createoper" />
     <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="WORK1" jdbcType="VARCHAR" property="work1" />
+    <result column="WORK2" jdbcType="VARCHAR" property="work2" />
+    <result column="WORK3" jdbcType="VARCHAR" property="work3" />
+    <result column="WORK4" jdbcType="VARCHAR" property="work4" />
+    <result column="WORK5" jdbcType="VARCHAR" property="work5" />
+    <result column="WORK6" jdbcType="VARCHAR" property="work6" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="WARMOPER" jdbcType="VARCHAR" property="warmoper" />
     <result column="FLAG" jdbcType="DECIMAL" property="flag" />
     <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
     <result column="OPENFLAG" jdbcType="DECIMAL" property="openflag" />
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="CONTENT" jdbcType="VARCHAR" property="content" />
     <result column="STATUS" jdbcType="DECIMAL" property="status" />
     <result column="PROTOCOLTIME1" jdbcType="VARCHAR" property="protocoltime1" />
     <result column="PROTOCOLTIME2" jdbcType="VARCHAR" property="protocoltime2" />
+    <result column="UPDATEFLAG" jdbcType="VARCHAR" property="updateflag" />
     <result column="SID" jdbcType="DECIMAL" property="sid" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbWorkreportlog">
-    <result column="TITLE" jdbcType="LONGVARCHAR" property="title" />
-    <result column="WORKMOULD" jdbcType="LONGVARCHAR" property="workmould" />
-    <result column="WORK1" jdbcType="LONGVARCHAR" property="work1" />
-    <result column="WORK2" jdbcType="LONGVARCHAR" property="work2" />
-    <result column="WORK3" jdbcType="LONGVARCHAR" property="work3" />
-    <result column="WORK4" jdbcType="LONGVARCHAR" property="work4" />
-    <result column="WORK5" jdbcType="LONGVARCHAR" property="work5" />
-    <result column="WORK6" jdbcType="LONGVARCHAR" property="work6" />
-    <result column="WARMOPER" jdbcType="LONGVARCHAR" property="warmoper" />
-    <result column="CONTENT" jdbcType="LONGVARCHAR" property="content" />
-    <result column="UPDATEFLAG" jdbcType="LONGVARCHAR" property="updateflag" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    SEQUENCEID, WORKATTRIBUTEID, WORKMOULDID, CREATEOPER, CREATETIME, OPERTIME, FLAG, 
-    CORPID, OPENFLAG, OPER, 'STATUS', PROTOCOLTIME1, PROTOCOLTIME2, SID
-  </sql>
-  <sql id="Blob_Column_List">
-    TITLE, WORKMOULD, WORK1, WORK2, WORK3, WORK4, WORK5, WORK6, WARMOPER, CONTENT, UPDATEFLAG
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from db_workreportlog
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SEQUENCEID, TITLE, WORKATTRIBUTEID, WORKMOULDID, WORKMOULD, CREATEOPER, CREATETIME, 
+    WORK1, WORK2, WORK3, WORK4, WORK5, WORK6, OPERTIME, WARMOPER, FLAG, CORPID, OPENFLAG, 
+    OPER, CONTENT, STATUS, PROTOCOLTIME1, PROTOCOLTIME2, UPDATEFLAG, SID
+    from DB_WORKREPORTLOG
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_workreportlog
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, TITLE, WORKATTRIBUTEID, WORKMOULDID, WORKMOULD, CREATEOPER, CREATETIME, 
+    WORK1, WORK2, WORK3, WORK4, WORK5, WORK6, OPERTIME, WARMOPER, FLAG, CORPID, OPENFLAG, 
+    OPER, CONTENT, STATUS, PROTOCOLTIME1, PROTOCOLTIME2, UPDATEFLAG, SID
+    from DB_WORKREPORTLOG
+  </select>
+  <sql id="TableName">
+    DB_WORKREPORTLOG
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=VARCHAR} , 
+     #{title,jdbcType=VARCHAR} , 
+     #{workattributeid,jdbcType=DECIMAL} , 
+     #{workmouldid,jdbcType=DECIMAL} , 
+     #{workmould,jdbcType=VARCHAR} , 
+     #{createoper,jdbcType=VARCHAR} , 
+     #{createtime,jdbcType=TIMESTAMP} , 
+     #{work1,jdbcType=VARCHAR} , 
+     #{work2,jdbcType=VARCHAR} , 
+     #{work3,jdbcType=VARCHAR} , 
+     #{work4,jdbcType=VARCHAR} , 
+     #{work5,jdbcType=VARCHAR} , 
+     #{work6,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{warmoper,jdbcType=VARCHAR} , 
+     #{flag,jdbcType=DECIMAL} , 
+     #{corpid,jdbcType=VARCHAR} , 
+     #{openflag,jdbcType=DECIMAL} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{content,jdbcType=VARCHAR} , 
+     #{status,jdbcType=DECIMAL} , 
+     #{protocoltime1,jdbcType=VARCHAR} , 
+     #{protocoltime2,jdbcType=VARCHAR} , 
+     #{updateflag,jdbcType=VARCHAR} , 
+     #{sid,jdbcType=DECIMAL} , 
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    TITLE , 
+    WORKATTRIBUTEID , 
+    WORKMOULDID , 
+    WORKMOULD , 
+    CREATEOPER , 
+    CREATETIME , 
+    WORK1 , 
+    WORK2 , 
+    WORK3 , 
+    WORK4 , 
+    WORK5 , 
+    WORK6 , 
+    OPERTIME , 
+    WARMOPER , 
+    FLAG , 
+    CORPID , 
+    OPENFLAG , 
+    OPER , 
+    CONTENT , 
+    STATUS , 
+    PROTOCOLTIME1 , 
+    PROTOCOLTIME2 , 
+    UPDATEFLAG , 
+    SID , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="title != null">
+      title = #{title,jdbcType=VARCHAR} and 
+    </if>
+    <if test="workattributeid != null">
+      workattributeid = #{workattributeid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="workmouldid != null">
+      workmouldid = #{workmouldid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="workmould != null">
+      workmould = #{workmould,jdbcType=VARCHAR} and 
+    </if>
+    <if test="createoper != null">
+      createoper = #{createoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="work1 != null">
+      work1 = #{work1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="work2 != null">
+      work2 = #{work2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="work3 != null">
+      work3 = #{work3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="work4 != null">
+      work4 = #{work4,jdbcType=VARCHAR} and 
+    </if>
+    <if test="work5 != null">
+      work5 = #{work5,jdbcType=VARCHAR} and 
+    </if>
+    <if test="work6 != null">
+      work6 = #{work6,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="warmoper != null">
+      warmoper = #{warmoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="content != null">
+      content = #{content,jdbcType=VARCHAR} and 
+    </if>
+    <if test="status != null">
+      status = #{status,jdbcType=DECIMAL} and 
+    </if>
+    <if test="protocoltime1 != null">
+      protocoltime1 = #{protocoltime1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="protocoltime2 != null">
+      protocoltime2 = #{protocoltime2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="updateflag != null">
+      updateflag = #{updateflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sid != null">
+      sid = #{sid,jdbcType=DECIMAL} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="title != null">
+      title = #{title,jdbcType=VARCHAR} , 
+    </if>
+    <if test="workattributeid != null">
+      workattributeid = #{workattributeid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="workmouldid != null">
+      workmouldid = #{workmouldid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="workmould != null">
+      workmould = #{workmould,jdbcType=VARCHAR} , 
+    </if>
+    <if test="createoper != null">
+      createoper = #{createoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="work1 != null">
+      work1 = #{work1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="work2 != null">
+      work2 = #{work2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="work3 != null">
+      work3 = #{work3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="work4 != null">
+      work4 = #{work4,jdbcType=VARCHAR} , 
+    </if>
+    <if test="work5 != null">
+      work5 = #{work5,jdbcType=VARCHAR} , 
+    </if>
+    <if test="work6 != null">
+      work6 = #{work6,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="warmoper != null">
+      warmoper = #{warmoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="content != null">
+      content = #{content,jdbcType=VARCHAR} , 
+    </if>
+    <if test="status != null">
+      status = #{status,jdbcType=DECIMAL} , 
+    </if>
+    <if test="protocoltime1 != null">
+      protocoltime1 = #{protocoltime1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="protocoltime2 != null">
+      protocoltime2 = #{protocoltime2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="updateflag != null">
+      updateflag = #{updateflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sid != null">
+      sid = #{sid,jdbcType=DECIMAL} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbWorkreportlog" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbWorkreportlog">
-    insert into db_workreportlog (SEQUENCEID, WORKATTRIBUTEID, WORKMOULDID, 
-      CREATEOPER, CREATETIME, OPERTIME, 
-      FLAG, CORPID, OPENFLAG, 
-      OPER, 'STATUS', PROTOCOLTIME1, 
-      PROTOCOLTIME2, SID, TITLE, 
-      WORKMOULD, WORK1, WORK2, 
-      WORK3, WORK4, WORK5, 
-      WORK6, WARMOPER, CONTENT, 
-      UPDATEFLAG)
-    values (#{sequenceid,jdbcType=VARCHAR}, #{workattributeid,jdbcType=DECIMAL}, #{workmouldid,jdbcType=DECIMAL}, 
-      #{createoper,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{opertime,jdbcType=TIMESTAMP}, 
-      #{flag,jdbcType=DECIMAL}, #{corpid,jdbcType=VARCHAR}, #{openflag,jdbcType=DECIMAL}, 
-      #{oper,jdbcType=VARCHAR}, #{status,jdbcType=DECIMAL}, #{protocoltime1,jdbcType=VARCHAR}, 
-      #{protocoltime2,jdbcType=VARCHAR}, #{sid,jdbcType=DECIMAL}, #{title,jdbcType=LONGVARCHAR}, 
-      #{workmould,jdbcType=LONGVARCHAR}, #{work1,jdbcType=LONGVARCHAR}, #{work2,jdbcType=LONGVARCHAR}, 
-      #{work3,jdbcType=LONGVARCHAR}, #{work4,jdbcType=LONGVARCHAR}, #{work5,jdbcType=LONGVARCHAR}, 
-      #{work6,jdbcType=LONGVARCHAR}, #{warmoper,jdbcType=LONGVARCHAR}, #{content,jdbcType=LONGVARCHAR}, 
-      #{updateflag,jdbcType=LONGVARCHAR})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbWorkreportlog">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbWorkreportlog">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbWorkreportlog">
-    insert into db_workreportlog
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        SEQUENCEID,
-      </if>
-      <if test="workattributeid != null">
-        WORKATTRIBUTEID,
-      </if>
-      <if test="workmouldid != null">
-        WORKMOULDID,
-      </if>
-      <if test="createoper != null">
-        CREATEOPER,
-      </if>
-      <if test="createtime != null">
-        CREATETIME,
-      </if>
-      <if test="opertime != null">
-        OPERTIME,
-      </if>
-      <if test="flag != null">
-        FLAG,
-      </if>
-      <if test="corpid != null">
-        CORPID,
-      </if>
-      <if test="openflag != null">
-        OPENFLAG,
-      </if>
-      <if test="oper != null">
-        OPER,
-      </if>
-      <if test="status != null">
-        'STATUS',
-      </if>
-      <if test="protocoltime1 != null">
-        PROTOCOLTIME1,
-      </if>
-      <if test="protocoltime2 != null">
-        PROTOCOLTIME2,
-      </if>
-      <if test="sid != null">
-        SID,
-      </if>
-      <if test="title != null">
-        TITLE,
-      </if>
-      <if test="workmould != null">
-        WORKMOULD,
-      </if>
-      <if test="work1 != null">
-        WORK1,
-      </if>
-      <if test="work2 != null">
-        WORK2,
-      </if>
-      <if test="work3 != null">
-        WORK3,
-      </if>
-      <if test="work4 != null">
-        WORK4,
-      </if>
-      <if test="work5 != null">
-        WORK5,
-      </if>
-      <if test="work6 != null">
-        WORK6,
-      </if>
-      <if test="warmoper != null">
-        WARMOPER,
-      </if>
-      <if test="content != null">
-        CONTENT,
-      </if>
-      <if test="updateflag != null">
-        UPDATEFLAG,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        #{sequenceid,jdbcType=VARCHAR},
-      </if>
-      <if test="workattributeid != null">
-        #{workattributeid,jdbcType=DECIMAL},
-      </if>
-      <if test="workmouldid != null">
-        #{workmouldid,jdbcType=DECIMAL},
-      </if>
-      <if test="createoper != null">
-        #{createoper,jdbcType=VARCHAR},
-      </if>
-      <if test="createtime != null">
-        #{createtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="opertime != null">
-        #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="flag != null">
-        #{flag,jdbcType=DECIMAL},
-      </if>
-      <if test="corpid != null">
-        #{corpid,jdbcType=VARCHAR},
-      </if>
-      <if test="openflag != null">
-        #{openflag,jdbcType=DECIMAL},
-      </if>
-      <if test="oper != null">
-        #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="status != null">
-        #{status,jdbcType=DECIMAL},
-      </if>
-      <if test="protocoltime1 != null">
-        #{protocoltime1,jdbcType=VARCHAR},
-      </if>
-      <if test="protocoltime2 != null">
-        #{protocoltime2,jdbcType=VARCHAR},
-      </if>
-      <if test="sid != null">
-        #{sid,jdbcType=DECIMAL},
-      </if>
-      <if test="title != null">
-        #{title,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="workmould != null">
-        #{workmould,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="work1 != null">
-        #{work1,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="work2 != null">
-        #{work2,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="work3 != null">
-        #{work3,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="work4 != null">
-        #{work4,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="work5 != null">
-        #{work5,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="work6 != null">
-        #{work6,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="warmoper != null">
-        #{warmoper,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="content != null">
-        #{content,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="updateflag != null">
-        #{updateflag,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbWorkreportlog">
-    update db_workreportlog
-    <set>
-      <if test="workattributeid != null">
-        WORKATTRIBUTEID = #{workattributeid,jdbcType=DECIMAL},
-      </if>
-      <if test="workmouldid != null">
-        WORKMOULDID = #{workmouldid,jdbcType=DECIMAL},
-      </if>
-      <if test="createoper != null">
-        CREATEOPER = #{createoper,jdbcType=VARCHAR},
-      </if>
-      <if test="createtime != null">
-        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="opertime != null">
-        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="flag != null">
-        FLAG = #{flag,jdbcType=DECIMAL},
-      </if>
-      <if test="corpid != null">
-        CORPID = #{corpid,jdbcType=VARCHAR},
-      </if>
-      <if test="openflag != null">
-        OPENFLAG = #{openflag,jdbcType=DECIMAL},
-      </if>
-      <if test="oper != null">
-        OPER = #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="status != null">
-        'STATUS' = #{status,jdbcType=DECIMAL},
-      </if>
-      <if test="protocoltime1 != null">
-        PROTOCOLTIME1 = #{protocoltime1,jdbcType=VARCHAR},
-      </if>
-      <if test="protocoltime2 != null">
-        PROTOCOLTIME2 = #{protocoltime2,jdbcType=VARCHAR},
-      </if>
-      <if test="sid != null">
-        SID = #{sid,jdbcType=DECIMAL},
-      </if>
-      <if test="title != null">
-        TITLE = #{title,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="workmould != null">
-        WORKMOULD = #{workmould,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="work1 != null">
-        WORK1 = #{work1,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="work2 != null">
-        WORK2 = #{work2,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="work3 != null">
-        WORK3 = #{work3,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="work4 != null">
-        WORK4 = #{work4,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="work5 != null">
-        WORK5 = #{work5,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="work6 != null">
-        WORK6 = #{work6,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="warmoper != null">
-        WARMOPER = #{warmoper,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="content != null">
-        CONTENT = #{content,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="updateflag != null">
-        UPDATEFLAG = #{updateflag,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbWorkreportlog">
-    update db_workreportlog
-    set WORKATTRIBUTEID = #{workattributeid,jdbcType=DECIMAL},
-      WORKMOULDID = #{workmouldid,jdbcType=DECIMAL},
-      CREATEOPER = #{createoper,jdbcType=VARCHAR},
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      FLAG = #{flag,jdbcType=DECIMAL},
-      CORPID = #{corpid,jdbcType=VARCHAR},
-      OPENFLAG = #{openflag,jdbcType=DECIMAL},
-      OPER = #{oper,jdbcType=VARCHAR},
-      'STATUS' = #{status,jdbcType=DECIMAL},
-      PROTOCOLTIME1 = #{protocoltime1,jdbcType=VARCHAR},
-      PROTOCOLTIME2 = #{protocoltime2,jdbcType=VARCHAR},
-      SID = #{sid,jdbcType=DECIMAL},
-      TITLE = #{title,jdbcType=LONGVARCHAR},
-      WORKMOULD = #{workmould,jdbcType=LONGVARCHAR},
-      WORK1 = #{work1,jdbcType=LONGVARCHAR},
-      WORK2 = #{work2,jdbcType=LONGVARCHAR},
-      WORK3 = #{work3,jdbcType=LONGVARCHAR},
-      WORK4 = #{work4,jdbcType=LONGVARCHAR},
-      WORK5 = #{work5,jdbcType=LONGVARCHAR},
-      WORK6 = #{work6,jdbcType=LONGVARCHAR},
-      WARMOPER = #{warmoper,jdbcType=LONGVARCHAR},
-      CONTENT = #{content,jdbcType=LONGVARCHAR},
-      UPDATEFLAG = #{updateflag,jdbcType=LONGVARCHAR}
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbWorkreportlog">
-    update db_workreportlog
-    set WORKATTRIBUTEID = #{workattributeid,jdbcType=DECIMAL},
-      WORKMOULDID = #{workmouldid,jdbcType=DECIMAL},
-      CREATEOPER = #{createoper,jdbcType=VARCHAR},
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      FLAG = #{flag,jdbcType=DECIMAL},
-      CORPID = #{corpid,jdbcType=VARCHAR},
-      OPENFLAG = #{openflag,jdbcType=DECIMAL},
-      OPER = #{oper,jdbcType=VARCHAR},
-      'STATUS' = #{status,jdbcType=DECIMAL},
-      PROTOCOLTIME1 = #{protocoltime1,jdbcType=VARCHAR},
-      PROTOCOLTIME2 = #{protocoltime2,jdbcType=VARCHAR},
-      SID = #{sid,jdbcType=DECIMAL}
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbWorkreportlog">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

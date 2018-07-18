@@ -13,140 +13,123 @@
     <result column="SITE" jdbcType="VARCHAR" property="site" />
     <result column="LASTRUNTIME" jdbcType="DECIMAL" property="lastruntime" />
   </resultMap>
-  <sql id="Base_Column_List">
-    ITEMID, TASKID, ITEMFLAG, OPER, CREATETIME, OPENFLAG, USERID, OPERTIME, SITE, LASTRUNTIME
-  </sql>
   <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from db_shopingtask
+    select ITEMID, TASKID, ITEMFLAG, OPER, CREATETIME, OPENFLAG, USERID, OPERTIME, SITE, 
+    LASTRUNTIME
+    from DB_SHOPINGTASK
     where ITEMID = #{itemid,jdbcType=DECIMAL}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
-    delete from db_shopingtask
-    where ITEMID = #{itemid,jdbcType=DECIMAL}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ITEMID, TASKID, ITEMFLAG, OPER, CREATETIME, OPENFLAG, USERID, OPERTIME, SITE, 
+    LASTRUNTIME
+    from DB_SHOPINGTASK
+  </select>
+  <sql id="TableName">
+    DB_SHOPINGTASK
+  </sql>
+  <sql id="Values">
+     #{itemid,jdbcType=DECIMAL} , 
+     #{taskid,jdbcType=DECIMAL} , 
+     #{itemflag,jdbcType=DECIMAL} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{createtime,jdbcType=TIMESTAMP} , 
+     #{openflag,jdbcType=DECIMAL} , 
+     #{userid,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{site,jdbcType=VARCHAR} , 
+     #{lastruntime,jdbcType=DECIMAL} , 
+  </sql>
+  <sql id="Columns">
+    ITEMID , 
+    TASKID , 
+    ITEMFLAG , 
+    OPER , 
+    CREATETIME , 
+    OPENFLAG , 
+    USERID , 
+    OPERTIME , 
+    SITE , 
+    LASTRUNTIME , 
+  </sql>
+  <sql id="Criteria">
+    <if test="itemid != null">
+      itemid = #{itemid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="taskid != null">
+      taskid = #{taskid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="itemflag != null">
+      itemflag = #{itemflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="userid != null">
+      userid = #{userid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="site != null">
+      site = #{site,jdbcType=VARCHAR} and 
+    </if>
+    <if test="lastruntime != null">
+      lastruntime = #{lastruntime,jdbcType=DECIMAL} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="itemid != null">
+      itemid = #{itemid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="taskid != null">
+      taskid = #{taskid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="itemflag != null">
+      itemflag = #{itemflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="userid != null">
+      userid = #{userid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="site != null">
+      site = #{site,jdbcType=VARCHAR} , 
+    </if>
+    <if test="lastruntime != null">
+      lastruntime = #{lastruntime,jdbcType=DECIMAL} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbShopingtask" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="BigDecimal">
+    delete from <include refid="TableName"/> where ITEMID=#{ITEMID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbShopingtask">
-    insert into db_shopingtask (ITEMID, TASKID, ITEMFLAG, 
-      OPER, CREATETIME, OPENFLAG, 
-      USERID, OPERTIME, SITE, 
-      LASTRUNTIME)
-    values (#{itemid,jdbcType=DECIMAL}, #{taskid,jdbcType=DECIMAL}, #{itemflag,jdbcType=DECIMAL}, 
-      #{oper,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{openflag,jdbcType=DECIMAL}, 
-      #{userid,jdbcType=VARCHAR}, #{opertime,jdbcType=TIMESTAMP}, #{site,jdbcType=VARCHAR}, 
-      #{lastruntime,jdbcType=DECIMAL})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbShopingtask">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbShopingtask">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbShopingtask">
-    insert into db_shopingtask
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="itemid != null">
-        ITEMID,
-      </if>
-      <if test="taskid != null">
-        TASKID,
-      </if>
-      <if test="itemflag != null">
-        ITEMFLAG,
-      </if>
-      <if test="oper != null">
-        OPER,
-      </if>
-      <if test="createtime != null">
-        CREATETIME,
-      </if>
-      <if test="openflag != null">
-        OPENFLAG,
-      </if>
-      <if test="userid != null">
-        USERID,
-      </if>
-      <if test="opertime != null">
-        OPERTIME,
-      </if>
-      <if test="site != null">
-        SITE,
-      </if>
-      <if test="lastruntime != null">
-        LASTRUNTIME,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="itemid != null">
-        #{itemid,jdbcType=DECIMAL},
-      </if>
-      <if test="taskid != null">
-        #{taskid,jdbcType=DECIMAL},
-      </if>
-      <if test="itemflag != null">
-        #{itemflag,jdbcType=DECIMAL},
-      </if>
-      <if test="oper != null">
-        #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="createtime != null">
-        #{createtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="openflag != null">
-        #{openflag,jdbcType=DECIMAL},
-      </if>
-      <if test="userid != null">
-        #{userid,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="site != null">
-        #{site,jdbcType=VARCHAR},
-      </if>
-      <if test="lastruntime != null">
-        #{lastruntime,jdbcType=DECIMAL},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbShopingtask">
-    update db_shopingtask
-    <set>
-      <if test="taskid != null">
-        TASKID = #{taskid,jdbcType=DECIMAL},
-      </if>
-      <if test="itemflag != null">
-        ITEMFLAG = #{itemflag,jdbcType=DECIMAL},
-      </if>
-      <if test="oper != null">
-        OPER = #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="createtime != null">
-        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="openflag != null">
-        OPENFLAG = #{openflag,jdbcType=DECIMAL},
-      </if>
-      <if test="userid != null">
-        USERID = #{userid,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="site != null">
-        SITE = #{site,jdbcType=VARCHAR},
-      </if>
-      <if test="lastruntime != null">
-        LASTRUNTIME = #{lastruntime,jdbcType=DECIMAL},
-      </if>
-    </set>
-    where ITEMID = #{itemid,jdbcType=DECIMAL}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbShopingtask">
-    update db_shopingtask
-    set TASKID = #{taskid,jdbcType=DECIMAL},
-      ITEMFLAG = #{itemflag,jdbcType=DECIMAL},
-      OPER = #{oper,jdbcType=VARCHAR},
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
-      OPENFLAG = #{openflag,jdbcType=DECIMAL},
-      USERID = #{userid,jdbcType=VARCHAR},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      SITE = #{site,jdbcType=VARCHAR},
-      LASTRUNTIME = #{lastruntime,jdbcType=DECIMAL}
-    where ITEMID = #{itemid,jdbcType=DECIMAL}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbShopingtask">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

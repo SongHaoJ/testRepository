@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbBirdseller;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbBirdsellerMapper {
-    int deleteByPrimaryKey(String sid);
+    DbBirdseller selectByCriteria(DbBirdseller DbBirdseller);
 
-    int insert(DbBirdseller record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbBirdseller record);
+    void deleteByCriteria(DbBirdseller DbBirdseller);
+
+    int insertByCriteria(DbBirdseller DbBirdseller);
+
+    int updateByCriteria(DbBirdseller DbBirdseller);
 
     DbBirdseller selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbBirdseller record);
-
-    int updateByPrimaryKey(DbBirdseller record);
+    List<DbBirdseller> selectAll();
 }

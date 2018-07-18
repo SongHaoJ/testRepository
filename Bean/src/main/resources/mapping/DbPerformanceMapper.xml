@@ -6,216 +6,166 @@
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
     <result column="POINT" jdbcType="DECIMAL" property="point" />
     <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="DESCR" jdbcType="VARCHAR" property="descr" />
     <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
     <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
     <result column="STATUS" jdbcType="DECIMAL" property="status" />
     <result column="OPERID" jdbcType="DECIMAL" property="operid" />
+    <result column="POINTDESCR" jdbcType="VARCHAR" property="pointdescr" />
     <result column="GROUPID" jdbcType="VARCHAR" property="groupid" />
     <result column="CREATEOPER" jdbcType="VARCHAR" property="createoper" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
     <result column="ALERTFLAG" jdbcType="DECIMAL" property="alertflag" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbPerformance">
-    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
-    <result column="POINTDESCR" jdbcType="LONGVARCHAR" property="pointdescr" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    SEQUENCEID, OPER, POINT, CREATETIME, CORPID, OPENFLAG, 'STATUS', OPERID, GROUPID, 
-    CREATEOPER, OPERTIME, ALERTFLAG
-  </sql>
-  <sql id="Blob_Column_List">
-    DESCR, POINTDESCR
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="ResultMapWithBLOBs">
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from db_performance
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select SEQUENCEID, OPER, POINT, CREATETIME, DESCR, CORPID, OPENFLAG, STATUS, OPERID, 
+    POINTDESCR, GROUPID, CREATEOPER, OPERTIME, ALERTFLAG
+    from DB_PERFORMANCE
     where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
-    delete from db_performance
-    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, OPER, POINT, CREATETIME, DESCR, CORPID, OPENFLAG, STATUS, OPERID, 
+    POINTDESCR, GROUPID, CREATEOPER, OPERTIME, ALERTFLAG
+    from DB_PERFORMANCE
+  </select>
+  <sql id="TableName">
+    DB_PERFORMANCE
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=DECIMAL} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{point,jdbcType=DECIMAL} , 
+     #{createtime,jdbcType=TIMESTAMP} , 
+     #{descr,jdbcType=VARCHAR} , 
+     #{corpid,jdbcType=VARCHAR} , 
+     #{openflag,jdbcType=VARCHAR} , 
+     #{status,jdbcType=DECIMAL} , 
+     #{operid,jdbcType=DECIMAL} , 
+     #{pointdescr,jdbcType=VARCHAR} , 
+     #{groupid,jdbcType=VARCHAR} , 
+     #{createoper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{alertflag,jdbcType=DECIMAL} , 
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    OPER , 
+    POINT , 
+    CREATETIME , 
+    DESCR , 
+    CORPID , 
+    OPENFLAG , 
+    STATUS , 
+    OPERID , 
+    POINTDESCR , 
+    GROUPID , 
+    CREATEOPER , 
+    OPERTIME , 
+    ALERTFLAG , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="point != null">
+      point = #{point,jdbcType=DECIMAL} and 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="descr != null">
+      descr = #{descr,jdbcType=VARCHAR} and 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="status != null">
+      status = #{status,jdbcType=DECIMAL} and 
+    </if>
+    <if test="operid != null">
+      operid = #{operid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="pointdescr != null">
+      pointdescr = #{pointdescr,jdbcType=VARCHAR} and 
+    </if>
+    <if test="groupid != null">
+      groupid = #{groupid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="createoper != null">
+      createoper = #{createoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="alertflag != null">
+      alertflag = #{alertflag,jdbcType=DECIMAL} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="point != null">
+      point = #{point,jdbcType=DECIMAL} , 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="descr != null">
+      descr = #{descr,jdbcType=VARCHAR} , 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="status != null">
+      status = #{status,jdbcType=DECIMAL} , 
+    </if>
+    <if test="operid != null">
+      operid = #{operid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="pointdescr != null">
+      pointdescr = #{pointdescr,jdbcType=VARCHAR} , 
+    </if>
+    <if test="groupid != null">
+      groupid = #{groupid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="createoper != null">
+      createoper = #{createoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="alertflag != null">
+      alertflag = #{alertflag,jdbcType=DECIMAL} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbPerformance" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="BigDecimal">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbPerformance">
-    insert into db_performance (SEQUENCEID, OPER, POINT, 
-      CREATETIME, CORPID, OPENFLAG, 
-      'STATUS', OPERID, GROUPID, 
-      CREATEOPER, OPERTIME, ALERTFLAG, 
-      DESCR, POINTDESCR)
-    values (#{sequenceid,jdbcType=DECIMAL}, #{oper,jdbcType=VARCHAR}, #{point,jdbcType=DECIMAL}, 
-      #{createtime,jdbcType=TIMESTAMP}, #{corpid,jdbcType=VARCHAR}, #{openflag,jdbcType=VARCHAR}, 
-      #{status,jdbcType=DECIMAL}, #{operid,jdbcType=DECIMAL}, #{groupid,jdbcType=VARCHAR}, 
-      #{createoper,jdbcType=VARCHAR}, #{opertime,jdbcType=TIMESTAMP}, #{alertflag,jdbcType=DECIMAL}, 
-      #{descr,jdbcType=LONGVARCHAR}, #{pointdescr,jdbcType=LONGVARCHAR})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbPerformance">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbPerformance">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbPerformance">
-    insert into db_performance
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        SEQUENCEID,
-      </if>
-      <if test="oper != null">
-        OPER,
-      </if>
-      <if test="point != null">
-        POINT,
-      </if>
-      <if test="createtime != null">
-        CREATETIME,
-      </if>
-      <if test="corpid != null">
-        CORPID,
-      </if>
-      <if test="openflag != null">
-        OPENFLAG,
-      </if>
-      <if test="status != null">
-        'STATUS',
-      </if>
-      <if test="operid != null">
-        OPERID,
-      </if>
-      <if test="groupid != null">
-        GROUPID,
-      </if>
-      <if test="createoper != null">
-        CREATEOPER,
-      </if>
-      <if test="opertime != null">
-        OPERTIME,
-      </if>
-      <if test="alertflag != null">
-        ALERTFLAG,
-      </if>
-      <if test="descr != null">
-        DESCR,
-      </if>
-      <if test="pointdescr != null">
-        POINTDESCR,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        #{sequenceid,jdbcType=DECIMAL},
-      </if>
-      <if test="oper != null">
-        #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="point != null">
-        #{point,jdbcType=DECIMAL},
-      </if>
-      <if test="createtime != null">
-        #{createtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="corpid != null">
-        #{corpid,jdbcType=VARCHAR},
-      </if>
-      <if test="openflag != null">
-        #{openflag,jdbcType=VARCHAR},
-      </if>
-      <if test="status != null">
-        #{status,jdbcType=DECIMAL},
-      </if>
-      <if test="operid != null">
-        #{operid,jdbcType=DECIMAL},
-      </if>
-      <if test="groupid != null">
-        #{groupid,jdbcType=VARCHAR},
-      </if>
-      <if test="createoper != null">
-        #{createoper,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="alertflag != null">
-        #{alertflag,jdbcType=DECIMAL},
-      </if>
-      <if test="descr != null">
-        #{descr,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="pointdescr != null">
-        #{pointdescr,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbPerformance">
-    update db_performance
-    <set>
-      <if test="oper != null">
-        OPER = #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="point != null">
-        POINT = #{point,jdbcType=DECIMAL},
-      </if>
-      <if test="createtime != null">
-        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="corpid != null">
-        CORPID = #{corpid,jdbcType=VARCHAR},
-      </if>
-      <if test="openflag != null">
-        OPENFLAG = #{openflag,jdbcType=VARCHAR},
-      </if>
-      <if test="status != null">
-        'STATUS' = #{status,jdbcType=DECIMAL},
-      </if>
-      <if test="operid != null">
-        OPERID = #{operid,jdbcType=DECIMAL},
-      </if>
-      <if test="groupid != null">
-        GROUPID = #{groupid,jdbcType=VARCHAR},
-      </if>
-      <if test="createoper != null">
-        CREATEOPER = #{createoper,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="alertflag != null">
-        ALERTFLAG = #{alertflag,jdbcType=DECIMAL},
-      </if>
-      <if test="descr != null">
-        DESCR = #{descr,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="pointdescr != null">
-        POINTDESCR = #{pointdescr,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbPerformance">
-    update db_performance
-    set OPER = #{oper,jdbcType=VARCHAR},
-      POINT = #{point,jdbcType=DECIMAL},
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
-      CORPID = #{corpid,jdbcType=VARCHAR},
-      OPENFLAG = #{openflag,jdbcType=VARCHAR},
-      'STATUS' = #{status,jdbcType=DECIMAL},
-      OPERID = #{operid,jdbcType=DECIMAL},
-      GROUPID = #{groupid,jdbcType=VARCHAR},
-      CREATEOPER = #{createoper,jdbcType=VARCHAR},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      ALERTFLAG = #{alertflag,jdbcType=DECIMAL},
-      DESCR = #{descr,jdbcType=LONGVARCHAR},
-      POINTDESCR = #{pointdescr,jdbcType=LONGVARCHAR}
-    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbPerformance">
-    update db_performance
-    set OPER = #{oper,jdbcType=VARCHAR},
-      POINT = #{point,jdbcType=DECIMAL},
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
-      CORPID = #{corpid,jdbcType=VARCHAR},
-      OPENFLAG = #{openflag,jdbcType=VARCHAR},
-      'STATUS' = #{status,jdbcType=DECIMAL},
-      OPERID = #{operid,jdbcType=DECIMAL},
-      GROUPID = #{groupid,jdbcType=VARCHAR},
-      CREATEOPER = #{createoper,jdbcType=VARCHAR},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      ALERTFLAG = #{alertflag,jdbcType=DECIMAL}
-    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbPerformance">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

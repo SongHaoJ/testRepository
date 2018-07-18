@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbBeiubuser;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbBeiubuserMapper {
-    int deleteByPrimaryKey(String sid);
+    DbBeiubuser selectByCriteria(DbBeiubuser DbBeiubuser);
 
-    int insert(DbBeiubuser record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbBeiubuser record);
+    void deleteByCriteria(DbBeiubuser DbBeiubuser);
+
+    int insertByCriteria(DbBeiubuser DbBeiubuser);
+
+    int updateByCriteria(DbBeiubuser DbBeiubuser);
 
     DbBeiubuser selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbBeiubuser record);
-
-    int updateByPrimaryKey(DbBeiubuser record);
+    List<DbBeiubuser> selectAll();
 }

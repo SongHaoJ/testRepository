@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbDepartmentapi;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbDepartmentapiMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbDepartmentapi selectByCriteria(DbDepartmentapi DbDepartmentapi);
 
-    int insert(DbDepartmentapi record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbDepartmentapi record);
+    void deleteByCriteria(DbDepartmentapi DbDepartmentapi);
+
+    int insertByCriteria(DbDepartmentapi DbDepartmentapi);
+
+    int updateByCriteria(DbDepartmentapi DbDepartmentapi);
 
     DbDepartmentapi selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbDepartmentapi record);
-
-    int updateByPrimaryKeyWithBLOBs(DbDepartmentapi record);
-
-    int updateByPrimaryKey(DbDepartmentapi record);
+    List<DbDepartmentapi> selectAll();
 }

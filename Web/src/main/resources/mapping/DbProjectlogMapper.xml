@@ -4,154 +4,154 @@
   <resultMap id="BaseResultMap" type="com.bean.model.DbProjectlog">
     <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
     <result column="PROJECTID" jdbcType="VARCHAR" property="projectid" />
+    <result column="PROJECTNAME" jdbcType="VARCHAR" property="projectname" />
+    <result column="PRODUCTID" jdbcType="VARCHAR" property="productid" />
+    <result column="PRODUCTNAME" jdbcType="VARCHAR" property="productname" />
     <result column="OPERTYPE" jdbcType="VARCHAR" property="opertype" />
+    <result column="CONTENT" jdbcType="VARCHAR" property="content" />
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
     <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
-    <result column="PROJECTNAME" jdbcType="LONGVARCHAR" property="projectname" />
-    <result column="PRODUCTID" jdbcType="LONGVARCHAR" property="productid" />
-    <result column="PRODUCTNAME" jdbcType="LONGVARCHAR" property="productname" />
-    <result column="CONTENT" jdbcType="LONGVARCHAR" property="content" />
-    <result column="RESERVE1" jdbcType="LONGVARCHAR" property="reserve1" />
-    <result column="RESERVE2" jdbcType="LONGVARCHAR" property="reserve2" />
-    <result column="RESERVE3" jdbcType="LONGVARCHAR" property="reserve3" />
-    <result column="RESERVE4" jdbcType="LONGVARCHAR" property="reserve4" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
+    <result column="RESERVE4" jdbcType="VARCHAR" property="reserve4" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select SEQUENCEID, PROJECTID, OPERTYPE, OPER, OPERTIME, CORPID, PROJECTNAME, PRODUCTID, 
-    PRODUCTNAME, CONTENT, RESERVE1, RESERVE2, RESERVE3, RESERVE4
-    from db_projectlog
+    select SEQUENCEID, PROJECTID, PROJECTNAME, PRODUCTID, PRODUCTNAME, OPERTYPE, CONTENT, 
+    OPER, OPERTIME, CORPID, RESERVE1, RESERVE2, RESERVE3, RESERVE4
+    from DB_PROJECTLOG
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select SEQUENCEID, PROJECTID, OPERTYPE, OPER, OPERTIME, CORPID, PROJECTNAME, PRODUCTID, 
-    PRODUCTNAME, CONTENT, RESERVE1, RESERVE2, RESERVE3, RESERVE4
-    from db_projectlog
+    select SEQUENCEID, PROJECTID, PROJECTNAME, PRODUCTID, PRODUCTNAME, OPERTYPE, CONTENT, 
+    OPER, OPERTIME, CORPID, RESERVE1, RESERVE2, RESERVE3, RESERVE4
+    from DB_PROJECTLOG
   </select>
   <sql id="TableName">
-    db_projectlog
+    DB_PROJECTLOG
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=VARCHAR} , 
      #{projectid,jdbcType=VARCHAR} , 
+     #{projectname,jdbcType=VARCHAR} , 
+     #{productid,jdbcType=VARCHAR} , 
+     #{productname,jdbcType=VARCHAR} , 
      #{opertype,jdbcType=VARCHAR} , 
+     #{content,jdbcType=VARCHAR} , 
      #{oper,jdbcType=VARCHAR} , 
      #{opertime,jdbcType=TIMESTAMP} , 
      #{corpid,jdbcType=VARCHAR} , 
-     #{projectname,jdbcType=LONGVARCHAR} , 
-     #{productid,jdbcType=LONGVARCHAR} , 
-     #{productname,jdbcType=LONGVARCHAR} , 
-     #{content,jdbcType=LONGVARCHAR} , 
-     #{reserve1,jdbcType=LONGVARCHAR} , 
-     #{reserve2,jdbcType=LONGVARCHAR} , 
-     #{reserve3,jdbcType=LONGVARCHAR} , 
-     #{reserve4,jdbcType=LONGVARCHAR}
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+     #{reserve3,jdbcType=VARCHAR} , 
+     #{reserve4,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
     PROJECTID , 
-    OPERTYPE , 
-    OPER , 
-    OPERTIME , 
-    CORPID , 
     PROJECTNAME , 
     PRODUCTID , 
     PRODUCTNAME , 
+    OPERTYPE , 
     CONTENT , 
+    OPER , 
+    OPERTIME , 
+    CORPID , 
     RESERVE1 , 
     RESERVE2 , 
     RESERVE3 , 
-    RESERVE4
+    RESERVE4 , 
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
     </if>
     <if test="projectid != null">
-      PROJECTID = #{projectid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="opertype != null">
-      OPERTYPE = #{opertype,jdbcType=VARCHAR} and 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} and 
+      projectid = #{projectid,jdbcType=VARCHAR} and 
     </if>
     <if test="projectname != null">
-      PROJECTNAME = #{projectname,jdbcType=LONGVARCHAR} and 
+      projectname = #{projectname,jdbcType=VARCHAR} and 
     </if>
     <if test="productid != null">
-      PRODUCTID = #{productid,jdbcType=LONGVARCHAR} and 
+      productid = #{productid,jdbcType=VARCHAR} and 
     </if>
     <if test="productname != null">
-      PRODUCTNAME = #{productname,jdbcType=LONGVARCHAR} and 
+      productname = #{productname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertype != null">
+      opertype = #{opertype,jdbcType=VARCHAR} and 
     </if>
     <if test="content != null">
-      CONTENT = #{content,jdbcType=LONGVARCHAR} and 
+      content = #{content,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR} and 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR} and 
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR} and 
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=LONGVARCHAR}
+      reserve4 = #{reserve4,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
     </if>
     <if test="projectid != null">
-      PROJECTID = #{projectid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="opertype != null">
-      OPERTYPE = #{opertype,jdbcType=VARCHAR} , 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} , 
+      projectid = #{projectid,jdbcType=VARCHAR} , 
     </if>
     <if test="projectname != null">
-      PROJECTNAME = #{projectname,jdbcType=LONGVARCHAR} , 
+      projectname = #{projectname,jdbcType=VARCHAR} , 
     </if>
     <if test="productid != null">
-      PRODUCTID = #{productid,jdbcType=LONGVARCHAR} , 
+      productid = #{productid,jdbcType=VARCHAR} , 
     </if>
     <if test="productname != null">
-      PRODUCTNAME = #{productname,jdbcType=LONGVARCHAR} , 
+      productname = #{productname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertype != null">
+      opertype = #{opertype,jdbcType=VARCHAR} , 
     </if>
     <if test="content != null">
-      CONTENT = #{content,jdbcType=LONGVARCHAR} , 
+      content = #{content,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR} , 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR} , 
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR} , 
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=LONGVARCHAR}
+      reserve4 = #{reserve4,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbProjectlog" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

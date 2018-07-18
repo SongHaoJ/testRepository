@@ -12,6 +12,8 @@ public class DbForumlist implements Serializable {
 
     private String parentid;
 
+    private String descr;
+
     private String openflag;
 
     private String oper;
@@ -27,8 +29,6 @@ public class DbForumlist implements Serializable {
     private String reserve4;
 
     private String reserve5;
-
-    private String descr;
 
     private static final long serialVersionUID = 1L;
 
@@ -62,6 +62,14 @@ public class DbForumlist implements Serializable {
 
     public void setParentid(String parentid) {
         this.parentid = parentid == null ? null : parentid.trim();
+    }
+
+    public String getDescr() {
+        return descr;
+    }
+
+    public void setDescr(String descr) {
+        this.descr = descr == null ? null : descr.trim();
     }
 
     public String getOpenflag() {
@@ -128,14 +136,6 @@ public class DbForumlist implements Serializable {
         this.reserve5 = reserve5 == null ? null : reserve5.trim();
     }
 
-    public String getDescr() {
-        return descr;
-    }
-
-    public void setDescr(String descr) {
-        this.descr = descr == null ? null : descr.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -152,6 +152,7 @@ public class DbForumlist implements Serializable {
             && (this.getForumname() == null ? other.getForumname() == null : this.getForumname().equals(other.getForumname()))
             && (this.getIfparent() == null ? other.getIfparent() == null : this.getIfparent().equals(other.getIfparent()))
             && (this.getParentid() == null ? other.getParentid() == null : this.getParentid().equals(other.getParentid()))
+            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
             && (this.getOpenflag() == null ? other.getOpenflag() == null : this.getOpenflag().equals(other.getOpenflag()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
@@ -159,8 +160,7 @@ public class DbForumlist implements Serializable {
             && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
             && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
             && (this.getReserve4() == null ? other.getReserve4() == null : this.getReserve4().equals(other.getReserve4()))
-            && (this.getReserve5() == null ? other.getReserve5() == null : this.getReserve5().equals(other.getReserve5()))
-            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()));
+            && (this.getReserve5() == null ? other.getReserve5() == null : this.getReserve5().equals(other.getReserve5()));
     }
 
     @Override
@@ -171,6 +171,7 @@ public class DbForumlist implements Serializable {
         result = prime * result + ((getForumname() == null) ? 0 : getForumname().hashCode());
         result = prime * result + ((getIfparent() == null) ? 0 : getIfparent().hashCode());
         result = prime * result + ((getParentid() == null) ? 0 : getParentid().hashCode());
+        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
         result = prime * result + ((getOpenflag() == null) ? 0 : getOpenflag().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
@@ -179,7 +180,6 @@ public class DbForumlist implements Serializable {
         result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
         result = prime * result + ((getReserve4() == null) ? 0 : getReserve4().hashCode());
         result = prime * result + ((getReserve5() == null) ? 0 : getReserve5().hashCode());
-        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
         return result;
     }
 
@@ -193,6 +193,7 @@ public class DbForumlist implements Serializable {
         sb.append(", forumname=").append(forumname);
         sb.append(", ifparent=").append(ifparent);
         sb.append(", parentid=").append(parentid);
+        sb.append(", descr=").append(descr);
         sb.append(", openflag=").append(openflag);
         sb.append(", oper=").append(oper);
         sb.append(", opertime=").append(opertime);
@@ -201,7 +202,6 @@ public class DbForumlist implements Serializable {
         sb.append(", reserve3=").append(reserve3);
         sb.append(", reserve4=").append(reserve4);
         sb.append(", reserve5=").append(reserve5);
-        sb.append(", descr=").append(descr);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

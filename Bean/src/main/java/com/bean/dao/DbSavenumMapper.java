@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbSavenum;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbSavenumMapper {
-    int deleteByPrimaryKey(String sku);
+    DbSavenum selectByCriteria(DbSavenum DbSavenum);
 
-    int insert(DbSavenum record);
+    void deleteByPrimaryKey(String SKU);
 
-    int insertSelective(DbSavenum record);
+    void deleteByCriteria(DbSavenum DbSavenum);
+
+    int insertByCriteria(DbSavenum DbSavenum);
+
+    int updateByCriteria(DbSavenum DbSavenum);
 
     DbSavenum selectByPrimaryKey(String sku);
 
-    int updateByPrimaryKeySelective(DbSavenum record);
-
-    int updateByPrimaryKey(DbSavenum record);
+    List<DbSavenum> selectAll();
 }

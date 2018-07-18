@@ -14,151 +14,131 @@
     <result column="RESERVE4" jdbcType="DECIMAL" property="reserve4" />
     <result column="RESERVE5" jdbcType="DECIMAL" property="reserve5" />
   </resultMap>
-  <sql id="Base_Column_List">
-    SEQUENCEID, CLASSNAME, AVGSELLNUM1, AVGSELLNUM2, OPER, OPERTIME, RESERVE1, RESERVE2, 
-    RESERVE3, RESERVE4, RESERVE5
-  </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from db_productclass
+    select SEQUENCEID, CLASSNAME, AVGSELLNUM1, AVGSELLNUM2, OPER, OPERTIME, RESERVE1, 
+    RESERVE2, RESERVE3, RESERVE4, RESERVE5
+    from DB_PRODUCTCLASS
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_productclass
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, CLASSNAME, AVGSELLNUM1, AVGSELLNUM2, OPER, OPERTIME, RESERVE1, 
+    RESERVE2, RESERVE3, RESERVE4, RESERVE5
+    from DB_PRODUCTCLASS
+  </select>
+  <sql id="TableName">
+    DB_PRODUCTCLASS
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=VARCHAR} , 
+     #{classname,jdbcType=VARCHAR} , 
+     #{avgsellnum1,jdbcType=DECIMAL} , 
+     #{avgsellnum2,jdbcType=DECIMAL} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+     #{reserve3,jdbcType=VARCHAR} , 
+     #{reserve4,jdbcType=DECIMAL} , 
+     #{reserve5,jdbcType=DECIMAL} , 
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    CLASSNAME , 
+    AVGSELLNUM1 , 
+    AVGSELLNUM2 , 
+    OPER , 
+    OPERTIME , 
+    RESERVE1 , 
+    RESERVE2 , 
+    RESERVE3 , 
+    RESERVE4 , 
+    RESERVE5 , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="classname != null">
+      classname = #{classname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="avgsellnum1 != null">
+      avgsellnum1 = #{avgsellnum1,jdbcType=DECIMAL} and 
+    </if>
+    <if test="avgsellnum2 != null">
+      avgsellnum2 = #{avgsellnum2,jdbcType=DECIMAL} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=DECIMAL} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="classname != null">
+      classname = #{classname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="avgsellnum1 != null">
+      avgsellnum1 = #{avgsellnum1,jdbcType=DECIMAL} , 
+    </if>
+    <if test="avgsellnum2 != null">
+      avgsellnum2 = #{avgsellnum2,jdbcType=DECIMAL} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=DECIMAL} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbProductclass" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbProductclass">
-    insert into db_productclass (SEQUENCEID, CLASSNAME, AVGSELLNUM1, 
-      AVGSELLNUM2, OPER, OPERTIME, 
-      RESERVE1, RESERVE2, RESERVE3, 
-      RESERVE4, RESERVE5)
-    values (#{sequenceid,jdbcType=VARCHAR}, #{classname,jdbcType=VARCHAR}, #{avgsellnum1,jdbcType=DECIMAL}, 
-      #{avgsellnum2,jdbcType=DECIMAL}, #{oper,jdbcType=VARCHAR}, #{opertime,jdbcType=TIMESTAMP}, 
-      #{reserve1,jdbcType=VARCHAR}, #{reserve2,jdbcType=VARCHAR}, #{reserve3,jdbcType=VARCHAR}, 
-      #{reserve4,jdbcType=DECIMAL}, #{reserve5,jdbcType=DECIMAL})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbProductclass">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbProductclass">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbProductclass">
-    insert into db_productclass
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        SEQUENCEID,
-      </if>
-      <if test="classname != null">
-        CLASSNAME,
-      </if>
-      <if test="avgsellnum1 != null">
-        AVGSELLNUM1,
-      </if>
-      <if test="avgsellnum2 != null">
-        AVGSELLNUM2,
-      </if>
-      <if test="oper != null">
-        OPER,
-      </if>
-      <if test="opertime != null">
-        OPERTIME,
-      </if>
-      <if test="reserve1 != null">
-        RESERVE1,
-      </if>
-      <if test="reserve2 != null">
-        RESERVE2,
-      </if>
-      <if test="reserve3 != null">
-        RESERVE3,
-      </if>
-      <if test="reserve4 != null">
-        RESERVE4,
-      </if>
-      <if test="reserve5 != null">
-        RESERVE5,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        #{sequenceid,jdbcType=VARCHAR},
-      </if>
-      <if test="classname != null">
-        #{classname,jdbcType=VARCHAR},
-      </if>
-      <if test="avgsellnum1 != null">
-        #{avgsellnum1,jdbcType=DECIMAL},
-      </if>
-      <if test="avgsellnum2 != null">
-        #{avgsellnum2,jdbcType=DECIMAL},
-      </if>
-      <if test="oper != null">
-        #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="reserve1 != null">
-        #{reserve1,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve2 != null">
-        #{reserve2,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve3 != null">
-        #{reserve3,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve4 != null">
-        #{reserve4,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve5 != null">
-        #{reserve5,jdbcType=DECIMAL},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbProductclass">
-    update db_productclass
-    <set>
-      <if test="classname != null">
-        CLASSNAME = #{classname,jdbcType=VARCHAR},
-      </if>
-      <if test="avgsellnum1 != null">
-        AVGSELLNUM1 = #{avgsellnum1,jdbcType=DECIMAL},
-      </if>
-      <if test="avgsellnum2 != null">
-        AVGSELLNUM2 = #{avgsellnum2,jdbcType=DECIMAL},
-      </if>
-      <if test="oper != null">
-        OPER = #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="reserve1 != null">
-        RESERVE1 = #{reserve1,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve2 != null">
-        RESERVE2 = #{reserve2,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve3 != null">
-        RESERVE3 = #{reserve3,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve4 != null">
-        RESERVE4 = #{reserve4,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve5 != null">
-        RESERVE5 = #{reserve5,jdbcType=DECIMAL},
-      </if>
-    </set>
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbProductclass">
-    update db_productclass
-    set CLASSNAME = #{classname,jdbcType=VARCHAR},
-      AVGSELLNUM1 = #{avgsellnum1,jdbcType=DECIMAL},
-      AVGSELLNUM2 = #{avgsellnum2,jdbcType=DECIMAL},
-      OPER = #{oper,jdbcType=VARCHAR},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR},
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR},
-      RESERVE4 = #{reserve4,jdbcType=DECIMAL},
-      RESERVE5 = #{reserve5,jdbcType=DECIMAL}
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbProductclass">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

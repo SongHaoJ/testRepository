@@ -2,8 +2,8 @@ package com.bean.dao;
 
 import com.bean.model.DbSfccounty;
 
-public interface DbSfccountyMapper {
-    int insert(DbSfccounty record);
+import java.util.List;
 
-    int insertSelective(DbSfccounty record);
+public interface DbSfccountyMapper {
+    List<DbSfccounty> selectAll();
 }

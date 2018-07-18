@@ -2,153 +2,199 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bean.dao.DbSfcuserMapper">
   <resultMap id="BaseResultMap" type="com.bean.model.DbSfcuser">
-    <result column="USERID" jdbcType="VARCHAR" property="userid" />
+    <id column="USERID" jdbcType="VARCHAR" property="userid" />
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
     <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
+    <result column="TOKEN" jdbcType="VARCHAR" property="token" />
+    <result column="SHIPPERADDRESS" jdbcType="VARCHAR" property="shipperaddress" />
+    <result column="SHIPPERADDRESSTYPE" jdbcType="VARCHAR" property="shipperaddresstype" />
+    <result column="APPKEY" jdbcType="VARCHAR" property="appkey" />
+    <result column="SHIPPERNAME" jdbcType="VARCHAR" property="shippername" />
     <result column="EBAYIDENTIFY" jdbcType="DECIMAL" property="ebayidentify" />
     <result column="OPERFLAG" jdbcType="DECIMAL" property="operflag" />
+    <result column="SHIPPEREMAIL" jdbcType="VARCHAR" property="shipperemail" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="SHIPPERZIPCODE" jdbcType="VARCHAR" property="shipperzipcode" />
+    <result column="SHIPPERPHONE" jdbcType="VARCHAR" property="shipperphone" />
     <result column="ORDERSTATUS" jdbcType="VARCHAR" property="orderstatus" />
     <result column="UPDATEFLAG" jdbcType="DECIMAL" property="updateflag" />
+    <result column="SHIPPERCOMPANYNAME" jdbcType="VARCHAR" property="shippercompanyname" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbSfcuser">
-    <result column="TOKEN" jdbcType="LONGVARCHAR" property="token" />
-    <result column="SHIPPERADDRESS" jdbcType="LONGVARCHAR" property="shipperaddress" />
-    <result column="SHIPPERADDRESSTYPE" jdbcType="LONGVARCHAR" property="shipperaddresstype" />
-    <result column="APPKEY" jdbcType="LONGVARCHAR" property="appkey" />
-    <result column="SHIPPERNAME" jdbcType="LONGVARCHAR" property="shippername" />
-    <result column="SHIPPEREMAIL" jdbcType="LONGVARCHAR" property="shipperemail" />
-    <result column="SHIPPERZIPCODE" jdbcType="LONGVARCHAR" property="shipperzipcode" />
-    <result column="SHIPPERPHONE" jdbcType="LONGVARCHAR" property="shipperphone" />
-    <result column="SHIPPERCOMPANYNAME" jdbcType="LONGVARCHAR" property="shippercompanyname" />
-  </resultMap>
-  <sql id="Blob_Column_List">
-    TOKEN, SHIPPERADDRESS, SHIPPERADDRESSTYPE, APPKEY, SHIPPERNAME, SHIPPEREMAIL, SHIPPERZIPCODE, 
-    SHIPPERPHONE, SHIPPERCOMPANYNAME
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select USERID, OPER, CORPID, TOKEN, SHIPPERADDRESS, SHIPPERADDRESSTYPE, APPKEY, SHIPPERNAME, 
+    EBAYIDENTIFY, OPERFLAG, SHIPPEREMAIL, OPERTIME, SHIPPERZIPCODE, SHIPPERPHONE, ORDERSTATUS, 
+    UPDATEFLAG, SHIPPERCOMPANYNAME
+    from DB_SFCUSER
+    where USERID = #{userid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select USERID, OPER, CORPID, TOKEN, SHIPPERADDRESS, SHIPPERADDRESSTYPE, APPKEY, SHIPPERNAME, 
+    EBAYIDENTIFY, OPERFLAG, SHIPPEREMAIL, OPERTIME, SHIPPERZIPCODE, SHIPPERPHONE, ORDERSTATUS, 
+    UPDATEFLAG, SHIPPERCOMPANYNAME
+    from DB_SFCUSER
+  </select>
+  <sql id="TableName">
+    DB_SFCUSER
   </sql>
-  <insert id="insert" parameterType="com.bean.model.DbSfcuser">
-    insert into db_sfcuser (USERID, OPER, CORPID, 
-      EBAYIDENTIFY, OPERFLAG, OPERTIME, 
-      ORDERSTATUS, UPDATEFLAG, TOKEN, 
-      SHIPPERADDRESS, SHIPPERADDRESSTYPE, 
-      APPKEY, SHIPPERNAME, SHIPPEREMAIL, 
-      SHIPPERZIPCODE, SHIPPERPHONE, SHIPPERCOMPANYNAME
-      )
-    values (#{userid,jdbcType=VARCHAR}, #{oper,jdbcType=VARCHAR}, #{corpid,jdbcType=VARCHAR}, 
-      #{ebayidentify,jdbcType=DECIMAL}, #{operflag,jdbcType=DECIMAL}, #{opertime,jdbcType=TIMESTAMP}, 
-      #{orderstatus,jdbcType=VARCHAR}, #{updateflag,jdbcType=DECIMAL}, #{token,jdbcType=LONGVARCHAR}, 
-      #{shipperaddress,jdbcType=LONGVARCHAR}, #{shipperaddresstype,jdbcType=LONGVARCHAR}, 
-      #{appkey,jdbcType=LONGVARCHAR}, #{shippername,jdbcType=LONGVARCHAR}, #{shipperemail,jdbcType=LONGVARCHAR}, 
-      #{shipperzipcode,jdbcType=LONGVARCHAR}, #{shipperphone,jdbcType=LONGVARCHAR}, #{shippercompanyname,jdbcType=LONGVARCHAR}
-      )
+  <sql id="Values">
+     #{userid,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{corpid,jdbcType=VARCHAR} , 
+     #{token,jdbcType=VARCHAR} , 
+     #{shipperaddress,jdbcType=VARCHAR} , 
+     #{shipperaddresstype,jdbcType=VARCHAR} , 
+     #{appkey,jdbcType=VARCHAR} , 
+     #{shippername,jdbcType=VARCHAR} , 
+     #{ebayidentify,jdbcType=DECIMAL} , 
+     #{operflag,jdbcType=DECIMAL} , 
+     #{shipperemail,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{shipperzipcode,jdbcType=VARCHAR} , 
+     #{shipperphone,jdbcType=VARCHAR} , 
+     #{orderstatus,jdbcType=VARCHAR} , 
+     #{updateflag,jdbcType=DECIMAL} , 
+     #{shippercompanyname,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    USERID , 
+    OPER , 
+    CORPID , 
+    TOKEN , 
+    SHIPPERADDRESS , 
+    SHIPPERADDRESSTYPE , 
+    APPKEY , 
+    SHIPPERNAME , 
+    EBAYIDENTIFY , 
+    OPERFLAG , 
+    SHIPPEREMAIL , 
+    OPERTIME , 
+    SHIPPERZIPCODE , 
+    SHIPPERPHONE , 
+    ORDERSTATUS , 
+    UPDATEFLAG , 
+    SHIPPERCOMPANYNAME , 
+  </sql>
+  <sql id="Criteria">
+    <if test="userid != null">
+      userid = #{userid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="token != null">
+      token = #{token,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shipperaddress != null">
+      shipperaddress = #{shipperaddress,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shipperaddresstype != null">
+      shipperaddresstype = #{shipperaddresstype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="appkey != null">
+      appkey = #{appkey,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shippername != null">
+      shippername = #{shippername,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebayidentify != null">
+      ebayidentify = #{ebayidentify,jdbcType=DECIMAL} and 
+    </if>
+    <if test="operflag != null">
+      operflag = #{operflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="shipperemail != null">
+      shipperemail = #{shipperemail,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="shipperzipcode != null">
+      shipperzipcode = #{shipperzipcode,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shipperphone != null">
+      shipperphone = #{shipperphone,jdbcType=VARCHAR} and 
+    </if>
+    <if test="orderstatus != null">
+      orderstatus = #{orderstatus,jdbcType=VARCHAR} and 
+    </if>
+    <if test="updateflag != null">
+      updateflag = #{updateflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="shippercompanyname != null">
+      shippercompanyname = #{shippercompanyname,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="userid != null">
+      userid = #{userid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="token != null">
+      token = #{token,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shipperaddress != null">
+      shipperaddress = #{shipperaddress,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shipperaddresstype != null">
+      shipperaddresstype = #{shipperaddresstype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="appkey != null">
+      appkey = #{appkey,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shippername != null">
+      shippername = #{shippername,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebayidentify != null">
+      ebayidentify = #{ebayidentify,jdbcType=DECIMAL} , 
+    </if>
+    <if test="operflag != null">
+      operflag = #{operflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="shipperemail != null">
+      shipperemail = #{shipperemail,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="shipperzipcode != null">
+      shipperzipcode = #{shipperzipcode,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shipperphone != null">
+      shipperphone = #{shipperphone,jdbcType=VARCHAR} , 
+    </if>
+    <if test="orderstatus != null">
+      orderstatus = #{orderstatus,jdbcType=VARCHAR} , 
+    </if>
+    <if test="updateflag != null">
+      updateflag = #{updateflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="shippercompanyname != null">
+      shippercompanyname = #{shippercompanyname,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbSfcuser" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where USERID=#{USERID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbSfcuser">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbSfcuser">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbSfcuser">
-    insert into db_sfcuser
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="userid != null">
-        USERID,
-      </if>
-      <if test="oper != null">
-        OPER,
-      </if>
-      <if test="corpid != null">
-        CORPID,
-      </if>
-      <if test="ebayidentify != null">
-        EBAYIDENTIFY,
-      </if>
-      <if test="operflag != null">
-        OPERFLAG,
-      </if>
-      <if test="opertime != null">
-        OPERTIME,
-      </if>
-      <if test="orderstatus != null">
-        ORDERSTATUS,
-      </if>
-      <if test="updateflag != null">
-        UPDATEFLAG,
-      </if>
-      <if test="token != null">
-        TOKEN,
-      </if>
-      <if test="shipperaddress != null">
-        SHIPPERADDRESS,
-      </if>
-      <if test="shipperaddresstype != null">
-        SHIPPERADDRESSTYPE,
-      </if>
-      <if test="appkey != null">
-        APPKEY,
-      </if>
-      <if test="shippername != null">
-        SHIPPERNAME,
-      </if>
-      <if test="shipperemail != null">
-        SHIPPEREMAIL,
-      </if>
-      <if test="shipperzipcode != null">
-        SHIPPERZIPCODE,
-      </if>
-      <if test="shipperphone != null">
-        SHIPPERPHONE,
-      </if>
-      <if test="shippercompanyname != null">
-        SHIPPERCOMPANYNAME,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="userid != null">
-        #{userid,jdbcType=VARCHAR},
-      </if>
-      <if test="oper != null">
-        #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="corpid != null">
-        #{corpid,jdbcType=VARCHAR},
-      </if>
-      <if test="ebayidentify != null">
-        #{ebayidentify,jdbcType=DECIMAL},
-      </if>
-      <if test="operflag != null">
-        #{operflag,jdbcType=DECIMAL},
-      </if>
-      <if test="opertime != null">
-        #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="orderstatus != null">
-        #{orderstatus,jdbcType=VARCHAR},
-      </if>
-      <if test="updateflag != null">
-        #{updateflag,jdbcType=DECIMAL},
-      </if>
-      <if test="token != null">
-        #{token,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="shipperaddress != null">
-        #{shipperaddress,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="shipperaddresstype != null">
-        #{shipperaddresstype,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="appkey != null">
-        #{appkey,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="shippername != null">
-        #{shippername,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="shipperemail != null">
-        #{shipperemail,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="shipperzipcode != null">
-        #{shipperzipcode,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="shipperphone != null">
-        #{shipperphone,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="shippercompanyname != null">
-        #{shippercompanyname,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbSfcuser">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
 </mapper>

@@ -8,6 +8,8 @@ public class DbPublishpicture implements Serializable {
 
     private String productid;
 
+    private String pictureurl;
+
     private String attribute;
 
     private String platformid;
@@ -38,8 +40,6 @@ public class DbPublishpicture implements Serializable {
 
     private String openflag;
 
-    private String pictureurl;
-
     private static final long serialVersionUID = 1L;
 
     public String getSequenceid() {
@@ -56,6 +56,14 @@ public class DbPublishpicture implements Serializable {
 
     public void setProductid(String productid) {
         this.productid = productid == null ? null : productid.trim();
+    }
+
+    public String getPictureurl() {
+        return pictureurl;
+    }
+
+    public void setPictureurl(String pictureurl) {
+        this.pictureurl = pictureurl == null ? null : pictureurl.trim();
     }
 
     public String getAttribute() {
@@ -178,14 +186,6 @@ public class DbPublishpicture implements Serializable {
         this.openflag = openflag == null ? null : openflag.trim();
     }
 
-    public String getPictureurl() {
-        return pictureurl;
-    }
-
-    public void setPictureurl(String pictureurl) {
-        this.pictureurl = pictureurl == null ? null : pictureurl.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -200,6 +200,7 @@ public class DbPublishpicture implements Serializable {
         DbPublishpicture other = (DbPublishpicture) that;
         return (this.getSequenceid() == null ? other.getSequenceid() == null : this.getSequenceid().equals(other.getSequenceid()))
             && (this.getProductid() == null ? other.getProductid() == null : this.getProductid().equals(other.getProductid()))
+            && (this.getPictureurl() == null ? other.getPictureurl() == null : this.getPictureurl().equals(other.getPictureurl()))
             && (this.getAttribute() == null ? other.getAttribute() == null : this.getAttribute().equals(other.getAttribute()))
             && (this.getPlatformid() == null ? other.getPlatformid() == null : this.getPlatformid().equals(other.getPlatformid()))
             && (this.getPlatformname() == null ? other.getPlatformname() == null : this.getPlatformname().equals(other.getPlatformname()))
@@ -214,8 +215,7 @@ public class DbPublishpicture implements Serializable {
             && (this.getCreatetime() == null ? other.getCreatetime() == null : this.getCreatetime().equals(other.getCreatetime()))
             && (this.getAttributeid() == null ? other.getAttributeid() == null : this.getAttributeid().equals(other.getAttributeid()))
             && (this.getUseing() == null ? other.getUseing() == null : this.getUseing().equals(other.getUseing()))
-            && (this.getOpenflag() == null ? other.getOpenflag() == null : this.getOpenflag().equals(other.getOpenflag()))
-            && (this.getPictureurl() == null ? other.getPictureurl() == null : this.getPictureurl().equals(other.getPictureurl()));
+            && (this.getOpenflag() == null ? other.getOpenflag() == null : this.getOpenflag().equals(other.getOpenflag()));
     }
 
     @Override
@@ -224,6 +224,7 @@ public class DbPublishpicture implements Serializable {
         int result = 1;
         result = prime * result + ((getSequenceid() == null) ? 0 : getSequenceid().hashCode());
         result = prime * result + ((getProductid() == null) ? 0 : getProductid().hashCode());
+        result = prime * result + ((getPictureurl() == null) ? 0 : getPictureurl().hashCode());
         result = prime * result + ((getAttribute() == null) ? 0 : getAttribute().hashCode());
         result = prime * result + ((getPlatformid() == null) ? 0 : getPlatformid().hashCode());
         result = prime * result + ((getPlatformname() == null) ? 0 : getPlatformname().hashCode());
@@ -239,7 +240,6 @@ public class DbPublishpicture implements Serializable {
         result = prime * result + ((getAttributeid() == null) ? 0 : getAttributeid().hashCode());
         result = prime * result + ((getUseing() == null) ? 0 : getUseing().hashCode());
         result = prime * result + ((getOpenflag() == null) ? 0 : getOpenflag().hashCode());
-        result = prime * result + ((getPictureurl() == null) ? 0 : getPictureurl().hashCode());
         return result;
     }
 
@@ -251,6 +251,7 @@ public class DbPublishpicture implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", sequenceid=").append(sequenceid);
         sb.append(", productid=").append(productid);
+        sb.append(", pictureurl=").append(pictureurl);
         sb.append(", attribute=").append(attribute);
         sb.append(", platformid=").append(platformid);
         sb.append(", platformname=").append(platformname);
@@ -266,7 +267,6 @@ public class DbPublishpicture implements Serializable {
         sb.append(", attributeid=").append(attributeid);
         sb.append(", useing=").append(useing);
         sb.append(", openflag=").append(openflag);
-        sb.append(", pictureurl=").append(pictureurl);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

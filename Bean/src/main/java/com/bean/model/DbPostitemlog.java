@@ -23,13 +23,13 @@ public class DbPostitemlog implements Serializable {
 
     private BigDecimal flag;
 
+    private String error;
+
     private String oper;
 
     private Date opertime;
 
     private BigDecimal opertype;
-
-    private String error;
 
     private String content;
 
@@ -107,6 +107,14 @@ public class DbPostitemlog implements Serializable {
         this.flag = flag;
     }
 
+    public String getError() {
+        return error;
+    }
+
+    public void setError(String error) {
+        this.error = error == null ? null : error.trim();
+    }
+
     public String getOper() {
         return oper;
     }
@@ -129,14 +137,6 @@ public class DbPostitemlog implements Serializable {
 
     public void setOpertype(BigDecimal opertype) {
         this.opertype = opertype;
-    }
-
-    public String getError() {
-        return error;
-    }
-
-    public void setError(String error) {
-        this.error = error == null ? null : error.trim();
     }
 
     public String getContent() {
@@ -168,10 +168,10 @@ public class DbPostitemlog implements Serializable {
             && (this.getPrice() == null ? other.getPrice() == null : this.getPrice().equals(other.getPrice()))
             && (this.getSku() == null ? other.getSku() == null : this.getSku().equals(other.getSku()))
             && (this.getFlag() == null ? other.getFlag() == null : this.getFlag().equals(other.getFlag()))
+            && (this.getError() == null ? other.getError() == null : this.getError().equals(other.getError()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
             && (this.getOpertype() == null ? other.getOpertype() == null : this.getOpertype().equals(other.getOpertype()))
-            && (this.getError() == null ? other.getError() == null : this.getError().equals(other.getError()))
             && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()));
     }
 
@@ -188,10 +188,10 @@ public class DbPostitemlog implements Serializable {
         result = prime * result + ((getPrice() == null) ? 0 : getPrice().hashCode());
         result = prime * result + ((getSku() == null) ? 0 : getSku().hashCode());
         result = prime * result + ((getFlag() == null) ? 0 : getFlag().hashCode());
+        result = prime * result + ((getError() == null) ? 0 : getError().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getOpertype() == null) ? 0 : getOpertype().hashCode());
-        result = prime * result + ((getError() == null) ? 0 : getError().hashCode());
         result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
         return result;
     }
@@ -211,10 +211,10 @@ public class DbPostitemlog implements Serializable {
         sb.append(", price=").append(price);
         sb.append(", sku=").append(sku);
         sb.append(", flag=").append(flag);
+        sb.append(", error=").append(error);
         sb.append(", oper=").append(oper);
         sb.append(", opertime=").append(opertime);
         sb.append(", opertype=").append(opertype);
-        sb.append(", error=").append(error);
         sb.append(", content=").append(content);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");

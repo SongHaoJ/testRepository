@@ -9,23 +9,11 @@ public class DbExpensetype implements Serializable {
 
     private String name;
 
+    private String descr;
+
     private String oper;
 
     private Date opertime;
-
-    private BigDecimal filed8;
-
-    private BigDecimal filed9;
-
-    private BigDecimal filed10;
-
-    private String corpid;
-
-    private String openflag;
-
-    private Date expensetime;
-
-    private String descr;
 
     private String filed1;
 
@@ -40,6 +28,18 @@ public class DbExpensetype implements Serializable {
     private String filed6;
 
     private String filed7;
+
+    private BigDecimal filed8;
+
+    private BigDecimal filed9;
+
+    private BigDecimal filed10;
+
+    private String corpid;
+
+    private String openflag;
+
+    private Date expensetime;
 
     private static final long serialVersionUID = 1L;
 
@@ -59,6 +59,14 @@ public class DbExpensetype implements Serializable {
         this.name = name == null ? null : name.trim();
     }
 
+    public String getDescr() {
+        return descr;
+    }
+
+    public void setDescr(String descr) {
+        this.descr = descr == null ? null : descr.trim();
+    }
+
     public String getOper() {
         return oper;
     }
@@ -73,62 +81,6 @@ public class DbExpensetype implements Serializable {
 
     public void setOpertime(Date opertime) {
         this.opertime = opertime;
-    }
-
-    public BigDecimal getFiled8() {
-        return filed8;
-    }
-
-    public void setFiled8(BigDecimal filed8) {
-        this.filed8 = filed8;
-    }
-
-    public BigDecimal getFiled9() {
-        return filed9;
-    }
-
-    public void setFiled9(BigDecimal filed9) {
-        this.filed9 = filed9;
-    }
-
-    public BigDecimal getFiled10() {
-        return filed10;
-    }
-
-    public void setFiled10(BigDecimal filed10) {
-        this.filed10 = filed10;
-    }
-
-    public String getCorpid() {
-        return corpid;
-    }
-
-    public void setCorpid(String corpid) {
-        this.corpid = corpid == null ? null : corpid.trim();
-    }
-
-    public String getOpenflag() {
-        return openflag;
-    }
-
-    public void setOpenflag(String openflag) {
-        this.openflag = openflag == null ? null : openflag.trim();
-    }
-
-    public Date getExpensetime() {
-        return expensetime;
-    }
-
-    public void setExpensetime(Date expensetime) {
-        this.expensetime = expensetime;
-    }
-
-    public String getDescr() {
-        return descr;
-    }
-
-    public void setDescr(String descr) {
-        this.descr = descr == null ? null : descr.trim();
     }
 
     public String getFiled1() {
@@ -187,6 +139,54 @@ public class DbExpensetype implements Serializable {
         this.filed7 = filed7 == null ? null : filed7.trim();
     }
 
+    public BigDecimal getFiled8() {
+        return filed8;
+    }
+
+    public void setFiled8(BigDecimal filed8) {
+        this.filed8 = filed8;
+    }
+
+    public BigDecimal getFiled9() {
+        return filed9;
+    }
+
+    public void setFiled9(BigDecimal filed9) {
+        this.filed9 = filed9;
+    }
+
+    public BigDecimal getFiled10() {
+        return filed10;
+    }
+
+    public void setFiled10(BigDecimal filed10) {
+        this.filed10 = filed10;
+    }
+
+    public String getCorpid() {
+        return corpid;
+    }
+
+    public void setCorpid(String corpid) {
+        this.corpid = corpid == null ? null : corpid.trim();
+    }
+
+    public String getOpenflag() {
+        return openflag;
+    }
+
+    public void setOpenflag(String openflag) {
+        this.openflag = openflag == null ? null : openflag.trim();
+    }
+
+    public Date getExpensetime() {
+        return expensetime;
+    }
+
+    public void setExpensetime(Date expensetime) {
+        this.expensetime = expensetime;
+    }
+
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -201,22 +201,22 @@ public class DbExpensetype implements Serializable {
         DbExpensetype other = (DbExpensetype) that;
         return (this.getSequenceid() == null ? other.getSequenceid() == null : this.getSequenceid().equals(other.getSequenceid()))
             && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
+            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
-            && (this.getFiled8() == null ? other.getFiled8() == null : this.getFiled8().equals(other.getFiled8()))
-            && (this.getFiled9() == null ? other.getFiled9() == null : this.getFiled9().equals(other.getFiled9()))
-            && (this.getFiled10() == null ? other.getFiled10() == null : this.getFiled10().equals(other.getFiled10()))
-            && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()))
-            && (this.getOpenflag() == null ? other.getOpenflag() == null : this.getOpenflag().equals(other.getOpenflag()))
-            && (this.getExpensetime() == null ? other.getExpensetime() == null : this.getExpensetime().equals(other.getExpensetime()))
-            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
             && (this.getFiled1() == null ? other.getFiled1() == null : this.getFiled1().equals(other.getFiled1()))
             && (this.getFiled2() == null ? other.getFiled2() == null : this.getFiled2().equals(other.getFiled2()))
             && (this.getFiled3() == null ? other.getFiled3() == null : this.getFiled3().equals(other.getFiled3()))
             && (this.getFiled4() == null ? other.getFiled4() == null : this.getFiled4().equals(other.getFiled4()))
             && (this.getFiled5() == null ? other.getFiled5() == null : this.getFiled5().equals(other.getFiled5()))
             && (this.getFiled6() == null ? other.getFiled6() == null : this.getFiled6().equals(other.getFiled6()))
-            && (this.getFiled7() == null ? other.getFiled7() == null : this.getFiled7().equals(other.getFiled7()));
+            && (this.getFiled7() == null ? other.getFiled7() == null : this.getFiled7().equals(other.getFiled7()))
+            && (this.getFiled8() == null ? other.getFiled8() == null : this.getFiled8().equals(other.getFiled8()))
+            && (this.getFiled9() == null ? other.getFiled9() == null : this.getFiled9().equals(other.getFiled9()))
+            && (this.getFiled10() == null ? other.getFiled10() == null : this.getFiled10().equals(other.getFiled10()))
+            && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()))
+            && (this.getOpenflag() == null ? other.getOpenflag() == null : this.getOpenflag().equals(other.getOpenflag()))
+            && (this.getExpensetime() == null ? other.getExpensetime() == null : this.getExpensetime().equals(other.getExpensetime()));
     }
 
     @Override
@@ -225,15 +225,9 @@ public class DbExpensetype implements Serializable {
         int result = 1;
         result = prime * result + ((getSequenceid() == null) ? 0 : getSequenceid().hashCode());
         result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
+        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
-        result = prime * result + ((getFiled8() == null) ? 0 : getFiled8().hashCode());
-        result = prime * result + ((getFiled9() == null) ? 0 : getFiled9().hashCode());
-        result = prime * result + ((getFiled10() == null) ? 0 : getFiled10().hashCode());
-        result = prime * result + ((getCorpid() == null) ? 0 : getCorpid().hashCode());
-        result = prime * result + ((getOpenflag() == null) ? 0 : getOpenflag().hashCode());
-        result = prime * result + ((getExpensetime() == null) ? 0 : getExpensetime().hashCode());
-        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
         result = prime * result + ((getFiled1() == null) ? 0 : getFiled1().hashCode());
         result = prime * result + ((getFiled2() == null) ? 0 : getFiled2().hashCode());
         result = prime * result + ((getFiled3() == null) ? 0 : getFiled3().hashCode());
@@ -241,6 +235,12 @@ public class DbExpensetype implements Serializable {
         result = prime * result + ((getFiled5() == null) ? 0 : getFiled5().hashCode());
         result = prime * result + ((getFiled6() == null) ? 0 : getFiled6().hashCode());
         result = prime * result + ((getFiled7() == null) ? 0 : getFiled7().hashCode());
+        result = prime * result + ((getFiled8() == null) ? 0 : getFiled8().hashCode());
+        result = prime * result + ((getFiled9() == null) ? 0 : getFiled9().hashCode());
+        result = prime * result + ((getFiled10() == null) ? 0 : getFiled10().hashCode());
+        result = prime * result + ((getCorpid() == null) ? 0 : getCorpid().hashCode());
+        result = prime * result + ((getOpenflag() == null) ? 0 : getOpenflag().hashCode());
+        result = prime * result + ((getExpensetime() == null) ? 0 : getExpensetime().hashCode());
         return result;
     }
 
@@ -252,15 +252,9 @@ public class DbExpensetype implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", sequenceid=").append(sequenceid);
         sb.append(", name=").append(name);
+        sb.append(", descr=").append(descr);
         sb.append(", oper=").append(oper);
         sb.append(", opertime=").append(opertime);
-        sb.append(", filed8=").append(filed8);
-        sb.append(", filed9=").append(filed9);
-        sb.append(", filed10=").append(filed10);
-        sb.append(", corpid=").append(corpid);
-        sb.append(", openflag=").append(openflag);
-        sb.append(", expensetime=").append(expensetime);
-        sb.append(", descr=").append(descr);
         sb.append(", filed1=").append(filed1);
         sb.append(", filed2=").append(filed2);
         sb.append(", filed3=").append(filed3);
@@ -268,6 +262,12 @@ public class DbExpensetype implements Serializable {
         sb.append(", filed5=").append(filed5);
         sb.append(", filed6=").append(filed6);
         sb.append(", filed7=").append(filed7);
+        sb.append(", filed8=").append(filed8);
+        sb.append(", filed9=").append(filed9);
+        sb.append(", filed10=").append(filed10);
+        sb.append(", corpid=").append(corpid);
+        sb.append(", openflag=").append(openflag);
+        sb.append(", expensetime=").append(expensetime);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

@@ -2,17 +2,23 @@ package com.bean.dao;
 
 import com.bean.model.StatHotproduct;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface StatHotproductMapper {
-    int deleteByPrimaryKey(@Param("yyyymmdd") String yyyymmdd, @Param("shoptypeid") String shoptypeid, @Param("productid") String productid);
+    StatHotproduct selectByCriteria(StatHotproduct StatHotproduct);
 
-    int insert(StatHotproduct record);
+    void deleteByPrimaryKey(String YYYYMMDD);
 
-    int insertSelective(StatHotproduct record);
+    void deleteByCriteria(StatHotproduct StatHotproduct);
+
+    int insertByCriteria(StatHotproduct StatHotproduct);
+
+    int updateByCriteria(StatHotproduct StatHotproduct);
 
     StatHotproduct selectByPrimaryKey(@Param("yyyymmdd") String yyyymmdd, @Param("shoptypeid") String shoptypeid, @Param("productid") String productid);
 
-    int updateByPrimaryKeySelective(StatHotproduct record);
-
-    int updateByPrimaryKey(StatHotproduct record);
+    List<StatHotproduct> selectAll();
 }

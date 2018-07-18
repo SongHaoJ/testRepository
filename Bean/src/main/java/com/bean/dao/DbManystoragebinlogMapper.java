@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbManystoragebinlog;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbManystoragebinlogMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbManystoragebinlog selectByCriteria(DbManystoragebinlog DbManystoragebinlog);
 
-    int insert(DbManystoragebinlog record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbManystoragebinlog record);
+    void deleteByCriteria(DbManystoragebinlog DbManystoragebinlog);
+
+    int insertByCriteria(DbManystoragebinlog DbManystoragebinlog);
+
+    int updateByCriteria(DbManystoragebinlog DbManystoragebinlog);
 
     DbManystoragebinlog selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbManystoragebinlog record);
-
-    int updateByPrimaryKeyWithBLOBs(DbManystoragebinlog record);
-
-    int updateByPrimaryKey(DbManystoragebinlog record);
+    List<DbManystoragebinlog> selectAll();
 }

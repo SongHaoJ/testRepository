@@ -2,8 +2,8 @@ package com.bean.dao;
 
 import com.bean.model.DbExptable;
 
-public interface DbExptableMapper {
-    int insert(DbExptable record);
+import java.util.List;
 
-    int insertSelective(DbExptable record);
+public interface DbExptableMapper {
+    List<DbExptable> selectAll();
 }

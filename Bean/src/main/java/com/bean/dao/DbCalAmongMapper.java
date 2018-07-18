@@ -2,8 +2,8 @@ package com.bean.dao;
 
 import com.bean.model.DbCalAmong;
 
-public interface DbCalAmongMapper {
-    int insert(DbCalAmong record);
+import java.util.List;
 
-    int insertSelective(DbCalAmong record);
+public interface DbCalAmongMapper {
+    List<DbCalAmong> selectAll();
 }

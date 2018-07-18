@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbSmtaddress;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbSmtaddressMapper {
-    int deleteByPrimaryKey(Long id);
+    DbSmtaddress selectByCriteria(DbSmtaddress DbSmtaddress);
 
-    int insert(DbSmtaddress record);
+    void deleteByPrimaryKey(String ID);
 
-    int insertSelective(DbSmtaddress record);
+    void deleteByCriteria(DbSmtaddress DbSmtaddress);
+
+    int insertByCriteria(DbSmtaddress DbSmtaddress);
+
+    int updateByCriteria(DbSmtaddress DbSmtaddress);
 
     DbSmtaddress selectByPrimaryKey(Long id);
 
-    int updateByPrimaryKeySelective(DbSmtaddress record);
-
-    int updateByPrimaryKeyWithBLOBs(DbSmtaddress record);
-
-    int updateByPrimaryKey(DbSmtaddress record);
+    List<DbSmtaddress> selectAll();
 }

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbStoragebaskettaskMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbStoragebaskettask">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="BASKETID" jdbcType="VARCHAR" property="basketid" />
+    <result column="STATUS" jdbcType="DECIMAL" property="status" />
+    <result column="CREATOPER" jdbcType="VARCHAR" property="creatoper" />
+    <result column="CREATTIME" jdbcType="TIMESTAMP" property="creattime" />
+    <result column="LABELINGOPER" jdbcType="VARCHAR" property="labelingoper" />
+    <result column="LABELINGTIME" jdbcType="TIMESTAMP" property="labelingtime" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select ID, BASKETID, STATUS, CREATOPER, CREATTIME, LABELINGOPER, LABELINGTIME, OPER, 
+    OPERTIME
+    from DB_STORAGEBASKETTASK
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ID, BASKETID, STATUS, CREATOPER, CREATTIME, LABELINGOPER, LABELINGTIME, OPER, 
+    OPERTIME
+    from DB_STORAGEBASKETTASK
+  </select>
+  <sql id="TableName">
+    DB_STORAGEBASKETTASK
+  </sql>
+  <sql id="Values">
+     #{id,jdbcType=DECIMAL} , 
+     #{basketid,jdbcType=VARCHAR} , 
+     #{status,jdbcType=DECIMAL} , 
+     #{creatoper,jdbcType=VARCHAR} , 
+     #{creattime,jdbcType=TIMESTAMP} , 
+     #{labelingoper,jdbcType=VARCHAR} , 
+     #{labelingtime,jdbcType=TIMESTAMP} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+  </sql>
+  <sql id="Columns">
+    ID , 
+    BASKETID , 
+    STATUS , 
+    CREATOPER , 
+    CREATTIME , 
+    LABELINGOPER , 
+    LABELINGTIME , 
+    OPER , 
+    OPERTIME , 
+  </sql>
+  <sql id="Criteria">
+    <if test="id != null">
+      id = #{id,jdbcType=DECIMAL} and 
+    </if>
+    <if test="basketid != null">
+      basketid = #{basketid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="status != null">
+      status = #{status,jdbcType=DECIMAL} and 
+    </if>
+    <if test="creatoper != null">
+      creatoper = #{creatoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="creattime != null">
+      creattime = #{creattime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="labelingoper != null">
+      labelingoper = #{labelingoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="labelingtime != null">
+      labelingtime = #{labelingtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="id != null">
+      id = #{id,jdbcType=DECIMAL} , 
+    </if>
+    <if test="basketid != null">
+      basketid = #{basketid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="status != null">
+      status = #{status,jdbcType=DECIMAL} , 
+    </if>
+    <if test="creatoper != null">
+      creatoper = #{creatoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="creattime != null">
+      creattime = #{creattime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="labelingoper != null">
+      labelingoper = #{labelingoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="labelingtime != null">
+      labelingtime = #{labelingtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbStoragebaskettask" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="BigDecimal">
+    delete from <include refid="TableName"/> where ID=#{ID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbStoragebaskettask">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbStoragebaskettask">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbStoragebaskettask">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

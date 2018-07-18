@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbEndiciamailpieceshape;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbEndiciamailpieceshapeMapper {
-    int deleteByPrimaryKey(String sid);
+    DbEndiciamailpieceshape selectByCriteria(DbEndiciamailpieceshape DbEndiciamailpieceshape);
 
-    int insert(DbEndiciamailpieceshape record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbEndiciamailpieceshape record);
+    void deleteByCriteria(DbEndiciamailpieceshape DbEndiciamailpieceshape);
+
+    int insertByCriteria(DbEndiciamailpieceshape DbEndiciamailpieceshape);
+
+    int updateByCriteria(DbEndiciamailpieceshape DbEndiciamailpieceshape);
 
     DbEndiciamailpieceshape selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbEndiciamailpieceshape record);
-
-    int updateByPrimaryKey(DbEndiciamailpieceshape record);
+    List<DbEndiciamailpieceshape> selectAll();
 }

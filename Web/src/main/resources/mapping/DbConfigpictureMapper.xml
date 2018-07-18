@@ -5,70 +5,70 @@
     <id column="SEQUENCEID" jdbcType="DECIMAL" property="sequenceid" />
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
     <result column="POSTFIX" jdbcType="VARCHAR" property="postfix" />
+    <result column="PICTUREURL" jdbcType="VARCHAR" property="pictureurl" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
-    <result column="PICTUREURL" jdbcType="LONGVARCHAR" property="pictureurl" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
-    select SEQUENCEID, OPER, POSTFIX, OPERTIME, PICTUREURL
-    from db_configpicture
+    select SEQUENCEID, OPER, POSTFIX, PICTUREURL, OPERTIME
+    from DB_CONFIGPICTURE
     where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select SEQUENCEID, OPER, POSTFIX, OPERTIME, PICTUREURL
-    from db_configpicture
+    select SEQUENCEID, OPER, POSTFIX, PICTUREURL, OPERTIME
+    from DB_CONFIGPICTURE
   </select>
   <sql id="TableName">
-    db_configpicture
+    DB_CONFIGPICTURE
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=DECIMAL} , 
      #{oper,jdbcType=VARCHAR} , 
      #{postfix,jdbcType=VARCHAR} , 
+     #{pictureurl,jdbcType=VARCHAR} , 
      #{opertime,jdbcType=TIMESTAMP} , 
-     #{pictureurl,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
     OPER , 
     POSTFIX , 
+    PICTUREURL , 
     OPERTIME , 
-    PICTUREURL
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} and 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} and 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
+      oper = #{oper,jdbcType=VARCHAR} and 
     </if>
     <if test="postfix != null">
-      POSTFIX = #{postfix,jdbcType=VARCHAR} and 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+      postfix = #{postfix,jdbcType=VARCHAR} and 
     </if>
     <if test="pictureurl != null">
-      PICTUREURL = #{pictureurl,jdbcType=LONGVARCHAR}
+      pictureurl = #{pictureurl,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} , 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} , 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
+      oper = #{oper,jdbcType=VARCHAR} , 
     </if>
     <if test="postfix != null">
-      POSTFIX = #{postfix,jdbcType=VARCHAR} , 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+      postfix = #{postfix,jdbcType=VARCHAR} , 
     </if>
     <if test="pictureurl != null">
-      PICTUREURL = #{pictureurl,jdbcType=LONGVARCHAR}
+      pictureurl = #{pictureurl,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbConfigpicture" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

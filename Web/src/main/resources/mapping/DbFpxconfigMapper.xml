@@ -26,17 +26,17 @@
     select SID, TOKEN, SHIPPERNAME, SHIPPERCOMPANYNAME, SHIPPERADDRESS, SHIPPERPOSTCODE, 
     SHIPPERTELEPHONE, SHIPPERFAX, INSURTYPE, CARGOCODE, PAYMENTCODE, INITIALCOUNTRYCODE, 
     PRODUCTCODE, RESERVE1, RESERVE2, RESERVE3, OPENFLAG, RESERVE4, RESERVE5
-    from db_fpxconfig
+    from DB_FPXCONFIG
     where SID = #{sid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SID, TOKEN, SHIPPERNAME, SHIPPERCOMPANYNAME, SHIPPERADDRESS, SHIPPERPOSTCODE, 
     SHIPPERTELEPHONE, SHIPPERFAX, INSURTYPE, CARGOCODE, PAYMENTCODE, INITIALCOUNTRYCODE, 
     PRODUCTCODE, RESERVE1, RESERVE2, RESERVE3, OPENFLAG, RESERVE4, RESERVE5
-    from db_fpxconfig
+    from DB_FPXCONFIG
   </select>
   <sql id="TableName">
-    db_fpxconfig
+    DB_FPXCONFIG
   </sql>
   <sql id="Values">
      #{sid,jdbcType=VARCHAR} , 
@@ -57,7 +57,7 @@
      #{reserve3,jdbcType=VARCHAR} , 
      #{openflag,jdbcType=VARCHAR} , 
      #{reserve4,jdbcType=VARCHAR} , 
-     #{reserve5,jdbcType=VARCHAR}
+     #{reserve5,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     SID , 
@@ -78,127 +78,127 @@
     RESERVE3 , 
     OPENFLAG , 
     RESERVE4 , 
-    RESERVE5
+    RESERVE5 , 
   </sql>
   <sql id="Criteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} and 
+      sid = #{sid,jdbcType=VARCHAR} and 
     </if>
     <if test="token != null">
-      TOKEN = #{token,jdbcType=VARCHAR} and 
+      token = #{token,jdbcType=VARCHAR} and 
     </if>
     <if test="shippername != null">
-      SHIPPERNAME = #{shippername,jdbcType=VARCHAR} and 
+      shippername = #{shippername,jdbcType=VARCHAR} and 
     </if>
     <if test="shippercompanyname != null">
-      SHIPPERCOMPANYNAME = #{shippercompanyname,jdbcType=VARCHAR} and 
+      shippercompanyname = #{shippercompanyname,jdbcType=VARCHAR} and 
     </if>
     <if test="shipperaddress != null">
-      SHIPPERADDRESS = #{shipperaddress,jdbcType=VARCHAR} and 
+      shipperaddress = #{shipperaddress,jdbcType=VARCHAR} and 
     </if>
     <if test="shipperpostcode != null">
-      SHIPPERPOSTCODE = #{shipperpostcode,jdbcType=VARCHAR} and 
+      shipperpostcode = #{shipperpostcode,jdbcType=VARCHAR} and 
     </if>
     <if test="shippertelephone != null">
-      SHIPPERTELEPHONE = #{shippertelephone,jdbcType=VARCHAR} and 
+      shippertelephone = #{shippertelephone,jdbcType=VARCHAR} and 
     </if>
     <if test="shipperfax != null">
-      SHIPPERFAX = #{shipperfax,jdbcType=VARCHAR} and 
+      shipperfax = #{shipperfax,jdbcType=VARCHAR} and 
     </if>
     <if test="insurtype != null">
-      INSURTYPE = #{insurtype,jdbcType=VARCHAR} and 
+      insurtype = #{insurtype,jdbcType=VARCHAR} and 
     </if>
     <if test="cargocode != null">
-      CARGOCODE = #{cargocode,jdbcType=VARCHAR} and 
+      cargocode = #{cargocode,jdbcType=VARCHAR} and 
     </if>
     <if test="paymentcode != null">
-      PAYMENTCODE = #{paymentcode,jdbcType=VARCHAR} and 
+      paymentcode = #{paymentcode,jdbcType=VARCHAR} and 
     </if>
     <if test="initialcountrycode != null">
-      INITIALCOUNTRYCODE = #{initialcountrycode,jdbcType=VARCHAR} and 
+      initialcountrycode = #{initialcountrycode,jdbcType=VARCHAR} and 
     </if>
     <if test="productcode != null">
-      PRODUCTCODE = #{productcode,jdbcType=VARCHAR} and 
+      productcode = #{productcode,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR} and 
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
+      openflag = #{openflag,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=VARCHAR} and 
+      reserve4 = #{reserve4,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=VARCHAR}
+      reserve5 = #{reserve5,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} , 
+      sid = #{sid,jdbcType=VARCHAR} , 
     </if>
     <if test="token != null">
-      TOKEN = #{token,jdbcType=VARCHAR} , 
+      token = #{token,jdbcType=VARCHAR} , 
     </if>
     <if test="shippername != null">
-      SHIPPERNAME = #{shippername,jdbcType=VARCHAR} , 
+      shippername = #{shippername,jdbcType=VARCHAR} , 
     </if>
     <if test="shippercompanyname != null">
-      SHIPPERCOMPANYNAME = #{shippercompanyname,jdbcType=VARCHAR} , 
+      shippercompanyname = #{shippercompanyname,jdbcType=VARCHAR} , 
     </if>
     <if test="shipperaddress != null">
-      SHIPPERADDRESS = #{shipperaddress,jdbcType=VARCHAR} , 
+      shipperaddress = #{shipperaddress,jdbcType=VARCHAR} , 
     </if>
     <if test="shipperpostcode != null">
-      SHIPPERPOSTCODE = #{shipperpostcode,jdbcType=VARCHAR} , 
+      shipperpostcode = #{shipperpostcode,jdbcType=VARCHAR} , 
     </if>
     <if test="shippertelephone != null">
-      SHIPPERTELEPHONE = #{shippertelephone,jdbcType=VARCHAR} , 
+      shippertelephone = #{shippertelephone,jdbcType=VARCHAR} , 
     </if>
     <if test="shipperfax != null">
-      SHIPPERFAX = #{shipperfax,jdbcType=VARCHAR} , 
+      shipperfax = #{shipperfax,jdbcType=VARCHAR} , 
     </if>
     <if test="insurtype != null">
-      INSURTYPE = #{insurtype,jdbcType=VARCHAR} , 
+      insurtype = #{insurtype,jdbcType=VARCHAR} , 
     </if>
     <if test="cargocode != null">
-      CARGOCODE = #{cargocode,jdbcType=VARCHAR} , 
+      cargocode = #{cargocode,jdbcType=VARCHAR} , 
     </if>
     <if test="paymentcode != null">
-      PAYMENTCODE = #{paymentcode,jdbcType=VARCHAR} , 
+      paymentcode = #{paymentcode,jdbcType=VARCHAR} , 
     </if>
     <if test="initialcountrycode != null">
-      INITIALCOUNTRYCODE = #{initialcountrycode,jdbcType=VARCHAR} , 
+      initialcountrycode = #{initialcountrycode,jdbcType=VARCHAR} , 
     </if>
     <if test="productcode != null">
-      PRODUCTCODE = #{productcode,jdbcType=VARCHAR} , 
+      productcode = #{productcode,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR} , 
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
+      openflag = #{openflag,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=VARCHAR} , 
+      reserve4 = #{reserve4,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=VARCHAR}
+      reserve5 = #{reserve5,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbFpxconfig" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

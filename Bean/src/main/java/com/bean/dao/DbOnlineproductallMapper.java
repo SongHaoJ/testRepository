@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbOnlineproductall;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbOnlineproductallMapper {
-    int deleteByPrimaryKey(String sid);
+    DbOnlineproductall selectByCriteria(DbOnlineproductall DbOnlineproductall);
 
-    int insert(DbOnlineproductall record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbOnlineproductall record);
+    void deleteByCriteria(DbOnlineproductall DbOnlineproductall);
+
+    int insertByCriteria(DbOnlineproductall DbOnlineproductall);
+
+    int updateByCriteria(DbOnlineproductall DbOnlineproductall);
 
     DbOnlineproductall selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbOnlineproductall record);
-
-    int updateByPrimaryKeyWithBLOBs(DbOnlineproductall record);
-
-    int updateByPrimaryKey(DbOnlineproductall record);
+    List<DbOnlineproductall> selectAll();
 }

@@ -4,7 +4,9 @@
   <resultMap id="BaseResultMap" type="com.bean.model.DbProjectproduct">
     <id column="SID" jdbcType="VARCHAR" property="sid" />
     <result column="PROJECTID" jdbcType="VARCHAR" property="projectid" />
+    <result column="PRODUCTNAME" jdbcType="VARCHAR" property="productname" />
     <result column="PRODUCTID" jdbcType="VARCHAR" property="productid" />
+    <result column="DESCR" jdbcType="VARCHAR" property="descr" />
     <result column="STYPE" jdbcType="VARCHAR" property="stype" />
     <result column="SLEVEL" jdbcType="VARCHAR" property="slevel" />
     <result column="FLAG" jdbcType="VARCHAR" property="flag" />
@@ -22,6 +24,8 @@
     <result column="PUBLICOPER" jdbcType="VARCHAR" property="publicoper" />
     <result column="ENDTIME" jdbcType="TIMESTAMP" property="endtime" />
     <result column="DATEDIFF" jdbcType="DECIMAL" property="datediff" />
+    <result column="SHOPTYPE" jdbcType="VARCHAR" property="shoptype" />
+    <result column="SALESOURCE" jdbcType="VARCHAR" property="salesource" />
     <result column="TRANSLATETIME" jdbcType="TIMESTAMP" property="translatetime" />
     <result column="PRICETIME" jdbcType="TIMESTAMP" property="pricetime" />
     <result column="CONTENTTIME" jdbcType="TIMESTAMP" property="contenttime" />
@@ -39,37 +43,35 @@
     <result column="CHECKOPER" jdbcType="VARCHAR" property="checkoper" />
     <result column="CHECKTIME" jdbcType="TIMESTAMP" property="checktime" />
     <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
-    <result column="PRODUCTNAME" jdbcType="LONGVARCHAR" property="productname" />
-    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
-    <result column="SHOPTYPE" jdbcType="LONGVARCHAR" property="shoptype" />
-    <result column="SALESOURCE" jdbcType="LONGVARCHAR" property="salesource" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select SID, PROJECTID, PRODUCTID, STYPE, SLEVEL, FLAG, TRANSLATEFLAG, PRICEFLAG, 
-    CONTENTFLAG, PICFLAG, DESIGNFLAG, PUBLICFLAG, TRANSLATEOPER, PRICEOPER, CONTENTOPER, 
-    PICOPER, DESIGNOPER, PUBLICOPER, ENDTIME, DATEDIFF, TRANSLATETIME, PRICETIME, CONTENTTIME, 
-    PICTIME, DESIGNTIME, PUBLICTIME, OPER, OPERTIME, RESERVE1, RESERVE2, RESERVE3, RESERVE4, 
-    RESERVE5, CHECKFLAG, CHECKOPER, CHECKTIME, CORPID, PRODUCTNAME, DESCR, SHOPTYPE, 
-    SALESOURCE
-    from db_projectproduct
+    select SID, PROJECTID, PRODUCTNAME, PRODUCTID, DESCR, STYPE, SLEVEL, FLAG, TRANSLATEFLAG, 
+    PRICEFLAG, CONTENTFLAG, PICFLAG, DESIGNFLAG, PUBLICFLAG, TRANSLATEOPER, PRICEOPER, 
+    CONTENTOPER, PICOPER, DESIGNOPER, PUBLICOPER, ENDTIME, DATEDIFF, SHOPTYPE, SALESOURCE, 
+    TRANSLATETIME, PRICETIME, CONTENTTIME, PICTIME, DESIGNTIME, PUBLICTIME, OPER, OPERTIME, 
+    RESERVE1, RESERVE2, RESERVE3, RESERVE4, RESERVE5, CHECKFLAG, CHECKOPER, CHECKTIME, 
+    CORPID
+    from DB_PROJECTPRODUCT
     where SID = #{sid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select SID, PROJECTID, PRODUCTID, STYPE, SLEVEL, FLAG, TRANSLATEFLAG, PRICEFLAG, 
-    CONTENTFLAG, PICFLAG, DESIGNFLAG, PUBLICFLAG, TRANSLATEOPER, PRICEOPER, CONTENTOPER, 
-    PICOPER, DESIGNOPER, PUBLICOPER, ENDTIME, DATEDIFF, TRANSLATETIME, PRICETIME, CONTENTTIME, 
-    PICTIME, DESIGNTIME, PUBLICTIME, OPER, OPERTIME, RESERVE1, RESERVE2, RESERVE3, RESERVE4, 
-    RESERVE5, CHECKFLAG, CHECKOPER, CHECKTIME, CORPID, PRODUCTNAME, DESCR, SHOPTYPE, 
-    SALESOURCE
-    from db_projectproduct
+    select SID, PROJECTID, PRODUCTNAME, PRODUCTID, DESCR, STYPE, SLEVEL, FLAG, TRANSLATEFLAG, 
+    PRICEFLAG, CONTENTFLAG, PICFLAG, DESIGNFLAG, PUBLICFLAG, TRANSLATEOPER, PRICEOPER, 
+    CONTENTOPER, PICOPER, DESIGNOPER, PUBLICOPER, ENDTIME, DATEDIFF, SHOPTYPE, SALESOURCE, 
+    TRANSLATETIME, PRICETIME, CONTENTTIME, PICTIME, DESIGNTIME, PUBLICTIME, OPER, OPERTIME, 
+    RESERVE1, RESERVE2, RESERVE3, RESERVE4, RESERVE5, CHECKFLAG, CHECKOPER, CHECKTIME, 
+    CORPID
+    from DB_PROJECTPRODUCT
   </select>
   <sql id="TableName">
-    db_projectproduct
+    DB_PROJECTPRODUCT
   </sql>
   <sql id="Values">
      #{sid,jdbcType=VARCHAR} , 
      #{projectid,jdbcType=VARCHAR} , 
+     #{productname,jdbcType=VARCHAR} , 
      #{productid,jdbcType=VARCHAR} , 
+     #{descr,jdbcType=VARCHAR} , 
      #{stype,jdbcType=VARCHAR} , 
      #{slevel,jdbcType=VARCHAR} , 
      #{flag,jdbcType=VARCHAR} , 
@@ -87,6 +89,8 @@
      #{publicoper,jdbcType=VARCHAR} , 
      #{endtime,jdbcType=TIMESTAMP} , 
      #{datediff,jdbcType=DECIMAL} , 
+     #{shoptype,jdbcType=VARCHAR} , 
+     #{salesource,jdbcType=VARCHAR} , 
      #{translatetime,jdbcType=TIMESTAMP} , 
      #{pricetime,jdbcType=TIMESTAMP} , 
      #{contenttime,jdbcType=TIMESTAMP} , 
@@ -104,15 +108,13 @@
      #{checkoper,jdbcType=VARCHAR} , 
      #{checktime,jdbcType=TIMESTAMP} , 
      #{corpid,jdbcType=VARCHAR} , 
-     #{productname,jdbcType=LONGVARCHAR} , 
-     #{descr,jdbcType=LONGVARCHAR} , 
-     #{shoptype,jdbcType=LONGVARCHAR} , 
-     #{salesource,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     SID , 
     PROJECTID , 
+    PRODUCTNAME , 
     PRODUCTID , 
+    DESCR , 
     STYPE , 
     SLEVEL , 
     FLAG , 
@@ -130,6 +132,8 @@
     PUBLICOPER , 
     ENDTIME , 
     DATEDIFF , 
+    SHOPTYPE , 
+    SALESOURCE , 
     TRANSLATETIME , 
     PRICETIME , 
     CONTENTTIME , 
@@ -147,262 +151,258 @@
     CHECKOPER , 
     CHECKTIME , 
     CORPID , 
-    PRODUCTNAME , 
-    DESCR , 
-    SHOPTYPE , 
-    SALESOURCE
   </sql>
   <sql id="Criteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} and 
+      sid = #{sid,jdbcType=VARCHAR} and 
     </if>
     <if test="projectid != null">
-      PROJECTID = #{projectid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="productid != null">
-      PRODUCTID = #{productid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="stype != null">
-      STYPE = #{stype,jdbcType=VARCHAR} and 
-    </if>
-    <if test="slevel != null">
-      SLEVEL = #{slevel,jdbcType=VARCHAR} and 
-    </if>
-    <if test="flag != null">
-      FLAG = #{flag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="translateflag != null">
-      TRANSLATEFLAG = #{translateflag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="priceflag != null">
-      PRICEFLAG = #{priceflag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="contentflag != null">
-      CONTENTFLAG = #{contentflag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="picflag != null">
-      PICFLAG = #{picflag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="designflag != null">
-      DESIGNFLAG = #{designflag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="publicflag != null">
-      PUBLICFLAG = #{publicflag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="translateoper != null">
-      TRANSLATEOPER = #{translateoper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="priceoper != null">
-      PRICEOPER = #{priceoper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="contentoper != null">
-      CONTENTOPER = #{contentoper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="picoper != null">
-      PICOPER = #{picoper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="designoper != null">
-      DESIGNOPER = #{designoper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="publicoper != null">
-      PUBLICOPER = #{publicoper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="endtime != null">
-      ENDTIME = #{endtime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="datediff != null">
-      DATEDIFF = #{datediff,jdbcType=DECIMAL} and 
-    </if>
-    <if test="translatetime != null">
-      TRANSLATETIME = #{translatetime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="pricetime != null">
-      PRICETIME = #{pricetime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="contenttime != null">
-      CONTENTTIME = #{contenttime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="pictime != null">
-      PICTIME = #{pictime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="designtime != null">
-      DESIGNTIME = #{designtime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="publictime != null">
-      PUBLICTIME = #{publictime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=VARCHAR} and 
-    </if>
-    <if test="checkflag != null">
-      CHECKFLAG = #{checkflag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="checkoper != null">
-      CHECKOPER = #{checkoper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="checktime != null">
-      CHECKTIME = #{checktime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} and 
+      projectid = #{projectid,jdbcType=VARCHAR} and 
     </if>
     <if test="productname != null">
-      PRODUCTNAME = #{productname,jdbcType=LONGVARCHAR} and 
+      productname = #{productname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="productid != null">
+      productid = #{productid,jdbcType=VARCHAR} and 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR} and 
+      descr = #{descr,jdbcType=VARCHAR} and 
+    </if>
+    <if test="stype != null">
+      stype = #{stype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="slevel != null">
+      slevel = #{slevel,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="translateflag != null">
+      translateflag = #{translateflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="priceflag != null">
+      priceflag = #{priceflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="contentflag != null">
+      contentflag = #{contentflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="picflag != null">
+      picflag = #{picflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="designflag != null">
+      designflag = #{designflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="publicflag != null">
+      publicflag = #{publicflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="translateoper != null">
+      translateoper = #{translateoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="priceoper != null">
+      priceoper = #{priceoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="contentoper != null">
+      contentoper = #{contentoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="picoper != null">
+      picoper = #{picoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="designoper != null">
+      designoper = #{designoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="publicoper != null">
+      publicoper = #{publicoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="endtime != null">
+      endtime = #{endtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="datediff != null">
+      datediff = #{datediff,jdbcType=DECIMAL} and 
     </if>
     <if test="shoptype != null">
-      SHOPTYPE = #{shoptype,jdbcType=LONGVARCHAR} and 
+      shoptype = #{shoptype,jdbcType=VARCHAR} and 
     </if>
     <if test="salesource != null">
-      SALESOURCE = #{salesource,jdbcType=LONGVARCHAR}
+      salesource = #{salesource,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="translatetime != null">
+      translatetime = #{translatetime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="pricetime != null">
+      pricetime = #{pricetime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="contenttime != null">
+      contenttime = #{contenttime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="pictime != null">
+      pictime = #{pictime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="designtime != null">
+      designtime = #{designtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="publictime != null">
+      publictime = #{publictime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=VARCHAR} and 
+    </if>
+    <if test="checkflag != null">
+      checkflag = #{checkflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="checkoper != null">
+      checkoper = #{checkoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="checktime != null">
+      checktime = #{checktime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} , 
+      sid = #{sid,jdbcType=VARCHAR} , 
     </if>
     <if test="projectid != null">
-      PROJECTID = #{projectid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="productid != null">
-      PRODUCTID = #{productid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="stype != null">
-      STYPE = #{stype,jdbcType=VARCHAR} , 
-    </if>
-    <if test="slevel != null">
-      SLEVEL = #{slevel,jdbcType=VARCHAR} , 
-    </if>
-    <if test="flag != null">
-      FLAG = #{flag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="translateflag != null">
-      TRANSLATEFLAG = #{translateflag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="priceflag != null">
-      PRICEFLAG = #{priceflag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="contentflag != null">
-      CONTENTFLAG = #{contentflag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="picflag != null">
-      PICFLAG = #{picflag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="designflag != null">
-      DESIGNFLAG = #{designflag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="publicflag != null">
-      PUBLICFLAG = #{publicflag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="translateoper != null">
-      TRANSLATEOPER = #{translateoper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="priceoper != null">
-      PRICEOPER = #{priceoper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="contentoper != null">
-      CONTENTOPER = #{contentoper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="picoper != null">
-      PICOPER = #{picoper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="designoper != null">
-      DESIGNOPER = #{designoper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="publicoper != null">
-      PUBLICOPER = #{publicoper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="endtime != null">
-      ENDTIME = #{endtime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="datediff != null">
-      DATEDIFF = #{datediff,jdbcType=DECIMAL} , 
-    </if>
-    <if test="translatetime != null">
-      TRANSLATETIME = #{translatetime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="pricetime != null">
-      PRICETIME = #{pricetime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="contenttime != null">
-      CONTENTTIME = #{contenttime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="pictime != null">
-      PICTIME = #{pictime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="designtime != null">
-      DESIGNTIME = #{designtime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="publictime != null">
-      PUBLICTIME = #{publictime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=VARCHAR} , 
-    </if>
-    <if test="checkflag != null">
-      CHECKFLAG = #{checkflag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="checkoper != null">
-      CHECKOPER = #{checkoper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="checktime != null">
-      CHECKTIME = #{checktime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} , 
+      projectid = #{projectid,jdbcType=VARCHAR} , 
     </if>
     <if test="productname != null">
-      PRODUCTNAME = #{productname,jdbcType=LONGVARCHAR} , 
+      productname = #{productname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="productid != null">
+      productid = #{productid,jdbcType=VARCHAR} , 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR} , 
+      descr = #{descr,jdbcType=VARCHAR} , 
+    </if>
+    <if test="stype != null">
+      stype = #{stype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="slevel != null">
+      slevel = #{slevel,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="translateflag != null">
+      translateflag = #{translateflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="priceflag != null">
+      priceflag = #{priceflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="contentflag != null">
+      contentflag = #{contentflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="picflag != null">
+      picflag = #{picflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="designflag != null">
+      designflag = #{designflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="publicflag != null">
+      publicflag = #{publicflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="translateoper != null">
+      translateoper = #{translateoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="priceoper != null">
+      priceoper = #{priceoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="contentoper != null">
+      contentoper = #{contentoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="picoper != null">
+      picoper = #{picoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="designoper != null">
+      designoper = #{designoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="publicoper != null">
+      publicoper = #{publicoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="endtime != null">
+      endtime = #{endtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="datediff != null">
+      datediff = #{datediff,jdbcType=DECIMAL} , 
     </if>
     <if test="shoptype != null">
-      SHOPTYPE = #{shoptype,jdbcType=LONGVARCHAR} , 
+      shoptype = #{shoptype,jdbcType=VARCHAR} , 
     </if>
     <if test="salesource != null">
-      SALESOURCE = #{salesource,jdbcType=LONGVARCHAR}
+      salesource = #{salesource,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="translatetime != null">
+      translatetime = #{translatetime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="pricetime != null">
+      pricetime = #{pricetime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="contenttime != null">
+      contenttime = #{contenttime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="pictime != null">
+      pictime = #{pictime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="designtime != null">
+      designtime = #{designtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="publictime != null">
+      publictime = #{publictime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=VARCHAR} , 
+    </if>
+    <if test="checkflag != null">
+      checkflag = #{checkflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="checkoper != null">
+      checkoper = #{checkoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="checktime != null">
+      checktime = #{checktime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbProjectproduct" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

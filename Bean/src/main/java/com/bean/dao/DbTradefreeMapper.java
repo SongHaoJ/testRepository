@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbTradefree;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbTradefreeMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbTradefree selectByCriteria(DbTradefree DbTradefree);
 
-    int insert(DbTradefree record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbTradefree record);
+    void deleteByCriteria(DbTradefree DbTradefree);
+
+    int insertByCriteria(DbTradefree DbTradefree);
+
+    int updateByCriteria(DbTradefree DbTradefree);
 
     DbTradefree selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbTradefree record);
-
-    int updateByPrimaryKeyWithBLOBs(DbTradefree record);
-
-    int updateByPrimaryKey(DbTradefree record);
+    List<DbTradefree> selectAll();
 }

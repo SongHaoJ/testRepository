@@ -2,30 +2,60 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bean.dao.DbHuahanexpresstypeMapper">
   <resultMap id="BaseResultMap" type="com.bean.model.DbHuahanexpresstype">
-    <result column="SEQUENCEID" jdbcType="DECIMAL" property="sequenceid" />
+    <id column="SEQUENCEID" jdbcType="DECIMAL" property="sequenceid" />
     <result column="EXPRESSTYPE" jdbcType="VARCHAR" property="expresstype" />
   </resultMap>
-  <insert id="insert" parameterType="com.bean.model.DbHuahanexpresstype">
-    insert into db_huahanexpresstype (SEQUENCEID, EXPRESSTYPE)
-    values (#{sequenceid,jdbcType=DECIMAL}, #{expresstype,jdbcType=VARCHAR})
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select SEQUENCEID, EXPRESSTYPE
+    from DB_HUAHANEXPRESSTYPE
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, EXPRESSTYPE
+    from DB_HUAHANEXPRESSTYPE
+  </select>
+  <sql id="TableName">
+    DB_HUAHANEXPRESSTYPE
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=DECIMAL} , 
+     #{expresstype,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    EXPRESSTYPE , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="expresstype != null">
+      expresstype = #{expresstype,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="expresstype != null">
+      expresstype = #{expresstype,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbHuahanexpresstype" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="BigDecimal">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbHuahanexpresstype">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbHuahanexpresstype">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbHuahanexpresstype">
-    insert into db_huahanexpresstype
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        SEQUENCEID,
-      </if>
-      <if test="expresstype != null">
-        EXPRESSTYPE,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        #{sequenceid,jdbcType=DECIMAL},
-      </if>
-      <if test="expresstype != null">
-        #{expresstype,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbHuahanexpresstype">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
 </mapper>

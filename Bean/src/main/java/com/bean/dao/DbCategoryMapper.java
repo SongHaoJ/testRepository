@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbCategory;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbCategoryMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbCategory selectByCriteria(DbCategory DbCategory);
 
-    int insert(DbCategory record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbCategory record);
+    void deleteByCriteria(DbCategory DbCategory);
+
+    int insertByCriteria(DbCategory DbCategory);
+
+    int updateByCriteria(DbCategory DbCategory);
 
     DbCategory selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbCategory record);
-
-    int updateByPrimaryKeyWithBLOBs(DbCategory record);
-
-    int updateByPrimaryKey(DbCategory record);
+    List<DbCategory> selectAll();
 }

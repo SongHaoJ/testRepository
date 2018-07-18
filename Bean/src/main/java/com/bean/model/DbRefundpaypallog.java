@@ -15,9 +15,13 @@ public class DbRefundpaypallog implements Serializable {
 
     private String password;
 
+    private String paypaltoken;
+
     private String refundtype;
 
     private String monrytype;
+
+    private String note;
 
     private BigDecimal refundmoney;
 
@@ -35,6 +39,8 @@ public class DbRefundpaypallog implements Serializable {
 
     private String refundresult;
 
+    private String errorreason;
+
     private BigDecimal moneytype;
 
     private BigDecimal remoney;
@@ -51,36 +57,6 @@ public class DbRefundpaypallog implements Serializable {
 
     private String openflag;
 
-    private BigDecimal reserve7;
-
-    private BigDecimal reserve8;
-
-    private BigDecimal reserve9;
-
-    private BigDecimal reserve10;
-
-    private String opertype;
-
-    private String productid;
-
-    private Date ordertime;
-
-    private String purchaseoper;
-
-    private String expresstype;
-
-    private BigDecimal reserve21;
-
-    private BigDecimal reserve22;
-
-    private BigDecimal reserve23;
-
-    private String paypaltoken;
-
-    private String note;
-
-    private String errorreason;
-
     private String reserve1;
 
     private String reserve2;
@@ -93,7 +69,25 @@ public class DbRefundpaypallog implements Serializable {
 
     private String reserve6;
 
+    private BigDecimal reserve7;
+
+    private BigDecimal reserve8;
+
+    private BigDecimal reserve9;
+
+    private BigDecimal reserve10;
+
+    private String opertype;
+
     private String content;
+
+    private String productid;
+
+    private Date ordertime;
+
+    private String purchaseoper;
+
+    private String expresstype;
 
     private String reserve11;
 
@@ -114,6 +108,12 @@ public class DbRefundpaypallog implements Serializable {
     private String reserve19;
 
     private String reserve20;
+
+    private BigDecimal reserve21;
+
+    private BigDecimal reserve22;
+
+    private BigDecimal reserve23;
 
     private static final long serialVersionUID = 1L;
 
@@ -157,6 +157,14 @@ public class DbRefundpaypallog implements Serializable {
         this.password = password == null ? null : password.trim();
     }
 
+    public String getPaypaltoken() {
+        return paypaltoken;
+    }
+
+    public void setPaypaltoken(String paypaltoken) {
+        this.paypaltoken = paypaltoken == null ? null : paypaltoken.trim();
+    }
+
     public String getRefundtype() {
         return refundtype;
     }
@@ -171,6 +179,14 @@ public class DbRefundpaypallog implements Serializable {
 
     public void setMonrytype(String monrytype) {
         this.monrytype = monrytype == null ? null : monrytype.trim();
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note == null ? null : note.trim();
     }
 
     public BigDecimal getRefundmoney() {
@@ -237,6 +253,14 @@ public class DbRefundpaypallog implements Serializable {
         this.refundresult = refundresult == null ? null : refundresult.trim();
     }
 
+    public String getErrorreason() {
+        return errorreason;
+    }
+
+    public void setErrorreason(String errorreason) {
+        this.errorreason = errorreason == null ? null : errorreason.trim();
+    }
+
     public BigDecimal getMoneytype() {
         return moneytype;
     }
@@ -301,126 +325,6 @@ public class DbRefundpaypallog implements Serializable {
         this.openflag = openflag == null ? null : openflag.trim();
     }
 
-    public BigDecimal getReserve7() {
-        return reserve7;
-    }
-
-    public void setReserve7(BigDecimal reserve7) {
-        this.reserve7 = reserve7;
-    }
-
-    public BigDecimal getReserve8() {
-        return reserve8;
-    }
-
-    public void setReserve8(BigDecimal reserve8) {
-        this.reserve8 = reserve8;
-    }
-
-    public BigDecimal getReserve9() {
-        return reserve9;
-    }
-
-    public void setReserve9(BigDecimal reserve9) {
-        this.reserve9 = reserve9;
-    }
-
-    public BigDecimal getReserve10() {
-        return reserve10;
-    }
-
-    public void setReserve10(BigDecimal reserve10) {
-        this.reserve10 = reserve10;
-    }
-
-    public String getOpertype() {
-        return opertype;
-    }
-
-    public void setOpertype(String opertype) {
-        this.opertype = opertype == null ? null : opertype.trim();
-    }
-
-    public String getProductid() {
-        return productid;
-    }
-
-    public void setProductid(String productid) {
-        this.productid = productid == null ? null : productid.trim();
-    }
-
-    public Date getOrdertime() {
-        return ordertime;
-    }
-
-    public void setOrdertime(Date ordertime) {
-        this.ordertime = ordertime;
-    }
-
-    public String getPurchaseoper() {
-        return purchaseoper;
-    }
-
-    public void setPurchaseoper(String purchaseoper) {
-        this.purchaseoper = purchaseoper == null ? null : purchaseoper.trim();
-    }
-
-    public String getExpresstype() {
-        return expresstype;
-    }
-
-    public void setExpresstype(String expresstype) {
-        this.expresstype = expresstype == null ? null : expresstype.trim();
-    }
-
-    public BigDecimal getReserve21() {
-        return reserve21;
-    }
-
-    public void setReserve21(BigDecimal reserve21) {
-        this.reserve21 = reserve21;
-    }
-
-    public BigDecimal getReserve22() {
-        return reserve22;
-    }
-
-    public void setReserve22(BigDecimal reserve22) {
-        this.reserve22 = reserve22;
-    }
-
-    public BigDecimal getReserve23() {
-        return reserve23;
-    }
-
-    public void setReserve23(BigDecimal reserve23) {
-        this.reserve23 = reserve23;
-    }
-
-    public String getPaypaltoken() {
-        return paypaltoken;
-    }
-
-    public void setPaypaltoken(String paypaltoken) {
-        this.paypaltoken = paypaltoken == null ? null : paypaltoken.trim();
-    }
-
-    public String getNote() {
-        return note;
-    }
-
-    public void setNote(String note) {
-        this.note = note == null ? null : note.trim();
-    }
-
-    public String getErrorreason() {
-        return errorreason;
-    }
-
-    public void setErrorreason(String errorreason) {
-        this.errorreason = errorreason == null ? null : errorreason.trim();
-    }
-
     public String getReserve1() {
         return reserve1;
     }
@@ -469,12 +373,84 @@ public class DbRefundpaypallog implements Serializable {
         this.reserve6 = reserve6 == null ? null : reserve6.trim();
     }
 
+    public BigDecimal getReserve7() {
+        return reserve7;
+    }
+
+    public void setReserve7(BigDecimal reserve7) {
+        this.reserve7 = reserve7;
+    }
+
+    public BigDecimal getReserve8() {
+        return reserve8;
+    }
+
+    public void setReserve8(BigDecimal reserve8) {
+        this.reserve8 = reserve8;
+    }
+
+    public BigDecimal getReserve9() {
+        return reserve9;
+    }
+
+    public void setReserve9(BigDecimal reserve9) {
+        this.reserve9 = reserve9;
+    }
+
+    public BigDecimal getReserve10() {
+        return reserve10;
+    }
+
+    public void setReserve10(BigDecimal reserve10) {
+        this.reserve10 = reserve10;
+    }
+
+    public String getOpertype() {
+        return opertype;
+    }
+
+    public void setOpertype(String opertype) {
+        this.opertype = opertype == null ? null : opertype.trim();
+    }
+
     public String getContent() {
         return content;
     }
 
     public void setContent(String content) {
         this.content = content == null ? null : content.trim();
+    }
+
+    public String getProductid() {
+        return productid;
+    }
+
+    public void setProductid(String productid) {
+        this.productid = productid == null ? null : productid.trim();
+    }
+
+    public Date getOrdertime() {
+        return ordertime;
+    }
+
+    public void setOrdertime(Date ordertime) {
+        this.ordertime = ordertime;
+    }
+
+    public String getPurchaseoper() {
+        return purchaseoper;
+    }
+
+    public void setPurchaseoper(String purchaseoper) {
+        this.purchaseoper = purchaseoper == null ? null : purchaseoper.trim();
+    }
+
+    public String getExpresstype() {
+        return expresstype;
+    }
+
+    public void setExpresstype(String expresstype) {
+        this.expresstype = expresstype == null ? null : expresstype.trim();
     }
 
     public String getReserve11() {
@@ -557,6 +533,30 @@ public class DbRefundpaypallog implements Serializable {
         this.reserve20 = reserve20 == null ? null : reserve20.trim();
     }
 
+    public BigDecimal getReserve21() {
+        return reserve21;
+    }
+
+    public void setReserve21(BigDecimal reserve21) {
+        this.reserve21 = reserve21;
+    }
+
+    public BigDecimal getReserve22() {
+        return reserve22;
+    }
+
+    public void setReserve22(BigDecimal reserve22) {
+        this.reserve22 = reserve22;
+    }
+
+    public BigDecimal getReserve23() {
+        return reserve23;
+    }
+
+    public void setReserve23(BigDecimal reserve23) {
+        this.reserve23 = reserve23;
+    }
+
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -574,8 +574,10 @@ public class DbRefundpaypallog implements Serializable {
             && (this.getPaypalid() == null ? other.getPaypalid() == null : this.getPaypalid().equals(other.getPaypalid()))
             && (this.getUsername() == null ? other.getUsername() == null : this.getUsername().equals(other.getUsername()))
             && (this.getPassword() == null ? other.getPassword() == null : this.getPassword().equals(other.getPassword()))
+            && (this.getPaypaltoken() == null ? other.getPaypaltoken() == null : this.getPaypaltoken().equals(other.getPaypaltoken()))
             && (this.getRefundtype() == null ? other.getRefundtype() == null : this.getRefundtype().equals(other.getRefundtype()))
             && (this.getMonrytype() == null ? other.getMonrytype() == null : this.getMonrytype().equals(other.getMonrytype()))
+            && (this.getNote() == null ? other.getNote() == null : this.getNote().equals(other.getNote()))
             && (this.getRefundmoney() == null ? other.getRefundmoney() == null : this.getRefundmoney().equals(other.getRefundmoney()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getCreatetime() == null ? other.getCreatetime() == null : this.getCreatetime().equals(other.getCreatetime()))
@@ -584,6 +586,7 @@ public class DbRefundpaypallog implements Serializable {
             && (this.getRefundtime() == null ? other.getRefundtime() == null : this.getRefundtime().equals(other.getRefundtime()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
             && (this.getRefundresult() == null ? other.getRefundresult() == null : this.getRefundresult().equals(other.getRefundresult()))
+            && (this.getErrorreason() == null ? other.getErrorreason() == null : this.getErrorreason().equals(other.getErrorreason()))
             && (this.getMoneytype() == null ? other.getMoneytype() == null : this.getMoneytype().equals(other.getMoneytype()))
             && (this.getRemoney() == null ? other.getRemoney() == null : this.getRemoney().equals(other.getRemoney()))
             && (this.getCreateoper() == null ? other.getCreateoper() == null : this.getCreateoper().equals(other.getCreateoper()))
@@ -592,28 +595,22 @@ public class DbRefundpaypallog implements Serializable {
             && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()))
             && (this.getFlag() == null ? other.getFlag() == null : this.getFlag().equals(other.getFlag()))
             && (this.getOpenflag() == null ? other.getOpenflag() == null : this.getOpenflag().equals(other.getOpenflag()))
-            && (this.getReserve7() == null ? other.getReserve7() == null : this.getReserve7().equals(other.getReserve7()))
-            && (this.getReserve8() == null ? other.getReserve8() == null : this.getReserve8().equals(other.getReserve8()))
-            && (this.getReserve9() == null ? other.getReserve9() == null : this.getReserve9().equals(other.getReserve9()))
-            && (this.getReserve10() == null ? other.getReserve10() == null : this.getReserve10().equals(other.getReserve10()))
-            && (this.getOpertype() == null ? other.getOpertype() == null : this.getOpertype().equals(other.getOpertype()))
-            && (this.getProductid() == null ? other.getProductid() == null : this.getProductid().equals(other.getProductid()))
-            && (this.getOrdertime() == null ? other.getOrdertime() == null : this.getOrdertime().equals(other.getOrdertime()))
-            && (this.getPurchaseoper() == null ? other.getPurchaseoper() == null : this.getPurchaseoper().equals(other.getPurchaseoper()))
-            && (this.getExpresstype() == null ? other.getExpresstype() == null : this.getExpresstype().equals(other.getExpresstype()))
-            && (this.getReserve21() == null ? other.getReserve21() == null : this.getReserve21().equals(other.getReserve21()))
-            && (this.getReserve22() == null ? other.getReserve22() == null : this.getReserve22().equals(other.getReserve22()))
-            && (this.getReserve23() == null ? other.getReserve23() == null : this.getReserve23().equals(other.getReserve23()))
-            && (this.getPaypaltoken() == null ? other.getPaypaltoken() == null : this.getPaypaltoken().equals(other.getPaypaltoken()))
-            && (this.getNote() == null ? other.getNote() == null : this.getNote().equals(other.getNote()))
-            && (this.getErrorreason() == null ? other.getErrorreason() == null : this.getErrorreason().equals(other.getErrorreason()))
             && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
             && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
             && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
             && (this.getReserve4() == null ? other.getReserve4() == null : this.getReserve4().equals(other.getReserve4()))
             && (this.getReserve5() == null ? other.getReserve5() == null : this.getReserve5().equals(other.getReserve5()))
             && (this.getReserve6() == null ? other.getReserve6() == null : this.getReserve6().equals(other.getReserve6()))
+            && (this.getReserve7() == null ? other.getReserve7() == null : this.getReserve7().equals(other.getReserve7()))
+            && (this.getReserve8() == null ? other.getReserve8() == null : this.getReserve8().equals(other.getReserve8()))
+            && (this.getReserve9() == null ? other.getReserve9() == null : this.getReserve9().equals(other.getReserve9()))
+            && (this.getReserve10() == null ? other.getReserve10() == null : this.getReserve10().equals(other.getReserve10()))
+            && (this.getOpertype() == null ? other.getOpertype() == null : this.getOpertype().equals(other.getOpertype()))
             && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
+            && (this.getProductid() == null ? other.getProductid() == null : this.getProductid().equals(other.getProductid()))
+            && (this.getOrdertime() == null ? other.getOrdertime() == null : this.getOrdertime().equals(other.getOrdertime()))
+            && (this.getPurchaseoper() == null ? other.getPurchaseoper() == null : this.getPurchaseoper().equals(other.getPurchaseoper()))
+            && (this.getExpresstype() == null ? other.getExpresstype() == null : this.getExpresstype().equals(other.getExpresstype()))
             && (this.getReserve11() == null ? other.getReserve11() == null : this.getReserve11().equals(other.getReserve11()))
             && (this.getReserve12() == null ? other.getReserve12() == null : this.getReserve12().equals(other.getReserve12()))
             && (this.getReserve13() == null ? other.getReserve13() == null : this.getReserve13().equals(other.getReserve13()))
@@ -623,7 +620,10 @@ public class DbRefundpaypallog implements Serializable {
             && (this.getReserve17() == null ? other.getReserve17() == null : this.getReserve17().equals(other.getReserve17()))
             && (this.getReserve18() == null ? other.getReserve18() == null : this.getReserve18().equals(other.getReserve18()))
             && (this.getReserve19() == null ? other.getReserve19() == null : this.getReserve19().equals(other.getReserve19()))
-            && (this.getReserve20() == null ? other.getReserve20() == null : this.getReserve20().equals(other.getReserve20()));
+            && (this.getReserve20() == null ? other.getReserve20() == null : this.getReserve20().equals(other.getReserve20()))
+            && (this.getReserve21() == null ? other.getReserve21() == null : this.getReserve21().equals(other.getReserve21()))
+            && (this.getReserve22() == null ? other.getReserve22() == null : this.getReserve22().equals(other.getReserve22()))
+            && (this.getReserve23() == null ? other.getReserve23() == null : this.getReserve23().equals(other.getReserve23()));
     }
 
     @Override
@@ -635,8 +635,10 @@ public class DbRefundpaypallog implements Serializable {
         result = prime * result + ((getPaypalid() == null) ? 0 : getPaypalid().hashCode());
         result = prime * result + ((getUsername() == null) ? 0 : getUsername().hashCode());
         result = prime * result + ((getPassword() == null) ? 0 : getPassword().hashCode());
+        result = prime * result + ((getPaypaltoken() == null) ? 0 : getPaypaltoken().hashCode());
         result = prime * result + ((getRefundtype() == null) ? 0 : getRefundtype().hashCode());
         result = prime * result + ((getMonrytype() == null) ? 0 : getMonrytype().hashCode());
+        result = prime * result + ((getNote() == null) ? 0 : getNote().hashCode());
         result = prime * result + ((getRefundmoney() == null) ? 0 : getRefundmoney().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getCreatetime() == null) ? 0 : getCreatetime().hashCode());
@@ -645,6 +647,7 @@ public class DbRefundpaypallog implements Serializable {
         result = prime * result + ((getRefundtime() == null) ? 0 : getRefundtime().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getRefundresult() == null) ? 0 : getRefundresult().hashCode());
+        result = prime * result + ((getErrorreason() == null) ? 0 : getErrorreason().hashCode());
         result = prime * result + ((getMoneytype() == null) ? 0 : getMoneytype().hashCode());
         result = prime * result + ((getRemoney() == null) ? 0 : getRemoney().hashCode());
         result = prime * result + ((getCreateoper() == null) ? 0 : getCreateoper().hashCode());
@@ -653,28 +656,22 @@ public class DbRefundpaypallog implements Serializable {
         result = prime * result + ((getCorpid() == null) ? 0 : getCorpid().hashCode());
         result = prime * result + ((getFlag() == null) ? 0 : getFlag().hashCode());
         result = prime * result + ((getOpenflag() == null) ? 0 : getOpenflag().hashCode());
-        result = prime * result + ((getReserve7() == null) ? 0 : getReserve7().hashCode());
-        result = prime * result + ((getReserve8() == null) ? 0 : getReserve8().hashCode());
-        result = prime * result + ((getReserve9() == null) ? 0 : getReserve9().hashCode());
-        result = prime * result + ((getReserve10() == null) ? 0 : getReserve10().hashCode());
-        result = prime * result + ((getOpertype() == null) ? 0 : getOpertype().hashCode());
-        result = prime * result + ((getProductid() == null) ? 0 : getProductid().hashCode());
-        result = prime * result + ((getOrdertime() == null) ? 0 : getOrdertime().hashCode());
-        result = prime * result + ((getPurchaseoper() == null) ? 0 : getPurchaseoper().hashCode());
-        result = prime * result + ((getExpresstype() == null) ? 0 : getExpresstype().hashCode());
-        result = prime * result + ((getReserve21() == null) ? 0 : getReserve21().hashCode());
-        result = prime * result + ((getReserve22() == null) ? 0 : getReserve22().hashCode());
-        result = prime * result + ((getReserve23() == null) ? 0 : getReserve23().hashCode());
-        result = prime * result + ((getPaypaltoken() == null) ? 0 : getPaypaltoken().hashCode());
-        result = prime * result + ((getNote() == null) ? 0 : getNote().hashCode());
-        result = prime * result + ((getErrorreason() == null) ? 0 : getErrorreason().hashCode());
         result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
         result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
         result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
         result = prime * result + ((getReserve4() == null) ? 0 : getReserve4().hashCode());
         result = prime * result + ((getReserve5() == null) ? 0 : getReserve5().hashCode());
         result = prime * result + ((getReserve6() == null) ? 0 : getReserve6().hashCode());
+        result = prime * result + ((getReserve7() == null) ? 0 : getReserve7().hashCode());
+        result = prime * result + ((getReserve8() == null) ? 0 : getReserve8().hashCode());
+        result = prime * result + ((getReserve9() == null) ? 0 : getReserve9().hashCode());
+        result = prime * result + ((getReserve10() == null) ? 0 : getReserve10().hashCode());
+        result = prime * result + ((getOpertype() == null) ? 0 : getOpertype().hashCode());
         result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
+        result = prime * result + ((getProductid() == null) ? 0 : getProductid().hashCode());
+        result = prime * result + ((getOrdertime() == null) ? 0 : getOrdertime().hashCode());
+        result = prime * result + ((getPurchaseoper() == null) ? 0 : getPurchaseoper().hashCode());
+        result = prime * result + ((getExpresstype() == null) ? 0 : getExpresstype().hashCode());
         result = prime * result + ((getReserve11() == null) ? 0 : getReserve11().hashCode());
         result = prime * result + ((getReserve12() == null) ? 0 : getReserve12().hashCode());
         result = prime * result + ((getReserve13() == null) ? 0 : getReserve13().hashCode());
@@ -685,6 +682,9 @@ public class DbRefundpaypallog implements Serializable {
         result = prime * result + ((getReserve18() == null) ? 0 : getReserve18().hashCode());
         result = prime * result + ((getReserve19() == null) ? 0 : getReserve19().hashCode());
         result = prime * result + ((getReserve20() == null) ? 0 : getReserve20().hashCode());
+        result = prime * result + ((getReserve21() == null) ? 0 : getReserve21().hashCode());
+        result = prime * result + ((getReserve22() == null) ? 0 : getReserve22().hashCode());
+        result = prime * result + ((getReserve23() == null) ? 0 : getReserve23().hashCode());
         return result;
     }
 
@@ -699,8 +699,10 @@ public class DbRefundpaypallog implements Serializable {
         sb.append(", paypalid=").append(paypalid);
         sb.append(", username=").append(username);
         sb.append(", password=").append(password);
+        sb.append(", paypaltoken=").append(paypaltoken);
         sb.append(", refundtype=").append(refundtype);
         sb.append(", monrytype=").append(monrytype);
+        sb.append(", note=").append(note);
         sb.append(", refundmoney=").append(refundmoney);
         sb.append(", oper=").append(oper);
         sb.append(", createtime=").append(createtime);
@@ -709,6 +711,7 @@ public class DbRefundpaypallog implements Serializable {
         sb.append(", refundtime=").append(refundtime);
         sb.append(", opertime=").append(opertime);
         sb.append(", refundresult=").append(refundresult);
+        sb.append(", errorreason=").append(errorreason);
         sb.append(", moneytype=").append(moneytype);
         sb.append(", remoney=").append(remoney);
         sb.append(", createoper=").append(createoper);
@@ -717,28 +720,22 @@ public class DbRefundpaypallog implements Serializable {
         sb.append(", corpid=").append(corpid);
         sb.append(", flag=").append(flag);
         sb.append(", openflag=").append(openflag);
-        sb.append(", reserve7=").append(reserve7);
-        sb.append(", reserve8=").append(reserve8);
-        sb.append(", reserve9=").append(reserve9);
-        sb.append(", reserve10=").append(reserve10);
-        sb.append(", opertype=").append(opertype);
-        sb.append(", productid=").append(productid);
-        sb.append(", ordertime=").append(ordertime);
-        sb.append(", purchaseoper=").append(purchaseoper);
-        sb.append(", expresstype=").append(expresstype);
-        sb.append(", reserve21=").append(reserve21);
-        sb.append(", reserve22=").append(reserve22);
-        sb.append(", reserve23=").append(reserve23);
-        sb.append(", paypaltoken=").append(paypaltoken);
-        sb.append(", note=").append(note);
-        sb.append(", errorreason=").append(errorreason);
         sb.append(", reserve1=").append(reserve1);
         sb.append(", reserve2=").append(reserve2);
         sb.append(", reserve3=").append(reserve3);
         sb.append(", reserve4=").append(reserve4);
         sb.append(", reserve5=").append(reserve5);
         sb.append(", reserve6=").append(reserve6);
+        sb.append(", reserve7=").append(reserve7);
+        sb.append(", reserve8=").append(reserve8);
+        sb.append(", reserve9=").append(reserve9);
+        sb.append(", reserve10=").append(reserve10);
+        sb.append(", opertype=").append(opertype);
         sb.append(", content=").append(content);
+        sb.append(", productid=").append(productid);
+        sb.append(", ordertime=").append(ordertime);
+        sb.append(", purchaseoper=").append(purchaseoper);
+        sb.append(", expresstype=").append(expresstype);
         sb.append(", reserve11=").append(reserve11);
         sb.append(", reserve12=").append(reserve12);
         sb.append(", reserve13=").append(reserve13);
@@ -749,6 +746,9 @@ public class DbRefundpaypallog implements Serializable {
         sb.append(", reserve18=").append(reserve18);
         sb.append(", reserve19=").append(reserve19);
         sb.append(", reserve20=").append(reserve20);
+        sb.append(", reserve21=").append(reserve21);
+        sb.append(", reserve22=").append(reserve22);
+        sb.append(", reserve23=").append(reserve23);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

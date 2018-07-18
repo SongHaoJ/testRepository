@@ -13,6 +13,8 @@ public class DbSellTemp1 implements Serializable {
 
     private String productid;
 
+    private String productname;
+
     private BigDecimal ordernum;
 
     private BigDecimal costprice;
@@ -44,6 +46,12 @@ public class DbSellTemp1 implements Serializable {
     private Date opertime;
 
     private String flag;
+
+    private String descr1;
+
+    private String descr2;
+
+    private String descr3;
 
     private String reserve1;
 
@@ -93,6 +101,8 @@ public class DbSellTemp1 implements Serializable {
 
     private BigDecimal packagingweight;
 
+    private String packagingclass;
+
     private String shoptypeid;
 
     private String ebayitemid;
@@ -104,6 +114,8 @@ public class DbSellTemp1 implements Serializable {
     private String oper1;
 
     private String oper2;
+
+    private String englishname;
 
     private BigDecimal originordermoney;
 
@@ -143,18 +155,6 @@ public class DbSellTemp1 implements Serializable {
 
     private BigDecimal weightrate;
 
-    private String productname;
-
-    private String descr1;
-
-    private String descr2;
-
-    private String descr3;
-
-    private String packagingclass;
-
-    private String englishname;
-
     private static final long serialVersionUID = 1L;
 
     public String getSid() {
@@ -187,6 +187,14 @@ public class DbSellTemp1 implements Serializable {
 
     public void setProductid(String productid) {
         this.productid = productid == null ? null : productid.trim();
+    }
+
+    public String getProductname() {
+        return productname;
+    }
+
+    public void setProductname(String productname) {
+        this.productname = productname == null ? null : productname.trim();
     }
 
     public BigDecimal getOrdernum() {
@@ -315,6 +323,30 @@ public class DbSellTemp1 implements Serializable {
 
     public void setFlag(String flag) {
         this.flag = flag == null ? null : flag.trim();
+    }
+
+    public String getDescr1() {
+        return descr1;
+    }
+
+    public void setDescr1(String descr1) {
+        this.descr1 = descr1 == null ? null : descr1.trim();
+    }
+
+    public String getDescr2() {
+        return descr2;
+    }
+
+    public void setDescr2(String descr2) {
+        this.descr2 = descr2 == null ? null : descr2.trim();
+    }
+
+    public String getDescr3() {
+        return descr3;
+    }
+
+    public void setDescr3(String descr3) {
+        this.descr3 = descr3 == null ? null : descr3.trim();
     }
 
     public String getReserve1() {
@@ -509,6 +541,14 @@ public class DbSellTemp1 implements Serializable {
         this.packagingweight = packagingweight;
     }
 
+    public String getPackagingclass() {
+        return packagingclass;
+    }
+
+    public void setPackagingclass(String packagingclass) {
+        this.packagingclass = packagingclass == null ? null : packagingclass.trim();
+    }
+
     public String getShoptypeid() {
         return shoptypeid;
     }
@@ -555,6 +595,14 @@ public class DbSellTemp1 implements Serializable {
 
     public void setOper2(String oper2) {
         this.oper2 = oper2 == null ? null : oper2.trim();
+    }
+
+    public String getEnglishname() {
+        return englishname;
+    }
+
+    public void setEnglishname(String englishname) {
+        this.englishname = englishname == null ? null : englishname.trim();
     }
 
     public BigDecimal getOriginordermoney() {
@@ -709,54 +757,6 @@ public class DbSellTemp1 implements Serializable {
         this.weightrate = weightrate;
     }
 
-    public String getProductname() {
-        return productname;
-    }
-
-    public void setProductname(String productname) {
-        this.productname = productname == null ? null : productname.trim();
-    }
-
-    public String getDescr1() {
-        return descr1;
-    }
-
-    public void setDescr1(String descr1) {
-        this.descr1 = descr1 == null ? null : descr1.trim();
-    }
-
-    public String getDescr2() {
-        return descr2;
-    }
-
-    public void setDescr2(String descr2) {
-        this.descr2 = descr2 == null ? null : descr2.trim();
-    }
-
-    public String getDescr3() {
-        return descr3;
-    }
-
-    public void setDescr3(String descr3) {
-        this.descr3 = descr3 == null ? null : descr3.trim();
-    }
-
-    public String getPackagingclass() {
-        return packagingclass;
-    }
-
-    public void setPackagingclass(String packagingclass) {
-        this.packagingclass = packagingclass == null ? null : packagingclass.trim();
-    }
-
-    public String getEnglishname() {
-        return englishname;
-    }
-
-    public void setEnglishname(String englishname) {
-        this.englishname = englishname == null ? null : englishname.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -773,6 +773,7 @@ public class DbSellTemp1 implements Serializable {
             && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()))
             && (this.getOrderid() == null ? other.getOrderid() == null : this.getOrderid().equals(other.getOrderid()))
             && (this.getProductid() == null ? other.getProductid() == null : this.getProductid().equals(other.getProductid()))
+            && (this.getProductname() == null ? other.getProductname() == null : this.getProductname().equals(other.getProductname()))
             && (this.getOrdernum() == null ? other.getOrdernum() == null : this.getOrdernum().equals(other.getOrdernum()))
             && (this.getCostprice() == null ? other.getCostprice() == null : this.getCostprice().equals(other.getCostprice()))
             && (this.getSellprice() == null ? other.getSellprice() == null : this.getSellprice().equals(other.getSellprice()))
@@ -789,6 +790,9 @@ public class DbSellTemp1 implements Serializable {
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
             && (this.getFlag() == null ? other.getFlag() == null : this.getFlag().equals(other.getFlag()))
+            && (this.getDescr1() == null ? other.getDescr1() == null : this.getDescr1().equals(other.getDescr1()))
+            && (this.getDescr2() == null ? other.getDescr2() == null : this.getDescr2().equals(other.getDescr2()))
+            && (this.getDescr3() == null ? other.getDescr3() == null : this.getDescr3().equals(other.getDescr3()))
             && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
             && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
             && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
@@ -813,12 +817,14 @@ public class DbSellTemp1 implements Serializable {
             && (this.getPackagingid() == null ? other.getPackagingid() == null : this.getPackagingid().equals(other.getPackagingid()))
             && (this.getPackagingname() == null ? other.getPackagingname() == null : this.getPackagingname().equals(other.getPackagingname()))
             && (this.getPackagingweight() == null ? other.getPackagingweight() == null : this.getPackagingweight().equals(other.getPackagingweight()))
+            && (this.getPackagingclass() == null ? other.getPackagingclass() == null : this.getPackagingclass().equals(other.getPackagingclass()))
             && (this.getShoptypeid() == null ? other.getShoptypeid() == null : this.getShoptypeid().equals(other.getShoptypeid()))
             && (this.getEbayitemid() == null ? other.getEbayitemid() == null : this.getEbayitemid().equals(other.getEbayitemid()))
             && (this.getFinalvaluefee() == null ? other.getFinalvaluefee() == null : this.getFinalvaluefee().equals(other.getFinalvaluefee()))
             && (this.getFeedback() == null ? other.getFeedback() == null : this.getFeedback().equals(other.getFeedback()))
             && (this.getOper1() == null ? other.getOper1() == null : this.getOper1().equals(other.getOper1()))
             && (this.getOper2() == null ? other.getOper2() == null : this.getOper2().equals(other.getOper2()))
+            && (this.getEnglishname() == null ? other.getEnglishname() == null : this.getEnglishname().equals(other.getEnglishname()))
             && (this.getOriginordermoney() == null ? other.getOriginordermoney() == null : this.getOriginordermoney().equals(other.getOriginordermoney()))
             && (this.getOriginexpressmoney() == null ? other.getOriginexpressmoney() == null : this.getOriginexpressmoney().equals(other.getOriginexpressmoney()))
             && (this.getOrigininsurance() == null ? other.getOrigininsurance() == null : this.getOrigininsurance().equals(other.getOrigininsurance()))
@@ -837,13 +843,7 @@ public class DbSellTemp1 implements Serializable {
             && (this.getTotalmoney() == null ? other.getTotalmoney() == null : this.getTotalmoney().equals(other.getTotalmoney()))
             && (this.getMoneyrate() == null ? other.getMoneyrate() == null : this.getMoneyrate().equals(other.getMoneyrate()))
             && (this.getPaypalfee() == null ? other.getPaypalfee() == null : this.getPaypalfee().equals(other.getPaypalfee()))
-            && (this.getWeightrate() == null ? other.getWeightrate() == null : this.getWeightrate().equals(other.getWeightrate()))
-            && (this.getProductname() == null ? other.getProductname() == null : this.getProductname().equals(other.getProductname()))
-            && (this.getDescr1() == null ? other.getDescr1() == null : this.getDescr1().equals(other.getDescr1()))
-            && (this.getDescr2() == null ? other.getDescr2() == null : this.getDescr2().equals(other.getDescr2()))
-            && (this.getDescr3() == null ? other.getDescr3() == null : this.getDescr3().equals(other.getDescr3()))
-            && (this.getPackagingclass() == null ? other.getPackagingclass() == null : this.getPackagingclass().equals(other.getPackagingclass()))
-            && (this.getEnglishname() == null ? other.getEnglishname() == null : this.getEnglishname().equals(other.getEnglishname()));
+            && (this.getWeightrate() == null ? other.getWeightrate() == null : this.getWeightrate().equals(other.getWeightrate()));
     }
 
     @Override
@@ -854,6 +854,7 @@ public class DbSellTemp1 implements Serializable {
         result = prime * result + ((getCorpid() == null) ? 0 : getCorpid().hashCode());
         result = prime * result + ((getOrderid() == null) ? 0 : getOrderid().hashCode());
         result = prime * result + ((getProductid() == null) ? 0 : getProductid().hashCode());
+        result = prime * result + ((getProductname() == null) ? 0 : getProductname().hashCode());
         result = prime * result + ((getOrdernum() == null) ? 0 : getOrdernum().hashCode());
         result = prime * result + ((getCostprice() == null) ? 0 : getCostprice().hashCode());
         result = prime * result + ((getSellprice() == null) ? 0 : getSellprice().hashCode());
@@ -870,6 +871,9 @@ public class DbSellTemp1 implements Serializable {
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getFlag() == null) ? 0 : getFlag().hashCode());
+        result = prime * result + ((getDescr1() == null) ? 0 : getDescr1().hashCode());
+        result = prime * result + ((getDescr2() == null) ? 0 : getDescr2().hashCode());
+        result = prime * result + ((getDescr3() == null) ? 0 : getDescr3().hashCode());
         result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
         result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
         result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
@@ -894,12 +898,14 @@ public class DbSellTemp1 implements Serializable {
         result = prime * result + ((getPackagingid() == null) ? 0 : getPackagingid().hashCode());
         result = prime * result + ((getPackagingname() == null) ? 0 : getPackagingname().hashCode());
         result = prime * result + ((getPackagingweight() == null) ? 0 : getPackagingweight().hashCode());
+        result = prime * result + ((getPackagingclass() == null) ? 0 : getPackagingclass().hashCode());
         result = prime * result + ((getShoptypeid() == null) ? 0 : getShoptypeid().hashCode());
         result = prime * result + ((getEbayitemid() == null) ? 0 : getEbayitemid().hashCode());
         result = prime * result + ((getFinalvaluefee() == null) ? 0 : getFinalvaluefee().hashCode());
         result = prime * result + ((getFeedback() == null) ? 0 : getFeedback().hashCode());
         result = prime * result + ((getOper1() == null) ? 0 : getOper1().hashCode());
         result = prime * result + ((getOper2() == null) ? 0 : getOper2().hashCode());
+        result = prime * result + ((getEnglishname() == null) ? 0 : getEnglishname().hashCode());
         result = prime * result + ((getOriginordermoney() == null) ? 0 : getOriginordermoney().hashCode());
         result = prime * result + ((getOriginexpressmoney() == null) ? 0 : getOriginexpressmoney().hashCode());
         result = prime * result + ((getOrigininsurance() == null) ? 0 : getOrigininsurance().hashCode());
@@ -919,12 +925,6 @@ public class DbSellTemp1 implements Serializable {
         result = prime * result + ((getMoneyrate() == null) ? 0 : getMoneyrate().hashCode());
         result = prime * result + ((getPaypalfee() == null) ? 0 : getPaypalfee().hashCode());
         result = prime * result + ((getWeightrate() == null) ? 0 : getWeightrate().hashCode());
-        result = prime * result + ((getProductname() == null) ? 0 : getProductname().hashCode());
-        result = prime * result + ((getDescr1() == null) ? 0 : getDescr1().hashCode());
-        result = prime * result + ((getDescr2() == null) ? 0 : getDescr2().hashCode());
-        result = prime * result + ((getDescr3() == null) ? 0 : getDescr3().hashCode());
-        result = prime * result + ((getPackagingclass() == null) ? 0 : getPackagingclass().hashCode());
-        result = prime * result + ((getEnglishname() == null) ? 0 : getEnglishname().hashCode());
         return result;
     }
 
@@ -938,6 +938,7 @@ public class DbSellTemp1 implements Serializable {
         sb.append(", corpid=").append(corpid);
         sb.append(", orderid=").append(orderid);
         sb.append(", productid=").append(productid);
+        sb.append(", productname=").append(productname);
         sb.append(", ordernum=").append(ordernum);
         sb.append(", costprice=").append(costprice);
         sb.append(", sellprice=").append(sellprice);
@@ -954,6 +955,9 @@ public class DbSellTemp1 implements Serializable {
         sb.append(", oper=").append(oper);
         sb.append(", opertime=").append(opertime);
         sb.append(", flag=").append(flag);
+        sb.append(", descr1=").append(descr1);
+        sb.append(", descr2=").append(descr2);
+        sb.append(", descr3=").append(descr3);
         sb.append(", reserve1=").append(reserve1);
         sb.append(", reserve2=").append(reserve2);
         sb.append(", reserve3=").append(reserve3);
@@ -978,12 +982,14 @@ public class DbSellTemp1 implements Serializable {
         sb.append(", packagingid=").append(packagingid);
         sb.append(", packagingname=").append(packagingname);
         sb.append(", packagingweight=").append(packagingweight);
+        sb.append(", packagingclass=").append(packagingclass);
         sb.append(", shoptypeid=").append(shoptypeid);
         sb.append(", ebayitemid=").append(ebayitemid);
         sb.append(", finalvaluefee=").append(finalvaluefee);
         sb.append(", feedback=").append(feedback);
         sb.append(", oper1=").append(oper1);
         sb.append(", oper2=").append(oper2);
+        sb.append(", englishname=").append(englishname);
         sb.append(", originordermoney=").append(originordermoney);
         sb.append(", originexpressmoney=").append(originexpressmoney);
         sb.append(", origininsurance=").append(origininsurance);
@@ -1003,12 +1009,6 @@ public class DbSellTemp1 implements Serializable {
         sb.append(", moneyrate=").append(moneyrate);
         sb.append(", paypalfee=").append(paypalfee);
         sb.append(", weightrate=").append(weightrate);
-        sb.append(", productname=").append(productname);
-        sb.append(", descr1=").append(descr1);
-        sb.append(", descr2=").append(descr2);
-        sb.append(", descr3=").append(descr3);
-        sb.append(", packagingclass=").append(packagingclass);
-        sb.append(", englishname=").append(englishname);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

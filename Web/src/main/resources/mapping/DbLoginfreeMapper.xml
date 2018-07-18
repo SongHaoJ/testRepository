@@ -8,6 +8,8 @@
     <result column="SALEMETHOD" jdbcType="VARCHAR" property="salemethod" />
     <result column="STARPRICE" jdbcType="DECIMAL" property="starprice" />
     <result column="ENDPRICE" jdbcType="DECIMAL" property="endprice" />
+    <result column="EXPRESSION" jdbcType="VARCHAR" property="expression" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
     <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
@@ -18,24 +20,22 @@
     <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
     <result column="CREATEOPER" jdbcType="VARCHAR" property="createoper" />
     <result column="CREATEDATE" jdbcType="TIMESTAMP" property="createdate" />
-    <result column="EXPRESSION" jdbcType="LONGVARCHAR" property="expression" />
-    <result column="REMARK" jdbcType="LONGVARCHAR" property="remark" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select SEQUENCEID, PLATFORMID, PLATFORM, SALEMETHOD, STARPRICE, ENDPRICE, OPER, OPERTIME, 
-    RESERVE1, RESERVE2, RESERVE3, RESERVE4, RESERVE5, CORPID, CREATEOPER, CREATEDATE, 
-    EXPRESSION, REMARK
-    from db_loginfree
+    select SEQUENCEID, PLATFORMID, PLATFORM, SALEMETHOD, STARPRICE, ENDPRICE, EXPRESSION, 
+    REMARK, OPER, OPERTIME, RESERVE1, RESERVE2, RESERVE3, RESERVE4, RESERVE5, CORPID, 
+    CREATEOPER, CREATEDATE
+    from DB_LOGINFREE
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select SEQUENCEID, PLATFORMID, PLATFORM, SALEMETHOD, STARPRICE, ENDPRICE, OPER, OPERTIME, 
-    RESERVE1, RESERVE2, RESERVE3, RESERVE4, RESERVE5, CORPID, CREATEOPER, CREATEDATE, 
-    EXPRESSION, REMARK
-    from db_loginfree
+    select SEQUENCEID, PLATFORMID, PLATFORM, SALEMETHOD, STARPRICE, ENDPRICE, EXPRESSION, 
+    REMARK, OPER, OPERTIME, RESERVE1, RESERVE2, RESERVE3, RESERVE4, RESERVE5, CORPID, 
+    CREATEOPER, CREATEDATE
+    from DB_LOGINFREE
   </select>
   <sql id="TableName">
-    db_loginfree
+    DB_LOGINFREE
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=VARCHAR} , 
@@ -44,6 +44,8 @@
      #{salemethod,jdbcType=VARCHAR} , 
      #{starprice,jdbcType=DECIMAL} , 
      #{endprice,jdbcType=DECIMAL} , 
+     #{expression,jdbcType=VARCHAR} , 
+     #{remark,jdbcType=VARCHAR} , 
      #{oper,jdbcType=VARCHAR} , 
      #{opertime,jdbcType=TIMESTAMP} , 
      #{reserve1,jdbcType=VARCHAR} , 
@@ -54,8 +56,6 @@
      #{corpid,jdbcType=VARCHAR} , 
      #{createoper,jdbcType=VARCHAR} , 
      #{createdate,jdbcType=TIMESTAMP} , 
-     #{expression,jdbcType=LONGVARCHAR} , 
-     #{remark,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
@@ -64,6 +64,8 @@
     SALEMETHOD , 
     STARPRICE , 
     ENDPRICE , 
+    EXPRESSION , 
+    REMARK , 
     OPER , 
     OPERTIME , 
     RESERVE1 , 
@@ -74,122 +76,120 @@
     CORPID , 
     CREATEOPER , 
     CREATEDATE , 
-    EXPRESSION , 
-    REMARK
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
     </if>
     <if test="platformid != null">
-      PLATFORMID = #{platformid,jdbcType=VARCHAR} and 
+      platformid = #{platformid,jdbcType=VARCHAR} and 
     </if>
     <if test="platform != null">
-      PLATFORM = #{platform,jdbcType=VARCHAR} and 
+      platform = #{platform,jdbcType=VARCHAR} and 
     </if>
     <if test="salemethod != null">
-      SALEMETHOD = #{salemethod,jdbcType=VARCHAR} and 
+      salemethod = #{salemethod,jdbcType=VARCHAR} and 
     </if>
     <if test="starprice != null">
-      STARPRICE = #{starprice,jdbcType=DECIMAL} and 
+      starprice = #{starprice,jdbcType=DECIMAL} and 
     </if>
     <if test="endprice != null">
-      ENDPRICE = #{endprice,jdbcType=DECIMAL} and 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=DECIMAL} and 
-    </if>
-    <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=DECIMAL} and 
-    </if>
-    <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="createoper != null">
-      CREATEOPER = #{createoper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="createdate != null">
-      CREATEDATE = #{createdate,jdbcType=TIMESTAMP} and 
+      endprice = #{endprice,jdbcType=DECIMAL} and 
     </if>
     <if test="expression != null">
-      EXPRESSION = #{expression,jdbcType=LONGVARCHAR} and 
+      expression = #{expression,jdbcType=VARCHAR} and 
     </if>
     <if test="remark != null">
-      REMARK = #{remark,jdbcType=LONGVARCHAR}
+      remark = #{remark,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=DECIMAL} and 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="createoper != null">
+      createoper = #{createoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="createdate != null">
+      createdate = #{createdate,jdbcType=TIMESTAMP} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
     </if>
     <if test="platformid != null">
-      PLATFORMID = #{platformid,jdbcType=VARCHAR} , 
+      platformid = #{platformid,jdbcType=VARCHAR} , 
     </if>
     <if test="platform != null">
-      PLATFORM = #{platform,jdbcType=VARCHAR} , 
+      platform = #{platform,jdbcType=VARCHAR} , 
     </if>
     <if test="salemethod != null">
-      SALEMETHOD = #{salemethod,jdbcType=VARCHAR} , 
+      salemethod = #{salemethod,jdbcType=VARCHAR} , 
     </if>
     <if test="starprice != null">
-      STARPRICE = #{starprice,jdbcType=DECIMAL} , 
+      starprice = #{starprice,jdbcType=DECIMAL} , 
     </if>
     <if test="endprice != null">
-      ENDPRICE = #{endprice,jdbcType=DECIMAL} , 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=DECIMAL} , 
-    </if>
-    <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=DECIMAL} , 
-    </if>
-    <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="createoper != null">
-      CREATEOPER = #{createoper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="createdate != null">
-      CREATEDATE = #{createdate,jdbcType=TIMESTAMP} , 
+      endprice = #{endprice,jdbcType=DECIMAL} , 
     </if>
     <if test="expression != null">
-      EXPRESSION = #{expression,jdbcType=LONGVARCHAR} , 
+      expression = #{expression,jdbcType=VARCHAR} , 
     </if>
     <if test="remark != null">
-      REMARK = #{remark,jdbcType=LONGVARCHAR}
+      remark = #{remark,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=DECIMAL} , 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="createoper != null">
+      createoper = #{createoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="createdate != null">
+      createdate = #{createdate,jdbcType=TIMESTAMP} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbLoginfree" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

@@ -3,6 +3,7 @@
 <mapper namespace="com.bean.dao.DbProjectbbsMapper">
   <resultMap id="BaseResultMap" type="com.bean.model.DbProjectbbs">
     <id column="SEQUENCEID" jdbcType="DECIMAL" property="sequenceid" />
+    <result column="PROJECTNAME" jdbcType="VARCHAR" property="projectname" />
     <result column="LIMITTIME" jdbcType="DECIMAL" property="limittime" />
     <result column="PRINCIPALOPER" jdbcType="VARCHAR" property="principaloper" />
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
@@ -20,26 +21,26 @@
     <result column="STARTTIME" jdbcType="TIMESTAMP" property="starttime" />
     <result column="ENDTIME" jdbcType="TIMESTAMP" property="endtime" />
     <result column="STATUS" jdbcType="DECIMAL" property="status" />
-    <result column="PROJECTNAME" jdbcType="LONGVARCHAR" property="projectname" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
-    select SEQUENCEID, LIMITTIME, PRINCIPALOPER, OPER, OPERTIME, CREATEOPER, CREATETIME, 
-    CORPID, OPERNFLAG, PERCENTAGE, CLIPARTFLAG, SALESFLAG, CHECKFLAG, ESTIMATEDSTARTTIME, 
-    ESTIMATEDENDTIME, STARTTIME, ENDTIME, STATUS, PROJECTNAME
-    from db_projectbbs
+    select SEQUENCEID, PROJECTNAME, LIMITTIME, PRINCIPALOPER, OPER, OPERTIME, CREATEOPER, 
+    CREATETIME, CORPID, OPERNFLAG, PERCENTAGE, CLIPARTFLAG, SALESFLAG, CHECKFLAG, ESTIMATEDSTARTTIME, 
+    ESTIMATEDENDTIME, STARTTIME, ENDTIME, STATUS
+    from DB_PROJECTBBS
     where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select SEQUENCEID, LIMITTIME, PRINCIPALOPER, OPER, OPERTIME, CREATEOPER, CREATETIME, 
-    CORPID, OPERNFLAG, PERCENTAGE, CLIPARTFLAG, SALESFLAG, CHECKFLAG, ESTIMATEDSTARTTIME, 
-    ESTIMATEDENDTIME, STARTTIME, ENDTIME, STATUS, PROJECTNAME
-    from db_projectbbs
+    select SEQUENCEID, PROJECTNAME, LIMITTIME, PRINCIPALOPER, OPER, OPERTIME, CREATEOPER, 
+    CREATETIME, CORPID, OPERNFLAG, PERCENTAGE, CLIPARTFLAG, SALESFLAG, CHECKFLAG, ESTIMATEDSTARTTIME, 
+    ESTIMATEDENDTIME, STARTTIME, ENDTIME, STATUS
+    from DB_PROJECTBBS
   </select>
   <sql id="TableName">
-    db_projectbbs
+    DB_PROJECTBBS
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=DECIMAL} , 
+     #{projectname,jdbcType=VARCHAR} , 
      #{limittime,jdbcType=DECIMAL} , 
      #{principaloper,jdbcType=VARCHAR} , 
      #{oper,jdbcType=VARCHAR} , 
@@ -57,10 +58,10 @@
      #{starttime,jdbcType=TIMESTAMP} , 
      #{endtime,jdbcType=TIMESTAMP} , 
      #{status,jdbcType=DECIMAL} , 
-     #{projectname,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
+    PROJECTNAME , 
     LIMITTIME , 
     PRINCIPALOPER , 
     OPER , 
@@ -78,127 +79,126 @@
     STARTTIME , 
     ENDTIME , 
     STATUS , 
-    PROJECTNAME
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} and 
-    </if>
-    <if test="limittime != null">
-      LIMITTIME = #{limittime,jdbcType=DECIMAL} and 
-    </if>
-    <if test="principaloper != null">
-      PRINCIPALOPER = #{principaloper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="createoper != null">
-      CREATEOPER = #{createoper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="createtime != null">
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="opernflag != null">
-      OPERNFLAG = #{opernflag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="percentage != null">
-      PERCENTAGE = #{percentage,jdbcType=DECIMAL} and 
-    </if>
-    <if test="clipartflag != null">
-      CLIPARTFLAG = #{clipartflag,jdbcType=DECIMAL} and 
-    </if>
-    <if test="salesflag != null">
-      SALESFLAG = #{salesflag,jdbcType=DECIMAL} and 
-    </if>
-    <if test="checkflag != null">
-      CHECKFLAG = #{checkflag,jdbcType=DECIMAL} and 
-    </if>
-    <if test="estimatedstarttime != null">
-      ESTIMATEDSTARTTIME = #{estimatedstarttime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="estimatedendtime != null">
-      ESTIMATEDENDTIME = #{estimatedendtime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="starttime != null">
-      STARTTIME = #{starttime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="endtime != null">
-      ENDTIME = #{endtime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="status != null">
-      STATUS = #{status,jdbcType=DECIMAL} and 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} and 
     </if>
     <if test="projectname != null">
-      PROJECTNAME = #{projectname,jdbcType=LONGVARCHAR}
+      projectname = #{projectname,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="limittime != null">
+      limittime = #{limittime,jdbcType=DECIMAL} and 
+    </if>
+    <if test="principaloper != null">
+      principaloper = #{principaloper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="createoper != null">
+      createoper = #{createoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opernflag != null">
+      opernflag = #{opernflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="percentage != null">
+      percentage = #{percentage,jdbcType=DECIMAL} and 
+    </if>
+    <if test="clipartflag != null">
+      clipartflag = #{clipartflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="salesflag != null">
+      salesflag = #{salesflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="checkflag != null">
+      checkflag = #{checkflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="estimatedstarttime != null">
+      estimatedstarttime = #{estimatedstarttime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="estimatedendtime != null">
+      estimatedendtime = #{estimatedendtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="starttime != null">
+      starttime = #{starttime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="endtime != null">
+      endtime = #{endtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="status != null">
+      status = #{status,jdbcType=DECIMAL} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} , 
-    </if>
-    <if test="limittime != null">
-      LIMITTIME = #{limittime,jdbcType=DECIMAL} , 
-    </if>
-    <if test="principaloper != null">
-      PRINCIPALOPER = #{principaloper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="createoper != null">
-      CREATEOPER = #{createoper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="createtime != null">
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="opernflag != null">
-      OPERNFLAG = #{opernflag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="percentage != null">
-      PERCENTAGE = #{percentage,jdbcType=DECIMAL} , 
-    </if>
-    <if test="clipartflag != null">
-      CLIPARTFLAG = #{clipartflag,jdbcType=DECIMAL} , 
-    </if>
-    <if test="salesflag != null">
-      SALESFLAG = #{salesflag,jdbcType=DECIMAL} , 
-    </if>
-    <if test="checkflag != null">
-      CHECKFLAG = #{checkflag,jdbcType=DECIMAL} , 
-    </if>
-    <if test="estimatedstarttime != null">
-      ESTIMATEDSTARTTIME = #{estimatedstarttime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="estimatedendtime != null">
-      ESTIMATEDENDTIME = #{estimatedendtime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="starttime != null">
-      STARTTIME = #{starttime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="endtime != null">
-      ENDTIME = #{endtime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="status != null">
-      STATUS = #{status,jdbcType=DECIMAL} , 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} , 
     </if>
     <if test="projectname != null">
-      PROJECTNAME = #{projectname,jdbcType=LONGVARCHAR}
+      projectname = #{projectname,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="limittime != null">
+      limittime = #{limittime,jdbcType=DECIMAL} , 
+    </if>
+    <if test="principaloper != null">
+      principaloper = #{principaloper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="createoper != null">
+      createoper = #{createoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opernflag != null">
+      opernflag = #{opernflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="percentage != null">
+      percentage = #{percentage,jdbcType=DECIMAL} , 
+    </if>
+    <if test="clipartflag != null">
+      clipartflag = #{clipartflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="salesflag != null">
+      salesflag = #{salesflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="checkflag != null">
+      checkflag = #{checkflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="estimatedstarttime != null">
+      estimatedstarttime = #{estimatedstarttime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="estimatedendtime != null">
+      estimatedendtime = #{estimatedendtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="starttime != null">
+      starttime = #{starttime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="endtime != null">
+      endtime = #{endtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="status != null">
+      status = #{status,jdbcType=DECIMAL} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbProjectbbs" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

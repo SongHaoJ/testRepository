@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbFailtaskitem;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbFailtaskitemMapper {
-    int deleteByPrimaryKey(String sid);
+    DbFailtaskitem selectByCriteria(DbFailtaskitem DbFailtaskitem);
 
-    int insert(DbFailtaskitem record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbFailtaskitem record);
+    void deleteByCriteria(DbFailtaskitem DbFailtaskitem);
+
+    int insertByCriteria(DbFailtaskitem DbFailtaskitem);
+
+    int updateByCriteria(DbFailtaskitem DbFailtaskitem);
 
     DbFailtaskitem selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbFailtaskitem record);
-
-    int updateByPrimaryKeyWithBLOBs(DbFailtaskitem record);
-
-    int updateByPrimaryKey(DbFailtaskitem record);
+    List<DbFailtaskitem> selectAll();
 }

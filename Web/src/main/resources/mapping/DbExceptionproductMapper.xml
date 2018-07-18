@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbExceptionproductMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbExceptionproduct">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="PRODUCTID" jdbcType="VARCHAR" property="productid" />
+    <result column="PRODUCTSKU" jdbcType="VARCHAR" property="productsku" />
+    <result column="PRODUCTNAME" jdbcType="VARCHAR" property="productname" />
+    <result column="PRODUCTPIC" jdbcType="VARCHAR" property="productpic" />
+    <result column="STORAGEID" jdbcType="VARCHAR" property="storageid" />
+    <result column="STORAGENAME" jdbcType="VARCHAR" property="storagename" />
+    <result column="LOCATIONID" jdbcType="VARCHAR" property="locationid" />
+    <result column="LOCATIONNAME" jdbcType="VARCHAR" property="locationname" />
+    <result column="STATUS" jdbcType="DECIMAL" property="status" />
+    <result column="HANDLEOPER" jdbcType="VARCHAR" property="handleoper" />
+    <result column="HANDLETIME" jdbcType="TIMESTAMP" property="handletime" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select ID, PRODUCTID, PRODUCTSKU, PRODUCTNAME, PRODUCTPIC, STORAGEID, STORAGENAME, 
+    LOCATIONID, LOCATIONNAME, STATUS, HANDLEOPER, HANDLETIME, OPER, OPERTIME
+    from DB_EXCEPTIONPRODUCT
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ID, PRODUCTID, PRODUCTSKU, PRODUCTNAME, PRODUCTPIC, STORAGEID, STORAGENAME, 
+    LOCATIONID, LOCATIONNAME, STATUS, HANDLEOPER, HANDLETIME, OPER, OPERTIME
+    from DB_EXCEPTIONPRODUCT
+  </select>
+  <sql id="TableName">
+    DB_EXCEPTIONPRODUCT
+  </sql>
+  <sql id="Values">
+     #{id,jdbcType=VARCHAR} , 
+     #{productid,jdbcType=VARCHAR} , 
+     #{productsku,jdbcType=VARCHAR} , 
+     #{productname,jdbcType=VARCHAR} , 
+     #{productpic,jdbcType=VARCHAR} , 
+     #{storageid,jdbcType=VARCHAR} , 
+     #{storagename,jdbcType=VARCHAR} , 
+     #{locationid,jdbcType=VARCHAR} , 
+     #{locationname,jdbcType=VARCHAR} , 
+     #{status,jdbcType=DECIMAL} , 
+     #{handleoper,jdbcType=VARCHAR} , 
+     #{handletime,jdbcType=TIMESTAMP} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+  </sql>
+  <sql id="Columns">
+    ID , 
+    PRODUCTID , 
+    PRODUCTSKU , 
+    PRODUCTNAME , 
+    PRODUCTPIC , 
+    STORAGEID , 
+    STORAGENAME , 
+    LOCATIONID , 
+    LOCATIONNAME , 
+    STATUS , 
+    HANDLEOPER , 
+    HANDLETIME , 
+    OPER , 
+    OPERTIME , 
+  </sql>
+  <sql id="Criteria">
+    <if test="id != null">
+      id = #{id,jdbcType=VARCHAR} and 
+    </if>
+    <if test="productid != null">
+      productid = #{productid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="productsku != null">
+      productsku = #{productsku,jdbcType=VARCHAR} and 
+    </if>
+    <if test="productname != null">
+      productname = #{productname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="productpic != null">
+      productpic = #{productpic,jdbcType=VARCHAR} and 
+    </if>
+    <if test="storageid != null">
+      storageid = #{storageid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="storagename != null">
+      storagename = #{storagename,jdbcType=VARCHAR} and 
+    </if>
+    <if test="locationid != null">
+      locationid = #{locationid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="locationname != null">
+      locationname = #{locationname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="status != null">
+      status = #{status,jdbcType=DECIMAL} and 
+    </if>
+    <if test="handleoper != null">
+      handleoper = #{handleoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="handletime != null">
+      handletime = #{handletime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="id != null">
+      id = #{id,jdbcType=VARCHAR} , 
+    </if>
+    <if test="productid != null">
+      productid = #{productid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="productsku != null">
+      productsku = #{productsku,jdbcType=VARCHAR} , 
+    </if>
+    <if test="productname != null">
+      productname = #{productname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="productpic != null">
+      productpic = #{productpic,jdbcType=VARCHAR} , 
+    </if>
+    <if test="storageid != null">
+      storageid = #{storageid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="storagename != null">
+      storagename = #{storagename,jdbcType=VARCHAR} , 
+    </if>
+    <if test="locationid != null">
+      locationid = #{locationid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="locationname != null">
+      locationname = #{locationname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="status != null">
+      status = #{status,jdbcType=DECIMAL} , 
+    </if>
+    <if test="handleoper != null">
+      handleoper = #{handleoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="handletime != null">
+      handletime = #{handletime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbExceptionproduct" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where ID=#{ID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbExceptionproduct">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbExceptionproduct">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbExceptionproduct">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

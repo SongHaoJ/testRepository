@@ -6,66 +6,65 @@
     <result column="SKU" jdbcType="VARCHAR" property="sku" />
     <result column="PRODUCTID" jdbcType="VARCHAR" property="productid" />
   </resultMap>
-  <sql id="Base_Column_List">
-    VARIANTID, SKU, PRODUCTID
-  </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from db_shopifyproduct
+    select VARIANTID, SKU, PRODUCTID
+    from DB_SHOPIFYPRODUCT
     where VARIANTID = #{variantid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_shopifyproduct
-    where VARIANTID = #{variantid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select VARIANTID, SKU, PRODUCTID
+    from DB_SHOPIFYPRODUCT
+  </select>
+  <sql id="TableName">
+    DB_SHOPIFYPRODUCT
+  </sql>
+  <sql id="Values">
+     #{variantid,jdbcType=VARCHAR} , 
+     #{sku,jdbcType=VARCHAR} , 
+     #{productid,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    VARIANTID , 
+    SKU , 
+    PRODUCTID , 
+  </sql>
+  <sql id="Criteria">
+    <if test="variantid != null">
+      variantid = #{variantid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sku != null">
+      sku = #{sku,jdbcType=VARCHAR} and 
+    </if>
+    <if test="productid != null">
+      productid = #{productid,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="variantid != null">
+      variantid = #{variantid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sku != null">
+      sku = #{sku,jdbcType=VARCHAR} , 
+    </if>
+    <if test="productid != null">
+      productid = #{productid,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbShopifyproduct" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where VARIANTID=#{VARIANTID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbShopifyproduct">
-    insert into db_shopifyproduct (VARIANTID, SKU, PRODUCTID
-      )
-    values (#{variantid,jdbcType=VARCHAR}, #{sku,jdbcType=VARCHAR}, #{productid,jdbcType=VARCHAR}
-      )
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbShopifyproduct">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbShopifyproduct">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbShopifyproduct">
-    insert into db_shopifyproduct
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="variantid != null">
-        VARIANTID,
-      </if>
-      <if test="sku != null">
-        SKU,
-      </if>
-      <if test="productid != null">
-        PRODUCTID,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="variantid != null">
-        #{variantid,jdbcType=VARCHAR},
-      </if>
-      <if test="sku != null">
-        #{sku,jdbcType=VARCHAR},
-      </if>
-      <if test="productid != null">
-        #{productid,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbShopifyproduct">
-    update db_shopifyproduct
-    <set>
-      <if test="sku != null">
-        SKU = #{sku,jdbcType=VARCHAR},
-      </if>
-      <if test="productid != null">
-        PRODUCTID = #{productid,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where VARIANTID = #{variantid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbShopifyproduct">
-    update db_shopifyproduct
-    set SKU = #{sku,jdbcType=VARCHAR},
-      PRODUCTID = #{productid,jdbcType=VARCHAR}
-    where VARIANTID = #{variantid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbShopifyproduct">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

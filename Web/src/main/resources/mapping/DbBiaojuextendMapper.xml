@@ -5,6 +5,8 @@
     <id column="ID" jdbcType="DECIMAL" property="id" />
     <result column="SUPPLIERID" jdbcType="DECIMAL" property="supplierid" />
     <result column="SUPPLIERNAME" jdbcType="VARCHAR" property="suppliername" />
+    <result column="ACCOUNTSET" jdbcType="VARCHAR" property="accountset" />
+    <result column="DESCR" jdbcType="VARCHAR" property="descr" />
     <result column="OPENFLAG" jdbcType="DECIMAL" property="openflag" />
     <result column="TOKENFLAG" jdbcType="DECIMAL" property="tokenflag" />
     <result column="ACCOUNT" jdbcType="VARCHAR" property="account" />
@@ -15,6 +17,8 @@
     <result column="PROVINCE" jdbcType="VARCHAR" property="province" />
     <result column="CITY" jdbcType="VARCHAR" property="city" />
     <result column="DISTRICT" jdbcType="VARCHAR" property="district" />
+    <result column="ADDRESS" jdbcType="VARCHAR" property="address" />
+    <result column="ADDRESS1" jdbcType="VARCHAR" property="address1" />
     <result column="POSTCODE" jdbcType="VARCHAR" property="postcode" />
     <result column="TEL" jdbcType="VARCHAR" property="tel" />
     <result column="EMAIL" jdbcType="VARCHAR" property="email" />
@@ -22,39 +26,38 @@
     <result column="COUNTRYCODE" jdbcType="VARCHAR" property="countrycode" />
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
-    <result column="ACCOUNTSET" jdbcType="LONGVARCHAR" property="accountset" />
-    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
-    <result column="ADDRESS" jdbcType="LONGVARCHAR" property="address" />
-    <result column="ADDRESS1" jdbcType="LONGVARCHAR" property="address1" />
-    <result column="FIELD1" jdbcType="LONGVARCHAR" property="field1" />
-    <result column="FIELD2" jdbcType="LONGVARCHAR" property="field2" />
-    <result column="FIELD3" jdbcType="LONGVARCHAR" property="field3" />
-    <result column="FIELD4" jdbcType="LONGVARCHAR" property="field4" />
-    <result column="FIELD5" jdbcType="LONGVARCHAR" property="field5" />
-    <result column="FIELD6" jdbcType="LONGVARCHAR" property="field6" />
+    <result column="FIELD1" jdbcType="VARCHAR" property="field1" />
+    <result column="FIELD2" jdbcType="VARCHAR" property="field2" />
+    <result column="FIELD3" jdbcType="VARCHAR" property="field3" />
+    <result column="FIELD4" jdbcType="VARCHAR" property="field4" />
+    <result column="FIELD5" jdbcType="VARCHAR" property="field5" />
+    <result column="FIELD6" jdbcType="VARCHAR" property="field6" />
+    <result column="MABANGJS" jdbcType="VARCHAR" property="mabangjs" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select ID, SUPPLIERID, SUPPLIERNAME, OPENFLAG, TOKENFLAG, ACCOUNT, PASSWORD, TOKEN, 
-    SENDER, COMPANY, PROVINCE, CITY, DISTRICT, POSTCODE, TEL, EMAIL, FAX, COUNTRYCODE, 
-    OPER, OPERTIME, ACCOUNTSET, DESCR, ADDRESS, ADDRESS1, FIELD1, FIELD2, FIELD3, FIELD4, 
-    FIELD5, FIELD6
-    from db_biaojuextend
+    select ID, SUPPLIERID, SUPPLIERNAME, ACCOUNTSET, DESCR, OPENFLAG, TOKENFLAG, ACCOUNT, 
+    PASSWORD, TOKEN, SENDER, COMPANY, PROVINCE, CITY, DISTRICT, ADDRESS, ADDRESS1, POSTCODE, 
+    TEL, EMAIL, FAX, COUNTRYCODE, OPER, OPERTIME, FIELD1, FIELD2, FIELD3, FIELD4, FIELD5, 
+    FIELD6, MABANGJS
+    from DB_BIAOJUEXTEND
     where ID = #{id,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select ID, SUPPLIERID, SUPPLIERNAME, OPENFLAG, TOKENFLAG, ACCOUNT, PASSWORD, TOKEN, 
-    SENDER, COMPANY, PROVINCE, CITY, DISTRICT, POSTCODE, TEL, EMAIL, FAX, COUNTRYCODE, 
-    OPER, OPERTIME, ACCOUNTSET, DESCR, ADDRESS, ADDRESS1, FIELD1, FIELD2, FIELD3, FIELD4, 
-    FIELD5, FIELD6
-    from db_biaojuextend
+    select ID, SUPPLIERID, SUPPLIERNAME, ACCOUNTSET, DESCR, OPENFLAG, TOKENFLAG, ACCOUNT, 
+    PASSWORD, TOKEN, SENDER, COMPANY, PROVINCE, CITY, DISTRICT, ADDRESS, ADDRESS1, POSTCODE, 
+    TEL, EMAIL, FAX, COUNTRYCODE, OPER, OPERTIME, FIELD1, FIELD2, FIELD3, FIELD4, FIELD5, 
+    FIELD6, MABANGJS
+    from DB_BIAOJUEXTEND
   </select>
   <sql id="TableName">
-    db_biaojuextend
+    DB_BIAOJUEXTEND
   </sql>
   <sql id="Values">
      #{id,jdbcType=DECIMAL} , 
      #{supplierid,jdbcType=DECIMAL} , 
      #{suppliername,jdbcType=VARCHAR} , 
+     #{accountset,jdbcType=VARCHAR} , 
+     #{descr,jdbcType=VARCHAR} , 
      #{openflag,jdbcType=DECIMAL} , 
      #{tokenflag,jdbcType=DECIMAL} , 
      #{account,jdbcType=VARCHAR} , 
@@ -65,6 +68,8 @@
      #{province,jdbcType=VARCHAR} , 
      #{city,jdbcType=VARCHAR} , 
      #{district,jdbcType=VARCHAR} , 
+     #{address,jdbcType=VARCHAR} , 
+     #{address1,jdbcType=VARCHAR} , 
      #{postcode,jdbcType=VARCHAR} , 
      #{tel,jdbcType=VARCHAR} , 
      #{email,jdbcType=VARCHAR} , 
@@ -72,21 +77,20 @@
      #{countrycode,jdbcType=VARCHAR} , 
      #{oper,jdbcType=VARCHAR} , 
      #{opertime,jdbcType=TIMESTAMP} , 
-     #{accountset,jdbcType=LONGVARCHAR} , 
-     #{descr,jdbcType=LONGVARCHAR} , 
-     #{address,jdbcType=LONGVARCHAR} , 
-     #{address1,jdbcType=LONGVARCHAR} , 
-     #{field1,jdbcType=LONGVARCHAR} , 
-     #{field2,jdbcType=LONGVARCHAR} , 
-     #{field3,jdbcType=LONGVARCHAR} , 
-     #{field4,jdbcType=LONGVARCHAR} , 
-     #{field5,jdbcType=LONGVARCHAR} , 
-     #{field6,jdbcType=LONGVARCHAR}
+     #{field1,jdbcType=VARCHAR} , 
+     #{field2,jdbcType=VARCHAR} , 
+     #{field3,jdbcType=VARCHAR} , 
+     #{field4,jdbcType=VARCHAR} , 
+     #{field5,jdbcType=VARCHAR} , 
+     #{field6,jdbcType=VARCHAR} , 
+     #{mabangjs,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     ID , 
     SUPPLIERID , 
     SUPPLIERNAME , 
+    ACCOUNTSET , 
+    DESCR , 
     OPENFLAG , 
     TOKENFLAG , 
     ACCOUNT , 
@@ -97,6 +101,8 @@
     PROVINCE , 
     CITY , 
     DISTRICT , 
+    ADDRESS , 
+    ADDRESS1 , 
     POSTCODE , 
     TEL , 
     EMAIL , 
@@ -104,202 +110,205 @@
     COUNTRYCODE , 
     OPER , 
     OPERTIME , 
-    ACCOUNTSET , 
-    DESCR , 
-    ADDRESS , 
-    ADDRESS1 , 
     FIELD1 , 
     FIELD2 , 
     FIELD3 , 
     FIELD4 , 
     FIELD5 , 
-    FIELD6
+    FIELD6 , 
+    MABANGJS , 
   </sql>
   <sql id="Criteria">
     <if test="id != null">
-      ID = #{id,jdbcType=DECIMAL} and 
+      id = #{id,jdbcType=DECIMAL} and 
     </if>
     <if test="supplierid != null">
-      SUPPLIERID = #{supplierid,jdbcType=DECIMAL} and 
+      supplierid = #{supplierid,jdbcType=DECIMAL} and 
     </if>
     <if test="suppliername != null">
-      SUPPLIERNAME = #{suppliername,jdbcType=VARCHAR} and 
-    </if>
-    <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=DECIMAL} and 
-    </if>
-    <if test="tokenflag != null">
-      TOKENFLAG = #{tokenflag,jdbcType=DECIMAL} and 
-    </if>
-    <if test="account != null">
-      ACCOUNT = #{account,jdbcType=VARCHAR} and 
-    </if>
-    <if test="password != null">
-      PASSWORD = #{password,jdbcType=VARCHAR} and 
-    </if>
-    <if test="token != null">
-      TOKEN = #{token,jdbcType=VARCHAR} and 
-    </if>
-    <if test="sender != null">
-      SENDER = #{sender,jdbcType=VARCHAR} and 
-    </if>
-    <if test="company != null">
-      COMPANY = #{company,jdbcType=VARCHAR} and 
-    </if>
-    <if test="province != null">
-      PROVINCE = #{province,jdbcType=VARCHAR} and 
-    </if>
-    <if test="city != null">
-      CITY = #{city,jdbcType=VARCHAR} and 
-    </if>
-    <if test="district != null">
-      DISTRICT = #{district,jdbcType=VARCHAR} and 
-    </if>
-    <if test="postcode != null">
-      POSTCODE = #{postcode,jdbcType=VARCHAR} and 
-    </if>
-    <if test="tel != null">
-      TEL = #{tel,jdbcType=VARCHAR} and 
-    </if>
-    <if test="email != null">
-      EMAIL = #{email,jdbcType=VARCHAR} and 
-    </if>
-    <if test="fax != null">
-      FAX = #{fax,jdbcType=VARCHAR} and 
-    </if>
-    <if test="countrycode != null">
-      COUNTRYCODE = #{countrycode,jdbcType=VARCHAR} and 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+      suppliername = #{suppliername,jdbcType=VARCHAR} and 
     </if>
     <if test="accountset != null">
-      ACCOUNTSET = #{accountset,jdbcType=LONGVARCHAR} and 
+      accountset = #{accountset,jdbcType=VARCHAR} and 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR} and 
+      descr = #{descr,jdbcType=VARCHAR} and 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="tokenflag != null">
+      tokenflag = #{tokenflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="account != null">
+      account = #{account,jdbcType=VARCHAR} and 
+    </if>
+    <if test="password != null">
+      password = #{password,jdbcType=VARCHAR} and 
+    </if>
+    <if test="token != null">
+      token = #{token,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sender != null">
+      sender = #{sender,jdbcType=VARCHAR} and 
+    </if>
+    <if test="company != null">
+      company = #{company,jdbcType=VARCHAR} and 
+    </if>
+    <if test="province != null">
+      province = #{province,jdbcType=VARCHAR} and 
+    </if>
+    <if test="city != null">
+      city = #{city,jdbcType=VARCHAR} and 
+    </if>
+    <if test="district != null">
+      district = #{district,jdbcType=VARCHAR} and 
     </if>
     <if test="address != null">
-      ADDRESS = #{address,jdbcType=LONGVARCHAR} and 
+      address = #{address,jdbcType=VARCHAR} and 
     </if>
     <if test="address1 != null">
-      ADDRESS1 = #{address1,jdbcType=LONGVARCHAR} and 
+      address1 = #{address1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="postcode != null">
+      postcode = #{postcode,jdbcType=VARCHAR} and 
+    </if>
+    <if test="tel != null">
+      tel = #{tel,jdbcType=VARCHAR} and 
+    </if>
+    <if test="email != null">
+      email = #{email,jdbcType=VARCHAR} and 
+    </if>
+    <if test="fax != null">
+      fax = #{fax,jdbcType=VARCHAR} and 
+    </if>
+    <if test="countrycode != null">
+      countrycode = #{countrycode,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="field1 != null">
-      FIELD1 = #{field1,jdbcType=LONGVARCHAR} and 
+      field1 = #{field1,jdbcType=VARCHAR} and 
     </if>
     <if test="field2 != null">
-      FIELD2 = #{field2,jdbcType=LONGVARCHAR} and 
+      field2 = #{field2,jdbcType=VARCHAR} and 
     </if>
     <if test="field3 != null">
-      FIELD3 = #{field3,jdbcType=LONGVARCHAR} and 
+      field3 = #{field3,jdbcType=VARCHAR} and 
     </if>
     <if test="field4 != null">
-      FIELD4 = #{field4,jdbcType=LONGVARCHAR} and 
+      field4 = #{field4,jdbcType=VARCHAR} and 
     </if>
     <if test="field5 != null">
-      FIELD5 = #{field5,jdbcType=LONGVARCHAR} and 
+      field5 = #{field5,jdbcType=VARCHAR} and 
     </if>
     <if test="field6 != null">
-      FIELD6 = #{field6,jdbcType=LONGVARCHAR}
+      field6 = #{field6,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="mabangjs != null">
+      mabangjs = #{mabangjs,jdbcType=VARCHAR} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="id != null">
-      ID = #{id,jdbcType=DECIMAL} , 
+      id = #{id,jdbcType=DECIMAL} , 
     </if>
     <if test="supplierid != null">
-      SUPPLIERID = #{supplierid,jdbcType=DECIMAL} , 
+      supplierid = #{supplierid,jdbcType=DECIMAL} , 
     </if>
     <if test="suppliername != null">
-      SUPPLIERNAME = #{suppliername,jdbcType=VARCHAR} , 
-    </if>
-    <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=DECIMAL} , 
-    </if>
-    <if test="tokenflag != null">
-      TOKENFLAG = #{tokenflag,jdbcType=DECIMAL} , 
-    </if>
-    <if test="account != null">
-      ACCOUNT = #{account,jdbcType=VARCHAR} , 
-    </if>
-    <if test="password != null">
-      PASSWORD = #{password,jdbcType=VARCHAR} , 
-    </if>
-    <if test="token != null">
-      TOKEN = #{token,jdbcType=VARCHAR} , 
-    </if>
-    <if test="sender != null">
-      SENDER = #{sender,jdbcType=VARCHAR} , 
-    </if>
-    <if test="company != null">
-      COMPANY = #{company,jdbcType=VARCHAR} , 
-    </if>
-    <if test="province != null">
-      PROVINCE = #{province,jdbcType=VARCHAR} , 
-    </if>
-    <if test="city != null">
-      CITY = #{city,jdbcType=VARCHAR} , 
-    </if>
-    <if test="district != null">
-      DISTRICT = #{district,jdbcType=VARCHAR} , 
-    </if>
-    <if test="postcode != null">
-      POSTCODE = #{postcode,jdbcType=VARCHAR} , 
-    </if>
-    <if test="tel != null">
-      TEL = #{tel,jdbcType=VARCHAR} , 
-    </if>
-    <if test="email != null">
-      EMAIL = #{email,jdbcType=VARCHAR} , 
-    </if>
-    <if test="fax != null">
-      FAX = #{fax,jdbcType=VARCHAR} , 
-    </if>
-    <if test="countrycode != null">
-      COUNTRYCODE = #{countrycode,jdbcType=VARCHAR} , 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+      suppliername = #{suppliername,jdbcType=VARCHAR} , 
     </if>
     <if test="accountset != null">
-      ACCOUNTSET = #{accountset,jdbcType=LONGVARCHAR} , 
+      accountset = #{accountset,jdbcType=VARCHAR} , 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR} , 
+      descr = #{descr,jdbcType=VARCHAR} , 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="tokenflag != null">
+      tokenflag = #{tokenflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="account != null">
+      account = #{account,jdbcType=VARCHAR} , 
+    </if>
+    <if test="password != null">
+      password = #{password,jdbcType=VARCHAR} , 
+    </if>
+    <if test="token != null">
+      token = #{token,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sender != null">
+      sender = #{sender,jdbcType=VARCHAR} , 
+    </if>
+    <if test="company != null">
+      company = #{company,jdbcType=VARCHAR} , 
+    </if>
+    <if test="province != null">
+      province = #{province,jdbcType=VARCHAR} , 
+    </if>
+    <if test="city != null">
+      city = #{city,jdbcType=VARCHAR} , 
+    </if>
+    <if test="district != null">
+      district = #{district,jdbcType=VARCHAR} , 
     </if>
     <if test="address != null">
-      ADDRESS = #{address,jdbcType=LONGVARCHAR} , 
+      address = #{address,jdbcType=VARCHAR} , 
     </if>
     <if test="address1 != null">
-      ADDRESS1 = #{address1,jdbcType=LONGVARCHAR} , 
+      address1 = #{address1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="postcode != null">
+      postcode = #{postcode,jdbcType=VARCHAR} , 
+    </if>
+    <if test="tel != null">
+      tel = #{tel,jdbcType=VARCHAR} , 
+    </if>
+    <if test="email != null">
+      email = #{email,jdbcType=VARCHAR} , 
+    </if>
+    <if test="fax != null">
+      fax = #{fax,jdbcType=VARCHAR} , 
+    </if>
+    <if test="countrycode != null">
+      countrycode = #{countrycode,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="field1 != null">
-      FIELD1 = #{field1,jdbcType=LONGVARCHAR} , 
+      field1 = #{field1,jdbcType=VARCHAR} , 
     </if>
     <if test="field2 != null">
-      FIELD2 = #{field2,jdbcType=LONGVARCHAR} , 
+      field2 = #{field2,jdbcType=VARCHAR} , 
     </if>
     <if test="field3 != null">
-      FIELD3 = #{field3,jdbcType=LONGVARCHAR} , 
+      field3 = #{field3,jdbcType=VARCHAR} , 
     </if>
     <if test="field4 != null">
-      FIELD4 = #{field4,jdbcType=LONGVARCHAR} , 
+      field4 = #{field4,jdbcType=VARCHAR} , 
     </if>
     <if test="field5 != null">
-      FIELD5 = #{field5,jdbcType=LONGVARCHAR} , 
+      field5 = #{field5,jdbcType=VARCHAR} , 
     </if>
     <if test="field6 != null">
-      FIELD6 = #{field6,jdbcType=LONGVARCHAR}
+      field6 = #{field6,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="mabangjs != null">
+      mabangjs = #{mabangjs,jdbcType=VARCHAR} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbBiaojuextend" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

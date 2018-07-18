@@ -1,18 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbProductHistory2;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbProductHistory2Mapper {
-    int deleteByPrimaryKey(BigDecimal sequenceid);
+    DbProductHistory2 selectByCriteria(DbProductHistory2 DbProductHistory2);
 
-    int insert(DbProductHistory2 record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbProductHistory2 record);
+    void deleteByCriteria(DbProductHistory2 DbProductHistory2);
+
+    int insertByCriteria(DbProductHistory2 DbProductHistory2);
+
+    int updateByCriteria(DbProductHistory2 DbProductHistory2);
 
     DbProductHistory2 selectByPrimaryKey(BigDecimal sequenceid);
 
-    int updateByPrimaryKeySelective(DbProductHistory2 record);
-
-    int updateByPrimaryKey(DbProductHistory2 record);
+    List<DbProductHistory2> selectAll();
 }

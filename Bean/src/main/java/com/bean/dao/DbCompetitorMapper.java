@@ -1,18 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbCompetitor;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbCompetitorMapper {
-    int deleteByPrimaryKey(BigDecimal sequenceid);
+    DbCompetitor selectByCriteria(DbCompetitor DbCompetitor);
 
-    int insert(DbCompetitor record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbCompetitor record);
+    void deleteByCriteria(DbCompetitor DbCompetitor);
+
+    int insertByCriteria(DbCompetitor DbCompetitor);
+
+    int updateByCriteria(DbCompetitor DbCompetitor);
 
     DbCompetitor selectByPrimaryKey(BigDecimal sequenceid);
 
-    int updateByPrimaryKeySelective(DbCompetitor record);
-
-    int updateByPrimaryKey(DbCompetitor record);
+    List<DbCompetitor> selectAll();
 }

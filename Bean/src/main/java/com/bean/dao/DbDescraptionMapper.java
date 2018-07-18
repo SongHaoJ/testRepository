@@ -1,18 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbDescraption;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbDescraptionMapper {
-    int deleteByPrimaryKey(BigDecimal sid);
+    DbDescraption selectByCriteria(DbDescraption DbDescraption);
 
-    int insert(DbDescraption record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbDescraption record);
+    void deleteByCriteria(DbDescraption DbDescraption);
+
+    int insertByCriteria(DbDescraption DbDescraption);
+
+    int updateByCriteria(DbDescraption DbDescraption);
 
     DbDescraption selectByPrimaryKey(BigDecimal sid);
 
-    int updateByPrimaryKeySelective(DbDescraption record);
-
-    int updateByPrimaryKeyWithBLOBs(DbDescraption record);
+    List<DbDescraption> selectAll();
 }

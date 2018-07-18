@@ -9,98 +9,89 @@
     <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
     <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
   </resultMap>
-  <sql id="Base_Column_List">
-    SID, 'NAME', IFPARENT, PARENTID, RESERVE1, RESERVE2
-  </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from db_companytype
+    select SID, NAME, IFPARENT, PARENTID, RESERVE1, RESERVE2
+    from DB_COMPANYTYPE
     where SID = #{sid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_companytype
-    where SID = #{sid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, NAME, IFPARENT, PARENTID, RESERVE1, RESERVE2
+    from DB_COMPANYTYPE
+  </select>
+  <sql id="TableName">
+    DB_COMPANYTYPE
+  </sql>
+  <sql id="Values">
+     #{sid,jdbcType=VARCHAR} , 
+     #{name,jdbcType=VARCHAR} , 
+     #{ifparent,jdbcType=VARCHAR} , 
+     #{parentid,jdbcType=VARCHAR} , 
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    SID , 
+    NAME , 
+    IFPARENT , 
+    PARENTID , 
+    RESERVE1 , 
+    RESERVE2 , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ifparent != null">
+      ifparent = #{ifparent,jdbcType=VARCHAR} and 
+    </if>
+    <if test="parentid != null">
+      parentid = #{parentid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ifparent != null">
+      ifparent = #{ifparent,jdbcType=VARCHAR} , 
+    </if>
+    <if test="parentid != null">
+      parentid = #{parentid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbCompanytype" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SID=#{SID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbCompanytype">
-    insert into db_companytype (SID, 'NAME', IFPARENT, 
-      PARENTID, RESERVE1, RESERVE2
-      )
-    values (#{sid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{ifparent,jdbcType=VARCHAR}, 
-      #{parentid,jdbcType=VARCHAR}, #{reserve1,jdbcType=VARCHAR}, #{reserve2,jdbcType=VARCHAR}
-      )
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbCompanytype">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbCompanytype">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbCompanytype">
-    insert into db_companytype
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        SID,
-      </if>
-      <if test="name != null">
-        'NAME',
-      </if>
-      <if test="ifparent != null">
-        IFPARENT,
-      </if>
-      <if test="parentid != null">
-        PARENTID,
-      </if>
-      <if test="reserve1 != null">
-        RESERVE1,
-      </if>
-      <if test="reserve2 != null">
-        RESERVE2,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        #{sid,jdbcType=VARCHAR},
-      </if>
-      <if test="name != null">
-        #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="ifparent != null">
-        #{ifparent,jdbcType=VARCHAR},
-      </if>
-      <if test="parentid != null">
-        #{parentid,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve1 != null">
-        #{reserve1,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve2 != null">
-        #{reserve2,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbCompanytype">
-    update db_companytype
-    <set>
-      <if test="name != null">
-        'NAME' = #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="ifparent != null">
-        IFPARENT = #{ifparent,jdbcType=VARCHAR},
-      </if>
-      <if test="parentid != null">
-        PARENTID = #{parentid,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve1 != null">
-        RESERVE1 = #{reserve1,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve2 != null">
-        RESERVE2 = #{reserve2,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where SID = #{sid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbCompanytype">
-    update db_companytype
-    set 'NAME' = #{name,jdbcType=VARCHAR},
-      IFPARENT = #{ifparent,jdbcType=VARCHAR},
-      PARENTID = #{parentid,jdbcType=VARCHAR},
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR}
-    where SID = #{sid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbCompanytype">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

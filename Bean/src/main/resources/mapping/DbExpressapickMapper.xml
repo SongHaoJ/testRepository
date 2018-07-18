@@ -9,98 +9,89 @@
     <result column="OPENFLAG" jdbcType="DECIMAL" property="openflag" />
     <result column="APIID" jdbcType="DECIMAL" property="apiid" />
   </resultMap>
-  <sql id="Base_Column_List">
-    ID, NAMECN, NAMEEN, WAREHOUSECODE, OPENFLAG, APIID
-  </sql>
   <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from db_expressapick
+    select ID, NAMECN, NAMEEN, WAREHOUSECODE, OPENFLAG, APIID
+    from DB_EXPRESSAPICK
     where ID = #{id,jdbcType=DECIMAL}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
-    delete from db_expressapick
-    where ID = #{id,jdbcType=DECIMAL}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ID, NAMECN, NAMEEN, WAREHOUSECODE, OPENFLAG, APIID
+    from DB_EXPRESSAPICK
+  </select>
+  <sql id="TableName">
+    DB_EXPRESSAPICK
+  </sql>
+  <sql id="Values">
+     #{id,jdbcType=DECIMAL} , 
+     #{namecn,jdbcType=VARCHAR} , 
+     #{nameen,jdbcType=VARCHAR} , 
+     #{warehousecode,jdbcType=VARCHAR} , 
+     #{openflag,jdbcType=DECIMAL} , 
+     #{apiid,jdbcType=DECIMAL} , 
+  </sql>
+  <sql id="Columns">
+    ID , 
+    NAMECN , 
+    NAMEEN , 
+    WAREHOUSECODE , 
+    OPENFLAG , 
+    APIID , 
+  </sql>
+  <sql id="Criteria">
+    <if test="id != null">
+      id = #{id,jdbcType=DECIMAL} and 
+    </if>
+    <if test="namecn != null">
+      namecn = #{namecn,jdbcType=VARCHAR} and 
+    </if>
+    <if test="nameen != null">
+      nameen = #{nameen,jdbcType=VARCHAR} and 
+    </if>
+    <if test="warehousecode != null">
+      warehousecode = #{warehousecode,jdbcType=VARCHAR} and 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="apiid != null">
+      apiid = #{apiid,jdbcType=DECIMAL} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="id != null">
+      id = #{id,jdbcType=DECIMAL} , 
+    </if>
+    <if test="namecn != null">
+      namecn = #{namecn,jdbcType=VARCHAR} , 
+    </if>
+    <if test="nameen != null">
+      nameen = #{nameen,jdbcType=VARCHAR} , 
+    </if>
+    <if test="warehousecode != null">
+      warehousecode = #{warehousecode,jdbcType=VARCHAR} , 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="apiid != null">
+      apiid = #{apiid,jdbcType=DECIMAL} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbExpressapick" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="BigDecimal">
+    delete from <include refid="TableName"/> where ID=#{ID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbExpressapick">
-    insert into db_expressapick (ID, NAMECN, NAMEEN, 
-      WAREHOUSECODE, OPENFLAG, APIID
-      )
-    values (#{id,jdbcType=DECIMAL}, #{namecn,jdbcType=VARCHAR}, #{nameen,jdbcType=VARCHAR}, 
-      #{warehousecode,jdbcType=VARCHAR}, #{openflag,jdbcType=DECIMAL}, #{apiid,jdbcType=DECIMAL}
-      )
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbExpressapick">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbExpressapick">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbExpressapick">
-    insert into db_expressapick
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        ID,
-      </if>
-      <if test="namecn != null">
-        NAMECN,
-      </if>
-      <if test="nameen != null">
-        NAMEEN,
-      </if>
-      <if test="warehousecode != null">
-        WAREHOUSECODE,
-      </if>
-      <if test="openflag != null">
-        OPENFLAG,
-      </if>
-      <if test="apiid != null">
-        APIID,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=DECIMAL},
-      </if>
-      <if test="namecn != null">
-        #{namecn,jdbcType=VARCHAR},
-      </if>
-      <if test="nameen != null">
-        #{nameen,jdbcType=VARCHAR},
-      </if>
-      <if test="warehousecode != null">
-        #{warehousecode,jdbcType=VARCHAR},
-      </if>
-      <if test="openflag != null">
-        #{openflag,jdbcType=DECIMAL},
-      </if>
-      <if test="apiid != null">
-        #{apiid,jdbcType=DECIMAL},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbExpressapick">
-    update db_expressapick
-    <set>
-      <if test="namecn != null">
-        NAMECN = #{namecn,jdbcType=VARCHAR},
-      </if>
-      <if test="nameen != null">
-        NAMEEN = #{nameen,jdbcType=VARCHAR},
-      </if>
-      <if test="warehousecode != null">
-        WAREHOUSECODE = #{warehousecode,jdbcType=VARCHAR},
-      </if>
-      <if test="openflag != null">
-        OPENFLAG = #{openflag,jdbcType=DECIMAL},
-      </if>
-      <if test="apiid != null">
-        APIID = #{apiid,jdbcType=DECIMAL},
-      </if>
-    </set>
-    where ID = #{id,jdbcType=DECIMAL}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbExpressapick">
-    update db_expressapick
-    set NAMECN = #{namecn,jdbcType=VARCHAR},
-      NAMEEN = #{nameen,jdbcType=VARCHAR},
-      WAREHOUSECODE = #{warehousecode,jdbcType=VARCHAR},
-      OPENFLAG = #{openflag,jdbcType=DECIMAL},
-      APIID = #{apiid,jdbcType=DECIMAL}
-    where ID = #{id,jdbcType=DECIMAL}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbExpressapick">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

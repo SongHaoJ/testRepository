@@ -21,6 +21,8 @@ public class DbEndproductOnlinelog implements Serializable {
 
     private String productid;
 
+    private String productname;
+
     private String producttype;
 
     private Date updatetime;
@@ -38,38 +40,6 @@ public class DbEndproductOnlinelog implements Serializable {
     private BigDecimal number2;
 
     private BigDecimal number3;
-
-    private BigDecimal sellnum1;
-
-    private BigDecimal sellnum2;
-
-    private BigDecimal sellnum3;
-
-    private BigDecimal sellnum4;
-
-    private BigDecimal sellnum5;
-
-    private BigDecimal sellnum6;
-
-    private String flag;
-
-    private String oper;
-
-    private String opertypr;
-
-    private Date opertime;
-
-    private String flag1;
-
-    private String flag2;
-
-    private String flag3;
-
-    private String flag4;
-
-    private String flag5;
-
-    private String productname;
 
     private String reserve1;
 
@@ -101,9 +71,39 @@ public class DbEndproductOnlinelog implements Serializable {
 
     private String reserve9;
 
+    private BigDecimal sellnum1;
+
+    private BigDecimal sellnum2;
+
+    private BigDecimal sellnum3;
+
+    private BigDecimal sellnum4;
+
+    private BigDecimal sellnum5;
+
+    private BigDecimal sellnum6;
+
+    private String flag;
+
     private String descr;
 
+    private String oper;
+
+    private String opertypr;
+
+    private Date opertime;
+
     private String content;
+
+    private String flag1;
+
+    private String flag2;
+
+    private String flag3;
+
+    private String flag4;
+
+    private String flag5;
 
     private static final long serialVersionUID = 1L;
 
@@ -169,6 +169,14 @@ public class DbEndproductOnlinelog implements Serializable {
 
     public void setProductid(String productid) {
         this.productid = productid == null ? null : productid.trim();
+    }
+
+    public String getProductname() {
+        return productname;
+    }
+
+    public void setProductname(String productname) {
+        this.productname = productname == null ? null : productname.trim();
     }
 
     public String getProducttype() {
@@ -241,134 +249,6 @@ public class DbEndproductOnlinelog implements Serializable {
 
     public void setNumber3(BigDecimal number3) {
         this.number3 = number3;
-    }
-
-    public BigDecimal getSellnum1() {
-        return sellnum1;
-    }
-
-    public void setSellnum1(BigDecimal sellnum1) {
-        this.sellnum1 = sellnum1;
-    }
-
-    public BigDecimal getSellnum2() {
-        return sellnum2;
-    }
-
-    public void setSellnum2(BigDecimal sellnum2) {
-        this.sellnum2 = sellnum2;
-    }
-
-    public BigDecimal getSellnum3() {
-        return sellnum3;
-    }
-
-    public void setSellnum3(BigDecimal sellnum3) {
-        this.sellnum3 = sellnum3;
-    }
-
-    public BigDecimal getSellnum4() {
-        return sellnum4;
-    }
-
-    public void setSellnum4(BigDecimal sellnum4) {
-        this.sellnum4 = sellnum4;
-    }
-
-    public BigDecimal getSellnum5() {
-        return sellnum5;
-    }
-
-    public void setSellnum5(BigDecimal sellnum5) {
-        this.sellnum5 = sellnum5;
-    }
-
-    public BigDecimal getSellnum6() {
-        return sellnum6;
-    }
-
-    public void setSellnum6(BigDecimal sellnum6) {
-        this.sellnum6 = sellnum6;
-    }
-
-    public String getFlag() {
-        return flag;
-    }
-
-    public void setFlag(String flag) {
-        this.flag = flag == null ? null : flag.trim();
-    }
-
-    public String getOper() {
-        return oper;
-    }
-
-    public void setOper(String oper) {
-        this.oper = oper == null ? null : oper.trim();
-    }
-
-    public String getOpertypr() {
-        return opertypr;
-    }
-
-    public void setOpertypr(String opertypr) {
-        this.opertypr = opertypr == null ? null : opertypr.trim();
-    }
-
-    public Date getOpertime() {
-        return opertime;
-    }
-
-    public void setOpertime(Date opertime) {
-        this.opertime = opertime;
-    }
-
-    public String getFlag1() {
-        return flag1;
-    }
-
-    public void setFlag1(String flag1) {
-        this.flag1 = flag1 == null ? null : flag1.trim();
-    }
-
-    public String getFlag2() {
-        return flag2;
-    }
-
-    public void setFlag2(String flag2) {
-        this.flag2 = flag2 == null ? null : flag2.trim();
-    }
-
-    public String getFlag3() {
-        return flag3;
-    }
-
-    public void setFlag3(String flag3) {
-        this.flag3 = flag3 == null ? null : flag3.trim();
-    }
-
-    public String getFlag4() {
-        return flag4;
-    }
-
-    public void setFlag4(String flag4) {
-        this.flag4 = flag4 == null ? null : flag4.trim();
-    }
-
-    public String getFlag5() {
-        return flag5;
-    }
-
-    public void setFlag5(String flag5) {
-        this.flag5 = flag5 == null ? null : flag5.trim();
-    }
-
-    public String getProductname() {
-        return productname;
-    }
-
-    public void setProductname(String productname) {
-        this.productname = productname == null ? null : productname.trim();
     }
 
     public String getReserve1() {
@@ -491,6 +371,62 @@ public class DbEndproductOnlinelog implements Serializable {
         this.reserve9 = reserve9 == null ? null : reserve9.trim();
     }
 
+    public BigDecimal getSellnum1() {
+        return sellnum1;
+    }
+
+    public void setSellnum1(BigDecimal sellnum1) {
+        this.sellnum1 = sellnum1;
+    }
+
+    public BigDecimal getSellnum2() {
+        return sellnum2;
+    }
+
+    public void setSellnum2(BigDecimal sellnum2) {
+        this.sellnum2 = sellnum2;
+    }
+
+    public BigDecimal getSellnum3() {
+        return sellnum3;
+    }
+
+    public void setSellnum3(BigDecimal sellnum3) {
+        this.sellnum3 = sellnum3;
+    }
+
+    public BigDecimal getSellnum4() {
+        return sellnum4;
+    }
+
+    public void setSellnum4(BigDecimal sellnum4) {
+        this.sellnum4 = sellnum4;
+    }
+
+    public BigDecimal getSellnum5() {
+        return sellnum5;
+    }
+
+    public void setSellnum5(BigDecimal sellnum5) {
+        this.sellnum5 = sellnum5;
+    }
+
+    public BigDecimal getSellnum6() {
+        return sellnum6;
+    }
+
+    public void setSellnum6(BigDecimal sellnum6) {
+        this.sellnum6 = sellnum6;
+    }
+
+    public String getFlag() {
+        return flag;
+    }
+
+    public void setFlag(String flag) {
+        this.flag = flag == null ? null : flag.trim();
+    }
+
     public String getDescr() {
         return descr;
     }
@@ -499,12 +435,76 @@ public class DbEndproductOnlinelog implements Serializable {
         this.descr = descr == null ? null : descr.trim();
     }
 
+    public String getOper() {
+        return oper;
+    }
+
+    public void setOper(String oper) {
+        this.oper = oper == null ? null : oper.trim();
+    }
+
+    public String getOpertypr() {
+        return opertypr;
+    }
+
+    public void setOpertypr(String opertypr) {
+        this.opertypr = opertypr == null ? null : opertypr.trim();
+    }
+
+    public Date getOpertime() {
+        return opertime;
+    }
+
+    public void setOpertime(Date opertime) {
+        this.opertime = opertime;
+    }
+
     public String getContent() {
         return content;
     }
 
     public void setContent(String content) {
         this.content = content == null ? null : content.trim();
+    }
+
+    public String getFlag1() {
+        return flag1;
+    }
+
+    public void setFlag1(String flag1) {
+        this.flag1 = flag1 == null ? null : flag1.trim();
+    }
+
+    public String getFlag2() {
+        return flag2;
+    }
+
+    public void setFlag2(String flag2) {
+        this.flag2 = flag2 == null ? null : flag2.trim();
+    }
+
+    public String getFlag3() {
+        return flag3;
+    }
+
+    public void setFlag3(String flag3) {
+        this.flag3 = flag3 == null ? null : flag3.trim();
+    }
+
+    public String getFlag4() {
+        return flag4;
+    }
+
+    public void setFlag4(String flag4) {
+        this.flag4 = flag4 == null ? null : flag4.trim();
+    }
+
+    public String getFlag5() {
+        return flag5;
+    }
+
+    public void setFlag5(String flag5) {
+        this.flag5 = flag5 == null ? null : flag5.trim();
     }
 
     @Override
@@ -527,6 +527,7 @@ public class DbEndproductOnlinelog implements Serializable {
             && (this.getEbaysku() == null ? other.getEbaysku() == null : this.getEbaysku().equals(other.getEbaysku()))
             && (this.getEbayitemid() == null ? other.getEbayitemid() == null : this.getEbayitemid().equals(other.getEbayitemid()))
             && (this.getProductid() == null ? other.getProductid() == null : this.getProductid().equals(other.getProductid()))
+            && (this.getProductname() == null ? other.getProductname() == null : this.getProductname().equals(other.getProductname()))
             && (this.getProducttype() == null ? other.getProducttype() == null : this.getProducttype().equals(other.getProducttype()))
             && (this.getUpdatetime() == null ? other.getUpdatetime() == null : this.getUpdatetime().equals(other.getUpdatetime()))
             && (this.getPrice1() == null ? other.getPrice1() == null : this.getPrice1().equals(other.getPrice1()))
@@ -536,22 +537,6 @@ public class DbEndproductOnlinelog implements Serializable {
             && (this.getNumber1() == null ? other.getNumber1() == null : this.getNumber1().equals(other.getNumber1()))
             && (this.getNumber2() == null ? other.getNumber2() == null : this.getNumber2().equals(other.getNumber2()))
             && (this.getNumber3() == null ? other.getNumber3() == null : this.getNumber3().equals(other.getNumber3()))
-            && (this.getSellnum1() == null ? other.getSellnum1() == null : this.getSellnum1().equals(other.getSellnum1()))
-            && (this.getSellnum2() == null ? other.getSellnum2() == null : this.getSellnum2().equals(other.getSellnum2()))
-            && (this.getSellnum3() == null ? other.getSellnum3() == null : this.getSellnum3().equals(other.getSellnum3()))
-            && (this.getSellnum4() == null ? other.getSellnum4() == null : this.getSellnum4().equals(other.getSellnum4()))
-            && (this.getSellnum5() == null ? other.getSellnum5() == null : this.getSellnum5().equals(other.getSellnum5()))
-            && (this.getSellnum6() == null ? other.getSellnum6() == null : this.getSellnum6().equals(other.getSellnum6()))
-            && (this.getFlag() == null ? other.getFlag() == null : this.getFlag().equals(other.getFlag()))
-            && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
-            && (this.getOpertypr() == null ? other.getOpertypr() == null : this.getOpertypr().equals(other.getOpertypr()))
-            && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
-            && (this.getFlag1() == null ? other.getFlag1() == null : this.getFlag1().equals(other.getFlag1()))
-            && (this.getFlag2() == null ? other.getFlag2() == null : this.getFlag2().equals(other.getFlag2()))
-            && (this.getFlag3() == null ? other.getFlag3() == null : this.getFlag3().equals(other.getFlag3()))
-            && (this.getFlag4() == null ? other.getFlag4() == null : this.getFlag4().equals(other.getFlag4()))
-            && (this.getFlag5() == null ? other.getFlag5() == null : this.getFlag5().equals(other.getFlag5()))
-            && (this.getProductname() == null ? other.getProductname() == null : this.getProductname().equals(other.getProductname()))
             && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
             && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
             && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
@@ -567,8 +552,23 @@ public class DbEndproductOnlinelog implements Serializable {
             && (this.getReserve7() == null ? other.getReserve7() == null : this.getReserve7().equals(other.getReserve7()))
             && (this.getReserve8() == null ? other.getReserve8() == null : this.getReserve8().equals(other.getReserve8()))
             && (this.getReserve9() == null ? other.getReserve9() == null : this.getReserve9().equals(other.getReserve9()))
+            && (this.getSellnum1() == null ? other.getSellnum1() == null : this.getSellnum1().equals(other.getSellnum1()))
+            && (this.getSellnum2() == null ? other.getSellnum2() == null : this.getSellnum2().equals(other.getSellnum2()))
+            && (this.getSellnum3() == null ? other.getSellnum3() == null : this.getSellnum3().equals(other.getSellnum3()))
+            && (this.getSellnum4() == null ? other.getSellnum4() == null : this.getSellnum4().equals(other.getSellnum4()))
+            && (this.getSellnum5() == null ? other.getSellnum5() == null : this.getSellnum5().equals(other.getSellnum5()))
+            && (this.getSellnum6() == null ? other.getSellnum6() == null : this.getSellnum6().equals(other.getSellnum6()))
+            && (this.getFlag() == null ? other.getFlag() == null : this.getFlag().equals(other.getFlag()))
             && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
-            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()));
+            && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
+            && (this.getOpertypr() == null ? other.getOpertypr() == null : this.getOpertypr().equals(other.getOpertypr()))
+            && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
+            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
+            && (this.getFlag1() == null ? other.getFlag1() == null : this.getFlag1().equals(other.getFlag1()))
+            && (this.getFlag2() == null ? other.getFlag2() == null : this.getFlag2().equals(other.getFlag2()))
+            && (this.getFlag3() == null ? other.getFlag3() == null : this.getFlag3().equals(other.getFlag3()))
+            && (this.getFlag4() == null ? other.getFlag4() == null : this.getFlag4().equals(other.getFlag4()))
+            && (this.getFlag5() == null ? other.getFlag5() == null : this.getFlag5().equals(other.getFlag5()));
     }
 
     @Override
@@ -583,6 +583,7 @@ public class DbEndproductOnlinelog implements Serializable {
         result = prime * result + ((getEbaysku() == null) ? 0 : getEbaysku().hashCode());
         result = prime * result + ((getEbayitemid() == null) ? 0 : getEbayitemid().hashCode());
         result = prime * result + ((getProductid() == null) ? 0 : getProductid().hashCode());
+        result = prime * result + ((getProductname() == null) ? 0 : getProductname().hashCode());
         result = prime * result + ((getProducttype() == null) ? 0 : getProducttype().hashCode());
         result = prime * result + ((getUpdatetime() == null) ? 0 : getUpdatetime().hashCode());
         result = prime * result + ((getPrice1() == null) ? 0 : getPrice1().hashCode());
@@ -592,22 +593,6 @@ public class DbEndproductOnlinelog implements Serializable {
         result = prime * result + ((getNumber1() == null) ? 0 : getNumber1().hashCode());
         result = prime * result + ((getNumber2() == null) ? 0 : getNumber2().hashCode());
         result = prime * result + ((getNumber3() == null) ? 0 : getNumber3().hashCode());
-        result = prime * result + ((getSellnum1() == null) ? 0 : getSellnum1().hashCode());
-        result = prime * result + ((getSellnum2() == null) ? 0 : getSellnum2().hashCode());
-        result = prime * result + ((getSellnum3() == null) ? 0 : getSellnum3().hashCode());
-        result = prime * result + ((getSellnum4() == null) ? 0 : getSellnum4().hashCode());
-        result = prime * result + ((getSellnum5() == null) ? 0 : getSellnum5().hashCode());
-        result = prime * result + ((getSellnum6() == null) ? 0 : getSellnum6().hashCode());
-        result = prime * result + ((getFlag() == null) ? 0 : getFlag().hashCode());
-        result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
-        result = prime * result + ((getOpertypr() == null) ? 0 : getOpertypr().hashCode());
-        result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
-        result = prime * result + ((getFlag1() == null) ? 0 : getFlag1().hashCode());
-        result = prime * result + ((getFlag2() == null) ? 0 : getFlag2().hashCode());
-        result = prime * result + ((getFlag3() == null) ? 0 : getFlag3().hashCode());
-        result = prime * result + ((getFlag4() == null) ? 0 : getFlag4().hashCode());
-        result = prime * result + ((getFlag5() == null) ? 0 : getFlag5().hashCode());
-        result = prime * result + ((getProductname() == null) ? 0 : getProductname().hashCode());
         result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
         result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
         result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
@@ -623,8 +608,23 @@ public class DbEndproductOnlinelog implements Serializable {
         result = prime * result + ((getReserve7() == null) ? 0 : getReserve7().hashCode());
         result = prime * result + ((getReserve8() == null) ? 0 : getReserve8().hashCode());
         result = prime * result + ((getReserve9() == null) ? 0 : getReserve9().hashCode());
+        result = prime * result + ((getSellnum1() == null) ? 0 : getSellnum1().hashCode());
+        result = prime * result + ((getSellnum2() == null) ? 0 : getSellnum2().hashCode());
+        result = prime * result + ((getSellnum3() == null) ? 0 : getSellnum3().hashCode());
+        result = prime * result + ((getSellnum4() == null) ? 0 : getSellnum4().hashCode());
+        result = prime * result + ((getSellnum5() == null) ? 0 : getSellnum5().hashCode());
+        result = prime * result + ((getSellnum6() == null) ? 0 : getSellnum6().hashCode());
+        result = prime * result + ((getFlag() == null) ? 0 : getFlag().hashCode());
         result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
+        result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
+        result = prime * result + ((getOpertypr() == null) ? 0 : getOpertypr().hashCode());
+        result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
+        result = prime * result + ((getFlag1() == null) ? 0 : getFlag1().hashCode());
+        result = prime * result + ((getFlag2() == null) ? 0 : getFlag2().hashCode());
+        result = prime * result + ((getFlag3() == null) ? 0 : getFlag3().hashCode());
+        result = prime * result + ((getFlag4() == null) ? 0 : getFlag4().hashCode());
+        result = prime * result + ((getFlag5() == null) ? 0 : getFlag5().hashCode());
         return result;
     }
 
@@ -642,6 +642,7 @@ public class DbEndproductOnlinelog implements Serializable {
         sb.append(", ebaysku=").append(ebaysku);
         sb.append(", ebayitemid=").append(ebayitemid);
         sb.append(", productid=").append(productid);
+        sb.append(", productname=").append(productname);
         sb.append(", producttype=").append(producttype);
         sb.append(", updatetime=").append(updatetime);
         sb.append(", price1=").append(price1);
@@ -651,22 +652,6 @@ public class DbEndproductOnlinelog implements Serializable {
         sb.append(", number1=").append(number1);
         sb.append(", number2=").append(number2);
         sb.append(", number3=").append(number3);
-        sb.append(", sellnum1=").append(sellnum1);
-        sb.append(", sellnum2=").append(sellnum2);
-        sb.append(", sellnum3=").append(sellnum3);
-        sb.append(", sellnum4=").append(sellnum4);
-        sb.append(", sellnum5=").append(sellnum5);
-        sb.append(", sellnum6=").append(sellnum6);
-        sb.append(", flag=").append(flag);
-        sb.append(", oper=").append(oper);
-        sb.append(", opertypr=").append(opertypr);
-        sb.append(", opertime=").append(opertime);
-        sb.append(", flag1=").append(flag1);
-        sb.append(", flag2=").append(flag2);
-        sb.append(", flag3=").append(flag3);
-        sb.append(", flag4=").append(flag4);
-        sb.append(", flag5=").append(flag5);
-        sb.append(", productname=").append(productname);
         sb.append(", reserve1=").append(reserve1);
         sb.append(", reserve2=").append(reserve2);
         sb.append(", reserve3=").append(reserve3);
@@ -682,8 +667,23 @@ public class DbEndproductOnlinelog implements Serializable {
         sb.append(", reserve7=").append(reserve7);
         sb.append(", reserve8=").append(reserve8);
         sb.append(", reserve9=").append(reserve9);
+        sb.append(", sellnum1=").append(sellnum1);
+        sb.append(", sellnum2=").append(sellnum2);
+        sb.append(", sellnum3=").append(sellnum3);
+        sb.append(", sellnum4=").append(sellnum4);
+        sb.append(", sellnum5=").append(sellnum5);
+        sb.append(", sellnum6=").append(sellnum6);
+        sb.append(", flag=").append(flag);
         sb.append(", descr=").append(descr);
+        sb.append(", oper=").append(oper);
+        sb.append(", opertypr=").append(opertypr);
+        sb.append(", opertime=").append(opertime);
         sb.append(", content=").append(content);
+        sb.append(", flag1=").append(flag1);
+        sb.append(", flag2=").append(flag2);
+        sb.append(", flag3=").append(flag3);
+        sb.append(", flag4=").append(flag4);
+        sb.append(", flag5=").append(flag5);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

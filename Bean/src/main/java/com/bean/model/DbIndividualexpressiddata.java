@@ -9,6 +9,10 @@ public class DbIndividualexpressiddata implements Serializable {
 
     private String expresstype;
 
+    private String expresstypeid;
+
+    private String targetordeirid;
+
     private String corpid;
 
     private String openflag;
@@ -22,10 +26,6 @@ public class DbIndividualexpressiddata implements Serializable {
     private Date createtime;
 
     private BigDecimal version;
-
-    private String expresstypeid;
-
-    private String targetordeirid;
 
     private static final long serialVersionUID = 1L;
 
@@ -43,6 +43,22 @@ public class DbIndividualexpressiddata implements Serializable {
 
     public void setExpresstype(String expresstype) {
         this.expresstype = expresstype == null ? null : expresstype.trim();
+    }
+
+    public String getExpresstypeid() {
+        return expresstypeid;
+    }
+
+    public void setExpresstypeid(String expresstypeid) {
+        this.expresstypeid = expresstypeid == null ? null : expresstypeid.trim();
+    }
+
+    public String getTargetordeirid() {
+        return targetordeirid;
+    }
+
+    public void setTargetordeirid(String targetordeirid) {
+        this.targetordeirid = targetordeirid == null ? null : targetordeirid.trim();
     }
 
     public String getCorpid() {
@@ -101,22 +117,6 @@ public class DbIndividualexpressiddata implements Serializable {
         this.version = version;
     }
 
-    public String getExpresstypeid() {
-        return expresstypeid;
-    }
-
-    public void setExpresstypeid(String expresstypeid) {
-        this.expresstypeid = expresstypeid == null ? null : expresstypeid.trim();
-    }
-
-    public String getTargetordeirid() {
-        return targetordeirid;
-    }
-
-    public void setTargetordeirid(String targetordeirid) {
-        this.targetordeirid = targetordeirid == null ? null : targetordeirid.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -131,15 +131,15 @@ public class DbIndividualexpressiddata implements Serializable {
         DbIndividualexpressiddata other = (DbIndividualexpressiddata) that;
         return (this.getExpressid() == null ? other.getExpressid() == null : this.getExpressid().equals(other.getExpressid()))
             && (this.getExpresstype() == null ? other.getExpresstype() == null : this.getExpresstype().equals(other.getExpresstype()))
+            && (this.getExpresstypeid() == null ? other.getExpresstypeid() == null : this.getExpresstypeid().equals(other.getExpresstypeid()))
+            && (this.getTargetordeirid() == null ? other.getTargetordeirid() == null : this.getTargetordeirid().equals(other.getTargetordeirid()))
             && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()))
             && (this.getOpenflag() == null ? other.getOpenflag() == null : this.getOpenflag().equals(other.getOpenflag()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
             && (this.getCreateoper() == null ? other.getCreateoper() == null : this.getCreateoper().equals(other.getCreateoper()))
             && (this.getCreatetime() == null ? other.getCreatetime() == null : this.getCreatetime().equals(other.getCreatetime()))
-            && (this.getVersion() == null ? other.getVersion() == null : this.getVersion().equals(other.getVersion()))
-            && (this.getExpresstypeid() == null ? other.getExpresstypeid() == null : this.getExpresstypeid().equals(other.getExpresstypeid()))
-            && (this.getTargetordeirid() == null ? other.getTargetordeirid() == null : this.getTargetordeirid().equals(other.getTargetordeirid()));
+            && (this.getVersion() == null ? other.getVersion() == null : this.getVersion().equals(other.getVersion()));
     }
 
     @Override
@@ -148,6 +148,8 @@ public class DbIndividualexpressiddata implements Serializable {
         int result = 1;
         result = prime * result + ((getExpressid() == null) ? 0 : getExpressid().hashCode());
         result = prime * result + ((getExpresstype() == null) ? 0 : getExpresstype().hashCode());
+        result = prime * result + ((getExpresstypeid() == null) ? 0 : getExpresstypeid().hashCode());
+        result = prime * result + ((getTargetordeirid() == null) ? 0 : getTargetordeirid().hashCode());
         result = prime * result + ((getCorpid() == null) ? 0 : getCorpid().hashCode());
         result = prime * result + ((getOpenflag() == null) ? 0 : getOpenflag().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
@@ -155,8 +157,6 @@ public class DbIndividualexpressiddata implements Serializable {
         result = prime * result + ((getCreateoper() == null) ? 0 : getCreateoper().hashCode());
         result = prime * result + ((getCreatetime() == null) ? 0 : getCreatetime().hashCode());
         result = prime * result + ((getVersion() == null) ? 0 : getVersion().hashCode());
-        result = prime * result + ((getExpresstypeid() == null) ? 0 : getExpresstypeid().hashCode());
-        result = prime * result + ((getTargetordeirid() == null) ? 0 : getTargetordeirid().hashCode());
         return result;
     }
 
@@ -168,6 +168,8 @@ public class DbIndividualexpressiddata implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", expressid=").append(expressid);
         sb.append(", expresstype=").append(expresstype);
+        sb.append(", expresstypeid=").append(expresstypeid);
+        sb.append(", targetordeirid=").append(targetordeirid);
         sb.append(", corpid=").append(corpid);
         sb.append(", openflag=").append(openflag);
         sb.append(", oper=").append(oper);
@@ -175,8 +177,6 @@ public class DbIndividualexpressiddata implements Serializable {
         sb.append(", createoper=").append(createoper);
         sb.append(", createtime=").append(createtime);
         sb.append(", version=").append(version);
-        sb.append(", expresstypeid=").append(expresstypeid);
-        sb.append(", targetordeirid=").append(targetordeirid);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

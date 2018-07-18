@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbProductforsell;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbProductforsellMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbProductforsell selectByCriteria(DbProductforsell DbProductforsell);
 
-    int insert(DbProductforsell record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbProductforsell record);
+    void deleteByCriteria(DbProductforsell DbProductforsell);
+
+    int insertByCriteria(DbProductforsell DbProductforsell);
+
+    int updateByCriteria(DbProductforsell DbProductforsell);
 
     DbProductforsell selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbProductforsell record);
-
-    int updateByPrimaryKeyWithBLOBs(DbProductforsell record);
-
-    int updateByPrimaryKey(DbProductforsell record);
+    List<DbProductforsell> selectAll();
 }

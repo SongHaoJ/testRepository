@@ -30,325 +30,263 @@
     <result column="BBESNUM1" jdbcType="DECIMAL" property="bbesnum1" />
     <result column="BBESNUM2" jdbcType="DECIMAL" property="bbesnum2" />
   </resultMap>
-  <sql id="Base_Column_List">
-    SEQUENCEID, 'NAME', SHOPTYPEID, OPERTIME, OPENFLAG, OPER, CORPID, ACTUALSHOPNAME, 
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select SEQUENCEID, NAME, SHOPTYPEID, OPERTIME, OPENFLAG, OPER, CORPID, ACTUALSHOPNAME, 
     ACTUALSHOPID, BBEREALITY, BBEREALITY1, BBEREALITY2, BBENUM, BBENUM1, BBENUM2, BBEBB, 
     BBEBB1, BBEBB2, BBENUMB, BBENUMB1, BBENUMB2, CHAE, CHAE1, CHAE2, BBESNUM, BBESNUM1, 
     BBESNUM2
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from db_ebayidmanage
+    from DB_EBAYIDMANAGE
     where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
-    delete from db_ebayidmanage
-    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, NAME, SHOPTYPEID, OPERTIME, OPENFLAG, OPER, CORPID, ACTUALSHOPNAME, 
+    ACTUALSHOPID, BBEREALITY, BBEREALITY1, BBEREALITY2, BBENUM, BBENUM1, BBENUM2, BBEBB, 
+    BBEBB1, BBEBB2, BBENUMB, BBENUMB1, BBENUMB2, CHAE, CHAE1, CHAE2, BBESNUM, BBESNUM1, 
+    BBESNUM2
+    from DB_EBAYIDMANAGE
+  </select>
+  <sql id="TableName">
+    DB_EBAYIDMANAGE
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=DECIMAL} , 
+     #{name,jdbcType=VARCHAR} , 
+     #{shoptypeid,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{openflag,jdbcType=DECIMAL} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{corpid,jdbcType=DECIMAL} , 
+     #{actualshopname,jdbcType=VARCHAR} , 
+     #{actualshopid,jdbcType=VARCHAR} , 
+     #{bbereality,jdbcType=VARCHAR} , 
+     #{bbereality1,jdbcType=VARCHAR} , 
+     #{bbereality2,jdbcType=VARCHAR} , 
+     #{bbenum,jdbcType=VARCHAR} , 
+     #{bbenum1,jdbcType=VARCHAR} , 
+     #{bbenum2,jdbcType=VARCHAR} , 
+     #{bbebb,jdbcType=VARCHAR} , 
+     #{bbebb1,jdbcType=VARCHAR} , 
+     #{bbebb2,jdbcType=VARCHAR} , 
+     #{bbenumb,jdbcType=DECIMAL} , 
+     #{bbenumb1,jdbcType=DECIMAL} , 
+     #{bbenumb2,jdbcType=DECIMAL} , 
+     #{chae,jdbcType=DECIMAL} , 
+     #{chae1,jdbcType=DECIMAL} , 
+     #{chae2,jdbcType=DECIMAL} , 
+     #{bbesnum,jdbcType=DECIMAL} , 
+     #{bbesnum1,jdbcType=DECIMAL} , 
+     #{bbesnum2,jdbcType=DECIMAL} , 
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    NAME , 
+    SHOPTYPEID , 
+    OPERTIME , 
+    OPENFLAG , 
+    OPER , 
+    CORPID , 
+    ACTUALSHOPNAME , 
+    ACTUALSHOPID , 
+    BBEREALITY , 
+    BBEREALITY1 , 
+    BBEREALITY2 , 
+    BBENUM , 
+    BBENUM1 , 
+    BBENUM2 , 
+    BBEBB , 
+    BBEBB1 , 
+    BBEBB2 , 
+    BBENUMB , 
+    BBENUMB1 , 
+    BBENUMB2 , 
+    CHAE , 
+    CHAE1 , 
+    CHAE2 , 
+    BBESNUM , 
+    BBESNUM1 , 
+    BBESNUM2 , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shoptypeid != null">
+      shoptypeid = #{shoptypeid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="actualshopname != null">
+      actualshopname = #{actualshopname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="actualshopid != null">
+      actualshopid = #{actualshopid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="bbereality != null">
+      bbereality = #{bbereality,jdbcType=VARCHAR} and 
+    </if>
+    <if test="bbereality1 != null">
+      bbereality1 = #{bbereality1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="bbereality2 != null">
+      bbereality2 = #{bbereality2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="bbenum != null">
+      bbenum = #{bbenum,jdbcType=VARCHAR} and 
+    </if>
+    <if test="bbenum1 != null">
+      bbenum1 = #{bbenum1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="bbenum2 != null">
+      bbenum2 = #{bbenum2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="bbebb != null">
+      bbebb = #{bbebb,jdbcType=VARCHAR} and 
+    </if>
+    <if test="bbebb1 != null">
+      bbebb1 = #{bbebb1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="bbebb2 != null">
+      bbebb2 = #{bbebb2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="bbenumb != null">
+      bbenumb = #{bbenumb,jdbcType=DECIMAL} and 
+    </if>
+    <if test="bbenumb1 != null">
+      bbenumb1 = #{bbenumb1,jdbcType=DECIMAL} and 
+    </if>
+    <if test="bbenumb2 != null">
+      bbenumb2 = #{bbenumb2,jdbcType=DECIMAL} and 
+    </if>
+    <if test="chae != null">
+      chae = #{chae,jdbcType=DECIMAL} and 
+    </if>
+    <if test="chae1 != null">
+      chae1 = #{chae1,jdbcType=DECIMAL} and 
+    </if>
+    <if test="chae2 != null">
+      chae2 = #{chae2,jdbcType=DECIMAL} and 
+    </if>
+    <if test="bbesnum != null">
+      bbesnum = #{bbesnum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="bbesnum1 != null">
+      bbesnum1 = #{bbesnum1,jdbcType=DECIMAL} and 
+    </if>
+    <if test="bbesnum2 != null">
+      bbesnum2 = #{bbesnum2,jdbcType=DECIMAL} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shoptypeid != null">
+      shoptypeid = #{shoptypeid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="actualshopname != null">
+      actualshopname = #{actualshopname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="actualshopid != null">
+      actualshopid = #{actualshopid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="bbereality != null">
+      bbereality = #{bbereality,jdbcType=VARCHAR} , 
+    </if>
+    <if test="bbereality1 != null">
+      bbereality1 = #{bbereality1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="bbereality2 != null">
+      bbereality2 = #{bbereality2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="bbenum != null">
+      bbenum = #{bbenum,jdbcType=VARCHAR} , 
+    </if>
+    <if test="bbenum1 != null">
+      bbenum1 = #{bbenum1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="bbenum2 != null">
+      bbenum2 = #{bbenum2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="bbebb != null">
+      bbebb = #{bbebb,jdbcType=VARCHAR} , 
+    </if>
+    <if test="bbebb1 != null">
+      bbebb1 = #{bbebb1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="bbebb2 != null">
+      bbebb2 = #{bbebb2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="bbenumb != null">
+      bbenumb = #{bbenumb,jdbcType=DECIMAL} , 
+    </if>
+    <if test="bbenumb1 != null">
+      bbenumb1 = #{bbenumb1,jdbcType=DECIMAL} , 
+    </if>
+    <if test="bbenumb2 != null">
+      bbenumb2 = #{bbenumb2,jdbcType=DECIMAL} , 
+    </if>
+    <if test="chae != null">
+      chae = #{chae,jdbcType=DECIMAL} , 
+    </if>
+    <if test="chae1 != null">
+      chae1 = #{chae1,jdbcType=DECIMAL} , 
+    </if>
+    <if test="chae2 != null">
+      chae2 = #{chae2,jdbcType=DECIMAL} , 
+    </if>
+    <if test="bbesnum != null">
+      bbesnum = #{bbesnum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="bbesnum1 != null">
+      bbesnum1 = #{bbesnum1,jdbcType=DECIMAL} , 
+    </if>
+    <if test="bbesnum2 != null">
+      bbesnum2 = #{bbesnum2,jdbcType=DECIMAL} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbEbayidmanage" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="BigDecimal">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbEbayidmanage">
-    insert into db_ebayidmanage (SEQUENCEID, 'NAME', SHOPTYPEID, 
-      OPERTIME, OPENFLAG, OPER, 
-      CORPID, ACTUALSHOPNAME, ACTUALSHOPID, 
-      BBEREALITY, BBEREALITY1, BBEREALITY2, 
-      BBENUM, BBENUM1, BBENUM2, 
-      BBEBB, BBEBB1, BBEBB2, 
-      BBENUMB, BBENUMB1, BBENUMB2, 
-      CHAE, CHAE1, CHAE2, 
-      BBESNUM, BBESNUM1, BBESNUM2
-      )
-    values (#{sequenceid,jdbcType=DECIMAL}, #{name,jdbcType=VARCHAR}, #{shoptypeid,jdbcType=VARCHAR}, 
-      #{opertime,jdbcType=TIMESTAMP}, #{openflag,jdbcType=DECIMAL}, #{oper,jdbcType=VARCHAR}, 
-      #{corpid,jdbcType=DECIMAL}, #{actualshopname,jdbcType=VARCHAR}, #{actualshopid,jdbcType=VARCHAR}, 
-      #{bbereality,jdbcType=VARCHAR}, #{bbereality1,jdbcType=VARCHAR}, #{bbereality2,jdbcType=VARCHAR}, 
-      #{bbenum,jdbcType=VARCHAR}, #{bbenum1,jdbcType=VARCHAR}, #{bbenum2,jdbcType=VARCHAR}, 
-      #{bbebb,jdbcType=VARCHAR}, #{bbebb1,jdbcType=VARCHAR}, #{bbebb2,jdbcType=VARCHAR}, 
-      #{bbenumb,jdbcType=DECIMAL}, #{bbenumb1,jdbcType=DECIMAL}, #{bbenumb2,jdbcType=DECIMAL}, 
-      #{chae,jdbcType=DECIMAL}, #{chae1,jdbcType=DECIMAL}, #{chae2,jdbcType=DECIMAL}, 
-      #{bbesnum,jdbcType=DECIMAL}, #{bbesnum1,jdbcType=DECIMAL}, #{bbesnum2,jdbcType=DECIMAL}
-      )
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbEbayidmanage">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbEbayidmanage">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbEbayidmanage">
-    insert into db_ebayidmanage
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        SEQUENCEID,
-      </if>
-      <if test="name != null">
-        'NAME',
-      </if>
-      <if test="shoptypeid != null">
-        SHOPTYPEID,
-      </if>
-      <if test="opertime != null">
-        OPERTIME,
-      </if>
-      <if test="openflag != null">
-        OPENFLAG,
-      </if>
-      <if test="oper != null">
-        OPER,
-      </if>
-      <if test="corpid != null">
-        CORPID,
-      </if>
-      <if test="actualshopname != null">
-        ACTUALSHOPNAME,
-      </if>
-      <if test="actualshopid != null">
-        ACTUALSHOPID,
-      </if>
-      <if test="bbereality != null">
-        BBEREALITY,
-      </if>
-      <if test="bbereality1 != null">
-        BBEREALITY1,
-      </if>
-      <if test="bbereality2 != null">
-        BBEREALITY2,
-      </if>
-      <if test="bbenum != null">
-        BBENUM,
-      </if>
-      <if test="bbenum1 != null">
-        BBENUM1,
-      </if>
-      <if test="bbenum2 != null">
-        BBENUM2,
-      </if>
-      <if test="bbebb != null">
-        BBEBB,
-      </if>
-      <if test="bbebb1 != null">
-        BBEBB1,
-      </if>
-      <if test="bbebb2 != null">
-        BBEBB2,
-      </if>
-      <if test="bbenumb != null">
-        BBENUMB,
-      </if>
-      <if test="bbenumb1 != null">
-        BBENUMB1,
-      </if>
-      <if test="bbenumb2 != null">
-        BBENUMB2,
-      </if>
-      <if test="chae != null">
-        CHAE,
-      </if>
-      <if test="chae1 != null">
-        CHAE1,
-      </if>
-      <if test="chae2 != null">
-        CHAE2,
-      </if>
-      <if test="bbesnum != null">
-        BBESNUM,
-      </if>
-      <if test="bbesnum1 != null">
-        BBESNUM1,
-      </if>
-      <if test="bbesnum2 != null">
-        BBESNUM2,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        #{sequenceid,jdbcType=DECIMAL},
-      </if>
-      <if test="name != null">
-        #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="shoptypeid != null">
-        #{shoptypeid,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="openflag != null">
-        #{openflag,jdbcType=DECIMAL},
-      </if>
-      <if test="oper != null">
-        #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="corpid != null">
-        #{corpid,jdbcType=DECIMAL},
-      </if>
-      <if test="actualshopname != null">
-        #{actualshopname,jdbcType=VARCHAR},
-      </if>
-      <if test="actualshopid != null">
-        #{actualshopid,jdbcType=VARCHAR},
-      </if>
-      <if test="bbereality != null">
-        #{bbereality,jdbcType=VARCHAR},
-      </if>
-      <if test="bbereality1 != null">
-        #{bbereality1,jdbcType=VARCHAR},
-      </if>
-      <if test="bbereality2 != null">
-        #{bbereality2,jdbcType=VARCHAR},
-      </if>
-      <if test="bbenum != null">
-        #{bbenum,jdbcType=VARCHAR},
-      </if>
-      <if test="bbenum1 != null">
-        #{bbenum1,jdbcType=VARCHAR},
-      </if>
-      <if test="bbenum2 != null">
-        #{bbenum2,jdbcType=VARCHAR},
-      </if>
-      <if test="bbebb != null">
-        #{bbebb,jdbcType=VARCHAR},
-      </if>
-      <if test="bbebb1 != null">
-        #{bbebb1,jdbcType=VARCHAR},
-      </if>
-      <if test="bbebb2 != null">
-        #{bbebb2,jdbcType=VARCHAR},
-      </if>
-      <if test="bbenumb != null">
-        #{bbenumb,jdbcType=DECIMAL},
-      </if>
-      <if test="bbenumb1 != null">
-        #{bbenumb1,jdbcType=DECIMAL},
-      </if>
-      <if test="bbenumb2 != null">
-        #{bbenumb2,jdbcType=DECIMAL},
-      </if>
-      <if test="chae != null">
-        #{chae,jdbcType=DECIMAL},
-      </if>
-      <if test="chae1 != null">
-        #{chae1,jdbcType=DECIMAL},
-      </if>
-      <if test="chae2 != null">
-        #{chae2,jdbcType=DECIMAL},
-      </if>
-      <if test="bbesnum != null">
-        #{bbesnum,jdbcType=DECIMAL},
-      </if>
-      <if test="bbesnum1 != null">
-        #{bbesnum1,jdbcType=DECIMAL},
-      </if>
-      <if test="bbesnum2 != null">
-        #{bbesnum2,jdbcType=DECIMAL},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbEbayidmanage">
-    update db_ebayidmanage
-    <set>
-      <if test="name != null">
-        'NAME' = #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="shoptypeid != null">
-        SHOPTYPEID = #{shoptypeid,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="openflag != null">
-        OPENFLAG = #{openflag,jdbcType=DECIMAL},
-      </if>
-      <if test="oper != null">
-        OPER = #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="corpid != null">
-        CORPID = #{corpid,jdbcType=DECIMAL},
-      </if>
-      <if test="actualshopname != null">
-        ACTUALSHOPNAME = #{actualshopname,jdbcType=VARCHAR},
-      </if>
-      <if test="actualshopid != null">
-        ACTUALSHOPID = #{actualshopid,jdbcType=VARCHAR},
-      </if>
-      <if test="bbereality != null">
-        BBEREALITY = #{bbereality,jdbcType=VARCHAR},
-      </if>
-      <if test="bbereality1 != null">
-        BBEREALITY1 = #{bbereality1,jdbcType=VARCHAR},
-      </if>
-      <if test="bbereality2 != null">
-        BBEREALITY2 = #{bbereality2,jdbcType=VARCHAR},
-      </if>
-      <if test="bbenum != null">
-        BBENUM = #{bbenum,jdbcType=VARCHAR},
-      </if>
-      <if test="bbenum1 != null">
-        BBENUM1 = #{bbenum1,jdbcType=VARCHAR},
-      </if>
-      <if test="bbenum2 != null">
-        BBENUM2 = #{bbenum2,jdbcType=VARCHAR},
-      </if>
-      <if test="bbebb != null">
-        BBEBB = #{bbebb,jdbcType=VARCHAR},
-      </if>
-      <if test="bbebb1 != null">
-        BBEBB1 = #{bbebb1,jdbcType=VARCHAR},
-      </if>
-      <if test="bbebb2 != null">
-        BBEBB2 = #{bbebb2,jdbcType=VARCHAR},
-      </if>
-      <if test="bbenumb != null">
-        BBENUMB = #{bbenumb,jdbcType=DECIMAL},
-      </if>
-      <if test="bbenumb1 != null">
-        BBENUMB1 = #{bbenumb1,jdbcType=DECIMAL},
-      </if>
-      <if test="bbenumb2 != null">
-        BBENUMB2 = #{bbenumb2,jdbcType=DECIMAL},
-      </if>
-      <if test="chae != null">
-        CHAE = #{chae,jdbcType=DECIMAL},
-      </if>
-      <if test="chae1 != null">
-        CHAE1 = #{chae1,jdbcType=DECIMAL},
-      </if>
-      <if test="chae2 != null">
-        CHAE2 = #{chae2,jdbcType=DECIMAL},
-      </if>
-      <if test="bbesnum != null">
-        BBESNUM = #{bbesnum,jdbcType=DECIMAL},
-      </if>
-      <if test="bbesnum1 != null">
-        BBESNUM1 = #{bbesnum1,jdbcType=DECIMAL},
-      </if>
-      <if test="bbesnum2 != null">
-        BBESNUM2 = #{bbesnum2,jdbcType=DECIMAL},
-      </if>
-    </set>
-    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbEbayidmanage">
-    update db_ebayidmanage
-    set 'NAME' = #{name,jdbcType=VARCHAR},
-      SHOPTYPEID = #{shoptypeid,jdbcType=VARCHAR},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      OPENFLAG = #{openflag,jdbcType=DECIMAL},
-      OPER = #{oper,jdbcType=VARCHAR},
-      CORPID = #{corpid,jdbcType=DECIMAL},
-      ACTUALSHOPNAME = #{actualshopname,jdbcType=VARCHAR},
-      ACTUALSHOPID = #{actualshopid,jdbcType=VARCHAR},
-      BBEREALITY = #{bbereality,jdbcType=VARCHAR},
-      BBEREALITY1 = #{bbereality1,jdbcType=VARCHAR},
-      BBEREALITY2 = #{bbereality2,jdbcType=VARCHAR},
-      BBENUM = #{bbenum,jdbcType=VARCHAR},
-      BBENUM1 = #{bbenum1,jdbcType=VARCHAR},
-      BBENUM2 = #{bbenum2,jdbcType=VARCHAR},
-      BBEBB = #{bbebb,jdbcType=VARCHAR},
-      BBEBB1 = #{bbebb1,jdbcType=VARCHAR},
-      BBEBB2 = #{bbebb2,jdbcType=VARCHAR},
-      BBENUMB = #{bbenumb,jdbcType=DECIMAL},
-      BBENUMB1 = #{bbenumb1,jdbcType=DECIMAL},
-      BBENUMB2 = #{bbenumb2,jdbcType=DECIMAL},
-      CHAE = #{chae,jdbcType=DECIMAL},
-      CHAE1 = #{chae1,jdbcType=DECIMAL},
-      CHAE2 = #{chae2,jdbcType=DECIMAL},
-      BBESNUM = #{bbesnum,jdbcType=DECIMAL},
-      BBESNUM1 = #{bbesnum1,jdbcType=DECIMAL},
-      BBESNUM2 = #{bbesnum2,jdbcType=DECIMAL}
-    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbEbayidmanage">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

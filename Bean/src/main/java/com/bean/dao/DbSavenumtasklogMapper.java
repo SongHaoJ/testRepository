@@ -1,20 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbSavenumtasklog;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbSavenumtasklogMapper {
-    int deleteByPrimaryKey(BigDecimal id);
+    DbSavenumtasklog selectByCriteria(DbSavenumtasklog DbSavenumtasklog);
 
-    int insert(DbSavenumtasklog record);
+    void deleteByPrimaryKey(String ID);
 
-    int insertSelective(DbSavenumtasklog record);
+    void deleteByCriteria(DbSavenumtasklog DbSavenumtasklog);
+
+    int insertByCriteria(DbSavenumtasklog DbSavenumtasklog);
+
+    int updateByCriteria(DbSavenumtasklog DbSavenumtasklog);
 
     DbSavenumtasklog selectByPrimaryKey(BigDecimal id);
 
-    int updateByPrimaryKeySelective(DbSavenumtasklog record);
-
-    int updateByPrimaryKeyWithBLOBs(DbSavenumtasklog record);
-
-    int updateByPrimaryKey(DbSavenumtasklog record);
+    List<DbSavenumtasklog> selectAll();
 }

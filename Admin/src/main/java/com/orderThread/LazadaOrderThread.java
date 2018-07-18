@@ -5,7 +5,7 @@ import com.bean.util.RetCode;
 import com.bean.util.Sys;
 import com.bean.yml.LazadaYml;
 import com.controller.Priority;
-import com.service.GetService;
+import com.service.GetOrderService;
 import com.service.LazadaService;
 import com.threadModel.ThreadModel;
 import org.slf4j.Logger;
@@ -26,9 +26,10 @@ public class LazadaOrderThread extends ThreadModel {
     private LazadaYml yml;
 
     /*    private static List<Map<String,String>> skuMap;//多仓sku暂存
-        private static boolean refreshSku;//多仓sku刷新标志*/ {
-        service = GetService.getLazadaService();
-        yml = GetService.getYml();
+        private static boolean refreshSku;//多仓sku刷新标志*/
+    {
+        service = GetOrderService.getLazadaService();
+        yml = GetOrderService.getLazadaYml();
     }
 
     /**

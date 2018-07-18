@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbSyslog;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbSyslogMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbSyslog selectByCriteria(DbSyslog DbSyslog);
 
-    int insert(DbSyslog record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbSyslog record);
+    void deleteByCriteria(DbSyslog DbSyslog);
+
+    int insertByCriteria(DbSyslog DbSyslog);
+
+    int updateByCriteria(DbSyslog DbSyslog);
 
     DbSyslog selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbSyslog record);
-
-    int updateByPrimaryKeyWithBLOBs(DbSyslog record);
-
-    int updateByPrimaryKey(DbSyslog record);
+    List<DbSyslog> selectAll();
 }

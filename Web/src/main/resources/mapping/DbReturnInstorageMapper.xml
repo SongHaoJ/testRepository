@@ -11,30 +11,30 @@
     <result column="INNUM" jdbcType="DECIMAL" property="innum" />
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="PRODUCTNAME" jdbcType="VARCHAR" property="productname" />
     <result column="FLAG" jdbcType="VARCHAR" property="flag" />
     <result column="FLAGDESCR" jdbcType="VARCHAR" property="flagdescr" />
     <result column="COSTPRICE" jdbcType="DECIMAL" property="costprice" />
     <result column="AMOUNT" jdbcType="DECIMAL" property="amount" />
+    <result column="DESCR" jdbcType="VARCHAR" property="descr" />
     <result column="MANUFACTUREID" jdbcType="VARCHAR" property="manufactureid" />
     <result column="MANUFACTURE" jdbcType="VARCHAR" property="manufacture" />
-    <result column="PRODUCTNAME" jdbcType="LONGVARCHAR" property="productname" />
-    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
     select SEQUENCEID, RETURNSID, ORDERID, PRODUCTID, ORDERNUM, RETURNNUM, INNUM, OPER, 
-    OPERTIME, FLAG, FLAGDESCR, COSTPRICE, AMOUNT, MANUFACTUREID, MANUFACTURE, PRODUCTNAME, 
-    DESCR
-    from db_return_instorage
+    OPERTIME, PRODUCTNAME, FLAG, FLAGDESCR, COSTPRICE, AMOUNT, DESCR, MANUFACTUREID, 
+    MANUFACTURE
+    from DB_RETURN_INSTORAGE
     where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SEQUENCEID, RETURNSID, ORDERID, PRODUCTID, ORDERNUM, RETURNNUM, INNUM, OPER, 
-    OPERTIME, FLAG, FLAGDESCR, COSTPRICE, AMOUNT, MANUFACTUREID, MANUFACTURE, PRODUCTNAME, 
-    DESCR
-    from db_return_instorage
+    OPERTIME, PRODUCTNAME, FLAG, FLAGDESCR, COSTPRICE, AMOUNT, DESCR, MANUFACTUREID, 
+    MANUFACTURE
+    from DB_RETURN_INSTORAGE
   </select>
   <sql id="TableName">
-    db_return_instorage
+    DB_RETURN_INSTORAGE
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=DECIMAL} , 
@@ -46,14 +46,14 @@
      #{innum,jdbcType=DECIMAL} , 
      #{oper,jdbcType=VARCHAR} , 
      #{opertime,jdbcType=TIMESTAMP} , 
+     #{productname,jdbcType=VARCHAR} , 
      #{flag,jdbcType=VARCHAR} , 
      #{flagdescr,jdbcType=VARCHAR} , 
      #{costprice,jdbcType=DECIMAL} , 
      #{amount,jdbcType=DECIMAL} , 
+     #{descr,jdbcType=VARCHAR} , 
      #{manufactureid,jdbcType=VARCHAR} , 
      #{manufacture,jdbcType=VARCHAR} , 
-     #{productname,jdbcType=LONGVARCHAR} , 
-     #{descr,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
@@ -65,122 +65,122 @@
     INNUM , 
     OPER , 
     OPERTIME , 
+    PRODUCTNAME , 
     FLAG , 
     FLAGDESCR , 
     COSTPRICE , 
     AMOUNT , 
+    DESCR , 
     MANUFACTUREID , 
     MANUFACTURE , 
-    PRODUCTNAME , 
-    DESCR
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} and 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} and 
     </if>
     <if test="returnsid != null">
-      RETURNSID = #{returnsid,jdbcType=DECIMAL} and 
+      returnsid = #{returnsid,jdbcType=DECIMAL} and 
     </if>
     <if test="orderid != null">
-      ORDERID = #{orderid,jdbcType=VARCHAR} and 
+      orderid = #{orderid,jdbcType=VARCHAR} and 
     </if>
     <if test="productid != null">
-      PRODUCTID = #{productid,jdbcType=VARCHAR} and 
+      productid = #{productid,jdbcType=VARCHAR} and 
     </if>
     <if test="ordernum != null">
-      ORDERNUM = #{ordernum,jdbcType=DECIMAL} and 
+      ordernum = #{ordernum,jdbcType=DECIMAL} and 
     </if>
     <if test="returnnum != null">
-      RETURNNUM = #{returnnum,jdbcType=DECIMAL} and 
+      returnnum = #{returnnum,jdbcType=DECIMAL} and 
     </if>
     <if test="innum != null">
-      INNUM = #{innum,jdbcType=DECIMAL} and 
+      innum = #{innum,jdbcType=DECIMAL} and 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
+      oper = #{oper,jdbcType=VARCHAR} and 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="flag != null">
-      FLAG = #{flag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="flagdescr != null">
-      FLAGDESCR = #{flagdescr,jdbcType=VARCHAR} and 
-    </if>
-    <if test="costprice != null">
-      COSTPRICE = #{costprice,jdbcType=DECIMAL} and 
-    </if>
-    <if test="amount != null">
-      AMOUNT = #{amount,jdbcType=DECIMAL} and 
-    </if>
-    <if test="manufactureid != null">
-      MANUFACTUREID = #{manufactureid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="manufacture != null">
-      MANUFACTURE = #{manufacture,jdbcType=VARCHAR} and 
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="productname != null">
-      PRODUCTNAME = #{productname,jdbcType=LONGVARCHAR} and 
+      productname = #{productname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flagdescr != null">
+      flagdescr = #{flagdescr,jdbcType=VARCHAR} and 
+    </if>
+    <if test="costprice != null">
+      costprice = #{costprice,jdbcType=DECIMAL} and 
+    </if>
+    <if test="amount != null">
+      amount = #{amount,jdbcType=DECIMAL} and 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR}
+      descr = #{descr,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="manufactureid != null">
+      manufactureid = #{manufactureid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="manufacture != null">
+      manufacture = #{manufacture,jdbcType=VARCHAR} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} , 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} , 
     </if>
     <if test="returnsid != null">
-      RETURNSID = #{returnsid,jdbcType=DECIMAL} , 
+      returnsid = #{returnsid,jdbcType=DECIMAL} , 
     </if>
     <if test="orderid != null">
-      ORDERID = #{orderid,jdbcType=VARCHAR} , 
+      orderid = #{orderid,jdbcType=VARCHAR} , 
     </if>
     <if test="productid != null">
-      PRODUCTID = #{productid,jdbcType=VARCHAR} , 
+      productid = #{productid,jdbcType=VARCHAR} , 
     </if>
     <if test="ordernum != null">
-      ORDERNUM = #{ordernum,jdbcType=DECIMAL} , 
+      ordernum = #{ordernum,jdbcType=DECIMAL} , 
     </if>
     <if test="returnnum != null">
-      RETURNNUM = #{returnnum,jdbcType=DECIMAL} , 
+      returnnum = #{returnnum,jdbcType=DECIMAL} , 
     </if>
     <if test="innum != null">
-      INNUM = #{innum,jdbcType=DECIMAL} , 
+      innum = #{innum,jdbcType=DECIMAL} , 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
+      oper = #{oper,jdbcType=VARCHAR} , 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="flag != null">
-      FLAG = #{flag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="flagdescr != null">
-      FLAGDESCR = #{flagdescr,jdbcType=VARCHAR} , 
-    </if>
-    <if test="costprice != null">
-      COSTPRICE = #{costprice,jdbcType=DECIMAL} , 
-    </if>
-    <if test="amount != null">
-      AMOUNT = #{amount,jdbcType=DECIMAL} , 
-    </if>
-    <if test="manufactureid != null">
-      MANUFACTUREID = #{manufactureid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="manufacture != null">
-      MANUFACTURE = #{manufacture,jdbcType=VARCHAR} , 
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="productname != null">
-      PRODUCTNAME = #{productname,jdbcType=LONGVARCHAR} , 
+      productname = #{productname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flagdescr != null">
+      flagdescr = #{flagdescr,jdbcType=VARCHAR} , 
+    </if>
+    <if test="costprice != null">
+      costprice = #{costprice,jdbcType=DECIMAL} , 
+    </if>
+    <if test="amount != null">
+      amount = #{amount,jdbcType=DECIMAL} , 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR}
+      descr = #{descr,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="manufactureid != null">
+      manufactureid = #{manufactureid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="manufacture != null">
+      manufacture = #{manufacture,jdbcType=VARCHAR} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbReturnInstorage" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbOrderHistory;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbOrderHistoryMapper {
-    int deleteByPrimaryKey(String orderid);
+    DbOrderHistory selectByCriteria(DbOrderHistory DbOrderHistory);
 
-    int insert(DbOrderHistory record);
+    void deleteByPrimaryKey(String ORDERID);
 
-    int insertSelective(DbOrderHistory record);
+    void deleteByCriteria(DbOrderHistory DbOrderHistory);
+
+    int insertByCriteria(DbOrderHistory DbOrderHistory);
+
+    int updateByCriteria(DbOrderHistory DbOrderHistory);
 
     DbOrderHistory selectByPrimaryKey(String orderid);
 
-    int updateByPrimaryKeySelective(DbOrderHistory record);
-
-    int updateByPrimaryKeyWithBLOBs(DbOrderHistory record);
-
-    int updateByPrimaryKey(DbOrderHistory record);
+    List<DbOrderHistory> selectAll();
 }

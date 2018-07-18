@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbEbayorderinfo;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbEbayorderinfoMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbEbayorderinfo selectByCriteria(DbEbayorderinfo DbEbayorderinfo);
 
-    int insert(DbEbayorderinfo record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbEbayorderinfo record);
+    void deleteByCriteria(DbEbayorderinfo DbEbayorderinfo);
+
+    int insertByCriteria(DbEbayorderinfo DbEbayorderinfo);
+
+    int updateByCriteria(DbEbayorderinfo DbEbayorderinfo);
 
     DbEbayorderinfo selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbEbayorderinfo record);
-
-    int updateByPrimaryKeyWithBLOBs(DbEbayorderinfo record);
-
-    int updateByPrimaryKey(DbEbayorderinfo record);
+    List<DbEbayorderinfo> selectAll();
 }

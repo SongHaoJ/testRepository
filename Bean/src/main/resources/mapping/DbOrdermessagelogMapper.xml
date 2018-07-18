@@ -12,210 +12,160 @@
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
     <result column="CONFIGTYPE" jdbcType="VARCHAR" property="configtype" />
     <result column="RESERVE5" jdbcType="VARCHAR" property="reserve5" />
+    <result column="SENDMESSAGE" jdbcType="VARCHAR" property="sendmessage" />
+    <result column="DESCR" jdbcType="VARCHAR" property="descr" />
     <result column="SENDNAME" jdbcType="VARCHAR" property="sendname" />
     <result column="UPDATEFLAG" jdbcType="VARCHAR" property="updateflag" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbOrdermessagelog">
-    <result column="SENDMESSAGE" jdbcType="LONGVARCHAR" property="sendmessage" />
-    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    SID, CORPID, ORDERID, RESERVE3, RESERVE2, RESERVE1, RESERVE4, OPERTIME, CONFIGTYPE, 
-    RESERVE5, SENDNAME, UPDATEFLAG
-  </sql>
-  <sql id="Blob_Column_List">
-    SENDMESSAGE, DESCR
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from db_ordermessagelog
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SID, CORPID, ORDERID, RESERVE3, RESERVE2, RESERVE1, RESERVE4, OPERTIME, CONFIGTYPE, 
+    RESERVE5, SENDMESSAGE, DESCR, SENDNAME, UPDATEFLAG
+    from DB_ORDERMESSAGELOG
     where SID = #{sid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_ordermessagelog
-    where SID = #{sid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, CORPID, ORDERID, RESERVE3, RESERVE2, RESERVE1, RESERVE4, OPERTIME, CONFIGTYPE, 
+    RESERVE5, SENDMESSAGE, DESCR, SENDNAME, UPDATEFLAG
+    from DB_ORDERMESSAGELOG
+  </select>
+  <sql id="TableName">
+    DB_ORDERMESSAGELOG
+  </sql>
+  <sql id="Values">
+     #{sid,jdbcType=VARCHAR} , 
+     #{corpid,jdbcType=VARCHAR} , 
+     #{orderid,jdbcType=VARCHAR} , 
+     #{reserve3,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{reserve4,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{configtype,jdbcType=VARCHAR} , 
+     #{reserve5,jdbcType=VARCHAR} , 
+     #{sendmessage,jdbcType=VARCHAR} , 
+     #{descr,jdbcType=VARCHAR} , 
+     #{sendname,jdbcType=VARCHAR} , 
+     #{updateflag,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    SID , 
+    CORPID , 
+    ORDERID , 
+    RESERVE3 , 
+    RESERVE2 , 
+    RESERVE1 , 
+    RESERVE4 , 
+    OPERTIME , 
+    CONFIGTYPE , 
+    RESERVE5 , 
+    SENDMESSAGE , 
+    DESCR , 
+    SENDNAME , 
+    UPDATEFLAG , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="orderid != null">
+      orderid = #{orderid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="configtype != null">
+      configtype = #{configtype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sendmessage != null">
+      sendmessage = #{sendmessage,jdbcType=VARCHAR} and 
+    </if>
+    <if test="descr != null">
+      descr = #{descr,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sendname != null">
+      sendname = #{sendname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="updateflag != null">
+      updateflag = #{updateflag,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="orderid != null">
+      orderid = #{orderid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="configtype != null">
+      configtype = #{configtype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sendmessage != null">
+      sendmessage = #{sendmessage,jdbcType=VARCHAR} , 
+    </if>
+    <if test="descr != null">
+      descr = #{descr,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sendname != null">
+      sendname = #{sendname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="updateflag != null">
+      updateflag = #{updateflag,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbOrdermessagelog" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SID=#{SID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbOrdermessagelog">
-    insert into db_ordermessagelog (SID, CORPID, ORDERID, 
-      RESERVE3, RESERVE2, RESERVE1, 
-      RESERVE4, OPERTIME, CONFIGTYPE, 
-      RESERVE5, SENDNAME, UPDATEFLAG, 
-      SENDMESSAGE, DESCR)
-    values (#{sid,jdbcType=VARCHAR}, #{corpid,jdbcType=VARCHAR}, #{orderid,jdbcType=VARCHAR}, 
-      #{reserve3,jdbcType=VARCHAR}, #{reserve2,jdbcType=VARCHAR}, #{reserve1,jdbcType=VARCHAR}, 
-      #{reserve4,jdbcType=VARCHAR}, #{opertime,jdbcType=TIMESTAMP}, #{configtype,jdbcType=VARCHAR}, 
-      #{reserve5,jdbcType=VARCHAR}, #{sendname,jdbcType=VARCHAR}, #{updateflag,jdbcType=VARCHAR}, 
-      #{sendmessage,jdbcType=LONGVARCHAR}, #{descr,jdbcType=LONGVARCHAR})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbOrdermessagelog">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbOrdermessagelog">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbOrdermessagelog">
-    insert into db_ordermessagelog
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        SID,
-      </if>
-      <if test="corpid != null">
-        CORPID,
-      </if>
-      <if test="orderid != null">
-        ORDERID,
-      </if>
-      <if test="reserve3 != null">
-        RESERVE3,
-      </if>
-      <if test="reserve2 != null">
-        RESERVE2,
-      </if>
-      <if test="reserve1 != null">
-        RESERVE1,
-      </if>
-      <if test="reserve4 != null">
-        RESERVE4,
-      </if>
-      <if test="opertime != null">
-        OPERTIME,
-      </if>
-      <if test="configtype != null">
-        CONFIGTYPE,
-      </if>
-      <if test="reserve5 != null">
-        RESERVE5,
-      </if>
-      <if test="sendname != null">
-        SENDNAME,
-      </if>
-      <if test="updateflag != null">
-        UPDATEFLAG,
-      </if>
-      <if test="sendmessage != null">
-        SENDMESSAGE,
-      </if>
-      <if test="descr != null">
-        DESCR,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        #{sid,jdbcType=VARCHAR},
-      </if>
-      <if test="corpid != null">
-        #{corpid,jdbcType=VARCHAR},
-      </if>
-      <if test="orderid != null">
-        #{orderid,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve3 != null">
-        #{reserve3,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve2 != null">
-        #{reserve2,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve1 != null">
-        #{reserve1,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve4 != null">
-        #{reserve4,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="configtype != null">
-        #{configtype,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve5 != null">
-        #{reserve5,jdbcType=VARCHAR},
-      </if>
-      <if test="sendname != null">
-        #{sendname,jdbcType=VARCHAR},
-      </if>
-      <if test="updateflag != null">
-        #{updateflag,jdbcType=VARCHAR},
-      </if>
-      <if test="sendmessage != null">
-        #{sendmessage,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="descr != null">
-        #{descr,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbOrdermessagelog">
-    update db_ordermessagelog
-    <set>
-      <if test="corpid != null">
-        CORPID = #{corpid,jdbcType=VARCHAR},
-      </if>
-      <if test="orderid != null">
-        ORDERID = #{orderid,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve3 != null">
-        RESERVE3 = #{reserve3,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve2 != null">
-        RESERVE2 = #{reserve2,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve1 != null">
-        RESERVE1 = #{reserve1,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve4 != null">
-        RESERVE4 = #{reserve4,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="configtype != null">
-        CONFIGTYPE = #{configtype,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve5 != null">
-        RESERVE5 = #{reserve5,jdbcType=VARCHAR},
-      </if>
-      <if test="sendname != null">
-        SENDNAME = #{sendname,jdbcType=VARCHAR},
-      </if>
-      <if test="updateflag != null">
-        UPDATEFLAG = #{updateflag,jdbcType=VARCHAR},
-      </if>
-      <if test="sendmessage != null">
-        SENDMESSAGE = #{sendmessage,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="descr != null">
-        DESCR = #{descr,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where SID = #{sid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbOrdermessagelog">
-    update db_ordermessagelog
-    set CORPID = #{corpid,jdbcType=VARCHAR},
-      ORDERID = #{orderid,jdbcType=VARCHAR},
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR},
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR},
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
-      RESERVE4 = #{reserve4,jdbcType=VARCHAR},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      CONFIGTYPE = #{configtype,jdbcType=VARCHAR},
-      RESERVE5 = #{reserve5,jdbcType=VARCHAR},
-      SENDNAME = #{sendname,jdbcType=VARCHAR},
-      UPDATEFLAG = #{updateflag,jdbcType=VARCHAR},
-      SENDMESSAGE = #{sendmessage,jdbcType=LONGVARCHAR},
-      DESCR = #{descr,jdbcType=LONGVARCHAR}
-    where SID = #{sid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbOrdermessagelog">
-    update db_ordermessagelog
-    set CORPID = #{corpid,jdbcType=VARCHAR},
-      ORDERID = #{orderid,jdbcType=VARCHAR},
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR},
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR},
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
-      RESERVE4 = #{reserve4,jdbcType=VARCHAR},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      CONFIGTYPE = #{configtype,jdbcType=VARCHAR},
-      RESERVE5 = #{reserve5,jdbcType=VARCHAR},
-      SENDNAME = #{sendname,jdbcType=VARCHAR},
-      UPDATEFLAG = #{updateflag,jdbcType=VARCHAR}
-    where SID = #{sid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbOrdermessagelog">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

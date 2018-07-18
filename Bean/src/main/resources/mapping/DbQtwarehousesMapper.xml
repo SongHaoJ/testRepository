@@ -5,54 +5,57 @@
     <id column="WAREHOUSEID" jdbcType="VARCHAR" property="warehouseid" />
     <result column="WAREHOUSENAME" jdbcType="VARCHAR" property="warehousename" />
   </resultMap>
-  <sql id="Base_Column_List">
-    WAREHOUSEID, WAREHOUSENAME
-  </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from db_qtwarehouses
+    select WAREHOUSEID, WAREHOUSENAME
+    from DB_QTWAREHOUSES
     where WAREHOUSEID = #{warehouseid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_qtwarehouses
-    where WAREHOUSEID = #{warehouseid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select WAREHOUSEID, WAREHOUSENAME
+    from DB_QTWAREHOUSES
+  </select>
+  <sql id="TableName">
+    DB_QTWAREHOUSES
+  </sql>
+  <sql id="Values">
+     #{warehouseid,jdbcType=VARCHAR} , 
+     #{warehousename,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    WAREHOUSEID , 
+    WAREHOUSENAME , 
+  </sql>
+  <sql id="Criteria">
+    <if test="warehouseid != null">
+      warehouseid = #{warehouseid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="warehousename != null">
+      warehousename = #{warehousename,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="warehouseid != null">
+      warehouseid = #{warehouseid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="warehousename != null">
+      warehousename = #{warehousename,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbQtwarehouses" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where WAREHOUSEID=#{WAREHOUSEID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbQtwarehouses">
-    insert into db_qtwarehouses (WAREHOUSEID, WAREHOUSENAME)
-    values (#{warehouseid,jdbcType=VARCHAR}, #{warehousename,jdbcType=VARCHAR})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbQtwarehouses">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbQtwarehouses">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbQtwarehouses">
-    insert into db_qtwarehouses
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="warehouseid != null">
-        WAREHOUSEID,
-      </if>
-      <if test="warehousename != null">
-        WAREHOUSENAME,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="warehouseid != null">
-        #{warehouseid,jdbcType=VARCHAR},
-      </if>
-      <if test="warehousename != null">
-        #{warehousename,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbQtwarehouses">
-    update db_qtwarehouses
-    <set>
-      <if test="warehousename != null">
-        WAREHOUSENAME = #{warehousename,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where WAREHOUSEID = #{warehouseid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbQtwarehouses">
-    update db_qtwarehouses
-    set WAREHOUSENAME = #{warehousename,jdbcType=VARCHAR}
-    where WAREHOUSEID = #{warehouseid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbQtwarehouses">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

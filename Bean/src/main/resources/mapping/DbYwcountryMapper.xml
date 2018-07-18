@@ -3,117 +3,95 @@
 <mapper namespace="com.bean.dao.DbYwcountryMapper">
   <resultMap id="BaseResultMap" type="com.bean.model.DbYwcountry">
     <id column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
     <result column="RESERVE4" jdbcType="DECIMAL" property="reserve4" />
     <result column="RESERVE5" jdbcType="DECIMAL" property="reserve5" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbYwcountry">
-    <result column="RESERVE1" jdbcType="LONGVARCHAR" property="reserve1" />
-    <result column="RESERVE2" jdbcType="LONGVARCHAR" property="reserve2" />
-    <result column="RESERVE3" jdbcType="LONGVARCHAR" property="reserve3" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    'NAME', RESERVE4, RESERVE5
-  </sql>
-  <sql id="Blob_Column_List">
-    RESERVE1, RESERVE2, RESERVE3
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from db_ywcountry
-    where 'NAME' = #{name,jdbcType=VARCHAR}
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select NAME, RESERVE1, RESERVE2, RESERVE3, RESERVE4, RESERVE5
+    from DB_YWCOUNTRY
+    where NAME = #{name,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_ywcountry
-    where 'NAME' = #{name,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select NAME, RESERVE1, RESERVE2, RESERVE3, RESERVE4, RESERVE5
+    from DB_YWCOUNTRY
+  </select>
+  <sql id="TableName">
+    DB_YWCOUNTRY
+  </sql>
+  <sql id="Values">
+     #{name,jdbcType=VARCHAR} , 
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+     #{reserve3,jdbcType=VARCHAR} , 
+     #{reserve4,jdbcType=DECIMAL} , 
+     #{reserve5,jdbcType=DECIMAL} , 
+  </sql>
+  <sql id="Columns">
+    NAME , 
+    RESERVE1 , 
+    RESERVE2 , 
+    RESERVE3 , 
+    RESERVE4 , 
+    RESERVE5 , 
+  </sql>
+  <sql id="Criteria">
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=DECIMAL} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=DECIMAL} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbYwcountry" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where NAME=#{NAME}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbYwcountry">
-    insert into db_ywcountry ('NAME', RESERVE4, RESERVE5, 
-      RESERVE1, RESERVE2, RESERVE3
-      )
-    values (#{name,jdbcType=VARCHAR}, #{reserve4,jdbcType=DECIMAL}, #{reserve5,jdbcType=DECIMAL}, 
-      #{reserve1,jdbcType=LONGVARCHAR}, #{reserve2,jdbcType=LONGVARCHAR}, #{reserve3,jdbcType=LONGVARCHAR}
-      )
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbYwcountry">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbYwcountry">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbYwcountry">
-    insert into db_ywcountry
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="name != null">
-        'NAME',
-      </if>
-      <if test="reserve4 != null">
-        RESERVE4,
-      </if>
-      <if test="reserve5 != null">
-        RESERVE5,
-      </if>
-      <if test="reserve1 != null">
-        RESERVE1,
-      </if>
-      <if test="reserve2 != null">
-        RESERVE2,
-      </if>
-      <if test="reserve3 != null">
-        RESERVE3,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="name != null">
-        #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve4 != null">
-        #{reserve4,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve5 != null">
-        #{reserve5,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve1 != null">
-        #{reserve1,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="reserve2 != null">
-        #{reserve2,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="reserve3 != null">
-        #{reserve3,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbYwcountry">
-    update db_ywcountry
-    <set>
-      <if test="reserve4 != null">
-        RESERVE4 = #{reserve4,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve5 != null">
-        RESERVE5 = #{reserve5,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve1 != null">
-        RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="reserve2 != null">
-        RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="reserve3 != null">
-        RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where 'NAME' = #{name,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbYwcountry">
-    update db_ywcountry
-    set RESERVE4 = #{reserve4,jdbcType=DECIMAL},
-      RESERVE5 = #{reserve5,jdbcType=DECIMAL},
-      RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR},
-      RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR},
-      RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR}
-    where 'NAME' = #{name,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbYwcountry">
-    update db_ywcountry
-    set RESERVE4 = #{reserve4,jdbcType=DECIMAL},
-      RESERVE5 = #{reserve5,jdbcType=DECIMAL}
-    where 'NAME' = #{name,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbYwcountry">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

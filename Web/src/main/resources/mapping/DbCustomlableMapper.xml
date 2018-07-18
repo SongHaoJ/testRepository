@@ -15,16 +15,16 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select SEQUENCEID, LABLENAME, DESCR, OPENFLAG, STATUS, CREATETIME, OPERTIME, OPER, 
     CORPID
-    from db_customlable
+    from DB_CUSTOMLABLE
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SEQUENCEID, LABLENAME, DESCR, OPENFLAG, STATUS, CREATETIME, OPERTIME, OPER, 
     CORPID
-    from db_customlable
+    from DB_CUSTOMLABLE
   </select>
   <sql id="TableName">
-    db_customlable
+    DB_CUSTOMLABLE
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=VARCHAR} , 
@@ -35,7 +35,7 @@
      #{createtime,jdbcType=TIMESTAMP} , 
      #{opertime,jdbcType=TIMESTAMP} , 
      #{oper,jdbcType=VARCHAR} , 
-     #{corpid,jdbcType=DECIMAL}
+     #{corpid,jdbcType=DECIMAL} , 
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
@@ -46,67 +46,67 @@
     CREATETIME , 
     OPERTIME , 
     OPER , 
-    CORPID
+    CORPID , 
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
     </if>
     <if test="lablename != null">
-      LABLENAME = #{lablename,jdbcType=VARCHAR} and 
+      lablename = #{lablename,jdbcType=VARCHAR} and 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=VARCHAR} and 
+      descr = #{descr,jdbcType=VARCHAR} and 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=DECIMAL} and 
+      openflag = #{openflag,jdbcType=DECIMAL} and 
     </if>
     <if test="status != null">
-      STATUS = #{status,jdbcType=DECIMAL} and 
+      status = #{status,jdbcType=DECIMAL} and 
     </if>
     <if test="createtime != null">
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP} and 
+      createtime = #{createtime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
+      oper = #{oper,jdbcType=VARCHAR} and 
     </if>
     <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=DECIMAL}
+      corpid = #{corpid,jdbcType=DECIMAL} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
     </if>
     <if test="lablename != null">
-      LABLENAME = #{lablename,jdbcType=VARCHAR} , 
+      lablename = #{lablename,jdbcType=VARCHAR} , 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=VARCHAR} , 
+      descr = #{descr,jdbcType=VARCHAR} , 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=DECIMAL} , 
+      openflag = #{openflag,jdbcType=DECIMAL} , 
     </if>
     <if test="status != null">
-      STATUS = #{status,jdbcType=DECIMAL} , 
+      status = #{status,jdbcType=DECIMAL} , 
     </if>
     <if test="createtime != null">
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP} , 
+      createtime = #{createtime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
+      oper = #{oper,jdbcType=VARCHAR} , 
     </if>
     <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=DECIMAL}
+      corpid = #{corpid,jdbcType=DECIMAL} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbCustomlable" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

@@ -35,6 +35,8 @@ public class DbPurchase implements Serializable {
 
     private String status;
 
+    private String descr;
+
     private String oper;
 
     private Date opertime;
@@ -43,9 +45,13 @@ public class DbPurchase implements Serializable {
 
     private String reserve2;
 
+    private String reserve3;
+
     private String reserve4;
 
     private String reserve5;
+
+    private String name;
 
     private BigDecimal savenum;
 
@@ -56,6 +62,8 @@ public class DbPurchase implements Serializable {
     private String manufactureid;
 
     private String groupid;
+
+    private String remarks;
 
     private BigDecimal receivenum;
 
@@ -97,9 +105,19 @@ public class DbPurchase implements Serializable {
 
     private String reserve10;
 
+    private String reserve11;
+
+    private String reserve12;
+
+    private String reserve13;
+
     private BigDecimal reserve14;
 
+    private String productname;
+
     private BigDecimal purchaseindexid;
+
+    private String reserve15;
 
     private String uniteflag;
 
@@ -116,24 +134,6 @@ public class DbPurchase implements Serializable {
     private String receiveoper;
 
     private Date receivetime;
-
-    private String descr;
-
-    private String reserve3;
-
-    private String name;
-
-    private String remarks;
-
-    private String reserve11;
-
-    private String reserve12;
-
-    private String reserve13;
-
-    private String productname;
-
-    private String reserve15;
 
     private static final long serialVersionUID = 1L;
 
@@ -257,6 +257,14 @@ public class DbPurchase implements Serializable {
         this.status = status == null ? null : status.trim();
     }
 
+    public String getDescr() {
+        return descr;
+    }
+
+    public void setDescr(String descr) {
+        this.descr = descr == null ? null : descr.trim();
+    }
+
     public String getOper() {
         return oper;
     }
@@ -289,6 +297,14 @@ public class DbPurchase implements Serializable {
         this.reserve2 = reserve2 == null ? null : reserve2.trim();
     }
 
+    public String getReserve3() {
+        return reserve3;
+    }
+
+    public void setReserve3(String reserve3) {
+        this.reserve3 = reserve3 == null ? null : reserve3.trim();
+    }
+
     public String getReserve4() {
         return reserve4;
     }
@@ -303,6 +319,14 @@ public class DbPurchase implements Serializable {
 
     public void setReserve5(String reserve5) {
         this.reserve5 = reserve5 == null ? null : reserve5.trim();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
     }
 
     public BigDecimal getSavenum() {
@@ -343,6 +367,14 @@ public class DbPurchase implements Serializable {
 
     public void setGroupid(String groupid) {
         this.groupid = groupid == null ? null : groupid.trim();
+    }
+
+    public String getRemarks() {
+        return remarks;
+    }
+
+    public void setRemarks(String remarks) {
+        this.remarks = remarks == null ? null : remarks.trim();
     }
 
     public BigDecimal getReceivenum() {
@@ -505,6 +537,30 @@ public class DbPurchase implements Serializable {
         this.reserve10 = reserve10 == null ? null : reserve10.trim();
     }
 
+    public String getReserve11() {
+        return reserve11;
+    }
+
+    public void setReserve11(String reserve11) {
+        this.reserve11 = reserve11 == null ? null : reserve11.trim();
+    }
+
+    public String getReserve12() {
+        return reserve12;
+    }
+
+    public void setReserve12(String reserve12) {
+        this.reserve12 = reserve12 == null ? null : reserve12.trim();
+    }
+
+    public String getReserve13() {
+        return reserve13;
+    }
+
+    public void setReserve13(String reserve13) {
+        this.reserve13 = reserve13 == null ? null : reserve13.trim();
+    }
+
     public BigDecimal getReserve14() {
         return reserve14;
     }
@@ -513,12 +569,28 @@ public class DbPurchase implements Serializable {
         this.reserve14 = reserve14;
     }
 
+    public String getProductname() {
+        return productname;
+    }
+
+    public void setProductname(String productname) {
+        this.productname = productname == null ? null : productname.trim();
+    }
+
     public BigDecimal getPurchaseindexid() {
         return purchaseindexid;
     }
 
     public void setPurchaseindexid(BigDecimal purchaseindexid) {
         this.purchaseindexid = purchaseindexid;
+    }
+
+    public String getReserve15() {
+        return reserve15;
+    }
+
+    public void setReserve15(String reserve15) {
+        this.reserve15 = reserve15 == null ? null : reserve15.trim();
     }
 
     public String getUniteflag() {
@@ -585,78 +657,6 @@ public class DbPurchase implements Serializable {
         this.receivetime = receivetime;
     }
 
-    public String getDescr() {
-        return descr;
-    }
-
-    public void setDescr(String descr) {
-        this.descr = descr == null ? null : descr.trim();
-    }
-
-    public String getReserve3() {
-        return reserve3;
-    }
-
-    public void setReserve3(String reserve3) {
-        this.reserve3 = reserve3 == null ? null : reserve3.trim();
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
-    }
-
-    public String getRemarks() {
-        return remarks;
-    }
-
-    public void setRemarks(String remarks) {
-        this.remarks = remarks == null ? null : remarks.trim();
-    }
-
-    public String getReserve11() {
-        return reserve11;
-    }
-
-    public void setReserve11(String reserve11) {
-        this.reserve11 = reserve11 == null ? null : reserve11.trim();
-    }
-
-    public String getReserve12() {
-        return reserve12;
-    }
-
-    public void setReserve12(String reserve12) {
-        this.reserve12 = reserve12 == null ? null : reserve12.trim();
-    }
-
-    public String getReserve13() {
-        return reserve13;
-    }
-
-    public void setReserve13(String reserve13) {
-        this.reserve13 = reserve13 == null ? null : reserve13.trim();
-    }
-
-    public String getProductname() {
-        return productname;
-    }
-
-    public void setProductname(String productname) {
-        this.productname = productname == null ? null : productname.trim();
-    }
-
-    public String getReserve15() {
-        return reserve15;
-    }
-
-    public void setReserve15(String reserve15) {
-        this.reserve15 = reserve15 == null ? null : reserve15.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -684,17 +684,21 @@ public class DbPurchase implements Serializable {
             && (this.getStocktime() == null ? other.getStocktime() == null : this.getStocktime().equals(other.getStocktime()))
             && (this.getSlevel() == null ? other.getSlevel() == null : this.getSlevel().equals(other.getSlevel()))
             && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
+            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
             && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
             && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
+            && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
             && (this.getReserve4() == null ? other.getReserve4() == null : this.getReserve4().equals(other.getReserve4()))
             && (this.getReserve5() == null ? other.getReserve5() == null : this.getReserve5().equals(other.getReserve5()))
+            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
             && (this.getSavenum() == null ? other.getSavenum() == null : this.getSavenum().equals(other.getSavenum()))
             && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()))
             && (this.getOpenflag() == null ? other.getOpenflag() == null : this.getOpenflag().equals(other.getOpenflag()))
             && (this.getManufactureid() == null ? other.getManufactureid() == null : this.getManufactureid().equals(other.getManufactureid()))
             && (this.getGroupid() == null ? other.getGroupid() == null : this.getGroupid().equals(other.getGroupid()))
+            && (this.getRemarks() == null ? other.getRemarks() == null : this.getRemarks().equals(other.getRemarks()))
             && (this.getReceivenum() == null ? other.getReceivenum() == null : this.getReceivenum().equals(other.getReceivenum()))
             && (this.getReturnnum() == null ? other.getReturnnum() == null : this.getReturnnum().equals(other.getReturnnum()))
             && (this.getPayflag() == null ? other.getPayflag() == null : this.getPayflag().equals(other.getPayflag()))
@@ -715,8 +719,13 @@ public class DbPurchase implements Serializable {
             && (this.getReserve8() == null ? other.getReserve8() == null : this.getReserve8().equals(other.getReserve8()))
             && (this.getReserve9() == null ? other.getReserve9() == null : this.getReserve9().equals(other.getReserve9()))
             && (this.getReserve10() == null ? other.getReserve10() == null : this.getReserve10().equals(other.getReserve10()))
+            && (this.getReserve11() == null ? other.getReserve11() == null : this.getReserve11().equals(other.getReserve11()))
+            && (this.getReserve12() == null ? other.getReserve12() == null : this.getReserve12().equals(other.getReserve12()))
+            && (this.getReserve13() == null ? other.getReserve13() == null : this.getReserve13().equals(other.getReserve13()))
             && (this.getReserve14() == null ? other.getReserve14() == null : this.getReserve14().equals(other.getReserve14()))
+            && (this.getProductname() == null ? other.getProductname() == null : this.getProductname().equals(other.getProductname()))
             && (this.getPurchaseindexid() == null ? other.getPurchaseindexid() == null : this.getPurchaseindexid().equals(other.getPurchaseindexid()))
+            && (this.getReserve15() == null ? other.getReserve15() == null : this.getReserve15().equals(other.getReserve15()))
             && (this.getUniteflag() == null ? other.getUniteflag() == null : this.getUniteflag().equals(other.getUniteflag()))
             && (this.getPurchaseflag() == null ? other.getPurchaseflag() == null : this.getPurchaseflag().equals(other.getPurchaseflag()))
             && (this.getSendtime() == null ? other.getSendtime() == null : this.getSendtime().equals(other.getSendtime()))
@@ -724,16 +733,7 @@ public class DbPurchase implements Serializable {
             && (this.getGiftnum() == null ? other.getGiftnum() == null : this.getGiftnum().equals(other.getGiftnum()))
             && (this.getPaymentid() == null ? other.getPaymentid() == null : this.getPaymentid().equals(other.getPaymentid()))
             && (this.getReceiveoper() == null ? other.getReceiveoper() == null : this.getReceiveoper().equals(other.getReceiveoper()))
-            && (this.getReceivetime() == null ? other.getReceivetime() == null : this.getReceivetime().equals(other.getReceivetime()))
-            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
-            && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
-            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
-            && (this.getRemarks() == null ? other.getRemarks() == null : this.getRemarks().equals(other.getRemarks()))
-            && (this.getReserve11() == null ? other.getReserve11() == null : this.getReserve11().equals(other.getReserve11()))
-            && (this.getReserve12() == null ? other.getReserve12() == null : this.getReserve12().equals(other.getReserve12()))
-            && (this.getReserve13() == null ? other.getReserve13() == null : this.getReserve13().equals(other.getReserve13()))
-            && (this.getProductname() == null ? other.getProductname() == null : this.getProductname().equals(other.getProductname()))
-            && (this.getReserve15() == null ? other.getReserve15() == null : this.getReserve15().equals(other.getReserve15()));
+            && (this.getReceivetime() == null ? other.getReceivetime() == null : this.getReceivetime().equals(other.getReceivetime()));
     }
 
     @Override
@@ -755,17 +755,21 @@ public class DbPurchase implements Serializable {
         result = prime * result + ((getStocktime() == null) ? 0 : getStocktime().hashCode());
         result = prime * result + ((getSlevel() == null) ? 0 : getSlevel().hashCode());
         result = prime * result + ((getStatus() == null) ? 0 : getStatus().hashCode());
+        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
         result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
+        result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
         result = prime * result + ((getReserve4() == null) ? 0 : getReserve4().hashCode());
         result = prime * result + ((getReserve5() == null) ? 0 : getReserve5().hashCode());
+        result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
         result = prime * result + ((getSavenum() == null) ? 0 : getSavenum().hashCode());
         result = prime * result + ((getCorpid() == null) ? 0 : getCorpid().hashCode());
         result = prime * result + ((getOpenflag() == null) ? 0 : getOpenflag().hashCode());
         result = prime * result + ((getManufactureid() == null) ? 0 : getManufactureid().hashCode());
         result = prime * result + ((getGroupid() == null) ? 0 : getGroupid().hashCode());
+        result = prime * result + ((getRemarks() == null) ? 0 : getRemarks().hashCode());
         result = prime * result + ((getReceivenum() == null) ? 0 : getReceivenum().hashCode());
         result = prime * result + ((getReturnnum() == null) ? 0 : getReturnnum().hashCode());
         result = prime * result + ((getPayflag() == null) ? 0 : getPayflag().hashCode());
@@ -786,8 +790,13 @@ public class DbPurchase implements Serializable {
         result = prime * result + ((getReserve8() == null) ? 0 : getReserve8().hashCode());
         result = prime * result + ((getReserve9() == null) ? 0 : getReserve9().hashCode());
         result = prime * result + ((getReserve10() == null) ? 0 : getReserve10().hashCode());
+        result = prime * result + ((getReserve11() == null) ? 0 : getReserve11().hashCode());
+        result = prime * result + ((getReserve12() == null) ? 0 : getReserve12().hashCode());
+        result = prime * result + ((getReserve13() == null) ? 0 : getReserve13().hashCode());
         result = prime * result + ((getReserve14() == null) ? 0 : getReserve14().hashCode());
+        result = prime * result + ((getProductname() == null) ? 0 : getProductname().hashCode());
         result = prime * result + ((getPurchaseindexid() == null) ? 0 : getPurchaseindexid().hashCode());
+        result = prime * result + ((getReserve15() == null) ? 0 : getReserve15().hashCode());
         result = prime * result + ((getUniteflag() == null) ? 0 : getUniteflag().hashCode());
         result = prime * result + ((getPurchaseflag() == null) ? 0 : getPurchaseflag().hashCode());
         result = prime * result + ((getSendtime() == null) ? 0 : getSendtime().hashCode());
@@ -796,15 +805,6 @@ public class DbPurchase implements Serializable {
         result = prime * result + ((getPaymentid() == null) ? 0 : getPaymentid().hashCode());
         result = prime * result + ((getReceiveoper() == null) ? 0 : getReceiveoper().hashCode());
         result = prime * result + ((getReceivetime() == null) ? 0 : getReceivetime().hashCode());
-        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
-        result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
-        result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
-        result = prime * result + ((getRemarks() == null) ? 0 : getRemarks().hashCode());
-        result = prime * result + ((getReserve11() == null) ? 0 : getReserve11().hashCode());
-        result = prime * result + ((getReserve12() == null) ? 0 : getReserve12().hashCode());
-        result = prime * result + ((getReserve13() == null) ? 0 : getReserve13().hashCode());
-        result = prime * result + ((getProductname() == null) ? 0 : getProductname().hashCode());
-        result = prime * result + ((getReserve15() == null) ? 0 : getReserve15().hashCode());
         return result;
     }
 
@@ -829,17 +829,21 @@ public class DbPurchase implements Serializable {
         sb.append(", stocktime=").append(stocktime);
         sb.append(", slevel=").append(slevel);
         sb.append(", status=").append(status);
+        sb.append(", descr=").append(descr);
         sb.append(", oper=").append(oper);
         sb.append(", opertime=").append(opertime);
         sb.append(", reserve1=").append(reserve1);
         sb.append(", reserve2=").append(reserve2);
+        sb.append(", reserve3=").append(reserve3);
         sb.append(", reserve4=").append(reserve4);
         sb.append(", reserve5=").append(reserve5);
+        sb.append(", name=").append(name);
         sb.append(", savenum=").append(savenum);
         sb.append(", corpid=").append(corpid);
         sb.append(", openflag=").append(openflag);
         sb.append(", manufactureid=").append(manufactureid);
         sb.append(", groupid=").append(groupid);
+        sb.append(", remarks=").append(remarks);
         sb.append(", receivenum=").append(receivenum);
         sb.append(", returnnum=").append(returnnum);
         sb.append(", payflag=").append(payflag);
@@ -860,8 +864,13 @@ public class DbPurchase implements Serializable {
         sb.append(", reserve8=").append(reserve8);
         sb.append(", reserve9=").append(reserve9);
         sb.append(", reserve10=").append(reserve10);
+        sb.append(", reserve11=").append(reserve11);
+        sb.append(", reserve12=").append(reserve12);
+        sb.append(", reserve13=").append(reserve13);
         sb.append(", reserve14=").append(reserve14);
+        sb.append(", productname=").append(productname);
         sb.append(", purchaseindexid=").append(purchaseindexid);
+        sb.append(", reserve15=").append(reserve15);
         sb.append(", uniteflag=").append(uniteflag);
         sb.append(", purchaseflag=").append(purchaseflag);
         sb.append(", sendtime=").append(sendtime);
@@ -870,15 +879,6 @@ public class DbPurchase implements Serializable {
         sb.append(", paymentid=").append(paymentid);
         sb.append(", receiveoper=").append(receiveoper);
         sb.append(", receivetime=").append(receivetime);
-        sb.append(", descr=").append(descr);
-        sb.append(", reserve3=").append(reserve3);
-        sb.append(", name=").append(name);
-        sb.append(", remarks=").append(remarks);
-        sb.append(", reserve11=").append(reserve11);
-        sb.append(", reserve12=").append(reserve12);
-        sb.append(", reserve13=").append(reserve13);
-        sb.append(", productname=").append(productname);
-        sb.append(", reserve15=").append(reserve15);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

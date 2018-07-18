@@ -13,22 +13,22 @@
     <result column="EMAILFLAG" jdbcType="DECIMAL" property="emailflag" />
     <result column="TELFLAG" jdbcType="DECIMAL" property="telflag" />
     <result column="CONTENT" jdbcType="VARCHAR" property="content" />
+    <result column="VALUE" jdbcType="VARCHAR" property="value" />
     <result column="ORDERTYPE" jdbcType="VARCHAR" property="ordertype" />
-    <result column="VALUE" jdbcType="LONGVARCHAR" property="value" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select ID, APIID, TITLE, COLUMNAME, SORT, NEEDFLAG, LENGTHFLAG, FILEDLENGTH, EMAILFLAG, 
-    TELFLAG, CONTENT, ORDERTYPE, VALUE
-    from db_usershowconfig
+    TELFLAG, CONTENT, VALUE, ORDERTYPE
+    from DB_USERSHOWCONFIG
     where ID = #{id,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select ID, APIID, TITLE, COLUMNAME, SORT, NEEDFLAG, LENGTHFLAG, FILEDLENGTH, EMAILFLAG, 
-    TELFLAG, CONTENT, ORDERTYPE, VALUE
-    from db_usershowconfig
+    TELFLAG, CONTENT, VALUE, ORDERTYPE
+    from DB_USERSHOWCONFIG
   </select>
   <sql id="TableName">
-    db_usershowconfig
+    DB_USERSHOWCONFIG
   </sql>
   <sql id="Values">
      #{id,jdbcType=DECIMAL} , 
@@ -42,8 +42,8 @@
      #{emailflag,jdbcType=DECIMAL} , 
      #{telflag,jdbcType=DECIMAL} , 
      #{content,jdbcType=VARCHAR} , 
+     #{value,jdbcType=VARCHAR} , 
      #{ordertype,jdbcType=VARCHAR} , 
-     #{value,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     ID , 
@@ -57,92 +57,92 @@
     EMAILFLAG , 
     TELFLAG , 
     CONTENT , 
+    VALUE , 
     ORDERTYPE , 
-    VALUE
   </sql>
   <sql id="Criteria">
     <if test="id != null">
-      ID = #{id,jdbcType=DECIMAL} and 
+      id = #{id,jdbcType=DECIMAL} and 
     </if>
     <if test="apiid != null">
-      APIID = #{apiid,jdbcType=DECIMAL} and 
+      apiid = #{apiid,jdbcType=DECIMAL} and 
     </if>
     <if test="title != null">
-      TITLE = #{title,jdbcType=VARCHAR} and 
+      title = #{title,jdbcType=VARCHAR} and 
     </if>
     <if test="columname != null">
-      COLUMNAME = #{columname,jdbcType=VARCHAR} and 
+      columname = #{columname,jdbcType=VARCHAR} and 
     </if>
     <if test="sort != null">
-      SORT = #{sort,jdbcType=DECIMAL} and 
+      sort = #{sort,jdbcType=DECIMAL} and 
     </if>
     <if test="needflag != null">
-      NEEDFLAG = #{needflag,jdbcType=DECIMAL} and 
+      needflag = #{needflag,jdbcType=DECIMAL} and 
     </if>
     <if test="lengthflag != null">
-      LENGTHFLAG = #{lengthflag,jdbcType=DECIMAL} and 
+      lengthflag = #{lengthflag,jdbcType=DECIMAL} and 
     </if>
     <if test="filedlength != null">
-      FILEDLENGTH = #{filedlength,jdbcType=DECIMAL} and 
+      filedlength = #{filedlength,jdbcType=DECIMAL} and 
     </if>
     <if test="emailflag != null">
-      EMAILFLAG = #{emailflag,jdbcType=DECIMAL} and 
+      emailflag = #{emailflag,jdbcType=DECIMAL} and 
     </if>
     <if test="telflag != null">
-      TELFLAG = #{telflag,jdbcType=DECIMAL} and 
+      telflag = #{telflag,jdbcType=DECIMAL} and 
     </if>
     <if test="content != null">
-      CONTENT = #{content,jdbcType=VARCHAR} and 
-    </if>
-    <if test="ordertype != null">
-      ORDERTYPE = #{ordertype,jdbcType=VARCHAR} and 
+      content = #{content,jdbcType=VARCHAR} and 
     </if>
     <if test="value != null">
-      VALUE = #{value,jdbcType=LONGVARCHAR}
+      value = #{value,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="ordertype != null">
+      ordertype = #{ordertype,jdbcType=VARCHAR} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="id != null">
-      ID = #{id,jdbcType=DECIMAL} , 
+      id = #{id,jdbcType=DECIMAL} , 
     </if>
     <if test="apiid != null">
-      APIID = #{apiid,jdbcType=DECIMAL} , 
+      apiid = #{apiid,jdbcType=DECIMAL} , 
     </if>
     <if test="title != null">
-      TITLE = #{title,jdbcType=VARCHAR} , 
+      title = #{title,jdbcType=VARCHAR} , 
     </if>
     <if test="columname != null">
-      COLUMNAME = #{columname,jdbcType=VARCHAR} , 
+      columname = #{columname,jdbcType=VARCHAR} , 
     </if>
     <if test="sort != null">
-      SORT = #{sort,jdbcType=DECIMAL} , 
+      sort = #{sort,jdbcType=DECIMAL} , 
     </if>
     <if test="needflag != null">
-      NEEDFLAG = #{needflag,jdbcType=DECIMAL} , 
+      needflag = #{needflag,jdbcType=DECIMAL} , 
     </if>
     <if test="lengthflag != null">
-      LENGTHFLAG = #{lengthflag,jdbcType=DECIMAL} , 
+      lengthflag = #{lengthflag,jdbcType=DECIMAL} , 
     </if>
     <if test="filedlength != null">
-      FILEDLENGTH = #{filedlength,jdbcType=DECIMAL} , 
+      filedlength = #{filedlength,jdbcType=DECIMAL} , 
     </if>
     <if test="emailflag != null">
-      EMAILFLAG = #{emailflag,jdbcType=DECIMAL} , 
+      emailflag = #{emailflag,jdbcType=DECIMAL} , 
     </if>
     <if test="telflag != null">
-      TELFLAG = #{telflag,jdbcType=DECIMAL} , 
+      telflag = #{telflag,jdbcType=DECIMAL} , 
     </if>
     <if test="content != null">
-      CONTENT = #{content,jdbcType=VARCHAR} , 
-    </if>
-    <if test="ordertype != null">
-      ORDERTYPE = #{ordertype,jdbcType=VARCHAR} , 
+      content = #{content,jdbcType=VARCHAR} , 
     </if>
     <if test="value != null">
-      VALUE = #{value,jdbcType=LONGVARCHAR}
+      value = #{value,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="ordertype != null">
+      ordertype = #{ordertype,jdbcType=VARCHAR} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbUsershowconfig" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

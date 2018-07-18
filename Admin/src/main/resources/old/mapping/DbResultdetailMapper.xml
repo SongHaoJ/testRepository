@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbResultdetailMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbResultdetail">
+    <id column="SID" jdbcType="VARCHAR" property="sid" />
+    <result column="CATEGORYID" jdbcType="VARCHAR" property="categoryid" />
+    <result column="CATEGORY" jdbcType="VARCHAR" property="category" />
+    <result column="KEYWORDID" jdbcType="VARCHAR" property="keywordid" />
+    <result column="KEYWORD" jdbcType="VARCHAR" property="keyword" />
+    <result column="SHOPID" jdbcType="VARCHAR" property="shopid" />
+    <result column="SHOPNAME" jdbcType="VARCHAR" property="shopname" />
+    <result column="EBAYITEMID" jdbcType="VARCHAR" property="ebayitemid" />
+    <result column="UPDATETIME" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="EBAYSORT" jdbcType="DECIMAL" property="ebaysort" />
+    <result column="KEYWORDFLAG" jdbcType="DECIMAL" property="keywordflag" />
+    <result column="CATEGORYFLAG" jdbcType="DECIMAL" property="categoryflag" />
+    <result column="SHOPFLAG" jdbcType="DECIMAL" property="shopflag" />
+    <result column="KEYWORDTOTAL" jdbcType="DECIMAL" property="keywordtotal" />
+    <result column="CATEGORYTOTAL" jdbcType="DECIMAL" property="categorytotal" />
+    <result column="SHOPTOTAL" jdbcType="DECIMAL" property="shoptotal" />
+    <result column="FLAG" jdbcType="DECIMAL" property="flag" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="RESERVE5" jdbcType="DECIMAL" property="reserve5" />
+    <result column="RESERVE6" jdbcType="DECIMAL" property="reserve6" />
+    <result column="RESERVE7" jdbcType="DECIMAL" property="reserve7" />
+    <result column="RESERVE8" jdbcType="DECIMAL" property="reserve8" />
+    <result column="RESERVE9" jdbcType="DECIMAL" property="reserve9" />
+    <result column="RESERVE10" jdbcType="DECIMAL" property="reserve10" />
+    <result column="FIRSTDOWNTIME" jdbcType="TIMESTAMP" property="firstdowntime" />
+    <result column="ITEMFLAG" jdbcType="DECIMAL" property="itemflag" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbResultdetail">
+    <result column="RESERVE3" jdbcType="LONGVARCHAR" property="reserve3" />
+    <result column="RESERVE4" jdbcType="LONGVARCHAR" property="reserve4" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SID, CATEGORYID, CATEGORY, KEYWORDID, KEYWORD, SHOPID, SHOPNAME, EBAYITEMID, UPDATETIME, 
+    CREATETIME, EBAYSORT, KEYWORDFLAG, CATEGORYFLAG, SHOPFLAG, KEYWORDTOTAL, CATEGORYTOTAL, 
+    SHOPTOTAL, FLAG, RESERVE1, RESERVE2, RESERVE5, RESERVE6, RESERVE7, RESERVE8, RESERVE9, 
+    RESERVE10, FIRSTDOWNTIME, ITEMFLAG
+  </sql>
+  <sql id="Blob_Column_List">
+    RESERVE3, RESERVE4
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from db_resultdetail
+    where SID = #{sid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from db_resultdetail
+    where SID = #{sid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bean.model.DbResultdetail">
+    insert into db_resultdetail (SID, CATEGORYID, CATEGORY, 
+      KEYWORDID, KEYWORD, SHOPID, 
+      SHOPNAME, EBAYITEMID, UPDATETIME, 
+      CREATETIME, EBAYSORT, KEYWORDFLAG, 
+      CATEGORYFLAG, SHOPFLAG, KEYWORDTOTAL, 
+      CATEGORYTOTAL, SHOPTOTAL, FLAG, 
+      RESERVE1, RESERVE2, RESERVE5, 
+      RESERVE6, RESERVE7, RESERVE8, 
+      RESERVE9, RESERVE10, FIRSTDOWNTIME, 
+      ITEMFLAG, RESERVE3, RESERVE4
+      )
+    values (#{sid,jdbcType=VARCHAR}, #{categoryid,jdbcType=VARCHAR}, #{category,jdbcType=VARCHAR}, 
+      #{keywordid,jdbcType=VARCHAR}, #{keyword,jdbcType=VARCHAR}, #{shopid,jdbcType=VARCHAR}, 
+      #{shopname,jdbcType=VARCHAR}, #{ebayitemid,jdbcType=VARCHAR}, #{updatetime,jdbcType=TIMESTAMP}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{ebaysort,jdbcType=DECIMAL}, #{keywordflag,jdbcType=DECIMAL}, 
+      #{categoryflag,jdbcType=DECIMAL}, #{shopflag,jdbcType=DECIMAL}, #{keywordtotal,jdbcType=DECIMAL}, 
+      #{categorytotal,jdbcType=DECIMAL}, #{shoptotal,jdbcType=DECIMAL}, #{flag,jdbcType=DECIMAL}, 
+      #{reserve1,jdbcType=VARCHAR}, #{reserve2,jdbcType=VARCHAR}, #{reserve5,jdbcType=DECIMAL}, 
+      #{reserve6,jdbcType=DECIMAL}, #{reserve7,jdbcType=DECIMAL}, #{reserve8,jdbcType=DECIMAL}, 
+      #{reserve9,jdbcType=DECIMAL}, #{reserve10,jdbcType=DECIMAL}, #{firstdowntime,jdbcType=TIMESTAMP}, 
+      #{itemflag,jdbcType=DECIMAL}, #{reserve3,jdbcType=LONGVARCHAR}, #{reserve4,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbResultdetail">
+    insert into db_resultdetail
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        SID,
+      </if>
+      <if test="categoryid != null">
+        CATEGORYID,
+      </if>
+      <if test="category != null">
+        CATEGORY,
+      </if>
+      <if test="keywordid != null">
+        KEYWORDID,
+      </if>
+      <if test="keyword != null">
+        KEYWORD,
+      </if>
+      <if test="shopid != null">
+        SHOPID,
+      </if>
+      <if test="shopname != null">
+        SHOPNAME,
+      </if>
+      <if test="ebayitemid != null">
+        EBAYITEMID,
+      </if>
+      <if test="updatetime != null">
+        UPDATETIME,
+      </if>
+      <if test="createtime != null">
+        CREATETIME,
+      </if>
+      <if test="ebaysort != null">
+        EBAYSORT,
+      </if>
+      <if test="keywordflag != null">
+        KEYWORDFLAG,
+      </if>
+      <if test="categoryflag != null">
+        CATEGORYFLAG,
+      </if>
+      <if test="shopflag != null">
+        SHOPFLAG,
+      </if>
+      <if test="keywordtotal != null">
+        KEYWORDTOTAL,
+      </if>
+      <if test="categorytotal != null">
+        CATEGORYTOTAL,
+      </if>
+      <if test="shoptotal != null">
+        SHOPTOTAL,
+      </if>
+      <if test="flag != null">
+        FLAG,
+      </if>
+      <if test="reserve1 != null">
+        RESERVE1,
+      </if>
+      <if test="reserve2 != null">
+        RESERVE2,
+      </if>
+      <if test="reserve5 != null">
+        RESERVE5,
+      </if>
+      <if test="reserve6 != null">
+        RESERVE6,
+      </if>
+      <if test="reserve7 != null">
+        RESERVE7,
+      </if>
+      <if test="reserve8 != null">
+        RESERVE8,
+      </if>
+      <if test="reserve9 != null">
+        RESERVE9,
+      </if>
+      <if test="reserve10 != null">
+        RESERVE10,
+      </if>
+      <if test="firstdowntime != null">
+        FIRSTDOWNTIME,
+      </if>
+      <if test="itemflag != null">
+        ITEMFLAG,
+      </if>
+      <if test="reserve3 != null">
+        RESERVE3,
+      </if>
+      <if test="reserve4 != null">
+        RESERVE4,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        #{sid,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryid != null">
+        #{categoryid,jdbcType=VARCHAR},
+      </if>
+      <if test="category != null">
+        #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="keywordid != null">
+        #{keywordid,jdbcType=VARCHAR},
+      </if>
+      <if test="keyword != null">
+        #{keyword,jdbcType=VARCHAR},
+      </if>
+      <if test="shopid != null">
+        #{shopid,jdbcType=VARCHAR},
+      </if>
+      <if test="shopname != null">
+        #{shopname,jdbcType=VARCHAR},
+      </if>
+      <if test="ebayitemid != null">
+        #{ebayitemid,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ebaysort != null">
+        #{ebaysort,jdbcType=DECIMAL},
+      </if>
+      <if test="keywordflag != null">
+        #{keywordflag,jdbcType=DECIMAL},
+      </if>
+      <if test="categoryflag != null">
+        #{categoryflag,jdbcType=DECIMAL},
+      </if>
+      <if test="shopflag != null">
+        #{shopflag,jdbcType=DECIMAL},
+      </if>
+      <if test="keywordtotal != null">
+        #{keywordtotal,jdbcType=DECIMAL},
+      </if>
+      <if test="categorytotal != null">
+        #{categorytotal,jdbcType=DECIMAL},
+      </if>
+      <if test="shoptotal != null">
+        #{shoptotal,jdbcType=DECIMAL},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve1 != null">
+        #{reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve2 != null">
+        #{reserve2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve5 != null">
+        #{reserve5,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve6 != null">
+        #{reserve6,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve7 != null">
+        #{reserve7,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve8 != null">
+        #{reserve8,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve9 != null">
+        #{reserve9,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve10 != null">
+        #{reserve10,jdbcType=DECIMAL},
+      </if>
+      <if test="firstdowntime != null">
+        #{firstdowntime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="itemflag != null">
+        #{itemflag,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve3 != null">
+        #{reserve3,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reserve4 != null">
+        #{reserve4,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbResultdetail">
+    update db_resultdetail
+    <set>
+      <if test="categoryid != null">
+        CATEGORYID = #{categoryid,jdbcType=VARCHAR},
+      </if>
+      <if test="category != null">
+        CATEGORY = #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="keywordid != null">
+        KEYWORDID = #{keywordid,jdbcType=VARCHAR},
+      </if>
+      <if test="keyword != null">
+        KEYWORD = #{keyword,jdbcType=VARCHAR},
+      </if>
+      <if test="shopid != null">
+        SHOPID = #{shopid,jdbcType=VARCHAR},
+      </if>
+      <if test="shopname != null">
+        SHOPNAME = #{shopname,jdbcType=VARCHAR},
+      </if>
+      <if test="ebayitemid != null">
+        EBAYITEMID = #{ebayitemid,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null">
+        UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createtime != null">
+        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ebaysort != null">
+        EBAYSORT = #{ebaysort,jdbcType=DECIMAL},
+      </if>
+      <if test="keywordflag != null">
+        KEYWORDFLAG = #{keywordflag,jdbcType=DECIMAL},
+      </if>
+      <if test="categoryflag != null">
+        CATEGORYFLAG = #{categoryflag,jdbcType=DECIMAL},
+      </if>
+      <if test="shopflag != null">
+        SHOPFLAG = #{shopflag,jdbcType=DECIMAL},
+      </if>
+      <if test="keywordtotal != null">
+        KEYWORDTOTAL = #{keywordtotal,jdbcType=DECIMAL},
+      </if>
+      <if test="categorytotal != null">
+        CATEGORYTOTAL = #{categorytotal,jdbcType=DECIMAL},
+      </if>
+      <if test="shoptotal != null">
+        SHOPTOTAL = #{shoptotal,jdbcType=DECIMAL},
+      </if>
+      <if test="flag != null">
+        FLAG = #{flag,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve1 != null">
+        RESERVE1 = #{reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve2 != null">
+        RESERVE2 = #{reserve2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve5 != null">
+        RESERVE5 = #{reserve5,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve6 != null">
+        RESERVE6 = #{reserve6,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve7 != null">
+        RESERVE7 = #{reserve7,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve8 != null">
+        RESERVE8 = #{reserve8,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve9 != null">
+        RESERVE9 = #{reserve9,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve10 != null">
+        RESERVE10 = #{reserve10,jdbcType=DECIMAL},
+      </if>
+      <if test="firstdowntime != null">
+        FIRSTDOWNTIME = #{firstdowntime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="itemflag != null">
+        ITEMFLAG = #{itemflag,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve3 != null">
+        RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reserve4 != null">
+        RESERVE4 = #{reserve4,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where SID = #{sid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbResultdetail">
+    update db_resultdetail
+    set CATEGORYID = #{categoryid,jdbcType=VARCHAR},
+      CATEGORY = #{category,jdbcType=VARCHAR},
+      KEYWORDID = #{keywordid,jdbcType=VARCHAR},
+      KEYWORD = #{keyword,jdbcType=VARCHAR},
+      SHOPID = #{shopid,jdbcType=VARCHAR},
+      SHOPNAME = #{shopname,jdbcType=VARCHAR},
+      EBAYITEMID = #{ebayitemid,jdbcType=VARCHAR},
+      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      EBAYSORT = #{ebaysort,jdbcType=DECIMAL},
+      KEYWORDFLAG = #{keywordflag,jdbcType=DECIMAL},
+      CATEGORYFLAG = #{categoryflag,jdbcType=DECIMAL},
+      SHOPFLAG = #{shopflag,jdbcType=DECIMAL},
+      KEYWORDTOTAL = #{keywordtotal,jdbcType=DECIMAL},
+      CATEGORYTOTAL = #{categorytotal,jdbcType=DECIMAL},
+      SHOPTOTAL = #{shoptotal,jdbcType=DECIMAL},
+      FLAG = #{flag,jdbcType=DECIMAL},
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR},
+      RESERVE5 = #{reserve5,jdbcType=DECIMAL},
+      RESERVE6 = #{reserve6,jdbcType=DECIMAL},
+      RESERVE7 = #{reserve7,jdbcType=DECIMAL},
+      RESERVE8 = #{reserve8,jdbcType=DECIMAL},
+      RESERVE9 = #{reserve9,jdbcType=DECIMAL},
+      RESERVE10 = #{reserve10,jdbcType=DECIMAL},
+      FIRSTDOWNTIME = #{firstdowntime,jdbcType=TIMESTAMP},
+      ITEMFLAG = #{itemflag,jdbcType=DECIMAL},
+      RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR},
+      RESERVE4 = #{reserve4,jdbcType=LONGVARCHAR}
+    where SID = #{sid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbResultdetail">
+    update db_resultdetail
+    set CATEGORYID = #{categoryid,jdbcType=VARCHAR},
+      CATEGORY = #{category,jdbcType=VARCHAR},
+      KEYWORDID = #{keywordid,jdbcType=VARCHAR},
+      KEYWORD = #{keyword,jdbcType=VARCHAR},
+      SHOPID = #{shopid,jdbcType=VARCHAR},
+      SHOPNAME = #{shopname,jdbcType=VARCHAR},
+      EBAYITEMID = #{ebayitemid,jdbcType=VARCHAR},
+      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      EBAYSORT = #{ebaysort,jdbcType=DECIMAL},
+      KEYWORDFLAG = #{keywordflag,jdbcType=DECIMAL},
+      CATEGORYFLAG = #{categoryflag,jdbcType=DECIMAL},
+      SHOPFLAG = #{shopflag,jdbcType=DECIMAL},
+      KEYWORDTOTAL = #{keywordtotal,jdbcType=DECIMAL},
+      CATEGORYTOTAL = #{categorytotal,jdbcType=DECIMAL},
+      SHOPTOTAL = #{shoptotal,jdbcType=DECIMAL},
+      FLAG = #{flag,jdbcType=DECIMAL},
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR},
+      RESERVE5 = #{reserve5,jdbcType=DECIMAL},
+      RESERVE6 = #{reserve6,jdbcType=DECIMAL},
+      RESERVE7 = #{reserve7,jdbcType=DECIMAL},
+      RESERVE8 = #{reserve8,jdbcType=DECIMAL},
+      RESERVE9 = #{reserve9,jdbcType=DECIMAL},
+      RESERVE10 = #{reserve10,jdbcType=DECIMAL},
+      FIRSTDOWNTIME = #{firstdowntime,jdbcType=TIMESTAMP},
+      ITEMFLAG = #{itemflag,jdbcType=DECIMAL}
+    where SID = #{sid,jdbcType=VARCHAR}
+  </update>
+</mapper>

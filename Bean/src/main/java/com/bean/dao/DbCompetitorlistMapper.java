@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbCompetitorlist;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbCompetitorlistMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbCompetitorlist selectByCriteria(DbCompetitorlist DbCompetitorlist);
 
-    int insert(DbCompetitorlist record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbCompetitorlist record);
+    void deleteByCriteria(DbCompetitorlist DbCompetitorlist);
+
+    int insertByCriteria(DbCompetitorlist DbCompetitorlist);
+
+    int updateByCriteria(DbCompetitorlist DbCompetitorlist);
 
     DbCompetitorlist selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbCompetitorlist record);
-
-    int updateByPrimaryKey(DbCompetitorlist record);
+    List<DbCompetitorlist> selectAll();
 }

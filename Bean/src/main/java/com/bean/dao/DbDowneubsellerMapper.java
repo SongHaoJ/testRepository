@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbDowneubseller;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbDowneubsellerMapper {
-    int deleteByPrimaryKey(String sid);
+    DbDowneubseller selectByCriteria(DbDowneubseller DbDowneubseller);
 
-    int insert(DbDowneubseller record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbDowneubseller record);
+    void deleteByCriteria(DbDowneubseller DbDowneubseller);
+
+    int insertByCriteria(DbDowneubseller DbDowneubseller);
+
+    int updateByCriteria(DbDowneubseller DbDowneubseller);
 
     DbDowneubseller selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbDowneubseller record);
-
-    int updateByPrimaryKey(DbDowneubseller record);
+    List<DbDowneubseller> selectAll();
 }

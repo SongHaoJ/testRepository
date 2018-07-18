@@ -6,125 +6,125 @@
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
     <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
     <result column="RESERVE4" jdbcType="DECIMAL" property="reserve4" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
     <result column="TRACKNUMBERLENGTH" jdbcType="DECIMAL" property="tracknumberlength" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="RESERVE5" jdbcType="VARCHAR" property="reserve5" />
     <result column="RESERVE3" jdbcType="DECIMAL" property="reserve3" />
     <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
     <result column="KEYWORD" jdbcType="VARCHAR" property="keyword" />
-    <result column="TITLE" jdbcType="LONGVARCHAR" property="title" />
-    <result column="RESERVE5" jdbcType="LONGVARCHAR" property="reserve5" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
-    select SEQUENCEID, OPER, RESERVE1, RESERVE4, TRACKNUMBERLENGTH, OPERTIME, RESERVE3, 
-    RESERVE2, KEYWORD, TITLE, RESERVE5
-    from db_expressblack
+    select SEQUENCEID, OPER, RESERVE1, RESERVE4, TITLE, TRACKNUMBERLENGTH, OPERTIME, 
+    RESERVE5, RESERVE3, RESERVE2, KEYWORD
+    from DB_EXPRESSBLACK
     where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select SEQUENCEID, OPER, RESERVE1, RESERVE4, TRACKNUMBERLENGTH, OPERTIME, RESERVE3, 
-    RESERVE2, KEYWORD, TITLE, RESERVE5
-    from db_expressblack
+    select SEQUENCEID, OPER, RESERVE1, RESERVE4, TITLE, TRACKNUMBERLENGTH, OPERTIME, 
+    RESERVE5, RESERVE3, RESERVE2, KEYWORD
+    from DB_EXPRESSBLACK
   </select>
   <sql id="TableName">
-    db_expressblack
+    DB_EXPRESSBLACK
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=DECIMAL} , 
      #{oper,jdbcType=VARCHAR} , 
      #{reserve1,jdbcType=VARCHAR} , 
      #{reserve4,jdbcType=DECIMAL} , 
+     #{title,jdbcType=VARCHAR} , 
      #{tracknumberlength,jdbcType=DECIMAL} , 
      #{opertime,jdbcType=TIMESTAMP} , 
+     #{reserve5,jdbcType=VARCHAR} , 
      #{reserve3,jdbcType=DECIMAL} , 
      #{reserve2,jdbcType=VARCHAR} , 
      #{keyword,jdbcType=VARCHAR} , 
-     #{title,jdbcType=LONGVARCHAR} , 
-     #{reserve5,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
     OPER , 
     RESERVE1 , 
     RESERVE4 , 
+    TITLE , 
     TRACKNUMBERLENGTH , 
     OPERTIME , 
+    RESERVE5 , 
     RESERVE3 , 
     RESERVE2 , 
     KEYWORD , 
-    TITLE , 
-    RESERVE5
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} and 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} and 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
+      oper = #{oper,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=DECIMAL} and 
-    </if>
-    <if test="tracknumberlength != null">
-      TRACKNUMBERLENGTH = #{tracknumberlength,jdbcType=DECIMAL} and 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=DECIMAL} and 
-    </if>
-    <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
-    </if>
-    <if test="keyword != null">
-      KEYWORD = #{keyword,jdbcType=VARCHAR} and 
+      reserve4 = #{reserve4,jdbcType=DECIMAL} and 
     </if>
     <if test="title != null">
-      TITLE = #{title,jdbcType=LONGVARCHAR} and 
+      title = #{title,jdbcType=VARCHAR} and 
+    </if>
+    <if test="tracknumberlength != null">
+      tracknumberlength = #{tracknumberlength,jdbcType=DECIMAL} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=LONGVARCHAR}
+      reserve5 = #{reserve5,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="keyword != null">
+      keyword = #{keyword,jdbcType=VARCHAR} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} , 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} , 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
+      oper = #{oper,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=DECIMAL} , 
-    </if>
-    <if test="tracknumberlength != null">
-      TRACKNUMBERLENGTH = #{tracknumberlength,jdbcType=DECIMAL} , 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=DECIMAL} , 
-    </if>
-    <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
-    </if>
-    <if test="keyword != null">
-      KEYWORD = #{keyword,jdbcType=VARCHAR} , 
+      reserve4 = #{reserve4,jdbcType=DECIMAL} , 
     </if>
     <if test="title != null">
-      TITLE = #{title,jdbcType=LONGVARCHAR} , 
+      title = #{title,jdbcType=VARCHAR} , 
+    </if>
+    <if test="tracknumberlength != null">
+      tracknumberlength = #{tracknumberlength,jdbcType=DECIMAL} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=LONGVARCHAR}
+      reserve5 = #{reserve5,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="keyword != null">
+      keyword = #{keyword,jdbcType=VARCHAR} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbExpressblack" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

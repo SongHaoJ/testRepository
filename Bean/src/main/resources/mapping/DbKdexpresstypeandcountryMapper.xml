@@ -3,89 +3,118 @@
 <mapper namespace="com.bean.dao.DbKdexpresstypeandcountryMapper">
   <resultMap id="BaseResultMap" type="com.bean.model.DbKdexpresstypeandcountry">
     <result column="SID" jdbcType="VARCHAR" property="sid" />
+    <result column="EXPRESSTYPE" jdbcType="VARCHAR" property="expresstype" />
     <result column="COUNTRYSTATE" jdbcType="VARCHAR" property="countrystate" />
+    <result column="COUNTRY" jdbcType="VARCHAR" property="country" />
+    <result column="EXPRESSTYPETWO" jdbcType="VARCHAR" property="expresstypetwo" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbKdexpresstypeandcountry">
-    <result column="EXPRESSTYPE" jdbcType="LONGVARCHAR" property="expresstype" />
-    <result column="COUNTRY" jdbcType="LONGVARCHAR" property="country" />
-    <result column="EXPRESSTYPETWO" jdbcType="LONGVARCHAR" property="expresstypetwo" />
-    <result column="OPER" jdbcType="LONGVARCHAR" property="oper" />
-    <result column="RESERVE1" jdbcType="LONGVARCHAR" property="reserve1" />
-    <result column="RESERVE2" jdbcType="LONGVARCHAR" property="reserve2" />
-  </resultMap>
-  <sql id="Blob_Column_List">
-    EXPRESSTYPE, COUNTRY, EXPRESSTYPETWO, OPER, RESERVE1, RESERVE2
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, EXPRESSTYPE, COUNTRYSTATE, COUNTRY, EXPRESSTYPETWO, OPERTIME, OPER, RESERVE1, 
+    RESERVE2
+    from DB_KDEXPRESSTYPEANDCOUNTRY
+  </select>
+  <sql id="TableName">
+    DB_KDEXPRESSTYPEANDCOUNTRY
   </sql>
-  <insert id="insert" parameterType="com.bean.model.DbKdexpresstypeandcountry">
-    insert into db_kdexpresstypeandcountry (SID, COUNTRYSTATE, OPERTIME, 
-      EXPRESSTYPE, COUNTRY, EXPRESSTYPETWO, 
-      OPER, RESERVE1, RESERVE2
-      )
-    values (#{sid,jdbcType=VARCHAR}, #{countrystate,jdbcType=VARCHAR}, #{opertime,jdbcType=TIMESTAMP}, 
-      #{expresstype,jdbcType=LONGVARCHAR}, #{country,jdbcType=LONGVARCHAR}, #{expresstypetwo,jdbcType=LONGVARCHAR}, 
-      #{oper,jdbcType=LONGVARCHAR}, #{reserve1,jdbcType=LONGVARCHAR}, #{reserve2,jdbcType=LONGVARCHAR}
-      )
+  <sql id="Values">
+     #{sid,jdbcType=VARCHAR} , 
+     #{expresstype,jdbcType=VARCHAR} , 
+     #{countrystate,jdbcType=VARCHAR} , 
+     #{country,jdbcType=VARCHAR} , 
+     #{expresstypetwo,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    SID , 
+    EXPRESSTYPE , 
+    COUNTRYSTATE , 
+    COUNTRY , 
+    EXPRESSTYPETWO , 
+    OPERTIME , 
+    OPER , 
+    RESERVE1 , 
+    RESERVE2 , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="expresstype != null">
+      expresstype = #{expresstype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="countrystate != null">
+      countrystate = #{countrystate,jdbcType=VARCHAR} and 
+    </if>
+    <if test="country != null">
+      country = #{country,jdbcType=VARCHAR} and 
+    </if>
+    <if test="expresstypetwo != null">
+      expresstypetwo = #{expresstypetwo,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="expresstype != null">
+      expresstype = #{expresstype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="countrystate != null">
+      countrystate = #{countrystate,jdbcType=VARCHAR} , 
+    </if>
+    <if test="country != null">
+      country = #{country,jdbcType=VARCHAR} , 
+    </if>
+    <if test="expresstypetwo != null">
+      expresstypetwo = #{expresstypetwo,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbKdexpresstypeandcountry" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SID=#{SID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbKdexpresstypeandcountry">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbKdexpresstypeandcountry">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbKdexpresstypeandcountry">
-    insert into db_kdexpresstypeandcountry
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        SID,
-      </if>
-      <if test="countrystate != null">
-        COUNTRYSTATE,
-      </if>
-      <if test="opertime != null">
-        OPERTIME,
-      </if>
-      <if test="expresstype != null">
-        EXPRESSTYPE,
-      </if>
-      <if test="country != null">
-        COUNTRY,
-      </if>
-      <if test="expresstypetwo != null">
-        EXPRESSTYPETWO,
-      </if>
-      <if test="oper != null">
-        OPER,
-      </if>
-      <if test="reserve1 != null">
-        RESERVE1,
-      </if>
-      <if test="reserve2 != null">
-        RESERVE2,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        #{sid,jdbcType=VARCHAR},
-      </if>
-      <if test="countrystate != null">
-        #{countrystate,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="expresstype != null">
-        #{expresstype,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="country != null">
-        #{country,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="expresstypetwo != null">
-        #{expresstypetwo,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="oper != null">
-        #{oper,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="reserve1 != null">
-        #{reserve1,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="reserve2 != null">
-        #{reserve2,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbKdexpresstypeandcountry">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
 </mapper>

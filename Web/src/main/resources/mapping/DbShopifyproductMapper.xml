@@ -8,49 +8,49 @@
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select VARIANTID, SKU, PRODUCTID
-    from db_shopifyproduct
+    from DB_SHOPIFYPRODUCT
     where VARIANTID = #{variantid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select VARIANTID, SKU, PRODUCTID
-    from db_shopifyproduct
+    from DB_SHOPIFYPRODUCT
   </select>
   <sql id="TableName">
-    db_shopifyproduct
+    DB_SHOPIFYPRODUCT
   </sql>
   <sql id="Values">
      #{variantid,jdbcType=VARCHAR} , 
      #{sku,jdbcType=VARCHAR} , 
-     #{productid,jdbcType=VARCHAR}
+     #{productid,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     VARIANTID , 
     SKU , 
-    PRODUCTID
+    PRODUCTID , 
   </sql>
   <sql id="Criteria">
     <if test="variantid != null">
-      VARIANTID = #{variantid,jdbcType=VARCHAR} and 
+      variantid = #{variantid,jdbcType=VARCHAR} and 
     </if>
     <if test="sku != null">
-      SKU = #{sku,jdbcType=VARCHAR} and 
+      sku = #{sku,jdbcType=VARCHAR} and 
     </if>
     <if test="productid != null">
-      PRODUCTID = #{productid,jdbcType=VARCHAR}
+      productid = #{productid,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="variantid != null">
-      VARIANTID = #{variantid,jdbcType=VARCHAR} , 
+      variantid = #{variantid,jdbcType=VARCHAR} , 
     </if>
     <if test="sku != null">
-      SKU = #{sku,jdbcType=VARCHAR} , 
+      sku = #{sku,jdbcType=VARCHAR} , 
     </if>
     <if test="productid != null">
-      PRODUCTID = #{productid,jdbcType=VARCHAR}
+      productid = #{productid,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbShopifyproduct" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

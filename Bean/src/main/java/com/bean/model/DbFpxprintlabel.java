@@ -16,7 +16,15 @@ public class DbFpxprintlabel implements Serializable {
 
     private String companycode;
 
+    private String returnaddress;
+
     private String consigneename;
+
+    private String consigneeaddress1;
+
+    private String consigneeaddress2;
+
+    private String consigneeaddress3;
 
     private String consigneetelephone;
 
@@ -46,9 +54,17 @@ public class DbFpxprintlabel implements Serializable {
 
     private String highinsuresign;
 
+    private String diename;
+
+    private String dicname;
+
     private String dipcs;
 
+    private String dinote;
+
     private String cargotype;
+
+    private String diname;
 
     private String totalweight;
 
@@ -57,22 +73,6 @@ public class DbFpxprintlabel implements Serializable {
     private String districtcode;
 
     private String diunitprice;
-
-    private String returnaddress;
-
-    private String consigneeaddress1;
-
-    private String consigneeaddress2;
-
-    private String consigneeaddress3;
-
-    private String diename;
-
-    private String dicname;
-
-    private String dinote;
-
-    private String diname;
 
     private static final long serialVersionUID = 1L;
 
@@ -124,12 +124,44 @@ public class DbFpxprintlabel implements Serializable {
         this.companycode = companycode == null ? null : companycode.trim();
     }
 
+    public String getReturnaddress() {
+        return returnaddress;
+    }
+
+    public void setReturnaddress(String returnaddress) {
+        this.returnaddress = returnaddress == null ? null : returnaddress.trim();
+    }
+
     public String getConsigneename() {
         return consigneename;
     }
 
     public void setConsigneename(String consigneename) {
         this.consigneename = consigneename == null ? null : consigneename.trim();
+    }
+
+    public String getConsigneeaddress1() {
+        return consigneeaddress1;
+    }
+
+    public void setConsigneeaddress1(String consigneeaddress1) {
+        this.consigneeaddress1 = consigneeaddress1 == null ? null : consigneeaddress1.trim();
+    }
+
+    public String getConsigneeaddress2() {
+        return consigneeaddress2;
+    }
+
+    public void setConsigneeaddress2(String consigneeaddress2) {
+        this.consigneeaddress2 = consigneeaddress2 == null ? null : consigneeaddress2.trim();
+    }
+
+    public String getConsigneeaddress3() {
+        return consigneeaddress3;
+    }
+
+    public void setConsigneeaddress3(String consigneeaddress3) {
+        this.consigneeaddress3 = consigneeaddress3 == null ? null : consigneeaddress3.trim();
     }
 
     public String getConsigneetelephone() {
@@ -244,6 +276,22 @@ public class DbFpxprintlabel implements Serializable {
         this.highinsuresign = highinsuresign == null ? null : highinsuresign.trim();
     }
 
+    public String getDiename() {
+        return diename;
+    }
+
+    public void setDiename(String diename) {
+        this.diename = diename == null ? null : diename.trim();
+    }
+
+    public String getDicname() {
+        return dicname;
+    }
+
+    public void setDicname(String dicname) {
+        this.dicname = dicname == null ? null : dicname.trim();
+    }
+
     public String getDipcs() {
         return dipcs;
     }
@@ -252,12 +300,28 @@ public class DbFpxprintlabel implements Serializable {
         this.dipcs = dipcs == null ? null : dipcs.trim();
     }
 
+    public String getDinote() {
+        return dinote;
+    }
+
+    public void setDinote(String dinote) {
+        this.dinote = dinote == null ? null : dinote.trim();
+    }
+
     public String getCargotype() {
         return cargotype;
     }
 
     public void setCargotype(String cargotype) {
         this.cargotype = cargotype == null ? null : cargotype.trim();
+    }
+
+    public String getDiname() {
+        return diname;
+    }
+
+    public void setDiname(String diname) {
+        this.diname = diname == null ? null : diname.trim();
     }
 
     public String getTotalweight() {
@@ -292,70 +356,6 @@ public class DbFpxprintlabel implements Serializable {
         this.diunitprice = diunitprice == null ? null : diunitprice.trim();
     }
 
-    public String getReturnaddress() {
-        return returnaddress;
-    }
-
-    public void setReturnaddress(String returnaddress) {
-        this.returnaddress = returnaddress == null ? null : returnaddress.trim();
-    }
-
-    public String getConsigneeaddress1() {
-        return consigneeaddress1;
-    }
-
-    public void setConsigneeaddress1(String consigneeaddress1) {
-        this.consigneeaddress1 = consigneeaddress1 == null ? null : consigneeaddress1.trim();
-    }
-
-    public String getConsigneeaddress2() {
-        return consigneeaddress2;
-    }
-
-    public void setConsigneeaddress2(String consigneeaddress2) {
-        this.consigneeaddress2 = consigneeaddress2 == null ? null : consigneeaddress2.trim();
-    }
-
-    public String getConsigneeaddress3() {
-        return consigneeaddress3;
-    }
-
-    public void setConsigneeaddress3(String consigneeaddress3) {
-        this.consigneeaddress3 = consigneeaddress3 == null ? null : consigneeaddress3.trim();
-    }
-
-    public String getDiename() {
-        return diename;
-    }
-
-    public void setDiename(String diename) {
-        this.diename = diename == null ? null : diename.trim();
-    }
-
-    public String getDicname() {
-        return dicname;
-    }
-
-    public void setDicname(String dicname) {
-        this.dicname = dicname == null ? null : dicname.trim();
-    }
-
-    public String getDinote() {
-        return dinote;
-    }
-
-    public void setDinote(String dinote) {
-        this.dinote = dinote == null ? null : dinote.trim();
-    }
-
-    public String getDiname() {
-        return diname;
-    }
-
-    public void setDiname(String diname) {
-        this.diname = diname == null ? null : diname.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -374,7 +374,11 @@ public class DbFpxprintlabel implements Serializable {
             && (this.getCreattime() == null ? other.getCreattime() == null : this.getCreattime().equals(other.getCreattime()))
             && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()))
             && (this.getCompanycode() == null ? other.getCompanycode() == null : this.getCompanycode().equals(other.getCompanycode()))
+            && (this.getReturnaddress() == null ? other.getReturnaddress() == null : this.getReturnaddress().equals(other.getReturnaddress()))
             && (this.getConsigneename() == null ? other.getConsigneename() == null : this.getConsigneename().equals(other.getConsigneename()))
+            && (this.getConsigneeaddress1() == null ? other.getConsigneeaddress1() == null : this.getConsigneeaddress1().equals(other.getConsigneeaddress1()))
+            && (this.getConsigneeaddress2() == null ? other.getConsigneeaddress2() == null : this.getConsigneeaddress2().equals(other.getConsigneeaddress2()))
+            && (this.getConsigneeaddress3() == null ? other.getConsigneeaddress3() == null : this.getConsigneeaddress3().equals(other.getConsigneeaddress3()))
             && (this.getConsigneetelephone() == null ? other.getConsigneetelephone() == null : this.getConsigneetelephone().equals(other.getConsigneetelephone()))
             && (this.getPostcode() == null ? other.getPostcode() == null : this.getPostcode().equals(other.getPostcode()))
             && (this.getInsurancesign() == null ? other.getInsurancesign() == null : this.getInsurancesign().equals(other.getInsurancesign()))
@@ -389,20 +393,16 @@ public class DbFpxprintlabel implements Serializable {
             && (this.getProductename() == null ? other.getProductename() == null : this.getProductename().equals(other.getProductename()))
             && (this.getReturnsign() == null ? other.getReturnsign() == null : this.getReturnsign().equals(other.getReturnsign()))
             && (this.getHighinsuresign() == null ? other.getHighinsuresign() == null : this.getHighinsuresign().equals(other.getHighinsuresign()))
+            && (this.getDiename() == null ? other.getDiename() == null : this.getDiename().equals(other.getDiename()))
+            && (this.getDicname() == null ? other.getDicname() == null : this.getDicname().equals(other.getDicname()))
             && (this.getDipcs() == null ? other.getDipcs() == null : this.getDipcs().equals(other.getDipcs()))
+            && (this.getDinote() == null ? other.getDinote() == null : this.getDinote().equals(other.getDinote()))
             && (this.getCargotype() == null ? other.getCargotype() == null : this.getCargotype().equals(other.getCargotype()))
+            && (this.getDiname() == null ? other.getDiname() == null : this.getDiname().equals(other.getDiname()))
             && (this.getTotalweight() == null ? other.getTotalweight() == null : this.getTotalweight().equals(other.getTotalweight()))
             && (this.getTotalvalue() == null ? other.getTotalvalue() == null : this.getTotalvalue().equals(other.getTotalvalue()))
             && (this.getDistrictcode() == null ? other.getDistrictcode() == null : this.getDistrictcode().equals(other.getDistrictcode()))
-            && (this.getDiunitprice() == null ? other.getDiunitprice() == null : this.getDiunitprice().equals(other.getDiunitprice()))
-            && (this.getReturnaddress() == null ? other.getReturnaddress() == null : this.getReturnaddress().equals(other.getReturnaddress()))
-            && (this.getConsigneeaddress1() == null ? other.getConsigneeaddress1() == null : this.getConsigneeaddress1().equals(other.getConsigneeaddress1()))
-            && (this.getConsigneeaddress2() == null ? other.getConsigneeaddress2() == null : this.getConsigneeaddress2().equals(other.getConsigneeaddress2()))
-            && (this.getConsigneeaddress3() == null ? other.getConsigneeaddress3() == null : this.getConsigneeaddress3().equals(other.getConsigneeaddress3()))
-            && (this.getDiename() == null ? other.getDiename() == null : this.getDiename().equals(other.getDiename()))
-            && (this.getDicname() == null ? other.getDicname() == null : this.getDicname().equals(other.getDicname()))
-            && (this.getDinote() == null ? other.getDinote() == null : this.getDinote().equals(other.getDinote()))
-            && (this.getDiname() == null ? other.getDiname() == null : this.getDiname().equals(other.getDiname()));
+            && (this.getDiunitprice() == null ? other.getDiunitprice() == null : this.getDiunitprice().equals(other.getDiunitprice()));
     }
 
     @Override
@@ -415,7 +415,11 @@ public class DbFpxprintlabel implements Serializable {
         result = prime * result + ((getCreattime() == null) ? 0 : getCreattime().hashCode());
         result = prime * result + ((getCorpid() == null) ? 0 : getCorpid().hashCode());
         result = prime * result + ((getCompanycode() == null) ? 0 : getCompanycode().hashCode());
+        result = prime * result + ((getReturnaddress() == null) ? 0 : getReturnaddress().hashCode());
         result = prime * result + ((getConsigneename() == null) ? 0 : getConsigneename().hashCode());
+        result = prime * result + ((getConsigneeaddress1() == null) ? 0 : getConsigneeaddress1().hashCode());
+        result = prime * result + ((getConsigneeaddress2() == null) ? 0 : getConsigneeaddress2().hashCode());
+        result = prime * result + ((getConsigneeaddress3() == null) ? 0 : getConsigneeaddress3().hashCode());
         result = prime * result + ((getConsigneetelephone() == null) ? 0 : getConsigneetelephone().hashCode());
         result = prime * result + ((getPostcode() == null) ? 0 : getPostcode().hashCode());
         result = prime * result + ((getInsurancesign() == null) ? 0 : getInsurancesign().hashCode());
@@ -430,20 +434,16 @@ public class DbFpxprintlabel implements Serializable {
         result = prime * result + ((getProductename() == null) ? 0 : getProductename().hashCode());
         result = prime * result + ((getReturnsign() == null) ? 0 : getReturnsign().hashCode());
         result = prime * result + ((getHighinsuresign() == null) ? 0 : getHighinsuresign().hashCode());
+        result = prime * result + ((getDiename() == null) ? 0 : getDiename().hashCode());
+        result = prime * result + ((getDicname() == null) ? 0 : getDicname().hashCode());
         result = prime * result + ((getDipcs() == null) ? 0 : getDipcs().hashCode());
+        result = prime * result + ((getDinote() == null) ? 0 : getDinote().hashCode());
         result = prime * result + ((getCargotype() == null) ? 0 : getCargotype().hashCode());
+        result = prime * result + ((getDiname() == null) ? 0 : getDiname().hashCode());
         result = prime * result + ((getTotalweight() == null) ? 0 : getTotalweight().hashCode());
         result = prime * result + ((getTotalvalue() == null) ? 0 : getTotalvalue().hashCode());
         result = prime * result + ((getDistrictcode() == null) ? 0 : getDistrictcode().hashCode());
         result = prime * result + ((getDiunitprice() == null) ? 0 : getDiunitprice().hashCode());
-        result = prime * result + ((getReturnaddress() == null) ? 0 : getReturnaddress().hashCode());
-        result = prime * result + ((getConsigneeaddress1() == null) ? 0 : getConsigneeaddress1().hashCode());
-        result = prime * result + ((getConsigneeaddress2() == null) ? 0 : getConsigneeaddress2().hashCode());
-        result = prime * result + ((getConsigneeaddress3() == null) ? 0 : getConsigneeaddress3().hashCode());
-        result = prime * result + ((getDiename() == null) ? 0 : getDiename().hashCode());
-        result = prime * result + ((getDicname() == null) ? 0 : getDicname().hashCode());
-        result = prime * result + ((getDinote() == null) ? 0 : getDinote().hashCode());
-        result = prime * result + ((getDiname() == null) ? 0 : getDiname().hashCode());
         return result;
     }
 
@@ -459,7 +459,11 @@ public class DbFpxprintlabel implements Serializable {
         sb.append(", creattime=").append(creattime);
         sb.append(", corpid=").append(corpid);
         sb.append(", companycode=").append(companycode);
+        sb.append(", returnaddress=").append(returnaddress);
         sb.append(", consigneename=").append(consigneename);
+        sb.append(", consigneeaddress1=").append(consigneeaddress1);
+        sb.append(", consigneeaddress2=").append(consigneeaddress2);
+        sb.append(", consigneeaddress3=").append(consigneeaddress3);
         sb.append(", consigneetelephone=").append(consigneetelephone);
         sb.append(", postcode=").append(postcode);
         sb.append(", insurancesign=").append(insurancesign);
@@ -474,20 +478,16 @@ public class DbFpxprintlabel implements Serializable {
         sb.append(", productename=").append(productename);
         sb.append(", returnsign=").append(returnsign);
         sb.append(", highinsuresign=").append(highinsuresign);
+        sb.append(", diename=").append(diename);
+        sb.append(", dicname=").append(dicname);
         sb.append(", dipcs=").append(dipcs);
+        sb.append(", dinote=").append(dinote);
         sb.append(", cargotype=").append(cargotype);
+        sb.append(", diname=").append(diname);
         sb.append(", totalweight=").append(totalweight);
         sb.append(", totalvalue=").append(totalvalue);
         sb.append(", districtcode=").append(districtcode);
         sb.append(", diunitprice=").append(diunitprice);
-        sb.append(", returnaddress=").append(returnaddress);
-        sb.append(", consigneeaddress1=").append(consigneeaddress1);
-        sb.append(", consigneeaddress2=").append(consigneeaddress2);
-        sb.append(", consigneeaddress3=").append(consigneeaddress3);
-        sb.append(", diename=").append(diename);
-        sb.append(", dicname=").append(dicname);
-        sb.append(", dinote=").append(dinote);
-        sb.append(", diname=").append(diname);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

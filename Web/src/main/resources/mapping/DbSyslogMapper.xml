@@ -6,87 +6,87 @@
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
     <result column="SPCODE" jdbcType="VARCHAR" property="spcode" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="CONTENT" jdbcType="VARCHAR" property="content" />
     <result column="OPERTYPE" jdbcType="DECIMAL" property="opertype" />
-    <result column="CONTENT" jdbcType="LONGVARCHAR" property="content" />
-    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
+    <result column="DESCR" jdbcType="VARCHAR" property="descr" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select SEQUENCEID, OPER, SPCODE, OPERTIME, OPERTYPE, CONTENT, DESCR
-    from db_syslog
+    select SEQUENCEID, OPER, SPCODE, OPERTIME, CONTENT, OPERTYPE, DESCR
+    from DB_SYSLOG
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select SEQUENCEID, OPER, SPCODE, OPERTIME, OPERTYPE, CONTENT, DESCR
-    from db_syslog
+    select SEQUENCEID, OPER, SPCODE, OPERTIME, CONTENT, OPERTYPE, DESCR
+    from DB_SYSLOG
   </select>
   <sql id="TableName">
-    db_syslog
+    DB_SYSLOG
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=VARCHAR} , 
      #{oper,jdbcType=VARCHAR} , 
      #{spcode,jdbcType=VARCHAR} , 
      #{opertime,jdbcType=TIMESTAMP} , 
+     #{content,jdbcType=VARCHAR} , 
      #{opertype,jdbcType=DECIMAL} , 
-     #{content,jdbcType=LONGVARCHAR} , 
-     #{descr,jdbcType=LONGVARCHAR}
+     #{descr,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
     OPER , 
     SPCODE , 
     OPERTIME , 
-    OPERTYPE , 
     CONTENT , 
-    DESCR
+    OPERTYPE , 
+    DESCR , 
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
+      oper = #{oper,jdbcType=VARCHAR} and 
     </if>
     <if test="spcode != null">
-      SPCODE = #{spcode,jdbcType=VARCHAR} and 
+      spcode = #{spcode,jdbcType=VARCHAR} and 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="opertype != null">
-      OPERTYPE = #{opertype,jdbcType=DECIMAL} and 
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="content != null">
-      CONTENT = #{content,jdbcType=LONGVARCHAR} and 
+      content = #{content,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertype != null">
+      opertype = #{opertype,jdbcType=DECIMAL} and 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR}
+      descr = #{descr,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
+      oper = #{oper,jdbcType=VARCHAR} , 
     </if>
     <if test="spcode != null">
-      SPCODE = #{spcode,jdbcType=VARCHAR} , 
+      spcode = #{spcode,jdbcType=VARCHAR} , 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="opertype != null">
-      OPERTYPE = #{opertype,jdbcType=DECIMAL} , 
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="content != null">
-      CONTENT = #{content,jdbcType=LONGVARCHAR} , 
+      content = #{content,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertype != null">
+      opertype = #{opertype,jdbcType=DECIMAL} , 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR}
+      descr = #{descr,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbSyslog" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

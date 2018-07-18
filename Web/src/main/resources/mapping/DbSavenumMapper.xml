@@ -97,7 +97,7 @@
     RESERVE3, RESERVE4, RESERVE5, RESERVE6, RESERVE7, RESERVE8, RESERVE9, RESERVE10, 
     SELLCOST1, SELLCOST2, SELLCOST3, SELLCOST4, SELLCOST5, SELLCOST6, SELLCOST7, SELLCOST8, 
     SELLCOST9, SELLCOST10, SELLCOST11, SELLCOST12
-    from db_savenum
+    from DB_SAVENUM
     where SKU = #{sku,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
@@ -112,10 +112,10 @@
     RESERVE3, RESERVE4, RESERVE5, RESERVE6, RESERVE7, RESERVE8, RESERVE9, RESERVE10, 
     SELLCOST1, SELLCOST2, SELLCOST3, SELLCOST4, SELLCOST5, SELLCOST6, SELLCOST7, SELLCOST8, 
     SELLCOST9, SELLCOST10, SELLCOST11, SELLCOST12
-    from db_savenum
+    from DB_SAVENUM
   </select>
   <sql id="TableName">
-    db_savenum
+    DB_SAVENUM
   </sql>
   <sql id="Values">
      #{sku,jdbcType=VARCHAR} , 
@@ -199,7 +199,7 @@
      #{sellcost9,jdbcType=DECIMAL} , 
      #{sellcost10,jdbcType=DECIMAL} , 
      #{sellcost11,jdbcType=DECIMAL} , 
-     #{sellcost12,jdbcType=DECIMAL}
+     #{sellcost12,jdbcType=DECIMAL} , 
   </sql>
   <sql id="Columns">
     SKU , 
@@ -283,505 +283,505 @@
     SELLCOST9 , 
     SELLCOST10 , 
     SELLCOST11 , 
-    SELLCOST12
+    SELLCOST12 , 
   </sql>
   <sql id="Criteria">
     <if test="sku != null">
-      SKU = #{sku,jdbcType=VARCHAR} and 
+      sku = #{sku,jdbcType=VARCHAR} and 
     </if>
     <if test="month1 != null">
-      MONTH1 = #{month1,jdbcType=DECIMAL} and 
+      month1 = #{month1,jdbcType=DECIMAL} and 
     </if>
     <if test="money1 != null">
-      MONEY1 = #{money1,jdbcType=DECIMAL} and 
+      money1 = #{money1,jdbcType=DECIMAL} and 
     </if>
     <if test="purcharse1 != null">
-      PURCHARSE1 = #{purcharse1,jdbcType=DECIMAL} and 
+      purcharse1 = #{purcharse1,jdbcType=DECIMAL} and 
     </if>
     <if test="purcharsemoney1 != null">
-      PURCHARSEMONEY1 = #{purcharsemoney1,jdbcType=DECIMAL} and 
+      purcharsemoney1 = #{purcharsemoney1,jdbcType=DECIMAL} and 
     </if>
     <if test="month2 != null">
-      MONTH2 = #{month2,jdbcType=DECIMAL} and 
+      month2 = #{month2,jdbcType=DECIMAL} and 
     </if>
     <if test="money2 != null">
-      MONEY2 = #{money2,jdbcType=DECIMAL} and 
+      money2 = #{money2,jdbcType=DECIMAL} and 
     </if>
     <if test="purcharse2 != null">
-      PURCHARSE2 = #{purcharse2,jdbcType=DECIMAL} and 
+      purcharse2 = #{purcharse2,jdbcType=DECIMAL} and 
     </if>
     <if test="purcharsemoney2 != null">
-      PURCHARSEMONEY2 = #{purcharsemoney2,jdbcType=DECIMAL} and 
+      purcharsemoney2 = #{purcharsemoney2,jdbcType=DECIMAL} and 
     </if>
     <if test="month3 != null">
-      MONTH3 = #{month3,jdbcType=DECIMAL} and 
+      month3 = #{month3,jdbcType=DECIMAL} and 
     </if>
     <if test="money3 != null">
-      MONEY3 = #{money3,jdbcType=DECIMAL} and 
+      money3 = #{money3,jdbcType=DECIMAL} and 
     </if>
     <if test="purcharse3 != null">
-      PURCHARSE3 = #{purcharse3,jdbcType=DECIMAL} and 
+      purcharse3 = #{purcharse3,jdbcType=DECIMAL} and 
     </if>
     <if test="purcharsemoney3 != null">
-      PURCHARSEMONEY3 = #{purcharsemoney3,jdbcType=DECIMAL} and 
+      purcharsemoney3 = #{purcharsemoney3,jdbcType=DECIMAL} and 
     </if>
     <if test="month4 != null">
-      MONTH4 = #{month4,jdbcType=DECIMAL} and 
+      month4 = #{month4,jdbcType=DECIMAL} and 
     </if>
     <if test="money4 != null">
-      MONEY4 = #{money4,jdbcType=DECIMAL} and 
+      money4 = #{money4,jdbcType=DECIMAL} and 
     </if>
     <if test="purcharse4 != null">
-      PURCHARSE4 = #{purcharse4,jdbcType=DECIMAL} and 
+      purcharse4 = #{purcharse4,jdbcType=DECIMAL} and 
     </if>
     <if test="purcharsemoney4 != null">
-      PURCHARSEMONEY4 = #{purcharsemoney4,jdbcType=DECIMAL} and 
+      purcharsemoney4 = #{purcharsemoney4,jdbcType=DECIMAL} and 
     </if>
     <if test="month5 != null">
-      MONTH5 = #{month5,jdbcType=DECIMAL} and 
+      month5 = #{month5,jdbcType=DECIMAL} and 
     </if>
     <if test="money5 != null">
-      MONEY5 = #{money5,jdbcType=DECIMAL} and 
+      money5 = #{money5,jdbcType=DECIMAL} and 
     </if>
     <if test="purcharse5 != null">
-      PURCHARSE5 = #{purcharse5,jdbcType=DECIMAL} and 
+      purcharse5 = #{purcharse5,jdbcType=DECIMAL} and 
     </if>
     <if test="purcharsemoney5 != null">
-      PURCHARSEMONEY5 = #{purcharsemoney5,jdbcType=DECIMAL} and 
+      purcharsemoney5 = #{purcharsemoney5,jdbcType=DECIMAL} and 
     </if>
     <if test="month6 != null">
-      MONTH6 = #{month6,jdbcType=DECIMAL} and 
+      month6 = #{month6,jdbcType=DECIMAL} and 
     </if>
     <if test="money6 != null">
-      MONEY6 = #{money6,jdbcType=DECIMAL} and 
+      money6 = #{money6,jdbcType=DECIMAL} and 
     </if>
     <if test="purcharse6 != null">
-      PURCHARSE6 = #{purcharse6,jdbcType=DECIMAL} and 
+      purcharse6 = #{purcharse6,jdbcType=DECIMAL} and 
     </if>
     <if test="purcharsemoney6 != null">
-      PURCHARSEMONEY6 = #{purcharsemoney6,jdbcType=DECIMAL} and 
+      purcharsemoney6 = #{purcharsemoney6,jdbcType=DECIMAL} and 
     </if>
     <if test="month7 != null">
-      MONTH7 = #{month7,jdbcType=DECIMAL} and 
+      month7 = #{month7,jdbcType=DECIMAL} and 
     </if>
     <if test="money7 != null">
-      MONEY7 = #{money7,jdbcType=DECIMAL} and 
+      money7 = #{money7,jdbcType=DECIMAL} and 
     </if>
     <if test="purcharse7 != null">
-      PURCHARSE7 = #{purcharse7,jdbcType=DECIMAL} and 
+      purcharse7 = #{purcharse7,jdbcType=DECIMAL} and 
     </if>
     <if test="purcharsemoney7 != null">
-      PURCHARSEMONEY7 = #{purcharsemoney7,jdbcType=DECIMAL} and 
+      purcharsemoney7 = #{purcharsemoney7,jdbcType=DECIMAL} and 
     </if>
     <if test="month8 != null">
-      MONTH8 = #{month8,jdbcType=DECIMAL} and 
+      month8 = #{month8,jdbcType=DECIMAL} and 
     </if>
     <if test="money8 != null">
-      MONEY8 = #{money8,jdbcType=DECIMAL} and 
+      money8 = #{money8,jdbcType=DECIMAL} and 
     </if>
     <if test="purcharse8 != null">
-      PURCHARSE8 = #{purcharse8,jdbcType=DECIMAL} and 
+      purcharse8 = #{purcharse8,jdbcType=DECIMAL} and 
     </if>
     <if test="purcharsemoney8 != null">
-      PURCHARSEMONEY8 = #{purcharsemoney8,jdbcType=DECIMAL} and 
+      purcharsemoney8 = #{purcharsemoney8,jdbcType=DECIMAL} and 
     </if>
     <if test="month9 != null">
-      MONTH9 = #{month9,jdbcType=DECIMAL} and 
+      month9 = #{month9,jdbcType=DECIMAL} and 
     </if>
     <if test="money9 != null">
-      MONEY9 = #{money9,jdbcType=DECIMAL} and 
+      money9 = #{money9,jdbcType=DECIMAL} and 
     </if>
     <if test="purcharse9 != null">
-      PURCHARSE9 = #{purcharse9,jdbcType=DECIMAL} and 
+      purcharse9 = #{purcharse9,jdbcType=DECIMAL} and 
     </if>
     <if test="purcharsemoney9 != null">
-      PURCHARSEMONEY9 = #{purcharsemoney9,jdbcType=DECIMAL} and 
+      purcharsemoney9 = #{purcharsemoney9,jdbcType=DECIMAL} and 
     </if>
     <if test="month10 != null">
-      MONTH10 = #{month10,jdbcType=DECIMAL} and 
+      month10 = #{month10,jdbcType=DECIMAL} and 
     </if>
     <if test="money10 != null">
-      MONEY10 = #{money10,jdbcType=DECIMAL} and 
+      money10 = #{money10,jdbcType=DECIMAL} and 
     </if>
     <if test="purcharse10 != null">
-      PURCHARSE10 = #{purcharse10,jdbcType=DECIMAL} and 
+      purcharse10 = #{purcharse10,jdbcType=DECIMAL} and 
     </if>
     <if test="purcharsemoney10 != null">
-      PURCHARSEMONEY10 = #{purcharsemoney10,jdbcType=DECIMAL} and 
+      purcharsemoney10 = #{purcharsemoney10,jdbcType=DECIMAL} and 
     </if>
     <if test="month11 != null">
-      MONTH11 = #{month11,jdbcType=DECIMAL} and 
+      month11 = #{month11,jdbcType=DECIMAL} and 
     </if>
     <if test="money11 != null">
-      MONEY11 = #{money11,jdbcType=DECIMAL} and 
+      money11 = #{money11,jdbcType=DECIMAL} and 
     </if>
     <if test="purcharse11 != null">
-      PURCHARSE11 = #{purcharse11,jdbcType=DECIMAL} and 
+      purcharse11 = #{purcharse11,jdbcType=DECIMAL} and 
     </if>
     <if test="purcharsemoney11 != null">
-      PURCHARSEMONEY11 = #{purcharsemoney11,jdbcType=DECIMAL} and 
+      purcharsemoney11 = #{purcharsemoney11,jdbcType=DECIMAL} and 
     </if>
     <if test="month12 != null">
-      MONTH12 = #{month12,jdbcType=DECIMAL} and 
+      month12 = #{month12,jdbcType=DECIMAL} and 
     </if>
     <if test="money12 != null">
-      MONEY12 = #{money12,jdbcType=DECIMAL} and 
+      money12 = #{money12,jdbcType=DECIMAL} and 
     </if>
     <if test="purcharse12 != null">
-      PURCHARSE12 = #{purcharse12,jdbcType=DECIMAL} and 
+      purcharse12 = #{purcharse12,jdbcType=DECIMAL} and 
     </if>
     <if test="purcharsemoney12 != null">
-      PURCHARSEMONEY12 = #{purcharsemoney12,jdbcType=DECIMAL} and 
+      purcharsemoney12 = #{purcharsemoney12,jdbcType=DECIMAL} and 
     </if>
     <if test="purchaseoper != null">
-      PURCHASEOPER = #{purchaseoper,jdbcType=VARCHAR} and 
+      purchaseoper = #{purchaseoper,jdbcType=VARCHAR} and 
     </if>
     <if test="selloper != null">
-      SELLOPER = #{selloper,jdbcType=VARCHAR} and 
+      selloper = #{selloper,jdbcType=VARCHAR} and 
     </if>
     <if test="category != null">
-      CATEGORY = #{category,jdbcType=VARCHAR} and 
+      category = #{category,jdbcType=VARCHAR} and 
     </if>
     <if test="manufactureid != null">
-      MANUFACTUREID = #{manufactureid,jdbcType=VARCHAR} and 
+      manufactureid = #{manufactureid,jdbcType=VARCHAR} and 
     </if>
     <if test="manufacture != null">
-      MANUFACTURE = #{manufacture,jdbcType=VARCHAR} and 
+      manufacture = #{manufacture,jdbcType=VARCHAR} and 
     </if>
     <if test="storageid != null">
-      STORAGEID = #{storageid,jdbcType=VARCHAR} and 
+      storageid = #{storageid,jdbcType=VARCHAR} and 
     </if>
     <if test="storage != null">
-      STORAGE = #{storage,jdbcType=VARCHAR} and 
+      storage = #{storage,jdbcType=VARCHAR} and 
     </if>
     <if test="locationid != null">
-      LOCATIONID = #{locationid,jdbcType=VARCHAR} and 
+      locationid = #{locationid,jdbcType=VARCHAR} and 
     </if>
     <if test="location != null">
-      LOCATION = #{location,jdbcType=VARCHAR} and 
+      location = #{location,jdbcType=VARCHAR} and 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
+      openflag = #{openflag,jdbcType=VARCHAR} and 
     </if>
     <if test="checkstockoper != null">
-      CHECKSTOCKOPER = #{checkstockoper,jdbcType=VARCHAR} and 
+      checkstockoper = #{checkstockoper,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR} and 
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=VARCHAR} and 
+      reserve4 = #{reserve4,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=VARCHAR} and 
+      reserve5 = #{reserve5,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve6 != null">
-      RESERVE6 = #{reserve6,jdbcType=VARCHAR} and 
+      reserve6 = #{reserve6,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve7 != null">
-      RESERVE7 = #{reserve7,jdbcType=DECIMAL} and 
+      reserve7 = #{reserve7,jdbcType=DECIMAL} and 
     </if>
     <if test="reserve8 != null">
-      RESERVE8 = #{reserve8,jdbcType=DECIMAL} and 
+      reserve8 = #{reserve8,jdbcType=DECIMAL} and 
     </if>
     <if test="reserve9 != null">
-      RESERVE9 = #{reserve9,jdbcType=DECIMAL} and 
+      reserve9 = #{reserve9,jdbcType=DECIMAL} and 
     </if>
     <if test="reserve10 != null">
-      RESERVE10 = #{reserve10,jdbcType=DECIMAL} and 
+      reserve10 = #{reserve10,jdbcType=DECIMAL} and 
     </if>
     <if test="sellcost1 != null">
-      SELLCOST1 = #{sellcost1,jdbcType=DECIMAL} and 
+      sellcost1 = #{sellcost1,jdbcType=DECIMAL} and 
     </if>
     <if test="sellcost2 != null">
-      SELLCOST2 = #{sellcost2,jdbcType=DECIMAL} and 
+      sellcost2 = #{sellcost2,jdbcType=DECIMAL} and 
     </if>
     <if test="sellcost3 != null">
-      SELLCOST3 = #{sellcost3,jdbcType=DECIMAL} and 
+      sellcost3 = #{sellcost3,jdbcType=DECIMAL} and 
     </if>
     <if test="sellcost4 != null">
-      SELLCOST4 = #{sellcost4,jdbcType=DECIMAL} and 
+      sellcost4 = #{sellcost4,jdbcType=DECIMAL} and 
     </if>
     <if test="sellcost5 != null">
-      SELLCOST5 = #{sellcost5,jdbcType=DECIMAL} and 
+      sellcost5 = #{sellcost5,jdbcType=DECIMAL} and 
     </if>
     <if test="sellcost6 != null">
-      SELLCOST6 = #{sellcost6,jdbcType=DECIMAL} and 
+      sellcost6 = #{sellcost6,jdbcType=DECIMAL} and 
     </if>
     <if test="sellcost7 != null">
-      SELLCOST7 = #{sellcost7,jdbcType=DECIMAL} and 
+      sellcost7 = #{sellcost7,jdbcType=DECIMAL} and 
     </if>
     <if test="sellcost8 != null">
-      SELLCOST8 = #{sellcost8,jdbcType=DECIMAL} and 
+      sellcost8 = #{sellcost8,jdbcType=DECIMAL} and 
     </if>
     <if test="sellcost9 != null">
-      SELLCOST9 = #{sellcost9,jdbcType=DECIMAL} and 
+      sellcost9 = #{sellcost9,jdbcType=DECIMAL} and 
     </if>
     <if test="sellcost10 != null">
-      SELLCOST10 = #{sellcost10,jdbcType=DECIMAL} and 
+      sellcost10 = #{sellcost10,jdbcType=DECIMAL} and 
     </if>
     <if test="sellcost11 != null">
-      SELLCOST11 = #{sellcost11,jdbcType=DECIMAL} and 
+      sellcost11 = #{sellcost11,jdbcType=DECIMAL} and 
     </if>
     <if test="sellcost12 != null">
-      SELLCOST12 = #{sellcost12,jdbcType=DECIMAL}
+      sellcost12 = #{sellcost12,jdbcType=DECIMAL} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sku != null">
-      SKU = #{sku,jdbcType=VARCHAR} , 
+      sku = #{sku,jdbcType=VARCHAR} , 
     </if>
     <if test="month1 != null">
-      MONTH1 = #{month1,jdbcType=DECIMAL} , 
+      month1 = #{month1,jdbcType=DECIMAL} , 
     </if>
     <if test="money1 != null">
-      MONEY1 = #{money1,jdbcType=DECIMAL} , 
+      money1 = #{money1,jdbcType=DECIMAL} , 
     </if>
     <if test="purcharse1 != null">
-      PURCHARSE1 = #{purcharse1,jdbcType=DECIMAL} , 
+      purcharse1 = #{purcharse1,jdbcType=DECIMAL} , 
     </if>
     <if test="purcharsemoney1 != null">
-      PURCHARSEMONEY1 = #{purcharsemoney1,jdbcType=DECIMAL} , 
+      purcharsemoney1 = #{purcharsemoney1,jdbcType=DECIMAL} , 
     </if>
     <if test="month2 != null">
-      MONTH2 = #{month2,jdbcType=DECIMAL} , 
+      month2 = #{month2,jdbcType=DECIMAL} , 
     </if>
     <if test="money2 != null">
-      MONEY2 = #{money2,jdbcType=DECIMAL} , 
+      money2 = #{money2,jdbcType=DECIMAL} , 
     </if>
     <if test="purcharse2 != null">
-      PURCHARSE2 = #{purcharse2,jdbcType=DECIMAL} , 
+      purcharse2 = #{purcharse2,jdbcType=DECIMAL} , 
     </if>
     <if test="purcharsemoney2 != null">
-      PURCHARSEMONEY2 = #{purcharsemoney2,jdbcType=DECIMAL} , 
+      purcharsemoney2 = #{purcharsemoney2,jdbcType=DECIMAL} , 
     </if>
     <if test="month3 != null">
-      MONTH3 = #{month3,jdbcType=DECIMAL} , 
+      month3 = #{month3,jdbcType=DECIMAL} , 
     </if>
     <if test="money3 != null">
-      MONEY3 = #{money3,jdbcType=DECIMAL} , 
+      money3 = #{money3,jdbcType=DECIMAL} , 
     </if>
     <if test="purcharse3 != null">
-      PURCHARSE3 = #{purcharse3,jdbcType=DECIMAL} , 
+      purcharse3 = #{purcharse3,jdbcType=DECIMAL} , 
     </if>
     <if test="purcharsemoney3 != null">
-      PURCHARSEMONEY3 = #{purcharsemoney3,jdbcType=DECIMAL} , 
+      purcharsemoney3 = #{purcharsemoney3,jdbcType=DECIMAL} , 
     </if>
     <if test="month4 != null">
-      MONTH4 = #{month4,jdbcType=DECIMAL} , 
+      month4 = #{month4,jdbcType=DECIMAL} , 
     </if>
     <if test="money4 != null">
-      MONEY4 = #{money4,jdbcType=DECIMAL} , 
+      money4 = #{money4,jdbcType=DECIMAL} , 
     </if>
     <if test="purcharse4 != null">
-      PURCHARSE4 = #{purcharse4,jdbcType=DECIMAL} , 
+      purcharse4 = #{purcharse4,jdbcType=DECIMAL} , 
     </if>
     <if test="purcharsemoney4 != null">
-      PURCHARSEMONEY4 = #{purcharsemoney4,jdbcType=DECIMAL} , 
+      purcharsemoney4 = #{purcharsemoney4,jdbcType=DECIMAL} , 
     </if>
     <if test="month5 != null">
-      MONTH5 = #{month5,jdbcType=DECIMAL} , 
+      month5 = #{month5,jdbcType=DECIMAL} , 
     </if>
     <if test="money5 != null">
-      MONEY5 = #{money5,jdbcType=DECIMAL} , 
+      money5 = #{money5,jdbcType=DECIMAL} , 
     </if>
     <if test="purcharse5 != null">
-      PURCHARSE5 = #{purcharse5,jdbcType=DECIMAL} , 
+      purcharse5 = #{purcharse5,jdbcType=DECIMAL} , 
     </if>
     <if test="purcharsemoney5 != null">
-      PURCHARSEMONEY5 = #{purcharsemoney5,jdbcType=DECIMAL} , 
+      purcharsemoney5 = #{purcharsemoney5,jdbcType=DECIMAL} , 
     </if>
     <if test="month6 != null">
-      MONTH6 = #{month6,jdbcType=DECIMAL} , 
+      month6 = #{month6,jdbcType=DECIMAL} , 
     </if>
     <if test="money6 != null">
-      MONEY6 = #{money6,jdbcType=DECIMAL} , 
+      money6 = #{money6,jdbcType=DECIMAL} , 
     </if>
     <if test="purcharse6 != null">
-      PURCHARSE6 = #{purcharse6,jdbcType=DECIMAL} , 
+      purcharse6 = #{purcharse6,jdbcType=DECIMAL} , 
     </if>
     <if test="purcharsemoney6 != null">
-      PURCHARSEMONEY6 = #{purcharsemoney6,jdbcType=DECIMAL} , 
+      purcharsemoney6 = #{purcharsemoney6,jdbcType=DECIMAL} , 
     </if>
     <if test="month7 != null">
-      MONTH7 = #{month7,jdbcType=DECIMAL} , 
+      month7 = #{month7,jdbcType=DECIMAL} , 
     </if>
     <if test="money7 != null">
-      MONEY7 = #{money7,jdbcType=DECIMAL} , 
+      money7 = #{money7,jdbcType=DECIMAL} , 
     </if>
     <if test="purcharse7 != null">
-      PURCHARSE7 = #{purcharse7,jdbcType=DECIMAL} , 
+      purcharse7 = #{purcharse7,jdbcType=DECIMAL} , 
     </if>
     <if test="purcharsemoney7 != null">
-      PURCHARSEMONEY7 = #{purcharsemoney7,jdbcType=DECIMAL} , 
+      purcharsemoney7 = #{purcharsemoney7,jdbcType=DECIMAL} , 
     </if>
     <if test="month8 != null">
-      MONTH8 = #{month8,jdbcType=DECIMAL} , 
+      month8 = #{month8,jdbcType=DECIMAL} , 
     </if>
     <if test="money8 != null">
-      MONEY8 = #{money8,jdbcType=DECIMAL} , 
+      money8 = #{money8,jdbcType=DECIMAL} , 
     </if>
     <if test="purcharse8 != null">
-      PURCHARSE8 = #{purcharse8,jdbcType=DECIMAL} , 
+      purcharse8 = #{purcharse8,jdbcType=DECIMAL} , 
     </if>
     <if test="purcharsemoney8 != null">
-      PURCHARSEMONEY8 = #{purcharsemoney8,jdbcType=DECIMAL} , 
+      purcharsemoney8 = #{purcharsemoney8,jdbcType=DECIMAL} , 
     </if>
     <if test="month9 != null">
-      MONTH9 = #{month9,jdbcType=DECIMAL} , 
+      month9 = #{month9,jdbcType=DECIMAL} , 
     </if>
     <if test="money9 != null">
-      MONEY9 = #{money9,jdbcType=DECIMAL} , 
+      money9 = #{money9,jdbcType=DECIMAL} , 
     </if>
     <if test="purcharse9 != null">
-      PURCHARSE9 = #{purcharse9,jdbcType=DECIMAL} , 
+      purcharse9 = #{purcharse9,jdbcType=DECIMAL} , 
     </if>
     <if test="purcharsemoney9 != null">
-      PURCHARSEMONEY9 = #{purcharsemoney9,jdbcType=DECIMAL} , 
+      purcharsemoney9 = #{purcharsemoney9,jdbcType=DECIMAL} , 
     </if>
     <if test="month10 != null">
-      MONTH10 = #{month10,jdbcType=DECIMAL} , 
+      month10 = #{month10,jdbcType=DECIMAL} , 
     </if>
     <if test="money10 != null">
-      MONEY10 = #{money10,jdbcType=DECIMAL} , 
+      money10 = #{money10,jdbcType=DECIMAL} , 
     </if>
     <if test="purcharse10 != null">
-      PURCHARSE10 = #{purcharse10,jdbcType=DECIMAL} , 
+      purcharse10 = #{purcharse10,jdbcType=DECIMAL} , 
     </if>
     <if test="purcharsemoney10 != null">
-      PURCHARSEMONEY10 = #{purcharsemoney10,jdbcType=DECIMAL} , 
+      purcharsemoney10 = #{purcharsemoney10,jdbcType=DECIMAL} , 
     </if>
     <if test="month11 != null">
-      MONTH11 = #{month11,jdbcType=DECIMAL} , 
+      month11 = #{month11,jdbcType=DECIMAL} , 
     </if>
     <if test="money11 != null">
-      MONEY11 = #{money11,jdbcType=DECIMAL} , 
+      money11 = #{money11,jdbcType=DECIMAL} , 
     </if>
     <if test="purcharse11 != null">
-      PURCHARSE11 = #{purcharse11,jdbcType=DECIMAL} , 
+      purcharse11 = #{purcharse11,jdbcType=DECIMAL} , 
     </if>
     <if test="purcharsemoney11 != null">
-      PURCHARSEMONEY11 = #{purcharsemoney11,jdbcType=DECIMAL} , 
+      purcharsemoney11 = #{purcharsemoney11,jdbcType=DECIMAL} , 
     </if>
     <if test="month12 != null">
-      MONTH12 = #{month12,jdbcType=DECIMAL} , 
+      month12 = #{month12,jdbcType=DECIMAL} , 
     </if>
     <if test="money12 != null">
-      MONEY12 = #{money12,jdbcType=DECIMAL} , 
+      money12 = #{money12,jdbcType=DECIMAL} , 
     </if>
     <if test="purcharse12 != null">
-      PURCHARSE12 = #{purcharse12,jdbcType=DECIMAL} , 
+      purcharse12 = #{purcharse12,jdbcType=DECIMAL} , 
     </if>
     <if test="purcharsemoney12 != null">
-      PURCHARSEMONEY12 = #{purcharsemoney12,jdbcType=DECIMAL} , 
+      purcharsemoney12 = #{purcharsemoney12,jdbcType=DECIMAL} , 
     </if>
     <if test="purchaseoper != null">
-      PURCHASEOPER = #{purchaseoper,jdbcType=VARCHAR} , 
+      purchaseoper = #{purchaseoper,jdbcType=VARCHAR} , 
     </if>
     <if test="selloper != null">
-      SELLOPER = #{selloper,jdbcType=VARCHAR} , 
+      selloper = #{selloper,jdbcType=VARCHAR} , 
     </if>
     <if test="category != null">
-      CATEGORY = #{category,jdbcType=VARCHAR} , 
+      category = #{category,jdbcType=VARCHAR} , 
     </if>
     <if test="manufactureid != null">
-      MANUFACTUREID = #{manufactureid,jdbcType=VARCHAR} , 
+      manufactureid = #{manufactureid,jdbcType=VARCHAR} , 
     </if>
     <if test="manufacture != null">
-      MANUFACTURE = #{manufacture,jdbcType=VARCHAR} , 
+      manufacture = #{manufacture,jdbcType=VARCHAR} , 
     </if>
     <if test="storageid != null">
-      STORAGEID = #{storageid,jdbcType=VARCHAR} , 
+      storageid = #{storageid,jdbcType=VARCHAR} , 
     </if>
     <if test="storage != null">
-      STORAGE = #{storage,jdbcType=VARCHAR} , 
+      storage = #{storage,jdbcType=VARCHAR} , 
     </if>
     <if test="locationid != null">
-      LOCATIONID = #{locationid,jdbcType=VARCHAR} , 
+      locationid = #{locationid,jdbcType=VARCHAR} , 
     </if>
     <if test="location != null">
-      LOCATION = #{location,jdbcType=VARCHAR} , 
+      location = #{location,jdbcType=VARCHAR} , 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
+      openflag = #{openflag,jdbcType=VARCHAR} , 
     </if>
     <if test="checkstockoper != null">
-      CHECKSTOCKOPER = #{checkstockoper,jdbcType=VARCHAR} , 
+      checkstockoper = #{checkstockoper,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR} , 
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=VARCHAR} , 
+      reserve4 = #{reserve4,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=VARCHAR} , 
+      reserve5 = #{reserve5,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve6 != null">
-      RESERVE6 = #{reserve6,jdbcType=VARCHAR} , 
+      reserve6 = #{reserve6,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve7 != null">
-      RESERVE7 = #{reserve7,jdbcType=DECIMAL} , 
+      reserve7 = #{reserve7,jdbcType=DECIMAL} , 
     </if>
     <if test="reserve8 != null">
-      RESERVE8 = #{reserve8,jdbcType=DECIMAL} , 
+      reserve8 = #{reserve8,jdbcType=DECIMAL} , 
     </if>
     <if test="reserve9 != null">
-      RESERVE9 = #{reserve9,jdbcType=DECIMAL} , 
+      reserve9 = #{reserve9,jdbcType=DECIMAL} , 
     </if>
     <if test="reserve10 != null">
-      RESERVE10 = #{reserve10,jdbcType=DECIMAL} , 
+      reserve10 = #{reserve10,jdbcType=DECIMAL} , 
     </if>
     <if test="sellcost1 != null">
-      SELLCOST1 = #{sellcost1,jdbcType=DECIMAL} , 
+      sellcost1 = #{sellcost1,jdbcType=DECIMAL} , 
     </if>
     <if test="sellcost2 != null">
-      SELLCOST2 = #{sellcost2,jdbcType=DECIMAL} , 
+      sellcost2 = #{sellcost2,jdbcType=DECIMAL} , 
     </if>
     <if test="sellcost3 != null">
-      SELLCOST3 = #{sellcost3,jdbcType=DECIMAL} , 
+      sellcost3 = #{sellcost3,jdbcType=DECIMAL} , 
     </if>
     <if test="sellcost4 != null">
-      SELLCOST4 = #{sellcost4,jdbcType=DECIMAL} , 
+      sellcost4 = #{sellcost4,jdbcType=DECIMAL} , 
     </if>
     <if test="sellcost5 != null">
-      SELLCOST5 = #{sellcost5,jdbcType=DECIMAL} , 
+      sellcost5 = #{sellcost5,jdbcType=DECIMAL} , 
     </if>
     <if test="sellcost6 != null">
-      SELLCOST6 = #{sellcost6,jdbcType=DECIMAL} , 
+      sellcost6 = #{sellcost6,jdbcType=DECIMAL} , 
     </if>
     <if test="sellcost7 != null">
-      SELLCOST7 = #{sellcost7,jdbcType=DECIMAL} , 
+      sellcost7 = #{sellcost7,jdbcType=DECIMAL} , 
     </if>
     <if test="sellcost8 != null">
-      SELLCOST8 = #{sellcost8,jdbcType=DECIMAL} , 
+      sellcost8 = #{sellcost8,jdbcType=DECIMAL} , 
     </if>
     <if test="sellcost9 != null">
-      SELLCOST9 = #{sellcost9,jdbcType=DECIMAL} , 
+      sellcost9 = #{sellcost9,jdbcType=DECIMAL} , 
     </if>
     <if test="sellcost10 != null">
-      SELLCOST10 = #{sellcost10,jdbcType=DECIMAL} , 
+      sellcost10 = #{sellcost10,jdbcType=DECIMAL} , 
     </if>
     <if test="sellcost11 != null">
-      SELLCOST11 = #{sellcost11,jdbcType=DECIMAL} , 
+      sellcost11 = #{sellcost11,jdbcType=DECIMAL} , 
     </if>
     <if test="sellcost12 != null">
-      SELLCOST12 = #{sellcost12,jdbcType=DECIMAL}
+      sellcost12 = #{sellcost12,jdbcType=DECIMAL} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbSavenum" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

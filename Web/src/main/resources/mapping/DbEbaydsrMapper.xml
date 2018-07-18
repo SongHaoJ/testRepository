@@ -18,16 +18,16 @@
   <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
     select SEQUENCEID, EBAYMANAGEID, NAME, CONTENT, MONTH3NUM, MONTH3PROPORTION, MONTH12NUM, 
     MONTH12PROPORTION, OPERTIME, OPENFLAG, OPER, CORPID
-    from db_ebaydsr
+    from DB_EBAYDSR
     where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SEQUENCEID, EBAYMANAGEID, NAME, CONTENT, MONTH3NUM, MONTH3PROPORTION, MONTH12NUM, 
     MONTH12PROPORTION, OPERTIME, OPENFLAG, OPER, CORPID
-    from db_ebaydsr
+    from DB_EBAYDSR
   </select>
   <sql id="TableName">
-    db_ebaydsr
+    DB_EBAYDSR
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=DECIMAL} , 
@@ -41,7 +41,7 @@
      #{opertime,jdbcType=TIMESTAMP} , 
      #{openflag,jdbcType=DECIMAL} , 
      #{oper,jdbcType=VARCHAR} , 
-     #{corpid,jdbcType=DECIMAL}
+     #{corpid,jdbcType=DECIMAL} , 
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
@@ -55,85 +55,85 @@
     OPERTIME , 
     OPENFLAG , 
     OPER , 
-    CORPID
+    CORPID , 
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} and 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} and 
     </if>
     <if test="ebaymanageid != null">
-      EBAYMANAGEID = #{ebaymanageid,jdbcType=DECIMAL} and 
+      ebaymanageid = #{ebaymanageid,jdbcType=DECIMAL} and 
     </if>
     <if test="name != null">
-      NAME = #{name,jdbcType=VARCHAR} and 
+      name = #{name,jdbcType=VARCHAR} and 
     </if>
     <if test="content != null">
-      CONTENT = #{content,jdbcType=VARCHAR} and 
+      content = #{content,jdbcType=VARCHAR} and 
     </if>
     <if test="month3num != null">
-      MONTH3NUM = #{month3num,jdbcType=VARCHAR} and 
+      month3num = #{month3num,jdbcType=VARCHAR} and 
     </if>
     <if test="month3proportion != null">
-      MONTH3PROPORTION = #{month3proportion,jdbcType=VARCHAR} and 
+      month3proportion = #{month3proportion,jdbcType=VARCHAR} and 
     </if>
     <if test="month12num != null">
-      MONTH12NUM = #{month12num,jdbcType=VARCHAR} and 
+      month12num = #{month12num,jdbcType=VARCHAR} and 
     </if>
     <if test="month12proportion != null">
-      MONTH12PROPORTION = #{month12proportion,jdbcType=VARCHAR} and 
+      month12proportion = #{month12proportion,jdbcType=VARCHAR} and 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=DECIMAL} and 
+      openflag = #{openflag,jdbcType=DECIMAL} and 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
+      oper = #{oper,jdbcType=VARCHAR} and 
     </if>
     <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=DECIMAL}
+      corpid = #{corpid,jdbcType=DECIMAL} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} , 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} , 
     </if>
     <if test="ebaymanageid != null">
-      EBAYMANAGEID = #{ebaymanageid,jdbcType=DECIMAL} , 
+      ebaymanageid = #{ebaymanageid,jdbcType=DECIMAL} , 
     </if>
     <if test="name != null">
-      NAME = #{name,jdbcType=VARCHAR} , 
+      name = #{name,jdbcType=VARCHAR} , 
     </if>
     <if test="content != null">
-      CONTENT = #{content,jdbcType=VARCHAR} , 
+      content = #{content,jdbcType=VARCHAR} , 
     </if>
     <if test="month3num != null">
-      MONTH3NUM = #{month3num,jdbcType=VARCHAR} , 
+      month3num = #{month3num,jdbcType=VARCHAR} , 
     </if>
     <if test="month3proportion != null">
-      MONTH3PROPORTION = #{month3proportion,jdbcType=VARCHAR} , 
+      month3proportion = #{month3proportion,jdbcType=VARCHAR} , 
     </if>
     <if test="month12num != null">
-      MONTH12NUM = #{month12num,jdbcType=VARCHAR} , 
+      month12num = #{month12num,jdbcType=VARCHAR} , 
     </if>
     <if test="month12proportion != null">
-      MONTH12PROPORTION = #{month12proportion,jdbcType=VARCHAR} , 
+      month12proportion = #{month12proportion,jdbcType=VARCHAR} , 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=DECIMAL} , 
+      openflag = #{openflag,jdbcType=DECIMAL} , 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
+      oper = #{oper,jdbcType=VARCHAR} , 
     </if>
     <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=DECIMAL}
+      corpid = #{corpid,jdbcType=DECIMAL} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbEbaydsr" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

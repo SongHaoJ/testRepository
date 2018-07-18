@@ -1,18 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbBpostseller;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbBpostsellerMapper {
-    int deleteByPrimaryKey(BigDecimal sid);
+    DbBpostseller selectByCriteria(DbBpostseller DbBpostseller);
 
-    int insert(DbBpostseller record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbBpostseller record);
+    void deleteByCriteria(DbBpostseller DbBpostseller);
+
+    int insertByCriteria(DbBpostseller DbBpostseller);
+
+    int updateByCriteria(DbBpostseller DbBpostseller);
 
     DbBpostseller selectByPrimaryKey(BigDecimal sid);
 
-    int updateByPrimaryKeySelective(DbBpostseller record);
-
-    int updateByPrimaryKey(DbBpostseller record);
+    List<DbBpostseller> selectAll();
 }

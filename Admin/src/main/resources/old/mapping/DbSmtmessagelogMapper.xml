@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbSmtmessagelogMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbSmtmessagelog">
+    <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
+    <result column="SID" jdbcType="VARCHAR" property="sid" />
+    <result column="SENDERNAME" jdbcType="VARCHAR" property="sendername" />
+    <result column="SENDERLOGINID" jdbcType="VARCHAR" property="senderloginid" />
+    <result column="RECEIVENAME" jdbcType="VARCHAR" property="receivename" />
+    <result column="RECEIVELOGINID" jdbcType="VARCHAR" property="receiveloginid" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="OPERTYPE" jdbcType="VARCHAR" property="opertype" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbSmtmessagelog">
+    <result column="ANSWER" jdbcType="LONGVARCHAR" property="answer" />
+    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SEQUENCEID, SID, SENDERNAME, SENDERLOGINID, RECEIVENAME, RECEIVELOGINID, OPER, OPERTIME, 
+    OPERTYPE, RESERVE1, RESERVE2, RESERVE3
+  </sql>
+  <sql id="Blob_Column_List">
+    ANSWER, DESCR
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from db_smtmessagelog
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from db_smtmessagelog
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bean.model.DbSmtmessagelog">
+    insert into db_smtmessagelog (SEQUENCEID, SID, SENDERNAME, 
+      SENDERLOGINID, RECEIVENAME, RECEIVELOGINID, 
+      OPER, OPERTIME, OPERTYPE, 
+      RESERVE1, RESERVE2, RESERVE3, 
+      ANSWER, DESCR)
+    values (#{sequenceid,jdbcType=VARCHAR}, #{sid,jdbcType=VARCHAR}, #{sendername,jdbcType=VARCHAR}, 
+      #{senderloginid,jdbcType=VARCHAR}, #{receivename,jdbcType=VARCHAR}, #{receiveloginid,jdbcType=VARCHAR}, 
+      #{oper,jdbcType=VARCHAR}, #{opertime,jdbcType=TIMESTAMP}, #{opertype,jdbcType=VARCHAR}, 
+      #{reserve1,jdbcType=VARCHAR}, #{reserve2,jdbcType=VARCHAR}, #{reserve3,jdbcType=VARCHAR}, 
+      #{answer,jdbcType=LONGVARCHAR}, #{descr,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbSmtmessagelog">
+    insert into db_smtmessagelog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        SEQUENCEID,
+      </if>
+      <if test="sid != null">
+        SID,
+      </if>
+      <if test="sendername != null">
+        SENDERNAME,
+      </if>
+      <if test="senderloginid != null">
+        SENDERLOGINID,
+      </if>
+      <if test="receivename != null">
+        RECEIVENAME,
+      </if>
+      <if test="receiveloginid != null">
+        RECEIVELOGINID,
+      </if>
+      <if test="oper != null">
+        OPER,
+      </if>
+      <if test="opertime != null">
+        OPERTIME,
+      </if>
+      <if test="opertype != null">
+        OPERTYPE,
+      </if>
+      <if test="reserve1 != null">
+        RESERVE1,
+      </if>
+      <if test="reserve2 != null">
+        RESERVE2,
+      </if>
+      <if test="reserve3 != null">
+        RESERVE3,
+      </if>
+      <if test="answer != null">
+        ANSWER,
+      </if>
+      <if test="descr != null">
+        DESCR,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        #{sequenceid,jdbcType=VARCHAR},
+      </if>
+      <if test="sid != null">
+        #{sid,jdbcType=VARCHAR},
+      </if>
+      <if test="sendername != null">
+        #{sendername,jdbcType=VARCHAR},
+      </if>
+      <if test="senderloginid != null">
+        #{senderloginid,jdbcType=VARCHAR},
+      </if>
+      <if test="receivename != null">
+        #{receivename,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveloginid != null">
+        #{receiveloginid,jdbcType=VARCHAR},
+      </if>
+      <if test="oper != null">
+        #{oper,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null">
+        #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="opertype != null">
+        #{opertype,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve1 != null">
+        #{reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve2 != null">
+        #{reserve2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve3 != null">
+        #{reserve3,jdbcType=VARCHAR},
+      </if>
+      <if test="answer != null">
+        #{answer,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="descr != null">
+        #{descr,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbSmtmessagelog">
+    update db_smtmessagelog
+    <set>
+      <if test="sid != null">
+        SID = #{sid,jdbcType=VARCHAR},
+      </if>
+      <if test="sendername != null">
+        SENDERNAME = #{sendername,jdbcType=VARCHAR},
+      </if>
+      <if test="senderloginid != null">
+        SENDERLOGINID = #{senderloginid,jdbcType=VARCHAR},
+      </if>
+      <if test="receivename != null">
+        RECEIVENAME = #{receivename,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveloginid != null">
+        RECEIVELOGINID = #{receiveloginid,jdbcType=VARCHAR},
+      </if>
+      <if test="oper != null">
+        OPER = #{oper,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null">
+        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="opertype != null">
+        OPERTYPE = #{opertype,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve1 != null">
+        RESERVE1 = #{reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve2 != null">
+        RESERVE2 = #{reserve2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve3 != null">
+        RESERVE3 = #{reserve3,jdbcType=VARCHAR},
+      </if>
+      <if test="answer != null">
+        ANSWER = #{answer,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="descr != null">
+        DESCR = #{descr,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbSmtmessagelog">
+    update db_smtmessagelog
+    set SID = #{sid,jdbcType=VARCHAR},
+      SENDERNAME = #{sendername,jdbcType=VARCHAR},
+      SENDERLOGINID = #{senderloginid,jdbcType=VARCHAR},
+      RECEIVENAME = #{receivename,jdbcType=VARCHAR},
+      RECEIVELOGINID = #{receiveloginid,jdbcType=VARCHAR},
+      OPER = #{oper,jdbcType=VARCHAR},
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      OPERTYPE = #{opertype,jdbcType=VARCHAR},
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR},
+      RESERVE3 = #{reserve3,jdbcType=VARCHAR},
+      ANSWER = #{answer,jdbcType=LONGVARCHAR},
+      DESCR = #{descr,jdbcType=LONGVARCHAR}
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbSmtmessagelog">
+    update db_smtmessagelog
+    set SID = #{sid,jdbcType=VARCHAR},
+      SENDERNAME = #{sendername,jdbcType=VARCHAR},
+      SENDERLOGINID = #{senderloginid,jdbcType=VARCHAR},
+      RECEIVENAME = #{receivename,jdbcType=VARCHAR},
+      RECEIVELOGINID = #{receiveloginid,jdbcType=VARCHAR},
+      OPER = #{oper,jdbcType=VARCHAR},
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      OPERTYPE = #{opertype,jdbcType=VARCHAR},
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR},
+      RESERVE3 = #{reserve3,jdbcType=VARCHAR}
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </update>
+</mapper>

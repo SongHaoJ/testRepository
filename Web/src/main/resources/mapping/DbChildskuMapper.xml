@@ -9,57 +9,57 @@
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
     select SID, ITEMID, SKU, FLAG
-    from db_childsku
+    from DB_CHILDSKU
     where SID = #{sid,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SID, ITEMID, SKU, FLAG
-    from db_childsku
+    from DB_CHILDSKU
   </select>
   <sql id="TableName">
-    db_childsku
+    DB_CHILDSKU
   </sql>
   <sql id="Values">
      #{sid,jdbcType=DECIMAL} , 
      #{itemid,jdbcType=DECIMAL} , 
      #{sku,jdbcType=VARCHAR} , 
-     #{flag,jdbcType=DECIMAL}
+     #{flag,jdbcType=DECIMAL} , 
   </sql>
   <sql id="Columns">
     SID , 
     ITEMID , 
     SKU , 
-    FLAG
+    FLAG , 
   </sql>
   <sql id="Criteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=DECIMAL} and 
+      sid = #{sid,jdbcType=DECIMAL} and 
     </if>
     <if test="itemid != null">
-      ITEMID = #{itemid,jdbcType=DECIMAL} and 
+      itemid = #{itemid,jdbcType=DECIMAL} and 
     </if>
     <if test="sku != null">
-      SKU = #{sku,jdbcType=VARCHAR} and 
+      sku = #{sku,jdbcType=VARCHAR} and 
     </if>
     <if test="flag != null">
-      FLAG = #{flag,jdbcType=DECIMAL}
+      flag = #{flag,jdbcType=DECIMAL} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=DECIMAL} , 
+      sid = #{sid,jdbcType=DECIMAL} , 
     </if>
     <if test="itemid != null">
-      ITEMID = #{itemid,jdbcType=DECIMAL} , 
+      itemid = #{itemid,jdbcType=DECIMAL} , 
     </if>
     <if test="sku != null">
-      SKU = #{sku,jdbcType=VARCHAR} , 
+      sku = #{sku,jdbcType=VARCHAR} , 
     </if>
     <if test="flag != null">
-      FLAG = #{flag,jdbcType=DECIMAL}
+      flag = #{flag,jdbcType=DECIMAL} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbChildsku" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

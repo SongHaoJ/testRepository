@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbPictureattribute;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbPictureattributeMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbPictureattribute selectByCriteria(DbPictureattribute DbPictureattribute);
 
-    int insert(DbPictureattribute record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbPictureattribute record);
+    void deleteByCriteria(DbPictureattribute DbPictureattribute);
+
+    int insertByCriteria(DbPictureattribute DbPictureattribute);
+
+    int updateByCriteria(DbPictureattribute DbPictureattribute);
 
     DbPictureattribute selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbPictureattribute record);
-
-    int updateByPrimaryKeyWithBLOBs(DbPictureattribute record);
-
-    int updateByPrimaryKey(DbPictureattribute record);
+    List<DbPictureattribute> selectAll();
 }

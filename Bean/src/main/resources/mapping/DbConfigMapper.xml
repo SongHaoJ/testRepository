@@ -5,153 +5,120 @@
     <id column="SID" jdbcType="VARCHAR" property="sid" />
     <result column="NAME" jdbcType="VARCHAR" property="name" />
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
     <result column="RESERVE3" jdbcType="DECIMAL" property="reserve3" />
     <result column="RESERVE4" jdbcType="DECIMAL" property="reserve4" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="DESC" jdbcType="CLOB" property="desc" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbConfig">
-    <result column="RESERVE1" jdbcType="LONGVARCHAR" property="reserve1" />
-    <result column="RESERVE2" jdbcType="LONGVARCHAR" property="reserve2" />
-    <result column="DESC" jdbcType="LONGVARCHAR" property="desc" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    SID, 'NAME', OPER, RESERVE3, RESERVE4, OPERTIME
-  </sql>
-  <sql id="Blob_Column_List">
-    RESERVE1, RESERVE2, 'DESC'
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from db_config
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SID, NAME, OPER, RESERVE1, RESERVE2, RESERVE3, RESERVE4, OPERTIME, DESC
+    from DB_CONFIG
     where SID = #{sid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_config
-    where SID = #{sid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, NAME, OPER, RESERVE1, RESERVE2, RESERVE3, RESERVE4, OPERTIME, DESC
+    from DB_CONFIG
+  </select>
+  <sql id="TableName">
+    DB_CONFIG
+  </sql>
+  <sql id="Values">
+     #{sid,jdbcType=VARCHAR} , 
+     #{name,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+     #{reserve3,jdbcType=DECIMAL} , 
+     #{reserve4,jdbcType=DECIMAL} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{desc,jdbcType=CLOB} , 
+  </sql>
+  <sql id="Columns">
+    SID , 
+    NAME , 
+    OPER , 
+    RESERVE1 , 
+    RESERVE2 , 
+    RESERVE3 , 
+    RESERVE4 , 
+    OPERTIME , 
+    DESC , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=DECIMAL} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="desc != null">
+      desc = #{desc,jdbcType=CLOB} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=DECIMAL} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="desc != null">
+      desc = #{desc,jdbcType=CLOB} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbConfig" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SID=#{SID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbConfig">
-    insert into db_config (SID, 'NAME', OPER, 
-      RESERVE3, RESERVE4, OPERTIME, 
-      RESERVE1, RESERVE2, 'DESC'
-      )
-    values (#{sid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{oper,jdbcType=VARCHAR}, 
-      #{reserve3,jdbcType=DECIMAL}, #{reserve4,jdbcType=DECIMAL}, #{opertime,jdbcType=TIMESTAMP}, 
-      #{reserve1,jdbcType=LONGVARCHAR}, #{reserve2,jdbcType=LONGVARCHAR}, #{desc,jdbcType=LONGVARCHAR}
-      )
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbConfig">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbConfig">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbConfig">
-    insert into db_config
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        SID,
-      </if>
-      <if test="name != null">
-        'NAME',
-      </if>
-      <if test="oper != null">
-        OPER,
-      </if>
-      <if test="reserve3 != null">
-        RESERVE3,
-      </if>
-      <if test="reserve4 != null">
-        RESERVE4,
-      </if>
-      <if test="opertime != null">
-        OPERTIME,
-      </if>
-      <if test="reserve1 != null">
-        RESERVE1,
-      </if>
-      <if test="reserve2 != null">
-        RESERVE2,
-      </if>
-      <if test="desc != null">
-        'DESC',
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        #{sid,jdbcType=VARCHAR},
-      </if>
-      <if test="name != null">
-        #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="oper != null">
-        #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve3 != null">
-        #{reserve3,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve4 != null">
-        #{reserve4,jdbcType=DECIMAL},
-      </if>
-      <if test="opertime != null">
-        #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="reserve1 != null">
-        #{reserve1,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="reserve2 != null">
-        #{reserve2,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="desc != null">
-        #{desc,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbConfig">
-    update db_config
-    <set>
-      <if test="name != null">
-        'NAME' = #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="oper != null">
-        OPER = #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve3 != null">
-        RESERVE3 = #{reserve3,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve4 != null">
-        RESERVE4 = #{reserve4,jdbcType=DECIMAL},
-      </if>
-      <if test="opertime != null">
-        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="reserve1 != null">
-        RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="reserve2 != null">
-        RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="desc != null">
-        'DESC' = #{desc,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where SID = #{sid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbConfig">
-    update db_config
-    set 'NAME' = #{name,jdbcType=VARCHAR},
-      OPER = #{oper,jdbcType=VARCHAR},
-      RESERVE3 = #{reserve3,jdbcType=DECIMAL},
-      RESERVE4 = #{reserve4,jdbcType=DECIMAL},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR},
-      RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR},
-      'DESC' = #{desc,jdbcType=LONGVARCHAR}
-    where SID = #{sid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbConfig">
-    update db_config
-    set 'NAME' = #{name,jdbcType=VARCHAR},
-      OPER = #{oper,jdbcType=VARCHAR},
-      RESERVE3 = #{reserve3,jdbcType=DECIMAL},
-      RESERVE4 = #{reserve4,jdbcType=DECIMAL},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP}
-    where SID = #{sid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbConfig">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

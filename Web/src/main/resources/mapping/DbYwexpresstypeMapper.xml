@@ -4,107 +4,107 @@
   <resultMap id="BaseResultMap" type="com.bean.model.DbYwexpresstype">
     <id column="SID" jdbcType="VARCHAR" property="sid" />
     <result column="EXPRESSTYPE" jdbcType="VARCHAR" property="expresstype" />
-    <result column="DBPACKAGE" jdbcType="VARCHAR" property="dbpackage" />
+    <result column="PACKAGE" jdbcType="VARCHAR" property="dbPackage" />
     <result column="CURRENCY" jdbcType="VARCHAR" property="currency" />
+    <result column="LABELSTR" jdbcType="VARCHAR" property="labelstr" />
     <result column="A4" jdbcType="DECIMAL" property="a4" />
     <result column="A6" jdbcType="DECIMAL" property="a6" />
     <result column="A7" jdbcType="DECIMAL" property="a7" />
     <result column="CNMINIPARCEL10X10" jdbcType="DECIMAL" property="cnminiparcel10x10" />
-    <result column="LABELSTR" jdbcType="LONGVARCHAR" property="labelstr" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select SID, EXPRESSTYPE, DBPACKAGE, CURRENCY, A4, A6, A7, CNMINIPARCEL10X10, LABELSTR
-    from db_ywexpresstype
+    select SID, EXPRESSTYPE, PACKAGE, CURRENCY, LABELSTR, A4, A6, A7, CNMINIPARCEL10X10
+    from DB_YWEXPRESSTYPE
     where SID = #{sid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select SID, EXPRESSTYPE, DBPACKAGE, CURRENCY, A4, A6, A7, CNMINIPARCEL10X10, LABELSTR
-    from db_ywexpresstype
+    select SID, EXPRESSTYPE, PACKAGE, CURRENCY, LABELSTR, A4, A6, A7, CNMINIPARCEL10X10
+    from DB_YWEXPRESSTYPE
   </select>
   <sql id="TableName">
-    db_ywexpresstype
+    DB_YWEXPRESSTYPE
   </sql>
   <sql id="Values">
      #{sid,jdbcType=VARCHAR} , 
      #{expresstype,jdbcType=VARCHAR} , 
-     #{dbpackage,jdbcType=VARCHAR} , 
+     #{dbPackage,jdbcType=VARCHAR} , 
      #{currency,jdbcType=VARCHAR} , 
+     #{labelstr,jdbcType=VARCHAR} , 
      #{a4,jdbcType=DECIMAL} , 
      #{a6,jdbcType=DECIMAL} , 
      #{a7,jdbcType=DECIMAL} , 
      #{cnminiparcel10x10,jdbcType=DECIMAL} , 
-     #{labelstr,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     SID , 
     EXPRESSTYPE , 
-    DBPACKAGE , 
+    PACKAGE , 
     CURRENCY , 
+    LABELSTR , 
     A4 , 
     A6 , 
     A7 , 
     CNMINIPARCEL10X10 , 
-    LABELSTR
   </sql>
   <sql id="Criteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} and 
+      sid = #{sid,jdbcType=VARCHAR} and 
     </if>
     <if test="expresstype != null">
-      EXPRESSTYPE = #{expresstype,jdbcType=VARCHAR} and 
+      expresstype = #{expresstype,jdbcType=VARCHAR} and 
     </if>
-    <if test="dbpackage != null">
-      DBPACKAGE = #{dbpackage,jdbcType=VARCHAR} and 
+    <if test="dbPackage != null">
+      package = #{dbPackage,jdbcType=VARCHAR} and 
     </if>
     <if test="currency != null">
-      CURRENCY = #{currency,jdbcType=VARCHAR} and 
-    </if>
-    <if test="a4 != null">
-      A4 = #{a4,jdbcType=DECIMAL} and 
-    </if>
-    <if test="a6 != null">
-      A6 = #{a6,jdbcType=DECIMAL} and 
-    </if>
-    <if test="a7 != null">
-      A7 = #{a7,jdbcType=DECIMAL} and 
-    </if>
-    <if test="cnminiparcel10x10 != null">
-      CNMINIPARCEL10X10 = #{cnminiparcel10x10,jdbcType=DECIMAL} and 
+      currency = #{currency,jdbcType=VARCHAR} and 
     </if>
     <if test="labelstr != null">
-      LABELSTR = #{labelstr,jdbcType=LONGVARCHAR}
+      labelstr = #{labelstr,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="a4 != null">
+      a4 = #{a4,jdbcType=DECIMAL} and 
+    </if>
+    <if test="a6 != null">
+      a6 = #{a6,jdbcType=DECIMAL} and 
+    </if>
+    <if test="a7 != null">
+      a7 = #{a7,jdbcType=DECIMAL} and 
+    </if>
+    <if test="cnminiparcel10x10 != null">
+      cnminiparcel10x10 = #{cnminiparcel10x10,jdbcType=DECIMAL} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} , 
+      sid = #{sid,jdbcType=VARCHAR} , 
     </if>
     <if test="expresstype != null">
-      EXPRESSTYPE = #{expresstype,jdbcType=VARCHAR} , 
+      expresstype = #{expresstype,jdbcType=VARCHAR} , 
     </if>
-    <if test="dbpackage != null">
-      DBPACKAGE = #{dbpackage,jdbcType=VARCHAR} , 
+    <if test="dbPackage != null">
+      package = #{dbPackage,jdbcType=VARCHAR} , 
     </if>
     <if test="currency != null">
-      CURRENCY = #{currency,jdbcType=VARCHAR} , 
-    </if>
-    <if test="a4 != null">
-      A4 = #{a4,jdbcType=DECIMAL} , 
-    </if>
-    <if test="a6 != null">
-      A6 = #{a6,jdbcType=DECIMAL} , 
-    </if>
-    <if test="a7 != null">
-      A7 = #{a7,jdbcType=DECIMAL} , 
-    </if>
-    <if test="cnminiparcel10x10 != null">
-      CNMINIPARCEL10X10 = #{cnminiparcel10x10,jdbcType=DECIMAL} , 
+      currency = #{currency,jdbcType=VARCHAR} , 
     </if>
     <if test="labelstr != null">
-      LABELSTR = #{labelstr,jdbcType=LONGVARCHAR}
+      labelstr = #{labelstr,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="a4 != null">
+      a4 = #{a4,jdbcType=DECIMAL} , 
+    </if>
+    <if test="a6 != null">
+      a6 = #{a6,jdbcType=DECIMAL} , 
+    </if>
+    <if test="a7 != null">
+      a7 = #{a7,jdbcType=DECIMAL} , 
+    </if>
+    <if test="cnminiparcel10x10 != null">
+      cnminiparcel10x10 = #{cnminiparcel10x10,jdbcType=DECIMAL} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbYwexpresstype" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

@@ -7,115 +7,91 @@
     <result column="SKU" jdbcType="VARCHAR" property="sku" />
     <result column="ORDERNUM" jdbcType="DECIMAL" property="ordernum" />
     <result column="PRICE" jdbcType="DECIMAL" property="price" />
+    <result column="SAVELOG" jdbcType="VARCHAR" property="savelog" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbExpstoreitem">
-    <result column="SAVELOG" jdbcType="LONGVARCHAR" property="savelog" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    SEQUENCEID, EXPSTOREID, SKU, ORDERNUM, PRICE
-  </sql>
-  <sql id="Blob_Column_List">
-    SAVELOG
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="ResultMapWithBLOBs">
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from db_expstoreitem
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select SEQUENCEID, EXPSTOREID, SKU, ORDERNUM, PRICE, SAVELOG
+    from DB_EXPSTOREITEM
     where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
-    delete from db_expstoreitem
-    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, EXPSTOREID, SKU, ORDERNUM, PRICE, SAVELOG
+    from DB_EXPSTOREITEM
+  </select>
+  <sql id="TableName">
+    DB_EXPSTOREITEM
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=DECIMAL} , 
+     #{expstoreid,jdbcType=DECIMAL} , 
+     #{sku,jdbcType=VARCHAR} , 
+     #{ordernum,jdbcType=DECIMAL} , 
+     #{price,jdbcType=DECIMAL} , 
+     #{savelog,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    EXPSTOREID , 
+    SKU , 
+    ORDERNUM , 
+    PRICE , 
+    SAVELOG , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="expstoreid != null">
+      expstoreid = #{expstoreid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sku != null">
+      sku = #{sku,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ordernum != null">
+      ordernum = #{ordernum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="price != null">
+      price = #{price,jdbcType=DECIMAL} and 
+    </if>
+    <if test="savelog != null">
+      savelog = #{savelog,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="expstoreid != null">
+      expstoreid = #{expstoreid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sku != null">
+      sku = #{sku,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ordernum != null">
+      ordernum = #{ordernum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="price != null">
+      price = #{price,jdbcType=DECIMAL} , 
+    </if>
+    <if test="savelog != null">
+      savelog = #{savelog,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbExpstoreitem" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="BigDecimal">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbExpstoreitem">
-    insert into db_expstoreitem (SEQUENCEID, EXPSTOREID, SKU, 
-      ORDERNUM, PRICE, SAVELOG
-      )
-    values (#{sequenceid,jdbcType=DECIMAL}, #{expstoreid,jdbcType=DECIMAL}, #{sku,jdbcType=VARCHAR}, 
-      #{ordernum,jdbcType=DECIMAL}, #{price,jdbcType=DECIMAL}, #{savelog,jdbcType=LONGVARCHAR}
-      )
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbExpstoreitem">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbExpstoreitem">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbExpstoreitem">
-    insert into db_expstoreitem
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        SEQUENCEID,
-      </if>
-      <if test="expstoreid != null">
-        EXPSTOREID,
-      </if>
-      <if test="sku != null">
-        SKU,
-      </if>
-      <if test="ordernum != null">
-        ORDERNUM,
-      </if>
-      <if test="price != null">
-        PRICE,
-      </if>
-      <if test="savelog != null">
-        SAVELOG,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        #{sequenceid,jdbcType=DECIMAL},
-      </if>
-      <if test="expstoreid != null">
-        #{expstoreid,jdbcType=DECIMAL},
-      </if>
-      <if test="sku != null">
-        #{sku,jdbcType=VARCHAR},
-      </if>
-      <if test="ordernum != null">
-        #{ordernum,jdbcType=DECIMAL},
-      </if>
-      <if test="price != null">
-        #{price,jdbcType=DECIMAL},
-      </if>
-      <if test="savelog != null">
-        #{savelog,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbExpstoreitem">
-    update db_expstoreitem
-    <set>
-      <if test="expstoreid != null">
-        EXPSTOREID = #{expstoreid,jdbcType=DECIMAL},
-      </if>
-      <if test="sku != null">
-        SKU = #{sku,jdbcType=VARCHAR},
-      </if>
-      <if test="ordernum != null">
-        ORDERNUM = #{ordernum,jdbcType=DECIMAL},
-      </if>
-      <if test="price != null">
-        PRICE = #{price,jdbcType=DECIMAL},
-      </if>
-      <if test="savelog != null">
-        SAVELOG = #{savelog,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbExpstoreitem">
-    update db_expstoreitem
-    set EXPSTOREID = #{expstoreid,jdbcType=DECIMAL},
-      SKU = #{sku,jdbcType=VARCHAR},
-      ORDERNUM = #{ordernum,jdbcType=DECIMAL},
-      PRICE = #{price,jdbcType=DECIMAL},
-      SAVELOG = #{savelog,jdbcType=LONGVARCHAR}
-    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbExpstoreitem">
-    update db_expstoreitem
-    set EXPSTOREID = #{expstoreid,jdbcType=DECIMAL},
-      SKU = #{sku,jdbcType=VARCHAR},
-      ORDERNUM = #{ordernum,jdbcType=DECIMAL},
-      PRICE = #{price,jdbcType=DECIMAL}
-    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbExpstoreitem">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

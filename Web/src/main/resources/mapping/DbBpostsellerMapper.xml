@@ -29,17 +29,17 @@
     select SID, TOKENAPI, USERNAME, PASSWORD, EMAIL, ADDRESS1, ADDRESS2, CITY, STATE, 
     ZIP5, ZIP4, PHONE, OPENFLAG, OPER, OPERTIME, CORPID, RESERVE1, RESERVE2, RESERVE3, 
     RESERVE4, RESERVE5, SENDNAME
-    from db_bpostseller
+    from DB_BPOSTSELLER
     where SID = #{sid,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SID, TOKENAPI, USERNAME, PASSWORD, EMAIL, ADDRESS1, ADDRESS2, CITY, STATE, 
     ZIP5, ZIP4, PHONE, OPENFLAG, OPER, OPERTIME, CORPID, RESERVE1, RESERVE2, RESERVE3, 
     RESERVE4, RESERVE5, SENDNAME
-    from db_bpostseller
+    from DB_BPOSTSELLER
   </select>
   <sql id="TableName">
-    db_bpostseller
+    DB_BPOSTSELLER
   </sql>
   <sql id="Values">
      #{sid,jdbcType=DECIMAL} , 
@@ -63,7 +63,7 @@
      #{reserve3,jdbcType=VARCHAR} , 
      #{reserve4,jdbcType=VARCHAR} , 
      #{reserve5,jdbcType=VARCHAR} , 
-     #{sendname,jdbcType=VARCHAR}
+     #{sendname,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     SID , 
@@ -87,145 +87,145 @@
     RESERVE3 , 
     RESERVE4 , 
     RESERVE5 , 
-    SENDNAME
+    SENDNAME , 
   </sql>
   <sql id="Criteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=DECIMAL} and 
+      sid = #{sid,jdbcType=DECIMAL} and 
     </if>
     <if test="tokenapi != null">
-      TOKENAPI = #{tokenapi,jdbcType=VARCHAR} and 
+      tokenapi = #{tokenapi,jdbcType=VARCHAR} and 
     </if>
     <if test="username != null">
-      USERNAME = #{username,jdbcType=VARCHAR} and 
+      username = #{username,jdbcType=VARCHAR} and 
     </if>
     <if test="password != null">
-      PASSWORD = #{password,jdbcType=VARCHAR} and 
+      password = #{password,jdbcType=VARCHAR} and 
     </if>
     <if test="email != null">
-      EMAIL = #{email,jdbcType=VARCHAR} and 
+      email = #{email,jdbcType=VARCHAR} and 
     </if>
     <if test="address1 != null">
-      ADDRESS1 = #{address1,jdbcType=VARCHAR} and 
+      address1 = #{address1,jdbcType=VARCHAR} and 
     </if>
     <if test="address2 != null">
-      ADDRESS2 = #{address2,jdbcType=VARCHAR} and 
+      address2 = #{address2,jdbcType=VARCHAR} and 
     </if>
     <if test="city != null">
-      CITY = #{city,jdbcType=VARCHAR} and 
+      city = #{city,jdbcType=VARCHAR} and 
     </if>
     <if test="state != null">
-      STATE = #{state,jdbcType=VARCHAR} and 
+      state = #{state,jdbcType=VARCHAR} and 
     </if>
     <if test="zip5 != null">
-      ZIP5 = #{zip5,jdbcType=DECIMAL} and 
+      zip5 = #{zip5,jdbcType=DECIMAL} and 
     </if>
     <if test="zip4 != null">
-      ZIP4 = #{zip4,jdbcType=DECIMAL} and 
+      zip4 = #{zip4,jdbcType=DECIMAL} and 
     </if>
     <if test="phone != null">
-      PHONE = #{phone,jdbcType=VARCHAR} and 
+      phone = #{phone,jdbcType=VARCHAR} and 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
+      openflag = #{openflag,jdbcType=VARCHAR} and 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
+      oper = #{oper,jdbcType=VARCHAR} and 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} and 
+      corpid = #{corpid,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR} and 
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=VARCHAR} and 
+      reserve4 = #{reserve4,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=VARCHAR} and 
+      reserve5 = #{reserve5,jdbcType=VARCHAR} and 
     </if>
     <if test="sendname != null">
-      SENDNAME = #{sendname,jdbcType=VARCHAR}
+      sendname = #{sendname,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=DECIMAL} , 
+      sid = #{sid,jdbcType=DECIMAL} , 
     </if>
     <if test="tokenapi != null">
-      TOKENAPI = #{tokenapi,jdbcType=VARCHAR} , 
+      tokenapi = #{tokenapi,jdbcType=VARCHAR} , 
     </if>
     <if test="username != null">
-      USERNAME = #{username,jdbcType=VARCHAR} , 
+      username = #{username,jdbcType=VARCHAR} , 
     </if>
     <if test="password != null">
-      PASSWORD = #{password,jdbcType=VARCHAR} , 
+      password = #{password,jdbcType=VARCHAR} , 
     </if>
     <if test="email != null">
-      EMAIL = #{email,jdbcType=VARCHAR} , 
+      email = #{email,jdbcType=VARCHAR} , 
     </if>
     <if test="address1 != null">
-      ADDRESS1 = #{address1,jdbcType=VARCHAR} , 
+      address1 = #{address1,jdbcType=VARCHAR} , 
     </if>
     <if test="address2 != null">
-      ADDRESS2 = #{address2,jdbcType=VARCHAR} , 
+      address2 = #{address2,jdbcType=VARCHAR} , 
     </if>
     <if test="city != null">
-      CITY = #{city,jdbcType=VARCHAR} , 
+      city = #{city,jdbcType=VARCHAR} , 
     </if>
     <if test="state != null">
-      STATE = #{state,jdbcType=VARCHAR} , 
+      state = #{state,jdbcType=VARCHAR} , 
     </if>
     <if test="zip5 != null">
-      ZIP5 = #{zip5,jdbcType=DECIMAL} , 
+      zip5 = #{zip5,jdbcType=DECIMAL} , 
     </if>
     <if test="zip4 != null">
-      ZIP4 = #{zip4,jdbcType=DECIMAL} , 
+      zip4 = #{zip4,jdbcType=DECIMAL} , 
     </if>
     <if test="phone != null">
-      PHONE = #{phone,jdbcType=VARCHAR} , 
+      phone = #{phone,jdbcType=VARCHAR} , 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
+      openflag = #{openflag,jdbcType=VARCHAR} , 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
+      oper = #{oper,jdbcType=VARCHAR} , 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} , 
+      corpid = #{corpid,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR} , 
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=VARCHAR} , 
+      reserve4 = #{reserve4,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=VARCHAR} , 
+      reserve5 = #{reserve5,jdbcType=VARCHAR} , 
     </if>
     <if test="sendname != null">
-      SENDNAME = #{sendname,jdbcType=VARCHAR}
+      sendname = #{sendname,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbBpostseller" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

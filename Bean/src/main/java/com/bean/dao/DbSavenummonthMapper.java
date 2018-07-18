@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbSavenummonth;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbSavenummonthMapper {
-    int deleteByPrimaryKey(String month);
+    DbSavenummonth selectByCriteria(DbSavenummonth DbSavenummonth);
 
-    int insert(DbSavenummonth record);
+    void deleteByPrimaryKey(String MONTH);
 
-    int insertSelective(DbSavenummonth record);
+    void deleteByCriteria(DbSavenummonth DbSavenummonth);
+
+    int insertByCriteria(DbSavenummonth DbSavenummonth);
+
+    int updateByCriteria(DbSavenummonth DbSavenummonth);
 
     DbSavenummonth selectByPrimaryKey(String month);
 
-    int updateByPrimaryKeySelective(DbSavenummonth record);
-
-    int updateByPrimaryKey(DbSavenummonth record);
+    List<DbSavenummonth> selectAll();
 }

@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbFunctionconfiglog;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbFunctionconfiglogMapper {
-    int deleteByPrimaryKey(String sid);
+    DbFunctionconfiglog selectByCriteria(DbFunctionconfiglog DbFunctionconfiglog);
 
-    int insert(DbFunctionconfiglog record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbFunctionconfiglog record);
+    void deleteByCriteria(DbFunctionconfiglog DbFunctionconfiglog);
+
+    int insertByCriteria(DbFunctionconfiglog DbFunctionconfiglog);
+
+    int updateByCriteria(DbFunctionconfiglog DbFunctionconfiglog);
 
     DbFunctionconfiglog selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbFunctionconfiglog record);
-
-    int updateByPrimaryKeyWithBLOBs(DbFunctionconfiglog record);
-
-    int updateByPrimaryKey(DbFunctionconfiglog record);
+    List<DbFunctionconfiglog> selectAll();
 }

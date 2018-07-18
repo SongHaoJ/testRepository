@@ -1,18 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbMatecategory;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbMatecategoryMapper {
-    int deleteByPrimaryKey(BigDecimal sid);
+    DbMatecategory selectByCriteria(DbMatecategory DbMatecategory);
 
-    int insert(DbMatecategory record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbMatecategory record);
+    void deleteByCriteria(DbMatecategory DbMatecategory);
+
+    int insertByCriteria(DbMatecategory DbMatecategory);
+
+    int updateByCriteria(DbMatecategory DbMatecategory);
 
     DbMatecategory selectByPrimaryKey(BigDecimal sid);
 
-    int updateByPrimaryKeySelective(DbMatecategory record);
-
-    int updateByPrimaryKey(DbMatecategory record);
+    List<DbMatecategory> selectAll();
 }

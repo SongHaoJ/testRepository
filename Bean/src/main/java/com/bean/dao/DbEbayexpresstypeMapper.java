@@ -1,20 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbEbayexpresstype;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbEbayexpresstypeMapper {
-    int deleteByPrimaryKey(BigDecimal sid);
+    DbEbayexpresstype selectByCriteria(DbEbayexpresstype DbEbayexpresstype);
 
-    int insert(DbEbayexpresstype record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbEbayexpresstype record);
+    void deleteByCriteria(DbEbayexpresstype DbEbayexpresstype);
+
+    int insertByCriteria(DbEbayexpresstype DbEbayexpresstype);
+
+    int updateByCriteria(DbEbayexpresstype DbEbayexpresstype);
 
     DbEbayexpresstype selectByPrimaryKey(BigDecimal sid);
 
-    int updateByPrimaryKeySelective(DbEbayexpresstype record);
-
-    int updateByPrimaryKeyWithBLOBs(DbEbayexpresstype record);
-
-    int updateByPrimaryKey(DbEbayexpresstype record);
+    List<DbEbayexpresstype> selectAll();
 }

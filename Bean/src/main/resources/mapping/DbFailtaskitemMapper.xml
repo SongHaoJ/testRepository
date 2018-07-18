@@ -4,92 +4,76 @@
   <resultMap id="BaseResultMap" type="com.bean.model.DbFailtaskitem">
     <id column="SID" jdbcType="VARCHAR" property="sid" />
     <result column="ITEMID" jdbcType="VARCHAR" property="itemid" />
+    <result column="CONTENT" jdbcType="VARCHAR" property="content" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbFailtaskitem">
-    <result column="CONTENT" jdbcType="LONGVARCHAR" property="content" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    SID, ITEMID, OPERTIME
-  </sql>
-  <sql id="Blob_Column_List">
-    CONTENT
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from db_failtaskitem
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SID, ITEMID, CONTENT, OPERTIME
+    from DB_FAILTASKITEM
     where SID = #{sid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_failtaskitem
-    where SID = #{sid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, ITEMID, CONTENT, OPERTIME
+    from DB_FAILTASKITEM
+  </select>
+  <sql id="TableName">
+    DB_FAILTASKITEM
+  </sql>
+  <sql id="Values">
+     #{sid,jdbcType=VARCHAR} , 
+     #{itemid,jdbcType=VARCHAR} , 
+     #{content,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+  </sql>
+  <sql id="Columns">
+    SID , 
+    ITEMID , 
+    CONTENT , 
+    OPERTIME , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="itemid != null">
+      itemid = #{itemid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="content != null">
+      content = #{content,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="itemid != null">
+      itemid = #{itemid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="content != null">
+      content = #{content,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbFailtaskitem" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SID=#{SID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbFailtaskitem">
-    insert into db_failtaskitem (SID, ITEMID, OPERTIME, 
-      CONTENT)
-    values (#{sid,jdbcType=VARCHAR}, #{itemid,jdbcType=VARCHAR}, #{opertime,jdbcType=TIMESTAMP}, 
-      #{content,jdbcType=LONGVARCHAR})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbFailtaskitem">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbFailtaskitem">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbFailtaskitem">
-    insert into db_failtaskitem
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        SID,
-      </if>
-      <if test="itemid != null">
-        ITEMID,
-      </if>
-      <if test="opertime != null">
-        OPERTIME,
-      </if>
-      <if test="content != null">
-        CONTENT,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        #{sid,jdbcType=VARCHAR},
-      </if>
-      <if test="itemid != null">
-        #{itemid,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="content != null">
-        #{content,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbFailtaskitem">
-    update db_failtaskitem
-    <set>
-      <if test="itemid != null">
-        ITEMID = #{itemid,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="content != null">
-        CONTENT = #{content,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where SID = #{sid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbFailtaskitem">
-    update db_failtaskitem
-    set ITEMID = #{itemid,jdbcType=VARCHAR},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      CONTENT = #{content,jdbcType=LONGVARCHAR}
-    where SID = #{sid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbFailtaskitem">
-    update db_failtaskitem
-    set ITEMID = #{itemid,jdbcType=VARCHAR},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP}
-    where SID = #{sid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbFailtaskitem">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

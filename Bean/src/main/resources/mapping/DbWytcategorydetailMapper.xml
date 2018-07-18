@@ -4,104 +4,85 @@
   <resultMap id="BaseResultMap" type="com.bean.model.DbWytcategorydetail">
     <id column="MWAREHOUSEID" jdbcType="VARCHAR" property="mwarehouseid" />
     <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="MWAREHOUSEADDRESS" jdbcType="VARCHAR" property="mwarehouseaddress" />
     <result column="COSTOMERID" jdbcType="VARCHAR" property="costomerid" />
     <result column="FLAG" jdbcType="DECIMAL" property="flag" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbWytcategorydetail">
-    <result column="MWAREHOUSEADDRESS" jdbcType="LONGVARCHAR" property="mwarehouseaddress" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    MWAREHOUSEID, 'NAME', COSTOMERID, FLAG
-  </sql>
-  <sql id="Blob_Column_List">
-    MWAREHOUSEADDRESS
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from db_wytcategorydetail
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select MWAREHOUSEID, NAME, MWAREHOUSEADDRESS, COSTOMERID, FLAG
+    from DB_WYTCATEGORYDETAIL
     where MWAREHOUSEID = #{mwarehouseid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_wytcategorydetail
-    where MWAREHOUSEID = #{mwarehouseid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select MWAREHOUSEID, NAME, MWAREHOUSEADDRESS, COSTOMERID, FLAG
+    from DB_WYTCATEGORYDETAIL
+  </select>
+  <sql id="TableName">
+    DB_WYTCATEGORYDETAIL
+  </sql>
+  <sql id="Values">
+     #{mwarehouseid,jdbcType=VARCHAR} , 
+     #{name,jdbcType=VARCHAR} , 
+     #{mwarehouseaddress,jdbcType=VARCHAR} , 
+     #{costomerid,jdbcType=VARCHAR} , 
+     #{flag,jdbcType=DECIMAL} , 
+  </sql>
+  <sql id="Columns">
+    MWAREHOUSEID , 
+    NAME , 
+    MWAREHOUSEADDRESS , 
+    COSTOMERID , 
+    FLAG , 
+  </sql>
+  <sql id="Criteria">
+    <if test="mwarehouseid != null">
+      mwarehouseid = #{mwarehouseid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} and 
+    </if>
+    <if test="mwarehouseaddress != null">
+      mwarehouseaddress = #{mwarehouseaddress,jdbcType=VARCHAR} and 
+    </if>
+    <if test="costomerid != null">
+      costomerid = #{costomerid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=DECIMAL} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="mwarehouseid != null">
+      mwarehouseid = #{mwarehouseid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} , 
+    </if>
+    <if test="mwarehouseaddress != null">
+      mwarehouseaddress = #{mwarehouseaddress,jdbcType=VARCHAR} , 
+    </if>
+    <if test="costomerid != null">
+      costomerid = #{costomerid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=DECIMAL} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbWytcategorydetail" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where MWAREHOUSEID=#{MWAREHOUSEID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbWytcategorydetail">
-    insert into db_wytcategorydetail (MWAREHOUSEID, 'NAME', COSTOMERID, 
-      FLAG, MWAREHOUSEADDRESS)
-    values (#{mwarehouseid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{costomerid,jdbcType=VARCHAR}, 
-      #{flag,jdbcType=DECIMAL}, #{mwarehouseaddress,jdbcType=LONGVARCHAR})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbWytcategorydetail">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbWytcategorydetail">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbWytcategorydetail">
-    insert into db_wytcategorydetail
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="mwarehouseid != null">
-        MWAREHOUSEID,
-      </if>
-      <if test="name != null">
-        'NAME',
-      </if>
-      <if test="costomerid != null">
-        COSTOMERID,
-      </if>
-      <if test="flag != null">
-        FLAG,
-      </if>
-      <if test="mwarehouseaddress != null">
-        MWAREHOUSEADDRESS,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="mwarehouseid != null">
-        #{mwarehouseid,jdbcType=VARCHAR},
-      </if>
-      <if test="name != null">
-        #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="costomerid != null">
-        #{costomerid,jdbcType=VARCHAR},
-      </if>
-      <if test="flag != null">
-        #{flag,jdbcType=DECIMAL},
-      </if>
-      <if test="mwarehouseaddress != null">
-        #{mwarehouseaddress,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbWytcategorydetail">
-    update db_wytcategorydetail
-    <set>
-      <if test="name != null">
-        'NAME' = #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="costomerid != null">
-        COSTOMERID = #{costomerid,jdbcType=VARCHAR},
-      </if>
-      <if test="flag != null">
-        FLAG = #{flag,jdbcType=DECIMAL},
-      </if>
-      <if test="mwarehouseaddress != null">
-        MWAREHOUSEADDRESS = #{mwarehouseaddress,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where MWAREHOUSEID = #{mwarehouseid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbWytcategorydetail">
-    update db_wytcategorydetail
-    set 'NAME' = #{name,jdbcType=VARCHAR},
-      COSTOMERID = #{costomerid,jdbcType=VARCHAR},
-      FLAG = #{flag,jdbcType=DECIMAL},
-      MWAREHOUSEADDRESS = #{mwarehouseaddress,jdbcType=LONGVARCHAR}
-    where MWAREHOUSEID = #{mwarehouseid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbWytcategorydetail">
-    update db_wytcategorydetail
-    set 'NAME' = #{name,jdbcType=VARCHAR},
-      COSTOMERID = #{costomerid,jdbcType=VARCHAR},
-      FLAG = #{flag,jdbcType=DECIMAL}
-    where MWAREHOUSEID = #{mwarehouseid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbWytcategorydetail">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

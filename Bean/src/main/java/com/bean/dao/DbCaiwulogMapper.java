@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbCaiwulog;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbCaiwulogMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbCaiwulog selectByCriteria(DbCaiwulog DbCaiwulog);
 
-    int insert(DbCaiwulog record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbCaiwulog record);
+    void deleteByCriteria(DbCaiwulog DbCaiwulog);
+
+    int insertByCriteria(DbCaiwulog DbCaiwulog);
+
+    int updateByCriteria(DbCaiwulog DbCaiwulog);
 
     DbCaiwulog selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbCaiwulog record);
-
-    int updateByPrimaryKeyWithBLOBs(DbCaiwulog record);
-
-    int updateByPrimaryKey(DbCaiwulog record);
+    List<DbCaiwulog> selectAll();
 }

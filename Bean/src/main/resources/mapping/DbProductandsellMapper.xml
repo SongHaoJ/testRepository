@@ -6,66 +6,66 @@
     <id column="SKU" jdbcType="VARCHAR" property="sku" />
     <result column="FLAG" jdbcType="VARCHAR" property="flag" />
   </resultMap>
-  <sql id="Base_Column_List">
-    SEQUENCEID, SKU, FLAG
-  </sql>
   <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from db_productandsell
+    select SEQUENCEID, SKU, FLAG
+    from DB_PRODUCTANDSELL
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
       and SKU = #{sku,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="map">
-    delete from db_productandsell
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
-      and SKU = #{sku,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, SKU, FLAG
+    from DB_PRODUCTANDSELL
+  </select>
+  <sql id="TableName">
+    DB_PRODUCTANDSELL
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=VARCHAR} , 
+     #{sku,jdbcType=VARCHAR} , 
+     #{flag,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    SKU , 
+    FLAG , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sku != null">
+      sku = #{sku,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sku != null">
+      sku = #{sku,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbProductandsell" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbProductandsell">
-    insert into db_productandsell (SEQUENCEID, SKU, FLAG
-      )
-    values (#{sequenceid,jdbcType=VARCHAR}, #{sku,jdbcType=VARCHAR}, #{flag,jdbcType=VARCHAR}
-      )
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbProductandsell">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbProductandsell">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbProductandsell">
-    insert into db_productandsell
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        SEQUENCEID,
-      </if>
-      <if test="sku != null">
-        SKU,
-      </if>
-      <if test="flag != null">
-        FLAG,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        #{sequenceid,jdbcType=VARCHAR},
-      </if>
-      <if test="sku != null">
-        #{sku,jdbcType=VARCHAR},
-      </if>
-      <if test="flag != null">
-        #{flag,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbProductandsell">
-    update db_productandsell
-    <set>
-      <if test="flag != null">
-        FLAG = #{flag,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
-      and SKU = #{sku,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbProductandsell">
-    update db_productandsell
-    set FLAG = #{flag,jdbcType=VARCHAR}
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
-      and SKU = #{sku,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbProductandsell">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

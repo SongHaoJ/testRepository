@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbAlibb;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbAlibbMapper {
-    int deleteByPrimaryKey(String sid);
+    DbAlibb selectByCriteria(DbAlibb DbAlibb);
 
-    int insert(DbAlibb record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbAlibb record);
+    void deleteByCriteria(DbAlibb DbAlibb);
+
+    int insertByCriteria(DbAlibb DbAlibb);
+
+    int updateByCriteria(DbAlibb DbAlibb);
 
     DbAlibb selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbAlibb record);
-
-    int updateByPrimaryKeyWithBLOBs(DbAlibb record);
-
-    int updateByPrimaryKey(DbAlibb record);
+    List<DbAlibb> selectAll();
 }

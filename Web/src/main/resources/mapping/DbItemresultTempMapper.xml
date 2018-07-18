@@ -15,6 +15,7 @@
     <result column="CONDITIONID" jdbcType="DECIMAL" property="conditionid" />
     <result column="COUNTRY" jdbcType="VARCHAR" property="country" />
     <result column="CURRENCYCODE" jdbcType="VARCHAR" property="currencycode" />
+    <result column="DESCRIPTION" jdbcType="VARCHAR" property="description" />
     <result column="DISPATCHTIMEMAX" jdbcType="DECIMAL" property="dispatchtimemax" />
     <result column="GIFTICON" jdbcType="DECIMAL" property="gifticon" />
     <result column="HITCOUNT" jdbcType="DECIMAL" property="hitcount" />
@@ -26,16 +27,22 @@
     <result column="CHECKOUTENABLED" jdbcType="DECIMAL" property="checkoutenabled" />
     <result column="STARTTIME" jdbcType="TIMESTAMP" property="starttime" />
     <result column="ENDTIME" jdbcType="TIMESTAMP" property="endtime" />
+    <result column="VIEWITEMURL" jdbcType="VARCHAR" property="viewitemurl" />
+    <result column="VIEWITEMURLFORNATURALSEARCH" jdbcType="VARCHAR" property="viewitemurlfornaturalsearch" />
     <result column="LISTINGDURATION" jdbcType="VARCHAR" property="listingduration" />
     <result column="LISTINGTYPE" jdbcType="VARCHAR" property="listingtype" />
     <result column="LOCATION" jdbcType="VARCHAR" property="location" />
     <result column="PAYPALEMAILADDRESS" jdbcType="VARCHAR" property="paypalemailaddress" />
+    <result column="GALLERURL" jdbcType="VARCHAR" property="gallerurl" />
+    <result column="PICTUREURL" jdbcType="VARCHAR" property="pictureurl" />
     <result column="PRIMARYCATEGORYID" jdbcType="VARCHAR" property="primarycategoryid" />
+    <result column="PRIMARYCATEGORYNAME" jdbcType="VARCHAR" property="primarycategoryname" />
     <result column="QUANTITY" jdbcType="DECIMAL" property="quantity" />
     <result column="EMAIL" jdbcType="VARCHAR" property="email" />
     <result column="FEEDBACKRATINGSTAR" jdbcType="VARCHAR" property="feedbackratingstar" />
     <result column="FEEDBACKSCORE" jdbcType="DECIMAL" property="feedbackscore" />
     <result column="POSITIVEFEEDBACKPERCENT" jdbcType="DECIMAL" property="positivefeedbackpercent" />
+    <result column="STOREURL" jdbcType="VARCHAR" property="storeurl" />
     <result column="SITE" jdbcType="VARCHAR" property="site" />
     <result column="STATUS" jdbcType="VARCHAR" property="status" />
     <result column="USERID" jdbcType="VARCHAR" property="userid" />
@@ -45,6 +52,7 @@
     <result column="PAYMENTINSTRUCTIONS" jdbcType="VARCHAR" property="paymentinstructions" />
     <result column="WEBSITE" jdbcType="VARCHAR" property="website" />
     <result column="SKU" jdbcType="VARCHAR" property="sku" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
     <result column="UUID" jdbcType="VARCHAR" property="uuid" />
     <result column="COMPANYNAME" jdbcType="VARCHAR" property="companyname" />
     <result column="CITYNAME" jdbcType="VARCHAR" property="cityname" />
@@ -55,53 +63,45 @@
     <result column="PHONE2" jdbcType="VARCHAR" property="phone2" />
     <result column="POSTALCODE" jdbcType="VARCHAR" property="postalcode" />
     <result column="STATEORPROVINCE" jdbcType="VARCHAR" property="stateorprovince" />
+    <result column="STREET" jdbcType="VARCHAR" property="street" />
+    <result column="STREET1" jdbcType="VARCHAR" property="street1" />
+    <result column="STREET2" jdbcType="VARCHAR" property="street2" />
     <result column="SELLEMAIL" jdbcType="VARCHAR" property="sellemail" />
     <result column="FLAG" jdbcType="DECIMAL" property="flag" />
     <result column="CALCULATEFLAG" jdbcType="DECIMAL" property="calculateflag" />
     <result column="UPDATETIME" jdbcType="TIMESTAMP" property="updatetime" />
     <result column="ITEMTYPE" jdbcType="DECIMAL" property="itemtype" />
     <result column="ITEMFLAG" jdbcType="DECIMAL" property="itemflag" />
-    <result column="DESCRIPTION" jdbcType="LONGVARCHAR" property="description" />
-    <result column="VIEWITEMURL" jdbcType="LONGVARCHAR" property="viewitemurl" />
-    <result column="VIEWITEMURLFORNATURALSEARCH" jdbcType="LONGVARCHAR" property="viewitemurlfornaturalsearch" />
-    <result column="GALLERURL" jdbcType="LONGVARCHAR" property="gallerurl" />
-    <result column="PICTUREURL" jdbcType="LONGVARCHAR" property="pictureurl" />
-    <result column="PRIMARYCATEGORYNAME" jdbcType="LONGVARCHAR" property="primarycategoryname" />
-    <result column="STOREURL" jdbcType="LONGVARCHAR" property="storeurl" />
-    <result column="TITLE" jdbcType="LONGVARCHAR" property="title" />
-    <result column="STREET" jdbcType="LONGVARCHAR" property="street" />
-    <result column="STREET1" jdbcType="LONGVARCHAR" property="street1" />
-    <result column="STREET2" jdbcType="LONGVARCHAR" property="street2" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
     select SID, ITEMID, APPLICATIONDATA, AUTOPAY, BUYERGUARANTEEPRICECODE, BUYERGUARANTEEPRICE, 
     BUYERPROTECTION, BUYITNOWPRICECODE, BUYITNOWPRICE, CONDITIONDISPLAYNAME, CONDITIONID, 
-    COUNTRY, CURRENCYCODE, DISPATCHTIMEMAX, GIFTICON, HITCOUNT, HITCOUNTER, LAYOUTID, 
-    THEMEID, ADULT, BINDINGAUCTION, CHECKOUTENABLED, STARTTIME, ENDTIME, LISTINGDURATION, 
-    LISTINGTYPE, LOCATION, PAYPALEMAILADDRESS, PRIMARYCATEGORYID, QUANTITY, EMAIL, FEEDBACKRATINGSTAR, 
-    FEEDBACKSCORE, POSITIVEFEEDBACKPERCENT, SITE, STATUS, USERID, BIDCOUNT, LISTINGSTATUS, 
-    QUANTITYSOLD, PAYMENTINSTRUCTIONS, WEBSITE, SKU, UUID, COMPANYNAME, CITYNAME, COUNTRYNAME, 
-    FIRSTNAME, LASTNAME, PHONE, PHONE2, POSTALCODE, STATEORPROVINCE, SELLEMAIL, FLAG, 
-    CALCULATEFLAG, UPDATETIME, ITEMTYPE, ITEMFLAG, DESCRIPTION, VIEWITEMURL, VIEWITEMURLFORNATURALSEARCH, 
-    GALLERURL, PICTUREURL, PRIMARYCATEGORYNAME, STOREURL, TITLE, STREET, STREET1, STREET2
-    from db_itemresult_temp
+    COUNTRY, CURRENCYCODE, DESCRIPTION, DISPATCHTIMEMAX, GIFTICON, HITCOUNT, HITCOUNTER, 
+    LAYOUTID, THEMEID, ADULT, BINDINGAUCTION, CHECKOUTENABLED, STARTTIME, ENDTIME, VIEWITEMURL, 
+    VIEWITEMURLFORNATURALSEARCH, LISTINGDURATION, LISTINGTYPE, LOCATION, PAYPALEMAILADDRESS, 
+    GALLERURL, PICTUREURL, PRIMARYCATEGORYID, PRIMARYCATEGORYNAME, QUANTITY, EMAIL, FEEDBACKRATINGSTAR, 
+    FEEDBACKSCORE, POSITIVEFEEDBACKPERCENT, STOREURL, SITE, STATUS, USERID, BIDCOUNT, 
+    LISTINGSTATUS, QUANTITYSOLD, PAYMENTINSTRUCTIONS, WEBSITE, SKU, TITLE, UUID, COMPANYNAME, 
+    CITYNAME, COUNTRYNAME, FIRSTNAME, LASTNAME, PHONE, PHONE2, POSTALCODE, STATEORPROVINCE, 
+    STREET, STREET1, STREET2, SELLEMAIL, FLAG, CALCULATEFLAG, UPDATETIME, ITEMTYPE, ITEMFLAG
+    from DB_ITEMRESULT_TEMP
     where SID = #{sid,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SID, ITEMID, APPLICATIONDATA, AUTOPAY, BUYERGUARANTEEPRICECODE, BUYERGUARANTEEPRICE, 
     BUYERPROTECTION, BUYITNOWPRICECODE, BUYITNOWPRICE, CONDITIONDISPLAYNAME, CONDITIONID, 
-    COUNTRY, CURRENCYCODE, DISPATCHTIMEMAX, GIFTICON, HITCOUNT, HITCOUNTER, LAYOUTID, 
-    THEMEID, ADULT, BINDINGAUCTION, CHECKOUTENABLED, STARTTIME, ENDTIME, LISTINGDURATION, 
-    LISTINGTYPE, LOCATION, PAYPALEMAILADDRESS, PRIMARYCATEGORYID, QUANTITY, EMAIL, FEEDBACKRATINGSTAR, 
-    FEEDBACKSCORE, POSITIVEFEEDBACKPERCENT, SITE, STATUS, USERID, BIDCOUNT, LISTINGSTATUS, 
-    QUANTITYSOLD, PAYMENTINSTRUCTIONS, WEBSITE, SKU, UUID, COMPANYNAME, CITYNAME, COUNTRYNAME, 
-    FIRSTNAME, LASTNAME, PHONE, PHONE2, POSTALCODE, STATEORPROVINCE, SELLEMAIL, FLAG, 
-    CALCULATEFLAG, UPDATETIME, ITEMTYPE, ITEMFLAG, DESCRIPTION, VIEWITEMURL, VIEWITEMURLFORNATURALSEARCH, 
-    GALLERURL, PICTUREURL, PRIMARYCATEGORYNAME, STOREURL, TITLE, STREET, STREET1, STREET2
-    from db_itemresult_temp
+    COUNTRY, CURRENCYCODE, DESCRIPTION, DISPATCHTIMEMAX, GIFTICON, HITCOUNT, HITCOUNTER, 
+    LAYOUTID, THEMEID, ADULT, BINDINGAUCTION, CHECKOUTENABLED, STARTTIME, ENDTIME, VIEWITEMURL, 
+    VIEWITEMURLFORNATURALSEARCH, LISTINGDURATION, LISTINGTYPE, LOCATION, PAYPALEMAILADDRESS, 
+    GALLERURL, PICTUREURL, PRIMARYCATEGORYID, PRIMARYCATEGORYNAME, QUANTITY, EMAIL, FEEDBACKRATINGSTAR, 
+    FEEDBACKSCORE, POSITIVEFEEDBACKPERCENT, STOREURL, SITE, STATUS, USERID, BIDCOUNT, 
+    LISTINGSTATUS, QUANTITYSOLD, PAYMENTINSTRUCTIONS, WEBSITE, SKU, TITLE, UUID, COMPANYNAME, 
+    CITYNAME, COUNTRYNAME, FIRSTNAME, LASTNAME, PHONE, PHONE2, POSTALCODE, STATEORPROVINCE, 
+    STREET, STREET1, STREET2, SELLEMAIL, FLAG, CALCULATEFLAG, UPDATETIME, ITEMTYPE, ITEMFLAG
+    from DB_ITEMRESULT_TEMP
   </select>
   <sql id="TableName">
-    db_itemresult_temp
+    DB_ITEMRESULT_TEMP
   </sql>
   <sql id="Values">
      #{sid,jdbcType=DECIMAL} , 
@@ -117,6 +117,7 @@
      #{conditionid,jdbcType=DECIMAL} , 
      #{country,jdbcType=VARCHAR} , 
      #{currencycode,jdbcType=VARCHAR} , 
+     #{description,jdbcType=VARCHAR} , 
      #{dispatchtimemax,jdbcType=DECIMAL} , 
      #{gifticon,jdbcType=DECIMAL} , 
      #{hitcount,jdbcType=DECIMAL} , 
@@ -128,16 +129,22 @@
      #{checkoutenabled,jdbcType=DECIMAL} , 
      #{starttime,jdbcType=TIMESTAMP} , 
      #{endtime,jdbcType=TIMESTAMP} , 
+     #{viewitemurl,jdbcType=VARCHAR} , 
+     #{viewitemurlfornaturalsearch,jdbcType=VARCHAR} , 
      #{listingduration,jdbcType=VARCHAR} , 
      #{listingtype,jdbcType=VARCHAR} , 
      #{location,jdbcType=VARCHAR} , 
      #{paypalemailaddress,jdbcType=VARCHAR} , 
+     #{gallerurl,jdbcType=VARCHAR} , 
+     #{pictureurl,jdbcType=VARCHAR} , 
      #{primarycategoryid,jdbcType=VARCHAR} , 
+     #{primarycategoryname,jdbcType=VARCHAR} , 
      #{quantity,jdbcType=DECIMAL} , 
      #{email,jdbcType=VARCHAR} , 
      #{feedbackratingstar,jdbcType=VARCHAR} , 
      #{feedbackscore,jdbcType=DECIMAL} , 
      #{positivefeedbackpercent,jdbcType=DECIMAL} , 
+     #{storeurl,jdbcType=VARCHAR} , 
      #{site,jdbcType=VARCHAR} , 
      #{status,jdbcType=VARCHAR} , 
      #{userid,jdbcType=VARCHAR} , 
@@ -147,6 +154,7 @@
      #{paymentinstructions,jdbcType=VARCHAR} , 
      #{website,jdbcType=VARCHAR} , 
      #{sku,jdbcType=VARCHAR} , 
+     #{title,jdbcType=VARCHAR} , 
      #{uuid,jdbcType=VARCHAR} , 
      #{companyname,jdbcType=VARCHAR} , 
      #{cityname,jdbcType=VARCHAR} , 
@@ -157,23 +165,15 @@
      #{phone2,jdbcType=VARCHAR} , 
      #{postalcode,jdbcType=VARCHAR} , 
      #{stateorprovince,jdbcType=VARCHAR} , 
+     #{street,jdbcType=VARCHAR} , 
+     #{street1,jdbcType=VARCHAR} , 
+     #{street2,jdbcType=VARCHAR} , 
      #{sellemail,jdbcType=VARCHAR} , 
      #{flag,jdbcType=DECIMAL} , 
      #{calculateflag,jdbcType=DECIMAL} , 
      #{updatetime,jdbcType=TIMESTAMP} , 
      #{itemtype,jdbcType=DECIMAL} , 
      #{itemflag,jdbcType=DECIMAL} , 
-     #{description,jdbcType=LONGVARCHAR} , 
-     #{viewitemurl,jdbcType=LONGVARCHAR} , 
-     #{viewitemurlfornaturalsearch,jdbcType=LONGVARCHAR} , 
-     #{gallerurl,jdbcType=LONGVARCHAR} , 
-     #{pictureurl,jdbcType=LONGVARCHAR} , 
-     #{primarycategoryname,jdbcType=LONGVARCHAR} , 
-     #{storeurl,jdbcType=LONGVARCHAR} , 
-     #{title,jdbcType=LONGVARCHAR} , 
-     #{street,jdbcType=LONGVARCHAR} , 
-     #{street1,jdbcType=LONGVARCHAR} , 
-     #{street2,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     SID , 
@@ -189,6 +189,7 @@
     CONDITIONID , 
     COUNTRY , 
     CURRENCYCODE , 
+    DESCRIPTION , 
     DISPATCHTIMEMAX , 
     GIFTICON , 
     HITCOUNT , 
@@ -200,16 +201,22 @@
     CHECKOUTENABLED , 
     STARTTIME , 
     ENDTIME , 
+    VIEWITEMURL , 
+    VIEWITEMURLFORNATURALSEARCH , 
     LISTINGDURATION , 
     LISTINGTYPE , 
     LOCATION , 
     PAYPALEMAILADDRESS , 
+    GALLERURL , 
+    PICTUREURL , 
     PRIMARYCATEGORYID , 
+    PRIMARYCATEGORYNAME , 
     QUANTITY , 
     EMAIL , 
     FEEDBACKRATINGSTAR , 
     FEEDBACKSCORE , 
     POSITIVEFEEDBACKPERCENT , 
+    STOREURL , 
     SITE , 
     STATUS , 
     USERID , 
@@ -219,6 +226,7 @@
     PAYMENTINSTRUCTIONS , 
     WEBSITE , 
     SKU , 
+    TITLE , 
     UUID , 
     COMPANYNAME , 
     CITYNAME , 
@@ -229,449 +237,441 @@
     PHONE2 , 
     POSTALCODE , 
     STATEORPROVINCE , 
+    STREET , 
+    STREET1 , 
+    STREET2 , 
     SELLEMAIL , 
     FLAG , 
     CALCULATEFLAG , 
     UPDATETIME , 
     ITEMTYPE , 
     ITEMFLAG , 
-    DESCRIPTION , 
-    VIEWITEMURL , 
-    VIEWITEMURLFORNATURALSEARCH , 
-    GALLERURL , 
-    PICTUREURL , 
-    PRIMARYCATEGORYNAME , 
-    STOREURL , 
-    TITLE , 
-    STREET , 
-    STREET1 , 
-    STREET2
   </sql>
   <sql id="Criteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=DECIMAL} and 
+      sid = #{sid,jdbcType=DECIMAL} and 
     </if>
     <if test="itemid != null">
-      ITEMID = #{itemid,jdbcType=VARCHAR} and 
+      itemid = #{itemid,jdbcType=VARCHAR} and 
     </if>
     <if test="applicationdata != null">
-      APPLICATIONDATA = #{applicationdata,jdbcType=VARCHAR} and 
+      applicationdata = #{applicationdata,jdbcType=VARCHAR} and 
     </if>
     <if test="autopay != null">
-      AUTOPAY = #{autopay,jdbcType=DECIMAL} and 
+      autopay = #{autopay,jdbcType=DECIMAL} and 
     </if>
     <if test="buyerguaranteepricecode != null">
-      BUYERGUARANTEEPRICECODE = #{buyerguaranteepricecode,jdbcType=VARCHAR} and 
+      buyerguaranteepricecode = #{buyerguaranteepricecode,jdbcType=VARCHAR} and 
     </if>
     <if test="buyerguaranteeprice != null">
-      BUYERGUARANTEEPRICE = #{buyerguaranteeprice,jdbcType=DECIMAL} and 
+      buyerguaranteeprice = #{buyerguaranteeprice,jdbcType=DECIMAL} and 
     </if>
     <if test="buyerprotection != null">
-      BUYERPROTECTION = #{buyerprotection,jdbcType=VARCHAR} and 
+      buyerprotection = #{buyerprotection,jdbcType=VARCHAR} and 
     </if>
     <if test="buyitnowpricecode != null">
-      BUYITNOWPRICECODE = #{buyitnowpricecode,jdbcType=VARCHAR} and 
+      buyitnowpricecode = #{buyitnowpricecode,jdbcType=VARCHAR} and 
     </if>
     <if test="buyitnowprice != null">
-      BUYITNOWPRICE = #{buyitnowprice,jdbcType=DECIMAL} and 
+      buyitnowprice = #{buyitnowprice,jdbcType=DECIMAL} and 
     </if>
     <if test="conditiondisplayname != null">
-      CONDITIONDISPLAYNAME = #{conditiondisplayname,jdbcType=VARCHAR} and 
+      conditiondisplayname = #{conditiondisplayname,jdbcType=VARCHAR} and 
     </if>
     <if test="conditionid != null">
-      CONDITIONID = #{conditionid,jdbcType=DECIMAL} and 
+      conditionid = #{conditionid,jdbcType=DECIMAL} and 
     </if>
     <if test="country != null">
-      COUNTRY = #{country,jdbcType=VARCHAR} and 
+      country = #{country,jdbcType=VARCHAR} and 
     </if>
     <if test="currencycode != null">
-      CURRENCYCODE = #{currencycode,jdbcType=VARCHAR} and 
-    </if>
-    <if test="dispatchtimemax != null">
-      DISPATCHTIMEMAX = #{dispatchtimemax,jdbcType=DECIMAL} and 
-    </if>
-    <if test="gifticon != null">
-      GIFTICON = #{gifticon,jdbcType=DECIMAL} and 
-    </if>
-    <if test="hitcount != null">
-      HITCOUNT = #{hitcount,jdbcType=DECIMAL} and 
-    </if>
-    <if test="hitcounter != null">
-      HITCOUNTER = #{hitcounter,jdbcType=VARCHAR} and 
-    </if>
-    <if test="layoutid != null">
-      LAYOUTID = #{layoutid,jdbcType=DECIMAL} and 
-    </if>
-    <if test="themeid != null">
-      THEMEID = #{themeid,jdbcType=DECIMAL} and 
-    </if>
-    <if test="adult != null">
-      ADULT = #{adult,jdbcType=DECIMAL} and 
-    </if>
-    <if test="bindingauction != null">
-      BINDINGAUCTION = #{bindingauction,jdbcType=DECIMAL} and 
-    </if>
-    <if test="checkoutenabled != null">
-      CHECKOUTENABLED = #{checkoutenabled,jdbcType=DECIMAL} and 
-    </if>
-    <if test="starttime != null">
-      STARTTIME = #{starttime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="endtime != null">
-      ENDTIME = #{endtime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="listingduration != null">
-      LISTINGDURATION = #{listingduration,jdbcType=VARCHAR} and 
-    </if>
-    <if test="listingtype != null">
-      LISTINGTYPE = #{listingtype,jdbcType=VARCHAR} and 
-    </if>
-    <if test="location != null">
-      LOCATION = #{location,jdbcType=VARCHAR} and 
-    </if>
-    <if test="paypalemailaddress != null">
-      PAYPALEMAILADDRESS = #{paypalemailaddress,jdbcType=VARCHAR} and 
-    </if>
-    <if test="primarycategoryid != null">
-      PRIMARYCATEGORYID = #{primarycategoryid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="quantity != null">
-      QUANTITY = #{quantity,jdbcType=DECIMAL} and 
-    </if>
-    <if test="email != null">
-      EMAIL = #{email,jdbcType=VARCHAR} and 
-    </if>
-    <if test="feedbackratingstar != null">
-      FEEDBACKRATINGSTAR = #{feedbackratingstar,jdbcType=VARCHAR} and 
-    </if>
-    <if test="feedbackscore != null">
-      FEEDBACKSCORE = #{feedbackscore,jdbcType=DECIMAL} and 
-    </if>
-    <if test="positivefeedbackpercent != null">
-      POSITIVEFEEDBACKPERCENT = #{positivefeedbackpercent,jdbcType=DECIMAL} and 
-    </if>
-    <if test="site != null">
-      SITE = #{site,jdbcType=VARCHAR} and 
-    </if>
-    <if test="status != null">
-      STATUS = #{status,jdbcType=VARCHAR} and 
-    </if>
-    <if test="userid != null">
-      USERID = #{userid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="bidcount != null">
-      BIDCOUNT = #{bidcount,jdbcType=DECIMAL} and 
-    </if>
-    <if test="listingstatus != null">
-      LISTINGSTATUS = #{listingstatus,jdbcType=VARCHAR} and 
-    </if>
-    <if test="quantitysold != null">
-      QUANTITYSOLD = #{quantitysold,jdbcType=DECIMAL} and 
-    </if>
-    <if test="paymentinstructions != null">
-      PAYMENTINSTRUCTIONS = #{paymentinstructions,jdbcType=VARCHAR} and 
-    </if>
-    <if test="website != null">
-      WEBSITE = #{website,jdbcType=VARCHAR} and 
-    </if>
-    <if test="sku != null">
-      SKU = #{sku,jdbcType=VARCHAR} and 
-    </if>
-    <if test="uuid != null">
-      UUID = #{uuid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="companyname != null">
-      COMPANYNAME = #{companyname,jdbcType=VARCHAR} and 
-    </if>
-    <if test="cityname != null">
-      CITYNAME = #{cityname,jdbcType=VARCHAR} and 
-    </if>
-    <if test="countryname != null">
-      COUNTRYNAME = #{countryname,jdbcType=VARCHAR} and 
-    </if>
-    <if test="firstname != null">
-      FIRSTNAME = #{firstname,jdbcType=VARCHAR} and 
-    </if>
-    <if test="lastname != null">
-      LASTNAME = #{lastname,jdbcType=VARCHAR} and 
-    </if>
-    <if test="phone != null">
-      PHONE = #{phone,jdbcType=VARCHAR} and 
-    </if>
-    <if test="phone2 != null">
-      PHONE2 = #{phone2,jdbcType=VARCHAR} and 
-    </if>
-    <if test="postalcode != null">
-      POSTALCODE = #{postalcode,jdbcType=VARCHAR} and 
-    </if>
-    <if test="stateorprovince != null">
-      STATEORPROVINCE = #{stateorprovince,jdbcType=VARCHAR} and 
-    </if>
-    <if test="sellemail != null">
-      SELLEMAIL = #{sellemail,jdbcType=VARCHAR} and 
-    </if>
-    <if test="flag != null">
-      FLAG = #{flag,jdbcType=DECIMAL} and 
-    </if>
-    <if test="calculateflag != null">
-      CALCULATEFLAG = #{calculateflag,jdbcType=DECIMAL} and 
-    </if>
-    <if test="updatetime != null">
-      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="itemtype != null">
-      ITEMTYPE = #{itemtype,jdbcType=DECIMAL} and 
-    </if>
-    <if test="itemflag != null">
-      ITEMFLAG = #{itemflag,jdbcType=DECIMAL} and 
+      currencycode = #{currencycode,jdbcType=VARCHAR} and 
     </if>
     <if test="description != null">
-      DESCRIPTION = #{description,jdbcType=LONGVARCHAR} and 
+      description = #{description,jdbcType=VARCHAR} and 
+    </if>
+    <if test="dispatchtimemax != null">
+      dispatchtimemax = #{dispatchtimemax,jdbcType=DECIMAL} and 
+    </if>
+    <if test="gifticon != null">
+      gifticon = #{gifticon,jdbcType=DECIMAL} and 
+    </if>
+    <if test="hitcount != null">
+      hitcount = #{hitcount,jdbcType=DECIMAL} and 
+    </if>
+    <if test="hitcounter != null">
+      hitcounter = #{hitcounter,jdbcType=VARCHAR} and 
+    </if>
+    <if test="layoutid != null">
+      layoutid = #{layoutid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="themeid != null">
+      themeid = #{themeid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="adult != null">
+      adult = #{adult,jdbcType=DECIMAL} and 
+    </if>
+    <if test="bindingauction != null">
+      bindingauction = #{bindingauction,jdbcType=DECIMAL} and 
+    </if>
+    <if test="checkoutenabled != null">
+      checkoutenabled = #{checkoutenabled,jdbcType=DECIMAL} and 
+    </if>
+    <if test="starttime != null">
+      starttime = #{starttime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="endtime != null">
+      endtime = #{endtime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="viewitemurl != null">
-      VIEWITEMURL = #{viewitemurl,jdbcType=LONGVARCHAR} and 
+      viewitemurl = #{viewitemurl,jdbcType=VARCHAR} and 
     </if>
     <if test="viewitemurlfornaturalsearch != null">
-      VIEWITEMURLFORNATURALSEARCH = #{viewitemurlfornaturalsearch,jdbcType=LONGVARCHAR} and 
+      viewitemurlfornaturalsearch = #{viewitemurlfornaturalsearch,jdbcType=VARCHAR} and 
+    </if>
+    <if test="listingduration != null">
+      listingduration = #{listingduration,jdbcType=VARCHAR} and 
+    </if>
+    <if test="listingtype != null">
+      listingtype = #{listingtype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="location != null">
+      location = #{location,jdbcType=VARCHAR} and 
+    </if>
+    <if test="paypalemailaddress != null">
+      paypalemailaddress = #{paypalemailaddress,jdbcType=VARCHAR} and 
     </if>
     <if test="gallerurl != null">
-      GALLERURL = #{gallerurl,jdbcType=LONGVARCHAR} and 
+      gallerurl = #{gallerurl,jdbcType=VARCHAR} and 
     </if>
     <if test="pictureurl != null">
-      PICTUREURL = #{pictureurl,jdbcType=LONGVARCHAR} and 
+      pictureurl = #{pictureurl,jdbcType=VARCHAR} and 
+    </if>
+    <if test="primarycategoryid != null">
+      primarycategoryid = #{primarycategoryid,jdbcType=VARCHAR} and 
     </if>
     <if test="primarycategoryname != null">
-      PRIMARYCATEGORYNAME = #{primarycategoryname,jdbcType=LONGVARCHAR} and 
+      primarycategoryname = #{primarycategoryname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="quantity != null">
+      quantity = #{quantity,jdbcType=DECIMAL} and 
+    </if>
+    <if test="email != null">
+      email = #{email,jdbcType=VARCHAR} and 
+    </if>
+    <if test="feedbackratingstar != null">
+      feedbackratingstar = #{feedbackratingstar,jdbcType=VARCHAR} and 
+    </if>
+    <if test="feedbackscore != null">
+      feedbackscore = #{feedbackscore,jdbcType=DECIMAL} and 
+    </if>
+    <if test="positivefeedbackpercent != null">
+      positivefeedbackpercent = #{positivefeedbackpercent,jdbcType=DECIMAL} and 
     </if>
     <if test="storeurl != null">
-      STOREURL = #{storeurl,jdbcType=LONGVARCHAR} and 
+      storeurl = #{storeurl,jdbcType=VARCHAR} and 
+    </if>
+    <if test="site != null">
+      site = #{site,jdbcType=VARCHAR} and 
+    </if>
+    <if test="status != null">
+      status = #{status,jdbcType=VARCHAR} and 
+    </if>
+    <if test="userid != null">
+      userid = #{userid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="bidcount != null">
+      bidcount = #{bidcount,jdbcType=DECIMAL} and 
+    </if>
+    <if test="listingstatus != null">
+      listingstatus = #{listingstatus,jdbcType=VARCHAR} and 
+    </if>
+    <if test="quantitysold != null">
+      quantitysold = #{quantitysold,jdbcType=DECIMAL} and 
+    </if>
+    <if test="paymentinstructions != null">
+      paymentinstructions = #{paymentinstructions,jdbcType=VARCHAR} and 
+    </if>
+    <if test="website != null">
+      website = #{website,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sku != null">
+      sku = #{sku,jdbcType=VARCHAR} and 
     </if>
     <if test="title != null">
-      TITLE = #{title,jdbcType=LONGVARCHAR} and 
+      title = #{title,jdbcType=VARCHAR} and 
+    </if>
+    <if test="uuid != null">
+      uuid = #{uuid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="companyname != null">
+      companyname = #{companyname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="cityname != null">
+      cityname = #{cityname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="countryname != null">
+      countryname = #{countryname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="firstname != null">
+      firstname = #{firstname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="lastname != null">
+      lastname = #{lastname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="phone != null">
+      phone = #{phone,jdbcType=VARCHAR} and 
+    </if>
+    <if test="phone2 != null">
+      phone2 = #{phone2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="postalcode != null">
+      postalcode = #{postalcode,jdbcType=VARCHAR} and 
+    </if>
+    <if test="stateorprovince != null">
+      stateorprovince = #{stateorprovince,jdbcType=VARCHAR} and 
     </if>
     <if test="street != null">
-      STREET = #{street,jdbcType=LONGVARCHAR} and 
+      street = #{street,jdbcType=VARCHAR} and 
     </if>
     <if test="street1 != null">
-      STREET1 = #{street1,jdbcType=LONGVARCHAR} and 
+      street1 = #{street1,jdbcType=VARCHAR} and 
     </if>
     <if test="street2 != null">
-      STREET2 = #{street2,jdbcType=LONGVARCHAR}
+      street2 = #{street2,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="sellemail != null">
+      sellemail = #{sellemail,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="calculateflag != null">
+      calculateflag = #{calculateflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="updatetime != null">
+      updatetime = #{updatetime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="itemtype != null">
+      itemtype = #{itemtype,jdbcType=DECIMAL} and 
+    </if>
+    <if test="itemflag != null">
+      itemflag = #{itemflag,jdbcType=DECIMAL} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=DECIMAL} , 
+      sid = #{sid,jdbcType=DECIMAL} , 
     </if>
     <if test="itemid != null">
-      ITEMID = #{itemid,jdbcType=VARCHAR} , 
+      itemid = #{itemid,jdbcType=VARCHAR} , 
     </if>
     <if test="applicationdata != null">
-      APPLICATIONDATA = #{applicationdata,jdbcType=VARCHAR} , 
+      applicationdata = #{applicationdata,jdbcType=VARCHAR} , 
     </if>
     <if test="autopay != null">
-      AUTOPAY = #{autopay,jdbcType=DECIMAL} , 
+      autopay = #{autopay,jdbcType=DECIMAL} , 
     </if>
     <if test="buyerguaranteepricecode != null">
-      BUYERGUARANTEEPRICECODE = #{buyerguaranteepricecode,jdbcType=VARCHAR} , 
+      buyerguaranteepricecode = #{buyerguaranteepricecode,jdbcType=VARCHAR} , 
     </if>
     <if test="buyerguaranteeprice != null">
-      BUYERGUARANTEEPRICE = #{buyerguaranteeprice,jdbcType=DECIMAL} , 
+      buyerguaranteeprice = #{buyerguaranteeprice,jdbcType=DECIMAL} , 
     </if>
     <if test="buyerprotection != null">
-      BUYERPROTECTION = #{buyerprotection,jdbcType=VARCHAR} , 
+      buyerprotection = #{buyerprotection,jdbcType=VARCHAR} , 
     </if>
     <if test="buyitnowpricecode != null">
-      BUYITNOWPRICECODE = #{buyitnowpricecode,jdbcType=VARCHAR} , 
+      buyitnowpricecode = #{buyitnowpricecode,jdbcType=VARCHAR} , 
     </if>
     <if test="buyitnowprice != null">
-      BUYITNOWPRICE = #{buyitnowprice,jdbcType=DECIMAL} , 
+      buyitnowprice = #{buyitnowprice,jdbcType=DECIMAL} , 
     </if>
     <if test="conditiondisplayname != null">
-      CONDITIONDISPLAYNAME = #{conditiondisplayname,jdbcType=VARCHAR} , 
+      conditiondisplayname = #{conditiondisplayname,jdbcType=VARCHAR} , 
     </if>
     <if test="conditionid != null">
-      CONDITIONID = #{conditionid,jdbcType=DECIMAL} , 
+      conditionid = #{conditionid,jdbcType=DECIMAL} , 
     </if>
     <if test="country != null">
-      COUNTRY = #{country,jdbcType=VARCHAR} , 
+      country = #{country,jdbcType=VARCHAR} , 
     </if>
     <if test="currencycode != null">
-      CURRENCYCODE = #{currencycode,jdbcType=VARCHAR} , 
-    </if>
-    <if test="dispatchtimemax != null">
-      DISPATCHTIMEMAX = #{dispatchtimemax,jdbcType=DECIMAL} , 
-    </if>
-    <if test="gifticon != null">
-      GIFTICON = #{gifticon,jdbcType=DECIMAL} , 
-    </if>
-    <if test="hitcount != null">
-      HITCOUNT = #{hitcount,jdbcType=DECIMAL} , 
-    </if>
-    <if test="hitcounter != null">
-      HITCOUNTER = #{hitcounter,jdbcType=VARCHAR} , 
-    </if>
-    <if test="layoutid != null">
-      LAYOUTID = #{layoutid,jdbcType=DECIMAL} , 
-    </if>
-    <if test="themeid != null">
-      THEMEID = #{themeid,jdbcType=DECIMAL} , 
-    </if>
-    <if test="adult != null">
-      ADULT = #{adult,jdbcType=DECIMAL} , 
-    </if>
-    <if test="bindingauction != null">
-      BINDINGAUCTION = #{bindingauction,jdbcType=DECIMAL} , 
-    </if>
-    <if test="checkoutenabled != null">
-      CHECKOUTENABLED = #{checkoutenabled,jdbcType=DECIMAL} , 
-    </if>
-    <if test="starttime != null">
-      STARTTIME = #{starttime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="endtime != null">
-      ENDTIME = #{endtime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="listingduration != null">
-      LISTINGDURATION = #{listingduration,jdbcType=VARCHAR} , 
-    </if>
-    <if test="listingtype != null">
-      LISTINGTYPE = #{listingtype,jdbcType=VARCHAR} , 
-    </if>
-    <if test="location != null">
-      LOCATION = #{location,jdbcType=VARCHAR} , 
-    </if>
-    <if test="paypalemailaddress != null">
-      PAYPALEMAILADDRESS = #{paypalemailaddress,jdbcType=VARCHAR} , 
-    </if>
-    <if test="primarycategoryid != null">
-      PRIMARYCATEGORYID = #{primarycategoryid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="quantity != null">
-      QUANTITY = #{quantity,jdbcType=DECIMAL} , 
-    </if>
-    <if test="email != null">
-      EMAIL = #{email,jdbcType=VARCHAR} , 
-    </if>
-    <if test="feedbackratingstar != null">
-      FEEDBACKRATINGSTAR = #{feedbackratingstar,jdbcType=VARCHAR} , 
-    </if>
-    <if test="feedbackscore != null">
-      FEEDBACKSCORE = #{feedbackscore,jdbcType=DECIMAL} , 
-    </if>
-    <if test="positivefeedbackpercent != null">
-      POSITIVEFEEDBACKPERCENT = #{positivefeedbackpercent,jdbcType=DECIMAL} , 
-    </if>
-    <if test="site != null">
-      SITE = #{site,jdbcType=VARCHAR} , 
-    </if>
-    <if test="status != null">
-      STATUS = #{status,jdbcType=VARCHAR} , 
-    </if>
-    <if test="userid != null">
-      USERID = #{userid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="bidcount != null">
-      BIDCOUNT = #{bidcount,jdbcType=DECIMAL} , 
-    </if>
-    <if test="listingstatus != null">
-      LISTINGSTATUS = #{listingstatus,jdbcType=VARCHAR} , 
-    </if>
-    <if test="quantitysold != null">
-      QUANTITYSOLD = #{quantitysold,jdbcType=DECIMAL} , 
-    </if>
-    <if test="paymentinstructions != null">
-      PAYMENTINSTRUCTIONS = #{paymentinstructions,jdbcType=VARCHAR} , 
-    </if>
-    <if test="website != null">
-      WEBSITE = #{website,jdbcType=VARCHAR} , 
-    </if>
-    <if test="sku != null">
-      SKU = #{sku,jdbcType=VARCHAR} , 
-    </if>
-    <if test="uuid != null">
-      UUID = #{uuid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="companyname != null">
-      COMPANYNAME = #{companyname,jdbcType=VARCHAR} , 
-    </if>
-    <if test="cityname != null">
-      CITYNAME = #{cityname,jdbcType=VARCHAR} , 
-    </if>
-    <if test="countryname != null">
-      COUNTRYNAME = #{countryname,jdbcType=VARCHAR} , 
-    </if>
-    <if test="firstname != null">
-      FIRSTNAME = #{firstname,jdbcType=VARCHAR} , 
-    </if>
-    <if test="lastname != null">
-      LASTNAME = #{lastname,jdbcType=VARCHAR} , 
-    </if>
-    <if test="phone != null">
-      PHONE = #{phone,jdbcType=VARCHAR} , 
-    </if>
-    <if test="phone2 != null">
-      PHONE2 = #{phone2,jdbcType=VARCHAR} , 
-    </if>
-    <if test="postalcode != null">
-      POSTALCODE = #{postalcode,jdbcType=VARCHAR} , 
-    </if>
-    <if test="stateorprovince != null">
-      STATEORPROVINCE = #{stateorprovince,jdbcType=VARCHAR} , 
-    </if>
-    <if test="sellemail != null">
-      SELLEMAIL = #{sellemail,jdbcType=VARCHAR} , 
-    </if>
-    <if test="flag != null">
-      FLAG = #{flag,jdbcType=DECIMAL} , 
-    </if>
-    <if test="calculateflag != null">
-      CALCULATEFLAG = #{calculateflag,jdbcType=DECIMAL} , 
-    </if>
-    <if test="updatetime != null">
-      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="itemtype != null">
-      ITEMTYPE = #{itemtype,jdbcType=DECIMAL} , 
-    </if>
-    <if test="itemflag != null">
-      ITEMFLAG = #{itemflag,jdbcType=DECIMAL} , 
+      currencycode = #{currencycode,jdbcType=VARCHAR} , 
     </if>
     <if test="description != null">
-      DESCRIPTION = #{description,jdbcType=LONGVARCHAR} , 
+      description = #{description,jdbcType=VARCHAR} , 
+    </if>
+    <if test="dispatchtimemax != null">
+      dispatchtimemax = #{dispatchtimemax,jdbcType=DECIMAL} , 
+    </if>
+    <if test="gifticon != null">
+      gifticon = #{gifticon,jdbcType=DECIMAL} , 
+    </if>
+    <if test="hitcount != null">
+      hitcount = #{hitcount,jdbcType=DECIMAL} , 
+    </if>
+    <if test="hitcounter != null">
+      hitcounter = #{hitcounter,jdbcType=VARCHAR} , 
+    </if>
+    <if test="layoutid != null">
+      layoutid = #{layoutid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="themeid != null">
+      themeid = #{themeid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="adult != null">
+      adult = #{adult,jdbcType=DECIMAL} , 
+    </if>
+    <if test="bindingauction != null">
+      bindingauction = #{bindingauction,jdbcType=DECIMAL} , 
+    </if>
+    <if test="checkoutenabled != null">
+      checkoutenabled = #{checkoutenabled,jdbcType=DECIMAL} , 
+    </if>
+    <if test="starttime != null">
+      starttime = #{starttime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="endtime != null">
+      endtime = #{endtime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="viewitemurl != null">
-      VIEWITEMURL = #{viewitemurl,jdbcType=LONGVARCHAR} , 
+      viewitemurl = #{viewitemurl,jdbcType=VARCHAR} , 
     </if>
     <if test="viewitemurlfornaturalsearch != null">
-      VIEWITEMURLFORNATURALSEARCH = #{viewitemurlfornaturalsearch,jdbcType=LONGVARCHAR} , 
+      viewitemurlfornaturalsearch = #{viewitemurlfornaturalsearch,jdbcType=VARCHAR} , 
+    </if>
+    <if test="listingduration != null">
+      listingduration = #{listingduration,jdbcType=VARCHAR} , 
+    </if>
+    <if test="listingtype != null">
+      listingtype = #{listingtype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="location != null">
+      location = #{location,jdbcType=VARCHAR} , 
+    </if>
+    <if test="paypalemailaddress != null">
+      paypalemailaddress = #{paypalemailaddress,jdbcType=VARCHAR} , 
     </if>
     <if test="gallerurl != null">
-      GALLERURL = #{gallerurl,jdbcType=LONGVARCHAR} , 
+      gallerurl = #{gallerurl,jdbcType=VARCHAR} , 
     </if>
     <if test="pictureurl != null">
-      PICTUREURL = #{pictureurl,jdbcType=LONGVARCHAR} , 
+      pictureurl = #{pictureurl,jdbcType=VARCHAR} , 
+    </if>
+    <if test="primarycategoryid != null">
+      primarycategoryid = #{primarycategoryid,jdbcType=VARCHAR} , 
     </if>
     <if test="primarycategoryname != null">
-      PRIMARYCATEGORYNAME = #{primarycategoryname,jdbcType=LONGVARCHAR} , 
+      primarycategoryname = #{primarycategoryname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="quantity != null">
+      quantity = #{quantity,jdbcType=DECIMAL} , 
+    </if>
+    <if test="email != null">
+      email = #{email,jdbcType=VARCHAR} , 
+    </if>
+    <if test="feedbackratingstar != null">
+      feedbackratingstar = #{feedbackratingstar,jdbcType=VARCHAR} , 
+    </if>
+    <if test="feedbackscore != null">
+      feedbackscore = #{feedbackscore,jdbcType=DECIMAL} , 
+    </if>
+    <if test="positivefeedbackpercent != null">
+      positivefeedbackpercent = #{positivefeedbackpercent,jdbcType=DECIMAL} , 
     </if>
     <if test="storeurl != null">
-      STOREURL = #{storeurl,jdbcType=LONGVARCHAR} , 
+      storeurl = #{storeurl,jdbcType=VARCHAR} , 
+    </if>
+    <if test="site != null">
+      site = #{site,jdbcType=VARCHAR} , 
+    </if>
+    <if test="status != null">
+      status = #{status,jdbcType=VARCHAR} , 
+    </if>
+    <if test="userid != null">
+      userid = #{userid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="bidcount != null">
+      bidcount = #{bidcount,jdbcType=DECIMAL} , 
+    </if>
+    <if test="listingstatus != null">
+      listingstatus = #{listingstatus,jdbcType=VARCHAR} , 
+    </if>
+    <if test="quantitysold != null">
+      quantitysold = #{quantitysold,jdbcType=DECIMAL} , 
+    </if>
+    <if test="paymentinstructions != null">
+      paymentinstructions = #{paymentinstructions,jdbcType=VARCHAR} , 
+    </if>
+    <if test="website != null">
+      website = #{website,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sku != null">
+      sku = #{sku,jdbcType=VARCHAR} , 
     </if>
     <if test="title != null">
-      TITLE = #{title,jdbcType=LONGVARCHAR} , 
+      title = #{title,jdbcType=VARCHAR} , 
+    </if>
+    <if test="uuid != null">
+      uuid = #{uuid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="companyname != null">
+      companyname = #{companyname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="cityname != null">
+      cityname = #{cityname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="countryname != null">
+      countryname = #{countryname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="firstname != null">
+      firstname = #{firstname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="lastname != null">
+      lastname = #{lastname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="phone != null">
+      phone = #{phone,jdbcType=VARCHAR} , 
+    </if>
+    <if test="phone2 != null">
+      phone2 = #{phone2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="postalcode != null">
+      postalcode = #{postalcode,jdbcType=VARCHAR} , 
+    </if>
+    <if test="stateorprovince != null">
+      stateorprovince = #{stateorprovince,jdbcType=VARCHAR} , 
     </if>
     <if test="street != null">
-      STREET = #{street,jdbcType=LONGVARCHAR} , 
+      street = #{street,jdbcType=VARCHAR} , 
     </if>
     <if test="street1 != null">
-      STREET1 = #{street1,jdbcType=LONGVARCHAR} , 
+      street1 = #{street1,jdbcType=VARCHAR} , 
     </if>
     <if test="street2 != null">
-      STREET2 = #{street2,jdbcType=LONGVARCHAR}
+      street2 = #{street2,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="sellemail != null">
+      sellemail = #{sellemail,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="calculateflag != null">
+      calculateflag = #{calculateflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="updatetime != null">
+      updatetime = #{updatetime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="itemtype != null">
+      itemtype = #{itemtype,jdbcType=DECIMAL} , 
+    </if>
+    <if test="itemflag != null">
+      itemflag = #{itemflag,jdbcType=DECIMAL} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbItemresultTemp" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbUbicountryMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbUbicountry">
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="COUNTRYCHINA" jdbcType="VARCHAR" property="countrychina" />
+    <result column="COUNTRYENGLISH" jdbcType="VARCHAR" property="countryenglish" />
+    <result column="COUNTRYCODE" jdbcType="VARCHAR" property="countrycode" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbUbicountry">
+    <result column="COUNTRY" jdbcType="LONGVARCHAR" property="country" />
+  </resultMap>
+  <sql id="Blob_Column_List">
+    COUNTRY
+  </sql>
+  <insert id="insert" parameterType="com.bean.model.DbUbicountry">
+    insert into db_ubicountry (ID, COUNTRYCHINA, COUNTRYENGLISH, 
+      COUNTRYCODE, COUNTRY)
+    values (#{id,jdbcType=VARCHAR}, #{countrychina,jdbcType=VARCHAR}, #{countryenglish,jdbcType=VARCHAR}, 
+      #{countrycode,jdbcType=VARCHAR}, #{country,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbUbicountry">
+    insert into db_ubicountry
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="countrychina != null">
+        COUNTRYCHINA,
+      </if>
+      <if test="countryenglish != null">
+        COUNTRYENGLISH,
+      </if>
+      <if test="countrycode != null">
+        COUNTRYCODE,
+      </if>
+      <if test="country != null">
+        COUNTRY,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="countrychina != null">
+        #{countrychina,jdbcType=VARCHAR},
+      </if>
+      <if test="countryenglish != null">
+        #{countryenglish,jdbcType=VARCHAR},
+      </if>
+      <if test="countrycode != null">
+        #{countrycode,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null">
+        #{country,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -11,32 +11,32 @@
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
     <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
     <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
+    <result column="RESERVE4" jdbcType="VARCHAR" property="reserve4" />
     <result column="RESERVE5" jdbcType="DECIMAL" property="reserve5" />
     <result column="RESERVE6" jdbcType="DECIMAL" property="reserve6" />
     <result column="RESERVE7" jdbcType="DECIMAL" property="reserve7" />
     <result column="RESERVE8" jdbcType="DECIMAL" property="reserve8" />
     <result column="RESERVE9" jdbcType="DECIMAL" property="reserve9" />
     <result column="RESERVE10" jdbcType="DECIMAL" property="reserve10" />
-    <result column="RESERVE1" jdbcType="LONGVARCHAR" property="reserve1" />
-    <result column="RESERVE2" jdbcType="LONGVARCHAR" property="reserve2" />
-    <result column="RESERVE3" jdbcType="LONGVARCHAR" property="reserve3" />
-    <result column="RESERVE4" jdbcType="LONGVARCHAR" property="reserve4" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select SID, CATEGORYID, CATEGORY, FLAG, OPENFLAG, OPER, OPERTIME, CREATETIME, CORPID, 
-    RESERVE5, RESERVE6, RESERVE7, RESERVE8, RESERVE9, RESERVE10, RESERVE1, RESERVE2, 
-    RESERVE3, RESERVE4
-    from db_taskcategory
+    RESERVE1, RESERVE2, RESERVE3, RESERVE4, RESERVE5, RESERVE6, RESERVE7, RESERVE8, RESERVE9, 
+    RESERVE10
+    from DB_TASKCATEGORY
     where SID = #{sid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SID, CATEGORYID, CATEGORY, FLAG, OPENFLAG, OPER, OPERTIME, CREATETIME, CORPID, 
-    RESERVE5, RESERVE6, RESERVE7, RESERVE8, RESERVE9, RESERVE10, RESERVE1, RESERVE2, 
-    RESERVE3, RESERVE4
-    from db_taskcategory
+    RESERVE1, RESERVE2, RESERVE3, RESERVE4, RESERVE5, RESERVE6, RESERVE7, RESERVE8, RESERVE9, 
+    RESERVE10
+    from DB_TASKCATEGORY
   </select>
   <sql id="TableName">
-    db_taskcategory
+    DB_TASKCATEGORY
   </sql>
   <sql id="Values">
      #{sid,jdbcType=VARCHAR} , 
@@ -48,16 +48,16 @@
      #{opertime,jdbcType=TIMESTAMP} , 
      #{createtime,jdbcType=TIMESTAMP} , 
      #{corpid,jdbcType=VARCHAR} , 
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+     #{reserve3,jdbcType=VARCHAR} , 
+     #{reserve4,jdbcType=VARCHAR} , 
      #{reserve5,jdbcType=DECIMAL} , 
      #{reserve6,jdbcType=DECIMAL} , 
      #{reserve7,jdbcType=DECIMAL} , 
      #{reserve8,jdbcType=DECIMAL} , 
      #{reserve9,jdbcType=DECIMAL} , 
      #{reserve10,jdbcType=DECIMAL} , 
-     #{reserve1,jdbcType=LONGVARCHAR} , 
-     #{reserve2,jdbcType=LONGVARCHAR} , 
-     #{reserve3,jdbcType=LONGVARCHAR} , 
-     #{reserve4,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     SID , 
@@ -69,136 +69,136 @@
     OPERTIME , 
     CREATETIME , 
     CORPID , 
+    RESERVE1 , 
+    RESERVE2 , 
+    RESERVE3 , 
+    RESERVE4 , 
     RESERVE5 , 
     RESERVE6 , 
     RESERVE7 , 
     RESERVE8 , 
     RESERVE9 , 
     RESERVE10 , 
-    RESERVE1 , 
-    RESERVE2 , 
-    RESERVE3 , 
-    RESERVE4
   </sql>
   <sql id="Criteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} and 
+      sid = #{sid,jdbcType=VARCHAR} and 
     </if>
     <if test="categoryid != null">
-      CATEGORYID = #{categoryid,jdbcType=VARCHAR} and 
+      categoryid = #{categoryid,jdbcType=VARCHAR} and 
     </if>
     <if test="category != null">
-      CATEGORY = #{category,jdbcType=VARCHAR} and 
+      category = #{category,jdbcType=VARCHAR} and 
     </if>
     <if test="flag != null">
-      FLAG = #{flag,jdbcType=DECIMAL} and 
+      flag = #{flag,jdbcType=DECIMAL} and 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=DECIMAL} and 
+      openflag = #{openflag,jdbcType=DECIMAL} and 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
+      oper = #{oper,jdbcType=VARCHAR} and 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="createtime != null">
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP} and 
+      createtime = #{createtime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=DECIMAL} and 
-    </if>
-    <if test="reserve6 != null">
-      RESERVE6 = #{reserve6,jdbcType=DECIMAL} and 
-    </if>
-    <if test="reserve7 != null">
-      RESERVE7 = #{reserve7,jdbcType=DECIMAL} and 
-    </if>
-    <if test="reserve8 != null">
-      RESERVE8 = #{reserve8,jdbcType=DECIMAL} and 
-    </if>
-    <if test="reserve9 != null">
-      RESERVE9 = #{reserve9,jdbcType=DECIMAL} and 
-    </if>
-    <if test="reserve10 != null">
-      RESERVE10 = #{reserve10,jdbcType=DECIMAL} and 
+      corpid = #{corpid,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR} and 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR} and 
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR} and 
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=LONGVARCHAR}
+      reserve4 = #{reserve4,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve6 != null">
+      reserve6 = #{reserve6,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve7 != null">
+      reserve7 = #{reserve7,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve8 != null">
+      reserve8 = #{reserve8,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve9 != null">
+      reserve9 = #{reserve9,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve10 != null">
+      reserve10 = #{reserve10,jdbcType=DECIMAL} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} , 
+      sid = #{sid,jdbcType=VARCHAR} , 
     </if>
     <if test="categoryid != null">
-      CATEGORYID = #{categoryid,jdbcType=VARCHAR} , 
+      categoryid = #{categoryid,jdbcType=VARCHAR} , 
     </if>
     <if test="category != null">
-      CATEGORY = #{category,jdbcType=VARCHAR} , 
+      category = #{category,jdbcType=VARCHAR} , 
     </if>
     <if test="flag != null">
-      FLAG = #{flag,jdbcType=DECIMAL} , 
+      flag = #{flag,jdbcType=DECIMAL} , 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=DECIMAL} , 
+      openflag = #{openflag,jdbcType=DECIMAL} , 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
+      oper = #{oper,jdbcType=VARCHAR} , 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="createtime != null">
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP} , 
+      createtime = #{createtime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=DECIMAL} , 
-    </if>
-    <if test="reserve6 != null">
-      RESERVE6 = #{reserve6,jdbcType=DECIMAL} , 
-    </if>
-    <if test="reserve7 != null">
-      RESERVE7 = #{reserve7,jdbcType=DECIMAL} , 
-    </if>
-    <if test="reserve8 != null">
-      RESERVE8 = #{reserve8,jdbcType=DECIMAL} , 
-    </if>
-    <if test="reserve9 != null">
-      RESERVE9 = #{reserve9,jdbcType=DECIMAL} , 
-    </if>
-    <if test="reserve10 != null">
-      RESERVE10 = #{reserve10,jdbcType=DECIMAL} , 
+      corpid = #{corpid,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR} , 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR} , 
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR} , 
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=LONGVARCHAR}
+      reserve4 = #{reserve4,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve6 != null">
+      reserve6 = #{reserve6,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve7 != null">
+      reserve7 = #{reserve7,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve8 != null">
+      reserve8 = #{reserve8,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve9 != null">
+      reserve9 = #{reserve9,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve10 != null">
+      reserve10 = #{reserve10,jdbcType=DECIMAL} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbTaskcategory" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

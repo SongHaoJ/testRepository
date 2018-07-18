@@ -15,9 +15,13 @@ public class DbFeedback implements Serializable {
 
     private String productid;
 
+    private String productname;
+
     private String feedbacktypeid;
 
     private String feedbacktype;
+
+    private String content;
 
     private Date feedbacktime;
 
@@ -25,13 +29,23 @@ public class DbFeedback implements Serializable {
 
     private String shoptypeid;
 
+    private String shoptype;
+
     private String expresstypeid;
+
+    private String expresstype;
+
+    private String stype;
 
     private String oper;
 
     private Date opertime;
 
+    private String answer;
+
     private String manufactureid;
+
+    private String manufacture;
 
     private BigDecimal money;
 
@@ -63,6 +77,12 @@ public class DbFeedback implements Serializable {
 
     private String status;
 
+    private String reserve1;
+
+    private String reserve2;
+
+    private String reserve3;
+
     private String reserve4;
 
     private String reserve5;
@@ -82,26 +102,6 @@ public class DbFeedback implements Serializable {
     private BigDecimal itemprice;
 
     private String itempricetype;
-
-    private String productname;
-
-    private String content;
-
-    private String shoptype;
-
-    private String expresstype;
-
-    private String stype;
-
-    private String answer;
-
-    private String manufacture;
-
-    private String reserve1;
-
-    private String reserve2;
-
-    private String reserve3;
 
     private static final long serialVersionUID = 1L;
 
@@ -145,6 +145,14 @@ public class DbFeedback implements Serializable {
         this.productid = productid == null ? null : productid.trim();
     }
 
+    public String getProductname() {
+        return productname;
+    }
+
+    public void setProductname(String productname) {
+        this.productname = productname == null ? null : productname.trim();
+    }
+
     public String getFeedbacktypeid() {
         return feedbacktypeid;
     }
@@ -159,6 +167,14 @@ public class DbFeedback implements Serializable {
 
     public void setFeedbacktype(String feedbacktype) {
         this.feedbacktype = feedbacktype == null ? null : feedbacktype.trim();
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content == null ? null : content.trim();
     }
 
     public Date getFeedbacktime() {
@@ -185,12 +201,36 @@ public class DbFeedback implements Serializable {
         this.shoptypeid = shoptypeid == null ? null : shoptypeid.trim();
     }
 
+    public String getShoptype() {
+        return shoptype;
+    }
+
+    public void setShoptype(String shoptype) {
+        this.shoptype = shoptype == null ? null : shoptype.trim();
+    }
+
     public String getExpresstypeid() {
         return expresstypeid;
     }
 
     public void setExpresstypeid(String expresstypeid) {
         this.expresstypeid = expresstypeid == null ? null : expresstypeid.trim();
+    }
+
+    public String getExpresstype() {
+        return expresstype;
+    }
+
+    public void setExpresstype(String expresstype) {
+        this.expresstype = expresstype == null ? null : expresstype.trim();
+    }
+
+    public String getStype() {
+        return stype;
+    }
+
+    public void setStype(String stype) {
+        this.stype = stype == null ? null : stype.trim();
     }
 
     public String getOper() {
@@ -209,12 +249,28 @@ public class DbFeedback implements Serializable {
         this.opertime = opertime;
     }
 
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer == null ? null : answer.trim();
+    }
+
     public String getManufactureid() {
         return manufactureid;
     }
 
     public void setManufactureid(String manufactureid) {
         this.manufactureid = manufactureid == null ? null : manufactureid.trim();
+    }
+
+    public String getManufacture() {
+        return manufacture;
+    }
+
+    public void setManufacture(String manufacture) {
+        this.manufacture = manufacture == null ? null : manufacture.trim();
     }
 
     public BigDecimal getMoney() {
@@ -337,6 +393,30 @@ public class DbFeedback implements Serializable {
         this.status = status == null ? null : status.trim();
     }
 
+    public String getReserve1() {
+        return reserve1;
+    }
+
+    public void setReserve1(String reserve1) {
+        this.reserve1 = reserve1 == null ? null : reserve1.trim();
+    }
+
+    public String getReserve2() {
+        return reserve2;
+    }
+
+    public void setReserve2(String reserve2) {
+        this.reserve2 = reserve2 == null ? null : reserve2.trim();
+    }
+
+    public String getReserve3() {
+        return reserve3;
+    }
+
+    public void setReserve3(String reserve3) {
+        this.reserve3 = reserve3 == null ? null : reserve3.trim();
+    }
+
     public String getReserve4() {
         return reserve4;
     }
@@ -417,86 +497,6 @@ public class DbFeedback implements Serializable {
         this.itempricetype = itempricetype == null ? null : itempricetype.trim();
     }
 
-    public String getProductname() {
-        return productname;
-    }
-
-    public void setProductname(String productname) {
-        this.productname = productname == null ? null : productname.trim();
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content == null ? null : content.trim();
-    }
-
-    public String getShoptype() {
-        return shoptype;
-    }
-
-    public void setShoptype(String shoptype) {
-        this.shoptype = shoptype == null ? null : shoptype.trim();
-    }
-
-    public String getExpresstype() {
-        return expresstype;
-    }
-
-    public void setExpresstype(String expresstype) {
-        this.expresstype = expresstype == null ? null : expresstype.trim();
-    }
-
-    public String getStype() {
-        return stype;
-    }
-
-    public void setStype(String stype) {
-        this.stype = stype == null ? null : stype.trim();
-    }
-
-    public String getAnswer() {
-        return answer;
-    }
-
-    public void setAnswer(String answer) {
-        this.answer = answer == null ? null : answer.trim();
-    }
-
-    public String getManufacture() {
-        return manufacture;
-    }
-
-    public void setManufacture(String manufacture) {
-        this.manufacture = manufacture == null ? null : manufacture.trim();
-    }
-
-    public String getReserve1() {
-        return reserve1;
-    }
-
-    public void setReserve1(String reserve1) {
-        this.reserve1 = reserve1 == null ? null : reserve1.trim();
-    }
-
-    public String getReserve2() {
-        return reserve2;
-    }
-
-    public void setReserve2(String reserve2) {
-        this.reserve2 = reserve2 == null ? null : reserve2.trim();
-    }
-
-    public String getReserve3() {
-        return reserve3;
-    }
-
-    public void setReserve3(String reserve3) {
-        this.reserve3 = reserve3 == null ? null : reserve3.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -514,15 +514,22 @@ public class DbFeedback implements Serializable {
             && (this.getTransactionid() == null ? other.getTransactionid() == null : this.getTransactionid().equals(other.getTransactionid()))
             && (this.getItemid() == null ? other.getItemid() == null : this.getItemid().equals(other.getItemid()))
             && (this.getProductid() == null ? other.getProductid() == null : this.getProductid().equals(other.getProductid()))
+            && (this.getProductname() == null ? other.getProductname() == null : this.getProductname().equals(other.getProductname()))
             && (this.getFeedbacktypeid() == null ? other.getFeedbacktypeid() == null : this.getFeedbacktypeid().equals(other.getFeedbacktypeid()))
             && (this.getFeedbacktype() == null ? other.getFeedbacktype() == null : this.getFeedbacktype().equals(other.getFeedbacktype()))
+            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
             && (this.getFeedbacktime() == null ? other.getFeedbacktime() == null : this.getFeedbacktime().equals(other.getFeedbacktime()))
             && (this.getCreatetime() == null ? other.getCreatetime() == null : this.getCreatetime().equals(other.getCreatetime()))
             && (this.getShoptypeid() == null ? other.getShoptypeid() == null : this.getShoptypeid().equals(other.getShoptypeid()))
+            && (this.getShoptype() == null ? other.getShoptype() == null : this.getShoptype().equals(other.getShoptype()))
             && (this.getExpresstypeid() == null ? other.getExpresstypeid() == null : this.getExpresstypeid().equals(other.getExpresstypeid()))
+            && (this.getExpresstype() == null ? other.getExpresstype() == null : this.getExpresstype().equals(other.getExpresstype()))
+            && (this.getStype() == null ? other.getStype() == null : this.getStype().equals(other.getStype()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
+            && (this.getAnswer() == null ? other.getAnswer() == null : this.getAnswer().equals(other.getAnswer()))
             && (this.getManufactureid() == null ? other.getManufactureid() == null : this.getManufactureid().equals(other.getManufactureid()))
+            && (this.getManufacture() == null ? other.getManufacture() == null : this.getManufacture().equals(other.getManufacture()))
             && (this.getMoney() == null ? other.getMoney() == null : this.getMoney().equals(other.getMoney()))
             && (this.getReturnmoney() == null ? other.getReturnmoney() == null : this.getReturnmoney().equals(other.getReturnmoney()))
             && (this.getPaypalid() == null ? other.getPaypalid() == null : this.getPaypalid().equals(other.getPaypalid()))
@@ -538,6 +545,9 @@ public class DbFeedback implements Serializable {
             && (this.getOrdertime() == null ? other.getOrdertime() == null : this.getOrdertime().equals(other.getOrdertime()))
             && (this.getExpresstime() == null ? other.getExpresstime() == null : this.getExpresstime().equals(other.getExpresstime()))
             && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
+            && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
+            && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
+            && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
             && (this.getReserve4() == null ? other.getReserve4() == null : this.getReserve4().equals(other.getReserve4()))
             && (this.getReserve5() == null ? other.getReserve5() == null : this.getReserve5().equals(other.getReserve5()))
             && (this.getReserve6() == null ? other.getReserve6() == null : this.getReserve6().equals(other.getReserve6()))
@@ -547,17 +557,7 @@ public class DbFeedback implements Serializable {
             && (this.getReserve10() == null ? other.getReserve10() == null : this.getReserve10().equals(other.getReserve10()))
             && (this.getIfreturn() == null ? other.getIfreturn() == null : this.getIfreturn().equals(other.getIfreturn()))
             && (this.getItemprice() == null ? other.getItemprice() == null : this.getItemprice().equals(other.getItemprice()))
-            && (this.getItempricetype() == null ? other.getItempricetype() == null : this.getItempricetype().equals(other.getItempricetype()))
-            && (this.getProductname() == null ? other.getProductname() == null : this.getProductname().equals(other.getProductname()))
-            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
-            && (this.getShoptype() == null ? other.getShoptype() == null : this.getShoptype().equals(other.getShoptype()))
-            && (this.getExpresstype() == null ? other.getExpresstype() == null : this.getExpresstype().equals(other.getExpresstype()))
-            && (this.getStype() == null ? other.getStype() == null : this.getStype().equals(other.getStype()))
-            && (this.getAnswer() == null ? other.getAnswer() == null : this.getAnswer().equals(other.getAnswer()))
-            && (this.getManufacture() == null ? other.getManufacture() == null : this.getManufacture().equals(other.getManufacture()))
-            && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
-            && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
-            && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()));
+            && (this.getItempricetype() == null ? other.getItempricetype() == null : this.getItempricetype().equals(other.getItempricetype()));
     }
 
     @Override
@@ -569,15 +569,22 @@ public class DbFeedback implements Serializable {
         result = prime * result + ((getTransactionid() == null) ? 0 : getTransactionid().hashCode());
         result = prime * result + ((getItemid() == null) ? 0 : getItemid().hashCode());
         result = prime * result + ((getProductid() == null) ? 0 : getProductid().hashCode());
+        result = prime * result + ((getProductname() == null) ? 0 : getProductname().hashCode());
         result = prime * result + ((getFeedbacktypeid() == null) ? 0 : getFeedbacktypeid().hashCode());
         result = prime * result + ((getFeedbacktype() == null) ? 0 : getFeedbacktype().hashCode());
+        result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
         result = prime * result + ((getFeedbacktime() == null) ? 0 : getFeedbacktime().hashCode());
         result = prime * result + ((getCreatetime() == null) ? 0 : getCreatetime().hashCode());
         result = prime * result + ((getShoptypeid() == null) ? 0 : getShoptypeid().hashCode());
+        result = prime * result + ((getShoptype() == null) ? 0 : getShoptype().hashCode());
         result = prime * result + ((getExpresstypeid() == null) ? 0 : getExpresstypeid().hashCode());
+        result = prime * result + ((getExpresstype() == null) ? 0 : getExpresstype().hashCode());
+        result = prime * result + ((getStype() == null) ? 0 : getStype().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
+        result = prime * result + ((getAnswer() == null) ? 0 : getAnswer().hashCode());
         result = prime * result + ((getManufactureid() == null) ? 0 : getManufactureid().hashCode());
+        result = prime * result + ((getManufacture() == null) ? 0 : getManufacture().hashCode());
         result = prime * result + ((getMoney() == null) ? 0 : getMoney().hashCode());
         result = prime * result + ((getReturnmoney() == null) ? 0 : getReturnmoney().hashCode());
         result = prime * result + ((getPaypalid() == null) ? 0 : getPaypalid().hashCode());
@@ -593,6 +600,9 @@ public class DbFeedback implements Serializable {
         result = prime * result + ((getOrdertime() == null) ? 0 : getOrdertime().hashCode());
         result = prime * result + ((getExpresstime() == null) ? 0 : getExpresstime().hashCode());
         result = prime * result + ((getStatus() == null) ? 0 : getStatus().hashCode());
+        result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
+        result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
+        result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
         result = prime * result + ((getReserve4() == null) ? 0 : getReserve4().hashCode());
         result = prime * result + ((getReserve5() == null) ? 0 : getReserve5().hashCode());
         result = prime * result + ((getReserve6() == null) ? 0 : getReserve6().hashCode());
@@ -603,16 +613,6 @@ public class DbFeedback implements Serializable {
         result = prime * result + ((getIfreturn() == null) ? 0 : getIfreturn().hashCode());
         result = prime * result + ((getItemprice() == null) ? 0 : getItemprice().hashCode());
         result = prime * result + ((getItempricetype() == null) ? 0 : getItempricetype().hashCode());
-        result = prime * result + ((getProductname() == null) ? 0 : getProductname().hashCode());
-        result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
-        result = prime * result + ((getShoptype() == null) ? 0 : getShoptype().hashCode());
-        result = prime * result + ((getExpresstype() == null) ? 0 : getExpresstype().hashCode());
-        result = prime * result + ((getStype() == null) ? 0 : getStype().hashCode());
-        result = prime * result + ((getAnswer() == null) ? 0 : getAnswer().hashCode());
-        result = prime * result + ((getManufacture() == null) ? 0 : getManufacture().hashCode());
-        result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
-        result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
-        result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
         return result;
     }
 
@@ -627,15 +627,22 @@ public class DbFeedback implements Serializable {
         sb.append(", transactionid=").append(transactionid);
         sb.append(", itemid=").append(itemid);
         sb.append(", productid=").append(productid);
+        sb.append(", productname=").append(productname);
         sb.append(", feedbacktypeid=").append(feedbacktypeid);
         sb.append(", feedbacktype=").append(feedbacktype);
+        sb.append(", content=").append(content);
         sb.append(", feedbacktime=").append(feedbacktime);
         sb.append(", createtime=").append(createtime);
         sb.append(", shoptypeid=").append(shoptypeid);
+        sb.append(", shoptype=").append(shoptype);
         sb.append(", expresstypeid=").append(expresstypeid);
+        sb.append(", expresstype=").append(expresstype);
+        sb.append(", stype=").append(stype);
         sb.append(", oper=").append(oper);
         sb.append(", opertime=").append(opertime);
+        sb.append(", answer=").append(answer);
         sb.append(", manufactureid=").append(manufactureid);
+        sb.append(", manufacture=").append(manufacture);
         sb.append(", money=").append(money);
         sb.append(", returnmoney=").append(returnmoney);
         sb.append(", paypalid=").append(paypalid);
@@ -651,6 +658,9 @@ public class DbFeedback implements Serializable {
         sb.append(", ordertime=").append(ordertime);
         sb.append(", expresstime=").append(expresstime);
         sb.append(", status=").append(status);
+        sb.append(", reserve1=").append(reserve1);
+        sb.append(", reserve2=").append(reserve2);
+        sb.append(", reserve3=").append(reserve3);
         sb.append(", reserve4=").append(reserve4);
         sb.append(", reserve5=").append(reserve5);
         sb.append(", reserve6=").append(reserve6);
@@ -661,16 +671,6 @@ public class DbFeedback implements Serializable {
         sb.append(", ifreturn=").append(ifreturn);
         sb.append(", itemprice=").append(itemprice);
         sb.append(", itempricetype=").append(itempricetype);
-        sb.append(", productname=").append(productname);
-        sb.append(", content=").append(content);
-        sb.append(", shoptype=").append(shoptype);
-        sb.append(", expresstype=").append(expresstype);
-        sb.append(", stype=").append(stype);
-        sb.append(", answer=").append(answer);
-        sb.append(", manufacture=").append(manufacture);
-        sb.append(", reserve1=").append(reserve1);
-        sb.append(", reserve2=").append(reserve2);
-        sb.append(", reserve3=").append(reserve3);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbPurchase;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbPurchaseMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbPurchase selectByCriteria(DbPurchase DbPurchase);
 
-    int insert(DbPurchase record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbPurchase record);
+    void deleteByCriteria(DbPurchase DbPurchase);
+
+    int insertByCriteria(DbPurchase DbPurchase);
+
+    int updateByCriteria(DbPurchase DbPurchase);
 
     DbPurchase selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbPurchase record);
-
-    int updateByPrimaryKeyWithBLOBs(DbPurchase record);
-
-    int updateByPrimaryKey(DbPurchase record);
+    List<DbPurchase> selectAll();
 }

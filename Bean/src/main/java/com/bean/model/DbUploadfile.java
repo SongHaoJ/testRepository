@@ -21,6 +21,8 @@ public class DbUploadfile implements Serializable {
 
     private BigDecimal smsflag;
 
+    private String fileurl;
+
     private BigDecimal state;
 
     private Date uploadtime;
@@ -30,6 +32,10 @@ public class DbUploadfile implements Serializable {
     private BigDecimal successnum;
 
     private BigDecimal errornum;
+
+    private String successurl;
+
+    private String errorurl;
 
     private Date processtime;
 
@@ -51,15 +57,9 @@ public class DbUploadfile implements Serializable {
 
     private String filetype;
 
-    private String shopitemid;
-
-    private String fileurl;
-
-    private String successurl;
-
-    private String errorurl;
-
     private String descr;
+
+    private String shopitemid;
 
     private static final long serialVersionUID = 1L;
 
@@ -127,6 +127,14 @@ public class DbUploadfile implements Serializable {
         this.smsflag = smsflag;
     }
 
+    public String getFileurl() {
+        return fileurl;
+    }
+
+    public void setFileurl(String fileurl) {
+        this.fileurl = fileurl == null ? null : fileurl.trim();
+    }
+
     public BigDecimal getState() {
         return state;
     }
@@ -165,6 +173,22 @@ public class DbUploadfile implements Serializable {
 
     public void setErrornum(BigDecimal errornum) {
         this.errornum = errornum;
+    }
+
+    public String getSuccessurl() {
+        return successurl;
+    }
+
+    public void setSuccessurl(String successurl) {
+        this.successurl = successurl == null ? null : successurl.trim();
+    }
+
+    public String getErrorurl() {
+        return errorurl;
+    }
+
+    public void setErrorurl(String errorurl) {
+        this.errorurl = errorurl == null ? null : errorurl.trim();
     }
 
     public Date getProcesstime() {
@@ -247,44 +271,20 @@ public class DbUploadfile implements Serializable {
         this.filetype = filetype == null ? null : filetype.trim();
     }
 
-    public String getShopitemid() {
-        return shopitemid;
-    }
-
-    public void setShopitemid(String shopitemid) {
-        this.shopitemid = shopitemid == null ? null : shopitemid.trim();
-    }
-
-    public String getFileurl() {
-        return fileurl;
-    }
-
-    public void setFileurl(String fileurl) {
-        this.fileurl = fileurl == null ? null : fileurl.trim();
-    }
-
-    public String getSuccessurl() {
-        return successurl;
-    }
-
-    public void setSuccessurl(String successurl) {
-        this.successurl = successurl == null ? null : successurl.trim();
-    }
-
-    public String getErrorurl() {
-        return errorurl;
-    }
-
-    public void setErrorurl(String errorurl) {
-        this.errorurl = errorurl == null ? null : errorurl.trim();
-    }
-
     public String getDescr() {
         return descr;
     }
 
     public void setDescr(String descr) {
         this.descr = descr == null ? null : descr.trim();
+    }
+
+    public String getShopitemid() {
+        return shopitemid;
+    }
+
+    public void setShopitemid(String shopitemid) {
+        this.shopitemid = shopitemid == null ? null : shopitemid.trim();
     }
 
     @Override
@@ -307,11 +307,14 @@ public class DbUploadfile implements Serializable {
             && (this.getMobile() == null ? other.getMobile() == null : this.getMobile().equals(other.getMobile()))
             && (this.getGroupid() == null ? other.getGroupid() == null : this.getGroupid().equals(other.getGroupid()))
             && (this.getSmsflag() == null ? other.getSmsflag() == null : this.getSmsflag().equals(other.getSmsflag()))
+            && (this.getFileurl() == null ? other.getFileurl() == null : this.getFileurl().equals(other.getFileurl()))
             && (this.getState() == null ? other.getState() == null : this.getState().equals(other.getState()))
             && (this.getUploadtime() == null ? other.getUploadtime() == null : this.getUploadtime().equals(other.getUploadtime()))
             && (this.getRecordnum() == null ? other.getRecordnum() == null : this.getRecordnum().equals(other.getRecordnum()))
             && (this.getSuccessnum() == null ? other.getSuccessnum() == null : this.getSuccessnum().equals(other.getSuccessnum()))
             && (this.getErrornum() == null ? other.getErrornum() == null : this.getErrornum().equals(other.getErrornum()))
+            && (this.getSuccessurl() == null ? other.getSuccessurl() == null : this.getSuccessurl().equals(other.getSuccessurl()))
+            && (this.getErrorurl() == null ? other.getErrorurl() == null : this.getErrorurl().equals(other.getErrorurl()))
             && (this.getProcesstime() == null ? other.getProcesstime() == null : this.getProcesstime().equals(other.getProcesstime()))
             && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()))
             && (this.getSourcetype() == null ? other.getSourcetype() == null : this.getSourcetype().equals(other.getSourcetype()))
@@ -322,11 +325,8 @@ public class DbUploadfile implements Serializable {
             && (this.getShopid() == null ? other.getShopid() == null : this.getShopid().equals(other.getShopid()))
             && (this.getShopname() == null ? other.getShopname() == null : this.getShopname().equals(other.getShopname()))
             && (this.getFiletype() == null ? other.getFiletype() == null : this.getFiletype().equals(other.getFiletype()))
-            && (this.getShopitemid() == null ? other.getShopitemid() == null : this.getShopitemid().equals(other.getShopitemid()))
-            && (this.getFileurl() == null ? other.getFileurl() == null : this.getFileurl().equals(other.getFileurl()))
-            && (this.getSuccessurl() == null ? other.getSuccessurl() == null : this.getSuccessurl().equals(other.getSuccessurl()))
-            && (this.getErrorurl() == null ? other.getErrorurl() == null : this.getErrorurl().equals(other.getErrorurl()))
-            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()));
+            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
+            && (this.getShopitemid() == null ? other.getShopitemid() == null : this.getShopitemid().equals(other.getShopitemid()));
     }
 
     @Override
@@ -341,11 +341,14 @@ public class DbUploadfile implements Serializable {
         result = prime * result + ((getMobile() == null) ? 0 : getMobile().hashCode());
         result = prime * result + ((getGroupid() == null) ? 0 : getGroupid().hashCode());
         result = prime * result + ((getSmsflag() == null) ? 0 : getSmsflag().hashCode());
+        result = prime * result + ((getFileurl() == null) ? 0 : getFileurl().hashCode());
         result = prime * result + ((getState() == null) ? 0 : getState().hashCode());
         result = prime * result + ((getUploadtime() == null) ? 0 : getUploadtime().hashCode());
         result = prime * result + ((getRecordnum() == null) ? 0 : getRecordnum().hashCode());
         result = prime * result + ((getSuccessnum() == null) ? 0 : getSuccessnum().hashCode());
         result = prime * result + ((getErrornum() == null) ? 0 : getErrornum().hashCode());
+        result = prime * result + ((getSuccessurl() == null) ? 0 : getSuccessurl().hashCode());
+        result = prime * result + ((getErrorurl() == null) ? 0 : getErrorurl().hashCode());
         result = prime * result + ((getProcesstime() == null) ? 0 : getProcesstime().hashCode());
         result = prime * result + ((getCorpid() == null) ? 0 : getCorpid().hashCode());
         result = prime * result + ((getSourcetype() == null) ? 0 : getSourcetype().hashCode());
@@ -356,11 +359,8 @@ public class DbUploadfile implements Serializable {
         result = prime * result + ((getShopid() == null) ? 0 : getShopid().hashCode());
         result = prime * result + ((getShopname() == null) ? 0 : getShopname().hashCode());
         result = prime * result + ((getFiletype() == null) ? 0 : getFiletype().hashCode());
-        result = prime * result + ((getShopitemid() == null) ? 0 : getShopitemid().hashCode());
-        result = prime * result + ((getFileurl() == null) ? 0 : getFileurl().hashCode());
-        result = prime * result + ((getSuccessurl() == null) ? 0 : getSuccessurl().hashCode());
-        result = prime * result + ((getErrorurl() == null) ? 0 : getErrorurl().hashCode());
         result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
+        result = prime * result + ((getShopitemid() == null) ? 0 : getShopitemid().hashCode());
         return result;
     }
 
@@ -378,11 +378,14 @@ public class DbUploadfile implements Serializable {
         sb.append(", mobile=").append(mobile);
         sb.append(", groupid=").append(groupid);
         sb.append(", smsflag=").append(smsflag);
+        sb.append(", fileurl=").append(fileurl);
         sb.append(", state=").append(state);
         sb.append(", uploadtime=").append(uploadtime);
         sb.append(", recordnum=").append(recordnum);
         sb.append(", successnum=").append(successnum);
         sb.append(", errornum=").append(errornum);
+        sb.append(", successurl=").append(successurl);
+        sb.append(", errorurl=").append(errorurl);
         sb.append(", processtime=").append(processtime);
         sb.append(", corpid=").append(corpid);
         sb.append(", sourcetype=").append(sourcetype);
@@ -393,11 +396,8 @@ public class DbUploadfile implements Serializable {
         sb.append(", shopid=").append(shopid);
         sb.append(", shopname=").append(shopname);
         sb.append(", filetype=").append(filetype);
-        sb.append(", shopitemid=").append(shopitemid);
-        sb.append(", fileurl=").append(fileurl);
-        sb.append(", successurl=").append(successurl);
-        sb.append(", errorurl=").append(errorurl);
         sb.append(", descr=").append(descr);
+        sb.append(", shopitemid=").append(shopitemid);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

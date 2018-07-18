@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbProjectskuMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbProjectsku">
+    <id column="SEQUENCEID" jdbcType="DECIMAL" property="sequenceid" />
+    <result column="PROJECTID" jdbcType="DECIMAL" property="projectid" />
+    <result column="SKU" jdbcType="VARCHAR" property="sku" />
+    <result column="SKUTYPE" jdbcType="DECIMAL" property="skutype" />
+    <result column="SID" jdbcType="VARCHAR" property="sid" />
+    <result column="CHECKTIME" jdbcType="TIMESTAMP" property="checktime" />
+    <result column="CHECKFLAG" jdbcType="DECIMAL" property="checkflag" />
+    <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbProjectsku">
+    <result column="IMGURL" jdbcType="LONGVARCHAR" property="imgurl" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SEQUENCEID, PROJECTID, SKU, SKUTYPE, SID, CHECKTIME, CHECKFLAG, CREATETIME
+  </sql>
+  <sql id="Blob_Column_List">
+    IMGURL
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from db_projectsku
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
+    delete from db_projectsku
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.bean.model.DbProjectsku">
+    insert into db_projectsku (SEQUENCEID, PROJECTID, SKU, 
+      SKUTYPE, SID, CHECKTIME, 
+      CHECKFLAG, CREATETIME, IMGURL
+      )
+    values (#{sequenceid,jdbcType=DECIMAL}, #{projectid,jdbcType=DECIMAL}, #{sku,jdbcType=VARCHAR}, 
+      #{skutype,jdbcType=DECIMAL}, #{sid,jdbcType=VARCHAR}, #{checktime,jdbcType=TIMESTAMP}, 
+      #{checkflag,jdbcType=DECIMAL}, #{createtime,jdbcType=TIMESTAMP}, #{imgurl,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbProjectsku">
+    insert into db_projectsku
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        SEQUENCEID,
+      </if>
+      <if test="projectid != null">
+        PROJECTID,
+      </if>
+      <if test="sku != null">
+        SKU,
+      </if>
+      <if test="skutype != null">
+        SKUTYPE,
+      </if>
+      <if test="sid != null">
+        SID,
+      </if>
+      <if test="checktime != null">
+        CHECKTIME,
+      </if>
+      <if test="checkflag != null">
+        CHECKFLAG,
+      </if>
+      <if test="createtime != null">
+        CREATETIME,
+      </if>
+      <if test="imgurl != null">
+        IMGURL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        #{sequenceid,jdbcType=DECIMAL},
+      </if>
+      <if test="projectid != null">
+        #{projectid,jdbcType=DECIMAL},
+      </if>
+      <if test="sku != null">
+        #{sku,jdbcType=VARCHAR},
+      </if>
+      <if test="skutype != null">
+        #{skutype,jdbcType=DECIMAL},
+      </if>
+      <if test="sid != null">
+        #{sid,jdbcType=VARCHAR},
+      </if>
+      <if test="checktime != null">
+        #{checktime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkflag != null">
+        #{checkflag,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="imgurl != null">
+        #{imgurl,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbProjectsku">
+    update db_projectsku
+    <set>
+      <if test="projectid != null">
+        PROJECTID = #{projectid,jdbcType=DECIMAL},
+      </if>
+      <if test="sku != null">
+        SKU = #{sku,jdbcType=VARCHAR},
+      </if>
+      <if test="skutype != null">
+        SKUTYPE = #{skutype,jdbcType=DECIMAL},
+      </if>
+      <if test="sid != null">
+        SID = #{sid,jdbcType=VARCHAR},
+      </if>
+      <if test="checktime != null">
+        CHECKTIME = #{checktime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkflag != null">
+        CHECKFLAG = #{checkflag,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="imgurl != null">
+        IMGURL = #{imgurl,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbProjectsku">
+    update db_projectsku
+    set PROJECTID = #{projectid,jdbcType=DECIMAL},
+      SKU = #{sku,jdbcType=VARCHAR},
+      SKUTYPE = #{skutype,jdbcType=DECIMAL},
+      SID = #{sid,jdbcType=VARCHAR},
+      CHECKTIME = #{checktime,jdbcType=TIMESTAMP},
+      CHECKFLAG = #{checkflag,jdbcType=DECIMAL},
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      IMGURL = #{imgurl,jdbcType=LONGVARCHAR}
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbProjectsku">
+    update db_projectsku
+    set PROJECTID = #{projectid,jdbcType=DECIMAL},
+      SKU = #{sku,jdbcType=VARCHAR},
+      SKUTYPE = #{skutype,jdbcType=DECIMAL},
+      SID = #{sid,jdbcType=VARCHAR},
+      CHECKTIME = #{checktime,jdbcType=TIMESTAMP},
+      CHECKFLAG = #{checkflag,jdbcType=DECIMAL},
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP}
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </update>
+</mapper>

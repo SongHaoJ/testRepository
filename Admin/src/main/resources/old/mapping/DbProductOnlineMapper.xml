@@ -1,0 +1,1063 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbProductOnlineMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbProductOnline">
+    <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
+    <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
+    <result column="SHOPID" jdbcType="VARCHAR" property="shopid" />
+    <result column="SHOPNAME" jdbcType="VARCHAR" property="shopname" />
+    <result column="EBAYSKU" jdbcType="VARCHAR" property="ebaysku" />
+    <result column="EBAYITEMID" jdbcType="VARCHAR" property="ebayitemid" />
+    <result column="PRODUCTID" jdbcType="VARCHAR" property="productid" />
+    <result column="PRODUCTTYPE" jdbcType="VARCHAR" property="producttype" />
+    <result column="UPDATETIME" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="PRICE1" jdbcType="DECIMAL" property="price1" />
+    <result column="PRICE2" jdbcType="DECIMAL" property="price2" />
+    <result column="PRICE3" jdbcType="DECIMAL" property="price3" />
+    <result column="MONEYTYPE" jdbcType="VARCHAR" property="moneytype" />
+    <result column="NUMBER1" jdbcType="DECIMAL" property="number1" />
+    <result column="NUMBER2" jdbcType="DECIMAL" property="number2" />
+    <result column="NUMBER3" jdbcType="DECIMAL" property="number3" />
+    <result column="SELLNUM1" jdbcType="DECIMAL" property="sellnum1" />
+    <result column="SELLNUM2" jdbcType="DECIMAL" property="sellnum2" />
+    <result column="SELLNUM3" jdbcType="DECIMAL" property="sellnum3" />
+    <result column="SELLNUM4" jdbcType="DECIMAL" property="sellnum4" />
+    <result column="SELLNUM5" jdbcType="DECIMAL" property="sellnum5" />
+    <result column="SELLNUM6" jdbcType="DECIMAL" property="sellnum6" />
+    <result column="SELLPRICEONLINE" jdbcType="DECIMAL" property="sellpriceonline" />
+    <result column="EXPRESSPRICEONLINE" jdbcType="DECIMAL" property="expresspriceonline" />
+    <result column="MONEYRATE" jdbcType="DECIMAL" property="moneyrate" />
+    <result column="COSTPRICEONLINE" jdbcType="DECIMAL" property="costpriceonline" />
+    <result column="PRODUCTWEIGHT" jdbcType="DECIMAL" property="productweight" />
+    <result column="PURCHASEOPER" jdbcType="VARCHAR" property="purchaseoper" />
+    <result column="SELLOPER" jdbcType="VARCHAR" property="selloper" />
+    <result column="ITEMNUMBER" jdbcType="DECIMAL" property="itemnumber" />
+    <result column="ITEMNUMBER1" jdbcType="DECIMAL" property="itemnumber1" />
+    <result column="SITE" jdbcType="VARCHAR" property="site" />
+    <result column="COUNTRY" jdbcType="VARCHAR" property="country" />
+    <result column="LOCATION" jdbcType="VARCHAR" property="location" />
+    <result column="PAYMENTMETHOD" jdbcType="VARCHAR" property="paymentmethod" />
+    <result column="CATEGORYID" jdbcType="VARCHAR" property="categoryid" />
+    <result column="CATEGORYNAME" jdbcType="VARCHAR" property="categoryname" />
+    <result column="BRANDID" jdbcType="VARCHAR" property="brandid" />
+    <result column="BRANDNAME" jdbcType="VARCHAR" property="brandname" />
+    <result column="STARTTIME" jdbcType="TIMESTAMP" property="starttime" />
+    <result column="ENDTIME" jdbcType="TIMESTAMP" property="endtime" />
+    <result column="UPDATETIME1" jdbcType="TIMESTAMP" property="updatetime1" />
+    <result column="UPDATETIME2" jdbcType="TIMESTAMP" property="updatetime2" />
+    <result column="CALCULATEOPER" jdbcType="VARCHAR" property="calculateoper" />
+    <result column="CALCULATETIME" jdbcType="TIMESTAMP" property="calculatetime" />
+    <result column="CALCULATEEXPRESSTYPE" jdbcType="VARCHAR" property="calculateexpresstype" />
+    <result column="CALCULATECOUNTRY" jdbcType="VARCHAR" property="calculatecountry" />
+    <result column="CALCULATEDISCOUNT" jdbcType="DECIMAL" property="calculatediscount" />
+    <result column="PROFIT" jdbcType="DECIMAL" property="profit" />
+    <result column="PROFITMARGIN" jdbcType="DECIMAL" property="profitmargin" />
+    <result column="SELLNUM7" jdbcType="DECIMAL" property="sellnum7" />
+    <result column="SELLNUM8" jdbcType="DECIMAL" property="sellnum8" />
+    <result column="SELLNUM9" jdbcType="DECIMAL" property="sellnum9" />
+    <result column="SELLNUM10" jdbcType="DECIMAL" property="sellnum10" />
+    <result column="PRODUCTSAVENUM" jdbcType="DECIMAL" property="productsavenum" />
+    <result column="RESERVE12" jdbcType="DECIMAL" property="reserve12" />
+    <result column="RESERVE13" jdbcType="DECIMAL" property="reserve13" />
+    <result column="RESERVE14" jdbcType="DECIMAL" property="reserve14" />
+    <result column="RESERVE15" jdbcType="DECIMAL" property="reserve15" />
+    <result column="RESERVE16" jdbcType="VARCHAR" property="reserve16" />
+    <result column="RESERVE17" jdbcType="VARCHAR" property="reserve17" />
+    <result column="RESERVE18" jdbcType="VARCHAR" property="reserve18" />
+    <result column="RESERVE19" jdbcType="VARCHAR" property="reserve19" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbProductOnline">
+    <result column="PRODUCTNAME" jdbcType="LONGVARCHAR" property="productname" />
+    <result column="RESERVE1" jdbcType="LONGVARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="LONGVARCHAR" property="reserve2" />
+    <result column="RESERVE3" jdbcType="LONGVARCHAR" property="reserve3" />
+    <result column="PRODUCTNAMEENGLISH" jdbcType="LONGVARCHAR" property="productnameenglish" />
+    <result column="RESERVE4" jdbcType="LONGVARCHAR" property="reserve4" />
+    <result column="PIC1" jdbcType="LONGVARCHAR" property="pic1" />
+    <result column="PIC2" jdbcType="LONGVARCHAR" property="pic2" />
+    <result column="PIC3" jdbcType="LONGVARCHAR" property="pic3" />
+    <result column="PIC4" jdbcType="LONGVARCHAR" property="pic4" />
+    <result column="PIC5" jdbcType="LONGVARCHAR" property="pic5" />
+    <result column="RESERVE5" jdbcType="LONGVARCHAR" property="reserve5" />
+    <result column="RESERVE6" jdbcType="LONGVARCHAR" property="reserve6" />
+    <result column="RESERVE7" jdbcType="LONGVARCHAR" property="reserve7" />
+    <result column="RESERVE8" jdbcType="LONGVARCHAR" property="reserve8" />
+    <result column="RESERVE9" jdbcType="LONGVARCHAR" property="reserve9" />
+    <result column="RESERVE11" jdbcType="LONGVARCHAR" property="reserve11" />
+    <result column="RESERVE10" jdbcType="LONGVARCHAR" property="reserve10" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SEQUENCEID, CORPID, SHOPID, SHOPNAME, EBAYSKU, EBAYITEMID, PRODUCTID, PRODUCTTYPE, 
+    UPDATETIME, PRICE1, PRICE2, PRICE3, MONEYTYPE, NUMBER1, NUMBER2, NUMBER3, SELLNUM1, 
+    SELLNUM2, SELLNUM3, SELLNUM4, SELLNUM5, SELLNUM6, SELLPRICEONLINE, EXPRESSPRICEONLINE, 
+    MONEYRATE, COSTPRICEONLINE, PRODUCTWEIGHT, PURCHASEOPER, SELLOPER, ITEMNUMBER, ITEMNUMBER1, 
+    SITE, COUNTRY, 'LOCATION', PAYMENTMETHOD, CATEGORYID, CATEGORYNAME, BRANDID, BRANDNAME, 
+    STARTTIME, ENDTIME, UPDATETIME1, UPDATETIME2, CALCULATEOPER, CALCULATETIME, CALCULATEEXPRESSTYPE, 
+    CALCULATECOUNTRY, CALCULATEDISCOUNT, PROFIT, PROFITMARGIN, SELLNUM7, SELLNUM8, SELLNUM9, 
+    SELLNUM10, PRODUCTSAVENUM, RESERVE12, RESERVE13, RESERVE14, RESERVE15, RESERVE16, 
+    RESERVE17, RESERVE18, RESERVE19
+  </sql>
+  <sql id="Blob_Column_List">
+    PRODUCTNAME, RESERVE1, RESERVE2, RESERVE3, PRODUCTNAMEENGLISH, RESERVE4, PIC1, PIC2, 
+    PIC3, PIC4, PIC5, RESERVE5, RESERVE6, RESERVE7, RESERVE8, RESERVE9, RESERVE11, RESERVE10
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from db_product_online
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from db_product_online
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bean.model.DbProductOnline">
+    insert into db_product_online (SEQUENCEID, CORPID, SHOPID, 
+      SHOPNAME, EBAYSKU, EBAYITEMID, 
+      PRODUCTID, PRODUCTTYPE, UPDATETIME, 
+      PRICE1, PRICE2, PRICE3, 
+      MONEYTYPE, NUMBER1, NUMBER2, 
+      NUMBER3, SELLNUM1, SELLNUM2, 
+      SELLNUM3, SELLNUM4, SELLNUM5, 
+      SELLNUM6, SELLPRICEONLINE, EXPRESSPRICEONLINE, 
+      MONEYRATE, COSTPRICEONLINE, PRODUCTWEIGHT, 
+      PURCHASEOPER, SELLOPER, ITEMNUMBER, 
+      ITEMNUMBER1, SITE, COUNTRY, 
+      'LOCATION', PAYMENTMETHOD, CATEGORYID, 
+      CATEGORYNAME, BRANDID, BRANDNAME, 
+      STARTTIME, ENDTIME, UPDATETIME1, 
+      UPDATETIME2, CALCULATEOPER, CALCULATETIME, 
+      CALCULATEEXPRESSTYPE, CALCULATECOUNTRY, 
+      CALCULATEDISCOUNT, PROFIT, PROFITMARGIN, 
+      SELLNUM7, SELLNUM8, SELLNUM9, 
+      SELLNUM10, PRODUCTSAVENUM, RESERVE12, 
+      RESERVE13, RESERVE14, RESERVE15, 
+      RESERVE16, RESERVE17, RESERVE18, 
+      RESERVE19, PRODUCTNAME, RESERVE1, 
+      RESERVE2, RESERVE3, PRODUCTNAMEENGLISH, 
+      RESERVE4, PIC1, PIC2, 
+      PIC3, PIC4, PIC5, 
+      RESERVE5, RESERVE6, RESERVE7, 
+      RESERVE8, RESERVE9, RESERVE11, 
+      RESERVE10)
+    values (#{sequenceid,jdbcType=VARCHAR}, #{corpid,jdbcType=VARCHAR}, #{shopid,jdbcType=VARCHAR}, 
+      #{shopname,jdbcType=VARCHAR}, #{ebaysku,jdbcType=VARCHAR}, #{ebayitemid,jdbcType=VARCHAR}, 
+      #{productid,jdbcType=VARCHAR}, #{producttype,jdbcType=VARCHAR}, #{updatetime,jdbcType=TIMESTAMP}, 
+      #{price1,jdbcType=DECIMAL}, #{price2,jdbcType=DECIMAL}, #{price3,jdbcType=DECIMAL}, 
+      #{moneytype,jdbcType=VARCHAR}, #{number1,jdbcType=DECIMAL}, #{number2,jdbcType=DECIMAL}, 
+      #{number3,jdbcType=DECIMAL}, #{sellnum1,jdbcType=DECIMAL}, #{sellnum2,jdbcType=DECIMAL}, 
+      #{sellnum3,jdbcType=DECIMAL}, #{sellnum4,jdbcType=DECIMAL}, #{sellnum5,jdbcType=DECIMAL}, 
+      #{sellnum6,jdbcType=DECIMAL}, #{sellpriceonline,jdbcType=DECIMAL}, #{expresspriceonline,jdbcType=DECIMAL}, 
+      #{moneyrate,jdbcType=DECIMAL}, #{costpriceonline,jdbcType=DECIMAL}, #{productweight,jdbcType=DECIMAL}, 
+      #{purchaseoper,jdbcType=VARCHAR}, #{selloper,jdbcType=VARCHAR}, #{itemnumber,jdbcType=DECIMAL}, 
+      #{itemnumber1,jdbcType=DECIMAL}, #{site,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, 
+      #{location,jdbcType=VARCHAR}, #{paymentmethod,jdbcType=VARCHAR}, #{categoryid,jdbcType=VARCHAR}, 
+      #{categoryname,jdbcType=VARCHAR}, #{brandid,jdbcType=VARCHAR}, #{brandname,jdbcType=VARCHAR}, 
+      #{starttime,jdbcType=TIMESTAMP}, #{endtime,jdbcType=TIMESTAMP}, #{updatetime1,jdbcType=TIMESTAMP}, 
+      #{updatetime2,jdbcType=TIMESTAMP}, #{calculateoper,jdbcType=VARCHAR}, #{calculatetime,jdbcType=TIMESTAMP}, 
+      #{calculateexpresstype,jdbcType=VARCHAR}, #{calculatecountry,jdbcType=VARCHAR}, 
+      #{calculatediscount,jdbcType=DECIMAL}, #{profit,jdbcType=DECIMAL}, #{profitmargin,jdbcType=DECIMAL}, 
+      #{sellnum7,jdbcType=DECIMAL}, #{sellnum8,jdbcType=DECIMAL}, #{sellnum9,jdbcType=DECIMAL}, 
+      #{sellnum10,jdbcType=DECIMAL}, #{productsavenum,jdbcType=DECIMAL}, #{reserve12,jdbcType=DECIMAL}, 
+      #{reserve13,jdbcType=DECIMAL}, #{reserve14,jdbcType=DECIMAL}, #{reserve15,jdbcType=DECIMAL}, 
+      #{reserve16,jdbcType=VARCHAR}, #{reserve17,jdbcType=VARCHAR}, #{reserve18,jdbcType=VARCHAR}, 
+      #{reserve19,jdbcType=VARCHAR}, #{productname,jdbcType=LONGVARCHAR}, #{reserve1,jdbcType=LONGVARCHAR}, 
+      #{reserve2,jdbcType=LONGVARCHAR}, #{reserve3,jdbcType=LONGVARCHAR}, #{productnameenglish,jdbcType=LONGVARCHAR}, 
+      #{reserve4,jdbcType=LONGVARCHAR}, #{pic1,jdbcType=LONGVARCHAR}, #{pic2,jdbcType=LONGVARCHAR}, 
+      #{pic3,jdbcType=LONGVARCHAR}, #{pic4,jdbcType=LONGVARCHAR}, #{pic5,jdbcType=LONGVARCHAR}, 
+      #{reserve5,jdbcType=LONGVARCHAR}, #{reserve6,jdbcType=LONGVARCHAR}, #{reserve7,jdbcType=LONGVARCHAR}, 
+      #{reserve8,jdbcType=LONGVARCHAR}, #{reserve9,jdbcType=LONGVARCHAR}, #{reserve11,jdbcType=LONGVARCHAR}, 
+      #{reserve10,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbProductOnline">
+    insert into db_product_online
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        SEQUENCEID,
+      </if>
+      <if test="corpid != null">
+        CORPID,
+      </if>
+      <if test="shopid != null">
+        SHOPID,
+      </if>
+      <if test="shopname != null">
+        SHOPNAME,
+      </if>
+      <if test="ebaysku != null">
+        EBAYSKU,
+      </if>
+      <if test="ebayitemid != null">
+        EBAYITEMID,
+      </if>
+      <if test="productid != null">
+        PRODUCTID,
+      </if>
+      <if test="producttype != null">
+        PRODUCTTYPE,
+      </if>
+      <if test="updatetime != null">
+        UPDATETIME,
+      </if>
+      <if test="price1 != null">
+        PRICE1,
+      </if>
+      <if test="price2 != null">
+        PRICE2,
+      </if>
+      <if test="price3 != null">
+        PRICE3,
+      </if>
+      <if test="moneytype != null">
+        MONEYTYPE,
+      </if>
+      <if test="number1 != null">
+        NUMBER1,
+      </if>
+      <if test="number2 != null">
+        NUMBER2,
+      </if>
+      <if test="number3 != null">
+        NUMBER3,
+      </if>
+      <if test="sellnum1 != null">
+        SELLNUM1,
+      </if>
+      <if test="sellnum2 != null">
+        SELLNUM2,
+      </if>
+      <if test="sellnum3 != null">
+        SELLNUM3,
+      </if>
+      <if test="sellnum4 != null">
+        SELLNUM4,
+      </if>
+      <if test="sellnum5 != null">
+        SELLNUM5,
+      </if>
+      <if test="sellnum6 != null">
+        SELLNUM6,
+      </if>
+      <if test="sellpriceonline != null">
+        SELLPRICEONLINE,
+      </if>
+      <if test="expresspriceonline != null">
+        EXPRESSPRICEONLINE,
+      </if>
+      <if test="moneyrate != null">
+        MONEYRATE,
+      </if>
+      <if test="costpriceonline != null">
+        COSTPRICEONLINE,
+      </if>
+      <if test="productweight != null">
+        PRODUCTWEIGHT,
+      </if>
+      <if test="purchaseoper != null">
+        PURCHASEOPER,
+      </if>
+      <if test="selloper != null">
+        SELLOPER,
+      </if>
+      <if test="itemnumber != null">
+        ITEMNUMBER,
+      </if>
+      <if test="itemnumber1 != null">
+        ITEMNUMBER1,
+      </if>
+      <if test="site != null">
+        SITE,
+      </if>
+      <if test="country != null">
+        COUNTRY,
+      </if>
+      <if test="location != null">
+        'LOCATION',
+      </if>
+      <if test="paymentmethod != null">
+        PAYMENTMETHOD,
+      </if>
+      <if test="categoryid != null">
+        CATEGORYID,
+      </if>
+      <if test="categoryname != null">
+        CATEGORYNAME,
+      </if>
+      <if test="brandid != null">
+        BRANDID,
+      </if>
+      <if test="brandname != null">
+        BRANDNAME,
+      </if>
+      <if test="starttime != null">
+        STARTTIME,
+      </if>
+      <if test="endtime != null">
+        ENDTIME,
+      </if>
+      <if test="updatetime1 != null">
+        UPDATETIME1,
+      </if>
+      <if test="updatetime2 != null">
+        UPDATETIME2,
+      </if>
+      <if test="calculateoper != null">
+        CALCULATEOPER,
+      </if>
+      <if test="calculatetime != null">
+        CALCULATETIME,
+      </if>
+      <if test="calculateexpresstype != null">
+        CALCULATEEXPRESSTYPE,
+      </if>
+      <if test="calculatecountry != null">
+        CALCULATECOUNTRY,
+      </if>
+      <if test="calculatediscount != null">
+        CALCULATEDISCOUNT,
+      </if>
+      <if test="profit != null">
+        PROFIT,
+      </if>
+      <if test="profitmargin != null">
+        PROFITMARGIN,
+      </if>
+      <if test="sellnum7 != null">
+        SELLNUM7,
+      </if>
+      <if test="sellnum8 != null">
+        SELLNUM8,
+      </if>
+      <if test="sellnum9 != null">
+        SELLNUM9,
+      </if>
+      <if test="sellnum10 != null">
+        SELLNUM10,
+      </if>
+      <if test="productsavenum != null">
+        PRODUCTSAVENUM,
+      </if>
+      <if test="reserve12 != null">
+        RESERVE12,
+      </if>
+      <if test="reserve13 != null">
+        RESERVE13,
+      </if>
+      <if test="reserve14 != null">
+        RESERVE14,
+      </if>
+      <if test="reserve15 != null">
+        RESERVE15,
+      </if>
+      <if test="reserve16 != null">
+        RESERVE16,
+      </if>
+      <if test="reserve17 != null">
+        RESERVE17,
+      </if>
+      <if test="reserve18 != null">
+        RESERVE18,
+      </if>
+      <if test="reserve19 != null">
+        RESERVE19,
+      </if>
+      <if test="productname != null">
+        PRODUCTNAME,
+      </if>
+      <if test="reserve1 != null">
+        RESERVE1,
+      </if>
+      <if test="reserve2 != null">
+        RESERVE2,
+      </if>
+      <if test="reserve3 != null">
+        RESERVE3,
+      </if>
+      <if test="productnameenglish != null">
+        PRODUCTNAMEENGLISH,
+      </if>
+      <if test="reserve4 != null">
+        RESERVE4,
+      </if>
+      <if test="pic1 != null">
+        PIC1,
+      </if>
+      <if test="pic2 != null">
+        PIC2,
+      </if>
+      <if test="pic3 != null">
+        PIC3,
+      </if>
+      <if test="pic4 != null">
+        PIC4,
+      </if>
+      <if test="pic5 != null">
+        PIC5,
+      </if>
+      <if test="reserve5 != null">
+        RESERVE5,
+      </if>
+      <if test="reserve6 != null">
+        RESERVE6,
+      </if>
+      <if test="reserve7 != null">
+        RESERVE7,
+      </if>
+      <if test="reserve8 != null">
+        RESERVE8,
+      </if>
+      <if test="reserve9 != null">
+        RESERVE9,
+      </if>
+      <if test="reserve11 != null">
+        RESERVE11,
+      </if>
+      <if test="reserve10 != null">
+        RESERVE10,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        #{sequenceid,jdbcType=VARCHAR},
+      </if>
+      <if test="corpid != null">
+        #{corpid,jdbcType=VARCHAR},
+      </if>
+      <if test="shopid != null">
+        #{shopid,jdbcType=VARCHAR},
+      </if>
+      <if test="shopname != null">
+        #{shopname,jdbcType=VARCHAR},
+      </if>
+      <if test="ebaysku != null">
+        #{ebaysku,jdbcType=VARCHAR},
+      </if>
+      <if test="ebayitemid != null">
+        #{ebayitemid,jdbcType=VARCHAR},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="producttype != null">
+        #{producttype,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="price1 != null">
+        #{price1,jdbcType=DECIMAL},
+      </if>
+      <if test="price2 != null">
+        #{price2,jdbcType=DECIMAL},
+      </if>
+      <if test="price3 != null">
+        #{price3,jdbcType=DECIMAL},
+      </if>
+      <if test="moneytype != null">
+        #{moneytype,jdbcType=VARCHAR},
+      </if>
+      <if test="number1 != null">
+        #{number1,jdbcType=DECIMAL},
+      </if>
+      <if test="number2 != null">
+        #{number2,jdbcType=DECIMAL},
+      </if>
+      <if test="number3 != null">
+        #{number3,jdbcType=DECIMAL},
+      </if>
+      <if test="sellnum1 != null">
+        #{sellnum1,jdbcType=DECIMAL},
+      </if>
+      <if test="sellnum2 != null">
+        #{sellnum2,jdbcType=DECIMAL},
+      </if>
+      <if test="sellnum3 != null">
+        #{sellnum3,jdbcType=DECIMAL},
+      </if>
+      <if test="sellnum4 != null">
+        #{sellnum4,jdbcType=DECIMAL},
+      </if>
+      <if test="sellnum5 != null">
+        #{sellnum5,jdbcType=DECIMAL},
+      </if>
+      <if test="sellnum6 != null">
+        #{sellnum6,jdbcType=DECIMAL},
+      </if>
+      <if test="sellpriceonline != null">
+        #{sellpriceonline,jdbcType=DECIMAL},
+      </if>
+      <if test="expresspriceonline != null">
+        #{expresspriceonline,jdbcType=DECIMAL},
+      </if>
+      <if test="moneyrate != null">
+        #{moneyrate,jdbcType=DECIMAL},
+      </if>
+      <if test="costpriceonline != null">
+        #{costpriceonline,jdbcType=DECIMAL},
+      </if>
+      <if test="productweight != null">
+        #{productweight,jdbcType=DECIMAL},
+      </if>
+      <if test="purchaseoper != null">
+        #{purchaseoper,jdbcType=VARCHAR},
+      </if>
+      <if test="selloper != null">
+        #{selloper,jdbcType=VARCHAR},
+      </if>
+      <if test="itemnumber != null">
+        #{itemnumber,jdbcType=DECIMAL},
+      </if>
+      <if test="itemnumber1 != null">
+        #{itemnumber1,jdbcType=DECIMAL},
+      </if>
+      <if test="site != null">
+        #{site,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null">
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="location != null">
+        #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentmethod != null">
+        #{paymentmethod,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryid != null">
+        #{categoryid,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryname != null">
+        #{categoryname,jdbcType=VARCHAR},
+      </if>
+      <if test="brandid != null">
+        #{brandid,jdbcType=VARCHAR},
+      </if>
+      <if test="brandname != null">
+        #{brandname,jdbcType=VARCHAR},
+      </if>
+      <if test="starttime != null">
+        #{starttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null">
+        #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime1 != null">
+        #{updatetime1,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime2 != null">
+        #{updatetime2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="calculateoper != null">
+        #{calculateoper,jdbcType=VARCHAR},
+      </if>
+      <if test="calculatetime != null">
+        #{calculatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="calculateexpresstype != null">
+        #{calculateexpresstype,jdbcType=VARCHAR},
+      </if>
+      <if test="calculatecountry != null">
+        #{calculatecountry,jdbcType=VARCHAR},
+      </if>
+      <if test="calculatediscount != null">
+        #{calculatediscount,jdbcType=DECIMAL},
+      </if>
+      <if test="profit != null">
+        #{profit,jdbcType=DECIMAL},
+      </if>
+      <if test="profitmargin != null">
+        #{profitmargin,jdbcType=DECIMAL},
+      </if>
+      <if test="sellnum7 != null">
+        #{sellnum7,jdbcType=DECIMAL},
+      </if>
+      <if test="sellnum8 != null">
+        #{sellnum8,jdbcType=DECIMAL},
+      </if>
+      <if test="sellnum9 != null">
+        #{sellnum9,jdbcType=DECIMAL},
+      </if>
+      <if test="sellnum10 != null">
+        #{sellnum10,jdbcType=DECIMAL},
+      </if>
+      <if test="productsavenum != null">
+        #{productsavenum,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve12 != null">
+        #{reserve12,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve13 != null">
+        #{reserve13,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve14 != null">
+        #{reserve14,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve15 != null">
+        #{reserve15,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve16 != null">
+        #{reserve16,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve17 != null">
+        #{reserve17,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve18 != null">
+        #{reserve18,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve19 != null">
+        #{reserve19,jdbcType=VARCHAR},
+      </if>
+      <if test="productname != null">
+        #{productname,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reserve1 != null">
+        #{reserve1,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reserve2 != null">
+        #{reserve2,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reserve3 != null">
+        #{reserve3,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="productnameenglish != null">
+        #{productnameenglish,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reserve4 != null">
+        #{reserve4,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="pic1 != null">
+        #{pic1,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="pic2 != null">
+        #{pic2,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="pic3 != null">
+        #{pic3,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="pic4 != null">
+        #{pic4,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="pic5 != null">
+        #{pic5,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reserve5 != null">
+        #{reserve5,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reserve6 != null">
+        #{reserve6,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reserve7 != null">
+        #{reserve7,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reserve8 != null">
+        #{reserve8,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reserve9 != null">
+        #{reserve9,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reserve11 != null">
+        #{reserve11,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reserve10 != null">
+        #{reserve10,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbProductOnline">
+    update db_product_online
+    <set>
+      <if test="corpid != null">
+        CORPID = #{corpid,jdbcType=VARCHAR},
+      </if>
+      <if test="shopid != null">
+        SHOPID = #{shopid,jdbcType=VARCHAR},
+      </if>
+      <if test="shopname != null">
+        SHOPNAME = #{shopname,jdbcType=VARCHAR},
+      </if>
+      <if test="ebaysku != null">
+        EBAYSKU = #{ebaysku,jdbcType=VARCHAR},
+      </if>
+      <if test="ebayitemid != null">
+        EBAYITEMID = #{ebayitemid,jdbcType=VARCHAR},
+      </if>
+      <if test="productid != null">
+        PRODUCTID = #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="producttype != null">
+        PRODUCTTYPE = #{producttype,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null">
+        UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="price1 != null">
+        PRICE1 = #{price1,jdbcType=DECIMAL},
+      </if>
+      <if test="price2 != null">
+        PRICE2 = #{price2,jdbcType=DECIMAL},
+      </if>
+      <if test="price3 != null">
+        PRICE3 = #{price3,jdbcType=DECIMAL},
+      </if>
+      <if test="moneytype != null">
+        MONEYTYPE = #{moneytype,jdbcType=VARCHAR},
+      </if>
+      <if test="number1 != null">
+        NUMBER1 = #{number1,jdbcType=DECIMAL},
+      </if>
+      <if test="number2 != null">
+        NUMBER2 = #{number2,jdbcType=DECIMAL},
+      </if>
+      <if test="number3 != null">
+        NUMBER3 = #{number3,jdbcType=DECIMAL},
+      </if>
+      <if test="sellnum1 != null">
+        SELLNUM1 = #{sellnum1,jdbcType=DECIMAL},
+      </if>
+      <if test="sellnum2 != null">
+        SELLNUM2 = #{sellnum2,jdbcType=DECIMAL},
+      </if>
+      <if test="sellnum3 != null">
+        SELLNUM3 = #{sellnum3,jdbcType=DECIMAL},
+      </if>
+      <if test="sellnum4 != null">
+        SELLNUM4 = #{sellnum4,jdbcType=DECIMAL},
+      </if>
+      <if test="sellnum5 != null">
+        SELLNUM5 = #{sellnum5,jdbcType=DECIMAL},
+      </if>
+      <if test="sellnum6 != null">
+        SELLNUM6 = #{sellnum6,jdbcType=DECIMAL},
+      </if>
+      <if test="sellpriceonline != null">
+        SELLPRICEONLINE = #{sellpriceonline,jdbcType=DECIMAL},
+      </if>
+      <if test="expresspriceonline != null">
+        EXPRESSPRICEONLINE = #{expresspriceonline,jdbcType=DECIMAL},
+      </if>
+      <if test="moneyrate != null">
+        MONEYRATE = #{moneyrate,jdbcType=DECIMAL},
+      </if>
+      <if test="costpriceonline != null">
+        COSTPRICEONLINE = #{costpriceonline,jdbcType=DECIMAL},
+      </if>
+      <if test="productweight != null">
+        PRODUCTWEIGHT = #{productweight,jdbcType=DECIMAL},
+      </if>
+      <if test="purchaseoper != null">
+        PURCHASEOPER = #{purchaseoper,jdbcType=VARCHAR},
+      </if>
+      <if test="selloper != null">
+        SELLOPER = #{selloper,jdbcType=VARCHAR},
+      </if>
+      <if test="itemnumber != null">
+        ITEMNUMBER = #{itemnumber,jdbcType=DECIMAL},
+      </if>
+      <if test="itemnumber1 != null">
+        ITEMNUMBER1 = #{itemnumber1,jdbcType=DECIMAL},
+      </if>
+      <if test="site != null">
+        SITE = #{site,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null">
+        COUNTRY = #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="location != null">
+        'LOCATION' = #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentmethod != null">
+        PAYMENTMETHOD = #{paymentmethod,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryid != null">
+        CATEGORYID = #{categoryid,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryname != null">
+        CATEGORYNAME = #{categoryname,jdbcType=VARCHAR},
+      </if>
+      <if test="brandid != null">
+        BRANDID = #{brandid,jdbcType=VARCHAR},
+      </if>
+      <if test="brandname != null">
+        BRANDNAME = #{brandname,jdbcType=VARCHAR},
+      </if>
+      <if test="starttime != null">
+        STARTTIME = #{starttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null">
+        ENDTIME = #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime1 != null">
+        UPDATETIME1 = #{updatetime1,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime2 != null">
+        UPDATETIME2 = #{updatetime2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="calculateoper != null">
+        CALCULATEOPER = #{calculateoper,jdbcType=VARCHAR},
+      </if>
+      <if test="calculatetime != null">
+        CALCULATETIME = #{calculatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="calculateexpresstype != null">
+        CALCULATEEXPRESSTYPE = #{calculateexpresstype,jdbcType=VARCHAR},
+      </if>
+      <if test="calculatecountry != null">
+        CALCULATECOUNTRY = #{calculatecountry,jdbcType=VARCHAR},
+      </if>
+      <if test="calculatediscount != null">
+        CALCULATEDISCOUNT = #{calculatediscount,jdbcType=DECIMAL},
+      </if>
+      <if test="profit != null">
+        PROFIT = #{profit,jdbcType=DECIMAL},
+      </if>
+      <if test="profitmargin != null">
+        PROFITMARGIN = #{profitmargin,jdbcType=DECIMAL},
+      </if>
+      <if test="sellnum7 != null">
+        SELLNUM7 = #{sellnum7,jdbcType=DECIMAL},
+      </if>
+      <if test="sellnum8 != null">
+        SELLNUM8 = #{sellnum8,jdbcType=DECIMAL},
+      </if>
+      <if test="sellnum9 != null">
+        SELLNUM9 = #{sellnum9,jdbcType=DECIMAL},
+      </if>
+      <if test="sellnum10 != null">
+        SELLNUM10 = #{sellnum10,jdbcType=DECIMAL},
+      </if>
+      <if test="productsavenum != null">
+        PRODUCTSAVENUM = #{productsavenum,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve12 != null">
+        RESERVE12 = #{reserve12,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve13 != null">
+        RESERVE13 = #{reserve13,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve14 != null">
+        RESERVE14 = #{reserve14,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve15 != null">
+        RESERVE15 = #{reserve15,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve16 != null">
+        RESERVE16 = #{reserve16,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve17 != null">
+        RESERVE17 = #{reserve17,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve18 != null">
+        RESERVE18 = #{reserve18,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve19 != null">
+        RESERVE19 = #{reserve19,jdbcType=VARCHAR},
+      </if>
+      <if test="productname != null">
+        PRODUCTNAME = #{productname,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reserve1 != null">
+        RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reserve2 != null">
+        RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reserve3 != null">
+        RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="productnameenglish != null">
+        PRODUCTNAMEENGLISH = #{productnameenglish,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reserve4 != null">
+        RESERVE4 = #{reserve4,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="pic1 != null">
+        PIC1 = #{pic1,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="pic2 != null">
+        PIC2 = #{pic2,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="pic3 != null">
+        PIC3 = #{pic3,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="pic4 != null">
+        PIC4 = #{pic4,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="pic5 != null">
+        PIC5 = #{pic5,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reserve5 != null">
+        RESERVE5 = #{reserve5,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reserve6 != null">
+        RESERVE6 = #{reserve6,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reserve7 != null">
+        RESERVE7 = #{reserve7,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reserve8 != null">
+        RESERVE8 = #{reserve8,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reserve9 != null">
+        RESERVE9 = #{reserve9,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reserve11 != null">
+        RESERVE11 = #{reserve11,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reserve10 != null">
+        RESERVE10 = #{reserve10,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbProductOnline">
+    update db_product_online
+    set CORPID = #{corpid,jdbcType=VARCHAR},
+      SHOPID = #{shopid,jdbcType=VARCHAR},
+      SHOPNAME = #{shopname,jdbcType=VARCHAR},
+      EBAYSKU = #{ebaysku,jdbcType=VARCHAR},
+      EBAYITEMID = #{ebayitemid,jdbcType=VARCHAR},
+      PRODUCTID = #{productid,jdbcType=VARCHAR},
+      PRODUCTTYPE = #{producttype,jdbcType=VARCHAR},
+      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
+      PRICE1 = #{price1,jdbcType=DECIMAL},
+      PRICE2 = #{price2,jdbcType=DECIMAL},
+      PRICE3 = #{price3,jdbcType=DECIMAL},
+      MONEYTYPE = #{moneytype,jdbcType=VARCHAR},
+      NUMBER1 = #{number1,jdbcType=DECIMAL},
+      NUMBER2 = #{number2,jdbcType=DECIMAL},
+      NUMBER3 = #{number3,jdbcType=DECIMAL},
+      SELLNUM1 = #{sellnum1,jdbcType=DECIMAL},
+      SELLNUM2 = #{sellnum2,jdbcType=DECIMAL},
+      SELLNUM3 = #{sellnum3,jdbcType=DECIMAL},
+      SELLNUM4 = #{sellnum4,jdbcType=DECIMAL},
+      SELLNUM5 = #{sellnum5,jdbcType=DECIMAL},
+      SELLNUM6 = #{sellnum6,jdbcType=DECIMAL},
+      SELLPRICEONLINE = #{sellpriceonline,jdbcType=DECIMAL},
+      EXPRESSPRICEONLINE = #{expresspriceonline,jdbcType=DECIMAL},
+      MONEYRATE = #{moneyrate,jdbcType=DECIMAL},
+      COSTPRICEONLINE = #{costpriceonline,jdbcType=DECIMAL},
+      PRODUCTWEIGHT = #{productweight,jdbcType=DECIMAL},
+      PURCHASEOPER = #{purchaseoper,jdbcType=VARCHAR},
+      SELLOPER = #{selloper,jdbcType=VARCHAR},
+      ITEMNUMBER = #{itemnumber,jdbcType=DECIMAL},
+      ITEMNUMBER1 = #{itemnumber1,jdbcType=DECIMAL},
+      SITE = #{site,jdbcType=VARCHAR},
+      COUNTRY = #{country,jdbcType=VARCHAR},
+      'LOCATION' = #{location,jdbcType=VARCHAR},
+      PAYMENTMETHOD = #{paymentmethod,jdbcType=VARCHAR},
+      CATEGORYID = #{categoryid,jdbcType=VARCHAR},
+      CATEGORYNAME = #{categoryname,jdbcType=VARCHAR},
+      BRANDID = #{brandid,jdbcType=VARCHAR},
+      BRANDNAME = #{brandname,jdbcType=VARCHAR},
+      STARTTIME = #{starttime,jdbcType=TIMESTAMP},
+      ENDTIME = #{endtime,jdbcType=TIMESTAMP},
+      UPDATETIME1 = #{updatetime1,jdbcType=TIMESTAMP},
+      UPDATETIME2 = #{updatetime2,jdbcType=TIMESTAMP},
+      CALCULATEOPER = #{calculateoper,jdbcType=VARCHAR},
+      CALCULATETIME = #{calculatetime,jdbcType=TIMESTAMP},
+      CALCULATEEXPRESSTYPE = #{calculateexpresstype,jdbcType=VARCHAR},
+      CALCULATECOUNTRY = #{calculatecountry,jdbcType=VARCHAR},
+      CALCULATEDISCOUNT = #{calculatediscount,jdbcType=DECIMAL},
+      PROFIT = #{profit,jdbcType=DECIMAL},
+      PROFITMARGIN = #{profitmargin,jdbcType=DECIMAL},
+      SELLNUM7 = #{sellnum7,jdbcType=DECIMAL},
+      SELLNUM8 = #{sellnum8,jdbcType=DECIMAL},
+      SELLNUM9 = #{sellnum9,jdbcType=DECIMAL},
+      SELLNUM10 = #{sellnum10,jdbcType=DECIMAL},
+      PRODUCTSAVENUM = #{productsavenum,jdbcType=DECIMAL},
+      RESERVE12 = #{reserve12,jdbcType=DECIMAL},
+      RESERVE13 = #{reserve13,jdbcType=DECIMAL},
+      RESERVE14 = #{reserve14,jdbcType=DECIMAL},
+      RESERVE15 = #{reserve15,jdbcType=DECIMAL},
+      RESERVE16 = #{reserve16,jdbcType=VARCHAR},
+      RESERVE17 = #{reserve17,jdbcType=VARCHAR},
+      RESERVE18 = #{reserve18,jdbcType=VARCHAR},
+      RESERVE19 = #{reserve19,jdbcType=VARCHAR},
+      PRODUCTNAME = #{productname,jdbcType=LONGVARCHAR},
+      RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR},
+      RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR},
+      RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR},
+      PRODUCTNAMEENGLISH = #{productnameenglish,jdbcType=LONGVARCHAR},
+      RESERVE4 = #{reserve4,jdbcType=LONGVARCHAR},
+      PIC1 = #{pic1,jdbcType=LONGVARCHAR},
+      PIC2 = #{pic2,jdbcType=LONGVARCHAR},
+      PIC3 = #{pic3,jdbcType=LONGVARCHAR},
+      PIC4 = #{pic4,jdbcType=LONGVARCHAR},
+      PIC5 = #{pic5,jdbcType=LONGVARCHAR},
+      RESERVE5 = #{reserve5,jdbcType=LONGVARCHAR},
+      RESERVE6 = #{reserve6,jdbcType=LONGVARCHAR},
+      RESERVE7 = #{reserve7,jdbcType=LONGVARCHAR},
+      RESERVE8 = #{reserve8,jdbcType=LONGVARCHAR},
+      RESERVE9 = #{reserve9,jdbcType=LONGVARCHAR},
+      RESERVE11 = #{reserve11,jdbcType=LONGVARCHAR},
+      RESERVE10 = #{reserve10,jdbcType=LONGVARCHAR}
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbProductOnline">
+    update db_product_online
+    set CORPID = #{corpid,jdbcType=VARCHAR},
+      SHOPID = #{shopid,jdbcType=VARCHAR},
+      SHOPNAME = #{shopname,jdbcType=VARCHAR},
+      EBAYSKU = #{ebaysku,jdbcType=VARCHAR},
+      EBAYITEMID = #{ebayitemid,jdbcType=VARCHAR},
+      PRODUCTID = #{productid,jdbcType=VARCHAR},
+      PRODUCTTYPE = #{producttype,jdbcType=VARCHAR},
+      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
+      PRICE1 = #{price1,jdbcType=DECIMAL},
+      PRICE2 = #{price2,jdbcType=DECIMAL},
+      PRICE3 = #{price3,jdbcType=DECIMAL},
+      MONEYTYPE = #{moneytype,jdbcType=VARCHAR},
+      NUMBER1 = #{number1,jdbcType=DECIMAL},
+      NUMBER2 = #{number2,jdbcType=DECIMAL},
+      NUMBER3 = #{number3,jdbcType=DECIMAL},
+      SELLNUM1 = #{sellnum1,jdbcType=DECIMAL},
+      SELLNUM2 = #{sellnum2,jdbcType=DECIMAL},
+      SELLNUM3 = #{sellnum3,jdbcType=DECIMAL},
+      SELLNUM4 = #{sellnum4,jdbcType=DECIMAL},
+      SELLNUM5 = #{sellnum5,jdbcType=DECIMAL},
+      SELLNUM6 = #{sellnum6,jdbcType=DECIMAL},
+      SELLPRICEONLINE = #{sellpriceonline,jdbcType=DECIMAL},
+      EXPRESSPRICEONLINE = #{expresspriceonline,jdbcType=DECIMAL},
+      MONEYRATE = #{moneyrate,jdbcType=DECIMAL},
+      COSTPRICEONLINE = #{costpriceonline,jdbcType=DECIMAL},
+      PRODUCTWEIGHT = #{productweight,jdbcType=DECIMAL},
+      PURCHASEOPER = #{purchaseoper,jdbcType=VARCHAR},
+      SELLOPER = #{selloper,jdbcType=VARCHAR},
+      ITEMNUMBER = #{itemnumber,jdbcType=DECIMAL},
+      ITEMNUMBER1 = #{itemnumber1,jdbcType=DECIMAL},
+      SITE = #{site,jdbcType=VARCHAR},
+      COUNTRY = #{country,jdbcType=VARCHAR},
+      'LOCATION' = #{location,jdbcType=VARCHAR},
+      PAYMENTMETHOD = #{paymentmethod,jdbcType=VARCHAR},
+      CATEGORYID = #{categoryid,jdbcType=VARCHAR},
+      CATEGORYNAME = #{categoryname,jdbcType=VARCHAR},
+      BRANDID = #{brandid,jdbcType=VARCHAR},
+      BRANDNAME = #{brandname,jdbcType=VARCHAR},
+      STARTTIME = #{starttime,jdbcType=TIMESTAMP},
+      ENDTIME = #{endtime,jdbcType=TIMESTAMP},
+      UPDATETIME1 = #{updatetime1,jdbcType=TIMESTAMP},
+      UPDATETIME2 = #{updatetime2,jdbcType=TIMESTAMP},
+      CALCULATEOPER = #{calculateoper,jdbcType=VARCHAR},
+      CALCULATETIME = #{calculatetime,jdbcType=TIMESTAMP},
+      CALCULATEEXPRESSTYPE = #{calculateexpresstype,jdbcType=VARCHAR},
+      CALCULATECOUNTRY = #{calculatecountry,jdbcType=VARCHAR},
+      CALCULATEDISCOUNT = #{calculatediscount,jdbcType=DECIMAL},
+      PROFIT = #{profit,jdbcType=DECIMAL},
+      PROFITMARGIN = #{profitmargin,jdbcType=DECIMAL},
+      SELLNUM7 = #{sellnum7,jdbcType=DECIMAL},
+      SELLNUM8 = #{sellnum8,jdbcType=DECIMAL},
+      SELLNUM9 = #{sellnum9,jdbcType=DECIMAL},
+      SELLNUM10 = #{sellnum10,jdbcType=DECIMAL},
+      PRODUCTSAVENUM = #{productsavenum,jdbcType=DECIMAL},
+      RESERVE12 = #{reserve12,jdbcType=DECIMAL},
+      RESERVE13 = #{reserve13,jdbcType=DECIMAL},
+      RESERVE14 = #{reserve14,jdbcType=DECIMAL},
+      RESERVE15 = #{reserve15,jdbcType=DECIMAL},
+      RESERVE16 = #{reserve16,jdbcType=VARCHAR},
+      RESERVE17 = #{reserve17,jdbcType=VARCHAR},
+      RESERVE18 = #{reserve18,jdbcType=VARCHAR},
+      RESERVE19 = #{reserve19,jdbcType=VARCHAR}
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </update>
+</mapper>

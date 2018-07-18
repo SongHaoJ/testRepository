@@ -10,6 +10,8 @@ public class DbPurchaseTemp implements Serializable {
 
     private Date inporttime;
 
+    private String title;
+
     private String orper;
 
     private Date opertime;
@@ -23,8 +25,6 @@ public class DbPurchaseTemp implements Serializable {
     private String reserve4;
 
     private String reserve5;
-
-    private String title;
 
     private static final long serialVersionUID = 1L;
 
@@ -50,6 +50,14 @@ public class DbPurchaseTemp implements Serializable {
 
     public void setInporttime(Date inporttime) {
         this.inporttime = inporttime;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title == null ? null : title.trim();
     }
 
     public String getOrper() {
@@ -108,14 +116,6 @@ public class DbPurchaseTemp implements Serializable {
         this.reserve5 = reserve5 == null ? null : reserve5.trim();
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title == null ? null : title.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -131,14 +131,14 @@ public class DbPurchaseTemp implements Serializable {
         return (this.getSequenceid() == null ? other.getSequenceid() == null : this.getSequenceid().equals(other.getSequenceid()))
             && (this.getProductid() == null ? other.getProductid() == null : this.getProductid().equals(other.getProductid()))
             && (this.getInporttime() == null ? other.getInporttime() == null : this.getInporttime().equals(other.getInporttime()))
+            && (this.getTitle() == null ? other.getTitle() == null : this.getTitle().equals(other.getTitle()))
             && (this.getOrper() == null ? other.getOrper() == null : this.getOrper().equals(other.getOrper()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
             && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
             && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
             && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
             && (this.getReserve4() == null ? other.getReserve4() == null : this.getReserve4().equals(other.getReserve4()))
-            && (this.getReserve5() == null ? other.getReserve5() == null : this.getReserve5().equals(other.getReserve5()))
-            && (this.getTitle() == null ? other.getTitle() == null : this.getTitle().equals(other.getTitle()));
+            && (this.getReserve5() == null ? other.getReserve5() == null : this.getReserve5().equals(other.getReserve5()));
     }
 
     @Override
@@ -148,6 +148,7 @@ public class DbPurchaseTemp implements Serializable {
         result = prime * result + ((getSequenceid() == null) ? 0 : getSequenceid().hashCode());
         result = prime * result + ((getProductid() == null) ? 0 : getProductid().hashCode());
         result = prime * result + ((getInporttime() == null) ? 0 : getInporttime().hashCode());
+        result = prime * result + ((getTitle() == null) ? 0 : getTitle().hashCode());
         result = prime * result + ((getOrper() == null) ? 0 : getOrper().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
@@ -155,7 +156,6 @@ public class DbPurchaseTemp implements Serializable {
         result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
         result = prime * result + ((getReserve4() == null) ? 0 : getReserve4().hashCode());
         result = prime * result + ((getReserve5() == null) ? 0 : getReserve5().hashCode());
-        result = prime * result + ((getTitle() == null) ? 0 : getTitle().hashCode());
         return result;
     }
 
@@ -168,6 +168,7 @@ public class DbPurchaseTemp implements Serializable {
         sb.append(", sequenceid=").append(sequenceid);
         sb.append(", productid=").append(productid);
         sb.append(", inporttime=").append(inporttime);
+        sb.append(", title=").append(title);
         sb.append(", orper=").append(orper);
         sb.append(", opertime=").append(opertime);
         sb.append(", reserve1=").append(reserve1);
@@ -175,7 +176,6 @@ public class DbPurchaseTemp implements Serializable {
         sb.append(", reserve3=").append(reserve3);
         sb.append(", reserve4=").append(reserve4);
         sb.append(", reserve5=").append(reserve5);
-        sb.append(", title=").append(title);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

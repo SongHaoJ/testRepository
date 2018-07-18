@@ -1,22 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbShop;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Map;
 
-@Repository
+@Service
 public interface DbShopMapper {
-    int deleteByPrimaryKey(String sid) throws Exception;
+    DbShop selectByCriteria(DbShop DbShop);
 
-    int insert(DbShop record) throws Exception;
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbShop record) throws Exception;
+    void deleteByCriteria(DbShop DbShop);
 
-    DbShop selectByPrimaryKey(String sid) throws Exception;
+    int insertByCriteria(DbShop DbShop);
 
-    int updateByPrimaryKeySelective(DbShop record) throws Exception;
+    int updateByCriteria(DbShop DbShop);
 
-    List<DbShop> selectShopForOrder(Map<String,Object> paramMap) throws Exception;
+    DbShop selectByPrimaryKey(String sid);
+
+    List<DbShop> selectAll();
 }

@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbMenufunc;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbMenufuncMapper {
-    int deleteByPrimaryKey(String funid);
+    DbMenufunc selectByCriteria(DbMenufunc DbMenufunc);
 
-    int insert(DbMenufunc record);
+    void deleteByPrimaryKey(String FUNID);
 
-    int insertSelective(DbMenufunc record);
+    void deleteByCriteria(DbMenufunc DbMenufunc);
+
+    int insertByCriteria(DbMenufunc DbMenufunc);
+
+    int updateByCriteria(DbMenufunc DbMenufunc);
 
     DbMenufunc selectByPrimaryKey(String funid);
 
-    int updateByPrimaryKeySelective(DbMenufunc record);
-
-    int updateByPrimaryKeyWithBLOBs(DbMenufunc record);
-
-    int updateByPrimaryKey(DbMenufunc record);
+    List<DbMenufunc> selectAll();
 }

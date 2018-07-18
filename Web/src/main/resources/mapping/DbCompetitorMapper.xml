@@ -28,17 +28,17 @@
     select SEQUENCEID, USERNAME, SHOPNAME, EVALUATE, LOCATION, DAYONLINE, YESTONLINE, 
     WEEKONLINE, MONTHONLINE, CREDIT, KEYFLAG, SALSENUM, SALSEMONEY, OPER, OPERTIME, CORPID, 
     OPENFLAG, STATUS, SELLPRICE, TRANSLATRATE, FEEDBACKSCORE
-    from db_competitor
+    from DB_COMPETITOR
     where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SEQUENCEID, USERNAME, SHOPNAME, EVALUATE, LOCATION, DAYONLINE, YESTONLINE, 
     WEEKONLINE, MONTHONLINE, CREDIT, KEYFLAG, SALSENUM, SALSEMONEY, OPER, OPERTIME, CORPID, 
     OPENFLAG, STATUS, SELLPRICE, TRANSLATRATE, FEEDBACKSCORE
-    from db_competitor
+    from DB_COMPETITOR
   </select>
   <sql id="TableName">
-    db_competitor
+    DB_COMPETITOR
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=DECIMAL} , 
@@ -61,7 +61,7 @@
      #{status,jdbcType=DECIMAL} , 
      #{sellprice,jdbcType=DECIMAL} , 
      #{translatrate,jdbcType=DECIMAL} , 
-     #{feedbackscore,jdbcType=DECIMAL}
+     #{feedbackscore,jdbcType=DECIMAL} , 
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
@@ -84,139 +84,139 @@
     STATUS , 
     SELLPRICE , 
     TRANSLATRATE , 
-    FEEDBACKSCORE
+    FEEDBACKSCORE , 
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} and 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} and 
     </if>
     <if test="username != null">
-      USERNAME = #{username,jdbcType=VARCHAR} and 
+      username = #{username,jdbcType=VARCHAR} and 
     </if>
     <if test="shopname != null">
-      SHOPNAME = #{shopname,jdbcType=VARCHAR} and 
+      shopname = #{shopname,jdbcType=VARCHAR} and 
     </if>
     <if test="evaluate != null">
-      EVALUATE = #{evaluate,jdbcType=VARCHAR} and 
+      evaluate = #{evaluate,jdbcType=VARCHAR} and 
     </if>
     <if test="location != null">
-      LOCATION = #{location,jdbcType=VARCHAR} and 
+      location = #{location,jdbcType=VARCHAR} and 
     </if>
     <if test="dayonline != null">
-      DAYONLINE = #{dayonline,jdbcType=DECIMAL} and 
+      dayonline = #{dayonline,jdbcType=DECIMAL} and 
     </if>
     <if test="yestonline != null">
-      YESTONLINE = #{yestonline,jdbcType=DECIMAL} and 
+      yestonline = #{yestonline,jdbcType=DECIMAL} and 
     </if>
     <if test="weekonline != null">
-      WEEKONLINE = #{weekonline,jdbcType=DECIMAL} and 
+      weekonline = #{weekonline,jdbcType=DECIMAL} and 
     </if>
     <if test="monthonline != null">
-      MONTHONLINE = #{monthonline,jdbcType=DECIMAL} and 
+      monthonline = #{monthonline,jdbcType=DECIMAL} and 
     </if>
     <if test="credit != null">
-      CREDIT = #{credit,jdbcType=DECIMAL} and 
+      credit = #{credit,jdbcType=DECIMAL} and 
     </if>
     <if test="keyflag != null">
-      KEYFLAG = #{keyflag,jdbcType=DECIMAL} and 
+      keyflag = #{keyflag,jdbcType=DECIMAL} and 
     </if>
     <if test="salsenum != null">
-      SALSENUM = #{salsenum,jdbcType=DECIMAL} and 
+      salsenum = #{salsenum,jdbcType=DECIMAL} and 
     </if>
     <if test="salsemoney != null">
-      SALSEMONEY = #{salsemoney,jdbcType=DECIMAL} and 
+      salsemoney = #{salsemoney,jdbcType=DECIMAL} and 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
+      oper = #{oper,jdbcType=VARCHAR} and 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} and 
+      corpid = #{corpid,jdbcType=VARCHAR} and 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=DECIMAL} and 
+      openflag = #{openflag,jdbcType=DECIMAL} and 
     </if>
     <if test="status != null">
-      STATUS = #{status,jdbcType=DECIMAL} and 
+      status = #{status,jdbcType=DECIMAL} and 
     </if>
     <if test="sellprice != null">
-      SELLPRICE = #{sellprice,jdbcType=DECIMAL} and 
+      sellprice = #{sellprice,jdbcType=DECIMAL} and 
     </if>
     <if test="translatrate != null">
-      TRANSLATRATE = #{translatrate,jdbcType=DECIMAL} and 
+      translatrate = #{translatrate,jdbcType=DECIMAL} and 
     </if>
     <if test="feedbackscore != null">
-      FEEDBACKSCORE = #{feedbackscore,jdbcType=DECIMAL}
+      feedbackscore = #{feedbackscore,jdbcType=DECIMAL} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} , 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} , 
     </if>
     <if test="username != null">
-      USERNAME = #{username,jdbcType=VARCHAR} , 
+      username = #{username,jdbcType=VARCHAR} , 
     </if>
     <if test="shopname != null">
-      SHOPNAME = #{shopname,jdbcType=VARCHAR} , 
+      shopname = #{shopname,jdbcType=VARCHAR} , 
     </if>
     <if test="evaluate != null">
-      EVALUATE = #{evaluate,jdbcType=VARCHAR} , 
+      evaluate = #{evaluate,jdbcType=VARCHAR} , 
     </if>
     <if test="location != null">
-      LOCATION = #{location,jdbcType=VARCHAR} , 
+      location = #{location,jdbcType=VARCHAR} , 
     </if>
     <if test="dayonline != null">
-      DAYONLINE = #{dayonline,jdbcType=DECIMAL} , 
+      dayonline = #{dayonline,jdbcType=DECIMAL} , 
     </if>
     <if test="yestonline != null">
-      YESTONLINE = #{yestonline,jdbcType=DECIMAL} , 
+      yestonline = #{yestonline,jdbcType=DECIMAL} , 
     </if>
     <if test="weekonline != null">
-      WEEKONLINE = #{weekonline,jdbcType=DECIMAL} , 
+      weekonline = #{weekonline,jdbcType=DECIMAL} , 
     </if>
     <if test="monthonline != null">
-      MONTHONLINE = #{monthonline,jdbcType=DECIMAL} , 
+      monthonline = #{monthonline,jdbcType=DECIMAL} , 
     </if>
     <if test="credit != null">
-      CREDIT = #{credit,jdbcType=DECIMAL} , 
+      credit = #{credit,jdbcType=DECIMAL} , 
     </if>
     <if test="keyflag != null">
-      KEYFLAG = #{keyflag,jdbcType=DECIMAL} , 
+      keyflag = #{keyflag,jdbcType=DECIMAL} , 
     </if>
     <if test="salsenum != null">
-      SALSENUM = #{salsenum,jdbcType=DECIMAL} , 
+      salsenum = #{salsenum,jdbcType=DECIMAL} , 
     </if>
     <if test="salsemoney != null">
-      SALSEMONEY = #{salsemoney,jdbcType=DECIMAL} , 
+      salsemoney = #{salsemoney,jdbcType=DECIMAL} , 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
+      oper = #{oper,jdbcType=VARCHAR} , 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} , 
+      corpid = #{corpid,jdbcType=VARCHAR} , 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=DECIMAL} , 
+      openflag = #{openflag,jdbcType=DECIMAL} , 
     </if>
     <if test="status != null">
-      STATUS = #{status,jdbcType=DECIMAL} , 
+      status = #{status,jdbcType=DECIMAL} , 
     </if>
     <if test="sellprice != null">
-      SELLPRICE = #{sellprice,jdbcType=DECIMAL} , 
+      sellprice = #{sellprice,jdbcType=DECIMAL} , 
     </if>
     <if test="translatrate != null">
-      TRANSLATRATE = #{translatrate,jdbcType=DECIMAL} , 
+      translatrate = #{translatrate,jdbcType=DECIMAL} , 
     </if>
     <if test="feedbackscore != null">
-      FEEDBACKSCORE = #{feedbackscore,jdbcType=DECIMAL}
+      feedbackscore = #{feedbackscore,jdbcType=DECIMAL} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbCompetitor" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

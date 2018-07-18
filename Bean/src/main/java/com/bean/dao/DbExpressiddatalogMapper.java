@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbExpressiddatalog;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbExpressiddatalogMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbExpressiddatalog selectByCriteria(DbExpressiddatalog DbExpressiddatalog);
 
-    int insert(DbExpressiddatalog record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbExpressiddatalog record);
+    void deleteByCriteria(DbExpressiddatalog DbExpressiddatalog);
+
+    int insertByCriteria(DbExpressiddatalog DbExpressiddatalog);
+
+    int updateByCriteria(DbExpressiddatalog DbExpressiddatalog);
 
     DbExpressiddatalog selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbExpressiddatalog record);
-
-    int updateByPrimaryKeyWithBLOBs(DbExpressiddatalog record);
-
-    int updateByPrimaryKey(DbExpressiddatalog record);
+    List<DbExpressiddatalog> selectAll();
 }

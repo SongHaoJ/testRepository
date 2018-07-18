@@ -1,18 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbEbaydsr;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbEbaydsrMapper {
-    int deleteByPrimaryKey(BigDecimal sequenceid);
+    DbEbaydsr selectByCriteria(DbEbaydsr DbEbaydsr);
 
-    int insert(DbEbaydsr record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbEbaydsr record);
+    void deleteByCriteria(DbEbaydsr DbEbaydsr);
+
+    int insertByCriteria(DbEbaydsr DbEbaydsr);
+
+    int updateByCriteria(DbEbaydsr DbEbaydsr);
 
     DbEbaydsr selectByPrimaryKey(BigDecimal sequenceid);
 
-    int updateByPrimaryKeySelective(DbEbaydsr record);
-
-    int updateByPrimaryKey(DbEbaydsr record);
+    List<DbEbaydsr> selectAll();
 }

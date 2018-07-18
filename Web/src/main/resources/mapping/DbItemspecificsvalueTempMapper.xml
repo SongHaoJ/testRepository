@@ -9,57 +9,57 @@
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
     select SID, SPEID, NAMEVALUE, FLAG
-    from db_itemspecificsvalue_temp
+    from DB_ITEMSPECIFICSVALUE_TEMP
     where SID = #{sid,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SID, SPEID, NAMEVALUE, FLAG
-    from db_itemspecificsvalue_temp
+    from DB_ITEMSPECIFICSVALUE_TEMP
   </select>
   <sql id="TableName">
-    db_itemspecificsvalue_temp
+    DB_ITEMSPECIFICSVALUE_TEMP
   </sql>
   <sql id="Values">
      #{sid,jdbcType=DECIMAL} , 
      #{speid,jdbcType=DECIMAL} , 
      #{namevalue,jdbcType=VARCHAR} , 
-     #{flag,jdbcType=DECIMAL}
+     #{flag,jdbcType=DECIMAL} , 
   </sql>
   <sql id="Columns">
     SID , 
     SPEID , 
     NAMEVALUE , 
-    FLAG
+    FLAG , 
   </sql>
   <sql id="Criteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=DECIMAL} and 
+      sid = #{sid,jdbcType=DECIMAL} and 
     </if>
     <if test="speid != null">
-      SPEID = #{speid,jdbcType=DECIMAL} and 
+      speid = #{speid,jdbcType=DECIMAL} and 
     </if>
     <if test="namevalue != null">
-      NAMEVALUE = #{namevalue,jdbcType=VARCHAR} and 
+      namevalue = #{namevalue,jdbcType=VARCHAR} and 
     </if>
     <if test="flag != null">
-      FLAG = #{flag,jdbcType=DECIMAL}
+      flag = #{flag,jdbcType=DECIMAL} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=DECIMAL} , 
+      sid = #{sid,jdbcType=DECIMAL} , 
     </if>
     <if test="speid != null">
-      SPEID = #{speid,jdbcType=DECIMAL} , 
+      speid = #{speid,jdbcType=DECIMAL} , 
     </if>
     <if test="namevalue != null">
-      NAMEVALUE = #{namevalue,jdbcType=VARCHAR} , 
+      namevalue = #{namevalue,jdbcType=VARCHAR} , 
     </if>
     <if test="flag != null">
-      FLAG = #{flag,jdbcType=DECIMAL}
+      flag = #{flag,jdbcType=DECIMAL} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbItemspecificsvalueTemp" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

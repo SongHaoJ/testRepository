@@ -12,8 +12,10 @@
     <result column="NUMFORUK" jdbcType="DECIMAL" property="numforuk" />
     <result column="NUMFORCA" jdbcType="DECIMAL" property="numforca" />
     <result column="NUMFORDE" jdbcType="DECIMAL" property="numforde" />
+    <result column="TEMPORARY" jdbcType="VARCHAR" property="temporary" />
     <result column="TOTAL" jdbcType="DECIMAL" property="total" />
     <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
     <result column="RESERVE3" jdbcType="DECIMAL" property="reserve3" />
     <result column="RESERVE4" jdbcType="DECIMAL" property="reserve4" />
     <result column="RESERVE5" jdbcType="DECIMAL" property="reserve5" />
@@ -27,26 +29,22 @@
     <result column="FLAGUK" jdbcType="DECIMAL" property="flaguk" />
     <result column="FLAGCA" jdbcType="DECIMAL" property="flagca" />
     <result column="FLAGDE" jdbcType="DECIMAL" property="flagde" />
-    <result column="TEMPORARY" jdbcType="LONGVARCHAR" property="temporary" />
-    <result column="RESERVE2" jdbcType="LONGVARCHAR" property="reserve2" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
     select SEQUENCEID, SELLSKU, SHOPID, SHOPNAME, SHOPUSERID, NUMFORUS, NUMFORAU, NUMFORUK, 
-    NUMFORCA, NUMFORDE, TOTAL, RESERVE1, RESERVE3, RESERVE4, RESERVE5, CORPID, OPER, 
-    OPENFLAG, OPERIME, CREATETIME, FLAGUS, FLAGAU, FLAGUK, FLAGCA, FLAGDE, TEMPORARY, 
-    RESERVE2
-    from db_sellskuforshop
+    NUMFORCA, NUMFORDE, TEMPORARY, TOTAL, RESERVE1, RESERVE2, RESERVE3, RESERVE4, RESERVE5, 
+    CORPID, OPER, OPENFLAG, OPERIME, CREATETIME, FLAGUS, FLAGAU, FLAGUK, FLAGCA, FLAGDE
+    from DB_SELLSKUFORSHOP
     where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SEQUENCEID, SELLSKU, SHOPID, SHOPNAME, SHOPUSERID, NUMFORUS, NUMFORAU, NUMFORUK, 
-    NUMFORCA, NUMFORDE, TOTAL, RESERVE1, RESERVE3, RESERVE4, RESERVE5, CORPID, OPER, 
-    OPENFLAG, OPERIME, CREATETIME, FLAGUS, FLAGAU, FLAGUK, FLAGCA, FLAGDE, TEMPORARY, 
-    RESERVE2
-    from db_sellskuforshop
+    NUMFORCA, NUMFORDE, TEMPORARY, TOTAL, RESERVE1, RESERVE2, RESERVE3, RESERVE4, RESERVE5, 
+    CORPID, OPER, OPENFLAG, OPERIME, CREATETIME, FLAGUS, FLAGAU, FLAGUK, FLAGCA, FLAGDE
+    from DB_SELLSKUFORSHOP
   </select>
   <sql id="TableName">
-    db_sellskuforshop
+    DB_SELLSKUFORSHOP
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=DECIMAL} , 
@@ -59,8 +57,10 @@
      #{numforuk,jdbcType=DECIMAL} , 
      #{numforca,jdbcType=DECIMAL} , 
      #{numforde,jdbcType=DECIMAL} , 
+     #{temporary,jdbcType=VARCHAR} , 
      #{total,jdbcType=DECIMAL} , 
      #{reserve1,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
      #{reserve3,jdbcType=DECIMAL} , 
      #{reserve4,jdbcType=DECIMAL} , 
      #{reserve5,jdbcType=DECIMAL} , 
@@ -74,8 +74,6 @@
      #{flaguk,jdbcType=DECIMAL} , 
      #{flagca,jdbcType=DECIMAL} , 
      #{flagde,jdbcType=DECIMAL} , 
-     #{temporary,jdbcType=LONGVARCHAR} , 
-     #{reserve2,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
@@ -88,8 +86,10 @@
     NUMFORUK , 
     NUMFORCA , 
     NUMFORDE , 
+    TEMPORARY , 
     TOTAL , 
     RESERVE1 , 
+    RESERVE2 , 
     RESERVE3 , 
     RESERVE4 , 
     RESERVE5 , 
@@ -103,176 +103,174 @@
     FLAGUK , 
     FLAGCA , 
     FLAGDE , 
-    TEMPORARY , 
-    RESERVE2
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} and 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} and 
     </if>
     <if test="sellsku != null">
-      SELLSKU = #{sellsku,jdbcType=VARCHAR} and 
+      sellsku = #{sellsku,jdbcType=VARCHAR} and 
     </if>
     <if test="shopid != null">
-      SHOPID = #{shopid,jdbcType=VARCHAR} and 
+      shopid = #{shopid,jdbcType=VARCHAR} and 
     </if>
     <if test="shopname != null">
-      SHOPNAME = #{shopname,jdbcType=VARCHAR} and 
+      shopname = #{shopname,jdbcType=VARCHAR} and 
     </if>
     <if test="shopuserid != null">
-      SHOPUSERID = #{shopuserid,jdbcType=VARCHAR} and 
+      shopuserid = #{shopuserid,jdbcType=VARCHAR} and 
     </if>
     <if test="numforus != null">
-      NUMFORUS = #{numforus,jdbcType=DECIMAL} and 
+      numforus = #{numforus,jdbcType=DECIMAL} and 
     </if>
     <if test="numforau != null">
-      NUMFORAU = #{numforau,jdbcType=DECIMAL} and 
+      numforau = #{numforau,jdbcType=DECIMAL} and 
     </if>
     <if test="numforuk != null">
-      NUMFORUK = #{numforuk,jdbcType=DECIMAL} and 
+      numforuk = #{numforuk,jdbcType=DECIMAL} and 
     </if>
     <if test="numforca != null">
-      NUMFORCA = #{numforca,jdbcType=DECIMAL} and 
+      numforca = #{numforca,jdbcType=DECIMAL} and 
     </if>
     <if test="numforde != null">
-      NUMFORDE = #{numforde,jdbcType=DECIMAL} and 
-    </if>
-    <if test="total != null">
-      TOTAL = #{total,jdbcType=DECIMAL} and 
-    </if>
-    <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=DECIMAL} and 
-    </if>
-    <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=DECIMAL} and 
-    </if>
-    <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=DECIMAL} and 
-    </if>
-    <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="operime != null">
-      OPERIME = #{operime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="createtime != null">
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="flagus != null">
-      FLAGUS = #{flagus,jdbcType=DECIMAL} and 
-    </if>
-    <if test="flagau != null">
-      FLAGAU = #{flagau,jdbcType=DECIMAL} and 
-    </if>
-    <if test="flaguk != null">
-      FLAGUK = #{flaguk,jdbcType=DECIMAL} and 
-    </if>
-    <if test="flagca != null">
-      FLAGCA = #{flagca,jdbcType=DECIMAL} and 
-    </if>
-    <if test="flagde != null">
-      FLAGDE = #{flagde,jdbcType=DECIMAL} and 
+      numforde = #{numforde,jdbcType=DECIMAL} and 
     </if>
     <if test="temporary != null">
-      TEMPORARY = #{temporary,jdbcType=LONGVARCHAR} and 
+      temporary = #{temporary,jdbcType=VARCHAR} and 
+    </if>
+    <if test="total != null">
+      total = #{total,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR}
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=DECIMAL} and 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="operime != null">
+      operime = #{operime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="flagus != null">
+      flagus = #{flagus,jdbcType=DECIMAL} and 
+    </if>
+    <if test="flagau != null">
+      flagau = #{flagau,jdbcType=DECIMAL} and 
+    </if>
+    <if test="flaguk != null">
+      flaguk = #{flaguk,jdbcType=DECIMAL} and 
+    </if>
+    <if test="flagca != null">
+      flagca = #{flagca,jdbcType=DECIMAL} and 
+    </if>
+    <if test="flagde != null">
+      flagde = #{flagde,jdbcType=DECIMAL} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} , 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} , 
     </if>
     <if test="sellsku != null">
-      SELLSKU = #{sellsku,jdbcType=VARCHAR} , 
+      sellsku = #{sellsku,jdbcType=VARCHAR} , 
     </if>
     <if test="shopid != null">
-      SHOPID = #{shopid,jdbcType=VARCHAR} , 
+      shopid = #{shopid,jdbcType=VARCHAR} , 
     </if>
     <if test="shopname != null">
-      SHOPNAME = #{shopname,jdbcType=VARCHAR} , 
+      shopname = #{shopname,jdbcType=VARCHAR} , 
     </if>
     <if test="shopuserid != null">
-      SHOPUSERID = #{shopuserid,jdbcType=VARCHAR} , 
+      shopuserid = #{shopuserid,jdbcType=VARCHAR} , 
     </if>
     <if test="numforus != null">
-      NUMFORUS = #{numforus,jdbcType=DECIMAL} , 
+      numforus = #{numforus,jdbcType=DECIMAL} , 
     </if>
     <if test="numforau != null">
-      NUMFORAU = #{numforau,jdbcType=DECIMAL} , 
+      numforau = #{numforau,jdbcType=DECIMAL} , 
     </if>
     <if test="numforuk != null">
-      NUMFORUK = #{numforuk,jdbcType=DECIMAL} , 
+      numforuk = #{numforuk,jdbcType=DECIMAL} , 
     </if>
     <if test="numforca != null">
-      NUMFORCA = #{numforca,jdbcType=DECIMAL} , 
+      numforca = #{numforca,jdbcType=DECIMAL} , 
     </if>
     <if test="numforde != null">
-      NUMFORDE = #{numforde,jdbcType=DECIMAL} , 
-    </if>
-    <if test="total != null">
-      TOTAL = #{total,jdbcType=DECIMAL} , 
-    </if>
-    <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=DECIMAL} , 
-    </if>
-    <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=DECIMAL} , 
-    </if>
-    <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=DECIMAL} , 
-    </if>
-    <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="operime != null">
-      OPERIME = #{operime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="createtime != null">
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="flagus != null">
-      FLAGUS = #{flagus,jdbcType=DECIMAL} , 
-    </if>
-    <if test="flagau != null">
-      FLAGAU = #{flagau,jdbcType=DECIMAL} , 
-    </if>
-    <if test="flaguk != null">
-      FLAGUK = #{flaguk,jdbcType=DECIMAL} , 
-    </if>
-    <if test="flagca != null">
-      FLAGCA = #{flagca,jdbcType=DECIMAL} , 
-    </if>
-    <if test="flagde != null">
-      FLAGDE = #{flagde,jdbcType=DECIMAL} , 
+      numforde = #{numforde,jdbcType=DECIMAL} , 
     </if>
     <if test="temporary != null">
-      TEMPORARY = #{temporary,jdbcType=LONGVARCHAR} , 
+      temporary = #{temporary,jdbcType=VARCHAR} , 
+    </if>
+    <if test="total != null">
+      total = #{total,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR}
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=DECIMAL} , 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="operime != null">
+      operime = #{operime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="flagus != null">
+      flagus = #{flagus,jdbcType=DECIMAL} , 
+    </if>
+    <if test="flagau != null">
+      flagau = #{flagau,jdbcType=DECIMAL} , 
+    </if>
+    <if test="flaguk != null">
+      flaguk = #{flaguk,jdbcType=DECIMAL} , 
+    </if>
+    <if test="flagca != null">
+      flagca = #{flagca,jdbcType=DECIMAL} , 
+    </if>
+    <if test="flagde != null">
+      flagde = #{flagde,jdbcType=DECIMAL} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbSellskuforshop" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

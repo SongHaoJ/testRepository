@@ -4,80 +4,67 @@
   <resultMap id="BaseResultMap" type="com.bean.model.DbProductOnlineTemp">
     <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
     <result column="SID" jdbcType="VARCHAR" property="sid" />
+    <result column="NAMEEN" jdbcType="VARCHAR" property="nameen" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbProductOnlineTemp">
-    <result column="NAMEEN" jdbcType="LONGVARCHAR" property="nameen" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    SEQUENCEID, SID
-  </sql>
-  <sql id="Blob_Column_List">
-    NAMEEN
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from db_product_online_temp
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SEQUENCEID, SID, NAMEEN
+    from DB_PRODUCT_ONLINE_TEMP
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_product_online_temp
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, SID, NAMEEN
+    from DB_PRODUCT_ONLINE_TEMP
+  </select>
+  <sql id="TableName">
+    DB_PRODUCT_ONLINE_TEMP
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=VARCHAR} , 
+     #{sid,jdbcType=VARCHAR} , 
+     #{nameen,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    SID , 
+    NAMEEN , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="nameen != null">
+      nameen = #{nameen,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="nameen != null">
+      nameen = #{nameen,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbProductOnlineTemp" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbProductOnlineTemp">
-    insert into db_product_online_temp (SEQUENCEID, SID, NAMEEN
-      )
-    values (#{sequenceid,jdbcType=VARCHAR}, #{sid,jdbcType=VARCHAR}, #{nameen,jdbcType=LONGVARCHAR}
-      )
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbProductOnlineTemp">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbProductOnlineTemp">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbProductOnlineTemp">
-    insert into db_product_online_temp
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        SEQUENCEID,
-      </if>
-      <if test="sid != null">
-        SID,
-      </if>
-      <if test="nameen != null">
-        NAMEEN,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        #{sequenceid,jdbcType=VARCHAR},
-      </if>
-      <if test="sid != null">
-        #{sid,jdbcType=VARCHAR},
-      </if>
-      <if test="nameen != null">
-        #{nameen,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbProductOnlineTemp">
-    update db_product_online_temp
-    <set>
-      <if test="sid != null">
-        SID = #{sid,jdbcType=VARCHAR},
-      </if>
-      <if test="nameen != null">
-        NAMEEN = #{nameen,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbProductOnlineTemp">
-    update db_product_online_temp
-    set SID = #{sid,jdbcType=VARCHAR},
-      NAMEEN = #{nameen,jdbcType=LONGVARCHAR}
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbProductOnlineTemp">
-    update db_product_online_temp
-    set SID = #{sid,jdbcType=VARCHAR}
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbProductOnlineTemp">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

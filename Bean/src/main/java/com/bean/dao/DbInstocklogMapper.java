@@ -2,8 +2,8 @@ package com.bean.dao;
 
 import com.bean.model.DbInstocklog;
 
-public interface DbInstocklogMapper {
-    int insert(DbInstocklog record);
+import java.util.List;
 
-    int insertSelective(DbInstocklog record);
+public interface DbInstocklogMapper {
+    List<DbInstocklog> selectAll();
 }

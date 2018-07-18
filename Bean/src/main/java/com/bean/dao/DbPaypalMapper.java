@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbPaypal;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbPaypalMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbPaypal selectByCriteria(DbPaypal DbPaypal);
 
-    int insert(DbPaypal record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbPaypal record);
+    void deleteByCriteria(DbPaypal DbPaypal);
+
+    int insertByCriteria(DbPaypal DbPaypal);
+
+    int updateByCriteria(DbPaypal DbPaypal);
 
     DbPaypal selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbPaypal record);
-
-    int updateByPrimaryKeyWithBLOBs(DbPaypal record);
-
-    int updateByPrimaryKey(DbPaypal record);
+    List<DbPaypal> selectAll();
 }

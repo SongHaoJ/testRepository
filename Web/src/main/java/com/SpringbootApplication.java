@@ -13,7 +13,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 import java.math.BigDecimal;
 
-
 @MapperScan("com.bean.dao")
 @SpringBootApplication
 @EnableScheduling

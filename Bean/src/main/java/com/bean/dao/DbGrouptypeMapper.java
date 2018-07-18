@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbGrouptype;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbGrouptypeMapper {
-    int deleteByPrimaryKey(String groupid);
+    DbGrouptype selectByCriteria(DbGrouptype DbGrouptype);
 
-    int insert(DbGrouptype record);
+    void deleteByPrimaryKey(String GROUPID);
 
-    int insertSelective(DbGrouptype record);
+    void deleteByCriteria(DbGrouptype DbGrouptype);
+
+    int insertByCriteria(DbGrouptype DbGrouptype);
+
+    int updateByCriteria(DbGrouptype DbGrouptype);
 
     DbGrouptype selectByPrimaryKey(String groupid);
 
-    int updateByPrimaryKeySelective(DbGrouptype record);
-
-    int updateByPrimaryKeyWithBLOBs(DbGrouptype record);
-
-    int updateByPrimaryKey(DbGrouptype record);
+    List<DbGrouptype> selectAll();
 }

@@ -11,12 +11,20 @@
     <result column="GROUPID" jdbcType="DECIMAL" property="groupid" />
     <result column="CURRENCYID" jdbcType="VARCHAR" property="currencyid" />
     <result column="CUSTOMERID" jdbcType="VARCHAR" property="customerid" />
+    <result column="CUSTOMERNAME" jdbcType="VARCHAR" property="customername" />
+    <result column="FIRSTNAME" jdbcType="VARCHAR" property="firstname" />
+    <result column="LASTNAME" jdbcType="VARCHAR" property="lastname" />
     <result column="PAYMENTMETHOD" jdbcType="VARCHAR" property="paymentmethod" />
+    <result column="REMARKS" jdbcType="VARCHAR" property="remarks" />
     <result column="GIFTOPTION" jdbcType="VARCHAR" property="giftoption" />
+    <result column="GIFTMESSAGE" jdbcType="VARCHAR" property="giftmessage" />
     <result column="CREATEDDATE" jdbcType="TIMESTAMP" property="createddate" />
     <result column="UPDATEDDATE" jdbcType="TIMESTAMP" property="updateddate" />
     <result column="PHONE1" jdbcType="VARCHAR" property="phone1" />
     <result column="PHONE2" jdbcType="VARCHAR" property="phone2" />
+    <result column="ADDRESS1" jdbcType="VARCHAR" property="address1" />
+    <result column="ADDRESS2" jdbcType="VARCHAR" property="address2" />
+    <result column="ADDRESS3" jdbcType="VARCHAR" property="address3" />
     <result column="CITY" jdbcType="VARCHAR" property="city" />
     <result column="PROVINCE" jdbcType="VARCHAR" property="province" />
     <result column="WARD" jdbcType="VARCHAR" property="ward" />
@@ -47,725 +55,469 @@
     <result column="CHECKFLAG" jdbcType="DECIMAL" property="checkflag" />
     <result column="CHECKDESCR" jdbcType="VARCHAR" property="checkdescr" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbLazadaorderinfo">
-    <result column="CUSTOMERNAME" jdbcType="LONGVARCHAR" property="customername" />
-    <result column="FIRSTNAME" jdbcType="LONGVARCHAR" property="firstname" />
-    <result column="LASTNAME" jdbcType="LONGVARCHAR" property="lastname" />
-    <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
-    <result column="GIFTMESSAGE" jdbcType="LONGVARCHAR" property="giftmessage" />
-    <result column="ADDRESS1" jdbcType="LONGVARCHAR" property="address1" />
-    <result column="ADDRESS2" jdbcType="LONGVARCHAR" property="address2" />
-    <result column="ADDRESS3" jdbcType="LONGVARCHAR" property="address3" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    SEQUENCEID, ORDERID, TRADEID, CORPID, SHOPID, SHOPNAME, GROUPID, CURRENCYID, CUSTOMERID, 
-    PAYMENTMETHOD, GIFTOPTION, CREATEDDATE, UPDATEDDATE, PHONE1, PHONE2, CITY, PROVINCE, 
-    WARD, REGION, POSTCODE, COUNTRY, COUNTRYCODE, ORDERITEMID, IDENTIFYNUM, PRODUCTNAME, 
-    SKU, SHOPSKU, SHIPPINGTYPE, ITEMPRICE, QUANTITY, PAIDPRICE, WALLETCREDITS, TAXAMOUNT, 
-    SHIPPINGAMOUNT, VOUCHERAMOUNT, VOUCHERCODE, ITEMSTATUS, SHIPMENTPROVIDER, REASON, 
-    REASONDETAIL, PURCHASEORDERID, PURCHASEORDERNUMBER, CHECKFLAG, CHECKDESCR
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SEQUENCEID, ORDERID, TRADEID, CORPID, SHOPID, SHOPNAME, GROUPID, CURRENCYID, 
+    CUSTOMERID, CUSTOMERNAME, FIRSTNAME, LASTNAME, PAYMENTMETHOD, REMARKS, GIFTOPTION, 
+    GIFTMESSAGE, CREATEDDATE, UPDATEDDATE, PHONE1, PHONE2, ADDRESS1, ADDRESS2, ADDRESS3, 
+    CITY, PROVINCE, WARD, REGION, POSTCODE, COUNTRY, COUNTRYCODE, ORDERITEMID, IDENTIFYNUM, 
+    PRODUCTNAME, SKU, SHOPSKU, SHIPPINGTYPE, ITEMPRICE, QUANTITY, PAIDPRICE, WALLETCREDITS, 
+    TAXAMOUNT, SHIPPINGAMOUNT, VOUCHERAMOUNT, VOUCHERCODE, ITEMSTATUS, SHIPMENTPROVIDER, 
+    REASON, REASONDETAIL, PURCHASEORDERID, PURCHASEORDERNUMBER, CHECKFLAG, CHECKDESCR
+    from DB_LAZADAORDERINFO
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, ORDERID, TRADEID, CORPID, SHOPID, SHOPNAME, GROUPID, CURRENCYID, 
+    CUSTOMERID, CUSTOMERNAME, FIRSTNAME, LASTNAME, PAYMENTMETHOD, REMARKS, GIFTOPTION, 
+    GIFTMESSAGE, CREATEDDATE, UPDATEDDATE, PHONE1, PHONE2, ADDRESS1, ADDRESS2, ADDRESS3, 
+    CITY, PROVINCE, WARD, REGION, POSTCODE, COUNTRY, COUNTRYCODE, ORDERITEMID, IDENTIFYNUM, 
+    PRODUCTNAME, SKU, SHOPSKU, SHIPPINGTYPE, ITEMPRICE, QUANTITY, PAIDPRICE, WALLETCREDITS, 
+    TAXAMOUNT, SHIPPINGAMOUNT, VOUCHERAMOUNT, VOUCHERCODE, ITEMSTATUS, SHIPMENTPROVIDER, 
+    REASON, REASONDETAIL, PURCHASEORDERID, PURCHASEORDERNUMBER, CHECKFLAG, CHECKDESCR
+    from DB_LAZADAORDERINFO
+  </select>
+  <sql id="TableName">
+    DB_LAZADAORDERINFO
   </sql>
-  <sql id="Blob_Column_List">
-    CUSTOMERNAME, FIRSTNAME, LASTNAME, REMARKS, GIFTMESSAGE, ADDRESS1, ADDRESS2, ADDRESS3
+  <sql id="Values">
+     #{sequenceid,jdbcType=VARCHAR} , 
+     #{orderid,jdbcType=VARCHAR} , 
+     #{tradeid,jdbcType=VARCHAR} , 
+     #{corpid,jdbcType=VARCHAR} , 
+     #{shopid,jdbcType=VARCHAR} , 
+     #{shopname,jdbcType=VARCHAR} , 
+     #{groupid,jdbcType=DECIMAL} , 
+     #{currencyid,jdbcType=VARCHAR} , 
+     #{customerid,jdbcType=VARCHAR} , 
+     #{customername,jdbcType=VARCHAR} , 
+     #{firstname,jdbcType=VARCHAR} , 
+     #{lastname,jdbcType=VARCHAR} , 
+     #{paymentmethod,jdbcType=VARCHAR} , 
+     #{remarks,jdbcType=VARCHAR} , 
+     #{giftoption,jdbcType=VARCHAR} , 
+     #{giftmessage,jdbcType=VARCHAR} , 
+     #{createddate,jdbcType=TIMESTAMP} , 
+     #{updateddate,jdbcType=TIMESTAMP} , 
+     #{phone1,jdbcType=VARCHAR} , 
+     #{phone2,jdbcType=VARCHAR} , 
+     #{address1,jdbcType=VARCHAR} , 
+     #{address2,jdbcType=VARCHAR} , 
+     #{address3,jdbcType=VARCHAR} , 
+     #{city,jdbcType=VARCHAR} , 
+     #{province,jdbcType=VARCHAR} , 
+     #{ward,jdbcType=VARCHAR} , 
+     #{region,jdbcType=VARCHAR} , 
+     #{postcode,jdbcType=VARCHAR} , 
+     #{country,jdbcType=VARCHAR} , 
+     #{countrycode,jdbcType=VARCHAR} , 
+     #{orderitemid,jdbcType=VARCHAR} , 
+     #{identifynum,jdbcType=VARCHAR} , 
+     #{productname,jdbcType=VARCHAR} , 
+     #{sku,jdbcType=VARCHAR} , 
+     #{shopsku,jdbcType=VARCHAR} , 
+     #{shippingtype,jdbcType=VARCHAR} , 
+     #{itemprice,jdbcType=DECIMAL} , 
+     #{quantity,jdbcType=DECIMAL} , 
+     #{paidprice,jdbcType=DECIMAL} , 
+     #{walletcredits,jdbcType=DECIMAL} , 
+     #{taxamount,jdbcType=DECIMAL} , 
+     #{shippingamount,jdbcType=DECIMAL} , 
+     #{voucheramount,jdbcType=DECIMAL} , 
+     #{vouchercode,jdbcType=VARCHAR} , 
+     #{itemstatus,jdbcType=VARCHAR} , 
+     #{shipmentprovider,jdbcType=VARCHAR} , 
+     #{reason,jdbcType=VARCHAR} , 
+     #{reasondetail,jdbcType=VARCHAR} , 
+     #{purchaseorderid,jdbcType=VARCHAR} , 
+     #{purchaseordernumber,jdbcType=VARCHAR} , 
+     #{checkflag,jdbcType=DECIMAL} , 
+     #{checkdescr,jdbcType=VARCHAR} , 
   </sql>
-  <sql id="criteria">
-    <if test="sequenceid!=null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and
+  <sql id="Columns">
+    SEQUENCEID , 
+    ORDERID , 
+    TRADEID , 
+    CORPID , 
+    SHOPID , 
+    SHOPNAME , 
+    GROUPID , 
+    CURRENCYID , 
+    CUSTOMERID , 
+    CUSTOMERNAME , 
+    FIRSTNAME , 
+    LASTNAME , 
+    PAYMENTMETHOD , 
+    REMARKS , 
+    GIFTOPTION , 
+    GIFTMESSAGE , 
+    CREATEDDATE , 
+    UPDATEDDATE , 
+    PHONE1 , 
+    PHONE2 , 
+    ADDRESS1 , 
+    ADDRESS2 , 
+    ADDRESS3 , 
+    CITY , 
+    PROVINCE , 
+    WARD , 
+    REGION , 
+    POSTCODE , 
+    COUNTRY , 
+    COUNTRYCODE , 
+    ORDERITEMID , 
+    IDENTIFYNUM , 
+    PRODUCTNAME , 
+    SKU , 
+    SHOPSKU , 
+    SHIPPINGTYPE , 
+    ITEMPRICE , 
+    QUANTITY , 
+    PAIDPRICE , 
+    WALLETCREDITS , 
+    TAXAMOUNT , 
+    SHIPPINGAMOUNT , 
+    VOUCHERAMOUNT , 
+    VOUCHERCODE , 
+    ITEMSTATUS , 
+    SHIPMENTPROVIDER , 
+    REASON , 
+    REASONDETAIL , 
+    PURCHASEORDERID , 
+    PURCHASEORDERNUMBER , 
+    CHECKFLAG , 
+    CHECKDESCR , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
     </if>
     <if test="orderid != null">
-      ORDERID = #{orderid,jdbcType=VARCHAR} and
+      orderid = #{orderid,jdbcType=VARCHAR} and 
     </if>
     <if test="tradeid != null">
-      TRADEID = #{tradeid,jdbcType=VARCHAR} and
+      tradeid = #{tradeid,jdbcType=VARCHAR} and 
     </if>
     <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} and
+      corpid = #{corpid,jdbcType=VARCHAR} and 
     </if>
     <if test="shopid != null">
-      SHOPID = #{shopid,jdbcType=VARCHAR} and
+      shopid = #{shopid,jdbcType=VARCHAR} and 
     </if>
     <if test="shopname != null">
-      SHOPNAME = #{shopname,jdbcType=VARCHAR} and
+      shopname = #{shopname,jdbcType=VARCHAR} and 
     </if>
     <if test="groupid != null">
-      GROUPID = #{groupid,jdbcType=DECIMAL} and
+      groupid = #{groupid,jdbcType=DECIMAL} and 
     </if>
     <if test="currencyid != null">
-      CURRENCYID = #{currencyid,jdbcType=VARCHAR} and
+      currencyid = #{currencyid,jdbcType=VARCHAR} and 
     </if>
     <if test="customerid != null">
-      CUSTOMERID = #{customerid,jdbcType=VARCHAR} and
-    </if>
-    <if test="paymentmethod != null">
-      PAYMENTMETHOD = #{paymentmethod,jdbcType=VARCHAR} and
-    </if>
-    <if test="giftoption != null">
-      GIFTOPTION = #{giftoption,jdbcType=VARCHAR} and
-    </if>
-    <if test="createddate != null">
-      CREATEDDATE = #{createddate,jdbcType=TIMESTAMP} and
-    </if>
-    <if test="updateddate != null">
-      UPDATEDDATE = #{updateddate,jdbcType=TIMESTAMP} and
-    </if>
-    <if test="phone1 != null">
-      PHONE1 = #{phone1,jdbcType=VARCHAR} and
-    </if>
-    <if test="phone2 != null">
-      PHONE2 = #{phone2,jdbcType=VARCHAR} and
-    </if>
-    <if test="city != null">
-      CITY = #{city,jdbcType=VARCHAR} and
-    </if>
-    <if test="province != null">
-      PROVINCE = #{province,jdbcType=VARCHAR} and
-    </if>
-    <if test="ward != null">
-      WARD = #{ward,jdbcType=VARCHAR} and
-    </if>
-    <if test="region != null">
-      REGION = #{region,jdbcType=VARCHAR} and
-    </if>
-    <if test="postcode != null">
-      POSTCODE = #{postcode,jdbcType=VARCHAR} and
-    </if>
-    <if test="country != null">
-      COUNTRY = #{country,jdbcType=VARCHAR} and
-    </if>
-    <if test="countrycode != null">
-      COUNTRYCODE = #{countrycode,jdbcType=VARCHAR} and
-    </if>
-    <if test="orderitemid != null">
-      ORDERITEMID = #{orderitemid,jdbcType=VARCHAR} and
-    </if>
-    <if test="identifynum != null">
-      IDENTIFYNUM = #{identifynum,jdbcType=VARCHAR} and
-    </if>
-    <if test="productname != null">
-      PRODUCTNAME = #{productname,jdbcType=VARCHAR} and
-    </if>
-    <if test="sku != null">
-      SKU = #{sku,jdbcType=VARCHAR} and
-    </if>
-    <if test="shopsku != null">
-      SHOPSKU = #{shopsku,jdbcType=VARCHAR} and
-    </if>
-    <if test="shippingtype != null">
-      SHIPPINGTYPE = #{shippingtype,jdbcType=VARCHAR} and
-    </if>
-    <if test="itemprice != null">
-      ITEMPRICE = #{itemprice,jdbcType=DECIMAL} and
-    </if>
-    <if test="quantity != null">
-      QUANTITY = #{quantity,jdbcType=DECIMAL} and
-    </if>
-    <if test="paidprice != null">
-      PAIDPRICE = #{paidprice,jdbcType=DECIMAL} and
-    </if>
-    <if test="walletcredits != null">
-      WALLETCREDITS = #{walletcredits,jdbcType=DECIMAL} and
-    </if>
-    <if test="taxamount != null">
-      TAXAMOUNT = #{taxamount,jdbcType=DECIMAL} and
-    </if>
-    <if test="shippingamount != null">
-      SHIPPINGAMOUNT = #{shippingamount,jdbcType=DECIMAL} and
-    </if>
-    <if test="voucheramount != null">
-      VOUCHERAMOUNT = #{voucheramount,jdbcType=DECIMAL} and
-    </if>
-    <if test="vouchercode != null">
-      VOUCHERCODE = #{vouchercode,jdbcType=VARCHAR} and
-    </if>
-    <if test="itemstatus != null">
-      ITEMSTATUS = #{itemstatus,jdbcType=VARCHAR} and
-    </if>
-    <if test="shipmentprovider != null">
-      SHIPMENTPROVIDER = #{shipmentprovider,jdbcType=VARCHAR} and
-    </if>
-    <if test="reason != null">
-      REASON = #{reason,jdbcType=VARCHAR} and
-    </if>
-    <if test="reasondetail != null">
-      REASONDETAIL = #{reasondetail,jdbcType=VARCHAR} and
-    </if>
-    <if test="purchaseorderid != null">
-      PURCHASEORDERID = #{purchaseorderid,jdbcType=VARCHAR} and
-    </if>
-    <if test="purchaseordernumber != null">
-      PURCHASEORDERNUMBER = #{purchaseordernumber,jdbcType=VARCHAR} and
-    </if>
-    <if test="checkflag != null">
-      CHECKFLAG = #{checkflag,jdbcType=DECIMAL} and
-    </if>
-    <if test="checkdescr != null">
-      CHECKDESCR = #{checkdescr,jdbcType=VARCHAR} and
+      customerid = #{customerid,jdbcType=VARCHAR} and 
     </if>
     <if test="customername != null">
-      CUSTOMERNAME = #{customername,jdbcType=LONGVARCHAR} and
+      customername = #{customername,jdbcType=VARCHAR} and 
     </if>
     <if test="firstname != null">
-      FIRSTNAME = #{firstname,jdbcType=LONGVARCHAR} and
+      firstname = #{firstname,jdbcType=VARCHAR} and 
     </if>
     <if test="lastname != null">
-      LASTNAME = #{lastname,jdbcType=LONGVARCHAR} and
+      lastname = #{lastname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="paymentmethod != null">
+      paymentmethod = #{paymentmethod,jdbcType=VARCHAR} and 
     </if>
     <if test="remarks != null">
-      REMARKS = #{remarks,jdbcType=LONGVARCHAR} and
+      remarks = #{remarks,jdbcType=VARCHAR} and 
+    </if>
+    <if test="giftoption != null">
+      giftoption = #{giftoption,jdbcType=VARCHAR} and 
     </if>
     <if test="giftmessage != null">
-      GIFTMESSAGE = #{giftmessage,jdbcType=LONGVARCHAR} and
+      giftmessage = #{giftmessage,jdbcType=VARCHAR} and 
+    </if>
+    <if test="createddate != null">
+      createddate = #{createddate,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="updateddate != null">
+      updateddate = #{updateddate,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="phone1 != null">
+      phone1 = #{phone1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="phone2 != null">
+      phone2 = #{phone2,jdbcType=VARCHAR} and 
     </if>
     <if test="address1 != null">
-      ADDRESS1 = #{address1,jdbcType=LONGVARCHAR} and
+      address1 = #{address1,jdbcType=VARCHAR} and 
     </if>
     <if test="address2 != null">
-      ADDRESS2 = #{address2,jdbcType=LONGVARCHAR} and
+      address2 = #{address2,jdbcType=VARCHAR} and 
     </if>
     <if test="address3 != null">
-      ADDRESS3 = #{address3,jdbcType=LONGVARCHAR} and
+      address3 = #{address3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="city != null">
+      city = #{city,jdbcType=VARCHAR} and 
+    </if>
+    <if test="province != null">
+      province = #{province,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ward != null">
+      ward = #{ward,jdbcType=VARCHAR} and 
+    </if>
+    <if test="region != null">
+      region = #{region,jdbcType=VARCHAR} and 
+    </if>
+    <if test="postcode != null">
+      postcode = #{postcode,jdbcType=VARCHAR} and 
+    </if>
+    <if test="country != null">
+      country = #{country,jdbcType=VARCHAR} and 
+    </if>
+    <if test="countrycode != null">
+      countrycode = #{countrycode,jdbcType=VARCHAR} and 
+    </if>
+    <if test="orderitemid != null">
+      orderitemid = #{orderitemid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="identifynum != null">
+      identifynum = #{identifynum,jdbcType=VARCHAR} and 
+    </if>
+    <if test="productname != null">
+      productname = #{productname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sku != null">
+      sku = #{sku,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shopsku != null">
+      shopsku = #{shopsku,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shippingtype != null">
+      shippingtype = #{shippingtype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="itemprice != null">
+      itemprice = #{itemprice,jdbcType=DECIMAL} and 
+    </if>
+    <if test="quantity != null">
+      quantity = #{quantity,jdbcType=DECIMAL} and 
+    </if>
+    <if test="paidprice != null">
+      paidprice = #{paidprice,jdbcType=DECIMAL} and 
+    </if>
+    <if test="walletcredits != null">
+      walletcredits = #{walletcredits,jdbcType=DECIMAL} and 
+    </if>
+    <if test="taxamount != null">
+      taxamount = #{taxamount,jdbcType=DECIMAL} and 
+    </if>
+    <if test="shippingamount != null">
+      shippingamount = #{shippingamount,jdbcType=DECIMAL} and 
+    </if>
+    <if test="voucheramount != null">
+      voucheramount = #{voucheramount,jdbcType=DECIMAL} and 
+    </if>
+    <if test="vouchercode != null">
+      vouchercode = #{vouchercode,jdbcType=VARCHAR} and 
+    </if>
+    <if test="itemstatus != null">
+      itemstatus = #{itemstatus,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shipmentprovider != null">
+      shipmentprovider = #{shipmentprovider,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reason != null">
+      reason = #{reason,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reasondetail != null">
+      reasondetail = #{reasondetail,jdbcType=VARCHAR} and 
+    </if>
+    <if test="purchaseorderid != null">
+      purchaseorderid = #{purchaseorderid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="purchaseordernumber != null">
+      purchaseordernumber = #{purchaseordernumber,jdbcType=VARCHAR} and 
+    </if>
+    <if test="checkflag != null">
+      checkflag = #{checkflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="checkdescr != null">
+      checkdescr = #{checkdescr,jdbcType=VARCHAR} and 
     </if>
      1=1
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from db_lazadaorderinfo
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
-  </select>
-
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="orderid != null">
+      orderid = #{orderid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="tradeid != null">
+      tradeid = #{tradeid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shopid != null">
+      shopid = #{shopid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shopname != null">
+      shopname = #{shopname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="groupid != null">
+      groupid = #{groupid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="currencyid != null">
+      currencyid = #{currencyid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="customerid != null">
+      customerid = #{customerid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="customername != null">
+      customername = #{customername,jdbcType=VARCHAR} , 
+    </if>
+    <if test="firstname != null">
+      firstname = #{firstname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="lastname != null">
+      lastname = #{lastname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="paymentmethod != null">
+      paymentmethod = #{paymentmethod,jdbcType=VARCHAR} , 
+    </if>
+    <if test="remarks != null">
+      remarks = #{remarks,jdbcType=VARCHAR} , 
+    </if>
+    <if test="giftoption != null">
+      giftoption = #{giftoption,jdbcType=VARCHAR} , 
+    </if>
+    <if test="giftmessage != null">
+      giftmessage = #{giftmessage,jdbcType=VARCHAR} , 
+    </if>
+    <if test="createddate != null">
+      createddate = #{createddate,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="updateddate != null">
+      updateddate = #{updateddate,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="phone1 != null">
+      phone1 = #{phone1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="phone2 != null">
+      phone2 = #{phone2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="address1 != null">
+      address1 = #{address1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="address2 != null">
+      address2 = #{address2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="address3 != null">
+      address3 = #{address3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="city != null">
+      city = #{city,jdbcType=VARCHAR} , 
+    </if>
+    <if test="province != null">
+      province = #{province,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ward != null">
+      ward = #{ward,jdbcType=VARCHAR} , 
+    </if>
+    <if test="region != null">
+      region = #{region,jdbcType=VARCHAR} , 
+    </if>
+    <if test="postcode != null">
+      postcode = #{postcode,jdbcType=VARCHAR} , 
+    </if>
+    <if test="country != null">
+      country = #{country,jdbcType=VARCHAR} , 
+    </if>
+    <if test="countrycode != null">
+      countrycode = #{countrycode,jdbcType=VARCHAR} , 
+    </if>
+    <if test="orderitemid != null">
+      orderitemid = #{orderitemid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="identifynum != null">
+      identifynum = #{identifynum,jdbcType=VARCHAR} , 
+    </if>
+    <if test="productname != null">
+      productname = #{productname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sku != null">
+      sku = #{sku,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shopsku != null">
+      shopsku = #{shopsku,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shippingtype != null">
+      shippingtype = #{shippingtype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="itemprice != null">
+      itemprice = #{itemprice,jdbcType=DECIMAL} , 
+    </if>
+    <if test="quantity != null">
+      quantity = #{quantity,jdbcType=DECIMAL} , 
+    </if>
+    <if test="paidprice != null">
+      paidprice = #{paidprice,jdbcType=DECIMAL} , 
+    </if>
+    <if test="walletcredits != null">
+      walletcredits = #{walletcredits,jdbcType=DECIMAL} , 
+    </if>
+    <if test="taxamount != null">
+      taxamount = #{taxamount,jdbcType=DECIMAL} , 
+    </if>
+    <if test="shippingamount != null">
+      shippingamount = #{shippingamount,jdbcType=DECIMAL} , 
+    </if>
+    <if test="voucheramount != null">
+      voucheramount = #{voucheramount,jdbcType=DECIMAL} , 
+    </if>
+    <if test="vouchercode != null">
+      vouchercode = #{vouchercode,jdbcType=VARCHAR} , 
+    </if>
+    <if test="itemstatus != null">
+      itemstatus = #{itemstatus,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shipmentprovider != null">
+      shipmentprovider = #{shipmentprovider,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reason != null">
+      reason = #{reason,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reasondetail != null">
+      reasondetail = #{reasondetail,jdbcType=VARCHAR} , 
+    </if>
+    <if test="purchaseorderid != null">
+      purchaseorderid = #{purchaseorderid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="purchaseordernumber != null">
+      purchaseordernumber = #{purchaseordernumber,jdbcType=VARCHAR} , 
+    </if>
+    <if test="checkflag != null">
+      checkflag = #{checkflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="checkdescr != null">
+      checkdescr = #{checkdescr,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbLazadaorderinfo" resultMap="ResultMapWithBLOBs">
-    select <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from db_lazadaorderinfo
-    <where>
-      <include refid="criteria"/>
-    </where>
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
   </select>
-
-
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_lazadaorderinfo
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbLazadaorderinfo">
-    insert into db_lazadaorderinfo (SEQUENCEID, ORDERID, TRADEID, 
-      CORPID, SHOPID, SHOPNAME, 
-      GROUPID, CURRENCYID, CUSTOMERID, 
-      PAYMENTMETHOD, GIFTOPTION, CREATEDDATE, 
-      UPDATEDDATE, PHONE1, PHONE2, 
-      CITY, PROVINCE, WARD, 
-      REGION, POSTCODE, COUNTRY, 
-      COUNTRYCODE, ORDERITEMID, IDENTIFYNUM, 
-      PRODUCTNAME, SKU, SHOPSKU, 
-      SHIPPINGTYPE, ITEMPRICE, QUANTITY, 
-      PAIDPRICE, WALLETCREDITS, TAXAMOUNT, 
-      SHIPPINGAMOUNT, VOUCHERAMOUNT, VOUCHERCODE, 
-      ITEMSTATUS, SHIPMENTPROVIDER, REASON, 
-      REASONDETAIL, PURCHASEORDERID, PURCHASEORDERNUMBER, 
-      CHECKFLAG, CHECKDESCR, CUSTOMERNAME, 
-      FIRSTNAME, LASTNAME, REMARKS, 
-      GIFTMESSAGE, ADDRESS1, ADDRESS2, 
-      ADDRESS3)
-    values (#{sequenceid,jdbcType=VARCHAR}, #{orderid,jdbcType=VARCHAR}, #{tradeid,jdbcType=VARCHAR}, 
-      #{corpid,jdbcType=VARCHAR}, #{shopid,jdbcType=VARCHAR}, #{shopname,jdbcType=VARCHAR}, 
-      #{groupid,jdbcType=DECIMAL}, #{currencyid,jdbcType=VARCHAR}, #{customerid,jdbcType=VARCHAR}, 
-      #{paymentmethod,jdbcType=VARCHAR}, #{giftoption,jdbcType=VARCHAR}, #{createddate,jdbcType=TIMESTAMP}, 
-      #{updateddate,jdbcType=TIMESTAMP}, #{phone1,jdbcType=VARCHAR}, #{phone2,jdbcType=VARCHAR}, 
-      #{city,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, #{ward,jdbcType=VARCHAR}, 
-      #{region,jdbcType=VARCHAR}, #{postcode,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, 
-      #{countrycode,jdbcType=VARCHAR}, #{orderitemid,jdbcType=VARCHAR}, #{identifynum,jdbcType=VARCHAR}, 
-      #{productname,jdbcType=VARCHAR}, #{sku,jdbcType=VARCHAR}, #{shopsku,jdbcType=VARCHAR}, 
-      #{shippingtype,jdbcType=VARCHAR}, #{itemprice,jdbcType=DECIMAL}, #{quantity,jdbcType=DECIMAL}, 
-      #{paidprice,jdbcType=DECIMAL}, #{walletcredits,jdbcType=DECIMAL}, #{taxamount,jdbcType=DECIMAL}, 
-      #{shippingamount,jdbcType=DECIMAL}, #{voucheramount,jdbcType=DECIMAL}, #{vouchercode,jdbcType=VARCHAR}, 
-      #{itemstatus,jdbcType=VARCHAR}, #{shipmentprovider,jdbcType=VARCHAR}, #{reason,jdbcType=VARCHAR}, 
-      #{reasondetail,jdbcType=VARCHAR}, #{purchaseorderid,jdbcType=VARCHAR}, #{purchaseordernumber,jdbcType=VARCHAR}, 
-      #{checkflag,jdbcType=DECIMAL}, #{checkdescr,jdbcType=VARCHAR}, #{customername,jdbcType=LONGVARCHAR}, 
-      #{firstname,jdbcType=LONGVARCHAR}, #{lastname,jdbcType=LONGVARCHAR}, #{remarks,jdbcType=LONGVARCHAR}, 
-      #{giftmessage,jdbcType=LONGVARCHAR}, #{address1,jdbcType=LONGVARCHAR}, #{address2,jdbcType=LONGVARCHAR}, 
-      #{address3,jdbcType=LONGVARCHAR})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbLazadaorderinfo">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbLazadaorderinfo">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbLazadaorderinfo">
-    insert into db_lazadaorderinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        SEQUENCEID,
-      </if>
-      <if test="orderid != null">
-        ORDERID,
-      </if>
-      <if test="tradeid != null">
-        TRADEID,
-      </if>
-      <if test="corpid != null">
-        CORPID,
-      </if>
-      <if test="shopid != null">
-        SHOPID,
-      </if>
-      <if test="shopname != null">
-        SHOPNAME,
-      </if>
-      <if test="groupid != null">
-        GROUPID,
-      </if>
-      <if test="currencyid != null">
-        CURRENCYID,
-      </if>
-      <if test="customerid != null">
-        CUSTOMERID,
-      </if>
-      <if test="paymentmethod != null">
-        PAYMENTMETHOD,
-      </if>
-      <if test="giftoption != null">
-        GIFTOPTION,
-      </if>
-      <if test="createddate != null">
-        CREATEDDATE,
-      </if>
-      <if test="updateddate != null">
-        UPDATEDDATE,
-      </if>
-      <if test="phone1 != null">
-        PHONE1,
-      </if>
-      <if test="phone2 != null">
-        PHONE2,
-      </if>
-      <if test="city != null">
-        CITY,
-      </if>
-      <if test="province != null">
-        PROVINCE,
-      </if>
-      <if test="ward != null">
-        WARD,
-      </if>
-      <if test="region != null">
-        REGION,
-      </if>
-      <if test="postcode != null">
-        POSTCODE,
-      </if>
-      <if test="country != null">
-        COUNTRY,
-      </if>
-      <if test="countrycode != null">
-        COUNTRYCODE,
-      </if>
-      <if test="orderitemid != null">
-        ORDERITEMID,
-      </if>
-      <if test="identifynum != null">
-        IDENTIFYNUM,
-      </if>
-      <if test="productname != null">
-        PRODUCTNAME,
-      </if>
-      <if test="sku != null">
-        SKU,
-      </if>
-      <if test="shopsku != null">
-        SHOPSKU,
-      </if>
-      <if test="shippingtype != null">
-        SHIPPINGTYPE,
-      </if>
-      <if test="itemprice != null">
-        ITEMPRICE,
-      </if>
-      <if test="quantity != null">
-        QUANTITY,
-      </if>
-      <if test="paidprice != null">
-        PAIDPRICE,
-      </if>
-      <if test="walletcredits != null">
-        WALLETCREDITS,
-      </if>
-      <if test="taxamount != null">
-        TAXAMOUNT,
-      </if>
-      <if test="shippingamount != null">
-        SHIPPINGAMOUNT,
-      </if>
-      <if test="voucheramount != null">
-        VOUCHERAMOUNT,
-      </if>
-      <if test="vouchercode != null">
-        VOUCHERCODE,
-      </if>
-      <if test="itemstatus != null">
-        ITEMSTATUS,
-      </if>
-      <if test="shipmentprovider != null">
-        SHIPMENTPROVIDER,
-      </if>
-      <if test="reason != null">
-        REASON,
-      </if>
-      <if test="reasondetail != null">
-        REASONDETAIL,
-      </if>
-      <if test="purchaseorderid != null">
-        PURCHASEORDERID,
-      </if>
-      <if test="purchaseordernumber != null">
-        PURCHASEORDERNUMBER,
-      </if>
-      <if test="checkflag != null">
-        CHECKFLAG,
-      </if>
-      <if test="checkdescr != null">
-        CHECKDESCR,
-      </if>
-      <if test="customername != null">
-        CUSTOMERNAME,
-      </if>
-      <if test="firstname != null">
-        FIRSTNAME,
-      </if>
-      <if test="lastname != null">
-        LASTNAME,
-      </if>
-      <if test="remarks != null">
-        REMARKS,
-      </if>
-      <if test="giftmessage != null">
-        GIFTMESSAGE,
-      </if>
-      <if test="address1 != null">
-        ADDRESS1,
-      </if>
-      <if test="address2 != null">
-        ADDRESS2,
-      </if>
-      <if test="address3 != null">
-        ADDRESS3,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        #{sequenceid,jdbcType=VARCHAR},
-      </if>
-      <if test="orderid != null">
-        #{orderid,jdbcType=VARCHAR},
-      </if>
-      <if test="tradeid != null">
-        #{tradeid,jdbcType=VARCHAR},
-      </if>
-      <if test="corpid != null">
-        #{corpid,jdbcType=VARCHAR},
-      </if>
-      <if test="shopid != null">
-        #{shopid,jdbcType=VARCHAR},
-      </if>
-      <if test="shopname != null">
-        #{shopname,jdbcType=VARCHAR},
-      </if>
-      <if test="groupid != null">
-        #{groupid,jdbcType=DECIMAL},
-      </if>
-      <if test="currencyid != null">
-        #{currencyid,jdbcType=VARCHAR},
-      </if>
-      <if test="customerid != null">
-        #{customerid,jdbcType=VARCHAR},
-      </if>
-      <if test="paymentmethod != null">
-        #{paymentmethod,jdbcType=VARCHAR},
-      </if>
-      <if test="giftoption != null">
-        #{giftoption,jdbcType=VARCHAR},
-      </if>
-      <if test="createddate != null">
-        #{createddate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updateddate != null">
-        #{updateddate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="phone1 != null">
-        #{phone1,jdbcType=VARCHAR},
-      </if>
-      <if test="phone2 != null">
-        #{phone2,jdbcType=VARCHAR},
-      </if>
-      <if test="city != null">
-        #{city,jdbcType=VARCHAR},
-      </if>
-      <if test="province != null">
-        #{province,jdbcType=VARCHAR},
-      </if>
-      <if test="ward != null">
-        #{ward,jdbcType=VARCHAR},
-      </if>
-      <if test="region != null">
-        #{region,jdbcType=VARCHAR},
-      </if>
-      <if test="postcode != null">
-        #{postcode,jdbcType=VARCHAR},
-      </if>
-      <if test="country != null">
-        #{country,jdbcType=VARCHAR},
-      </if>
-      <if test="countrycode != null">
-        #{countrycode,jdbcType=VARCHAR},
-      </if>
-      <if test="orderitemid != null">
-        #{orderitemid,jdbcType=VARCHAR},
-      </if>
-      <if test="identifynum != null">
-        #{identifynum,jdbcType=VARCHAR},
-      </if>
-      <if test="productname != null">
-        #{productname,jdbcType=VARCHAR},
-      </if>
-      <if test="sku != null">
-        #{sku,jdbcType=VARCHAR},
-      </if>
-      <if test="shopsku != null">
-        #{shopsku,jdbcType=VARCHAR},
-      </if>
-      <if test="shippingtype != null">
-        #{shippingtype,jdbcType=VARCHAR},
-      </if>
-      <if test="itemprice != null">
-        #{itemprice,jdbcType=DECIMAL},
-      </if>
-      <if test="quantity != null">
-        #{quantity,jdbcType=DECIMAL},
-      </if>
-      <if test="paidprice != null">
-        #{paidprice,jdbcType=DECIMAL},
-      </if>
-      <if test="walletcredits != null">
-        #{walletcredits,jdbcType=DECIMAL},
-      </if>
-      <if test="taxamount != null">
-        #{taxamount,jdbcType=DECIMAL},
-      </if>
-      <if test="shippingamount != null">
-        #{shippingamount,jdbcType=DECIMAL},
-      </if>
-      <if test="voucheramount != null">
-        #{voucheramount,jdbcType=DECIMAL},
-      </if>
-      <if test="vouchercode != null">
-        #{vouchercode,jdbcType=VARCHAR},
-      </if>
-      <if test="itemstatus != null">
-        #{itemstatus,jdbcType=VARCHAR},
-      </if>
-      <if test="shipmentprovider != null">
-        #{shipmentprovider,jdbcType=VARCHAR},
-      </if>
-      <if test="reason != null">
-        #{reason,jdbcType=VARCHAR},
-      </if>
-      <if test="reasondetail != null">
-        #{reasondetail,jdbcType=VARCHAR},
-      </if>
-      <if test="purchaseorderid != null">
-        #{purchaseorderid,jdbcType=VARCHAR},
-      </if>
-      <if test="purchaseordernumber != null">
-        #{purchaseordernumber,jdbcType=VARCHAR},
-      </if>
-      <if test="checkflag != null">
-        #{checkflag,jdbcType=DECIMAL},
-      </if>
-      <if test="checkdescr != null">
-        #{checkdescr,jdbcType=VARCHAR},
-      </if>
-      <if test="customername != null">
-        #{customername,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="firstname != null">
-        #{firstname,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="lastname != null">
-        #{lastname,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="remarks != null">
-        #{remarks,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="giftmessage != null">
-        #{giftmessage,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="address1 != null">
-        #{address1,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="address2 != null">
-        #{address2,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="address3 != null">
-        #{address3,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbLazadaorderinfo">
-    update db_lazadaorderinfo
-    <set>
-      <if test="orderid != null">
-        ORDERID = #{orderid,jdbcType=VARCHAR},
-      </if>
-      <if test="tradeid != null">
-        TRADEID = #{tradeid,jdbcType=VARCHAR},
-      </if>
-      <if test="corpid != null">
-        CORPID = #{corpid,jdbcType=VARCHAR},
-      </if>
-      <if test="shopid != null">
-        SHOPID = #{shopid,jdbcType=VARCHAR},
-      </if>
-      <if test="shopname != null">
-        SHOPNAME = #{shopname,jdbcType=VARCHAR},
-      </if>
-      <if test="groupid != null">
-        GROUPID = #{groupid,jdbcType=DECIMAL},
-      </if>
-      <if test="currencyid != null">
-        CURRENCYID = #{currencyid,jdbcType=VARCHAR},
-      </if>
-      <if test="customerid != null">
-        CUSTOMERID = #{customerid,jdbcType=VARCHAR},
-      </if>
-      <if test="paymentmethod != null">
-        PAYMENTMETHOD = #{paymentmethod,jdbcType=VARCHAR},
-      </if>
-      <if test="giftoption != null">
-        GIFTOPTION = #{giftoption,jdbcType=VARCHAR},
-      </if>
-      <if test="createddate != null">
-        CREATEDDATE = #{createddate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updateddate != null">
-        UPDATEDDATE = #{updateddate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="phone1 != null">
-        PHONE1 = #{phone1,jdbcType=VARCHAR},
-      </if>
-      <if test="phone2 != null">
-        PHONE2 = #{phone2,jdbcType=VARCHAR},
-      </if>
-      <if test="city != null">
-        CITY = #{city,jdbcType=VARCHAR},
-      </if>
-      <if test="province != null">
-        PROVINCE = #{province,jdbcType=VARCHAR},
-      </if>
-      <if test="ward != null">
-        WARD = #{ward,jdbcType=VARCHAR},
-      </if>
-      <if test="region != null">
-        REGION = #{region,jdbcType=VARCHAR},
-      </if>
-      <if test="postcode != null">
-        POSTCODE = #{postcode,jdbcType=VARCHAR},
-      </if>
-      <if test="country != null">
-        COUNTRY = #{country,jdbcType=VARCHAR},
-      </if>
-      <if test="countrycode != null">
-        COUNTRYCODE = #{countrycode,jdbcType=VARCHAR},
-      </if>
-      <if test="orderitemid != null">
-        ORDERITEMID = #{orderitemid,jdbcType=VARCHAR},
-      </if>
-      <if test="identifynum != null">
-        IDENTIFYNUM = #{identifynum,jdbcType=VARCHAR},
-      </if>
-      <if test="productname != null">
-        PRODUCTNAME = #{productname,jdbcType=VARCHAR},
-      </if>
-      <if test="sku != null">
-        SKU = #{sku,jdbcType=VARCHAR},
-      </if>
-      <if test="shopsku != null">
-        SHOPSKU = #{shopsku,jdbcType=VARCHAR},
-      </if>
-      <if test="shippingtype != null">
-        SHIPPINGTYPE = #{shippingtype,jdbcType=VARCHAR},
-      </if>
-      <if test="itemprice != null">
-        ITEMPRICE = #{itemprice,jdbcType=DECIMAL},
-      </if>
-      <if test="quantity != null">
-        QUANTITY = #{quantity,jdbcType=DECIMAL},
-      </if>
-      <if test="paidprice != null">
-        PAIDPRICE = #{paidprice,jdbcType=DECIMAL},
-      </if>
-      <if test="walletcredits != null">
-        WALLETCREDITS = #{walletcredits,jdbcType=DECIMAL},
-      </if>
-      <if test="taxamount != null">
-        TAXAMOUNT = #{taxamount,jdbcType=DECIMAL},
-      </if>
-      <if test="shippingamount != null">
-        SHIPPINGAMOUNT = #{shippingamount,jdbcType=DECIMAL},
-      </if>
-      <if test="voucheramount != null">
-        VOUCHERAMOUNT = #{voucheramount,jdbcType=DECIMAL},
-      </if>
-      <if test="vouchercode != null">
-        VOUCHERCODE = #{vouchercode,jdbcType=VARCHAR},
-      </if>
-      <if test="itemstatus != null">
-        ITEMSTATUS = #{itemstatus,jdbcType=VARCHAR},
-      </if>
-      <if test="shipmentprovider != null">
-        SHIPMENTPROVIDER = #{shipmentprovider,jdbcType=VARCHAR},
-      </if>
-      <if test="reason != null">
-        REASON = #{reason,jdbcType=VARCHAR},
-      </if>
-      <if test="reasondetail != null">
-        REASONDETAIL = #{reasondetail,jdbcType=VARCHAR},
-      </if>
-      <if test="purchaseorderid != null">
-        PURCHASEORDERID = #{purchaseorderid,jdbcType=VARCHAR},
-      </if>
-      <if test="purchaseordernumber != null">
-        PURCHASEORDERNUMBER = #{purchaseordernumber,jdbcType=VARCHAR},
-      </if>
-      <if test="checkflag != null">
-        CHECKFLAG = #{checkflag,jdbcType=DECIMAL},
-      </if>
-      <if test="checkdescr != null">
-        CHECKDESCR = #{checkdescr,jdbcType=VARCHAR},
-      </if>
-      <if test="customername != null">
-        CUSTOMERNAME = #{customername,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="firstname != null">
-        FIRSTNAME = #{firstname,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="lastname != null">
-        LASTNAME = #{lastname,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="remarks != null">
-        REMARKS = #{remarks,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="giftmessage != null">
-        GIFTMESSAGE = #{giftmessage,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="address1 != null">
-        ADDRESS1 = #{address1,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="address2 != null">
-        ADDRESS2 = #{address2,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="address3 != null">
-        ADDRESS3 = #{address3,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbLazadaorderinfo">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
-
 </mapper>

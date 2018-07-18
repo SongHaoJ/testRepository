@@ -12,15 +12,15 @@
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select SEQUENCEID, CREATEOPER, OPER, CREATETIME, GRADE, IFPARENT, MODULES
-    from db_perstaprivilege
+    from DB_PERSTAPRIVILEGE
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SEQUENCEID, CREATEOPER, OPER, CREATETIME, GRADE, IFPARENT, MODULES
-    from db_perstaprivilege
+    from DB_PERSTAPRIVILEGE
   </select>
   <sql id="TableName">
-    db_perstaprivilege
+    DB_PERSTAPRIVILEGE
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=VARCHAR} , 
@@ -29,7 +29,7 @@
      #{createtime,jdbcType=TIMESTAMP} , 
      #{grade,jdbcType=VARCHAR} , 
      #{ifparent,jdbcType=VARCHAR} , 
-     #{modules,jdbcType=VARCHAR}
+     #{modules,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
@@ -38,55 +38,55 @@
     CREATETIME , 
     GRADE , 
     IFPARENT , 
-    MODULES
+    MODULES , 
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
     </if>
     <if test="createoper != null">
-      CREATEOPER = #{createoper,jdbcType=VARCHAR} and 
+      createoper = #{createoper,jdbcType=VARCHAR} and 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
+      oper = #{oper,jdbcType=VARCHAR} and 
     </if>
     <if test="createtime != null">
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP} and 
+      createtime = #{createtime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="grade != null">
-      GRADE = #{grade,jdbcType=VARCHAR} and 
+      grade = #{grade,jdbcType=VARCHAR} and 
     </if>
     <if test="ifparent != null">
-      IFPARENT = #{ifparent,jdbcType=VARCHAR} and 
+      ifparent = #{ifparent,jdbcType=VARCHAR} and 
     </if>
     <if test="modules != null">
-      MODULES = #{modules,jdbcType=VARCHAR}
+      modules = #{modules,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
     </if>
     <if test="createoper != null">
-      CREATEOPER = #{createoper,jdbcType=VARCHAR} , 
+      createoper = #{createoper,jdbcType=VARCHAR} , 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
+      oper = #{oper,jdbcType=VARCHAR} , 
     </if>
     <if test="createtime != null">
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP} , 
+      createtime = #{createtime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="grade != null">
-      GRADE = #{grade,jdbcType=VARCHAR} , 
+      grade = #{grade,jdbcType=VARCHAR} , 
     </if>
     <if test="ifparent != null">
-      IFPARENT = #{ifparent,jdbcType=VARCHAR} , 
+      ifparent = #{ifparent,jdbcType=VARCHAR} , 
     </if>
     <if test="modules != null">
-      MODULES = #{modules,jdbcType=VARCHAR}
+      modules = #{modules,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbPerstaprivilege" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

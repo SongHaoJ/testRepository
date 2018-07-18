@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bean.dao.DbCalAmongMapper">
   <resultMap id="BaseResultMap" type="com.bean.model.DbCalAmong">
-    <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
+    <result column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
     <result column="SID" jdbcType="VARCHAR" property="sid" />
     <result column="WEIGHT" jdbcType="DECIMAL" property="weight" />
     <result column="COSTPRICE" jdbcType="DECIMAL" property="costprice" />
@@ -39,25 +39,16 @@
     <result column="COSTFILED8" jdbcType="DECIMAL" property="costfiled8" />
     <result column="COSTFILED9" jdbcType="DECIMAL" property="costfiled9" />
   </resultMap>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select SEQUENCEID, SID, WEIGHT, COSTPRICE, CURRENCY, EXCHANGERATE, DEFAULTRATE, PAYPALCOST, 
-    PAGECHARGE, FIXEDCHARGE, EXPRESSTYPEFEEID, EXPRESSTYPEFILED8, PACKWEIGHT, PACKCOST, 
-    MAOLI, TOCOUNTRY, CID, NAME, FREIGHT, TOTALPRICE, BASEMONEY, BASEWEIGHT, UNITMONEY, 
-    UNITWEIGHT, FIXEDMONEY1, FIXEDMONEY2, XBRESERVE8, XBRESERVE7, CALCULATEFLAG, SLRESERVE7, 
-    EBAYFEE, PAYPALFEE, FINALCOST, FINALCOSTRMB, COSTFILED8, COSTFILED9
-    from db_cal_among
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
-  </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SEQUENCEID, SID, WEIGHT, COSTPRICE, CURRENCY, EXCHANGERATE, DEFAULTRATE, PAYPALCOST, 
     PAGECHARGE, FIXEDCHARGE, EXPRESSTYPEFEEID, EXPRESSTYPEFILED8, PACKWEIGHT, PACKCOST, 
     MAOLI, TOCOUNTRY, CID, NAME, FREIGHT, TOTALPRICE, BASEMONEY, BASEWEIGHT, UNITMONEY, 
     UNITWEIGHT, FIXEDMONEY1, FIXEDMONEY2, XBRESERVE8, XBRESERVE7, CALCULATEFLAG, SLRESERVE7, 
     EBAYFEE, PAYPALFEE, FINALCOST, FINALCOSTRMB, COSTFILED8, COSTFILED9
-    from db_cal_among
+    from DB_CAL_AMONG
   </select>
   <sql id="TableName">
-    db_cal_among
+    DB_CAL_AMONG
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=VARCHAR} , 
@@ -95,7 +86,7 @@
      #{finalcost,jdbcType=DECIMAL} , 
      #{finalcostrmb,jdbcType=DECIMAL} , 
      #{costfiled8,jdbcType=DECIMAL} , 
-     #{costfiled9,jdbcType=DECIMAL}
+     #{costfiled9,jdbcType=DECIMAL} , 
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
@@ -133,229 +124,229 @@
     FINALCOST , 
     FINALCOSTRMB , 
     COSTFILED8 , 
-    COSTFILED9
+    COSTFILED9 , 
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
     </if>
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} and 
+      sid = #{sid,jdbcType=VARCHAR} and 
     </if>
     <if test="weight != null">
-      WEIGHT = #{weight,jdbcType=DECIMAL} and 
+      weight = #{weight,jdbcType=DECIMAL} and 
     </if>
     <if test="costprice != null">
-      COSTPRICE = #{costprice,jdbcType=DECIMAL} and 
+      costprice = #{costprice,jdbcType=DECIMAL} and 
     </if>
     <if test="currency != null">
-      CURRENCY = #{currency,jdbcType=VARCHAR} and 
+      currency = #{currency,jdbcType=VARCHAR} and 
     </if>
     <if test="exchangerate != null">
-      EXCHANGERATE = #{exchangerate,jdbcType=DECIMAL} and 
+      exchangerate = #{exchangerate,jdbcType=DECIMAL} and 
     </if>
     <if test="defaultrate != null">
-      DEFAULTRATE = #{defaultrate,jdbcType=DECIMAL} and 
+      defaultrate = #{defaultrate,jdbcType=DECIMAL} and 
     </if>
     <if test="paypalcost != null">
-      PAYPALCOST = #{paypalcost,jdbcType=DECIMAL} and 
+      paypalcost = #{paypalcost,jdbcType=DECIMAL} and 
     </if>
     <if test="pagecharge != null">
-      PAGECHARGE = #{pagecharge,jdbcType=DECIMAL} and 
+      pagecharge = #{pagecharge,jdbcType=DECIMAL} and 
     </if>
     <if test="fixedcharge != null">
-      FIXEDCHARGE = #{fixedcharge,jdbcType=DECIMAL} and 
+      fixedcharge = #{fixedcharge,jdbcType=DECIMAL} and 
     </if>
     <if test="expresstypefeeid != null">
-      EXPRESSTYPEFEEID = #{expresstypefeeid,jdbcType=VARCHAR} and 
+      expresstypefeeid = #{expresstypefeeid,jdbcType=VARCHAR} and 
     </if>
     <if test="expresstypefiled8 != null">
-      EXPRESSTYPEFILED8 = #{expresstypefiled8,jdbcType=DECIMAL} and 
+      expresstypefiled8 = #{expresstypefiled8,jdbcType=DECIMAL} and 
     </if>
     <if test="packweight != null">
-      PACKWEIGHT = #{packweight,jdbcType=DECIMAL} and 
+      packweight = #{packweight,jdbcType=DECIMAL} and 
     </if>
     <if test="packcost != null">
-      PACKCOST = #{packcost,jdbcType=DECIMAL} and 
+      packcost = #{packcost,jdbcType=DECIMAL} and 
     </if>
     <if test="maoli != null">
-      MAOLI = #{maoli,jdbcType=DECIMAL} and 
+      maoli = #{maoli,jdbcType=DECIMAL} and 
     </if>
     <if test="tocountry != null">
-      TOCOUNTRY = #{tocountry,jdbcType=VARCHAR} and 
+      tocountry = #{tocountry,jdbcType=VARCHAR} and 
     </if>
     <if test="cid != null">
-      CID = #{cid,jdbcType=DECIMAL} and 
+      cid = #{cid,jdbcType=DECIMAL} and 
     </if>
     <if test="name != null">
-      NAME = #{name,jdbcType=VARCHAR} and 
+      name = #{name,jdbcType=VARCHAR} and 
     </if>
     <if test="freight != null">
-      FREIGHT = #{freight,jdbcType=DECIMAL} and 
+      freight = #{freight,jdbcType=DECIMAL} and 
     </if>
     <if test="totalprice != null">
-      TOTALPRICE = #{totalprice,jdbcType=DECIMAL} and 
+      totalprice = #{totalprice,jdbcType=DECIMAL} and 
     </if>
     <if test="basemoney != null">
-      BASEMONEY = #{basemoney,jdbcType=DECIMAL} and 
+      basemoney = #{basemoney,jdbcType=DECIMAL} and 
     </if>
     <if test="baseweight != null">
-      BASEWEIGHT = #{baseweight,jdbcType=DECIMAL} and 
+      baseweight = #{baseweight,jdbcType=DECIMAL} and 
     </if>
     <if test="unitmoney != null">
-      UNITMONEY = #{unitmoney,jdbcType=DECIMAL} and 
+      unitmoney = #{unitmoney,jdbcType=DECIMAL} and 
     </if>
     <if test="unitweight != null">
-      UNITWEIGHT = #{unitweight,jdbcType=DECIMAL} and 
+      unitweight = #{unitweight,jdbcType=DECIMAL} and 
     </if>
     <if test="fixedmoney1 != null">
-      FIXEDMONEY1 = #{fixedmoney1,jdbcType=DECIMAL} and 
+      fixedmoney1 = #{fixedmoney1,jdbcType=DECIMAL} and 
     </if>
     <if test="fixedmoney2 != null">
-      FIXEDMONEY2 = #{fixedmoney2,jdbcType=DECIMAL} and 
+      fixedmoney2 = #{fixedmoney2,jdbcType=DECIMAL} and 
     </if>
     <if test="xbreserve8 != null">
-      XBRESERVE8 = #{xbreserve8,jdbcType=DECIMAL} and 
+      xbreserve8 = #{xbreserve8,jdbcType=DECIMAL} and 
     </if>
     <if test="xbreserve7 != null">
-      XBRESERVE7 = #{xbreserve7,jdbcType=DECIMAL} and 
+      xbreserve7 = #{xbreserve7,jdbcType=DECIMAL} and 
     </if>
     <if test="calculateflag != null">
-      CALCULATEFLAG = #{calculateflag,jdbcType=VARCHAR} and 
+      calculateflag = #{calculateflag,jdbcType=VARCHAR} and 
     </if>
     <if test="slreserve7 != null">
-      SLRESERVE7 = #{slreserve7,jdbcType=DECIMAL} and 
+      slreserve7 = #{slreserve7,jdbcType=DECIMAL} and 
     </if>
     <if test="ebayfee != null">
-      EBAYFEE = #{ebayfee,jdbcType=DECIMAL} and 
+      ebayfee = #{ebayfee,jdbcType=DECIMAL} and 
     </if>
     <if test="paypalfee != null">
-      PAYPALFEE = #{paypalfee,jdbcType=DECIMAL} and 
+      paypalfee = #{paypalfee,jdbcType=DECIMAL} and 
     </if>
     <if test="finalcost != null">
-      FINALCOST = #{finalcost,jdbcType=DECIMAL} and 
+      finalcost = #{finalcost,jdbcType=DECIMAL} and 
     </if>
     <if test="finalcostrmb != null">
-      FINALCOSTRMB = #{finalcostrmb,jdbcType=DECIMAL} and 
+      finalcostrmb = #{finalcostrmb,jdbcType=DECIMAL} and 
     </if>
     <if test="costfiled8 != null">
-      COSTFILED8 = #{costfiled8,jdbcType=DECIMAL} and 
+      costfiled8 = #{costfiled8,jdbcType=DECIMAL} and 
     </if>
     <if test="costfiled9 != null">
-      COSTFILED9 = #{costfiled9,jdbcType=DECIMAL}
+      costfiled9 = #{costfiled9,jdbcType=DECIMAL} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
     </if>
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} , 
+      sid = #{sid,jdbcType=VARCHAR} , 
     </if>
     <if test="weight != null">
-      WEIGHT = #{weight,jdbcType=DECIMAL} , 
+      weight = #{weight,jdbcType=DECIMAL} , 
     </if>
     <if test="costprice != null">
-      COSTPRICE = #{costprice,jdbcType=DECIMAL} , 
+      costprice = #{costprice,jdbcType=DECIMAL} , 
     </if>
     <if test="currency != null">
-      CURRENCY = #{currency,jdbcType=VARCHAR} , 
+      currency = #{currency,jdbcType=VARCHAR} , 
     </if>
     <if test="exchangerate != null">
-      EXCHANGERATE = #{exchangerate,jdbcType=DECIMAL} , 
+      exchangerate = #{exchangerate,jdbcType=DECIMAL} , 
     </if>
     <if test="defaultrate != null">
-      DEFAULTRATE = #{defaultrate,jdbcType=DECIMAL} , 
+      defaultrate = #{defaultrate,jdbcType=DECIMAL} , 
     </if>
     <if test="paypalcost != null">
-      PAYPALCOST = #{paypalcost,jdbcType=DECIMAL} , 
+      paypalcost = #{paypalcost,jdbcType=DECIMAL} , 
     </if>
     <if test="pagecharge != null">
-      PAGECHARGE = #{pagecharge,jdbcType=DECIMAL} , 
+      pagecharge = #{pagecharge,jdbcType=DECIMAL} , 
     </if>
     <if test="fixedcharge != null">
-      FIXEDCHARGE = #{fixedcharge,jdbcType=DECIMAL} , 
+      fixedcharge = #{fixedcharge,jdbcType=DECIMAL} , 
     </if>
     <if test="expresstypefeeid != null">
-      EXPRESSTYPEFEEID = #{expresstypefeeid,jdbcType=VARCHAR} , 
+      expresstypefeeid = #{expresstypefeeid,jdbcType=VARCHAR} , 
     </if>
     <if test="expresstypefiled8 != null">
-      EXPRESSTYPEFILED8 = #{expresstypefiled8,jdbcType=DECIMAL} , 
+      expresstypefiled8 = #{expresstypefiled8,jdbcType=DECIMAL} , 
     </if>
     <if test="packweight != null">
-      PACKWEIGHT = #{packweight,jdbcType=DECIMAL} , 
+      packweight = #{packweight,jdbcType=DECIMAL} , 
     </if>
     <if test="packcost != null">
-      PACKCOST = #{packcost,jdbcType=DECIMAL} , 
+      packcost = #{packcost,jdbcType=DECIMAL} , 
     </if>
     <if test="maoli != null">
-      MAOLI = #{maoli,jdbcType=DECIMAL} , 
+      maoli = #{maoli,jdbcType=DECIMAL} , 
     </if>
     <if test="tocountry != null">
-      TOCOUNTRY = #{tocountry,jdbcType=VARCHAR} , 
+      tocountry = #{tocountry,jdbcType=VARCHAR} , 
     </if>
     <if test="cid != null">
-      CID = #{cid,jdbcType=DECIMAL} , 
+      cid = #{cid,jdbcType=DECIMAL} , 
     </if>
     <if test="name != null">
-      NAME = #{name,jdbcType=VARCHAR} , 
+      name = #{name,jdbcType=VARCHAR} , 
     </if>
     <if test="freight != null">
-      FREIGHT = #{freight,jdbcType=DECIMAL} , 
+      freight = #{freight,jdbcType=DECIMAL} , 
     </if>
     <if test="totalprice != null">
-      TOTALPRICE = #{totalprice,jdbcType=DECIMAL} , 
+      totalprice = #{totalprice,jdbcType=DECIMAL} , 
     </if>
     <if test="basemoney != null">
-      BASEMONEY = #{basemoney,jdbcType=DECIMAL} , 
+      basemoney = #{basemoney,jdbcType=DECIMAL} , 
     </if>
     <if test="baseweight != null">
-      BASEWEIGHT = #{baseweight,jdbcType=DECIMAL} , 
+      baseweight = #{baseweight,jdbcType=DECIMAL} , 
     </if>
     <if test="unitmoney != null">
-      UNITMONEY = #{unitmoney,jdbcType=DECIMAL} , 
+      unitmoney = #{unitmoney,jdbcType=DECIMAL} , 
     </if>
     <if test="unitweight != null">
-      UNITWEIGHT = #{unitweight,jdbcType=DECIMAL} , 
+      unitweight = #{unitweight,jdbcType=DECIMAL} , 
     </if>
     <if test="fixedmoney1 != null">
-      FIXEDMONEY1 = #{fixedmoney1,jdbcType=DECIMAL} , 
+      fixedmoney1 = #{fixedmoney1,jdbcType=DECIMAL} , 
     </if>
     <if test="fixedmoney2 != null">
-      FIXEDMONEY2 = #{fixedmoney2,jdbcType=DECIMAL} , 
+      fixedmoney2 = #{fixedmoney2,jdbcType=DECIMAL} , 
     </if>
     <if test="xbreserve8 != null">
-      XBRESERVE8 = #{xbreserve8,jdbcType=DECIMAL} , 
+      xbreserve8 = #{xbreserve8,jdbcType=DECIMAL} , 
     </if>
     <if test="xbreserve7 != null">
-      XBRESERVE7 = #{xbreserve7,jdbcType=DECIMAL} , 
+      xbreserve7 = #{xbreserve7,jdbcType=DECIMAL} , 
     </if>
     <if test="calculateflag != null">
-      CALCULATEFLAG = #{calculateflag,jdbcType=VARCHAR} , 
+      calculateflag = #{calculateflag,jdbcType=VARCHAR} , 
     </if>
     <if test="slreserve7 != null">
-      SLRESERVE7 = #{slreserve7,jdbcType=DECIMAL} , 
+      slreserve7 = #{slreserve7,jdbcType=DECIMAL} , 
     </if>
     <if test="ebayfee != null">
-      EBAYFEE = #{ebayfee,jdbcType=DECIMAL} , 
+      ebayfee = #{ebayfee,jdbcType=DECIMAL} , 
     </if>
     <if test="paypalfee != null">
-      PAYPALFEE = #{paypalfee,jdbcType=DECIMAL} , 
+      paypalfee = #{paypalfee,jdbcType=DECIMAL} , 
     </if>
     <if test="finalcost != null">
-      FINALCOST = #{finalcost,jdbcType=DECIMAL} , 
+      finalcost = #{finalcost,jdbcType=DECIMAL} , 
     </if>
     <if test="finalcostrmb != null">
-      FINALCOSTRMB = #{finalcostrmb,jdbcType=DECIMAL} , 
+      finalcostrmb = #{finalcostrmb,jdbcType=DECIMAL} , 
     </if>
     <if test="costfiled8 != null">
-      COSTFILED8 = #{costfiled8,jdbcType=DECIMAL} , 
+      costfiled8 = #{costfiled8,jdbcType=DECIMAL} , 
     </if>
     <if test="costfiled9 != null">
-      COSTFILED9 = #{costfiled9,jdbcType=DECIMAL}
+      costfiled9 = #{costfiled9,jdbcType=DECIMAL} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbCalAmong" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

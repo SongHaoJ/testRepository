@@ -19,9 +19,15 @@ public class DbProductdevelopnew implements Serializable {
 
     private String groupid;
 
+    private String producttitle;
+
     private String iclass;
 
     private String stype;
+
+    private String productname;
+
+    private String descr;
 
     private BigDecimal alertnum;
 
@@ -71,6 +77,10 @@ public class DbProductdevelopnew implements Serializable {
 
     private String picture1;
 
+    private String productnameen;
+
+    private String content;
+
     private BigDecimal weight;
 
     private BigDecimal purchaseday;
@@ -78,6 +88,8 @@ public class DbProductdevelopnew implements Serializable {
     private BigDecimal linkitemid;
 
     private String applyoper;
+
+    private String namechn;
 
     private String storageid;
 
@@ -90,18 +102,6 @@ public class DbProductdevelopnew implements Serializable {
     private String picture2;
 
     private BigDecimal packagingfee;
-
-    private String producttitle;
-
-    private String productname;
-
-    private String descr;
-
-    private String productnameen;
-
-    private String content;
-
-    private String namechn;
 
     private static final long serialVersionUID = 1L;
 
@@ -161,6 +161,14 @@ public class DbProductdevelopnew implements Serializable {
         this.groupid = groupid == null ? null : groupid.trim();
     }
 
+    public String getProducttitle() {
+        return producttitle;
+    }
+
+    public void setProducttitle(String producttitle) {
+        this.producttitle = producttitle == null ? null : producttitle.trim();
+    }
+
     public String getIclass() {
         return iclass;
     }
@@ -175,6 +183,22 @@ public class DbProductdevelopnew implements Serializable {
 
     public void setStype(String stype) {
         this.stype = stype == null ? null : stype.trim();
+    }
+
+    public String getProductname() {
+        return productname;
+    }
+
+    public void setProductname(String productname) {
+        this.productname = productname == null ? null : productname.trim();
+    }
+
+    public String getDescr() {
+        return descr;
+    }
+
+    public void setDescr(String descr) {
+        this.descr = descr == null ? null : descr.trim();
     }
 
     public BigDecimal getAlertnum() {
@@ -369,6 +393,22 @@ public class DbProductdevelopnew implements Serializable {
         this.picture1 = picture1 == null ? null : picture1.trim();
     }
 
+    public String getProductnameen() {
+        return productnameen;
+    }
+
+    public void setProductnameen(String productnameen) {
+        this.productnameen = productnameen == null ? null : productnameen.trim();
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content == null ? null : content.trim();
+    }
+
     public BigDecimal getWeight() {
         return weight;
     }
@@ -399,6 +439,14 @@ public class DbProductdevelopnew implements Serializable {
 
     public void setApplyoper(String applyoper) {
         this.applyoper = applyoper == null ? null : applyoper.trim();
+    }
+
+    public String getNamechn() {
+        return namechn;
+    }
+
+    public void setNamechn(String namechn) {
+        this.namechn = namechn == null ? null : namechn.trim();
     }
 
     public String getStorageid() {
@@ -449,54 +497,6 @@ public class DbProductdevelopnew implements Serializable {
         this.packagingfee = packagingfee;
     }
 
-    public String getProducttitle() {
-        return producttitle;
-    }
-
-    public void setProducttitle(String producttitle) {
-        this.producttitle = producttitle == null ? null : producttitle.trim();
-    }
-
-    public String getProductname() {
-        return productname;
-    }
-
-    public void setProductname(String productname) {
-        this.productname = productname == null ? null : productname.trim();
-    }
-
-    public String getDescr() {
-        return descr;
-    }
-
-    public void setDescr(String descr) {
-        this.descr = descr == null ? null : descr.trim();
-    }
-
-    public String getProductnameen() {
-        return productnameen;
-    }
-
-    public void setProductnameen(String productnameen) {
-        this.productnameen = productnameen == null ? null : productnameen.trim();
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content == null ? null : content.trim();
-    }
-
-    public String getNamechn() {
-        return namechn;
-    }
-
-    public void setNamechn(String namechn) {
-        this.namechn = namechn == null ? null : namechn.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -516,8 +516,11 @@ public class DbProductdevelopnew implements Serializable {
             && (this.getCostprice() == null ? other.getCostprice() == null : this.getCostprice().equals(other.getCostprice()))
             && (this.getVolume() == null ? other.getVolume() == null : this.getVolume().equals(other.getVolume()))
             && (this.getGroupid() == null ? other.getGroupid() == null : this.getGroupid().equals(other.getGroupid()))
+            && (this.getProducttitle() == null ? other.getProducttitle() == null : this.getProducttitle().equals(other.getProducttitle()))
             && (this.getIclass() == null ? other.getIclass() == null : this.getIclass().equals(other.getIclass()))
             && (this.getStype() == null ? other.getStype() == null : this.getStype().equals(other.getStype()))
+            && (this.getProductname() == null ? other.getProductname() == null : this.getProductname().equals(other.getProductname()))
+            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
             && (this.getAlertnum() == null ? other.getAlertnum() == null : this.getAlertnum().equals(other.getAlertnum()))
             && (this.getSavenum() == null ? other.getSavenum() == null : this.getSavenum().equals(other.getSavenum()))
             && (this.getCreatetime() == null ? other.getCreatetime() == null : this.getCreatetime().equals(other.getCreatetime()))
@@ -542,22 +545,19 @@ public class DbProductdevelopnew implements Serializable {
             && (this.getSavedate() == null ? other.getSavedate() == null : this.getSavedate().equals(other.getSavedate()))
             && (this.getPackagingweight() == null ? other.getPackagingweight() == null : this.getPackagingweight().equals(other.getPackagingweight()))
             && (this.getPicture1() == null ? other.getPicture1() == null : this.getPicture1().equals(other.getPicture1()))
+            && (this.getProductnameen() == null ? other.getProductnameen() == null : this.getProductnameen().equals(other.getProductnameen()))
+            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
             && (this.getWeight() == null ? other.getWeight() == null : this.getWeight().equals(other.getWeight()))
             && (this.getPurchaseday() == null ? other.getPurchaseday() == null : this.getPurchaseday().equals(other.getPurchaseday()))
             && (this.getLinkitemid() == null ? other.getLinkitemid() == null : this.getLinkitemid().equals(other.getLinkitemid()))
             && (this.getApplyoper() == null ? other.getApplyoper() == null : this.getApplyoper().equals(other.getApplyoper()))
+            && (this.getNamechn() == null ? other.getNamechn() == null : this.getNamechn().equals(other.getNamechn()))
             && (this.getStorageid() == null ? other.getStorageid() == null : this.getStorageid().equals(other.getStorageid()))
             && (this.getSelloper() == null ? other.getSelloper() == null : this.getSelloper().equals(other.getSelloper()))
             && (this.getManufactureid() == null ? other.getManufactureid() == null : this.getManufactureid().equals(other.getManufactureid()))
             && (this.getWidth() == null ? other.getWidth() == null : this.getWidth().equals(other.getWidth()))
             && (this.getPicture2() == null ? other.getPicture2() == null : this.getPicture2().equals(other.getPicture2()))
-            && (this.getPackagingfee() == null ? other.getPackagingfee() == null : this.getPackagingfee().equals(other.getPackagingfee()))
-            && (this.getProducttitle() == null ? other.getProducttitle() == null : this.getProducttitle().equals(other.getProducttitle()))
-            && (this.getProductname() == null ? other.getProductname() == null : this.getProductname().equals(other.getProductname()))
-            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
-            && (this.getProductnameen() == null ? other.getProductnameen() == null : this.getProductnameen().equals(other.getProductnameen()))
-            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
-            && (this.getNamechn() == null ? other.getNamechn() == null : this.getNamechn().equals(other.getNamechn()));
+            && (this.getPackagingfee() == null ? other.getPackagingfee() == null : this.getPackagingfee().equals(other.getPackagingfee()));
     }
 
     @Override
@@ -571,8 +571,11 @@ public class DbProductdevelopnew implements Serializable {
         result = prime * result + ((getCostprice() == null) ? 0 : getCostprice().hashCode());
         result = prime * result + ((getVolume() == null) ? 0 : getVolume().hashCode());
         result = prime * result + ((getGroupid() == null) ? 0 : getGroupid().hashCode());
+        result = prime * result + ((getProducttitle() == null) ? 0 : getProducttitle().hashCode());
         result = prime * result + ((getIclass() == null) ? 0 : getIclass().hashCode());
         result = prime * result + ((getStype() == null) ? 0 : getStype().hashCode());
+        result = prime * result + ((getProductname() == null) ? 0 : getProductname().hashCode());
+        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
         result = prime * result + ((getAlertnum() == null) ? 0 : getAlertnum().hashCode());
         result = prime * result + ((getSavenum() == null) ? 0 : getSavenum().hashCode());
         result = prime * result + ((getCreatetime() == null) ? 0 : getCreatetime().hashCode());
@@ -597,22 +600,19 @@ public class DbProductdevelopnew implements Serializable {
         result = prime * result + ((getSavedate() == null) ? 0 : getSavedate().hashCode());
         result = prime * result + ((getPackagingweight() == null) ? 0 : getPackagingweight().hashCode());
         result = prime * result + ((getPicture1() == null) ? 0 : getPicture1().hashCode());
+        result = prime * result + ((getProductnameen() == null) ? 0 : getProductnameen().hashCode());
+        result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
         result = prime * result + ((getWeight() == null) ? 0 : getWeight().hashCode());
         result = prime * result + ((getPurchaseday() == null) ? 0 : getPurchaseday().hashCode());
         result = prime * result + ((getLinkitemid() == null) ? 0 : getLinkitemid().hashCode());
         result = prime * result + ((getApplyoper() == null) ? 0 : getApplyoper().hashCode());
+        result = prime * result + ((getNamechn() == null) ? 0 : getNamechn().hashCode());
         result = prime * result + ((getStorageid() == null) ? 0 : getStorageid().hashCode());
         result = prime * result + ((getSelloper() == null) ? 0 : getSelloper().hashCode());
         result = prime * result + ((getManufactureid() == null) ? 0 : getManufactureid().hashCode());
         result = prime * result + ((getWidth() == null) ? 0 : getWidth().hashCode());
         result = prime * result + ((getPicture2() == null) ? 0 : getPicture2().hashCode());
         result = prime * result + ((getPackagingfee() == null) ? 0 : getPackagingfee().hashCode());
-        result = prime * result + ((getProducttitle() == null) ? 0 : getProducttitle().hashCode());
-        result = prime * result + ((getProductname() == null) ? 0 : getProductname().hashCode());
-        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
-        result = prime * result + ((getProductnameen() == null) ? 0 : getProductnameen().hashCode());
-        result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
-        result = prime * result + ((getNamechn() == null) ? 0 : getNamechn().hashCode());
         return result;
     }
 
@@ -629,8 +629,11 @@ public class DbProductdevelopnew implements Serializable {
         sb.append(", costprice=").append(costprice);
         sb.append(", volume=").append(volume);
         sb.append(", groupid=").append(groupid);
+        sb.append(", producttitle=").append(producttitle);
         sb.append(", iclass=").append(iclass);
         sb.append(", stype=").append(stype);
+        sb.append(", productname=").append(productname);
+        sb.append(", descr=").append(descr);
         sb.append(", alertnum=").append(alertnum);
         sb.append(", savenum=").append(savenum);
         sb.append(", createtime=").append(createtime);
@@ -655,22 +658,19 @@ public class DbProductdevelopnew implements Serializable {
         sb.append(", savedate=").append(savedate);
         sb.append(", packagingweight=").append(packagingweight);
         sb.append(", picture1=").append(picture1);
+        sb.append(", productnameen=").append(productnameen);
+        sb.append(", content=").append(content);
         sb.append(", weight=").append(weight);
         sb.append(", purchaseday=").append(purchaseday);
         sb.append(", linkitemid=").append(linkitemid);
         sb.append(", applyoper=").append(applyoper);
+        sb.append(", namechn=").append(namechn);
         sb.append(", storageid=").append(storageid);
         sb.append(", selloper=").append(selloper);
         sb.append(", manufactureid=").append(manufactureid);
         sb.append(", width=").append(width);
         sb.append(", picture2=").append(picture2);
         sb.append(", packagingfee=").append(packagingfee);
-        sb.append(", producttitle=").append(producttitle);
-        sb.append(", productname=").append(productname);
-        sb.append(", descr=").append(descr);
-        sb.append(", productnameen=").append(productnameen);
-        sb.append(", content=").append(content);
-        sb.append(", namechn=").append(namechn);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

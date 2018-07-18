@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbBrandlog;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbBrandlogMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbBrandlog selectByCriteria(DbBrandlog DbBrandlog);
 
-    int insert(DbBrandlog record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbBrandlog record);
+    void deleteByCriteria(DbBrandlog DbBrandlog);
+
+    int insertByCriteria(DbBrandlog DbBrandlog);
+
+    int updateByCriteria(DbBrandlog DbBrandlog);
 
     DbBrandlog selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbBrandlog record);
-
-    int updateByPrimaryKeyWithBLOBs(DbBrandlog record);
-
-    int updateByPrimaryKey(DbBrandlog record);
+    List<DbBrandlog> selectAll();
 }

@@ -1,28 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbProduct;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Map;
 
-@Repository
+@Service
 public interface DbProductMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbProduct selectByCriteria(DbProduct DbProduct);
 
-    int insert(DbProduct record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbProduct record);
+    void deleteByCriteria(DbProduct DbProduct);
+
+    int insertByCriteria(DbProduct DbProduct);
+
+    int updateByCriteria(DbProduct DbProduct);
 
     DbProduct selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbProduct record);
-
-    List<Map<String,String>> selectSidAndAliasBySid(List<String> skus);
-
-    List<Map<String,String>> selectLocationIdAndStorageIdByOrderids(List<String> ids);
-
-    List<Map<String,String>> selectChildSku(Map<String,String> params);
-
-    List<String> selectSequenceId(Map<String,String> params);
+    List<DbProduct> selectAll();
 }

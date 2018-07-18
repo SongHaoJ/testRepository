@@ -2,18 +2,25 @@ package com;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
+@Component
 public class DaeThread extends Thread {
     private Boolean start = true;
     private static DaeThread daeThread = new DaeThread();
     private static final Logger log = LoggerFactory.getLogger(DaeThread.class);
+
+
+    static{
+        daeThread.setDaemon(true);
+        daeThread.start();
+    }
 
     private DaeThread() {
 
     }
 
     public static DaeThread getDaeThread() {
-        daeThread.setDaemon(true);
         return daeThread;
     }
 
@@ -30,16 +37,6 @@ public class DaeThread extends Thread {
                 log.error("DaeThread Throws Exception:" + e.getMessage(), e);
                 start = false;
             }
-
-
-
-
-
-
-
-
-
-
         }
     }
 }

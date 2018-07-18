@@ -4,8 +4,16 @@
   <resultMap id="BaseResultMap" type="com.bean.model.DbExpresstype">
     <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
     <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="DESCR" jdbcType="VARCHAR" property="descr" />
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="FILED1" jdbcType="VARCHAR" property="filed1" />
+    <result column="FILED2" jdbcType="VARCHAR" property="filed2" />
+    <result column="FILED3" jdbcType="VARCHAR" property="filed3" />
+    <result column="FILED4" jdbcType="VARCHAR" property="filed4" />
+    <result column="FILED5" jdbcType="VARCHAR" property="filed5" />
+    <result column="FILED6" jdbcType="VARCHAR" property="filed6" />
+    <result column="FILED7" jdbcType="VARCHAR" property="filed7" />
     <result column="FILED8" jdbcType="DECIMAL" property="filed8" />
     <result column="FILED9" jdbcType="DECIMAL" property="filed9" />
     <result column="FILED10" jdbcType="DECIMAL" property="filed10" />
@@ -16,6 +24,11 @@
     <result column="FILED13" jdbcType="DECIMAL" property="filed13" />
     <result column="NAMEEN" jdbcType="VARCHAR" property="nameen" />
     <result column="EXPRESSTYPEFEEID" jdbcType="VARCHAR" property="expresstypefeeid" />
+    <result column="FILED14" jdbcType="VARCHAR" property="filed14" />
+    <result column="FILED15" jdbcType="VARCHAR" property="filed15" />
+    <result column="FILED16" jdbcType="VARCHAR" property="filed16" />
+    <result column="FILED17" jdbcType="VARCHAR" property="filed17" />
+    <result column="FILED18" jdbcType="VARCHAR" property="filed18" />
     <result column="TOKENCONFIGID" jdbcType="VARCHAR" property="tokenconfigid" />
     <result column="TOKEN" jdbcType="VARCHAR" property="token" />
     <result column="USERKEY" jdbcType="VARCHAR" property="userkey" />
@@ -55,686 +68,575 @@
     <result column="SHOPEEEXPRESSTYPE" jdbcType="VARCHAR" property="shopeeexpresstype" />
     <result column="UPLOADNUM" jdbcType="VARCHAR" property="uploadnum" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbExpresstype">
-    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
-    <result column="FILED1" jdbcType="LONGVARCHAR" property="filed1" />
-    <result column="FILED2" jdbcType="LONGVARCHAR" property="filed2" />
-    <result column="FILED3" jdbcType="LONGVARCHAR" property="filed3" />
-    <result column="FILED4" jdbcType="LONGVARCHAR" property="filed4" />
-    <result column="FILED5" jdbcType="LONGVARCHAR" property="filed5" />
-    <result column="FILED6" jdbcType="LONGVARCHAR" property="filed6" />
-    <result column="FILED7" jdbcType="LONGVARCHAR" property="filed7" />
-    <result column="FILED14" jdbcType="LONGVARCHAR" property="filed14" />
-    <result column="FILED15" jdbcType="LONGVARCHAR" property="filed15" />
-    <result column="FILED16" jdbcType="LONGVARCHAR" property="filed16" />
-    <result column="FILED17" jdbcType="LONGVARCHAR" property="filed17" />
-    <result column="FILED18" jdbcType="LONGVARCHAR" property="filed18" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    SEQUENCEID, 'NAME', OPER, OPERTIME, FILED8, FILED9, FILED10, CORPID, OPENFLAG, FILED11, 
-    FILED12, FILED13, NAMEEN, EXPRESSTYPEFEEID, TOKENCONFIGID, TOKEN, USERKEY, CUSTOMUSERKEY, 
-    EXPRESSTYPENEW, CONTACT, COMPAN, STREET1, STREET2, CITY, PROVINCE, COUNTRY, POSTCODE, 
-    PHONE, EMAIL, DISTRICT, DISTRICTCODE, CITYCODE, PROVINCECODE, 'LENGTH', WIDTH, HEIGHT, 
-    CITYID, PROVINCEID, DISTRICTID, STORAGENAME, STORAGECODE, CKYFLAG, INSURED, CODE, 
-    DHEXPRESSTYPE, LAZADAEXPRESSTYPE, DECLAREDVALUEMIN, DECLAREDVALUEMAX, DECLCURRENCY, 
-    SHOPIFYEXPRESSTYPE, SHOPEEEXPRESSTYPE, UPLOADNUM
-  </sql>
-  <sql id="Blob_Column_List">
-    DESCR, FILED1, FILED2, FILED3, FILED4, FILED5, FILED6, FILED7, FILED14, FILED15, 
-    FILED16, FILED17, FILED18
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
-    select
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from db_expresstype
-    <where> SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
-    </where>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SEQUENCEID, NAME, DESCR, OPER, OPERTIME, FILED1, FILED2, FILED3, FILED4, FILED5, 
+    FILED6, FILED7, FILED8, FILED9, FILED10, CORPID, OPENFLAG, FILED11, FILED12, FILED13, 
+    NAMEEN, EXPRESSTYPEFEEID, FILED14, FILED15, FILED16, FILED17, FILED18, TOKENCONFIGID, 
+    TOKEN, USERKEY, CUSTOMUSERKEY, EXPRESSTYPENEW, CONTACT, COMPAN, STREET1, STREET2, 
+    CITY, PROVINCE, COUNTRY, POSTCODE, PHONE, EMAIL, DISTRICT, DISTRICTCODE, CITYCODE, 
+    PROVINCECODE, LENGTH, WIDTH, HEIGHT, CITYID, PROVINCEID, DISTRICTID, STORAGENAME, 
+    STORAGECODE, CKYFLAG, INSURED, CODE, DHEXPRESSTYPE, LAZADAEXPRESSTYPE, DECLAREDVALUEMIN, 
+    DECLAREDVALUEMAX, DECLCURRENCY, SHOPIFYEXPRESSTYPE, SHOPEEEXPRESSTYPE, UPLOADNUM
+    from DB_EXPRESSTYPE
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_expresstype
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, NAME, DESCR, OPER, OPERTIME, FILED1, FILED2, FILED3, FILED4, FILED5, 
+    FILED6, FILED7, FILED8, FILED9, FILED10, CORPID, OPENFLAG, FILED11, FILED12, FILED13, 
+    NAMEEN, EXPRESSTYPEFEEID, FILED14, FILED15, FILED16, FILED17, FILED18, TOKENCONFIGID, 
+    TOKEN, USERKEY, CUSTOMUSERKEY, EXPRESSTYPENEW, CONTACT, COMPAN, STREET1, STREET2, 
+    CITY, PROVINCE, COUNTRY, POSTCODE, PHONE, EMAIL, DISTRICT, DISTRICTCODE, CITYCODE, 
+    PROVINCECODE, LENGTH, WIDTH, HEIGHT, CITYID, PROVINCEID, DISTRICTID, STORAGENAME, 
+    STORAGECODE, CKYFLAG, INSURED, CODE, DHEXPRESSTYPE, LAZADAEXPRESSTYPE, DECLAREDVALUEMIN, 
+    DECLAREDVALUEMAX, DECLCURRENCY, SHOPIFYEXPRESSTYPE, SHOPEEEXPRESSTYPE, UPLOADNUM
+    from DB_EXPRESSTYPE
+  </select>
+  <sql id="TableName">
+    DB_EXPRESSTYPE
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=VARCHAR} , 
+     #{name,jdbcType=VARCHAR} , 
+     #{descr,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{filed1,jdbcType=VARCHAR} , 
+     #{filed2,jdbcType=VARCHAR} , 
+     #{filed3,jdbcType=VARCHAR} , 
+     #{filed4,jdbcType=VARCHAR} , 
+     #{filed5,jdbcType=VARCHAR} , 
+     #{filed6,jdbcType=VARCHAR} , 
+     #{filed7,jdbcType=VARCHAR} , 
+     #{filed8,jdbcType=DECIMAL} , 
+     #{filed9,jdbcType=DECIMAL} , 
+     #{filed10,jdbcType=DECIMAL} , 
+     #{corpid,jdbcType=VARCHAR} , 
+     #{openflag,jdbcType=VARCHAR} , 
+     #{filed11,jdbcType=DECIMAL} , 
+     #{filed12,jdbcType=DECIMAL} , 
+     #{filed13,jdbcType=DECIMAL} , 
+     #{nameen,jdbcType=VARCHAR} , 
+     #{expresstypefeeid,jdbcType=VARCHAR} , 
+     #{filed14,jdbcType=VARCHAR} , 
+     #{filed15,jdbcType=VARCHAR} , 
+     #{filed16,jdbcType=VARCHAR} , 
+     #{filed17,jdbcType=VARCHAR} , 
+     #{filed18,jdbcType=VARCHAR} , 
+     #{tokenconfigid,jdbcType=VARCHAR} , 
+     #{token,jdbcType=VARCHAR} , 
+     #{userkey,jdbcType=VARCHAR} , 
+     #{customuserkey,jdbcType=VARCHAR} , 
+     #{expresstypenew,jdbcType=VARCHAR} , 
+     #{contact,jdbcType=VARCHAR} , 
+     #{compan,jdbcType=VARCHAR} , 
+     #{street1,jdbcType=VARCHAR} , 
+     #{street2,jdbcType=VARCHAR} , 
+     #{city,jdbcType=VARCHAR} , 
+     #{province,jdbcType=VARCHAR} , 
+     #{country,jdbcType=VARCHAR} , 
+     #{postcode,jdbcType=VARCHAR} , 
+     #{phone,jdbcType=VARCHAR} , 
+     #{email,jdbcType=VARCHAR} , 
+     #{district,jdbcType=VARCHAR} , 
+     #{districtcode,jdbcType=VARCHAR} , 
+     #{citycode,jdbcType=VARCHAR} , 
+     #{provincecode,jdbcType=VARCHAR} , 
+     #{length,jdbcType=DECIMAL} , 
+     #{width,jdbcType=DECIMAL} , 
+     #{height,jdbcType=DECIMAL} , 
+     #{cityid,jdbcType=VARCHAR} , 
+     #{provinceid,jdbcType=VARCHAR} , 
+     #{districtid,jdbcType=VARCHAR} , 
+     #{storagename,jdbcType=VARCHAR} , 
+     #{storagecode,jdbcType=VARCHAR} , 
+     #{ckyflag,jdbcType=DECIMAL} , 
+     #{insured,jdbcType=DECIMAL} , 
+     #{code,jdbcType=VARCHAR} , 
+     #{dhexpresstype,jdbcType=VARCHAR} , 
+     #{lazadaexpresstype,jdbcType=VARCHAR} , 
+     #{declaredvaluemin,jdbcType=DECIMAL} , 
+     #{declaredvaluemax,jdbcType=DECIMAL} , 
+     #{declcurrency,jdbcType=VARCHAR} , 
+     #{shopifyexpresstype,jdbcType=VARCHAR} , 
+     #{shopeeexpresstype,jdbcType=VARCHAR} , 
+     #{uploadnum,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    NAME , 
+    DESCR , 
+    OPER , 
+    OPERTIME , 
+    FILED1 , 
+    FILED2 , 
+    FILED3 , 
+    FILED4 , 
+    FILED5 , 
+    FILED6 , 
+    FILED7 , 
+    FILED8 , 
+    FILED9 , 
+    FILED10 , 
+    CORPID , 
+    OPENFLAG , 
+    FILED11 , 
+    FILED12 , 
+    FILED13 , 
+    NAMEEN , 
+    EXPRESSTYPEFEEID , 
+    FILED14 , 
+    FILED15 , 
+    FILED16 , 
+    FILED17 , 
+    FILED18 , 
+    TOKENCONFIGID , 
+    TOKEN , 
+    USERKEY , 
+    CUSTOMUSERKEY , 
+    EXPRESSTYPENEW , 
+    CONTACT , 
+    COMPAN , 
+    STREET1 , 
+    STREET2 , 
+    CITY , 
+    PROVINCE , 
+    COUNTRY , 
+    POSTCODE , 
+    PHONE , 
+    EMAIL , 
+    DISTRICT , 
+    DISTRICTCODE , 
+    CITYCODE , 
+    PROVINCECODE , 
+    LENGTH , 
+    WIDTH , 
+    HEIGHT , 
+    CITYID , 
+    PROVINCEID , 
+    DISTRICTID , 
+    STORAGENAME , 
+    STORAGECODE , 
+    CKYFLAG , 
+    INSURED , 
+    CODE , 
+    DHEXPRESSTYPE , 
+    LAZADAEXPRESSTYPE , 
+    DECLAREDVALUEMIN , 
+    DECLAREDVALUEMAX , 
+    DECLCURRENCY , 
+    SHOPIFYEXPRESSTYPE , 
+    SHOPEEEXPRESSTYPE , 
+    UPLOADNUM , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} and 
+    </if>
+    <if test="descr != null">
+      descr = #{descr,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="filed1 != null">
+      filed1 = #{filed1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="filed2 != null">
+      filed2 = #{filed2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="filed3 != null">
+      filed3 = #{filed3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="filed4 != null">
+      filed4 = #{filed4,jdbcType=VARCHAR} and 
+    </if>
+    <if test="filed5 != null">
+      filed5 = #{filed5,jdbcType=VARCHAR} and 
+    </if>
+    <if test="filed6 != null">
+      filed6 = #{filed6,jdbcType=VARCHAR} and 
+    </if>
+    <if test="filed7 != null">
+      filed7 = #{filed7,jdbcType=VARCHAR} and 
+    </if>
+    <if test="filed8 != null">
+      filed8 = #{filed8,jdbcType=DECIMAL} and 
+    </if>
+    <if test="filed9 != null">
+      filed9 = #{filed9,jdbcType=DECIMAL} and 
+    </if>
+    <if test="filed10 != null">
+      filed10 = #{filed10,jdbcType=DECIMAL} and 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="filed11 != null">
+      filed11 = #{filed11,jdbcType=DECIMAL} and 
+    </if>
+    <if test="filed12 != null">
+      filed12 = #{filed12,jdbcType=DECIMAL} and 
+    </if>
+    <if test="filed13 != null">
+      filed13 = #{filed13,jdbcType=DECIMAL} and 
+    </if>
+    <if test="nameen != null">
+      nameen = #{nameen,jdbcType=VARCHAR} and 
+    </if>
+    <if test="expresstypefeeid != null">
+      expresstypefeeid = #{expresstypefeeid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="filed14 != null">
+      filed14 = #{filed14,jdbcType=VARCHAR} and 
+    </if>
+    <if test="filed15 != null">
+      filed15 = #{filed15,jdbcType=VARCHAR} and 
+    </if>
+    <if test="filed16 != null">
+      filed16 = #{filed16,jdbcType=VARCHAR} and 
+    </if>
+    <if test="filed17 != null">
+      filed17 = #{filed17,jdbcType=VARCHAR} and 
+    </if>
+    <if test="filed18 != null">
+      filed18 = #{filed18,jdbcType=VARCHAR} and 
+    </if>
+    <if test="tokenconfigid != null">
+      tokenconfigid = #{tokenconfigid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="token != null">
+      token = #{token,jdbcType=VARCHAR} and 
+    </if>
+    <if test="userkey != null">
+      userkey = #{userkey,jdbcType=VARCHAR} and 
+    </if>
+    <if test="customuserkey != null">
+      customuserkey = #{customuserkey,jdbcType=VARCHAR} and 
+    </if>
+    <if test="expresstypenew != null">
+      expresstypenew = #{expresstypenew,jdbcType=VARCHAR} and 
+    </if>
+    <if test="contact != null">
+      contact = #{contact,jdbcType=VARCHAR} and 
+    </if>
+    <if test="compan != null">
+      compan = #{compan,jdbcType=VARCHAR} and 
+    </if>
+    <if test="street1 != null">
+      street1 = #{street1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="street2 != null">
+      street2 = #{street2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="city != null">
+      city = #{city,jdbcType=VARCHAR} and 
+    </if>
+    <if test="province != null">
+      province = #{province,jdbcType=VARCHAR} and 
+    </if>
+    <if test="country != null">
+      country = #{country,jdbcType=VARCHAR} and 
+    </if>
+    <if test="postcode != null">
+      postcode = #{postcode,jdbcType=VARCHAR} and 
+    </if>
+    <if test="phone != null">
+      phone = #{phone,jdbcType=VARCHAR} and 
+    </if>
+    <if test="email != null">
+      email = #{email,jdbcType=VARCHAR} and 
+    </if>
+    <if test="district != null">
+      district = #{district,jdbcType=VARCHAR} and 
+    </if>
+    <if test="districtcode != null">
+      districtcode = #{districtcode,jdbcType=VARCHAR} and 
+    </if>
+    <if test="citycode != null">
+      citycode = #{citycode,jdbcType=VARCHAR} and 
+    </if>
+    <if test="provincecode != null">
+      provincecode = #{provincecode,jdbcType=VARCHAR} and 
+    </if>
+    <if test="length != null">
+      length = #{length,jdbcType=DECIMAL} and 
+    </if>
+    <if test="width != null">
+      width = #{width,jdbcType=DECIMAL} and 
+    </if>
+    <if test="height != null">
+      height = #{height,jdbcType=DECIMAL} and 
+    </if>
+    <if test="cityid != null">
+      cityid = #{cityid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="provinceid != null">
+      provinceid = #{provinceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="districtid != null">
+      districtid = #{districtid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="storagename != null">
+      storagename = #{storagename,jdbcType=VARCHAR} and 
+    </if>
+    <if test="storagecode != null">
+      storagecode = #{storagecode,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ckyflag != null">
+      ckyflag = #{ckyflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="insured != null">
+      insured = #{insured,jdbcType=DECIMAL} and 
+    </if>
+    <if test="code != null">
+      code = #{code,jdbcType=VARCHAR} and 
+    </if>
+    <if test="dhexpresstype != null">
+      dhexpresstype = #{dhexpresstype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="lazadaexpresstype != null">
+      lazadaexpresstype = #{lazadaexpresstype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="declaredvaluemin != null">
+      declaredvaluemin = #{declaredvaluemin,jdbcType=DECIMAL} and 
+    </if>
+    <if test="declaredvaluemax != null">
+      declaredvaluemax = #{declaredvaluemax,jdbcType=DECIMAL} and 
+    </if>
+    <if test="declcurrency != null">
+      declcurrency = #{declcurrency,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shopifyexpresstype != null">
+      shopifyexpresstype = #{shopifyexpresstype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shopeeexpresstype != null">
+      shopeeexpresstype = #{shopeeexpresstype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="uploadnum != null">
+      uploadnum = #{uploadnum,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} , 
+    </if>
+    <if test="descr != null">
+      descr = #{descr,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="filed1 != null">
+      filed1 = #{filed1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="filed2 != null">
+      filed2 = #{filed2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="filed3 != null">
+      filed3 = #{filed3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="filed4 != null">
+      filed4 = #{filed4,jdbcType=VARCHAR} , 
+    </if>
+    <if test="filed5 != null">
+      filed5 = #{filed5,jdbcType=VARCHAR} , 
+    </if>
+    <if test="filed6 != null">
+      filed6 = #{filed6,jdbcType=VARCHAR} , 
+    </if>
+    <if test="filed7 != null">
+      filed7 = #{filed7,jdbcType=VARCHAR} , 
+    </if>
+    <if test="filed8 != null">
+      filed8 = #{filed8,jdbcType=DECIMAL} , 
+    </if>
+    <if test="filed9 != null">
+      filed9 = #{filed9,jdbcType=DECIMAL} , 
+    </if>
+    <if test="filed10 != null">
+      filed10 = #{filed10,jdbcType=DECIMAL} , 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="filed11 != null">
+      filed11 = #{filed11,jdbcType=DECIMAL} , 
+    </if>
+    <if test="filed12 != null">
+      filed12 = #{filed12,jdbcType=DECIMAL} , 
+    </if>
+    <if test="filed13 != null">
+      filed13 = #{filed13,jdbcType=DECIMAL} , 
+    </if>
+    <if test="nameen != null">
+      nameen = #{nameen,jdbcType=VARCHAR} , 
+    </if>
+    <if test="expresstypefeeid != null">
+      expresstypefeeid = #{expresstypefeeid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="filed14 != null">
+      filed14 = #{filed14,jdbcType=VARCHAR} , 
+    </if>
+    <if test="filed15 != null">
+      filed15 = #{filed15,jdbcType=VARCHAR} , 
+    </if>
+    <if test="filed16 != null">
+      filed16 = #{filed16,jdbcType=VARCHAR} , 
+    </if>
+    <if test="filed17 != null">
+      filed17 = #{filed17,jdbcType=VARCHAR} , 
+    </if>
+    <if test="filed18 != null">
+      filed18 = #{filed18,jdbcType=VARCHAR} , 
+    </if>
+    <if test="tokenconfigid != null">
+      tokenconfigid = #{tokenconfigid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="token != null">
+      token = #{token,jdbcType=VARCHAR} , 
+    </if>
+    <if test="userkey != null">
+      userkey = #{userkey,jdbcType=VARCHAR} , 
+    </if>
+    <if test="customuserkey != null">
+      customuserkey = #{customuserkey,jdbcType=VARCHAR} , 
+    </if>
+    <if test="expresstypenew != null">
+      expresstypenew = #{expresstypenew,jdbcType=VARCHAR} , 
+    </if>
+    <if test="contact != null">
+      contact = #{contact,jdbcType=VARCHAR} , 
+    </if>
+    <if test="compan != null">
+      compan = #{compan,jdbcType=VARCHAR} , 
+    </if>
+    <if test="street1 != null">
+      street1 = #{street1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="street2 != null">
+      street2 = #{street2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="city != null">
+      city = #{city,jdbcType=VARCHAR} , 
+    </if>
+    <if test="province != null">
+      province = #{province,jdbcType=VARCHAR} , 
+    </if>
+    <if test="country != null">
+      country = #{country,jdbcType=VARCHAR} , 
+    </if>
+    <if test="postcode != null">
+      postcode = #{postcode,jdbcType=VARCHAR} , 
+    </if>
+    <if test="phone != null">
+      phone = #{phone,jdbcType=VARCHAR} , 
+    </if>
+    <if test="email != null">
+      email = #{email,jdbcType=VARCHAR} , 
+    </if>
+    <if test="district != null">
+      district = #{district,jdbcType=VARCHAR} , 
+    </if>
+    <if test="districtcode != null">
+      districtcode = #{districtcode,jdbcType=VARCHAR} , 
+    </if>
+    <if test="citycode != null">
+      citycode = #{citycode,jdbcType=VARCHAR} , 
+    </if>
+    <if test="provincecode != null">
+      provincecode = #{provincecode,jdbcType=VARCHAR} , 
+    </if>
+    <if test="length != null">
+      length = #{length,jdbcType=DECIMAL} , 
+    </if>
+    <if test="width != null">
+      width = #{width,jdbcType=DECIMAL} , 
+    </if>
+    <if test="height != null">
+      height = #{height,jdbcType=DECIMAL} , 
+    </if>
+    <if test="cityid != null">
+      cityid = #{cityid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="provinceid != null">
+      provinceid = #{provinceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="districtid != null">
+      districtid = #{districtid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="storagename != null">
+      storagename = #{storagename,jdbcType=VARCHAR} , 
+    </if>
+    <if test="storagecode != null">
+      storagecode = #{storagecode,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ckyflag != null">
+      ckyflag = #{ckyflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="insured != null">
+      insured = #{insured,jdbcType=DECIMAL} , 
+    </if>
+    <if test="code != null">
+      code = #{code,jdbcType=VARCHAR} , 
+    </if>
+    <if test="dhexpresstype != null">
+      dhexpresstype = #{dhexpresstype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="lazadaexpresstype != null">
+      lazadaexpresstype = #{lazadaexpresstype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="declaredvaluemin != null">
+      declaredvaluemin = #{declaredvaluemin,jdbcType=DECIMAL} , 
+    </if>
+    <if test="declaredvaluemax != null">
+      declaredvaluemax = #{declaredvaluemax,jdbcType=DECIMAL} , 
+    </if>
+    <if test="declcurrency != null">
+      declcurrency = #{declcurrency,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shopifyexpresstype != null">
+      shopifyexpresstype = #{shopifyexpresstype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shopeeexpresstype != null">
+      shopeeexpresstype = #{shopeeexpresstype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="uploadnum != null">
+      uploadnum = #{uploadnum,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbExpresstype" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbExpresstype">
-    insert into db_expresstype (SEQUENCEID, 'NAME', OPER, 
-      OPERTIME, FILED8, FILED9, 
-      FILED10, CORPID, OPENFLAG, 
-      FILED11, FILED12, FILED13, 
-      NAMEEN, EXPRESSTYPEFEEID, TOKENCONFIGID, 
-      TOKEN, USERKEY, CUSTOMUSERKEY, 
-      EXPRESSTYPENEW, CONTACT, COMPAN, 
-      STREET1, STREET2, CITY, 
-      PROVINCE, COUNTRY, POSTCODE, 
-      PHONE, EMAIL, DISTRICT, 
-      DISTRICTCODE, CITYCODE, PROVINCECODE, 
-      'LENGTH', WIDTH, HEIGHT, 
-      CITYID, PROVINCEID, DISTRICTID, 
-      STORAGENAME, STORAGECODE, CKYFLAG, 
-      INSURED, CODE, DHEXPRESSTYPE, 
-      LAZADAEXPRESSTYPE, DECLAREDVALUEMIN, DECLAREDVALUEMAX, 
-      DECLCURRENCY, SHOPIFYEXPRESSTYPE, SHOPEEEXPRESSTYPE, 
-      UPLOADNUM, DESCR, FILED1, 
-      FILED2, FILED3, FILED4, 
-      FILED5, FILED6, FILED7, 
-      FILED14, FILED15, FILED16, 
-      FILED17, FILED18)
-    values (#{sequenceid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{oper,jdbcType=VARCHAR}, 
-      #{opertime,jdbcType=TIMESTAMP}, #{filed8,jdbcType=DECIMAL}, #{filed9,jdbcType=DECIMAL}, 
-      #{filed10,jdbcType=DECIMAL}, #{corpid,jdbcType=VARCHAR}, #{openflag,jdbcType=VARCHAR}, 
-      #{filed11,jdbcType=DECIMAL}, #{filed12,jdbcType=DECIMAL}, #{filed13,jdbcType=DECIMAL}, 
-      #{nameen,jdbcType=VARCHAR}, #{expresstypefeeid,jdbcType=VARCHAR}, #{tokenconfigid,jdbcType=VARCHAR}, 
-      #{token,jdbcType=VARCHAR}, #{userkey,jdbcType=VARCHAR}, #{customuserkey,jdbcType=VARCHAR}, 
-      #{expresstypenew,jdbcType=VARCHAR}, #{contact,jdbcType=VARCHAR}, #{compan,jdbcType=VARCHAR}, 
-      #{street1,jdbcType=VARCHAR}, #{street2,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, 
-      #{province,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, #{postcode,jdbcType=VARCHAR}, 
-      #{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{district,jdbcType=VARCHAR}, 
-      #{districtcode,jdbcType=VARCHAR}, #{citycode,jdbcType=VARCHAR}, #{provincecode,jdbcType=VARCHAR}, 
-      #{length,jdbcType=DECIMAL}, #{width,jdbcType=DECIMAL}, #{height,jdbcType=DECIMAL}, 
-      #{cityid,jdbcType=VARCHAR}, #{provinceid,jdbcType=VARCHAR}, #{districtid,jdbcType=VARCHAR}, 
-      #{storagename,jdbcType=VARCHAR}, #{storagecode,jdbcType=VARCHAR}, #{ckyflag,jdbcType=DECIMAL}, 
-      #{insured,jdbcType=DECIMAL}, #{code,jdbcType=VARCHAR}, #{dhexpresstype,jdbcType=VARCHAR}, 
-      #{lazadaexpresstype,jdbcType=VARCHAR}, #{declaredvaluemin,jdbcType=DECIMAL}, #{declaredvaluemax,jdbcType=DECIMAL}, 
-      #{declcurrency,jdbcType=VARCHAR}, #{shopifyexpresstype,jdbcType=VARCHAR}, #{shopeeexpresstype,jdbcType=VARCHAR}, 
-      #{uploadnum,jdbcType=VARCHAR}, #{descr,jdbcType=LONGVARCHAR}, #{filed1,jdbcType=LONGVARCHAR}, 
-      #{filed2,jdbcType=LONGVARCHAR}, #{filed3,jdbcType=LONGVARCHAR}, #{filed4,jdbcType=LONGVARCHAR}, 
-      #{filed5,jdbcType=LONGVARCHAR}, #{filed6,jdbcType=LONGVARCHAR}, #{filed7,jdbcType=LONGVARCHAR}, 
-      #{filed14,jdbcType=LONGVARCHAR}, #{filed15,jdbcType=LONGVARCHAR}, #{filed16,jdbcType=LONGVARCHAR}, 
-      #{filed17,jdbcType=LONGVARCHAR}, #{filed18,jdbcType=LONGVARCHAR})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbExpresstype">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbExpresstype">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbExpresstype">
-    insert into db_expresstype
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        SEQUENCEID,
-      </if>
-      <if test="name != null">
-        'NAME',
-      </if>
-      <if test="oper != null">
-        OPER,
-      </if>
-      <if test="opertime != null">
-        OPERTIME,
-      </if>
-      <if test="filed8 != null">
-        FILED8,
-      </if>
-      <if test="filed9 != null">
-        FILED9,
-      </if>
-      <if test="filed10 != null">
-        FILED10,
-      </if>
-      <if test="corpid != null">
-        CORPID,
-      </if>
-      <if test="openflag != null">
-        OPENFLAG,
-      </if>
-      <if test="filed11 != null">
-        FILED11,
-      </if>
-      <if test="filed12 != null">
-        FILED12,
-      </if>
-      <if test="filed13 != null">
-        FILED13,
-      </if>
-      <if test="nameen != null">
-        NAMEEN,
-      </if>
-      <if test="expresstypefeeid != null">
-        EXPRESSTYPEFEEID,
-      </if>
-      <if test="tokenconfigid != null">
-        TOKENCONFIGID,
-      </if>
-      <if test="token != null">
-        TOKEN,
-      </if>
-      <if test="userkey != null">
-        USERKEY,
-      </if>
-      <if test="customuserkey != null">
-        CUSTOMUSERKEY,
-      </if>
-      <if test="expresstypenew != null">
-        EXPRESSTYPENEW,
-      </if>
-      <if test="contact != null">
-        CONTACT,
-      </if>
-      <if test="compan != null">
-        COMPAN,
-      </if>
-      <if test="street1 != null">
-        STREET1,
-      </if>
-      <if test="street2 != null">
-        STREET2,
-      </if>
-      <if test="city != null">
-        CITY,
-      </if>
-      <if test="province != null">
-        PROVINCE,
-      </if>
-      <if test="country != null">
-        COUNTRY,
-      </if>
-      <if test="postcode != null">
-        POSTCODE,
-      </if>
-      <if test="phone != null">
-        PHONE,
-      </if>
-      <if test="email != null">
-        EMAIL,
-      </if>
-      <if test="district != null">
-        DISTRICT,
-      </if>
-      <if test="districtcode != null">
-        DISTRICTCODE,
-      </if>
-      <if test="citycode != null">
-        CITYCODE,
-      </if>
-      <if test="provincecode != null">
-        PROVINCECODE,
-      </if>
-      <if test="length != null">
-        'LENGTH',
-      </if>
-      <if test="width != null">
-        WIDTH,
-      </if>
-      <if test="height != null">
-        HEIGHT,
-      </if>
-      <if test="cityid != null">
-        CITYID,
-      </if>
-      <if test="provinceid != null">
-        PROVINCEID,
-      </if>
-      <if test="districtid != null">
-        DISTRICTID,
-      </if>
-      <if test="storagename != null">
-        STORAGENAME,
-      </if>
-      <if test="storagecode != null">
-        STORAGECODE,
-      </if>
-      <if test="ckyflag != null">
-        CKYFLAG,
-      </if>
-      <if test="insured != null">
-        INSURED,
-      </if>
-      <if test="code != null">
-        CODE,
-      </if>
-      <if test="dhexpresstype != null">
-        DHEXPRESSTYPE,
-      </if>
-      <if test="lazadaexpresstype != null">
-        LAZADAEXPRESSTYPE,
-      </if>
-      <if test="declaredvaluemin != null">
-        DECLAREDVALUEMIN,
-      </if>
-      <if test="declaredvaluemax != null">
-        DECLAREDVALUEMAX,
-      </if>
-      <if test="declcurrency != null">
-        DECLCURRENCY,
-      </if>
-      <if test="shopifyexpresstype != null">
-        SHOPIFYEXPRESSTYPE,
-      </if>
-      <if test="shopeeexpresstype != null">
-        SHOPEEEXPRESSTYPE,
-      </if>
-      <if test="uploadnum != null">
-        UPLOADNUM,
-      </if>
-      <if test="descr != null">
-        DESCR,
-      </if>
-      <if test="filed1 != null">
-        FILED1,
-      </if>
-      <if test="filed2 != null">
-        FILED2,
-      </if>
-      <if test="filed3 != null">
-        FILED3,
-      </if>
-      <if test="filed4 != null">
-        FILED4,
-      </if>
-      <if test="filed5 != null">
-        FILED5,
-      </if>
-      <if test="filed6 != null">
-        FILED6,
-      </if>
-      <if test="filed7 != null">
-        FILED7,
-      </if>
-      <if test="filed14 != null">
-        FILED14,
-      </if>
-      <if test="filed15 != null">
-        FILED15,
-      </if>
-      <if test="filed16 != null">
-        FILED16,
-      </if>
-      <if test="filed17 != null">
-        FILED17,
-      </if>
-      <if test="filed18 != null">
-        FILED18,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        #{sequenceid,jdbcType=VARCHAR},
-      </if>
-      <if test="name != null">
-        #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="oper != null">
-        #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="filed8 != null">
-        #{filed8,jdbcType=DECIMAL},
-      </if>
-      <if test="filed9 != null">
-        #{filed9,jdbcType=DECIMAL},
-      </if>
-      <if test="filed10 != null">
-        #{filed10,jdbcType=DECIMAL},
-      </if>
-      <if test="corpid != null">
-        #{corpid,jdbcType=VARCHAR},
-      </if>
-      <if test="openflag != null">
-        #{openflag,jdbcType=VARCHAR},
-      </if>
-      <if test="filed11 != null">
-        #{filed11,jdbcType=DECIMAL},
-      </if>
-      <if test="filed12 != null">
-        #{filed12,jdbcType=DECIMAL},
-      </if>
-      <if test="filed13 != null">
-        #{filed13,jdbcType=DECIMAL},
-      </if>
-      <if test="nameen != null">
-        #{nameen,jdbcType=VARCHAR},
-      </if>
-      <if test="expresstypefeeid != null">
-        #{expresstypefeeid,jdbcType=VARCHAR},
-      </if>
-      <if test="tokenconfigid != null">
-        #{tokenconfigid,jdbcType=VARCHAR},
-      </if>
-      <if test="token != null">
-        #{token,jdbcType=VARCHAR},
-      </if>
-      <if test="userkey != null">
-        #{userkey,jdbcType=VARCHAR},
-      </if>
-      <if test="customuserkey != null">
-        #{customuserkey,jdbcType=VARCHAR},
-      </if>
-      <if test="expresstypenew != null">
-        #{expresstypenew,jdbcType=VARCHAR},
-      </if>
-      <if test="contact != null">
-        #{contact,jdbcType=VARCHAR},
-      </if>
-      <if test="compan != null">
-        #{compan,jdbcType=VARCHAR},
-      </if>
-      <if test="street1 != null">
-        #{street1,jdbcType=VARCHAR},
-      </if>
-      <if test="street2 != null">
-        #{street2,jdbcType=VARCHAR},
-      </if>
-      <if test="city != null">
-        #{city,jdbcType=VARCHAR},
-      </if>
-      <if test="province != null">
-        #{province,jdbcType=VARCHAR},
-      </if>
-      <if test="country != null">
-        #{country,jdbcType=VARCHAR},
-      </if>
-      <if test="postcode != null">
-        #{postcode,jdbcType=VARCHAR},
-      </if>
-      <if test="phone != null">
-        #{phone,jdbcType=VARCHAR},
-      </if>
-      <if test="email != null">
-        #{email,jdbcType=VARCHAR},
-      </if>
-      <if test="district != null">
-        #{district,jdbcType=VARCHAR},
-      </if>
-      <if test="districtcode != null">
-        #{districtcode,jdbcType=VARCHAR},
-      </if>
-      <if test="citycode != null">
-        #{citycode,jdbcType=VARCHAR},
-      </if>
-      <if test="provincecode != null">
-        #{provincecode,jdbcType=VARCHAR},
-      </if>
-      <if test="length != null">
-        #{length,jdbcType=DECIMAL},
-      </if>
-      <if test="width != null">
-        #{width,jdbcType=DECIMAL},
-      </if>
-      <if test="height != null">
-        #{height,jdbcType=DECIMAL},
-      </if>
-      <if test="cityid != null">
-        #{cityid,jdbcType=VARCHAR},
-      </if>
-      <if test="provinceid != null">
-        #{provinceid,jdbcType=VARCHAR},
-      </if>
-      <if test="districtid != null">
-        #{districtid,jdbcType=VARCHAR},
-      </if>
-      <if test="storagename != null">
-        #{storagename,jdbcType=VARCHAR},
-      </if>
-      <if test="storagecode != null">
-        #{storagecode,jdbcType=VARCHAR},
-      </if>
-      <if test="ckyflag != null">
-        #{ckyflag,jdbcType=DECIMAL},
-      </if>
-      <if test="insured != null">
-        #{insured,jdbcType=DECIMAL},
-      </if>
-      <if test="code != null">
-        #{code,jdbcType=VARCHAR},
-      </if>
-      <if test="dhexpresstype != null">
-        #{dhexpresstype,jdbcType=VARCHAR},
-      </if>
-      <if test="lazadaexpresstype != null">
-        #{lazadaexpresstype,jdbcType=VARCHAR},
-      </if>
-      <if test="declaredvaluemin != null">
-        #{declaredvaluemin,jdbcType=DECIMAL},
-      </if>
-      <if test="declaredvaluemax != null">
-        #{declaredvaluemax,jdbcType=DECIMAL},
-      </if>
-      <if test="declcurrency != null">
-        #{declcurrency,jdbcType=VARCHAR},
-      </if>
-      <if test="shopifyexpresstype != null">
-        #{shopifyexpresstype,jdbcType=VARCHAR},
-      </if>
-      <if test="shopeeexpresstype != null">
-        #{shopeeexpresstype,jdbcType=VARCHAR},
-      </if>
-      <if test="uploadnum != null">
-        #{uploadnum,jdbcType=VARCHAR},
-      </if>
-      <if test="descr != null">
-        #{descr,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed1 != null">
-        #{filed1,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed2 != null">
-        #{filed2,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed3 != null">
-        #{filed3,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed4 != null">
-        #{filed4,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed5 != null">
-        #{filed5,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed6 != null">
-        #{filed6,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed7 != null">
-        #{filed7,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed14 != null">
-        #{filed14,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed15 != null">
-        #{filed15,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed16 != null">
-        #{filed16,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed17 != null">
-        #{filed17,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed18 != null">
-        #{filed18,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbExpresstype">
-    update db_expresstype
-    <set>
-      <if test="name != null">
-        'NAME' = #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="oper != null">
-        OPER = #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="filed8 != null">
-        FILED8 = #{filed8,jdbcType=DECIMAL},
-      </if>
-      <if test="filed9 != null">
-        FILED9 = #{filed9,jdbcType=DECIMAL},
-      </if>
-      <if test="filed10 != null">
-        FILED10 = #{filed10,jdbcType=DECIMAL},
-      </if>
-      <if test="corpid != null">
-        CORPID = #{corpid,jdbcType=VARCHAR},
-      </if>
-      <if test="openflag != null">
-        OPENFLAG = #{openflag,jdbcType=VARCHAR},
-      </if>
-      <if test="filed11 != null">
-        FILED11 = #{filed11,jdbcType=DECIMAL},
-      </if>
-      <if test="filed12 != null">
-        FILED12 = #{filed12,jdbcType=DECIMAL},
-      </if>
-      <if test="filed13 != null">
-        FILED13 = #{filed13,jdbcType=DECIMAL},
-      </if>
-      <if test="nameen != null">
-        NAMEEN = #{nameen,jdbcType=VARCHAR},
-      </if>
-      <if test="expresstypefeeid != null">
-        EXPRESSTYPEFEEID = #{expresstypefeeid,jdbcType=VARCHAR},
-      </if>
-      <if test="tokenconfigid != null">
-        TOKENCONFIGID = #{tokenconfigid,jdbcType=VARCHAR},
-      </if>
-      <if test="token != null">
-        TOKEN = #{token,jdbcType=VARCHAR},
-      </if>
-      <if test="userkey != null">
-        USERKEY = #{userkey,jdbcType=VARCHAR},
-      </if>
-      <if test="customuserkey != null">
-        CUSTOMUSERKEY = #{customuserkey,jdbcType=VARCHAR},
-      </if>
-      <if test="expresstypenew != null">
-        EXPRESSTYPENEW = #{expresstypenew,jdbcType=VARCHAR},
-      </if>
-      <if test="contact != null">
-        CONTACT = #{contact,jdbcType=VARCHAR},
-      </if>
-      <if test="compan != null">
-        COMPAN = #{compan,jdbcType=VARCHAR},
-      </if>
-      <if test="street1 != null">
-        STREET1 = #{street1,jdbcType=VARCHAR},
-      </if>
-      <if test="street2 != null">
-        STREET2 = #{street2,jdbcType=VARCHAR},
-      </if>
-      <if test="city != null">
-        CITY = #{city,jdbcType=VARCHAR},
-      </if>
-      <if test="province != null">
-        PROVINCE = #{province,jdbcType=VARCHAR},
-      </if>
-      <if test="country != null">
-        COUNTRY = #{country,jdbcType=VARCHAR},
-      </if>
-      <if test="postcode != null">
-        POSTCODE = #{postcode,jdbcType=VARCHAR},
-      </if>
-      <if test="phone != null">
-        PHONE = #{phone,jdbcType=VARCHAR},
-      </if>
-      <if test="email != null">
-        EMAIL = #{email,jdbcType=VARCHAR},
-      </if>
-      <if test="district != null">
-        DISTRICT = #{district,jdbcType=VARCHAR},
-      </if>
-      <if test="districtcode != null">
-        DISTRICTCODE = #{districtcode,jdbcType=VARCHAR},
-      </if>
-      <if test="citycode != null">
-        CITYCODE = #{citycode,jdbcType=VARCHAR},
-      </if>
-      <if test="provincecode != null">
-        PROVINCECODE = #{provincecode,jdbcType=VARCHAR},
-      </if>
-      <if test="length != null">
-        'LENGTH' = #{length,jdbcType=DECIMAL},
-      </if>
-      <if test="width != null">
-        WIDTH = #{width,jdbcType=DECIMAL},
-      </if>
-      <if test="height != null">
-        HEIGHT = #{height,jdbcType=DECIMAL},
-      </if>
-      <if test="cityid != null">
-        CITYID = #{cityid,jdbcType=VARCHAR},
-      </if>
-      <if test="provinceid != null">
-        PROVINCEID = #{provinceid,jdbcType=VARCHAR},
-      </if>
-      <if test="districtid != null">
-        DISTRICTID = #{districtid,jdbcType=VARCHAR},
-      </if>
-      <if test="storagename != null">
-        STORAGENAME = #{storagename,jdbcType=VARCHAR},
-      </if>
-      <if test="storagecode != null">
-        STORAGECODE = #{storagecode,jdbcType=VARCHAR},
-      </if>
-      <if test="ckyflag != null">
-        CKYFLAG = #{ckyflag,jdbcType=DECIMAL},
-      </if>
-      <if test="insured != null">
-        INSURED = #{insured,jdbcType=DECIMAL},
-      </if>
-      <if test="code != null">
-        CODE = #{code,jdbcType=VARCHAR},
-      </if>
-      <if test="dhexpresstype != null">
-        DHEXPRESSTYPE = #{dhexpresstype,jdbcType=VARCHAR},
-      </if>
-      <if test="lazadaexpresstype != null">
-        LAZADAEXPRESSTYPE = #{lazadaexpresstype,jdbcType=VARCHAR},
-      </if>
-      <if test="declaredvaluemin != null">
-        DECLAREDVALUEMIN = #{declaredvaluemin,jdbcType=DECIMAL},
-      </if>
-      <if test="declaredvaluemax != null">
-        DECLAREDVALUEMAX = #{declaredvaluemax,jdbcType=DECIMAL},
-      </if>
-      <if test="declcurrency != null">
-        DECLCURRENCY = #{declcurrency,jdbcType=VARCHAR},
-      </if>
-      <if test="shopifyexpresstype != null">
-        SHOPIFYEXPRESSTYPE = #{shopifyexpresstype,jdbcType=VARCHAR},
-      </if>
-      <if test="shopeeexpresstype != null">
-        SHOPEEEXPRESSTYPE = #{shopeeexpresstype,jdbcType=VARCHAR},
-      </if>
-      <if test="uploadnum != null">
-        UPLOADNUM = #{uploadnum,jdbcType=VARCHAR},
-      </if>
-      <if test="descr != null">
-        DESCR = #{descr,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed1 != null">
-        FILED1 = #{filed1,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed2 != null">
-        FILED2 = #{filed2,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed3 != null">
-        FILED3 = #{filed3,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed4 != null">
-        FILED4 = #{filed4,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed5 != null">
-        FILED5 = #{filed5,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed6 != null">
-        FILED6 = #{filed6,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed7 != null">
-        FILED7 = #{filed7,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed14 != null">
-        FILED14 = #{filed14,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed15 != null">
-        FILED15 = #{filed15,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed16 != null">
-        FILED16 = #{filed16,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed17 != null">
-        FILED17 = #{filed17,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="filed18 != null">
-        FILED18 = #{filed18,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbExpresstype">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

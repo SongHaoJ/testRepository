@@ -24,13 +24,13 @@ public class DbOrdermessagelog implements Serializable {
 
     private String reserve5;
 
-    private String sendname;
-
-    private String updateflag;
-
     private String sendmessage;
 
     private String descr;
+
+    private String sendname;
+
+    private String updateflag;
 
     private static final long serialVersionUID = 1L;
 
@@ -114,22 +114,6 @@ public class DbOrdermessagelog implements Serializable {
         this.reserve5 = reserve5 == null ? null : reserve5.trim();
     }
 
-    public String getSendname() {
-        return sendname;
-    }
-
-    public void setSendname(String sendname) {
-        this.sendname = sendname == null ? null : sendname.trim();
-    }
-
-    public String getUpdateflag() {
-        return updateflag;
-    }
-
-    public void setUpdateflag(String updateflag) {
-        this.updateflag = updateflag == null ? null : updateflag.trim();
-    }
-
     public String getSendmessage() {
         return sendmessage;
     }
@@ -144,6 +128,22 @@ public class DbOrdermessagelog implements Serializable {
 
     public void setDescr(String descr) {
         this.descr = descr == null ? null : descr.trim();
+    }
+
+    public String getSendname() {
+        return sendname;
+    }
+
+    public void setSendname(String sendname) {
+        this.sendname = sendname == null ? null : sendname.trim();
+    }
+
+    public String getUpdateflag() {
+        return updateflag;
+    }
+
+    public void setUpdateflag(String updateflag) {
+        this.updateflag = updateflag == null ? null : updateflag.trim();
     }
 
     @Override
@@ -168,10 +168,10 @@ public class DbOrdermessagelog implements Serializable {
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
             && (this.getConfigtype() == null ? other.getConfigtype() == null : this.getConfigtype().equals(other.getConfigtype()))
             && (this.getReserve5() == null ? other.getReserve5() == null : this.getReserve5().equals(other.getReserve5()))
-            && (this.getSendname() == null ? other.getSendname() == null : this.getSendname().equals(other.getSendname()))
-            && (this.getUpdateflag() == null ? other.getUpdateflag() == null : this.getUpdateflag().equals(other.getUpdateflag()))
             && (this.getSendmessage() == null ? other.getSendmessage() == null : this.getSendmessage().equals(other.getSendmessage()))
-            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()));
+            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
+            && (this.getSendname() == null ? other.getSendname() == null : this.getSendname().equals(other.getSendname()))
+            && (this.getUpdateflag() == null ? other.getUpdateflag() == null : this.getUpdateflag().equals(other.getUpdateflag()));
     }
 
     @Override
@@ -188,10 +188,10 @@ public class DbOrdermessagelog implements Serializable {
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getConfigtype() == null) ? 0 : getConfigtype().hashCode());
         result = prime * result + ((getReserve5() == null) ? 0 : getReserve5().hashCode());
-        result = prime * result + ((getSendname() == null) ? 0 : getSendname().hashCode());
-        result = prime * result + ((getUpdateflag() == null) ? 0 : getUpdateflag().hashCode());
         result = prime * result + ((getSendmessage() == null) ? 0 : getSendmessage().hashCode());
         result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
+        result = prime * result + ((getSendname() == null) ? 0 : getSendname().hashCode());
+        result = prime * result + ((getUpdateflag() == null) ? 0 : getUpdateflag().hashCode());
         return result;
     }
 
@@ -211,10 +211,10 @@ public class DbOrdermessagelog implements Serializable {
         sb.append(", opertime=").append(opertime);
         sb.append(", configtype=").append(configtype);
         sb.append(", reserve5=").append(reserve5);
-        sb.append(", sendname=").append(sendname);
-        sb.append(", updateflag=").append(updateflag);
         sb.append(", sendmessage=").append(sendmessage);
         sb.append(", descr=").append(descr);
+        sb.append(", sendname=").append(sendname);
+        sb.append(", updateflag=").append(updateflag);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

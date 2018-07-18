@@ -55,7 +55,7 @@
     UKCUSTOMSNAME, UKCUSTOMSFEE, CACUSTOMSFEE, ITCUSTOMSNAME, ESCUSTOMSFEE, CACOSTPRICE, 
     AUCUSTOMSFEE, AURATE, FRFEE, CARATE, FRCUSTOMSFEE, USFEE, DEFEE, AUFEE, ESCUSTOMSNAME, 
     OPERTIME, UKFEE, DECUSTOMSFEE, USCUSTOMSFEE, UKCOSTPRICE, SKU
-    from db_productebayfee
+    from DB_PRODUCTEBAYFEE
     where SID = #{sid,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
@@ -65,10 +65,10 @@
     UKCUSTOMSNAME, UKCUSTOMSFEE, CACUSTOMSFEE, ITCUSTOMSNAME, ESCUSTOMSFEE, CACOSTPRICE, 
     AUCUSTOMSFEE, AURATE, FRFEE, CARATE, FRCUSTOMSFEE, USFEE, DEFEE, AUFEE, ESCUSTOMSNAME, 
     OPERTIME, UKFEE, DECUSTOMSFEE, USCUSTOMSFEE, UKCOSTPRICE, SKU
-    from db_productebayfee
+    from DB_PRODUCTEBAYFEE
   </select>
   <sql id="TableName">
-    db_productebayfee
+    DB_PRODUCTEBAYFEE
   </sql>
   <sql id="Values">
      #{sid,jdbcType=DECIMAL} , 
@@ -115,7 +115,7 @@
      #{decustomsfee,jdbcType=DECIMAL} , 
      #{uscustomsfee,jdbcType=DECIMAL} , 
      #{ukcostprice,jdbcType=DECIMAL} , 
-     #{sku,jdbcType=VARCHAR}
+     #{sku,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     SID , 
@@ -162,283 +162,283 @@
     DECUSTOMSFEE , 
     USCUSTOMSFEE , 
     UKCOSTPRICE , 
-    SKU
+    SKU , 
   </sql>
   <sql id="Criteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=DECIMAL} and 
+      sid = #{sid,jdbcType=DECIMAL} and 
     </if>
     <if test="uscustomsname != null">
-      USCUSTOMSNAME = #{uscustomsname,jdbcType=VARCHAR} and 
+      uscustomsname = #{uscustomsname,jdbcType=VARCHAR} and 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
+      oper = #{oper,jdbcType=VARCHAR} and 
     </if>
     <if test="cacustomsname != null">
-      CACUSTOMSNAME = #{cacustomsname,jdbcType=VARCHAR} and 
+      cacustomsname = #{cacustomsname,jdbcType=VARCHAR} and 
     </if>
     <if test="derate != null">
-      DERATE = #{derate,jdbcType=DECIMAL} and 
+      derate = #{derate,jdbcType=DECIMAL} and 
     </if>
     <if test="uscostprice != null">
-      USCOSTPRICE = #{uscostprice,jdbcType=DECIMAL} and 
+      uscostprice = #{uscostprice,jdbcType=DECIMAL} and 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=DECIMAL} and 
+      openflag = #{openflag,jdbcType=DECIMAL} and 
     </if>
     <if test="aucustomsname != null">
-      AUCUSTOMSNAME = #{aucustomsname,jdbcType=VARCHAR} and 
+      aucustomsname = #{aucustomsname,jdbcType=VARCHAR} and 
     </if>
     <if test="itcostprice != null">
-      ITCOSTPRICE = #{itcostprice,jdbcType=DECIMAL} and 
+      itcostprice = #{itcostprice,jdbcType=DECIMAL} and 
     </if>
     <if test="aucostprice != null">
-      AUCOSTPRICE = #{aucostprice,jdbcType=DECIMAL} and 
+      aucostprice = #{aucostprice,jdbcType=DECIMAL} and 
     </if>
     <if test="escostprice != null">
-      ESCOSTPRICE = #{escostprice,jdbcType=DECIMAL} and 
+      escostprice = #{escostprice,jdbcType=DECIMAL} and 
     </if>
     <if test="frcostprice != null">
-      FRCOSTPRICE = #{frcostprice,jdbcType=DECIMAL} and 
+      frcostprice = #{frcostprice,jdbcType=DECIMAL} and 
     </if>
     <if test="cafee != null">
-      CAFEE = #{cafee,jdbcType=DECIMAL} and 
+      cafee = #{cafee,jdbcType=DECIMAL} and 
     </if>
     <if test="itcustomsfee != null">
-      ITCUSTOMSFEE = #{itcustomsfee,jdbcType=DECIMAL} and 
+      itcustomsfee = #{itcustomsfee,jdbcType=DECIMAL} and 
     </if>
     <if test="decostprice != null">
-      DECOSTPRICE = #{decostprice,jdbcType=DECIMAL} and 
+      decostprice = #{decostprice,jdbcType=DECIMAL} and 
     </if>
     <if test="itrate != null">
-      ITRATE = #{itrate,jdbcType=DECIMAL} and 
+      itrate = #{itrate,jdbcType=DECIMAL} and 
     </if>
     <if test="frcustomsname != null">
-      FRCUSTOMSNAME = #{frcustomsname,jdbcType=VARCHAR} and 
+      frcustomsname = #{frcustomsname,jdbcType=VARCHAR} and 
     </if>
     <if test="frrate != null">
-      FRRATE = #{frrate,jdbcType=DECIMAL} and 
+      frrate = #{frrate,jdbcType=DECIMAL} and 
     </if>
     <if test="decustomsname != null">
-      DECUSTOMSNAME = #{decustomsname,jdbcType=VARCHAR} and 
+      decustomsname = #{decustomsname,jdbcType=VARCHAR} and 
     </if>
     <if test="itfee != null">
-      ITFEE = #{itfee,jdbcType=DECIMAL} and 
+      itfee = #{itfee,jdbcType=DECIMAL} and 
     </if>
     <if test="ukrate != null">
-      UKRATE = #{ukrate,jdbcType=DECIMAL} and 
+      ukrate = #{ukrate,jdbcType=DECIMAL} and 
     </if>
     <if test="usrate != null">
-      USRATE = #{usrate,jdbcType=DECIMAL} and 
+      usrate = #{usrate,jdbcType=DECIMAL} and 
     </if>
     <if test="esfee != null">
-      ESFEE = #{esfee,jdbcType=DECIMAL} and 
+      esfee = #{esfee,jdbcType=DECIMAL} and 
     </if>
     <if test="esrate != null">
-      ESRATE = #{esrate,jdbcType=DECIMAL} and 
+      esrate = #{esrate,jdbcType=DECIMAL} and 
     </if>
     <if test="ukcustomsname != null">
-      UKCUSTOMSNAME = #{ukcustomsname,jdbcType=VARCHAR} and 
+      ukcustomsname = #{ukcustomsname,jdbcType=VARCHAR} and 
     </if>
     <if test="ukcustomsfee != null">
-      UKCUSTOMSFEE = #{ukcustomsfee,jdbcType=DECIMAL} and 
+      ukcustomsfee = #{ukcustomsfee,jdbcType=DECIMAL} and 
     </if>
     <if test="cacustomsfee != null">
-      CACUSTOMSFEE = #{cacustomsfee,jdbcType=DECIMAL} and 
+      cacustomsfee = #{cacustomsfee,jdbcType=DECIMAL} and 
     </if>
     <if test="itcustomsname != null">
-      ITCUSTOMSNAME = #{itcustomsname,jdbcType=VARCHAR} and 
+      itcustomsname = #{itcustomsname,jdbcType=VARCHAR} and 
     </if>
     <if test="escustomsfee != null">
-      ESCUSTOMSFEE = #{escustomsfee,jdbcType=DECIMAL} and 
+      escustomsfee = #{escustomsfee,jdbcType=DECIMAL} and 
     </if>
     <if test="cacostprice != null">
-      CACOSTPRICE = #{cacostprice,jdbcType=DECIMAL} and 
+      cacostprice = #{cacostprice,jdbcType=DECIMAL} and 
     </if>
     <if test="aucustomsfee != null">
-      AUCUSTOMSFEE = #{aucustomsfee,jdbcType=DECIMAL} and 
+      aucustomsfee = #{aucustomsfee,jdbcType=DECIMAL} and 
     </if>
     <if test="aurate != null">
-      AURATE = #{aurate,jdbcType=DECIMAL} and 
+      aurate = #{aurate,jdbcType=DECIMAL} and 
     </if>
     <if test="frfee != null">
-      FRFEE = #{frfee,jdbcType=DECIMAL} and 
+      frfee = #{frfee,jdbcType=DECIMAL} and 
     </if>
     <if test="carate != null">
-      CARATE = #{carate,jdbcType=DECIMAL} and 
+      carate = #{carate,jdbcType=DECIMAL} and 
     </if>
     <if test="frcustomsfee != null">
-      FRCUSTOMSFEE = #{frcustomsfee,jdbcType=DECIMAL} and 
+      frcustomsfee = #{frcustomsfee,jdbcType=DECIMAL} and 
     </if>
     <if test="usfee != null">
-      USFEE = #{usfee,jdbcType=DECIMAL} and 
+      usfee = #{usfee,jdbcType=DECIMAL} and 
     </if>
     <if test="defee != null">
-      DEFEE = #{defee,jdbcType=DECIMAL} and 
+      defee = #{defee,jdbcType=DECIMAL} and 
     </if>
     <if test="aufee != null">
-      AUFEE = #{aufee,jdbcType=DECIMAL} and 
+      aufee = #{aufee,jdbcType=DECIMAL} and 
     </if>
     <if test="escustomsname != null">
-      ESCUSTOMSNAME = #{escustomsname,jdbcType=VARCHAR} and 
+      escustomsname = #{escustomsname,jdbcType=VARCHAR} and 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="ukfee != null">
-      UKFEE = #{ukfee,jdbcType=DECIMAL} and 
+      ukfee = #{ukfee,jdbcType=DECIMAL} and 
     </if>
     <if test="decustomsfee != null">
-      DECUSTOMSFEE = #{decustomsfee,jdbcType=DECIMAL} and 
+      decustomsfee = #{decustomsfee,jdbcType=DECIMAL} and 
     </if>
     <if test="uscustomsfee != null">
-      USCUSTOMSFEE = #{uscustomsfee,jdbcType=DECIMAL} and 
+      uscustomsfee = #{uscustomsfee,jdbcType=DECIMAL} and 
     </if>
     <if test="ukcostprice != null">
-      UKCOSTPRICE = #{ukcostprice,jdbcType=DECIMAL} and 
+      ukcostprice = #{ukcostprice,jdbcType=DECIMAL} and 
     </if>
     <if test="sku != null">
-      SKU = #{sku,jdbcType=VARCHAR}
+      sku = #{sku,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=DECIMAL} , 
+      sid = #{sid,jdbcType=DECIMAL} , 
     </if>
     <if test="uscustomsname != null">
-      USCUSTOMSNAME = #{uscustomsname,jdbcType=VARCHAR} , 
+      uscustomsname = #{uscustomsname,jdbcType=VARCHAR} , 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
+      oper = #{oper,jdbcType=VARCHAR} , 
     </if>
     <if test="cacustomsname != null">
-      CACUSTOMSNAME = #{cacustomsname,jdbcType=VARCHAR} , 
+      cacustomsname = #{cacustomsname,jdbcType=VARCHAR} , 
     </if>
     <if test="derate != null">
-      DERATE = #{derate,jdbcType=DECIMAL} , 
+      derate = #{derate,jdbcType=DECIMAL} , 
     </if>
     <if test="uscostprice != null">
-      USCOSTPRICE = #{uscostprice,jdbcType=DECIMAL} , 
+      uscostprice = #{uscostprice,jdbcType=DECIMAL} , 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=DECIMAL} , 
+      openflag = #{openflag,jdbcType=DECIMAL} , 
     </if>
     <if test="aucustomsname != null">
-      AUCUSTOMSNAME = #{aucustomsname,jdbcType=VARCHAR} , 
+      aucustomsname = #{aucustomsname,jdbcType=VARCHAR} , 
     </if>
     <if test="itcostprice != null">
-      ITCOSTPRICE = #{itcostprice,jdbcType=DECIMAL} , 
+      itcostprice = #{itcostprice,jdbcType=DECIMAL} , 
     </if>
     <if test="aucostprice != null">
-      AUCOSTPRICE = #{aucostprice,jdbcType=DECIMAL} , 
+      aucostprice = #{aucostprice,jdbcType=DECIMAL} , 
     </if>
     <if test="escostprice != null">
-      ESCOSTPRICE = #{escostprice,jdbcType=DECIMAL} , 
+      escostprice = #{escostprice,jdbcType=DECIMAL} , 
     </if>
     <if test="frcostprice != null">
-      FRCOSTPRICE = #{frcostprice,jdbcType=DECIMAL} , 
+      frcostprice = #{frcostprice,jdbcType=DECIMAL} , 
     </if>
     <if test="cafee != null">
-      CAFEE = #{cafee,jdbcType=DECIMAL} , 
+      cafee = #{cafee,jdbcType=DECIMAL} , 
     </if>
     <if test="itcustomsfee != null">
-      ITCUSTOMSFEE = #{itcustomsfee,jdbcType=DECIMAL} , 
+      itcustomsfee = #{itcustomsfee,jdbcType=DECIMAL} , 
     </if>
     <if test="decostprice != null">
-      DECOSTPRICE = #{decostprice,jdbcType=DECIMAL} , 
+      decostprice = #{decostprice,jdbcType=DECIMAL} , 
     </if>
     <if test="itrate != null">
-      ITRATE = #{itrate,jdbcType=DECIMAL} , 
+      itrate = #{itrate,jdbcType=DECIMAL} , 
     </if>
     <if test="frcustomsname != null">
-      FRCUSTOMSNAME = #{frcustomsname,jdbcType=VARCHAR} , 
+      frcustomsname = #{frcustomsname,jdbcType=VARCHAR} , 
     </if>
     <if test="frrate != null">
-      FRRATE = #{frrate,jdbcType=DECIMAL} , 
+      frrate = #{frrate,jdbcType=DECIMAL} , 
     </if>
     <if test="decustomsname != null">
-      DECUSTOMSNAME = #{decustomsname,jdbcType=VARCHAR} , 
+      decustomsname = #{decustomsname,jdbcType=VARCHAR} , 
     </if>
     <if test="itfee != null">
-      ITFEE = #{itfee,jdbcType=DECIMAL} , 
+      itfee = #{itfee,jdbcType=DECIMAL} , 
     </if>
     <if test="ukrate != null">
-      UKRATE = #{ukrate,jdbcType=DECIMAL} , 
+      ukrate = #{ukrate,jdbcType=DECIMAL} , 
     </if>
     <if test="usrate != null">
-      USRATE = #{usrate,jdbcType=DECIMAL} , 
+      usrate = #{usrate,jdbcType=DECIMAL} , 
     </if>
     <if test="esfee != null">
-      ESFEE = #{esfee,jdbcType=DECIMAL} , 
+      esfee = #{esfee,jdbcType=DECIMAL} , 
     </if>
     <if test="esrate != null">
-      ESRATE = #{esrate,jdbcType=DECIMAL} , 
+      esrate = #{esrate,jdbcType=DECIMAL} , 
     </if>
     <if test="ukcustomsname != null">
-      UKCUSTOMSNAME = #{ukcustomsname,jdbcType=VARCHAR} , 
+      ukcustomsname = #{ukcustomsname,jdbcType=VARCHAR} , 
     </if>
     <if test="ukcustomsfee != null">
-      UKCUSTOMSFEE = #{ukcustomsfee,jdbcType=DECIMAL} , 
+      ukcustomsfee = #{ukcustomsfee,jdbcType=DECIMAL} , 
     </if>
     <if test="cacustomsfee != null">
-      CACUSTOMSFEE = #{cacustomsfee,jdbcType=DECIMAL} , 
+      cacustomsfee = #{cacustomsfee,jdbcType=DECIMAL} , 
     </if>
     <if test="itcustomsname != null">
-      ITCUSTOMSNAME = #{itcustomsname,jdbcType=VARCHAR} , 
+      itcustomsname = #{itcustomsname,jdbcType=VARCHAR} , 
     </if>
     <if test="escustomsfee != null">
-      ESCUSTOMSFEE = #{escustomsfee,jdbcType=DECIMAL} , 
+      escustomsfee = #{escustomsfee,jdbcType=DECIMAL} , 
     </if>
     <if test="cacostprice != null">
-      CACOSTPRICE = #{cacostprice,jdbcType=DECIMAL} , 
+      cacostprice = #{cacostprice,jdbcType=DECIMAL} , 
     </if>
     <if test="aucustomsfee != null">
-      AUCUSTOMSFEE = #{aucustomsfee,jdbcType=DECIMAL} , 
+      aucustomsfee = #{aucustomsfee,jdbcType=DECIMAL} , 
     </if>
     <if test="aurate != null">
-      AURATE = #{aurate,jdbcType=DECIMAL} , 
+      aurate = #{aurate,jdbcType=DECIMAL} , 
     </if>
     <if test="frfee != null">
-      FRFEE = #{frfee,jdbcType=DECIMAL} , 
+      frfee = #{frfee,jdbcType=DECIMAL} , 
     </if>
     <if test="carate != null">
-      CARATE = #{carate,jdbcType=DECIMAL} , 
+      carate = #{carate,jdbcType=DECIMAL} , 
     </if>
     <if test="frcustomsfee != null">
-      FRCUSTOMSFEE = #{frcustomsfee,jdbcType=DECIMAL} , 
+      frcustomsfee = #{frcustomsfee,jdbcType=DECIMAL} , 
     </if>
     <if test="usfee != null">
-      USFEE = #{usfee,jdbcType=DECIMAL} , 
+      usfee = #{usfee,jdbcType=DECIMAL} , 
     </if>
     <if test="defee != null">
-      DEFEE = #{defee,jdbcType=DECIMAL} , 
+      defee = #{defee,jdbcType=DECIMAL} , 
     </if>
     <if test="aufee != null">
-      AUFEE = #{aufee,jdbcType=DECIMAL} , 
+      aufee = #{aufee,jdbcType=DECIMAL} , 
     </if>
     <if test="escustomsname != null">
-      ESCUSTOMSNAME = #{escustomsname,jdbcType=VARCHAR} , 
+      escustomsname = #{escustomsname,jdbcType=VARCHAR} , 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="ukfee != null">
-      UKFEE = #{ukfee,jdbcType=DECIMAL} , 
+      ukfee = #{ukfee,jdbcType=DECIMAL} , 
     </if>
     <if test="decustomsfee != null">
-      DECUSTOMSFEE = #{decustomsfee,jdbcType=DECIMAL} , 
+      decustomsfee = #{decustomsfee,jdbcType=DECIMAL} , 
     </if>
     <if test="uscustomsfee != null">
-      USCUSTOMSFEE = #{uscustomsfee,jdbcType=DECIMAL} , 
+      uscustomsfee = #{uscustomsfee,jdbcType=DECIMAL} , 
     </if>
     <if test="ukcostprice != null">
-      UKCOSTPRICE = #{ukcostprice,jdbcType=DECIMAL} , 
+      ukcostprice = #{ukcostprice,jdbcType=DECIMAL} , 
     </if>
     <if test="sku != null">
-      SKU = #{sku,jdbcType=VARCHAR}
+      sku = #{sku,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbProductebayfee" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

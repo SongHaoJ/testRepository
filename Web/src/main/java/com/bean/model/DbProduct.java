@@ -11,6 +11,12 @@ public class DbProduct implements Serializable {
 
     private String corpid;
 
+    private String name;
+
+    private String content;
+
+    private String descr;
+
     private String projectid;
 
     private String categoryid;
@@ -30,6 +36,16 @@ public class DbProduct implements Serializable {
     private String origin;
 
     private String originarea;
+
+    private String translate1;
+
+    private String translate2;
+
+    private String translate3;
+
+    private String translate4;
+
+    private String othercontent;
 
     private BigDecimal stockprice;
 
@@ -63,15 +79,27 @@ public class DbProduct implements Serializable {
 
     private String availtime;
 
+    private String alias1;
+
+    private String alias2;
+
+    private String alias3;
+
     private String picture1;
 
     private String picture2;
+
+    private String picture3;
 
     private String picture4;
 
     private String buyflag;
 
     private BigDecimal buynum;
+
+    private String shoptype;
+
+    private String salesource;
 
     private BigDecimal savenum;
 
@@ -149,6 +177,12 @@ public class DbProduct implements Serializable {
 
     private String itemno;
 
+    private String clobcontent;
+
+    private String clobdescr;
+
+    private String clobtranslate;
+
     private String oper1;
 
     private String oper2;
@@ -163,11 +197,15 @@ public class DbProduct implements Serializable {
 
     private String alertflag;
 
+    private String alertdescr;
+
     private String packagingid;
 
     private String packagingname;
 
     private BigDecimal packagingweight;
+
+    private String iclass;
 
     private BigDecimal minalernum;
 
@@ -176,6 +214,8 @@ public class DbProduct implements Serializable {
     private Date savestar;
 
     private Date nextsavetime;
+
+    private String nameen;
 
     private BigDecimal declaredvalue;
 
@@ -186,6 +226,18 @@ public class DbProduct implements Serializable {
     private BigDecimal manufactureprice2;
 
     private String tort;
+
+    private String hjreserve1;
+
+    private String hjreserve2;
+
+    private String hjreserve3;
+
+    private String hjreserve4;
+
+    private String hjreserve5;
+
+    private String hjreserve6;
 
     private BigDecimal hjreserve7;
 
@@ -225,6 +277,10 @@ public class DbProduct implements Serializable {
 
     private BigDecimal outernetweight;
 
+    private String outernorms;
+
+    private String outerlevel;
+
     private BigDecimal grossweight;
 
     private BigDecimal reserve11;
@@ -235,78 +291,6 @@ public class DbProduct implements Serializable {
 
     private BigDecimal reserve14;
 
-    private BigDecimal reserve19;
-
-    private BigDecimal reserve20;
-
-    private String indexfordevelop;
-
-    private BigDecimal purchaseflag;
-
-    private BigDecimal grossprofit;
-
-    private BigDecimal rateofmargin;
-
-    private String purchasinglink3;
-
-    private String purchasinglink2;
-
-    private String name;
-
-    private String content;
-
-    private String descr;
-
-    private String translate1;
-
-    private String translate2;
-
-    private String translate3;
-
-    private String translate4;
-
-    private String othercontent;
-
-    private String alias1;
-
-    private String alias2;
-
-    private String alias3;
-
-    private String picture3;
-
-    private String shoptype;
-
-    private String salesource;
-
-    private String clobcontent;
-
-    private String clobdescr;
-
-    private String clobtranslate;
-
-    private String alertdescr;
-
-    private String iclass;
-
-    private String nameen;
-
-    private String hjreserve1;
-
-    private String hjreserve2;
-
-    private String hjreserve3;
-
-    private String hjreserve4;
-
-    private String hjreserve5;
-
-    private String hjreserve6;
-
-    private String outernorms;
-
-    private String outerlevel;
-
     private String reserve15;
 
     private String reserve16;
@@ -315,11 +299,27 @@ public class DbProduct implements Serializable {
 
     private String reserve18;
 
+    private BigDecimal reserve19;
+
+    private BigDecimal reserve20;
+
+    private String indexfordevelop;
+
+    private BigDecimal purchaseflag;
+
     private String productname;
+
+    private BigDecimal grossprofit;
+
+    private BigDecimal rateofmargin;
 
     private String purchaseremark;
 
     private String customsdetails;
+
+    private String purchasinglink3;
+
+    private String purchasinglink2;
 
     private static final long serialVersionUID = 1L;
 
@@ -345,6 +345,30 @@ public class DbProduct implements Serializable {
 
     public void setCorpid(String corpid) {
         this.corpid = corpid == null ? null : corpid.trim();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content == null ? null : content.trim();
+    }
+
+    public String getDescr() {
+        return descr;
+    }
+
+    public void setDescr(String descr) {
+        this.descr = descr == null ? null : descr.trim();
     }
 
     public String getProjectid() {
@@ -425,6 +449,46 @@ public class DbProduct implements Serializable {
 
     public void setOriginarea(String originarea) {
         this.originarea = originarea == null ? null : originarea.trim();
+    }
+
+    public String getTranslate1() {
+        return translate1;
+    }
+
+    public void setTranslate1(String translate1) {
+        this.translate1 = translate1 == null ? null : translate1.trim();
+    }
+
+    public String getTranslate2() {
+        return translate2;
+    }
+
+    public void setTranslate2(String translate2) {
+        this.translate2 = translate2 == null ? null : translate2.trim();
+    }
+
+    public String getTranslate3() {
+        return translate3;
+    }
+
+    public void setTranslate3(String translate3) {
+        this.translate3 = translate3 == null ? null : translate3.trim();
+    }
+
+    public String getTranslate4() {
+        return translate4;
+    }
+
+    public void setTranslate4(String translate4) {
+        this.translate4 = translate4 == null ? null : translate4.trim();
+    }
+
+    public String getOthercontent() {
+        return othercontent;
+    }
+
+    public void setOthercontent(String othercontent) {
+        this.othercontent = othercontent == null ? null : othercontent.trim();
     }
 
     public BigDecimal getStockprice() {
@@ -555,6 +619,30 @@ public class DbProduct implements Serializable {
         this.availtime = availtime == null ? null : availtime.trim();
     }
 
+    public String getAlias1() {
+        return alias1;
+    }
+
+    public void setAlias1(String alias1) {
+        this.alias1 = alias1 == null ? null : alias1.trim();
+    }
+
+    public String getAlias2() {
+        return alias2;
+    }
+
+    public void setAlias2(String alias2) {
+        this.alias2 = alias2 == null ? null : alias2.trim();
+    }
+
+    public String getAlias3() {
+        return alias3;
+    }
+
+    public void setAlias3(String alias3) {
+        this.alias3 = alias3 == null ? null : alias3.trim();
+    }
+
     public String getPicture1() {
         return picture1;
     }
@@ -569,6 +657,14 @@ public class DbProduct implements Serializable {
 
     public void setPicture2(String picture2) {
         this.picture2 = picture2 == null ? null : picture2.trim();
+    }
+
+    public String getPicture3() {
+        return picture3;
+    }
+
+    public void setPicture3(String picture3) {
+        this.picture3 = picture3 == null ? null : picture3.trim();
     }
 
     public String getPicture4() {
@@ -593,6 +689,22 @@ public class DbProduct implements Serializable {
 
     public void setBuynum(BigDecimal buynum) {
         this.buynum = buynum;
+    }
+
+    public String getShoptype() {
+        return shoptype;
+    }
+
+    public void setShoptype(String shoptype) {
+        this.shoptype = shoptype == null ? null : shoptype.trim();
+    }
+
+    public String getSalesource() {
+        return salesource;
+    }
+
+    public void setSalesource(String salesource) {
+        this.salesource = salesource == null ? null : salesource.trim();
     }
 
     public BigDecimal getSavenum() {
@@ -899,6 +1011,30 @@ public class DbProduct implements Serializable {
         this.itemno = itemno == null ? null : itemno.trim();
     }
 
+    public String getClobcontent() {
+        return clobcontent;
+    }
+
+    public void setClobcontent(String clobcontent) {
+        this.clobcontent = clobcontent == null ? null : clobcontent.trim();
+    }
+
+    public String getClobdescr() {
+        return clobdescr;
+    }
+
+    public void setClobdescr(String clobdescr) {
+        this.clobdescr = clobdescr == null ? null : clobdescr.trim();
+    }
+
+    public String getClobtranslate() {
+        return clobtranslate;
+    }
+
+    public void setClobtranslate(String clobtranslate) {
+        this.clobtranslate = clobtranslate == null ? null : clobtranslate.trim();
+    }
+
     public String getOper1() {
         return oper1;
     }
@@ -955,6 +1091,14 @@ public class DbProduct implements Serializable {
         this.alertflag = alertflag == null ? null : alertflag.trim();
     }
 
+    public String getAlertdescr() {
+        return alertdescr;
+    }
+
+    public void setAlertdescr(String alertdescr) {
+        this.alertdescr = alertdescr == null ? null : alertdescr.trim();
+    }
+
     public String getPackagingid() {
         return packagingid;
     }
@@ -977,6 +1121,14 @@ public class DbProduct implements Serializable {
 
     public void setPackagingweight(BigDecimal packagingweight) {
         this.packagingweight = packagingweight;
+    }
+
+    public String getIclass() {
+        return iclass;
+    }
+
+    public void setIclass(String iclass) {
+        this.iclass = iclass == null ? null : iclass.trim();
     }
 
     public BigDecimal getMinalernum() {
@@ -1009,6 +1161,14 @@ public class DbProduct implements Serializable {
 
     public void setNextsavetime(Date nextsavetime) {
         this.nextsavetime = nextsavetime;
+    }
+
+    public String getNameen() {
+        return nameen;
+    }
+
+    public void setNameen(String nameen) {
+        this.nameen = nameen == null ? null : nameen.trim();
     }
 
     public BigDecimal getDeclaredvalue() {
@@ -1049,6 +1209,54 @@ public class DbProduct implements Serializable {
 
     public void setTort(String tort) {
         this.tort = tort == null ? null : tort.trim();
+    }
+
+    public String getHjreserve1() {
+        return hjreserve1;
+    }
+
+    public void setHjreserve1(String hjreserve1) {
+        this.hjreserve1 = hjreserve1 == null ? null : hjreserve1.trim();
+    }
+
+    public String getHjreserve2() {
+        return hjreserve2;
+    }
+
+    public void setHjreserve2(String hjreserve2) {
+        this.hjreserve2 = hjreserve2 == null ? null : hjreserve2.trim();
+    }
+
+    public String getHjreserve3() {
+        return hjreserve3;
+    }
+
+    public void setHjreserve3(String hjreserve3) {
+        this.hjreserve3 = hjreserve3 == null ? null : hjreserve3.trim();
+    }
+
+    public String getHjreserve4() {
+        return hjreserve4;
+    }
+
+    public void setHjreserve4(String hjreserve4) {
+        this.hjreserve4 = hjreserve4 == null ? null : hjreserve4.trim();
+    }
+
+    public String getHjreserve5() {
+        return hjreserve5;
+    }
+
+    public void setHjreserve5(String hjreserve5) {
+        this.hjreserve5 = hjreserve5 == null ? null : hjreserve5.trim();
+    }
+
+    public String getHjreserve6() {
+        return hjreserve6;
+    }
+
+    public void setHjreserve6(String hjreserve6) {
+        this.hjreserve6 = hjreserve6 == null ? null : hjreserve6.trim();
     }
 
     public BigDecimal getHjreserve7() {
@@ -1203,6 +1411,22 @@ public class DbProduct implements Serializable {
         this.outernetweight = outernetweight;
     }
 
+    public String getOuternorms() {
+        return outernorms;
+    }
+
+    public void setOuternorms(String outernorms) {
+        this.outernorms = outernorms == null ? null : outernorms.trim();
+    }
+
+    public String getOuterlevel() {
+        return outerlevel;
+    }
+
+    public void setOuterlevel(String outerlevel) {
+        this.outerlevel = outerlevel == null ? null : outerlevel.trim();
+    }
+
     public BigDecimal getGrossweight() {
         return grossweight;
     }
@@ -1243,294 +1467,6 @@ public class DbProduct implements Serializable {
         this.reserve14 = reserve14;
     }
 
-    public BigDecimal getReserve19() {
-        return reserve19;
-    }
-
-    public void setReserve19(BigDecimal reserve19) {
-        this.reserve19 = reserve19;
-    }
-
-    public BigDecimal getReserve20() {
-        return reserve20;
-    }
-
-    public void setReserve20(BigDecimal reserve20) {
-        this.reserve20 = reserve20;
-    }
-
-    public String getIndexfordevelop() {
-        return indexfordevelop;
-    }
-
-    public void setIndexfordevelop(String indexfordevelop) {
-        this.indexfordevelop = indexfordevelop == null ? null : indexfordevelop.trim();
-    }
-
-    public BigDecimal getPurchaseflag() {
-        return purchaseflag;
-    }
-
-    public void setPurchaseflag(BigDecimal purchaseflag) {
-        this.purchaseflag = purchaseflag;
-    }
-
-    public BigDecimal getGrossprofit() {
-        return grossprofit;
-    }
-
-    public void setGrossprofit(BigDecimal grossprofit) {
-        this.grossprofit = grossprofit;
-    }
-
-    public BigDecimal getRateofmargin() {
-        return rateofmargin;
-    }
-
-    public void setRateofmargin(BigDecimal rateofmargin) {
-        this.rateofmargin = rateofmargin;
-    }
-
-    public String getPurchasinglink3() {
-        return purchasinglink3;
-    }
-
-    public void setPurchasinglink3(String purchasinglink3) {
-        this.purchasinglink3 = purchasinglink3 == null ? null : purchasinglink3.trim();
-    }
-
-    public String getPurchasinglink2() {
-        return purchasinglink2;
-    }
-
-    public void setPurchasinglink2(String purchasinglink2) {
-        this.purchasinglink2 = purchasinglink2 == null ? null : purchasinglink2.trim();
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content == null ? null : content.trim();
-    }
-
-    public String getDescr() {
-        return descr;
-    }
-
-    public void setDescr(String descr) {
-        this.descr = descr == null ? null : descr.trim();
-    }
-
-    public String getTranslate1() {
-        return translate1;
-    }
-
-    public void setTranslate1(String translate1) {
-        this.translate1 = translate1 == null ? null : translate1.trim();
-    }
-
-    public String getTranslate2() {
-        return translate2;
-    }
-
-    public void setTranslate2(String translate2) {
-        this.translate2 = translate2 == null ? null : translate2.trim();
-    }
-
-    public String getTranslate3() {
-        return translate3;
-    }
-
-    public void setTranslate3(String translate3) {
-        this.translate3 = translate3 == null ? null : translate3.trim();
-    }
-
-    public String getTranslate4() {
-        return translate4;
-    }
-
-    public void setTranslate4(String translate4) {
-        this.translate4 = translate4 == null ? null : translate4.trim();
-    }
-
-    public String getOthercontent() {
-        return othercontent;
-    }
-
-    public void setOthercontent(String othercontent) {
-        this.othercontent = othercontent == null ? null : othercontent.trim();
-    }
-
-    public String getAlias1() {
-        return alias1;
-    }
-
-    public void setAlias1(String alias1) {
-        this.alias1 = alias1 == null ? null : alias1.trim();
-    }
-
-    public String getAlias2() {
-        return alias2;
-    }
-
-    public void setAlias2(String alias2) {
-        this.alias2 = alias2 == null ? null : alias2.trim();
-    }
-
-    public String getAlias3() {
-        return alias3;
-    }
-
-    public void setAlias3(String alias3) {
-        this.alias3 = alias3 == null ? null : alias3.trim();
-    }
-
-    public String getPicture3() {
-        return picture3;
-    }
-
-    public void setPicture3(String picture3) {
-        this.picture3 = picture3 == null ? null : picture3.trim();
-    }
-
-    public String getShoptype() {
-        return shoptype;
-    }
-
-    public void setShoptype(String shoptype) {
-        this.shoptype = shoptype == null ? null : shoptype.trim();
-    }
-
-    public String getSalesource() {
-        return salesource;
-    }
-
-    public void setSalesource(String salesource) {
-        this.salesource = salesource == null ? null : salesource.trim();
-    }
-
-    public String getClobcontent() {
-        return clobcontent;
-    }
-
-    public void setClobcontent(String clobcontent) {
-        this.clobcontent = clobcontent == null ? null : clobcontent.trim();
-    }
-
-    public String getClobdescr() {
-        return clobdescr;
-    }
-
-    public void setClobdescr(String clobdescr) {
-        this.clobdescr = clobdescr == null ? null : clobdescr.trim();
-    }
-
-    public String getClobtranslate() {
-        return clobtranslate;
-    }
-
-    public void setClobtranslate(String clobtranslate) {
-        this.clobtranslate = clobtranslate == null ? null : clobtranslate.trim();
-    }
-
-    public String getAlertdescr() {
-        return alertdescr;
-    }
-
-    public void setAlertdescr(String alertdescr) {
-        this.alertdescr = alertdescr == null ? null : alertdescr.trim();
-    }
-
-    public String getIclass() {
-        return iclass;
-    }
-
-    public void setIclass(String iclass) {
-        this.iclass = iclass == null ? null : iclass.trim();
-    }
-
-    public String getNameen() {
-        return nameen;
-    }
-
-    public void setNameen(String nameen) {
-        this.nameen = nameen == null ? null : nameen.trim();
-    }
-
-    public String getHjreserve1() {
-        return hjreserve1;
-    }
-
-    public void setHjreserve1(String hjreserve1) {
-        this.hjreserve1 = hjreserve1 == null ? null : hjreserve1.trim();
-    }
-
-    public String getHjreserve2() {
-        return hjreserve2;
-    }
-
-    public void setHjreserve2(String hjreserve2) {
-        this.hjreserve2 = hjreserve2 == null ? null : hjreserve2.trim();
-    }
-
-    public String getHjreserve3() {
-        return hjreserve3;
-    }
-
-    public void setHjreserve3(String hjreserve3) {
-        this.hjreserve3 = hjreserve3 == null ? null : hjreserve3.trim();
-    }
-
-    public String getHjreserve4() {
-        return hjreserve4;
-    }
-
-    public void setHjreserve4(String hjreserve4) {
-        this.hjreserve4 = hjreserve4 == null ? null : hjreserve4.trim();
-    }
-
-    public String getHjreserve5() {
-        return hjreserve5;
-    }
-
-    public void setHjreserve5(String hjreserve5) {
-        this.hjreserve5 = hjreserve5 == null ? null : hjreserve5.trim();
-    }
-
-    public String getHjreserve6() {
-        return hjreserve6;
-    }
-
-    public void setHjreserve6(String hjreserve6) {
-        this.hjreserve6 = hjreserve6 == null ? null : hjreserve6.trim();
-    }
-
-    public String getOuternorms() {
-        return outernorms;
-    }
-
-    public void setOuternorms(String outernorms) {
-        this.outernorms = outernorms == null ? null : outernorms.trim();
-    }
-
-    public String getOuterlevel() {
-        return outerlevel;
-    }
-
-    public void setOuterlevel(String outerlevel) {
-        this.outerlevel = outerlevel == null ? null : outerlevel.trim();
-    }
-
     public String getReserve15() {
         return reserve15;
     }
@@ -1563,12 +1499,60 @@ public class DbProduct implements Serializable {
         this.reserve18 = reserve18 == null ? null : reserve18.trim();
     }
 
+    public BigDecimal getReserve19() {
+        return reserve19;
+    }
+
+    public void setReserve19(BigDecimal reserve19) {
+        this.reserve19 = reserve19;
+    }
+
+    public BigDecimal getReserve20() {
+        return reserve20;
+    }
+
+    public void setReserve20(BigDecimal reserve20) {
+        this.reserve20 = reserve20;
+    }
+
+    public String getIndexfordevelop() {
+        return indexfordevelop;
+    }
+
+    public void setIndexfordevelop(String indexfordevelop) {
+        this.indexfordevelop = indexfordevelop == null ? null : indexfordevelop.trim();
+    }
+
+    public BigDecimal getPurchaseflag() {
+        return purchaseflag;
+    }
+
+    public void setPurchaseflag(BigDecimal purchaseflag) {
+        this.purchaseflag = purchaseflag;
+    }
+
     public String getProductname() {
         return productname;
     }
 
     public void setProductname(String productname) {
         this.productname = productname == null ? null : productname.trim();
+    }
+
+    public BigDecimal getGrossprofit() {
+        return grossprofit;
+    }
+
+    public void setGrossprofit(BigDecimal grossprofit) {
+        this.grossprofit = grossprofit;
+    }
+
+    public BigDecimal getRateofmargin() {
+        return rateofmargin;
+    }
+
+    public void setRateofmargin(BigDecimal rateofmargin) {
+        this.rateofmargin = rateofmargin;
     }
 
     public String getPurchaseremark() {
@@ -1587,6 +1571,22 @@ public class DbProduct implements Serializable {
         this.customsdetails = customsdetails == null ? null : customsdetails.trim();
     }
 
+    public String getPurchasinglink3() {
+        return purchasinglink3;
+    }
+
+    public void setPurchasinglink3(String purchasinglink3) {
+        this.purchasinglink3 = purchasinglink3 == null ? null : purchasinglink3.trim();
+    }
+
+    public String getPurchasinglink2() {
+        return purchasinglink2;
+    }
+
+    public void setPurchasinglink2(String purchasinglink2) {
+        this.purchasinglink2 = purchasinglink2 == null ? null : purchasinglink2.trim();
+    }
+
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -1602,6 +1602,9 @@ public class DbProduct implements Serializable {
         return (this.getSequenceid() == null ? other.getSequenceid() == null : this.getSequenceid().equals(other.getSequenceid()))
             && (this.getSid() == null ? other.getSid() == null : this.getSid().equals(other.getSid()))
             && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()))
+            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
+            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
+            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
             && (this.getProjectid() == null ? other.getProjectid() == null : this.getProjectid().equals(other.getProjectid()))
             && (this.getCategoryid() == null ? other.getCategoryid() == null : this.getCategoryid().equals(other.getCategoryid()))
             && (this.getUnit() == null ? other.getUnit() == null : this.getUnit().equals(other.getUnit()))
@@ -1612,6 +1615,11 @@ public class DbProduct implements Serializable {
             && (this.getManufacture() == null ? other.getManufacture() == null : this.getManufacture().equals(other.getManufacture()))
             && (this.getOrigin() == null ? other.getOrigin() == null : this.getOrigin().equals(other.getOrigin()))
             && (this.getOriginarea() == null ? other.getOriginarea() == null : this.getOriginarea().equals(other.getOriginarea()))
+            && (this.getTranslate1() == null ? other.getTranslate1() == null : this.getTranslate1().equals(other.getTranslate1()))
+            && (this.getTranslate2() == null ? other.getTranslate2() == null : this.getTranslate2().equals(other.getTranslate2()))
+            && (this.getTranslate3() == null ? other.getTranslate3() == null : this.getTranslate3().equals(other.getTranslate3()))
+            && (this.getTranslate4() == null ? other.getTranslate4() == null : this.getTranslate4().equals(other.getTranslate4()))
+            && (this.getOthercontent() == null ? other.getOthercontent() == null : this.getOthercontent().equals(other.getOthercontent()))
             && (this.getStockprice() == null ? other.getStockprice() == null : this.getStockprice().equals(other.getStockprice()))
             && (this.getCostprice() == null ? other.getCostprice() == null : this.getCostprice().equals(other.getCostprice()))
             && (this.getSellprice() == null ? other.getSellprice() == null : this.getSellprice().equals(other.getSellprice()))
@@ -1628,11 +1636,17 @@ public class DbProduct implements Serializable {
             && (this.getColor() == null ? other.getColor() == null : this.getColor().equals(other.getColor()))
             && (this.getBarcode() == null ? other.getBarcode() == null : this.getBarcode().equals(other.getBarcode()))
             && (this.getAvailtime() == null ? other.getAvailtime() == null : this.getAvailtime().equals(other.getAvailtime()))
+            && (this.getAlias1() == null ? other.getAlias1() == null : this.getAlias1().equals(other.getAlias1()))
+            && (this.getAlias2() == null ? other.getAlias2() == null : this.getAlias2().equals(other.getAlias2()))
+            && (this.getAlias3() == null ? other.getAlias3() == null : this.getAlias3().equals(other.getAlias3()))
             && (this.getPicture1() == null ? other.getPicture1() == null : this.getPicture1().equals(other.getPicture1()))
             && (this.getPicture2() == null ? other.getPicture2() == null : this.getPicture2().equals(other.getPicture2()))
+            && (this.getPicture3() == null ? other.getPicture3() == null : this.getPicture3().equals(other.getPicture3()))
             && (this.getPicture4() == null ? other.getPicture4() == null : this.getPicture4().equals(other.getPicture4()))
             && (this.getBuyflag() == null ? other.getBuyflag() == null : this.getBuyflag().equals(other.getBuyflag()))
             && (this.getBuynum() == null ? other.getBuynum() == null : this.getBuynum().equals(other.getBuynum()))
+            && (this.getShoptype() == null ? other.getShoptype() == null : this.getShoptype().equals(other.getShoptype()))
+            && (this.getSalesource() == null ? other.getSalesource() == null : this.getSalesource().equals(other.getSalesource()))
             && (this.getSavenum() == null ? other.getSavenum() == null : this.getSavenum().equals(other.getSavenum()))
             && (this.getOrdernum() == null ? other.getOrdernum() == null : this.getOrdernum().equals(other.getOrdernum()))
             && (this.getAlertnum() == null ? other.getAlertnum() == null : this.getAlertnum().equals(other.getAlertnum()))
@@ -1671,6 +1685,9 @@ public class DbProduct implements Serializable {
             && (this.getPrice7() == null ? other.getPrice7() == null : this.getPrice7().equals(other.getPrice7()))
             && (this.getPrice8() == null ? other.getPrice8() == null : this.getPrice8().equals(other.getPrice8()))
             && (this.getItemno() == null ? other.getItemno() == null : this.getItemno().equals(other.getItemno()))
+            && (this.getClobcontent() == null ? other.getClobcontent() == null : this.getClobcontent().equals(other.getClobcontent()))
+            && (this.getClobdescr() == null ? other.getClobdescr() == null : this.getClobdescr().equals(other.getClobdescr()))
+            && (this.getClobtranslate() == null ? other.getClobtranslate() == null : this.getClobtranslate().equals(other.getClobtranslate()))
             && (this.getOper1() == null ? other.getOper1() == null : this.getOper1().equals(other.getOper1()))
             && (this.getOper2() == null ? other.getOper2() == null : this.getOper2().equals(other.getOper2()))
             && (this.getOper3() == null ? other.getOper3() == null : this.getOper3().equals(other.getOper3()))
@@ -1678,18 +1695,27 @@ public class DbProduct implements Serializable {
             && (this.getOper5() == null ? other.getOper5() == null : this.getOper5().equals(other.getOper5()))
             && (this.getOper6() == null ? other.getOper6() == null : this.getOper6().equals(other.getOper6()))
             && (this.getAlertflag() == null ? other.getAlertflag() == null : this.getAlertflag().equals(other.getAlertflag()))
+            && (this.getAlertdescr() == null ? other.getAlertdescr() == null : this.getAlertdescr().equals(other.getAlertdescr()))
             && (this.getPackagingid() == null ? other.getPackagingid() == null : this.getPackagingid().equals(other.getPackagingid()))
             && (this.getPackagingname() == null ? other.getPackagingname() == null : this.getPackagingname().equals(other.getPackagingname()))
             && (this.getPackagingweight() == null ? other.getPackagingweight() == null : this.getPackagingweight().equals(other.getPackagingweight()))
+            && (this.getIclass() == null ? other.getIclass() == null : this.getIclass().equals(other.getIclass()))
             && (this.getMinalernum() == null ? other.getMinalernum() == null : this.getMinalernum().equals(other.getMinalernum()))
             && (this.getSavedate() == null ? other.getSavedate() == null : this.getSavedate().equals(other.getSavedate()))
             && (this.getSavestar() == null ? other.getSavestar() == null : this.getSavestar().equals(other.getSavestar()))
             && (this.getNextsavetime() == null ? other.getNextsavetime() == null : this.getNextsavetime().equals(other.getNextsavetime()))
+            && (this.getNameen() == null ? other.getNameen() == null : this.getNameen().equals(other.getNameen()))
             && (this.getDeclaredvalue() == null ? other.getDeclaredvalue() == null : this.getDeclaredvalue().equals(other.getDeclaredvalue()))
             && (this.getManufactureprice() == null ? other.getManufactureprice() == null : this.getManufactureprice().equals(other.getManufactureprice()))
             && (this.getManufactureprice1() == null ? other.getManufactureprice1() == null : this.getManufactureprice1().equals(other.getManufactureprice1()))
             && (this.getManufactureprice2() == null ? other.getManufactureprice2() == null : this.getManufactureprice2().equals(other.getManufactureprice2()))
             && (this.getTort() == null ? other.getTort() == null : this.getTort().equals(other.getTort()))
+            && (this.getHjreserve1() == null ? other.getHjreserve1() == null : this.getHjreserve1().equals(other.getHjreserve1()))
+            && (this.getHjreserve2() == null ? other.getHjreserve2() == null : this.getHjreserve2().equals(other.getHjreserve2()))
+            && (this.getHjreserve3() == null ? other.getHjreserve3() == null : this.getHjreserve3().equals(other.getHjreserve3()))
+            && (this.getHjreserve4() == null ? other.getHjreserve4() == null : this.getHjreserve4().equals(other.getHjreserve4()))
+            && (this.getHjreserve5() == null ? other.getHjreserve5() == null : this.getHjreserve5().equals(other.getHjreserve5()))
+            && (this.getHjreserve6() == null ? other.getHjreserve6() == null : this.getHjreserve6().equals(other.getHjreserve6()))
             && (this.getHjreserve7() == null ? other.getHjreserve7() == null : this.getHjreserve7().equals(other.getHjreserve7()))
             && (this.getHjreserve8() == null ? other.getHjreserve8() == null : this.getHjreserve8().equals(other.getHjreserve8()))
             && (this.getHjreserve9() == null ? other.getHjreserve9() == null : this.getHjreserve9().equals(other.getHjreserve9()))
@@ -1709,54 +1735,28 @@ public class DbProduct implements Serializable {
             && (this.getOutervolume() == null ? other.getOutervolume() == null : this.getOutervolume().equals(other.getOutervolume()))
             && (this.getOutergrossweight() == null ? other.getOutergrossweight() == null : this.getOutergrossweight().equals(other.getOutergrossweight()))
             && (this.getOuternetweight() == null ? other.getOuternetweight() == null : this.getOuternetweight().equals(other.getOuternetweight()))
+            && (this.getOuternorms() == null ? other.getOuternorms() == null : this.getOuternorms().equals(other.getOuternorms()))
+            && (this.getOuterlevel() == null ? other.getOuterlevel() == null : this.getOuterlevel().equals(other.getOuterlevel()))
             && (this.getGrossweight() == null ? other.getGrossweight() == null : this.getGrossweight().equals(other.getGrossweight()))
             && (this.getReserve11() == null ? other.getReserve11() == null : this.getReserve11().equals(other.getReserve11()))
             && (this.getReserve12() == null ? other.getReserve12() == null : this.getReserve12().equals(other.getReserve12()))
             && (this.getReserve13() == null ? other.getReserve13() == null : this.getReserve13().equals(other.getReserve13()))
             && (this.getReserve14() == null ? other.getReserve14() == null : this.getReserve14().equals(other.getReserve14()))
-            && (this.getReserve19() == null ? other.getReserve19() == null : this.getReserve19().equals(other.getReserve19()))
-            && (this.getReserve20() == null ? other.getReserve20() == null : this.getReserve20().equals(other.getReserve20()))
-            && (this.getIndexfordevelop() == null ? other.getIndexfordevelop() == null : this.getIndexfordevelop().equals(other.getIndexfordevelop()))
-            && (this.getPurchaseflag() == null ? other.getPurchaseflag() == null : this.getPurchaseflag().equals(other.getPurchaseflag()))
-            && (this.getGrossprofit() == null ? other.getGrossprofit() == null : this.getGrossprofit().equals(other.getGrossprofit()))
-            && (this.getRateofmargin() == null ? other.getRateofmargin() == null : this.getRateofmargin().equals(other.getRateofmargin()))
-            && (this.getPurchasinglink3() == null ? other.getPurchasinglink3() == null : this.getPurchasinglink3().equals(other.getPurchasinglink3()))
-            && (this.getPurchasinglink2() == null ? other.getPurchasinglink2() == null : this.getPurchasinglink2().equals(other.getPurchasinglink2()))
-            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
-            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
-            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
-            && (this.getTranslate1() == null ? other.getTranslate1() == null : this.getTranslate1().equals(other.getTranslate1()))
-            && (this.getTranslate2() == null ? other.getTranslate2() == null : this.getTranslate2().equals(other.getTranslate2()))
-            && (this.getTranslate3() == null ? other.getTranslate3() == null : this.getTranslate3().equals(other.getTranslate3()))
-            && (this.getTranslate4() == null ? other.getTranslate4() == null : this.getTranslate4().equals(other.getTranslate4()))
-            && (this.getOthercontent() == null ? other.getOthercontent() == null : this.getOthercontent().equals(other.getOthercontent()))
-            && (this.getAlias1() == null ? other.getAlias1() == null : this.getAlias1().equals(other.getAlias1()))
-            && (this.getAlias2() == null ? other.getAlias2() == null : this.getAlias2().equals(other.getAlias2()))
-            && (this.getAlias3() == null ? other.getAlias3() == null : this.getAlias3().equals(other.getAlias3()))
-            && (this.getPicture3() == null ? other.getPicture3() == null : this.getPicture3().equals(other.getPicture3()))
-            && (this.getShoptype() == null ? other.getShoptype() == null : this.getShoptype().equals(other.getShoptype()))
-            && (this.getSalesource() == null ? other.getSalesource() == null : this.getSalesource().equals(other.getSalesource()))
-            && (this.getClobcontent() == null ? other.getClobcontent() == null : this.getClobcontent().equals(other.getClobcontent()))
-            && (this.getClobdescr() == null ? other.getClobdescr() == null : this.getClobdescr().equals(other.getClobdescr()))
-            && (this.getClobtranslate() == null ? other.getClobtranslate() == null : this.getClobtranslate().equals(other.getClobtranslate()))
-            && (this.getAlertdescr() == null ? other.getAlertdescr() == null : this.getAlertdescr().equals(other.getAlertdescr()))
-            && (this.getIclass() == null ? other.getIclass() == null : this.getIclass().equals(other.getIclass()))
-            && (this.getNameen() == null ? other.getNameen() == null : this.getNameen().equals(other.getNameen()))
-            && (this.getHjreserve1() == null ? other.getHjreserve1() == null : this.getHjreserve1().equals(other.getHjreserve1()))
-            && (this.getHjreserve2() == null ? other.getHjreserve2() == null : this.getHjreserve2().equals(other.getHjreserve2()))
-            && (this.getHjreserve3() == null ? other.getHjreserve3() == null : this.getHjreserve3().equals(other.getHjreserve3()))
-            && (this.getHjreserve4() == null ? other.getHjreserve4() == null : this.getHjreserve4().equals(other.getHjreserve4()))
-            && (this.getHjreserve5() == null ? other.getHjreserve5() == null : this.getHjreserve5().equals(other.getHjreserve5()))
-            && (this.getHjreserve6() == null ? other.getHjreserve6() == null : this.getHjreserve6().equals(other.getHjreserve6()))
-            && (this.getOuternorms() == null ? other.getOuternorms() == null : this.getOuternorms().equals(other.getOuternorms()))
-            && (this.getOuterlevel() == null ? other.getOuterlevel() == null : this.getOuterlevel().equals(other.getOuterlevel()))
             && (this.getReserve15() == null ? other.getReserve15() == null : this.getReserve15().equals(other.getReserve15()))
             && (this.getReserve16() == null ? other.getReserve16() == null : this.getReserve16().equals(other.getReserve16()))
             && (this.getReserve17() == null ? other.getReserve17() == null : this.getReserve17().equals(other.getReserve17()))
             && (this.getReserve18() == null ? other.getReserve18() == null : this.getReserve18().equals(other.getReserve18()))
+            && (this.getReserve19() == null ? other.getReserve19() == null : this.getReserve19().equals(other.getReserve19()))
+            && (this.getReserve20() == null ? other.getReserve20() == null : this.getReserve20().equals(other.getReserve20()))
+            && (this.getIndexfordevelop() == null ? other.getIndexfordevelop() == null : this.getIndexfordevelop().equals(other.getIndexfordevelop()))
+            && (this.getPurchaseflag() == null ? other.getPurchaseflag() == null : this.getPurchaseflag().equals(other.getPurchaseflag()))
             && (this.getProductname() == null ? other.getProductname() == null : this.getProductname().equals(other.getProductname()))
+            && (this.getGrossprofit() == null ? other.getGrossprofit() == null : this.getGrossprofit().equals(other.getGrossprofit()))
+            && (this.getRateofmargin() == null ? other.getRateofmargin() == null : this.getRateofmargin().equals(other.getRateofmargin()))
             && (this.getPurchaseremark() == null ? other.getPurchaseremark() == null : this.getPurchaseremark().equals(other.getPurchaseremark()))
-            && (this.getCustomsdetails() == null ? other.getCustomsdetails() == null : this.getCustomsdetails().equals(other.getCustomsdetails()));
+            && (this.getCustomsdetails() == null ? other.getCustomsdetails() == null : this.getCustomsdetails().equals(other.getCustomsdetails()))
+            && (this.getPurchasinglink3() == null ? other.getPurchasinglink3() == null : this.getPurchasinglink3().equals(other.getPurchasinglink3()))
+            && (this.getPurchasinglink2() == null ? other.getPurchasinglink2() == null : this.getPurchasinglink2().equals(other.getPurchasinglink2()));
     }
 
     @Override
@@ -1766,6 +1766,9 @@ public class DbProduct implements Serializable {
         result = prime * result + ((getSequenceid() == null) ? 0 : getSequenceid().hashCode());
         result = prime * result + ((getSid() == null) ? 0 : getSid().hashCode());
         result = prime * result + ((getCorpid() == null) ? 0 : getCorpid().hashCode());
+        result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
+        result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
+        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
         result = prime * result + ((getProjectid() == null) ? 0 : getProjectid().hashCode());
         result = prime * result + ((getCategoryid() == null) ? 0 : getCategoryid().hashCode());
         result = prime * result + ((getUnit() == null) ? 0 : getUnit().hashCode());
@@ -1776,6 +1779,11 @@ public class DbProduct implements Serializable {
         result = prime * result + ((getManufacture() == null) ? 0 : getManufacture().hashCode());
         result = prime * result + ((getOrigin() == null) ? 0 : getOrigin().hashCode());
         result = prime * result + ((getOriginarea() == null) ? 0 : getOriginarea().hashCode());
+        result = prime * result + ((getTranslate1() == null) ? 0 : getTranslate1().hashCode());
+        result = prime * result + ((getTranslate2() == null) ? 0 : getTranslate2().hashCode());
+        result = prime * result + ((getTranslate3() == null) ? 0 : getTranslate3().hashCode());
+        result = prime * result + ((getTranslate4() == null) ? 0 : getTranslate4().hashCode());
+        result = prime * result + ((getOthercontent() == null) ? 0 : getOthercontent().hashCode());
         result = prime * result + ((getStockprice() == null) ? 0 : getStockprice().hashCode());
         result = prime * result + ((getCostprice() == null) ? 0 : getCostprice().hashCode());
         result = prime * result + ((getSellprice() == null) ? 0 : getSellprice().hashCode());
@@ -1792,11 +1800,17 @@ public class DbProduct implements Serializable {
         result = prime * result + ((getColor() == null) ? 0 : getColor().hashCode());
         result = prime * result + ((getBarcode() == null) ? 0 : getBarcode().hashCode());
         result = prime * result + ((getAvailtime() == null) ? 0 : getAvailtime().hashCode());
+        result = prime * result + ((getAlias1() == null) ? 0 : getAlias1().hashCode());
+        result = prime * result + ((getAlias2() == null) ? 0 : getAlias2().hashCode());
+        result = prime * result + ((getAlias3() == null) ? 0 : getAlias3().hashCode());
         result = prime * result + ((getPicture1() == null) ? 0 : getPicture1().hashCode());
         result = prime * result + ((getPicture2() == null) ? 0 : getPicture2().hashCode());
+        result = prime * result + ((getPicture3() == null) ? 0 : getPicture3().hashCode());
         result = prime * result + ((getPicture4() == null) ? 0 : getPicture4().hashCode());
         result = prime * result + ((getBuyflag() == null) ? 0 : getBuyflag().hashCode());
         result = prime * result + ((getBuynum() == null) ? 0 : getBuynum().hashCode());
+        result = prime * result + ((getShoptype() == null) ? 0 : getShoptype().hashCode());
+        result = prime * result + ((getSalesource() == null) ? 0 : getSalesource().hashCode());
         result = prime * result + ((getSavenum() == null) ? 0 : getSavenum().hashCode());
         result = prime * result + ((getOrdernum() == null) ? 0 : getOrdernum().hashCode());
         result = prime * result + ((getAlertnum() == null) ? 0 : getAlertnum().hashCode());
@@ -1835,6 +1849,9 @@ public class DbProduct implements Serializable {
         result = prime * result + ((getPrice7() == null) ? 0 : getPrice7().hashCode());
         result = prime * result + ((getPrice8() == null) ? 0 : getPrice8().hashCode());
         result = prime * result + ((getItemno() == null) ? 0 : getItemno().hashCode());
+        result = prime * result + ((getClobcontent() == null) ? 0 : getClobcontent().hashCode());
+        result = prime * result + ((getClobdescr() == null) ? 0 : getClobdescr().hashCode());
+        result = prime * result + ((getClobtranslate() == null) ? 0 : getClobtranslate().hashCode());
         result = prime * result + ((getOper1() == null) ? 0 : getOper1().hashCode());
         result = prime * result + ((getOper2() == null) ? 0 : getOper2().hashCode());
         result = prime * result + ((getOper3() == null) ? 0 : getOper3().hashCode());
@@ -1842,18 +1859,27 @@ public class DbProduct implements Serializable {
         result = prime * result + ((getOper5() == null) ? 0 : getOper5().hashCode());
         result = prime * result + ((getOper6() == null) ? 0 : getOper6().hashCode());
         result = prime * result + ((getAlertflag() == null) ? 0 : getAlertflag().hashCode());
+        result = prime * result + ((getAlertdescr() == null) ? 0 : getAlertdescr().hashCode());
         result = prime * result + ((getPackagingid() == null) ? 0 : getPackagingid().hashCode());
         result = prime * result + ((getPackagingname() == null) ? 0 : getPackagingname().hashCode());
         result = prime * result + ((getPackagingweight() == null) ? 0 : getPackagingweight().hashCode());
+        result = prime * result + ((getIclass() == null) ? 0 : getIclass().hashCode());
         result = prime * result + ((getMinalernum() == null) ? 0 : getMinalernum().hashCode());
         result = prime * result + ((getSavedate() == null) ? 0 : getSavedate().hashCode());
         result = prime * result + ((getSavestar() == null) ? 0 : getSavestar().hashCode());
         result = prime * result + ((getNextsavetime() == null) ? 0 : getNextsavetime().hashCode());
+        result = prime * result + ((getNameen() == null) ? 0 : getNameen().hashCode());
         result = prime * result + ((getDeclaredvalue() == null) ? 0 : getDeclaredvalue().hashCode());
         result = prime * result + ((getManufactureprice() == null) ? 0 : getManufactureprice().hashCode());
         result = prime * result + ((getManufactureprice1() == null) ? 0 : getManufactureprice1().hashCode());
         result = prime * result + ((getManufactureprice2() == null) ? 0 : getManufactureprice2().hashCode());
         result = prime * result + ((getTort() == null) ? 0 : getTort().hashCode());
+        result = prime * result + ((getHjreserve1() == null) ? 0 : getHjreserve1().hashCode());
+        result = prime * result + ((getHjreserve2() == null) ? 0 : getHjreserve2().hashCode());
+        result = prime * result + ((getHjreserve3() == null) ? 0 : getHjreserve3().hashCode());
+        result = prime * result + ((getHjreserve4() == null) ? 0 : getHjreserve4().hashCode());
+        result = prime * result + ((getHjreserve5() == null) ? 0 : getHjreserve5().hashCode());
+        result = prime * result + ((getHjreserve6() == null) ? 0 : getHjreserve6().hashCode());
         result = prime * result + ((getHjreserve7() == null) ? 0 : getHjreserve7().hashCode());
         result = prime * result + ((getHjreserve8() == null) ? 0 : getHjreserve8().hashCode());
         result = prime * result + ((getHjreserve9() == null) ? 0 : getHjreserve9().hashCode());
@@ -1873,54 +1899,28 @@ public class DbProduct implements Serializable {
         result = prime * result + ((getOutervolume() == null) ? 0 : getOutervolume().hashCode());
         result = prime * result + ((getOutergrossweight() == null) ? 0 : getOutergrossweight().hashCode());
         result = prime * result + ((getOuternetweight() == null) ? 0 : getOuternetweight().hashCode());
+        result = prime * result + ((getOuternorms() == null) ? 0 : getOuternorms().hashCode());
+        result = prime * result + ((getOuterlevel() == null) ? 0 : getOuterlevel().hashCode());
         result = prime * result + ((getGrossweight() == null) ? 0 : getGrossweight().hashCode());
         result = prime * result + ((getReserve11() == null) ? 0 : getReserve11().hashCode());
         result = prime * result + ((getReserve12() == null) ? 0 : getReserve12().hashCode());
         result = prime * result + ((getReserve13() == null) ? 0 : getReserve13().hashCode());
         result = prime * result + ((getReserve14() == null) ? 0 : getReserve14().hashCode());
-        result = prime * result + ((getReserve19() == null) ? 0 : getReserve19().hashCode());
-        result = prime * result + ((getReserve20() == null) ? 0 : getReserve20().hashCode());
-        result = prime * result + ((getIndexfordevelop() == null) ? 0 : getIndexfordevelop().hashCode());
-        result = prime * result + ((getPurchaseflag() == null) ? 0 : getPurchaseflag().hashCode());
-        result = prime * result + ((getGrossprofit() == null) ? 0 : getGrossprofit().hashCode());
-        result = prime * result + ((getRateofmargin() == null) ? 0 : getRateofmargin().hashCode());
-        result = prime * result + ((getPurchasinglink3() == null) ? 0 : getPurchasinglink3().hashCode());
-        result = prime * result + ((getPurchasinglink2() == null) ? 0 : getPurchasinglink2().hashCode());
-        result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
-        result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
-        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
-        result = prime * result + ((getTranslate1() == null) ? 0 : getTranslate1().hashCode());
-        result = prime * result + ((getTranslate2() == null) ? 0 : getTranslate2().hashCode());
-        result = prime * result + ((getTranslate3() == null) ? 0 : getTranslate3().hashCode());
-        result = prime * result + ((getTranslate4() == null) ? 0 : getTranslate4().hashCode());
-        result = prime * result + ((getOthercontent() == null) ? 0 : getOthercontent().hashCode());
-        result = prime * result + ((getAlias1() == null) ? 0 : getAlias1().hashCode());
-        result = prime * result + ((getAlias2() == null) ? 0 : getAlias2().hashCode());
-        result = prime * result + ((getAlias3() == null) ? 0 : getAlias3().hashCode());
-        result = prime * result + ((getPicture3() == null) ? 0 : getPicture3().hashCode());
-        result = prime * result + ((getShoptype() == null) ? 0 : getShoptype().hashCode());
-        result = prime * result + ((getSalesource() == null) ? 0 : getSalesource().hashCode());
-        result = prime * result + ((getClobcontent() == null) ? 0 : getClobcontent().hashCode());
-        result = prime * result + ((getClobdescr() == null) ? 0 : getClobdescr().hashCode());
-        result = prime * result + ((getClobtranslate() == null) ? 0 : getClobtranslate().hashCode());
-        result = prime * result + ((getAlertdescr() == null) ? 0 : getAlertdescr().hashCode());
-        result = prime * result + ((getIclass() == null) ? 0 : getIclass().hashCode());
-        result = prime * result + ((getNameen() == null) ? 0 : getNameen().hashCode());
-        result = prime * result + ((getHjreserve1() == null) ? 0 : getHjreserve1().hashCode());
-        result = prime * result + ((getHjreserve2() == null) ? 0 : getHjreserve2().hashCode());
-        result = prime * result + ((getHjreserve3() == null) ? 0 : getHjreserve3().hashCode());
-        result = prime * result + ((getHjreserve4() == null) ? 0 : getHjreserve4().hashCode());
-        result = prime * result + ((getHjreserve5() == null) ? 0 : getHjreserve5().hashCode());
-        result = prime * result + ((getHjreserve6() == null) ? 0 : getHjreserve6().hashCode());
-        result = prime * result + ((getOuternorms() == null) ? 0 : getOuternorms().hashCode());
-        result = prime * result + ((getOuterlevel() == null) ? 0 : getOuterlevel().hashCode());
         result = prime * result + ((getReserve15() == null) ? 0 : getReserve15().hashCode());
         result = prime * result + ((getReserve16() == null) ? 0 : getReserve16().hashCode());
         result = prime * result + ((getReserve17() == null) ? 0 : getReserve17().hashCode());
         result = prime * result + ((getReserve18() == null) ? 0 : getReserve18().hashCode());
+        result = prime * result + ((getReserve19() == null) ? 0 : getReserve19().hashCode());
+        result = prime * result + ((getReserve20() == null) ? 0 : getReserve20().hashCode());
+        result = prime * result + ((getIndexfordevelop() == null) ? 0 : getIndexfordevelop().hashCode());
+        result = prime * result + ((getPurchaseflag() == null) ? 0 : getPurchaseflag().hashCode());
         result = prime * result + ((getProductname() == null) ? 0 : getProductname().hashCode());
+        result = prime * result + ((getGrossprofit() == null) ? 0 : getGrossprofit().hashCode());
+        result = prime * result + ((getRateofmargin() == null) ? 0 : getRateofmargin().hashCode());
         result = prime * result + ((getPurchaseremark() == null) ? 0 : getPurchaseremark().hashCode());
         result = prime * result + ((getCustomsdetails() == null) ? 0 : getCustomsdetails().hashCode());
+        result = prime * result + ((getPurchasinglink3() == null) ? 0 : getPurchasinglink3().hashCode());
+        result = prime * result + ((getPurchasinglink2() == null) ? 0 : getPurchasinglink2().hashCode());
         return result;
     }
 
@@ -1933,6 +1933,9 @@ public class DbProduct implements Serializable {
         sb.append(", sequenceid=").append(sequenceid);
         sb.append(", sid=").append(sid);
         sb.append(", corpid=").append(corpid);
+        sb.append(", name=").append(name);
+        sb.append(", content=").append(content);
+        sb.append(", descr=").append(descr);
         sb.append(", projectid=").append(projectid);
         sb.append(", categoryid=").append(categoryid);
         sb.append(", unit=").append(unit);
@@ -1943,6 +1946,11 @@ public class DbProduct implements Serializable {
         sb.append(", manufacture=").append(manufacture);
         sb.append(", origin=").append(origin);
         sb.append(", originarea=").append(originarea);
+        sb.append(", translate1=").append(translate1);
+        sb.append(", translate2=").append(translate2);
+        sb.append(", translate3=").append(translate3);
+        sb.append(", translate4=").append(translate4);
+        sb.append(", othercontent=").append(othercontent);
         sb.append(", stockprice=").append(stockprice);
         sb.append(", costprice=").append(costprice);
         sb.append(", sellprice=").append(sellprice);
@@ -1959,11 +1967,17 @@ public class DbProduct implements Serializable {
         sb.append(", color=").append(color);
         sb.append(", barcode=").append(barcode);
         sb.append(", availtime=").append(availtime);
+        sb.append(", alias1=").append(alias1);
+        sb.append(", alias2=").append(alias2);
+        sb.append(", alias3=").append(alias3);
         sb.append(", picture1=").append(picture1);
         sb.append(", picture2=").append(picture2);
+        sb.append(", picture3=").append(picture3);
         sb.append(", picture4=").append(picture4);
         sb.append(", buyflag=").append(buyflag);
         sb.append(", buynum=").append(buynum);
+        sb.append(", shoptype=").append(shoptype);
+        sb.append(", salesource=").append(salesource);
         sb.append(", savenum=").append(savenum);
         sb.append(", ordernum=").append(ordernum);
         sb.append(", alertnum=").append(alertnum);
@@ -2002,6 +2016,9 @@ public class DbProduct implements Serializable {
         sb.append(", price7=").append(price7);
         sb.append(", price8=").append(price8);
         sb.append(", itemno=").append(itemno);
+        sb.append(", clobcontent=").append(clobcontent);
+        sb.append(", clobdescr=").append(clobdescr);
+        sb.append(", clobtranslate=").append(clobtranslate);
         sb.append(", oper1=").append(oper1);
         sb.append(", oper2=").append(oper2);
         sb.append(", oper3=").append(oper3);
@@ -2009,18 +2026,27 @@ public class DbProduct implements Serializable {
         sb.append(", oper5=").append(oper5);
         sb.append(", oper6=").append(oper6);
         sb.append(", alertflag=").append(alertflag);
+        sb.append(", alertdescr=").append(alertdescr);
         sb.append(", packagingid=").append(packagingid);
         sb.append(", packagingname=").append(packagingname);
         sb.append(", packagingweight=").append(packagingweight);
+        sb.append(", iclass=").append(iclass);
         sb.append(", minalernum=").append(minalernum);
         sb.append(", savedate=").append(savedate);
         sb.append(", savestar=").append(savestar);
         sb.append(", nextsavetime=").append(nextsavetime);
+        sb.append(", nameen=").append(nameen);
         sb.append(", declaredvalue=").append(declaredvalue);
         sb.append(", manufactureprice=").append(manufactureprice);
         sb.append(", manufactureprice1=").append(manufactureprice1);
         sb.append(", manufactureprice2=").append(manufactureprice2);
         sb.append(", tort=").append(tort);
+        sb.append(", hjreserve1=").append(hjreserve1);
+        sb.append(", hjreserve2=").append(hjreserve2);
+        sb.append(", hjreserve3=").append(hjreserve3);
+        sb.append(", hjreserve4=").append(hjreserve4);
+        sb.append(", hjreserve5=").append(hjreserve5);
+        sb.append(", hjreserve6=").append(hjreserve6);
         sb.append(", hjreserve7=").append(hjreserve7);
         sb.append(", hjreserve8=").append(hjreserve8);
         sb.append(", hjreserve9=").append(hjreserve9);
@@ -2040,54 +2066,28 @@ public class DbProduct implements Serializable {
         sb.append(", outervolume=").append(outervolume);
         sb.append(", outergrossweight=").append(outergrossweight);
         sb.append(", outernetweight=").append(outernetweight);
+        sb.append(", outernorms=").append(outernorms);
+        sb.append(", outerlevel=").append(outerlevel);
         sb.append(", grossweight=").append(grossweight);
         sb.append(", reserve11=").append(reserve11);
         sb.append(", reserve12=").append(reserve12);
         sb.append(", reserve13=").append(reserve13);
         sb.append(", reserve14=").append(reserve14);
-        sb.append(", reserve19=").append(reserve19);
-        sb.append(", reserve20=").append(reserve20);
-        sb.append(", indexfordevelop=").append(indexfordevelop);
-        sb.append(", purchaseflag=").append(purchaseflag);
-        sb.append(", grossprofit=").append(grossprofit);
-        sb.append(", rateofmargin=").append(rateofmargin);
-        sb.append(", purchasinglink3=").append(purchasinglink3);
-        sb.append(", purchasinglink2=").append(purchasinglink2);
-        sb.append(", name=").append(name);
-        sb.append(", content=").append(content);
-        sb.append(", descr=").append(descr);
-        sb.append(", translate1=").append(translate1);
-        sb.append(", translate2=").append(translate2);
-        sb.append(", translate3=").append(translate3);
-        sb.append(", translate4=").append(translate4);
-        sb.append(", othercontent=").append(othercontent);
-        sb.append(", alias1=").append(alias1);
-        sb.append(", alias2=").append(alias2);
-        sb.append(", alias3=").append(alias3);
-        sb.append(", picture3=").append(picture3);
-        sb.append(", shoptype=").append(shoptype);
-        sb.append(", salesource=").append(salesource);
-        sb.append(", clobcontent=").append(clobcontent);
-        sb.append(", clobdescr=").append(clobdescr);
-        sb.append(", clobtranslate=").append(clobtranslate);
-        sb.append(", alertdescr=").append(alertdescr);
-        sb.append(", iclass=").append(iclass);
-        sb.append(", nameen=").append(nameen);
-        sb.append(", hjreserve1=").append(hjreserve1);
-        sb.append(", hjreserve2=").append(hjreserve2);
-        sb.append(", hjreserve3=").append(hjreserve3);
-        sb.append(", hjreserve4=").append(hjreserve4);
-        sb.append(", hjreserve5=").append(hjreserve5);
-        sb.append(", hjreserve6=").append(hjreserve6);
-        sb.append(", outernorms=").append(outernorms);
-        sb.append(", outerlevel=").append(outerlevel);
         sb.append(", reserve15=").append(reserve15);
         sb.append(", reserve16=").append(reserve16);
         sb.append(", reserve17=").append(reserve17);
         sb.append(", reserve18=").append(reserve18);
+        sb.append(", reserve19=").append(reserve19);
+        sb.append(", reserve20=").append(reserve20);
+        sb.append(", indexfordevelop=").append(indexfordevelop);
+        sb.append(", purchaseflag=").append(purchaseflag);
         sb.append(", productname=").append(productname);
+        sb.append(", grossprofit=").append(grossprofit);
+        sb.append(", rateofmargin=").append(rateofmargin);
         sb.append(", purchaseremark=").append(purchaseremark);
         sb.append(", customsdetails=").append(customsdetails);
+        sb.append(", purchasinglink3=").append(purchasinglink3);
+        sb.append(", purchasinglink2=").append(purchasinglink2);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

@@ -5,70 +5,70 @@
     <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
     <result column="NAME" jdbcType="VARCHAR" property="name" />
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="DESCR" jdbcType="VARCHAR" property="descr" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
-    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select SEQUENCEID, NAME, OPER, OPERTIME, DESCR
-    from db_addfunction
+    select SEQUENCEID, NAME, OPER, DESCR, OPERTIME
+    from DB_ADDFUNCTION
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select SEQUENCEID, NAME, OPER, OPERTIME, DESCR
-    from db_addfunction
+    select SEQUENCEID, NAME, OPER, DESCR, OPERTIME
+    from DB_ADDFUNCTION
   </select>
   <sql id="TableName">
-    db_addfunction
+    DB_ADDFUNCTION
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=VARCHAR} , 
      #{name,jdbcType=VARCHAR} , 
      #{oper,jdbcType=VARCHAR} , 
+     #{descr,jdbcType=VARCHAR} , 
      #{opertime,jdbcType=TIMESTAMP} , 
-     #{descr,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
     NAME , 
     OPER , 
+    DESCR , 
     OPERTIME , 
-    DESCR
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
     </if>
     <if test="name != null">
-      NAME = #{name,jdbcType=VARCHAR} and 
+      name = #{name,jdbcType=VARCHAR} and 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+      oper = #{oper,jdbcType=VARCHAR} and 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR}
+      descr = #{descr,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
     </if>
     <if test="name != null">
-      NAME = #{name,jdbcType=VARCHAR} , 
+      name = #{name,jdbcType=VARCHAR} , 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+      oper = #{oper,jdbcType=VARCHAR} , 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR}
+      descr = #{descr,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbAddfunction" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

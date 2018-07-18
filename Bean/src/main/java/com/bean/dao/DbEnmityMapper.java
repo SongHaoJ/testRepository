@@ -1,20 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbEnmity;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbEnmityMapper {
-    int deleteByPrimaryKey(BigDecimal sequenceid);
+    DbEnmity selectByCriteria(DbEnmity DbEnmity);
 
-    int insert(DbEnmity record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbEnmity record);
+    void deleteByCriteria(DbEnmity DbEnmity);
+
+    int insertByCriteria(DbEnmity DbEnmity);
+
+    int updateByCriteria(DbEnmity DbEnmity);
 
     DbEnmity selectByPrimaryKey(BigDecimal sequenceid);
 
-    int updateByPrimaryKeySelective(DbEnmity record);
-
-    int updateByPrimaryKeyWithBLOBs(DbEnmity record);
-
-    int updateByPrimaryKey(DbEnmity record);
+    List<DbEnmity> selectAll();
 }

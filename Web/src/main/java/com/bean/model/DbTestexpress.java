@@ -4,7 +4,9 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 
 public class DbTestexpress implements Serializable {
-    private String package;
+    private String dbPackage;
+
+    private String labelstr;
 
     private BigDecimal cnminiparcel10x10;
 
@@ -20,16 +22,22 @@ public class DbTestexpress implements Serializable {
 
     private BigDecimal a7;
 
-    private String labelstr;
-
     private static final long serialVersionUID = 1L;
 
-    public String getPackage() {
-        return package;
+    public String getDbPackage() {
+        return dbPackage;
     }
 
-    public void setPackage(String package) {
-        this.package = package == null ? null : package.trim();
+    public void setDbPackage(String dbPackage) {
+        this.dbPackage = dbPackage == null ? null : dbPackage.trim();
+    }
+
+    public String getLabelstr() {
+        return labelstr;
+    }
+
+    public void setLabelstr(String labelstr) {
+        this.labelstr = labelstr == null ? null : labelstr.trim();
     }
 
     public BigDecimal getCnminiparcel10x10() {
@@ -88,14 +96,6 @@ public class DbTestexpress implements Serializable {
         this.a7 = a7;
     }
 
-    public String getLabelstr() {
-        return labelstr;
-    }
-
-    public void setLabelstr(String labelstr) {
-        this.labelstr = labelstr == null ? null : labelstr.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -108,22 +108,23 @@ public class DbTestexpress implements Serializable {
             return false;
         }
         DbTestexpress other = (DbTestexpress) that;
-        return (this.getPackage() == null ? other.getPackage() == null : this.getPackage().equals(other.getPackage()))
+        return (this.getDbPackage() == null ? other.getDbPackage() == null : this.getDbPackage().equals(other.getDbPackage()))
+            && (this.getLabelstr() == null ? other.getLabelstr() == null : this.getLabelstr().equals(other.getLabelstr()))
             && (this.getCnminiparcel10x10() == null ? other.getCnminiparcel10x10() == null : this.getCnminiparcel10x10().equals(other.getCnminiparcel10x10()))
             && (this.getA6() == null ? other.getA6() == null : this.getA6().equals(other.getA6()))
             && (this.getA4() == null ? other.getA4() == null : this.getA4().equals(other.getA4()))
             && (this.getSid() == null ? other.getSid() == null : this.getSid().equals(other.getSid()))
             && (this.getExpresstype() == null ? other.getExpresstype() == null : this.getExpresstype().equals(other.getExpresstype()))
             && (this.getCurrency() == null ? other.getCurrency() == null : this.getCurrency().equals(other.getCurrency()))
-            && (this.getA7() == null ? other.getA7() == null : this.getA7().equals(other.getA7()))
-            && (this.getLabelstr() == null ? other.getLabelstr() == null : this.getLabelstr().equals(other.getLabelstr()));
+            && (this.getA7() == null ? other.getA7() == null : this.getA7().equals(other.getA7()));
     }
 
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((getPackage() == null) ? 0 : getPackage().hashCode());
+        result = prime * result + ((getDbPackage() == null) ? 0 : getDbPackage().hashCode());
+        result = prime * result + ((getLabelstr() == null) ? 0 : getLabelstr().hashCode());
         result = prime * result + ((getCnminiparcel10x10() == null) ? 0 : getCnminiparcel10x10().hashCode());
         result = prime * result + ((getA6() == null) ? 0 : getA6().hashCode());
         result = prime * result + ((getA4() == null) ? 0 : getA4().hashCode());
@@ -131,7 +132,6 @@ public class DbTestexpress implements Serializable {
         result = prime * result + ((getExpresstype() == null) ? 0 : getExpresstype().hashCode());
         result = prime * result + ((getCurrency() == null) ? 0 : getCurrency().hashCode());
         result = prime * result + ((getA7() == null) ? 0 : getA7().hashCode());
-        result = prime * result + ((getLabelstr() == null) ? 0 : getLabelstr().hashCode());
         return result;
     }
 
@@ -141,7 +141,8 @@ public class DbTestexpress implements Serializable {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
-        sb.append(", package=").append(package);
+        sb.append(", dbPackage=").append(dbPackage);
+        sb.append(", labelstr=").append(labelstr);
         sb.append(", cnminiparcel10x10=").append(cnminiparcel10x10);
         sb.append(", a6=").append(a6);
         sb.append(", a4=").append(a4);
@@ -149,7 +150,6 @@ public class DbTestexpress implements Serializable {
         sb.append(", expresstype=").append(expresstype);
         sb.append(", currency=").append(currency);
         sb.append(", a7=").append(a7);
-        sb.append(", labelstr=").append(labelstr);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

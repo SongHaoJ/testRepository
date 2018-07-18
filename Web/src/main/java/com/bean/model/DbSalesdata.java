@@ -15,9 +15,13 @@ public class DbSalesdata implements Serializable {
 
     private String ebaycategoryname;
 
+    private String ebaytitle;
+
     private String ebayuserid;
 
     private String ebayshopid;
+
+    private String ebayshopname;
 
     private BigDecimal hitcount;
 
@@ -29,7 +33,11 @@ public class DbSalesdata implements Serializable {
 
     private BigDecimal ebaybuyitnewprice;
 
+    private String ebaylocation;
+
     private String selloper;
+
+    private String ebaygalleryurl;
 
     private BigDecimal quantitysold1;
 
@@ -68,14 +76,6 @@ public class DbSalesdata implements Serializable {
     private Date createtime;
 
     private BigDecimal flag;
-
-    private String ebaytitle;
-
-    private String ebayshopname;
-
-    private String ebaylocation;
-
-    private String ebaygalleryurl;
 
     private static final long serialVersionUID = 1L;
 
@@ -119,6 +119,14 @@ public class DbSalesdata implements Serializable {
         this.ebaycategoryname = ebaycategoryname == null ? null : ebaycategoryname.trim();
     }
 
+    public String getEbaytitle() {
+        return ebaytitle;
+    }
+
+    public void setEbaytitle(String ebaytitle) {
+        this.ebaytitle = ebaytitle == null ? null : ebaytitle.trim();
+    }
+
     public String getEbayuserid() {
         return ebayuserid;
     }
@@ -133,6 +141,14 @@ public class DbSalesdata implements Serializable {
 
     public void setEbayshopid(String ebayshopid) {
         this.ebayshopid = ebayshopid == null ? null : ebayshopid.trim();
+    }
+
+    public String getEbayshopname() {
+        return ebayshopname;
+    }
+
+    public void setEbayshopname(String ebayshopname) {
+        this.ebayshopname = ebayshopname == null ? null : ebayshopname.trim();
     }
 
     public BigDecimal getHitcount() {
@@ -175,12 +191,28 @@ public class DbSalesdata implements Serializable {
         this.ebaybuyitnewprice = ebaybuyitnewprice;
     }
 
+    public String getEbaylocation() {
+        return ebaylocation;
+    }
+
+    public void setEbaylocation(String ebaylocation) {
+        this.ebaylocation = ebaylocation == null ? null : ebaylocation.trim();
+    }
+
     public String getSelloper() {
         return selloper;
     }
 
     public void setSelloper(String selloper) {
         this.selloper = selloper == null ? null : selloper.trim();
+    }
+
+    public String getEbaygalleryurl() {
+        return ebaygalleryurl;
+    }
+
+    public void setEbaygalleryurl(String ebaygalleryurl) {
+        this.ebaygalleryurl = ebaygalleryurl == null ? null : ebaygalleryurl.trim();
     }
 
     public BigDecimal getQuantitysold1() {
@@ -335,38 +367,6 @@ public class DbSalesdata implements Serializable {
         this.flag = flag;
     }
 
-    public String getEbaytitle() {
-        return ebaytitle;
-    }
-
-    public void setEbaytitle(String ebaytitle) {
-        this.ebaytitle = ebaytitle == null ? null : ebaytitle.trim();
-    }
-
-    public String getEbayshopname() {
-        return ebayshopname;
-    }
-
-    public void setEbayshopname(String ebayshopname) {
-        this.ebayshopname = ebayshopname == null ? null : ebayshopname.trim();
-    }
-
-    public String getEbaylocation() {
-        return ebaylocation;
-    }
-
-    public void setEbaylocation(String ebaylocation) {
-        this.ebaylocation = ebaylocation == null ? null : ebaylocation.trim();
-    }
-
-    public String getEbaygalleryurl() {
-        return ebaygalleryurl;
-    }
-
-    public void setEbaygalleryurl(String ebaygalleryurl) {
-        this.ebaygalleryurl = ebaygalleryurl == null ? null : ebaygalleryurl.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -384,14 +384,18 @@ public class DbSalesdata implements Serializable {
             && (this.getEbaysku() == null ? other.getEbaysku() == null : this.getEbaysku().equals(other.getEbaysku()))
             && (this.getEbaycategoryid() == null ? other.getEbaycategoryid() == null : this.getEbaycategoryid().equals(other.getEbaycategoryid()))
             && (this.getEbaycategoryname() == null ? other.getEbaycategoryname() == null : this.getEbaycategoryname().equals(other.getEbaycategoryname()))
+            && (this.getEbaytitle() == null ? other.getEbaytitle() == null : this.getEbaytitle().equals(other.getEbaytitle()))
             && (this.getEbayuserid() == null ? other.getEbayuserid() == null : this.getEbayuserid().equals(other.getEbayuserid()))
             && (this.getEbayshopid() == null ? other.getEbayshopid() == null : this.getEbayshopid().equals(other.getEbayshopid()))
+            && (this.getEbayshopname() == null ? other.getEbayshopname() == null : this.getEbayshopname().equals(other.getEbayshopname()))
             && (this.getHitcount() == null ? other.getHitcount() == null : this.getHitcount().equals(other.getHitcount()))
             && (this.getEbaystarttimestr() == null ? other.getEbaystarttimestr() == null : this.getEbaystarttimestr().equals(other.getEbaystarttimestr()))
             && (this.getNumoda() == null ? other.getNumoda() == null : this.getNumoda().equals(other.getNumoda()))
             && (this.getEbaymoneytype() == null ? other.getEbaymoneytype() == null : this.getEbaymoneytype().equals(other.getEbaymoneytype()))
             && (this.getEbaybuyitnewprice() == null ? other.getEbaybuyitnewprice() == null : this.getEbaybuyitnewprice().equals(other.getEbaybuyitnewprice()))
+            && (this.getEbaylocation() == null ? other.getEbaylocation() == null : this.getEbaylocation().equals(other.getEbaylocation()))
             && (this.getSelloper() == null ? other.getSelloper() == null : this.getSelloper().equals(other.getSelloper()))
+            && (this.getEbaygalleryurl() == null ? other.getEbaygalleryurl() == null : this.getEbaygalleryurl().equals(other.getEbaygalleryurl()))
             && (this.getQuantitysold1() == null ? other.getQuantitysold1() == null : this.getQuantitysold1().equals(other.getQuantitysold1()))
             && (this.getQuantitysold7() == null ? other.getQuantitysold7() == null : this.getQuantitysold7().equals(other.getQuantitysold7()))
             && (this.getQuantitysold14() == null ? other.getQuantitysold14() == null : this.getQuantitysold14().equals(other.getQuantitysold14()))
@@ -410,11 +414,7 @@ public class DbSalesdata implements Serializable {
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
             && (this.getCreatetime() == null ? other.getCreatetime() == null : this.getCreatetime().equals(other.getCreatetime()))
-            && (this.getFlag() == null ? other.getFlag() == null : this.getFlag().equals(other.getFlag()))
-            && (this.getEbaytitle() == null ? other.getEbaytitle() == null : this.getEbaytitle().equals(other.getEbaytitle()))
-            && (this.getEbayshopname() == null ? other.getEbayshopname() == null : this.getEbayshopname().equals(other.getEbayshopname()))
-            && (this.getEbaylocation() == null ? other.getEbaylocation() == null : this.getEbaylocation().equals(other.getEbaylocation()))
-            && (this.getEbaygalleryurl() == null ? other.getEbaygalleryurl() == null : this.getEbaygalleryurl().equals(other.getEbaygalleryurl()));
+            && (this.getFlag() == null ? other.getFlag() == null : this.getFlag().equals(other.getFlag()));
     }
 
     @Override
@@ -426,14 +426,18 @@ public class DbSalesdata implements Serializable {
         result = prime * result + ((getEbaysku() == null) ? 0 : getEbaysku().hashCode());
         result = prime * result + ((getEbaycategoryid() == null) ? 0 : getEbaycategoryid().hashCode());
         result = prime * result + ((getEbaycategoryname() == null) ? 0 : getEbaycategoryname().hashCode());
+        result = prime * result + ((getEbaytitle() == null) ? 0 : getEbaytitle().hashCode());
         result = prime * result + ((getEbayuserid() == null) ? 0 : getEbayuserid().hashCode());
         result = prime * result + ((getEbayshopid() == null) ? 0 : getEbayshopid().hashCode());
+        result = prime * result + ((getEbayshopname() == null) ? 0 : getEbayshopname().hashCode());
         result = prime * result + ((getHitcount() == null) ? 0 : getHitcount().hashCode());
         result = prime * result + ((getEbaystarttimestr() == null) ? 0 : getEbaystarttimestr().hashCode());
         result = prime * result + ((getNumoda() == null) ? 0 : getNumoda().hashCode());
         result = prime * result + ((getEbaymoneytype() == null) ? 0 : getEbaymoneytype().hashCode());
         result = prime * result + ((getEbaybuyitnewprice() == null) ? 0 : getEbaybuyitnewprice().hashCode());
+        result = prime * result + ((getEbaylocation() == null) ? 0 : getEbaylocation().hashCode());
         result = prime * result + ((getSelloper() == null) ? 0 : getSelloper().hashCode());
+        result = prime * result + ((getEbaygalleryurl() == null) ? 0 : getEbaygalleryurl().hashCode());
         result = prime * result + ((getQuantitysold1() == null) ? 0 : getQuantitysold1().hashCode());
         result = prime * result + ((getQuantitysold7() == null) ? 0 : getQuantitysold7().hashCode());
         result = prime * result + ((getQuantitysold14() == null) ? 0 : getQuantitysold14().hashCode());
@@ -453,10 +457,6 @@ public class DbSalesdata implements Serializable {
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getCreatetime() == null) ? 0 : getCreatetime().hashCode());
         result = prime * result + ((getFlag() == null) ? 0 : getFlag().hashCode());
-        result = prime * result + ((getEbaytitle() == null) ? 0 : getEbaytitle().hashCode());
-        result = prime * result + ((getEbayshopname() == null) ? 0 : getEbayshopname().hashCode());
-        result = prime * result + ((getEbaylocation() == null) ? 0 : getEbaylocation().hashCode());
-        result = prime * result + ((getEbaygalleryurl() == null) ? 0 : getEbaygalleryurl().hashCode());
         return result;
     }
 
@@ -471,14 +471,18 @@ public class DbSalesdata implements Serializable {
         sb.append(", ebaysku=").append(ebaysku);
         sb.append(", ebaycategoryid=").append(ebaycategoryid);
         sb.append(", ebaycategoryname=").append(ebaycategoryname);
+        sb.append(", ebaytitle=").append(ebaytitle);
         sb.append(", ebayuserid=").append(ebayuserid);
         sb.append(", ebayshopid=").append(ebayshopid);
+        sb.append(", ebayshopname=").append(ebayshopname);
         sb.append(", hitcount=").append(hitcount);
         sb.append(", ebaystarttimestr=").append(ebaystarttimestr);
         sb.append(", numoda=").append(numoda);
         sb.append(", ebaymoneytype=").append(ebaymoneytype);
         sb.append(", ebaybuyitnewprice=").append(ebaybuyitnewprice);
+        sb.append(", ebaylocation=").append(ebaylocation);
         sb.append(", selloper=").append(selloper);
+        sb.append(", ebaygalleryurl=").append(ebaygalleryurl);
         sb.append(", quantitysold1=").append(quantitysold1);
         sb.append(", quantitysold7=").append(quantitysold7);
         sb.append(", quantitysold14=").append(quantitysold14);
@@ -498,10 +502,6 @@ public class DbSalesdata implements Serializable {
         sb.append(", opertime=").append(opertime);
         sb.append(", createtime=").append(createtime);
         sb.append(", flag=").append(flag);
-        sb.append(", ebaytitle=").append(ebaytitle);
-        sb.append(", ebayshopname=").append(ebayshopname);
-        sb.append(", ebaylocation=").append(ebaylocation);
-        sb.append(", ebaygalleryurl=").append(ebaygalleryurl);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

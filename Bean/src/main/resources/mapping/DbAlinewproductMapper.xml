@@ -10,108 +10,97 @@
     <result column="SHOPID" jdbcType="VARCHAR" property="shopid" />
     <result column="GROUPID" jdbcType="VARCHAR" property="groupid" />
   </resultMap>
-  <sql id="Base_Column_List">
-    ALIITEMID, PRODUCTID, FLAG, DOWNTIME, UPDATETIME, SHOPID, GROUPID
-  </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from db_alinewproduct
+    select ALIITEMID, PRODUCTID, FLAG, DOWNTIME, UPDATETIME, SHOPID, GROUPID
+    from DB_ALINEWPRODUCT
     where ALIITEMID = #{aliitemid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_alinewproduct
-    where ALIITEMID = #{aliitemid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ALIITEMID, PRODUCTID, FLAG, DOWNTIME, UPDATETIME, SHOPID, GROUPID
+    from DB_ALINEWPRODUCT
+  </select>
+  <sql id="TableName">
+    DB_ALINEWPRODUCT
+  </sql>
+  <sql id="Values">
+     #{aliitemid,jdbcType=VARCHAR} , 
+     #{productid,jdbcType=VARCHAR} , 
+     #{flag,jdbcType=VARCHAR} , 
+     #{downtime,jdbcType=TIMESTAMP} , 
+     #{updatetime,jdbcType=TIMESTAMP} , 
+     #{shopid,jdbcType=VARCHAR} , 
+     #{groupid,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    ALIITEMID , 
+    PRODUCTID , 
+    FLAG , 
+    DOWNTIME , 
+    UPDATETIME , 
+    SHOPID , 
+    GROUPID , 
+  </sql>
+  <sql id="Criteria">
+    <if test="aliitemid != null">
+      aliitemid = #{aliitemid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="productid != null">
+      productid = #{productid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="downtime != null">
+      downtime = #{downtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="updatetime != null">
+      updatetime = #{updatetime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="shopid != null">
+      shopid = #{shopid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="groupid != null">
+      groupid = #{groupid,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="aliitemid != null">
+      aliitemid = #{aliitemid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="productid != null">
+      productid = #{productid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="downtime != null">
+      downtime = #{downtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="updatetime != null">
+      updatetime = #{updatetime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="shopid != null">
+      shopid = #{shopid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="groupid != null">
+      groupid = #{groupid,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbAlinewproduct" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where ALIITEMID=#{ALIITEMID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbAlinewproduct">
-    insert into db_alinewproduct (ALIITEMID, PRODUCTID, FLAG, 
-      DOWNTIME, UPDATETIME, SHOPID, 
-      GROUPID)
-    values (#{aliitemid,jdbcType=VARCHAR}, #{productid,jdbcType=VARCHAR}, #{flag,jdbcType=VARCHAR}, 
-      #{downtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, #{shopid,jdbcType=VARCHAR}, 
-      #{groupid,jdbcType=VARCHAR})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbAlinewproduct">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbAlinewproduct">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbAlinewproduct">
-    insert into db_alinewproduct
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="aliitemid != null">
-        ALIITEMID,
-      </if>
-      <if test="productid != null">
-        PRODUCTID,
-      </if>
-      <if test="flag != null">
-        FLAG,
-      </if>
-      <if test="downtime != null">
-        DOWNTIME,
-      </if>
-      <if test="updatetime != null">
-        UPDATETIME,
-      </if>
-      <if test="shopid != null">
-        SHOPID,
-      </if>
-      <if test="groupid != null">
-        GROUPID,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="aliitemid != null">
-        #{aliitemid,jdbcType=VARCHAR},
-      </if>
-      <if test="productid != null">
-        #{productid,jdbcType=VARCHAR},
-      </if>
-      <if test="flag != null">
-        #{flag,jdbcType=VARCHAR},
-      </if>
-      <if test="downtime != null">
-        #{downtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updatetime != null">
-        #{updatetime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="shopid != null">
-        #{shopid,jdbcType=VARCHAR},
-      </if>
-      <if test="groupid != null">
-        #{groupid,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbAlinewproduct">
-    update db_alinewproduct
-    <set>
-      <if test="productid != null">
-        PRODUCTID = #{productid,jdbcType=VARCHAR},
-      </if>
-      <if test="flag != null">
-        FLAG = #{flag,jdbcType=VARCHAR},
-      </if>
-      <if test="downtime != null">
-        DOWNTIME = #{downtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updatetime != null">
-        UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="shopid != null">
-        SHOPID = #{shopid,jdbcType=VARCHAR},
-      </if>
-      <if test="groupid != null">
-        GROUPID = #{groupid,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where ALIITEMID = #{aliitemid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbAlinewproduct">
-    update db_alinewproduct
-    set PRODUCTID = #{productid,jdbcType=VARCHAR},
-      FLAG = #{flag,jdbcType=VARCHAR},
-      DOWNTIME = #{downtime,jdbcType=TIMESTAMP},
-      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
-      SHOPID = #{shopid,jdbcType=VARCHAR},
-      GROUPID = #{groupid,jdbcType=VARCHAR}
-    where ALIITEMID = #{aliitemid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbAlinewproduct">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

@@ -9,6 +9,8 @@ public class DbEnmity implements Serializable {
 
     private String shopname;
 
+    private String descr;
+
     private String oper;
 
     private Date opertime;
@@ -24,8 +26,6 @@ public class DbEnmity implements Serializable {
     private String username;
 
     private String userneme;
-
-    private String descr;
 
     private static final long serialVersionUID = 1L;
 
@@ -43,6 +43,14 @@ public class DbEnmity implements Serializable {
 
     public void setShopname(String shopname) {
         this.shopname = shopname == null ? null : shopname.trim();
+    }
+
+    public String getDescr() {
+        return descr;
+    }
+
+    public void setDescr(String descr) {
+        this.descr = descr == null ? null : descr.trim();
     }
 
     public String getOper() {
@@ -109,14 +117,6 @@ public class DbEnmity implements Serializable {
         this.userneme = userneme == null ? null : userneme.trim();
     }
 
-    public String getDescr() {
-        return descr;
-    }
-
-    public void setDescr(String descr) {
-        this.descr = descr == null ? null : descr.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -131,6 +131,7 @@ public class DbEnmity implements Serializable {
         DbEnmity other = (DbEnmity) that;
         return (this.getSequenceid() == null ? other.getSequenceid() == null : this.getSequenceid().equals(other.getSequenceid()))
             && (this.getShopname() == null ? other.getShopname() == null : this.getShopname().equals(other.getShopname()))
+            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
             && (this.getOpenflag() == null ? other.getOpenflag() == null : this.getOpenflag().equals(other.getOpenflag()))
@@ -138,8 +139,7 @@ public class DbEnmity implements Serializable {
             && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()))
             && (this.getEbayitemid() == null ? other.getEbayitemid() == null : this.getEbayitemid().equals(other.getEbayitemid()))
             && (this.getUsername() == null ? other.getUsername() == null : this.getUsername().equals(other.getUsername()))
-            && (this.getUserneme() == null ? other.getUserneme() == null : this.getUserneme().equals(other.getUserneme()))
-            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()));
+            && (this.getUserneme() == null ? other.getUserneme() == null : this.getUserneme().equals(other.getUserneme()));
     }
 
     @Override
@@ -148,6 +148,7 @@ public class DbEnmity implements Serializable {
         int result = 1;
         result = prime * result + ((getSequenceid() == null) ? 0 : getSequenceid().hashCode());
         result = prime * result + ((getShopname() == null) ? 0 : getShopname().hashCode());
+        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getOpenflag() == null) ? 0 : getOpenflag().hashCode());
@@ -156,7 +157,6 @@ public class DbEnmity implements Serializable {
         result = prime * result + ((getEbayitemid() == null) ? 0 : getEbayitemid().hashCode());
         result = prime * result + ((getUsername() == null) ? 0 : getUsername().hashCode());
         result = prime * result + ((getUserneme() == null) ? 0 : getUserneme().hashCode());
-        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
         return result;
     }
 
@@ -168,6 +168,7 @@ public class DbEnmity implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", sequenceid=").append(sequenceid);
         sb.append(", shopname=").append(shopname);
+        sb.append(", descr=").append(descr);
         sb.append(", oper=").append(oper);
         sb.append(", opertime=").append(opertime);
         sb.append(", openflag=").append(openflag);
@@ -176,7 +177,6 @@ public class DbEnmity implements Serializable {
         sb.append(", ebayitemid=").append(ebayitemid);
         sb.append(", username=").append(username);
         sb.append(", userneme=").append(userneme);
-        sb.append(", descr=").append(descr);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

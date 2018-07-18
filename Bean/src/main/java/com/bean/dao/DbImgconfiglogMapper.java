@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbImgconfiglog;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbImgconfiglogMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbImgconfiglog selectByCriteria(DbImgconfiglog DbImgconfiglog);
 
-    int insert(DbImgconfiglog record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbImgconfiglog record);
+    void deleteByCriteria(DbImgconfiglog DbImgconfiglog);
+
+    int insertByCriteria(DbImgconfiglog DbImgconfiglog);
+
+    int updateByCriteria(DbImgconfiglog DbImgconfiglog);
 
     DbImgconfiglog selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbImgconfiglog record);
-
-    int updateByPrimaryKeyWithBLOBs(DbImgconfiglog record);
-
-    int updateByPrimaryKey(DbImgconfiglog record);
+    List<DbImgconfiglog> selectAll();
 }

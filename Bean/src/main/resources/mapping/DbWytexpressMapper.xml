@@ -7,76 +7,73 @@
     <result column="CATEGROYID" jdbcType="VARCHAR" property="categroyid" />
     <result column="CATEGORYID" jdbcType="VARCHAR" property="categoryid" />
   </resultMap>
-  <sql id="Base_Column_List">
-    DELIVERYWAYID, 'NAME', CATEGROYID, CATEGORYID
-  </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from db_wytexpress
+    select DELIVERYWAYID, NAME, CATEGROYID, CATEGORYID
+    from DB_WYTEXPRESS
     where DELIVERYWAYID = #{deliverywayid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_wytexpress
-    where DELIVERYWAYID = #{deliverywayid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select DELIVERYWAYID, NAME, CATEGROYID, CATEGORYID
+    from DB_WYTEXPRESS
+  </select>
+  <sql id="TableName">
+    DB_WYTEXPRESS
+  </sql>
+  <sql id="Values">
+     #{deliverywayid,jdbcType=VARCHAR} , 
+     #{name,jdbcType=VARCHAR} , 
+     #{categroyid,jdbcType=VARCHAR} , 
+     #{categoryid,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    DELIVERYWAYID , 
+    NAME , 
+    CATEGROYID , 
+    CATEGORYID , 
+  </sql>
+  <sql id="Criteria">
+    <if test="deliverywayid != null">
+      deliverywayid = #{deliverywayid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} and 
+    </if>
+    <if test="categroyid != null">
+      categroyid = #{categroyid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="categoryid != null">
+      categoryid = #{categoryid,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="deliverywayid != null">
+      deliverywayid = #{deliverywayid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} , 
+    </if>
+    <if test="categroyid != null">
+      categroyid = #{categroyid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="categoryid != null">
+      categoryid = #{categoryid,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbWytexpress" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where DELIVERYWAYID=#{DELIVERYWAYID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbWytexpress">
-    insert into db_wytexpress (DELIVERYWAYID, 'NAME', CATEGROYID, 
-      CATEGORYID)
-    values (#{deliverywayid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{categroyid,jdbcType=VARCHAR}, 
-      #{categoryid,jdbcType=VARCHAR})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbWytexpress">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbWytexpress">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbWytexpress">
-    insert into db_wytexpress
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="deliverywayid != null">
-        DELIVERYWAYID,
-      </if>
-      <if test="name != null">
-        'NAME',
-      </if>
-      <if test="categroyid != null">
-        CATEGROYID,
-      </if>
-      <if test="categoryid != null">
-        CATEGORYID,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="deliverywayid != null">
-        #{deliverywayid,jdbcType=VARCHAR},
-      </if>
-      <if test="name != null">
-        #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="categroyid != null">
-        #{categroyid,jdbcType=VARCHAR},
-      </if>
-      <if test="categoryid != null">
-        #{categoryid,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbWytexpress">
-    update db_wytexpress
-    <set>
-      <if test="name != null">
-        'NAME' = #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="categroyid != null">
-        CATEGROYID = #{categroyid,jdbcType=VARCHAR},
-      </if>
-      <if test="categoryid != null">
-        CATEGORYID = #{categoryid,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where DELIVERYWAYID = #{deliverywayid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbWytexpress">
-    update db_wytexpress
-    set 'NAME' = #{name,jdbcType=VARCHAR},
-      CATEGROYID = #{categroyid,jdbcType=VARCHAR},
-      CATEGORYID = #{categoryid,jdbcType=VARCHAR}
-    where DELIVERYWAYID = #{deliverywayid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbWytexpress">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

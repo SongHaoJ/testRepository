@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbChinaexpressarea;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbChinaexpressareaMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbChinaexpressarea selectByCriteria(DbChinaexpressarea DbChinaexpressarea);
 
-    int insert(DbChinaexpressarea record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbChinaexpressarea record);
+    void deleteByCriteria(DbChinaexpressarea DbChinaexpressarea);
+
+    int insertByCriteria(DbChinaexpressarea DbChinaexpressarea);
+
+    int updateByCriteria(DbChinaexpressarea DbChinaexpressarea);
 
     DbChinaexpressarea selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbChinaexpressarea record);
-
-    int updateByPrimaryKeyWithBLOBs(DbChinaexpressarea record);
-
-    int updateByPrimaryKey(DbChinaexpressarea record);
+    List<DbChinaexpressarea> selectAll();
 }

@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbCalcuplatform;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbCalcuplatformMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbCalcuplatform selectByCriteria(DbCalcuplatform DbCalcuplatform);
 
-    int insert(DbCalcuplatform record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbCalcuplatform record);
+    void deleteByCriteria(DbCalcuplatform DbCalcuplatform);
+
+    int insertByCriteria(DbCalcuplatform DbCalcuplatform);
+
+    int updateByCriteria(DbCalcuplatform DbCalcuplatform);
 
     DbCalcuplatform selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbCalcuplatform record);
-
-    int updateByPrimaryKeyWithBLOBs(DbCalcuplatform record);
-
-    int updateByPrimaryKey(DbCalcuplatform record);
+    List<DbCalcuplatform> selectAll();
 }

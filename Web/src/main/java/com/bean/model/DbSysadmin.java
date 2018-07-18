@@ -11,7 +11,7 @@ public class DbSysadmin implements Serializable {
 
     private String mobile;
 
-    private String dbclass;
+    private String dbClass;
 
     private String password;
 
@@ -59,9 +59,9 @@ public class DbSysadmin implements Serializable {
 
     private BigDecimal operid;
 
-    private String storage;
-
     private String menuid;
+
+    private String storage;
 
     private static final long serialVersionUID = 1L;
 
@@ -89,12 +89,12 @@ public class DbSysadmin implements Serializable {
         this.mobile = mobile == null ? null : mobile.trim();
     }
 
-    public String getDbclass() {
-        return dbclass;
+    public String getDbClass() {
+        return dbClass;
     }
 
-    public void setDbclass(String dbclass) {
-        this.dbclass = dbclass == null ? null : dbclass.trim();
+    public void setDbClass(String dbClass) {
+        this.dbClass = dbClass == null ? null : dbClass.trim();
     }
 
     public String getPassword() {
@@ -281,20 +281,20 @@ public class DbSysadmin implements Serializable {
         this.operid = operid;
     }
 
-    public String getStorage() {
-        return storage;
-    }
-
-    public void setStorage(String storage) {
-        this.storage = storage == null ? null : storage.trim();
-    }
-
     public String getMenuid() {
         return menuid;
     }
 
     public void setMenuid(String menuid) {
         this.menuid = menuid == null ? null : menuid.trim();
+    }
+
+    public String getStorage() {
+        return storage;
+    }
+
+    public void setStorage(String storage) {
+        this.storage = storage == null ? null : storage.trim();
     }
 
     @Override
@@ -312,7 +312,7 @@ public class DbSysadmin implements Serializable {
         return (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
             && (this.getMobile() == null ? other.getMobile() == null : this.getMobile().equals(other.getMobile()))
-            && (this.getDbclass() == null ? other.getDbclass() == null : this.getDbclass().equals(other.getDbclass()))
+            && (this.getDbClass() == null ? other.getDbClass() == null : this.getDbClass().equals(other.getDbClass()))
             && (this.getPassword() == null ? other.getPassword() == null : this.getPassword().equals(other.getPassword()))
             && (this.getLoginflag() == null ? other.getLoginflag() == null : this.getLoginflag().equals(other.getLoginflag()))
             && (this.getLoginip() == null ? other.getLoginip() == null : this.getLoginip().equals(other.getLoginip()))
@@ -336,8 +336,8 @@ public class DbSysadmin implements Serializable {
             && (this.getReserve4() == null ? other.getReserve4() == null : this.getReserve4().equals(other.getReserve4()))
             && (this.getReserve5() == null ? other.getReserve5() == null : this.getReserve5().equals(other.getReserve5()))
             && (this.getOperid() == null ? other.getOperid() == null : this.getOperid().equals(other.getOperid()))
-            && (this.getStorage() == null ? other.getStorage() == null : this.getStorage().equals(other.getStorage()))
-            && (this.getMenuid() == null ? other.getMenuid() == null : this.getMenuid().equals(other.getMenuid()));
+            && (this.getMenuid() == null ? other.getMenuid() == null : this.getMenuid().equals(other.getMenuid()))
+            && (this.getStorage() == null ? other.getStorage() == null : this.getStorage().equals(other.getStorage()));
     }
 
     @Override
@@ -347,7 +347,7 @@ public class DbSysadmin implements Serializable {
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
         result = prime * result + ((getMobile() == null) ? 0 : getMobile().hashCode());
-        result = prime * result + ((getDbclass() == null) ? 0 : getDbclass().hashCode());
+        result = prime * result + ((getDbClass() == null) ? 0 : getDbClass().hashCode());
         result = prime * result + ((getPassword() == null) ? 0 : getPassword().hashCode());
         result = prime * result + ((getLoginflag() == null) ? 0 : getLoginflag().hashCode());
         result = prime * result + ((getLoginip() == null) ? 0 : getLoginip().hashCode());
@@ -371,8 +371,8 @@ public class DbSysadmin implements Serializable {
         result = prime * result + ((getReserve4() == null) ? 0 : getReserve4().hashCode());
         result = prime * result + ((getReserve5() == null) ? 0 : getReserve5().hashCode());
         result = prime * result + ((getOperid() == null) ? 0 : getOperid().hashCode());
-        result = prime * result + ((getStorage() == null) ? 0 : getStorage().hashCode());
         result = prime * result + ((getMenuid() == null) ? 0 : getMenuid().hashCode());
+        result = prime * result + ((getStorage() == null) ? 0 : getStorage().hashCode());
         return result;
     }
 
@@ -385,7 +385,7 @@ public class DbSysadmin implements Serializable {
         sb.append(", oper=").append(oper);
         sb.append(", name=").append(name);
         sb.append(", mobile=").append(mobile);
-        sb.append(", dbclass=").append(dbclass);
+        sb.append(", dbClass=").append(dbClass);
         sb.append(", password=").append(password);
         sb.append(", loginflag=").append(loginflag);
         sb.append(", loginip=").append(loginip);
@@ -409,8 +409,8 @@ public class DbSysadmin implements Serializable {
         sb.append(", reserve4=").append(reserve4);
         sb.append(", reserve5=").append(reserve5);
         sb.append(", operid=").append(operid);
-        sb.append(", storage=").append(storage);
         sb.append(", menuid=").append(menuid);
+        sb.append(", storage=").append(storage);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

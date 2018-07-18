@@ -15,13 +15,13 @@ public class DbProjectsku implements Serializable {
 
     private String sid;
 
+    private String imgurl;
+
     private Date checktime;
 
     private BigDecimal checkflag;
 
     private Date createtime;
-
-    private String imgurl;
 
     private static final long serialVersionUID = 1L;
 
@@ -65,6 +65,14 @@ public class DbProjectsku implements Serializable {
         this.sid = sid == null ? null : sid.trim();
     }
 
+    public String getImgurl() {
+        return imgurl;
+    }
+
+    public void setImgurl(String imgurl) {
+        this.imgurl = imgurl == null ? null : imgurl.trim();
+    }
+
     public Date getChecktime() {
         return checktime;
     }
@@ -89,14 +97,6 @@ public class DbProjectsku implements Serializable {
         this.createtime = createtime;
     }
 
-    public String getImgurl() {
-        return imgurl;
-    }
-
-    public void setImgurl(String imgurl) {
-        this.imgurl = imgurl == null ? null : imgurl.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -114,10 +114,10 @@ public class DbProjectsku implements Serializable {
             && (this.getSku() == null ? other.getSku() == null : this.getSku().equals(other.getSku()))
             && (this.getSkutype() == null ? other.getSkutype() == null : this.getSkutype().equals(other.getSkutype()))
             && (this.getSid() == null ? other.getSid() == null : this.getSid().equals(other.getSid()))
+            && (this.getImgurl() == null ? other.getImgurl() == null : this.getImgurl().equals(other.getImgurl()))
             && (this.getChecktime() == null ? other.getChecktime() == null : this.getChecktime().equals(other.getChecktime()))
             && (this.getCheckflag() == null ? other.getCheckflag() == null : this.getCheckflag().equals(other.getCheckflag()))
-            && (this.getCreatetime() == null ? other.getCreatetime() == null : this.getCreatetime().equals(other.getCreatetime()))
-            && (this.getImgurl() == null ? other.getImgurl() == null : this.getImgurl().equals(other.getImgurl()));
+            && (this.getCreatetime() == null ? other.getCreatetime() == null : this.getCreatetime().equals(other.getCreatetime()));
     }
 
     @Override
@@ -129,10 +129,10 @@ public class DbProjectsku implements Serializable {
         result = prime * result + ((getSku() == null) ? 0 : getSku().hashCode());
         result = prime * result + ((getSkutype() == null) ? 0 : getSkutype().hashCode());
         result = prime * result + ((getSid() == null) ? 0 : getSid().hashCode());
+        result = prime * result + ((getImgurl() == null) ? 0 : getImgurl().hashCode());
         result = prime * result + ((getChecktime() == null) ? 0 : getChecktime().hashCode());
         result = prime * result + ((getCheckflag() == null) ? 0 : getCheckflag().hashCode());
         result = prime * result + ((getCreatetime() == null) ? 0 : getCreatetime().hashCode());
-        result = prime * result + ((getImgurl() == null) ? 0 : getImgurl().hashCode());
         return result;
     }
 
@@ -147,10 +147,10 @@ public class DbProjectsku implements Serializable {
         sb.append(", sku=").append(sku);
         sb.append(", skutype=").append(skutype);
         sb.append(", sid=").append(sid);
+        sb.append(", imgurl=").append(imgurl);
         sb.append(", checktime=").append(checktime);
         sb.append(", checkflag=").append(checkflag);
         sb.append(", createtime=").append(createtime);
-        sb.append(", imgurl=").append(imgurl);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

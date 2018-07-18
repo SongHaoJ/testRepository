@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbExpensetype;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbExpensetypeMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbExpensetype selectByCriteria(DbExpensetype DbExpensetype);
 
-    int insert(DbExpensetype record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbExpensetype record);
+    void deleteByCriteria(DbExpensetype DbExpensetype);
+
+    int insertByCriteria(DbExpensetype DbExpensetype);
+
+    int updateByCriteria(DbExpensetype DbExpensetype);
 
     DbExpensetype selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbExpensetype record);
-
-    int updateByPrimaryKeyWithBLOBs(DbExpensetype record);
-
-    int updateByPrimaryKey(DbExpensetype record);
+    List<DbExpensetype> selectAll();
 }

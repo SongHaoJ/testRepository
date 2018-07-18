@@ -9,6 +9,8 @@ public class DbPurchasepaymentlog implements Serializable {
 
     private String oper;
 
+    private String content;
+
     private BigDecimal paymoney;
 
     private BigDecimal paymentid;
@@ -22,8 +24,6 @@ public class DbPurchasepaymentlog implements Serializable {
     private String opertype;
 
     private BigDecimal moneytotal;
-
-    private String content;
 
     private static final long serialVersionUID = 1L;
 
@@ -41,6 +41,14 @@ public class DbPurchasepaymentlog implements Serializable {
 
     public void setOper(String oper) {
         this.oper = oper == null ? null : oper.trim();
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content == null ? null : content.trim();
     }
 
     public BigDecimal getPaymoney() {
@@ -99,14 +107,6 @@ public class DbPurchasepaymentlog implements Serializable {
         this.moneytotal = moneytotal;
     }
 
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content == null ? null : content.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -121,14 +121,14 @@ public class DbPurchasepaymentlog implements Serializable {
         DbPurchasepaymentlog other = (DbPurchasepaymentlog) that;
         return (this.getSid() == null ? other.getSid() == null : this.getSid().equals(other.getSid()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
+            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
             && (this.getPaymoney() == null ? other.getPaymoney() == null : this.getPaymoney().equals(other.getPaymoney()))
             && (this.getPaymentid() == null ? other.getPaymentid() == null : this.getPaymentid().equals(other.getPaymentid()))
             && (this.getDetailid() == null ? other.getDetailid() == null : this.getDetailid().equals(other.getDetailid()))
             && (this.getPaytype() == null ? other.getPaytype() == null : this.getPaytype().equals(other.getPaytype()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
             && (this.getOpertype() == null ? other.getOpertype() == null : this.getOpertype().equals(other.getOpertype()))
-            && (this.getMoneytotal() == null ? other.getMoneytotal() == null : this.getMoneytotal().equals(other.getMoneytotal()))
-            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()));
+            && (this.getMoneytotal() == null ? other.getMoneytotal() == null : this.getMoneytotal().equals(other.getMoneytotal()));
     }
 
     @Override
@@ -137,6 +137,7 @@ public class DbPurchasepaymentlog implements Serializable {
         int result = 1;
         result = prime * result + ((getSid() == null) ? 0 : getSid().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
+        result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
         result = prime * result + ((getPaymoney() == null) ? 0 : getPaymoney().hashCode());
         result = prime * result + ((getPaymentid() == null) ? 0 : getPaymentid().hashCode());
         result = prime * result + ((getDetailid() == null) ? 0 : getDetailid().hashCode());
@@ -144,7 +145,6 @@ public class DbPurchasepaymentlog implements Serializable {
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getOpertype() == null) ? 0 : getOpertype().hashCode());
         result = prime * result + ((getMoneytotal() == null) ? 0 : getMoneytotal().hashCode());
-        result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
         return result;
     }
 
@@ -156,6 +156,7 @@ public class DbPurchasepaymentlog implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", sid=").append(sid);
         sb.append(", oper=").append(oper);
+        sb.append(", content=").append(content);
         sb.append(", paymoney=").append(paymoney);
         sb.append(", paymentid=").append(paymentid);
         sb.append(", detailid=").append(detailid);
@@ -163,7 +164,6 @@ public class DbPurchasepaymentlog implements Serializable {
         sb.append(", opertime=").append(opertime);
         sb.append(", opertype=").append(opertype);
         sb.append(", moneytotal=").append(moneytotal);
-        sb.append(", content=").append(content);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

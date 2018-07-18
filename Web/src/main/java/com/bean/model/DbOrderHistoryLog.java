@@ -18,6 +18,8 @@ public class DbOrderHistoryLog implements Serializable {
 
     private Date opertime;
 
+    private String content;
+
     private String reserve1;
 
     private String reserve2;
@@ -27,8 +29,6 @@ public class DbOrderHistoryLog implements Serializable {
     private String reserve4;
 
     private String reserve5;
-
-    private String content;
 
     private static final long serialVersionUID = 1L;
 
@@ -88,6 +88,14 @@ public class DbOrderHistoryLog implements Serializable {
         this.opertime = opertime;
     }
 
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content == null ? null : content.trim();
+    }
+
     public String getReserve1() {
         return reserve1;
     }
@@ -128,14 +136,6 @@ public class DbOrderHistoryLog implements Serializable {
         this.reserve5 = reserve5 == null ? null : reserve5.trim();
     }
 
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content == null ? null : content.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -155,12 +155,12 @@ public class DbOrderHistoryLog implements Serializable {
             && (this.getStype() == null ? other.getStype() == null : this.getStype().equals(other.getStype()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
+            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
             && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
             && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
             && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
             && (this.getReserve4() == null ? other.getReserve4() == null : this.getReserve4().equals(other.getReserve4()))
-            && (this.getReserve5() == null ? other.getReserve5() == null : this.getReserve5().equals(other.getReserve5()))
-            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()));
+            && (this.getReserve5() == null ? other.getReserve5() == null : this.getReserve5().equals(other.getReserve5()));
     }
 
     @Override
@@ -174,12 +174,12 @@ public class DbOrderHistoryLog implements Serializable {
         result = prime * result + ((getStype() == null) ? 0 : getStype().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
+        result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
         result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
         result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
         result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
         result = prime * result + ((getReserve4() == null) ? 0 : getReserve4().hashCode());
         result = prime * result + ((getReserve5() == null) ? 0 : getReserve5().hashCode());
-        result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
         return result;
     }
 
@@ -196,12 +196,12 @@ public class DbOrderHistoryLog implements Serializable {
         sb.append(", stype=").append(stype);
         sb.append(", oper=").append(oper);
         sb.append(", opertime=").append(opertime);
+        sb.append(", content=").append(content);
         sb.append(", reserve1=").append(reserve1);
         sb.append(", reserve2=").append(reserve2);
         sb.append(", reserve3=").append(reserve3);
         sb.append(", reserve4=").append(reserve4);
         sb.append(", reserve5=").append(reserve5);
-        sb.append(", content=").append(content);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbProductalert;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbProductalertMapper {
-    int deleteByPrimaryKey(String squenceid);
+    DbProductalert selectByCriteria(DbProductalert DbProductalert);
 
-    int insert(DbProductalert record);
+    void deleteByPrimaryKey(String SQUENCEID);
 
-    int insertSelective(DbProductalert record);
+    void deleteByCriteria(DbProductalert DbProductalert);
+
+    int insertByCriteria(DbProductalert DbProductalert);
+
+    int updateByCriteria(DbProductalert DbProductalert);
 
     DbProductalert selectByPrimaryKey(String squenceid);
 
-    int updateByPrimaryKeySelective(DbProductalert record);
-
-    int updateByPrimaryKey(DbProductalert record);
+    List<DbProductalert> selectAll();
 }

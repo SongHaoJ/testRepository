@@ -3,7 +3,11 @@
 <mapper namespace="com.bean.dao.DbProjectMapper">
   <resultMap id="BaseResultMap" type="com.bean.model.DbProject">
     <id column="SID" jdbcType="VARCHAR" property="sid" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
     <result column="DESCR" jdbcType="VARCHAR" property="descr" />
+    <result column="SHOPTYPE" jdbcType="VARCHAR" property="shoptype" />
+    <result column="SALESOURCE" jdbcType="VARCHAR" property="salesource" />
+    <result column="PRODUCTID" jdbcType="VARCHAR" property="productid" />
     <result column="FLAG" jdbcType="VARCHAR" property="flag" />
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
@@ -14,39 +18,39 @@
     <result column="DESIGNGROUP" jdbcType="VARCHAR" property="designgroup" />
     <result column="CHECKGROUP" jdbcType="VARCHAR" property="checkgroup" />
     <result column="PUBLICGROUP" jdbcType="VARCHAR" property="publicgroup" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
+    <result column="RESERVE4" jdbcType="VARCHAR" property="reserve4" />
     <result column="RESERVE5" jdbcType="VARCHAR" property="reserve5" />
     <result column="ENDTIME" jdbcType="TIMESTAMP" property="endtime" />
     <result column="DATEDIFF" jdbcType="DECIMAL" property="datediff" />
     <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
-    <result column="NAME" jdbcType="LONGVARCHAR" property="name" />
-    <result column="SHOPTYPE" jdbcType="LONGVARCHAR" property="shoptype" />
-    <result column="SALESOURCE" jdbcType="LONGVARCHAR" property="salesource" />
-    <result column="PRODUCTID" jdbcType="LONGVARCHAR" property="productid" />
-    <result column="RESERVE1" jdbcType="LONGVARCHAR" property="reserve1" />
-    <result column="RESERVE2" jdbcType="LONGVARCHAR" property="reserve2" />
-    <result column="RESERVE3" jdbcType="LONGVARCHAR" property="reserve3" />
-    <result column="RESERVE4" jdbcType="LONGVARCHAR" property="reserve4" />
-    <result column="PRODUCTSKU" jdbcType="LONGVARCHAR" property="productsku" />
+    <result column="PRODUCTSKU" jdbcType="CLOB" property="productsku" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select SID, DESCR, FLAG, OPER, OPERTIME, TRANSLATEGROUP, PRICEGROUP, CONTENTGROUP, 
-    PICGROUP, DESIGNGROUP, CHECKGROUP, PUBLICGROUP, RESERVE5, ENDTIME, DATEDIFF, CORPID, 
-    NAME, SHOPTYPE, SALESOURCE, PRODUCTID, RESERVE1, RESERVE2, RESERVE3, RESERVE4, PRODUCTSKU
-    from db_project
+    select SID, NAME, DESCR, SHOPTYPE, SALESOURCE, PRODUCTID, FLAG, OPER, OPERTIME, TRANSLATEGROUP, 
+    PRICEGROUP, CONTENTGROUP, PICGROUP, DESIGNGROUP, CHECKGROUP, PUBLICGROUP, RESERVE1, 
+    RESERVE2, RESERVE3, RESERVE4, RESERVE5, ENDTIME, DATEDIFF, CORPID, PRODUCTSKU
+    from DB_PROJECT
     where SID = #{sid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select SID, DESCR, FLAG, OPER, OPERTIME, TRANSLATEGROUP, PRICEGROUP, CONTENTGROUP, 
-    PICGROUP, DESIGNGROUP, CHECKGROUP, PUBLICGROUP, RESERVE5, ENDTIME, DATEDIFF, CORPID, 
-    NAME, SHOPTYPE, SALESOURCE, PRODUCTID, RESERVE1, RESERVE2, RESERVE3, RESERVE4, PRODUCTSKU
-    from db_project
+    select SID, NAME, DESCR, SHOPTYPE, SALESOURCE, PRODUCTID, FLAG, OPER, OPERTIME, TRANSLATEGROUP, 
+    PRICEGROUP, CONTENTGROUP, PICGROUP, DESIGNGROUP, CHECKGROUP, PUBLICGROUP, RESERVE1, 
+    RESERVE2, RESERVE3, RESERVE4, RESERVE5, ENDTIME, DATEDIFF, CORPID, PRODUCTSKU
+    from DB_PROJECT
   </select>
   <sql id="TableName">
-    db_project
+    DB_PROJECT
   </sql>
   <sql id="Values">
      #{sid,jdbcType=VARCHAR} , 
+     #{name,jdbcType=VARCHAR} , 
      #{descr,jdbcType=VARCHAR} , 
+     #{shoptype,jdbcType=VARCHAR} , 
+     #{salesource,jdbcType=VARCHAR} , 
+     #{productid,jdbcType=VARCHAR} , 
      #{flag,jdbcType=VARCHAR} , 
      #{oper,jdbcType=VARCHAR} , 
      #{opertime,jdbcType=TIMESTAMP} , 
@@ -57,23 +61,23 @@
      #{designgroup,jdbcType=VARCHAR} , 
      #{checkgroup,jdbcType=VARCHAR} , 
      #{publicgroup,jdbcType=VARCHAR} , 
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+     #{reserve3,jdbcType=VARCHAR} , 
+     #{reserve4,jdbcType=VARCHAR} , 
      #{reserve5,jdbcType=VARCHAR} , 
      #{endtime,jdbcType=TIMESTAMP} , 
      #{datediff,jdbcType=DECIMAL} , 
      #{corpid,jdbcType=VARCHAR} , 
-     #{name,jdbcType=LONGVARCHAR} , 
-     #{shoptype,jdbcType=LONGVARCHAR} , 
-     #{salesource,jdbcType=LONGVARCHAR} , 
-     #{productid,jdbcType=LONGVARCHAR} , 
-     #{reserve1,jdbcType=LONGVARCHAR} , 
-     #{reserve2,jdbcType=LONGVARCHAR} , 
-     #{reserve3,jdbcType=LONGVARCHAR} , 
-     #{reserve4,jdbcType=LONGVARCHAR} , 
-     #{productsku,jdbcType=LONGVARCHAR}
+     #{productsku,jdbcType=CLOB} , 
   </sql>
   <sql id="Columns">
     SID , 
+    NAME , 
     DESCR , 
+    SHOPTYPE , 
+    SALESOURCE , 
+    PRODUCTID , 
     FLAG , 
     OPER , 
     OPERTIME , 
@@ -84,175 +88,171 @@
     DESIGNGROUP , 
     CHECKGROUP , 
     PUBLICGROUP , 
-    RESERVE5 , 
-    ENDTIME , 
-    DATEDIFF , 
-    CORPID , 
-    NAME , 
-    SHOPTYPE , 
-    SALESOURCE , 
-    PRODUCTID , 
     RESERVE1 , 
     RESERVE2 , 
     RESERVE3 , 
     RESERVE4 , 
-    PRODUCTSKU
+    RESERVE5 , 
+    ENDTIME , 
+    DATEDIFF , 
+    CORPID , 
+    PRODUCTSKU , 
   </sql>
   <sql id="Criteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="descr != null">
-      DESCR = #{descr,jdbcType=VARCHAR} and 
-    </if>
-    <if test="flag != null">
-      FLAG = #{flag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="translategroup != null">
-      TRANSLATEGROUP = #{translategroup,jdbcType=VARCHAR} and 
-    </if>
-    <if test="pricegroup != null">
-      PRICEGROUP = #{pricegroup,jdbcType=VARCHAR} and 
-    </if>
-    <if test="contentgroup != null">
-      CONTENTGROUP = #{contentgroup,jdbcType=VARCHAR} and 
-    </if>
-    <if test="picgroup != null">
-      PICGROUP = #{picgroup,jdbcType=VARCHAR} and 
-    </if>
-    <if test="designgroup != null">
-      DESIGNGROUP = #{designgroup,jdbcType=VARCHAR} and 
-    </if>
-    <if test="checkgroup != null">
-      CHECKGROUP = #{checkgroup,jdbcType=VARCHAR} and 
-    </if>
-    <if test="publicgroup != null">
-      PUBLICGROUP = #{publicgroup,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=VARCHAR} and 
-    </if>
-    <if test="endtime != null">
-      ENDTIME = #{endtime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="datediff != null">
-      DATEDIFF = #{datediff,jdbcType=DECIMAL} and 
-    </if>
-    <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} and 
+      sid = #{sid,jdbcType=VARCHAR} and 
     </if>
     <if test="name != null">
-      NAME = #{name,jdbcType=LONGVARCHAR} and 
+      name = #{name,jdbcType=VARCHAR} and 
+    </if>
+    <if test="descr != null">
+      descr = #{descr,jdbcType=VARCHAR} and 
     </if>
     <if test="shoptype != null">
-      SHOPTYPE = #{shoptype,jdbcType=LONGVARCHAR} and 
+      shoptype = #{shoptype,jdbcType=VARCHAR} and 
     </if>
     <if test="salesource != null">
-      SALESOURCE = #{salesource,jdbcType=LONGVARCHAR} and 
+      salesource = #{salesource,jdbcType=VARCHAR} and 
     </if>
     <if test="productid != null">
-      PRODUCTID = #{productid,jdbcType=LONGVARCHAR} and 
+      productid = #{productid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="translategroup != null">
+      translategroup = #{translategroup,jdbcType=VARCHAR} and 
+    </if>
+    <if test="pricegroup != null">
+      pricegroup = #{pricegroup,jdbcType=VARCHAR} and 
+    </if>
+    <if test="contentgroup != null">
+      contentgroup = #{contentgroup,jdbcType=VARCHAR} and 
+    </if>
+    <if test="picgroup != null">
+      picgroup = #{picgroup,jdbcType=VARCHAR} and 
+    </if>
+    <if test="designgroup != null">
+      designgroup = #{designgroup,jdbcType=VARCHAR} and 
+    </if>
+    <if test="checkgroup != null">
+      checkgroup = #{checkgroup,jdbcType=VARCHAR} and 
+    </if>
+    <if test="publicgroup != null">
+      publicgroup = #{publicgroup,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR} and 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR} and 
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR} and 
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=LONGVARCHAR} and 
+      reserve4 = #{reserve4,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=VARCHAR} and 
+    </if>
+    <if test="endtime != null">
+      endtime = #{endtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="datediff != null">
+      datediff = #{datediff,jdbcType=DECIMAL} and 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} and 
     </if>
     <if test="productsku != null">
-      PRODUCTSKU = #{productsku,jdbcType=LONGVARCHAR}
+      productsku = #{productsku,jdbcType=CLOB} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="descr != null">
-      DESCR = #{descr,jdbcType=VARCHAR} , 
-    </if>
-    <if test="flag != null">
-      FLAG = #{flag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="translategroup != null">
-      TRANSLATEGROUP = #{translategroup,jdbcType=VARCHAR} , 
-    </if>
-    <if test="pricegroup != null">
-      PRICEGROUP = #{pricegroup,jdbcType=VARCHAR} , 
-    </if>
-    <if test="contentgroup != null">
-      CONTENTGROUP = #{contentgroup,jdbcType=VARCHAR} , 
-    </if>
-    <if test="picgroup != null">
-      PICGROUP = #{picgroup,jdbcType=VARCHAR} , 
-    </if>
-    <if test="designgroup != null">
-      DESIGNGROUP = #{designgroup,jdbcType=VARCHAR} , 
-    </if>
-    <if test="checkgroup != null">
-      CHECKGROUP = #{checkgroup,jdbcType=VARCHAR} , 
-    </if>
-    <if test="publicgroup != null">
-      PUBLICGROUP = #{publicgroup,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=VARCHAR} , 
-    </if>
-    <if test="endtime != null">
-      ENDTIME = #{endtime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="datediff != null">
-      DATEDIFF = #{datediff,jdbcType=DECIMAL} , 
-    </if>
-    <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} , 
+      sid = #{sid,jdbcType=VARCHAR} , 
     </if>
     <if test="name != null">
-      NAME = #{name,jdbcType=LONGVARCHAR} , 
+      name = #{name,jdbcType=VARCHAR} , 
+    </if>
+    <if test="descr != null">
+      descr = #{descr,jdbcType=VARCHAR} , 
     </if>
     <if test="shoptype != null">
-      SHOPTYPE = #{shoptype,jdbcType=LONGVARCHAR} , 
+      shoptype = #{shoptype,jdbcType=VARCHAR} , 
     </if>
     <if test="salesource != null">
-      SALESOURCE = #{salesource,jdbcType=LONGVARCHAR} , 
+      salesource = #{salesource,jdbcType=VARCHAR} , 
     </if>
     <if test="productid != null">
-      PRODUCTID = #{productid,jdbcType=LONGVARCHAR} , 
+      productid = #{productid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="translategroup != null">
+      translategroup = #{translategroup,jdbcType=VARCHAR} , 
+    </if>
+    <if test="pricegroup != null">
+      pricegroup = #{pricegroup,jdbcType=VARCHAR} , 
+    </if>
+    <if test="contentgroup != null">
+      contentgroup = #{contentgroup,jdbcType=VARCHAR} , 
+    </if>
+    <if test="picgroup != null">
+      picgroup = #{picgroup,jdbcType=VARCHAR} , 
+    </if>
+    <if test="designgroup != null">
+      designgroup = #{designgroup,jdbcType=VARCHAR} , 
+    </if>
+    <if test="checkgroup != null">
+      checkgroup = #{checkgroup,jdbcType=VARCHAR} , 
+    </if>
+    <if test="publicgroup != null">
+      publicgroup = #{publicgroup,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR} , 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR} , 
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR} , 
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=LONGVARCHAR} , 
+      reserve4 = #{reserve4,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=VARCHAR} , 
+    </if>
+    <if test="endtime != null">
+      endtime = #{endtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="datediff != null">
+      datediff = #{datediff,jdbcType=DECIMAL} , 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} , 
     </if>
     <if test="productsku != null">
-      PRODUCTSKU = #{productsku,jdbcType=LONGVARCHAR}
+      productsku = #{productsku,jdbcType=CLOB} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbProject" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

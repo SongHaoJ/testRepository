@@ -1,20 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbWorkreport;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbWorkreportMapper {
-    int deleteByPrimaryKey(BigDecimal sequenceid);
+    DbWorkreport selectByCriteria(DbWorkreport DbWorkreport);
 
-    int insert(DbWorkreport record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbWorkreport record);
+    void deleteByCriteria(DbWorkreport DbWorkreport);
+
+    int insertByCriteria(DbWorkreport DbWorkreport);
+
+    int updateByCriteria(DbWorkreport DbWorkreport);
 
     DbWorkreport selectByPrimaryKey(BigDecimal sequenceid);
 
-    int updateByPrimaryKeySelective(DbWorkreport record);
-
-    int updateByPrimaryKeyWithBLOBs(DbWorkreport record);
-
-    int updateByPrimaryKey(DbWorkreport record);
+    List<DbWorkreport> selectAll();
 }

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbEbaybbeMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbEbaybbe">
+    <id column="SEQUENCEID" jdbcType="DECIMAL" property="sequenceid" />
+    <result column="EBAYIDMANAGEID" jdbcType="DECIMAL" property="ebayidmanageid" />
+    <result column="BBENUM" jdbcType="VARCHAR" property="bbenum" />
+    <result column="BBEPERCENT" jdbcType="VARCHAR" property="bbepercent" />
+    <result column="BBE2" jdbcType="VARCHAR" property="bbe2" />
+    <result column="BBE3" jdbcType="VARCHAR" property="bbe3" />
+    <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
+    <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SEQUENCEID, EBAYIDMANAGEID, BBENUM, BBEPERCENT, BBE2, BBE3, CORPID, OPENFLAG, OPER, 
+    OPERTIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from db_ebaybbe
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
+    delete from db_ebaybbe
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.bean.model.DbEbaybbe">
+    insert into db_ebaybbe (SEQUENCEID, EBAYIDMANAGEID, BBENUM, 
+      BBEPERCENT, BBE2, BBE3, 
+      CORPID, OPENFLAG, OPER, 
+      OPERTIME)
+    values (#{sequenceid,jdbcType=DECIMAL}, #{ebayidmanageid,jdbcType=DECIMAL}, #{bbenum,jdbcType=VARCHAR}, 
+      #{bbepercent,jdbcType=VARCHAR}, #{bbe2,jdbcType=VARCHAR}, #{bbe3,jdbcType=VARCHAR}, 
+      #{corpid,jdbcType=VARCHAR}, #{openflag,jdbcType=VARCHAR}, #{oper,jdbcType=VARCHAR}, 
+      #{opertime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbEbaybbe">
+    insert into db_ebaybbe
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        SEQUENCEID,
+      </if>
+      <if test="ebayidmanageid != null">
+        EBAYIDMANAGEID,
+      </if>
+      <if test="bbenum != null">
+        BBENUM,
+      </if>
+      <if test="bbepercent != null">
+        BBEPERCENT,
+      </if>
+      <if test="bbe2 != null">
+        BBE2,
+      </if>
+      <if test="bbe3 != null">
+        BBE3,
+      </if>
+      <if test="corpid != null">
+        CORPID,
+      </if>
+      <if test="openflag != null">
+        OPENFLAG,
+      </if>
+      <if test="oper != null">
+        OPER,
+      </if>
+      <if test="opertime != null">
+        OPERTIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        #{sequenceid,jdbcType=DECIMAL},
+      </if>
+      <if test="ebayidmanageid != null">
+        #{ebayidmanageid,jdbcType=DECIMAL},
+      </if>
+      <if test="bbenum != null">
+        #{bbenum,jdbcType=VARCHAR},
+      </if>
+      <if test="bbepercent != null">
+        #{bbepercent,jdbcType=VARCHAR},
+      </if>
+      <if test="bbe2 != null">
+        #{bbe2,jdbcType=VARCHAR},
+      </if>
+      <if test="bbe3 != null">
+        #{bbe3,jdbcType=VARCHAR},
+      </if>
+      <if test="corpid != null">
+        #{corpid,jdbcType=VARCHAR},
+      </if>
+      <if test="openflag != null">
+        #{openflag,jdbcType=VARCHAR},
+      </if>
+      <if test="oper != null">
+        #{oper,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null">
+        #{opertime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbEbaybbe">
+    update db_ebaybbe
+    <set>
+      <if test="ebayidmanageid != null">
+        EBAYIDMANAGEID = #{ebayidmanageid,jdbcType=DECIMAL},
+      </if>
+      <if test="bbenum != null">
+        BBENUM = #{bbenum,jdbcType=VARCHAR},
+      </if>
+      <if test="bbepercent != null">
+        BBEPERCENT = #{bbepercent,jdbcType=VARCHAR},
+      </if>
+      <if test="bbe2 != null">
+        BBE2 = #{bbe2,jdbcType=VARCHAR},
+      </if>
+      <if test="bbe3 != null">
+        BBE3 = #{bbe3,jdbcType=VARCHAR},
+      </if>
+      <if test="corpid != null">
+        CORPID = #{corpid,jdbcType=VARCHAR},
+      </if>
+      <if test="openflag != null">
+        OPENFLAG = #{openflag,jdbcType=VARCHAR},
+      </if>
+      <if test="oper != null">
+        OPER = #{oper,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null">
+        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbEbaybbe">
+    update db_ebaybbe
+    set EBAYIDMANAGEID = #{ebayidmanageid,jdbcType=DECIMAL},
+      BBENUM = #{bbenum,jdbcType=VARCHAR},
+      BBEPERCENT = #{bbepercent,jdbcType=VARCHAR},
+      BBE2 = #{bbe2,jdbcType=VARCHAR},
+      BBE3 = #{bbe3,jdbcType=VARCHAR},
+      CORPID = #{corpid,jdbcType=VARCHAR},
+      OPENFLAG = #{openflag,jdbcType=VARCHAR},
+      OPER = #{oper,jdbcType=VARCHAR},
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP}
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </update>
+</mapper>

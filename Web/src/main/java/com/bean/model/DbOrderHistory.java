@@ -13,6 +13,8 @@ public class DbOrderHistory implements Serializable {
 
     private String tradetype;
 
+    private String groupid;
+
     private String tradeurl;
 
     private String customerid;
@@ -43,7 +45,11 @@ public class DbOrderHistory implements Serializable {
 
     private String customercountry;
 
+    private String customerprovince;
+
     private String customercity;
+
+    private String customeraddress;
 
     private String customerzipcode;
 
@@ -125,6 +131,16 @@ public class DbOrderHistory implements Serializable {
 
     private String status;
 
+    private String statusdescr;
+
+    private String content;
+
+    private String descr1;
+
+    private String descr2;
+
+    private String descr3;
+
     private BigDecimal delaydays;
 
     private String ordertypeid;
@@ -135,7 +151,51 @@ public class DbOrderHistory implements Serializable {
 
     private String alertflag;
 
+    private String reserve1;
+
+    private String reserve2;
+
+    private String reserve3;
+
+    private String reserve4;
+
+    private String reserve5;
+
+    private String reserve6;
+
+    private String reserve7;
+
+    private String reserve8;
+
+    private String reserve9;
+
+    private String reserve10;
+
+    private String reserve11;
+
+    private String reserve12;
+
+    private String reserve13;
+
+    private String reserve14;
+
+    private String reserve15;
+
+    private String reserve16;
+
+    private String reserve17;
+
+    private String reserve18;
+
+    private String reserve19;
+
+    private String reserve20;
+
     private BigDecimal insurance;
+
+    private String notestoyourself;
+
+    private String postageservice;
 
     private String packagingid;
 
@@ -143,15 +203,23 @@ public class DbOrderHistory implements Serializable {
 
     private BigDecimal packagingweight;
 
+    private String packagingclass;
+
     private BigDecimal orderweight;
 
     private String expresstypeid;
+
+    private String oper1;
+
+    private String oper2;
 
     private BigDecimal sellnum;
 
     private BigDecimal ordernum;
 
     private String storageid;
+
+    private String locationid;
 
     private String location;
 
@@ -169,6 +237,14 @@ public class DbOrderHistory implements Serializable {
 
     private String bansendflag;
 
+    private String slreserve1;
+
+    private String slreserve2;
+
+    private String slreserve3;
+
+    private String slreserve4;
+
     private BigDecimal slreserve5;
 
     private BigDecimal slreserve6;
@@ -181,6 +257,14 @@ public class DbOrderHistory implements Serializable {
 
     private BigDecimal slreserve10;
 
+    private String xbreserve1;
+
+    private String xbreserve2;
+
+    private String xbreserve3;
+
+    private String xbreserve4;
+
     private BigDecimal xbreserve5;
 
     private BigDecimal xbreserve6;
@@ -188,6 +272,14 @@ public class DbOrderHistory implements Serializable {
     private BigDecimal xbreserve7;
 
     private BigDecimal xbreserve8;
+
+    private String qlreserve1;
+
+    private String qlreserve2;
+
+    private String qlreserve3;
+
+    private String qlreserve4;
 
     private BigDecimal qlreserve5;
 
@@ -231,113 +323,15 @@ public class DbOrderHistory implements Serializable {
 
     private BigDecimal fixedmoney2;
 
+    private String paypacountry;
+
+    private String paypalstatus;
+
     private BigDecimal paypalfeeamount;
 
     private BigDecimal paypalgrossamount;
 
     private BigDecimal paypalnetamount;
-
-    private BigDecimal unitweight;
-
-    private String paypalflag;
-
-    private Date printtime;
-
-    private String groupid;
-
-    private String customerprovince;
-
-    private String customeraddress;
-
-    private String statusdescr;
-
-    private String content;
-
-    private String descr1;
-
-    private String descr2;
-
-    private String descr3;
-
-    private String reserve1;
-
-    private String reserve2;
-
-    private String reserve3;
-
-    private String reserve4;
-
-    private String reserve5;
-
-    private String reserve6;
-
-    private String reserve7;
-
-    private String reserve8;
-
-    private String reserve9;
-
-    private String reserve10;
-
-    private String reserve11;
-
-    private String reserve12;
-
-    private String reserve13;
-
-    private String reserve14;
-
-    private String reserve15;
-
-    private String reserve16;
-
-    private String reserve17;
-
-    private String reserve18;
-
-    private String reserve19;
-
-    private String reserve20;
-
-    private String notestoyourself;
-
-    private String postageservice;
-
-    private String packagingclass;
-
-    private String oper1;
-
-    private String oper2;
-
-    private String locationid;
-
-    private String slreserve1;
-
-    private String slreserve2;
-
-    private String slreserve3;
-
-    private String slreserve4;
-
-    private String xbreserve1;
-
-    private String xbreserve2;
-
-    private String xbreserve3;
-
-    private String xbreserve4;
-
-    private String qlreserve1;
-
-    private String qlreserve2;
-
-    private String qlreserve3;
-
-    private String qlreserve4;
-
-    private String paypacountry;
-
-    private String paypalstatus;
 
     private String paypalstreet;
 
@@ -352,6 +346,12 @@ public class DbOrderHistory implements Serializable {
     private String ebaycustomeraddress;
 
     private String paypalcustomeraddress;
+
+    private BigDecimal unitweight;
+
+    private String paypalflag;
+
+    private Date printtime;
 
     private static final long serialVersionUID = 1L;
 
@@ -385,6 +385,14 @@ public class DbOrderHistory implements Serializable {
 
     public void setTradetype(String tradetype) {
         this.tradetype = tradetype == null ? null : tradetype.trim();
+    }
+
+    public String getGroupid() {
+        return groupid;
+    }
+
+    public void setGroupid(String groupid) {
+        this.groupid = groupid == null ? null : groupid.trim();
     }
 
     public String getTradeurl() {
@@ -507,12 +515,28 @@ public class DbOrderHistory implements Serializable {
         this.customercountry = customercountry == null ? null : customercountry.trim();
     }
 
+    public String getCustomerprovince() {
+        return customerprovince;
+    }
+
+    public void setCustomerprovince(String customerprovince) {
+        this.customerprovince = customerprovince == null ? null : customerprovince.trim();
+    }
+
     public String getCustomercity() {
         return customercity;
     }
 
     public void setCustomercity(String customercity) {
         this.customercity = customercity == null ? null : customercity.trim();
+    }
+
+    public String getCustomeraddress() {
+        return customeraddress;
+    }
+
+    public void setCustomeraddress(String customeraddress) {
+        this.customeraddress = customeraddress == null ? null : customeraddress.trim();
     }
 
     public String getCustomerzipcode() {
@@ -835,6 +859,46 @@ public class DbOrderHistory implements Serializable {
         this.status = status == null ? null : status.trim();
     }
 
+    public String getStatusdescr() {
+        return statusdescr;
+    }
+
+    public void setStatusdescr(String statusdescr) {
+        this.statusdescr = statusdescr == null ? null : statusdescr.trim();
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content == null ? null : content.trim();
+    }
+
+    public String getDescr1() {
+        return descr1;
+    }
+
+    public void setDescr1(String descr1) {
+        this.descr1 = descr1 == null ? null : descr1.trim();
+    }
+
+    public String getDescr2() {
+        return descr2;
+    }
+
+    public void setDescr2(String descr2) {
+        this.descr2 = descr2 == null ? null : descr2.trim();
+    }
+
+    public String getDescr3() {
+        return descr3;
+    }
+
+    public void setDescr3(String descr3) {
+        this.descr3 = descr3 == null ? null : descr3.trim();
+    }
+
     public BigDecimal getDelaydays() {
         return delaydays;
     }
@@ -875,12 +939,188 @@ public class DbOrderHistory implements Serializable {
         this.alertflag = alertflag == null ? null : alertflag.trim();
     }
 
+    public String getReserve1() {
+        return reserve1;
+    }
+
+    public void setReserve1(String reserve1) {
+        this.reserve1 = reserve1 == null ? null : reserve1.trim();
+    }
+
+    public String getReserve2() {
+        return reserve2;
+    }
+
+    public void setReserve2(String reserve2) {
+        this.reserve2 = reserve2 == null ? null : reserve2.trim();
+    }
+
+    public String getReserve3() {
+        return reserve3;
+    }
+
+    public void setReserve3(String reserve3) {
+        this.reserve3 = reserve3 == null ? null : reserve3.trim();
+    }
+
+    public String getReserve4() {
+        return reserve4;
+    }
+
+    public void setReserve4(String reserve4) {
+        this.reserve4 = reserve4 == null ? null : reserve4.trim();
+    }
+
+    public String getReserve5() {
+        return reserve5;
+    }
+
+    public void setReserve5(String reserve5) {
+        this.reserve5 = reserve5 == null ? null : reserve5.trim();
+    }
+
+    public String getReserve6() {
+        return reserve6;
+    }
+
+    public void setReserve6(String reserve6) {
+        this.reserve6 = reserve6 == null ? null : reserve6.trim();
+    }
+
+    public String getReserve7() {
+        return reserve7;
+    }
+
+    public void setReserve7(String reserve7) {
+        this.reserve7 = reserve7 == null ? null : reserve7.trim();
+    }
+
+    public String getReserve8() {
+        return reserve8;
+    }
+
+    public void setReserve8(String reserve8) {
+        this.reserve8 = reserve8 == null ? null : reserve8.trim();
+    }
+
+    public String getReserve9() {
+        return reserve9;
+    }
+
+    public void setReserve9(String reserve9) {
+        this.reserve9 = reserve9 == null ? null : reserve9.trim();
+    }
+
+    public String getReserve10() {
+        return reserve10;
+    }
+
+    public void setReserve10(String reserve10) {
+        this.reserve10 = reserve10 == null ? null : reserve10.trim();
+    }
+
+    public String getReserve11() {
+        return reserve11;
+    }
+
+    public void setReserve11(String reserve11) {
+        this.reserve11 = reserve11 == null ? null : reserve11.trim();
+    }
+
+    public String getReserve12() {
+        return reserve12;
+    }
+
+    public void setReserve12(String reserve12) {
+        this.reserve12 = reserve12 == null ? null : reserve12.trim();
+    }
+
+    public String getReserve13() {
+        return reserve13;
+    }
+
+    public void setReserve13(String reserve13) {
+        this.reserve13 = reserve13 == null ? null : reserve13.trim();
+    }
+
+    public String getReserve14() {
+        return reserve14;
+    }
+
+    public void setReserve14(String reserve14) {
+        this.reserve14 = reserve14 == null ? null : reserve14.trim();
+    }
+
+    public String getReserve15() {
+        return reserve15;
+    }
+
+    public void setReserve15(String reserve15) {
+        this.reserve15 = reserve15 == null ? null : reserve15.trim();
+    }
+
+    public String getReserve16() {
+        return reserve16;
+    }
+
+    public void setReserve16(String reserve16) {
+        this.reserve16 = reserve16 == null ? null : reserve16.trim();
+    }
+
+    public String getReserve17() {
+        return reserve17;
+    }
+
+    public void setReserve17(String reserve17) {
+        this.reserve17 = reserve17 == null ? null : reserve17.trim();
+    }
+
+    public String getReserve18() {
+        return reserve18;
+    }
+
+    public void setReserve18(String reserve18) {
+        this.reserve18 = reserve18 == null ? null : reserve18.trim();
+    }
+
+    public String getReserve19() {
+        return reserve19;
+    }
+
+    public void setReserve19(String reserve19) {
+        this.reserve19 = reserve19 == null ? null : reserve19.trim();
+    }
+
+    public String getReserve20() {
+        return reserve20;
+    }
+
+    public void setReserve20(String reserve20) {
+        this.reserve20 = reserve20 == null ? null : reserve20.trim();
+    }
+
     public BigDecimal getInsurance() {
         return insurance;
     }
 
     public void setInsurance(BigDecimal insurance) {
         this.insurance = insurance;
+    }
+
+    public String getNotestoyourself() {
+        return notestoyourself;
+    }
+
+    public void setNotestoyourself(String notestoyourself) {
+        this.notestoyourself = notestoyourself == null ? null : notestoyourself.trim();
+    }
+
+    public String getPostageservice() {
+        return postageservice;
+    }
+
+    public void setPostageservice(String postageservice) {
+        this.postageservice = postageservice == null ? null : postageservice.trim();
     }
 
     public String getPackagingid() {
@@ -907,6 +1147,14 @@ public class DbOrderHistory implements Serializable {
         this.packagingweight = packagingweight;
     }
 
+    public String getPackagingclass() {
+        return packagingclass;
+    }
+
+    public void setPackagingclass(String packagingclass) {
+        this.packagingclass = packagingclass == null ? null : packagingclass.trim();
+    }
+
     public BigDecimal getOrderweight() {
         return orderweight;
     }
@@ -921,6 +1169,22 @@ public class DbOrderHistory implements Serializable {
 
     public void setExpresstypeid(String expresstypeid) {
         this.expresstypeid = expresstypeid == null ? null : expresstypeid.trim();
+    }
+
+    public String getOper1() {
+        return oper1;
+    }
+
+    public void setOper1(String oper1) {
+        this.oper1 = oper1 == null ? null : oper1.trim();
+    }
+
+    public String getOper2() {
+        return oper2;
+    }
+
+    public void setOper2(String oper2) {
+        this.oper2 = oper2 == null ? null : oper2.trim();
     }
 
     public BigDecimal getSellnum() {
@@ -945,6 +1209,14 @@ public class DbOrderHistory implements Serializable {
 
     public void setStorageid(String storageid) {
         this.storageid = storageid == null ? null : storageid.trim();
+    }
+
+    public String getLocationid() {
+        return locationid;
+    }
+
+    public void setLocationid(String locationid) {
+        this.locationid = locationid == null ? null : locationid.trim();
     }
 
     public String getLocation() {
@@ -1011,6 +1283,38 @@ public class DbOrderHistory implements Serializable {
         this.bansendflag = bansendflag == null ? null : bansendflag.trim();
     }
 
+    public String getSlreserve1() {
+        return slreserve1;
+    }
+
+    public void setSlreserve1(String slreserve1) {
+        this.slreserve1 = slreserve1 == null ? null : slreserve1.trim();
+    }
+
+    public String getSlreserve2() {
+        return slreserve2;
+    }
+
+    public void setSlreserve2(String slreserve2) {
+        this.slreserve2 = slreserve2 == null ? null : slreserve2.trim();
+    }
+
+    public String getSlreserve3() {
+        return slreserve3;
+    }
+
+    public void setSlreserve3(String slreserve3) {
+        this.slreserve3 = slreserve3 == null ? null : slreserve3.trim();
+    }
+
+    public String getSlreserve4() {
+        return slreserve4;
+    }
+
+    public void setSlreserve4(String slreserve4) {
+        this.slreserve4 = slreserve4 == null ? null : slreserve4.trim();
+    }
+
     public BigDecimal getSlreserve5() {
         return slreserve5;
     }
@@ -1059,6 +1363,38 @@ public class DbOrderHistory implements Serializable {
         this.slreserve10 = slreserve10;
     }
 
+    public String getXbreserve1() {
+        return xbreserve1;
+    }
+
+    public void setXbreserve1(String xbreserve1) {
+        this.xbreserve1 = xbreserve1 == null ? null : xbreserve1.trim();
+    }
+
+    public String getXbreserve2() {
+        return xbreserve2;
+    }
+
+    public void setXbreserve2(String xbreserve2) {
+        this.xbreserve2 = xbreserve2 == null ? null : xbreserve2.trim();
+    }
+
+    public String getXbreserve3() {
+        return xbreserve3;
+    }
+
+    public void setXbreserve3(String xbreserve3) {
+        this.xbreserve3 = xbreserve3 == null ? null : xbreserve3.trim();
+    }
+
+    public String getXbreserve4() {
+        return xbreserve4;
+    }
+
+    public void setXbreserve4(String xbreserve4) {
+        this.xbreserve4 = xbreserve4 == null ? null : xbreserve4.trim();
+    }
+
     public BigDecimal getXbreserve5() {
         return xbreserve5;
     }
@@ -1089,6 +1425,38 @@ public class DbOrderHistory implements Serializable {
 
     public void setXbreserve8(BigDecimal xbreserve8) {
         this.xbreserve8 = xbreserve8;
+    }
+
+    public String getQlreserve1() {
+        return qlreserve1;
+    }
+
+    public void setQlreserve1(String qlreserve1) {
+        this.qlreserve1 = qlreserve1 == null ? null : qlreserve1.trim();
+    }
+
+    public String getQlreserve2() {
+        return qlreserve2;
+    }
+
+    public void setQlreserve2(String qlreserve2) {
+        this.qlreserve2 = qlreserve2 == null ? null : qlreserve2.trim();
+    }
+
+    public String getQlreserve3() {
+        return qlreserve3;
+    }
+
+    public void setQlreserve3(String qlreserve3) {
+        this.qlreserve3 = qlreserve3 == null ? null : qlreserve3.trim();
+    }
+
+    public String getQlreserve4() {
+        return qlreserve4;
+    }
+
+    public void setQlreserve4(String qlreserve4) {
+        this.qlreserve4 = qlreserve4 == null ? null : qlreserve4.trim();
     }
 
     public BigDecimal getQlreserve5() {
@@ -1259,6 +1627,22 @@ public class DbOrderHistory implements Serializable {
         this.fixedmoney2 = fixedmoney2;
     }
 
+    public String getPaypacountry() {
+        return paypacountry;
+    }
+
+    public void setPaypacountry(String paypacountry) {
+        this.paypacountry = paypacountry == null ? null : paypacountry.trim();
+    }
+
+    public String getPaypalstatus() {
+        return paypalstatus;
+    }
+
+    public void setPaypalstatus(String paypalstatus) {
+        this.paypalstatus = paypalstatus == null ? null : paypalstatus.trim();
+    }
+
     public BigDecimal getPaypalfeeamount() {
         return paypalfeeamount;
     }
@@ -1281,414 +1665,6 @@ public class DbOrderHistory implements Serializable {
 
     public void setPaypalnetamount(BigDecimal paypalnetamount) {
         this.paypalnetamount = paypalnetamount;
-    }
-
-    public BigDecimal getUnitweight() {
-        return unitweight;
-    }
-
-    public void setUnitweight(BigDecimal unitweight) {
-        this.unitweight = unitweight;
-    }
-
-    public String getPaypalflag() {
-        return paypalflag;
-    }
-
-    public void setPaypalflag(String paypalflag) {
-        this.paypalflag = paypalflag == null ? null : paypalflag.trim();
-    }
-
-    public Date getPrinttime() {
-        return printtime;
-    }
-
-    public void setPrinttime(Date printtime) {
-        this.printtime = printtime;
-    }
-
-    public String getGroupid() {
-        return groupid;
-    }
-
-    public void setGroupid(String groupid) {
-        this.groupid = groupid == null ? null : groupid.trim();
-    }
-
-    public String getCustomerprovince() {
-        return customerprovince;
-    }
-
-    public void setCustomerprovince(String customerprovince) {
-        this.customerprovince = customerprovince == null ? null : customerprovince.trim();
-    }
-
-    public String getCustomeraddress() {
-        return customeraddress;
-    }
-
-    public void setCustomeraddress(String customeraddress) {
-        this.customeraddress = customeraddress == null ? null : customeraddress.trim();
-    }
-
-    public String getStatusdescr() {
-        return statusdescr;
-    }
-
-    public void setStatusdescr(String statusdescr) {
-        this.statusdescr = statusdescr == null ? null : statusdescr.trim();
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content == null ? null : content.trim();
-    }
-
-    public String getDescr1() {
-        return descr1;
-    }
-
-    public void setDescr1(String descr1) {
-        this.descr1 = descr1 == null ? null : descr1.trim();
-    }
-
-    public String getDescr2() {
-        return descr2;
-    }
-
-    public void setDescr2(String descr2) {
-        this.descr2 = descr2 == null ? null : descr2.trim();
-    }
-
-    public String getDescr3() {
-        return descr3;
-    }
-
-    public void setDescr3(String descr3) {
-        this.descr3 = descr3 == null ? null : descr3.trim();
-    }
-
-    public String getReserve1() {
-        return reserve1;
-    }
-
-    public void setReserve1(String reserve1) {
-        this.reserve1 = reserve1 == null ? null : reserve1.trim();
-    }
-
-    public String getReserve2() {
-        return reserve2;
-    }
-
-    public void setReserve2(String reserve2) {
-        this.reserve2 = reserve2 == null ? null : reserve2.trim();
-    }
-
-    public String getReserve3() {
-        return reserve3;
-    }
-
-    public void setReserve3(String reserve3) {
-        this.reserve3 = reserve3 == null ? null : reserve3.trim();
-    }
-
-    public String getReserve4() {
-        return reserve4;
-    }
-
-    public void setReserve4(String reserve4) {
-        this.reserve4 = reserve4 == null ? null : reserve4.trim();
-    }
-
-    public String getReserve5() {
-        return reserve5;
-    }
-
-    public void setReserve5(String reserve5) {
-        this.reserve5 = reserve5 == null ? null : reserve5.trim();
-    }
-
-    public String getReserve6() {
-        return reserve6;
-    }
-
-    public void setReserve6(String reserve6) {
-        this.reserve6 = reserve6 == null ? null : reserve6.trim();
-    }
-
-    public String getReserve7() {
-        return reserve7;
-    }
-
-    public void setReserve7(String reserve7) {
-        this.reserve7 = reserve7 == null ? null : reserve7.trim();
-    }
-
-    public String getReserve8() {
-        return reserve8;
-    }
-
-    public void setReserve8(String reserve8) {
-        this.reserve8 = reserve8 == null ? null : reserve8.trim();
-    }
-
-    public String getReserve9() {
-        return reserve9;
-    }
-
-    public void setReserve9(String reserve9) {
-        this.reserve9 = reserve9 == null ? null : reserve9.trim();
-    }
-
-    public String getReserve10() {
-        return reserve10;
-    }
-
-    public void setReserve10(String reserve10) {
-        this.reserve10 = reserve10 == null ? null : reserve10.trim();
-    }
-
-    public String getReserve11() {
-        return reserve11;
-    }
-
-    public void setReserve11(String reserve11) {
-        this.reserve11 = reserve11 == null ? null : reserve11.trim();
-    }
-
-    public String getReserve12() {
-        return reserve12;
-    }
-
-    public void setReserve12(String reserve12) {
-        this.reserve12 = reserve12 == null ? null : reserve12.trim();
-    }
-
-    public String getReserve13() {
-        return reserve13;
-    }
-
-    public void setReserve13(String reserve13) {
-        this.reserve13 = reserve13 == null ? null : reserve13.trim();
-    }
-
-    public String getReserve14() {
-        return reserve14;
-    }
-
-    public void setReserve14(String reserve14) {
-        this.reserve14 = reserve14 == null ? null : reserve14.trim();
-    }
-
-    public String getReserve15() {
-        return reserve15;
-    }
-
-    public void setReserve15(String reserve15) {
-        this.reserve15 = reserve15 == null ? null : reserve15.trim();
-    }
-
-    public String getReserve16() {
-        return reserve16;
-    }
-
-    public void setReserve16(String reserve16) {
-        this.reserve16 = reserve16 == null ? null : reserve16.trim();
-    }
-
-    public String getReserve17() {
-        return reserve17;
-    }
-
-    public void setReserve17(String reserve17) {
-        this.reserve17 = reserve17 == null ? null : reserve17.trim();
-    }
-
-    public String getReserve18() {
-        return reserve18;
-    }
-
-    public void setReserve18(String reserve18) {
-        this.reserve18 = reserve18 == null ? null : reserve18.trim();
-    }
-
-    public String getReserve19() {
-        return reserve19;
-    }
-
-    public void setReserve19(String reserve19) {
-        this.reserve19 = reserve19 == null ? null : reserve19.trim();
-    }
-
-    public String getReserve20() {
-        return reserve20;
-    }
-
-    public void setReserve20(String reserve20) {
-        this.reserve20 = reserve20 == null ? null : reserve20.trim();
-    }
-
-    public String getNotestoyourself() {
-        return notestoyourself;
-    }
-
-    public void setNotestoyourself(String notestoyourself) {
-        this.notestoyourself = notestoyourself == null ? null : notestoyourself.trim();
-    }
-
-    public String getPostageservice() {
-        return postageservice;
-    }
-
-    public void setPostageservice(String postageservice) {
-        this.postageservice = postageservice == null ? null : postageservice.trim();
-    }
-
-    public String getPackagingclass() {
-        return packagingclass;
-    }
-
-    public void setPackagingclass(String packagingclass) {
-        this.packagingclass = packagingclass == null ? null : packagingclass.trim();
-    }
-
-    public String getOper1() {
-        return oper1;
-    }
-
-    public void setOper1(String oper1) {
-        this.oper1 = oper1 == null ? null : oper1.trim();
-    }
-
-    public String getOper2() {
-        return oper2;
-    }
-
-    public void setOper2(String oper2) {
-        this.oper2 = oper2 == null ? null : oper2.trim();
-    }
-
-    public String getLocationid() {
-        return locationid;
-    }
-
-    public void setLocationid(String locationid) {
-        this.locationid = locationid == null ? null : locationid.trim();
-    }
-
-    public String getSlreserve1() {
-        return slreserve1;
-    }
-
-    public void setSlreserve1(String slreserve1) {
-        this.slreserve1 = slreserve1 == null ? null : slreserve1.trim();
-    }
-
-    public String getSlreserve2() {
-        return slreserve2;
-    }
-
-    public void setSlreserve2(String slreserve2) {
-        this.slreserve2 = slreserve2 == null ? null : slreserve2.trim();
-    }
-
-    public String getSlreserve3() {
-        return slreserve3;
-    }
-
-    public void setSlreserve3(String slreserve3) {
-        this.slreserve3 = slreserve3 == null ? null : slreserve3.trim();
-    }
-
-    public String getSlreserve4() {
-        return slreserve4;
-    }
-
-    public void setSlreserve4(String slreserve4) {
-        this.slreserve4 = slreserve4 == null ? null : slreserve4.trim();
-    }
-
-    public String getXbreserve1() {
-        return xbreserve1;
-    }
-
-    public void setXbreserve1(String xbreserve1) {
-        this.xbreserve1 = xbreserve1 == null ? null : xbreserve1.trim();
-    }
-
-    public String getXbreserve2() {
-        return xbreserve2;
-    }
-
-    public void setXbreserve2(String xbreserve2) {
-        this.xbreserve2 = xbreserve2 == null ? null : xbreserve2.trim();
-    }
-
-    public String getXbreserve3() {
-        return xbreserve3;
-    }
-
-    public void setXbreserve3(String xbreserve3) {
-        this.xbreserve3 = xbreserve3 == null ? null : xbreserve3.trim();
-    }
-
-    public String getXbreserve4() {
-        return xbreserve4;
-    }
-
-    public void setXbreserve4(String xbreserve4) {
-        this.xbreserve4 = xbreserve4 == null ? null : xbreserve4.trim();
-    }
-
-    public String getQlreserve1() {
-        return qlreserve1;
-    }
-
-    public void setQlreserve1(String qlreserve1) {
-        this.qlreserve1 = qlreserve1 == null ? null : qlreserve1.trim();
-    }
-
-    public String getQlreserve2() {
-        return qlreserve2;
-    }
-
-    public void setQlreserve2(String qlreserve2) {
-        this.qlreserve2 = qlreserve2 == null ? null : qlreserve2.trim();
-    }
-
-    public String getQlreserve3() {
-        return qlreserve3;
-    }
-
-    public void setQlreserve3(String qlreserve3) {
-        this.qlreserve3 = qlreserve3 == null ? null : qlreserve3.trim();
-    }
-
-    public String getQlreserve4() {
-        return qlreserve4;
-    }
-
-    public void setQlreserve4(String qlreserve4) {
-        this.qlreserve4 = qlreserve4 == null ? null : qlreserve4.trim();
-    }
-
-    public String getPaypacountry() {
-        return paypacountry;
-    }
-
-    public void setPaypacountry(String paypacountry) {
-        this.paypacountry = paypacountry == null ? null : paypacountry.trim();
-    }
-
-    public String getPaypalstatus() {
-        return paypalstatus;
-    }
-
-    public void setPaypalstatus(String paypalstatus) {
-        this.paypalstatus = paypalstatus == null ? null : paypalstatus.trim();
     }
 
     public String getPaypalstreet() {
@@ -1747,6 +1723,30 @@ public class DbOrderHistory implements Serializable {
         this.paypalcustomeraddress = paypalcustomeraddress == null ? null : paypalcustomeraddress.trim();
     }
 
+    public BigDecimal getUnitweight() {
+        return unitweight;
+    }
+
+    public void setUnitweight(BigDecimal unitweight) {
+        this.unitweight = unitweight;
+    }
+
+    public String getPaypalflag() {
+        return paypalflag;
+    }
+
+    public void setPaypalflag(String paypalflag) {
+        this.paypalflag = paypalflag == null ? null : paypalflag.trim();
+    }
+
+    public Date getPrinttime() {
+        return printtime;
+    }
+
+    public void setPrinttime(Date printtime) {
+        this.printtime = printtime;
+    }
+
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -1763,6 +1763,7 @@ public class DbOrderHistory implements Serializable {
             && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()))
             && (this.getTradeid() == null ? other.getTradeid() == null : this.getTradeid().equals(other.getTradeid()))
             && (this.getTradetype() == null ? other.getTradetype() == null : this.getTradetype().equals(other.getTradetype()))
+            && (this.getGroupid() == null ? other.getGroupid() == null : this.getGroupid().equals(other.getGroupid()))
             && (this.getTradeurl() == null ? other.getTradeurl() == null : this.getTradeurl().equals(other.getTradeurl()))
             && (this.getCustomerid() == null ? other.getCustomerid() == null : this.getCustomerid().equals(other.getCustomerid()))
             && (this.getCustomername() == null ? other.getCustomername() == null : this.getCustomername().equals(other.getCustomername()))
@@ -1778,7 +1779,9 @@ public class DbOrderHistory implements Serializable {
             && (this.getCustomerqq() == null ? other.getCustomerqq() == null : this.getCustomerqq().equals(other.getCustomerqq()))
             && (this.getCustomermsn() == null ? other.getCustomermsn() == null : this.getCustomermsn().equals(other.getCustomermsn()))
             && (this.getCustomercountry() == null ? other.getCustomercountry() == null : this.getCustomercountry().equals(other.getCustomercountry()))
+            && (this.getCustomerprovince() == null ? other.getCustomerprovince() == null : this.getCustomerprovince().equals(other.getCustomerprovince()))
             && (this.getCustomercity() == null ? other.getCustomercity() == null : this.getCustomercity().equals(other.getCustomercity()))
+            && (this.getCustomeraddress() == null ? other.getCustomeraddress() == null : this.getCustomeraddress().equals(other.getCustomeraddress()))
             && (this.getCustomerzipcode() == null ? other.getCustomerzipcode() == null : this.getCustomerzipcode().equals(other.getCustomerzipcode()))
             && (this.getCustomerfax() == null ? other.getCustomerfax() == null : this.getCustomerfax().equals(other.getCustomerfax()))
             && (this.getCustomerreserve1() == null ? other.getCustomerreserve1() == null : this.getCustomerreserve1().equals(other.getCustomerreserve1()))
@@ -1819,20 +1822,51 @@ public class DbOrderHistory implements Serializable {
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
             && (this.getStype() == null ? other.getStype() == null : this.getStype().equals(other.getStype()))
             && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
+            && (this.getStatusdescr() == null ? other.getStatusdescr() == null : this.getStatusdescr().equals(other.getStatusdescr()))
+            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
+            && (this.getDescr1() == null ? other.getDescr1() == null : this.getDescr1().equals(other.getDescr1()))
+            && (this.getDescr2() == null ? other.getDescr2() == null : this.getDescr2().equals(other.getDescr2()))
+            && (this.getDescr3() == null ? other.getDescr3() == null : this.getDescr3().equals(other.getDescr3()))
             && (this.getDelaydays() == null ? other.getDelaydays() == null : this.getDelaydays().equals(other.getDelaydays()))
             && (this.getOrdertypeid() == null ? other.getOrdertypeid() == null : this.getOrdertypeid().equals(other.getOrdertypeid()))
             && (this.getOrdertypename() == null ? other.getOrdertypename() == null : this.getOrdertypename().equals(other.getOrdertypename()))
             && (this.getColor() == null ? other.getColor() == null : this.getColor().equals(other.getColor()))
             && (this.getAlertflag() == null ? other.getAlertflag() == null : this.getAlertflag().equals(other.getAlertflag()))
+            && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
+            && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
+            && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
+            && (this.getReserve4() == null ? other.getReserve4() == null : this.getReserve4().equals(other.getReserve4()))
+            && (this.getReserve5() == null ? other.getReserve5() == null : this.getReserve5().equals(other.getReserve5()))
+            && (this.getReserve6() == null ? other.getReserve6() == null : this.getReserve6().equals(other.getReserve6()))
+            && (this.getReserve7() == null ? other.getReserve7() == null : this.getReserve7().equals(other.getReserve7()))
+            && (this.getReserve8() == null ? other.getReserve8() == null : this.getReserve8().equals(other.getReserve8()))
+            && (this.getReserve9() == null ? other.getReserve9() == null : this.getReserve9().equals(other.getReserve9()))
+            && (this.getReserve10() == null ? other.getReserve10() == null : this.getReserve10().equals(other.getReserve10()))
+            && (this.getReserve11() == null ? other.getReserve11() == null : this.getReserve11().equals(other.getReserve11()))
+            && (this.getReserve12() == null ? other.getReserve12() == null : this.getReserve12().equals(other.getReserve12()))
+            && (this.getReserve13() == null ? other.getReserve13() == null : this.getReserve13().equals(other.getReserve13()))
+            && (this.getReserve14() == null ? other.getReserve14() == null : this.getReserve14().equals(other.getReserve14()))
+            && (this.getReserve15() == null ? other.getReserve15() == null : this.getReserve15().equals(other.getReserve15()))
+            && (this.getReserve16() == null ? other.getReserve16() == null : this.getReserve16().equals(other.getReserve16()))
+            && (this.getReserve17() == null ? other.getReserve17() == null : this.getReserve17().equals(other.getReserve17()))
+            && (this.getReserve18() == null ? other.getReserve18() == null : this.getReserve18().equals(other.getReserve18()))
+            && (this.getReserve19() == null ? other.getReserve19() == null : this.getReserve19().equals(other.getReserve19()))
+            && (this.getReserve20() == null ? other.getReserve20() == null : this.getReserve20().equals(other.getReserve20()))
             && (this.getInsurance() == null ? other.getInsurance() == null : this.getInsurance().equals(other.getInsurance()))
+            && (this.getNotestoyourself() == null ? other.getNotestoyourself() == null : this.getNotestoyourself().equals(other.getNotestoyourself()))
+            && (this.getPostageservice() == null ? other.getPostageservice() == null : this.getPostageservice().equals(other.getPostageservice()))
             && (this.getPackagingid() == null ? other.getPackagingid() == null : this.getPackagingid().equals(other.getPackagingid()))
             && (this.getPackagingname() == null ? other.getPackagingname() == null : this.getPackagingname().equals(other.getPackagingname()))
             && (this.getPackagingweight() == null ? other.getPackagingweight() == null : this.getPackagingweight().equals(other.getPackagingweight()))
+            && (this.getPackagingclass() == null ? other.getPackagingclass() == null : this.getPackagingclass().equals(other.getPackagingclass()))
             && (this.getOrderweight() == null ? other.getOrderweight() == null : this.getOrderweight().equals(other.getOrderweight()))
             && (this.getExpresstypeid() == null ? other.getExpresstypeid() == null : this.getExpresstypeid().equals(other.getExpresstypeid()))
+            && (this.getOper1() == null ? other.getOper1() == null : this.getOper1().equals(other.getOper1()))
+            && (this.getOper2() == null ? other.getOper2() == null : this.getOper2().equals(other.getOper2()))
             && (this.getSellnum() == null ? other.getSellnum() == null : this.getSellnum().equals(other.getSellnum()))
             && (this.getOrdernum() == null ? other.getOrdernum() == null : this.getOrdernum().equals(other.getOrdernum()))
             && (this.getStorageid() == null ? other.getStorageid() == null : this.getStorageid().equals(other.getStorageid()))
+            && (this.getLocationid() == null ? other.getLocationid() == null : this.getLocationid().equals(other.getLocationid()))
             && (this.getLocation() == null ? other.getLocation() == null : this.getLocation().equals(other.getLocation()))
             && (this.getStorage() == null ? other.getStorage() == null : this.getStorage().equals(other.getStorage()))
             && (this.getOrdersource() == null ? other.getOrdersource() == null : this.getOrdersource().equals(other.getOrdersource()))
@@ -1841,16 +1875,28 @@ public class DbOrderHistory implements Serializable {
             && (this.getRefundloss() == null ? other.getRefundloss() == null : this.getRefundloss().equals(other.getRefundloss()))
             && (this.getRefundoriginal() == null ? other.getRefundoriginal() == null : this.getRefundoriginal().equals(other.getRefundoriginal()))
             && (this.getBansendflag() == null ? other.getBansendflag() == null : this.getBansendflag().equals(other.getBansendflag()))
+            && (this.getSlreserve1() == null ? other.getSlreserve1() == null : this.getSlreserve1().equals(other.getSlreserve1()))
+            && (this.getSlreserve2() == null ? other.getSlreserve2() == null : this.getSlreserve2().equals(other.getSlreserve2()))
+            && (this.getSlreserve3() == null ? other.getSlreserve3() == null : this.getSlreserve3().equals(other.getSlreserve3()))
+            && (this.getSlreserve4() == null ? other.getSlreserve4() == null : this.getSlreserve4().equals(other.getSlreserve4()))
             && (this.getSlreserve5() == null ? other.getSlreserve5() == null : this.getSlreserve5().equals(other.getSlreserve5()))
             && (this.getSlreserve6() == null ? other.getSlreserve6() == null : this.getSlreserve6().equals(other.getSlreserve6()))
             && (this.getSlreserve7() == null ? other.getSlreserve7() == null : this.getSlreserve7().equals(other.getSlreserve7()))
             && (this.getSlreserve8() == null ? other.getSlreserve8() == null : this.getSlreserve8().equals(other.getSlreserve8()))
             && (this.getSlreserve9() == null ? other.getSlreserve9() == null : this.getSlreserve9().equals(other.getSlreserve9()))
             && (this.getSlreserve10() == null ? other.getSlreserve10() == null : this.getSlreserve10().equals(other.getSlreserve10()))
+            && (this.getXbreserve1() == null ? other.getXbreserve1() == null : this.getXbreserve1().equals(other.getXbreserve1()))
+            && (this.getXbreserve2() == null ? other.getXbreserve2() == null : this.getXbreserve2().equals(other.getXbreserve2()))
+            && (this.getXbreserve3() == null ? other.getXbreserve3() == null : this.getXbreserve3().equals(other.getXbreserve3()))
+            && (this.getXbreserve4() == null ? other.getXbreserve4() == null : this.getXbreserve4().equals(other.getXbreserve4()))
             && (this.getXbreserve5() == null ? other.getXbreserve5() == null : this.getXbreserve5().equals(other.getXbreserve5()))
             && (this.getXbreserve6() == null ? other.getXbreserve6() == null : this.getXbreserve6().equals(other.getXbreserve6()))
             && (this.getXbreserve7() == null ? other.getXbreserve7() == null : this.getXbreserve7().equals(other.getXbreserve7()))
             && (this.getXbreserve8() == null ? other.getXbreserve8() == null : this.getXbreserve8().equals(other.getXbreserve8()))
+            && (this.getQlreserve1() == null ? other.getQlreserve1() == null : this.getQlreserve1().equals(other.getQlreserve1()))
+            && (this.getQlreserve2() == null ? other.getQlreserve2() == null : this.getQlreserve2().equals(other.getQlreserve2()))
+            && (this.getQlreserve3() == null ? other.getQlreserve3() == null : this.getQlreserve3().equals(other.getQlreserve3()))
+            && (this.getQlreserve4() == null ? other.getQlreserve4() == null : this.getQlreserve4().equals(other.getQlreserve4()))
             && (this.getQlreserve5() == null ? other.getQlreserve5() == null : this.getQlreserve5().equals(other.getQlreserve5()))
             && (this.getQlreserve6() == null ? other.getQlreserve6() == null : this.getQlreserve6().equals(other.getQlreserve6()))
             && (this.getQlreserve7() == null ? other.getQlreserve7() == null : this.getQlreserve7().equals(other.getQlreserve7()))
@@ -1872,67 +1918,21 @@ public class DbOrderHistory implements Serializable {
             && (this.getUnitmoney() == null ? other.getUnitmoney() == null : this.getUnitmoney().equals(other.getUnitmoney()))
             && (this.getFixedmoney1() == null ? other.getFixedmoney1() == null : this.getFixedmoney1().equals(other.getFixedmoney1()))
             && (this.getFixedmoney2() == null ? other.getFixedmoney2() == null : this.getFixedmoney2().equals(other.getFixedmoney2()))
+            && (this.getPaypacountry() == null ? other.getPaypacountry() == null : this.getPaypacountry().equals(other.getPaypacountry()))
+            && (this.getPaypalstatus() == null ? other.getPaypalstatus() == null : this.getPaypalstatus().equals(other.getPaypalstatus()))
             && (this.getPaypalfeeamount() == null ? other.getPaypalfeeamount() == null : this.getPaypalfeeamount().equals(other.getPaypalfeeamount()))
             && (this.getPaypalgrossamount() == null ? other.getPaypalgrossamount() == null : this.getPaypalgrossamount().equals(other.getPaypalgrossamount()))
             && (this.getPaypalnetamount() == null ? other.getPaypalnetamount() == null : this.getPaypalnetamount().equals(other.getPaypalnetamount()))
-            && (this.getUnitweight() == null ? other.getUnitweight() == null : this.getUnitweight().equals(other.getUnitweight()))
-            && (this.getPaypalflag() == null ? other.getPaypalflag() == null : this.getPaypalflag().equals(other.getPaypalflag()))
-            && (this.getPrinttime() == null ? other.getPrinttime() == null : this.getPrinttime().equals(other.getPrinttime()))
-            && (this.getGroupid() == null ? other.getGroupid() == null : this.getGroupid().equals(other.getGroupid()))
-            && (this.getCustomerprovince() == null ? other.getCustomerprovince() == null : this.getCustomerprovince().equals(other.getCustomerprovince()))
-            && (this.getCustomeraddress() == null ? other.getCustomeraddress() == null : this.getCustomeraddress().equals(other.getCustomeraddress()))
-            && (this.getStatusdescr() == null ? other.getStatusdescr() == null : this.getStatusdescr().equals(other.getStatusdescr()))
-            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
-            && (this.getDescr1() == null ? other.getDescr1() == null : this.getDescr1().equals(other.getDescr1()))
-            && (this.getDescr2() == null ? other.getDescr2() == null : this.getDescr2().equals(other.getDescr2()))
-            && (this.getDescr3() == null ? other.getDescr3() == null : this.getDescr3().equals(other.getDescr3()))
-            && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
-            && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
-            && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
-            && (this.getReserve4() == null ? other.getReserve4() == null : this.getReserve4().equals(other.getReserve4()))
-            && (this.getReserve5() == null ? other.getReserve5() == null : this.getReserve5().equals(other.getReserve5()))
-            && (this.getReserve6() == null ? other.getReserve6() == null : this.getReserve6().equals(other.getReserve6()))
-            && (this.getReserve7() == null ? other.getReserve7() == null : this.getReserve7().equals(other.getReserve7()))
-            && (this.getReserve8() == null ? other.getReserve8() == null : this.getReserve8().equals(other.getReserve8()))
-            && (this.getReserve9() == null ? other.getReserve9() == null : this.getReserve9().equals(other.getReserve9()))
-            && (this.getReserve10() == null ? other.getReserve10() == null : this.getReserve10().equals(other.getReserve10()))
-            && (this.getReserve11() == null ? other.getReserve11() == null : this.getReserve11().equals(other.getReserve11()))
-            && (this.getReserve12() == null ? other.getReserve12() == null : this.getReserve12().equals(other.getReserve12()))
-            && (this.getReserve13() == null ? other.getReserve13() == null : this.getReserve13().equals(other.getReserve13()))
-            && (this.getReserve14() == null ? other.getReserve14() == null : this.getReserve14().equals(other.getReserve14()))
-            && (this.getReserve15() == null ? other.getReserve15() == null : this.getReserve15().equals(other.getReserve15()))
-            && (this.getReserve16() == null ? other.getReserve16() == null : this.getReserve16().equals(other.getReserve16()))
-            && (this.getReserve17() == null ? other.getReserve17() == null : this.getReserve17().equals(other.getReserve17()))
-            && (this.getReserve18() == null ? other.getReserve18() == null : this.getReserve18().equals(other.getReserve18()))
-            && (this.getReserve19() == null ? other.getReserve19() == null : this.getReserve19().equals(other.getReserve19()))
-            && (this.getReserve20() == null ? other.getReserve20() == null : this.getReserve20().equals(other.getReserve20()))
-            && (this.getNotestoyourself() == null ? other.getNotestoyourself() == null : this.getNotestoyourself().equals(other.getNotestoyourself()))
-            && (this.getPostageservice() == null ? other.getPostageservice() == null : this.getPostageservice().equals(other.getPostageservice()))
-            && (this.getPackagingclass() == null ? other.getPackagingclass() == null : this.getPackagingclass().equals(other.getPackagingclass()))
-            && (this.getOper1() == null ? other.getOper1() == null : this.getOper1().equals(other.getOper1()))
-            && (this.getOper2() == null ? other.getOper2() == null : this.getOper2().equals(other.getOper2()))
-            && (this.getLocationid() == null ? other.getLocationid() == null : this.getLocationid().equals(other.getLocationid()))
-            && (this.getSlreserve1() == null ? other.getSlreserve1() == null : this.getSlreserve1().equals(other.getSlreserve1()))
-            && (this.getSlreserve2() == null ? other.getSlreserve2() == null : this.getSlreserve2().equals(other.getSlreserve2()))
-            && (this.getSlreserve3() == null ? other.getSlreserve3() == null : this.getSlreserve3().equals(other.getSlreserve3()))
-            && (this.getSlreserve4() == null ? other.getSlreserve4() == null : this.getSlreserve4().equals(other.getSlreserve4()))
-            && (this.getXbreserve1() == null ? other.getXbreserve1() == null : this.getXbreserve1().equals(other.getXbreserve1()))
-            && (this.getXbreserve2() == null ? other.getXbreserve2() == null : this.getXbreserve2().equals(other.getXbreserve2()))
-            && (this.getXbreserve3() == null ? other.getXbreserve3() == null : this.getXbreserve3().equals(other.getXbreserve3()))
-            && (this.getXbreserve4() == null ? other.getXbreserve4() == null : this.getXbreserve4().equals(other.getXbreserve4()))
-            && (this.getQlreserve1() == null ? other.getQlreserve1() == null : this.getQlreserve1().equals(other.getQlreserve1()))
-            && (this.getQlreserve2() == null ? other.getQlreserve2() == null : this.getQlreserve2().equals(other.getQlreserve2()))
-            && (this.getQlreserve3() == null ? other.getQlreserve3() == null : this.getQlreserve3().equals(other.getQlreserve3()))
-            && (this.getQlreserve4() == null ? other.getQlreserve4() == null : this.getQlreserve4().equals(other.getQlreserve4()))
-            && (this.getPaypacountry() == null ? other.getPaypacountry() == null : this.getPaypacountry().equals(other.getPaypacountry()))
-            && (this.getPaypalstatus() == null ? other.getPaypalstatus() == null : this.getPaypalstatus().equals(other.getPaypalstatus()))
             && (this.getPaypalstreet() == null ? other.getPaypalstreet() == null : this.getPaypalstreet().equals(other.getPaypalstreet()))
             && (this.getPaypalstreet1() == null ? other.getPaypalstreet1() == null : this.getPaypalstreet1().equals(other.getPaypalstreet1()))
             && (this.getPaypalstreet2() == null ? other.getPaypalstreet2() == null : this.getPaypalstreet2().equals(other.getPaypalstreet2()))
             && (this.getPaypalcity() == null ? other.getPaypalcity() == null : this.getPaypalcity().equals(other.getPaypalcity()))
             && (this.getPaypalprovince() == null ? other.getPaypalprovince() == null : this.getPaypalprovince().equals(other.getPaypalprovince()))
             && (this.getEbaycustomeraddress() == null ? other.getEbaycustomeraddress() == null : this.getEbaycustomeraddress().equals(other.getEbaycustomeraddress()))
-            && (this.getPaypalcustomeraddress() == null ? other.getPaypalcustomeraddress() == null : this.getPaypalcustomeraddress().equals(other.getPaypalcustomeraddress()));
+            && (this.getPaypalcustomeraddress() == null ? other.getPaypalcustomeraddress() == null : this.getPaypalcustomeraddress().equals(other.getPaypalcustomeraddress()))
+            && (this.getUnitweight() == null ? other.getUnitweight() == null : this.getUnitweight().equals(other.getUnitweight()))
+            && (this.getPaypalflag() == null ? other.getPaypalflag() == null : this.getPaypalflag().equals(other.getPaypalflag()))
+            && (this.getPrinttime() == null ? other.getPrinttime() == null : this.getPrinttime().equals(other.getPrinttime()));
     }
 
     @Override
@@ -1943,6 +1943,7 @@ public class DbOrderHistory implements Serializable {
         result = prime * result + ((getCorpid() == null) ? 0 : getCorpid().hashCode());
         result = prime * result + ((getTradeid() == null) ? 0 : getTradeid().hashCode());
         result = prime * result + ((getTradetype() == null) ? 0 : getTradetype().hashCode());
+        result = prime * result + ((getGroupid() == null) ? 0 : getGroupid().hashCode());
         result = prime * result + ((getTradeurl() == null) ? 0 : getTradeurl().hashCode());
         result = prime * result + ((getCustomerid() == null) ? 0 : getCustomerid().hashCode());
         result = prime * result + ((getCustomername() == null) ? 0 : getCustomername().hashCode());
@@ -1958,7 +1959,9 @@ public class DbOrderHistory implements Serializable {
         result = prime * result + ((getCustomerqq() == null) ? 0 : getCustomerqq().hashCode());
         result = prime * result + ((getCustomermsn() == null) ? 0 : getCustomermsn().hashCode());
         result = prime * result + ((getCustomercountry() == null) ? 0 : getCustomercountry().hashCode());
+        result = prime * result + ((getCustomerprovince() == null) ? 0 : getCustomerprovince().hashCode());
         result = prime * result + ((getCustomercity() == null) ? 0 : getCustomercity().hashCode());
+        result = prime * result + ((getCustomeraddress() == null) ? 0 : getCustomeraddress().hashCode());
         result = prime * result + ((getCustomerzipcode() == null) ? 0 : getCustomerzipcode().hashCode());
         result = prime * result + ((getCustomerfax() == null) ? 0 : getCustomerfax().hashCode());
         result = prime * result + ((getCustomerreserve1() == null) ? 0 : getCustomerreserve1().hashCode());
@@ -1999,20 +2002,51 @@ public class DbOrderHistory implements Serializable {
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getStype() == null) ? 0 : getStype().hashCode());
         result = prime * result + ((getStatus() == null) ? 0 : getStatus().hashCode());
+        result = prime * result + ((getStatusdescr() == null) ? 0 : getStatusdescr().hashCode());
+        result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
+        result = prime * result + ((getDescr1() == null) ? 0 : getDescr1().hashCode());
+        result = prime * result + ((getDescr2() == null) ? 0 : getDescr2().hashCode());
+        result = prime * result + ((getDescr3() == null) ? 0 : getDescr3().hashCode());
         result = prime * result + ((getDelaydays() == null) ? 0 : getDelaydays().hashCode());
         result = prime * result + ((getOrdertypeid() == null) ? 0 : getOrdertypeid().hashCode());
         result = prime * result + ((getOrdertypename() == null) ? 0 : getOrdertypename().hashCode());
         result = prime * result + ((getColor() == null) ? 0 : getColor().hashCode());
         result = prime * result + ((getAlertflag() == null) ? 0 : getAlertflag().hashCode());
+        result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
+        result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
+        result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
+        result = prime * result + ((getReserve4() == null) ? 0 : getReserve4().hashCode());
+        result = prime * result + ((getReserve5() == null) ? 0 : getReserve5().hashCode());
+        result = prime * result + ((getReserve6() == null) ? 0 : getReserve6().hashCode());
+        result = prime * result + ((getReserve7() == null) ? 0 : getReserve7().hashCode());
+        result = prime * result + ((getReserve8() == null) ? 0 : getReserve8().hashCode());
+        result = prime * result + ((getReserve9() == null) ? 0 : getReserve9().hashCode());
+        result = prime * result + ((getReserve10() == null) ? 0 : getReserve10().hashCode());
+        result = prime * result + ((getReserve11() == null) ? 0 : getReserve11().hashCode());
+        result = prime * result + ((getReserve12() == null) ? 0 : getReserve12().hashCode());
+        result = prime * result + ((getReserve13() == null) ? 0 : getReserve13().hashCode());
+        result = prime * result + ((getReserve14() == null) ? 0 : getReserve14().hashCode());
+        result = prime * result + ((getReserve15() == null) ? 0 : getReserve15().hashCode());
+        result = prime * result + ((getReserve16() == null) ? 0 : getReserve16().hashCode());
+        result = prime * result + ((getReserve17() == null) ? 0 : getReserve17().hashCode());
+        result = prime * result + ((getReserve18() == null) ? 0 : getReserve18().hashCode());
+        result = prime * result + ((getReserve19() == null) ? 0 : getReserve19().hashCode());
+        result = prime * result + ((getReserve20() == null) ? 0 : getReserve20().hashCode());
         result = prime * result + ((getInsurance() == null) ? 0 : getInsurance().hashCode());
+        result = prime * result + ((getNotestoyourself() == null) ? 0 : getNotestoyourself().hashCode());
+        result = prime * result + ((getPostageservice() == null) ? 0 : getPostageservice().hashCode());
         result = prime * result + ((getPackagingid() == null) ? 0 : getPackagingid().hashCode());
         result = prime * result + ((getPackagingname() == null) ? 0 : getPackagingname().hashCode());
         result = prime * result + ((getPackagingweight() == null) ? 0 : getPackagingweight().hashCode());
+        result = prime * result + ((getPackagingclass() == null) ? 0 : getPackagingclass().hashCode());
         result = prime * result + ((getOrderweight() == null) ? 0 : getOrderweight().hashCode());
         result = prime * result + ((getExpresstypeid() == null) ? 0 : getExpresstypeid().hashCode());
+        result = prime * result + ((getOper1() == null) ? 0 : getOper1().hashCode());
+        result = prime * result + ((getOper2() == null) ? 0 : getOper2().hashCode());
         result = prime * result + ((getSellnum() == null) ? 0 : getSellnum().hashCode());
         result = prime * result + ((getOrdernum() == null) ? 0 : getOrdernum().hashCode());
         result = prime * result + ((getStorageid() == null) ? 0 : getStorageid().hashCode());
+        result = prime * result + ((getLocationid() == null) ? 0 : getLocationid().hashCode());
         result = prime * result + ((getLocation() == null) ? 0 : getLocation().hashCode());
         result = prime * result + ((getStorage() == null) ? 0 : getStorage().hashCode());
         result = prime * result + ((getOrdersource() == null) ? 0 : getOrdersource().hashCode());
@@ -2021,16 +2055,28 @@ public class DbOrderHistory implements Serializable {
         result = prime * result + ((getRefundloss() == null) ? 0 : getRefundloss().hashCode());
         result = prime * result + ((getRefundoriginal() == null) ? 0 : getRefundoriginal().hashCode());
         result = prime * result + ((getBansendflag() == null) ? 0 : getBansendflag().hashCode());
+        result = prime * result + ((getSlreserve1() == null) ? 0 : getSlreserve1().hashCode());
+        result = prime * result + ((getSlreserve2() == null) ? 0 : getSlreserve2().hashCode());
+        result = prime * result + ((getSlreserve3() == null) ? 0 : getSlreserve3().hashCode());
+        result = prime * result + ((getSlreserve4() == null) ? 0 : getSlreserve4().hashCode());
         result = prime * result + ((getSlreserve5() == null) ? 0 : getSlreserve5().hashCode());
         result = prime * result + ((getSlreserve6() == null) ? 0 : getSlreserve6().hashCode());
         result = prime * result + ((getSlreserve7() == null) ? 0 : getSlreserve7().hashCode());
         result = prime * result + ((getSlreserve8() == null) ? 0 : getSlreserve8().hashCode());
         result = prime * result + ((getSlreserve9() == null) ? 0 : getSlreserve9().hashCode());
         result = prime * result + ((getSlreserve10() == null) ? 0 : getSlreserve10().hashCode());
+        result = prime * result + ((getXbreserve1() == null) ? 0 : getXbreserve1().hashCode());
+        result = prime * result + ((getXbreserve2() == null) ? 0 : getXbreserve2().hashCode());
+        result = prime * result + ((getXbreserve3() == null) ? 0 : getXbreserve3().hashCode());
+        result = prime * result + ((getXbreserve4() == null) ? 0 : getXbreserve4().hashCode());
         result = prime * result + ((getXbreserve5() == null) ? 0 : getXbreserve5().hashCode());
         result = prime * result + ((getXbreserve6() == null) ? 0 : getXbreserve6().hashCode());
         result = prime * result + ((getXbreserve7() == null) ? 0 : getXbreserve7().hashCode());
         result = prime * result + ((getXbreserve8() == null) ? 0 : getXbreserve8().hashCode());
+        result = prime * result + ((getQlreserve1() == null) ? 0 : getQlreserve1().hashCode());
+        result = prime * result + ((getQlreserve2() == null) ? 0 : getQlreserve2().hashCode());
+        result = prime * result + ((getQlreserve3() == null) ? 0 : getQlreserve3().hashCode());
+        result = prime * result + ((getQlreserve4() == null) ? 0 : getQlreserve4().hashCode());
         result = prime * result + ((getQlreserve5() == null) ? 0 : getQlreserve5().hashCode());
         result = prime * result + ((getQlreserve6() == null) ? 0 : getQlreserve6().hashCode());
         result = prime * result + ((getQlreserve7() == null) ? 0 : getQlreserve7().hashCode());
@@ -2052,60 +2098,11 @@ public class DbOrderHistory implements Serializable {
         result = prime * result + ((getUnitmoney() == null) ? 0 : getUnitmoney().hashCode());
         result = prime * result + ((getFixedmoney1() == null) ? 0 : getFixedmoney1().hashCode());
         result = prime * result + ((getFixedmoney2() == null) ? 0 : getFixedmoney2().hashCode());
+        result = prime * result + ((getPaypacountry() == null) ? 0 : getPaypacountry().hashCode());
+        result = prime * result + ((getPaypalstatus() == null) ? 0 : getPaypalstatus().hashCode());
         result = prime * result + ((getPaypalfeeamount() == null) ? 0 : getPaypalfeeamount().hashCode());
         result = prime * result + ((getPaypalgrossamount() == null) ? 0 : getPaypalgrossamount().hashCode());
         result = prime * result + ((getPaypalnetamount() == null) ? 0 : getPaypalnetamount().hashCode());
-        result = prime * result + ((getUnitweight() == null) ? 0 : getUnitweight().hashCode());
-        result = prime * result + ((getPaypalflag() == null) ? 0 : getPaypalflag().hashCode());
-        result = prime * result + ((getPrinttime() == null) ? 0 : getPrinttime().hashCode());
-        result = prime * result + ((getGroupid() == null) ? 0 : getGroupid().hashCode());
-        result = prime * result + ((getCustomerprovince() == null) ? 0 : getCustomerprovince().hashCode());
-        result = prime * result + ((getCustomeraddress() == null) ? 0 : getCustomeraddress().hashCode());
-        result = prime * result + ((getStatusdescr() == null) ? 0 : getStatusdescr().hashCode());
-        result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
-        result = prime * result + ((getDescr1() == null) ? 0 : getDescr1().hashCode());
-        result = prime * result + ((getDescr2() == null) ? 0 : getDescr2().hashCode());
-        result = prime * result + ((getDescr3() == null) ? 0 : getDescr3().hashCode());
-        result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
-        result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
-        result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
-        result = prime * result + ((getReserve4() == null) ? 0 : getReserve4().hashCode());
-        result = prime * result + ((getReserve5() == null) ? 0 : getReserve5().hashCode());
-        result = prime * result + ((getReserve6() == null) ? 0 : getReserve6().hashCode());
-        result = prime * result + ((getReserve7() == null) ? 0 : getReserve7().hashCode());
-        result = prime * result + ((getReserve8() == null) ? 0 : getReserve8().hashCode());
-        result = prime * result + ((getReserve9() == null) ? 0 : getReserve9().hashCode());
-        result = prime * result + ((getReserve10() == null) ? 0 : getReserve10().hashCode());
-        result = prime * result + ((getReserve11() == null) ? 0 : getReserve11().hashCode());
-        result = prime * result + ((getReserve12() == null) ? 0 : getReserve12().hashCode());
-        result = prime * result + ((getReserve13() == null) ? 0 : getReserve13().hashCode());
-        result = prime * result + ((getReserve14() == null) ? 0 : getReserve14().hashCode());
-        result = prime * result + ((getReserve15() == null) ? 0 : getReserve15().hashCode());
-        result = prime * result + ((getReserve16() == null) ? 0 : getReserve16().hashCode());
-        result = prime * result + ((getReserve17() == null) ? 0 : getReserve17().hashCode());
-        result = prime * result + ((getReserve18() == null) ? 0 : getReserve18().hashCode());
-        result = prime * result + ((getReserve19() == null) ? 0 : getReserve19().hashCode());
-        result = prime * result + ((getReserve20() == null) ? 0 : getReserve20().hashCode());
-        result = prime * result + ((getNotestoyourself() == null) ? 0 : getNotestoyourself().hashCode());
-        result = prime * result + ((getPostageservice() == null) ? 0 : getPostageservice().hashCode());
-        result = prime * result + ((getPackagingclass() == null) ? 0 : getPackagingclass().hashCode());
-        result = prime * result + ((getOper1() == null) ? 0 : getOper1().hashCode());
-        result = prime * result + ((getOper2() == null) ? 0 : getOper2().hashCode());
-        result = prime * result + ((getLocationid() == null) ? 0 : getLocationid().hashCode());
-        result = prime * result + ((getSlreserve1() == null) ? 0 : getSlreserve1().hashCode());
-        result = prime * result + ((getSlreserve2() == null) ? 0 : getSlreserve2().hashCode());
-        result = prime * result + ((getSlreserve3() == null) ? 0 : getSlreserve3().hashCode());
-        result = prime * result + ((getSlreserve4() == null) ? 0 : getSlreserve4().hashCode());
-        result = prime * result + ((getXbreserve1() == null) ? 0 : getXbreserve1().hashCode());
-        result = prime * result + ((getXbreserve2() == null) ? 0 : getXbreserve2().hashCode());
-        result = prime * result + ((getXbreserve3() == null) ? 0 : getXbreserve3().hashCode());
-        result = prime * result + ((getXbreserve4() == null) ? 0 : getXbreserve4().hashCode());
-        result = prime * result + ((getQlreserve1() == null) ? 0 : getQlreserve1().hashCode());
-        result = prime * result + ((getQlreserve2() == null) ? 0 : getQlreserve2().hashCode());
-        result = prime * result + ((getQlreserve3() == null) ? 0 : getQlreserve3().hashCode());
-        result = prime * result + ((getQlreserve4() == null) ? 0 : getQlreserve4().hashCode());
-        result = prime * result + ((getPaypacountry() == null) ? 0 : getPaypacountry().hashCode());
-        result = prime * result + ((getPaypalstatus() == null) ? 0 : getPaypalstatus().hashCode());
         result = prime * result + ((getPaypalstreet() == null) ? 0 : getPaypalstreet().hashCode());
         result = prime * result + ((getPaypalstreet1() == null) ? 0 : getPaypalstreet1().hashCode());
         result = prime * result + ((getPaypalstreet2() == null) ? 0 : getPaypalstreet2().hashCode());
@@ -2113,6 +2110,9 @@ public class DbOrderHistory implements Serializable {
         result = prime * result + ((getPaypalprovince() == null) ? 0 : getPaypalprovince().hashCode());
         result = prime * result + ((getEbaycustomeraddress() == null) ? 0 : getEbaycustomeraddress().hashCode());
         result = prime * result + ((getPaypalcustomeraddress() == null) ? 0 : getPaypalcustomeraddress().hashCode());
+        result = prime * result + ((getUnitweight() == null) ? 0 : getUnitweight().hashCode());
+        result = prime * result + ((getPaypalflag() == null) ? 0 : getPaypalflag().hashCode());
+        result = prime * result + ((getPrinttime() == null) ? 0 : getPrinttime().hashCode());
         return result;
     }
 
@@ -2126,6 +2126,7 @@ public class DbOrderHistory implements Serializable {
         sb.append(", corpid=").append(corpid);
         sb.append(", tradeid=").append(tradeid);
         sb.append(", tradetype=").append(tradetype);
+        sb.append(", groupid=").append(groupid);
         sb.append(", tradeurl=").append(tradeurl);
         sb.append(", customerid=").append(customerid);
         sb.append(", customername=").append(customername);
@@ -2141,7 +2142,9 @@ public class DbOrderHistory implements Serializable {
         sb.append(", customerqq=").append(customerqq);
         sb.append(", customermsn=").append(customermsn);
         sb.append(", customercountry=").append(customercountry);
+        sb.append(", customerprovince=").append(customerprovince);
         sb.append(", customercity=").append(customercity);
+        sb.append(", customeraddress=").append(customeraddress);
         sb.append(", customerzipcode=").append(customerzipcode);
         sb.append(", customerfax=").append(customerfax);
         sb.append(", customerreserve1=").append(customerreserve1);
@@ -2182,20 +2185,51 @@ public class DbOrderHistory implements Serializable {
         sb.append(", opertime=").append(opertime);
         sb.append(", stype=").append(stype);
         sb.append(", status=").append(status);
+        sb.append(", statusdescr=").append(statusdescr);
+        sb.append(", content=").append(content);
+        sb.append(", descr1=").append(descr1);
+        sb.append(", descr2=").append(descr2);
+        sb.append(", descr3=").append(descr3);
         sb.append(", delaydays=").append(delaydays);
         sb.append(", ordertypeid=").append(ordertypeid);
         sb.append(", ordertypename=").append(ordertypename);
         sb.append(", color=").append(color);
         sb.append(", alertflag=").append(alertflag);
+        sb.append(", reserve1=").append(reserve1);
+        sb.append(", reserve2=").append(reserve2);
+        sb.append(", reserve3=").append(reserve3);
+        sb.append(", reserve4=").append(reserve4);
+        sb.append(", reserve5=").append(reserve5);
+        sb.append(", reserve6=").append(reserve6);
+        sb.append(", reserve7=").append(reserve7);
+        sb.append(", reserve8=").append(reserve8);
+        sb.append(", reserve9=").append(reserve9);
+        sb.append(", reserve10=").append(reserve10);
+        sb.append(", reserve11=").append(reserve11);
+        sb.append(", reserve12=").append(reserve12);
+        sb.append(", reserve13=").append(reserve13);
+        sb.append(", reserve14=").append(reserve14);
+        sb.append(", reserve15=").append(reserve15);
+        sb.append(", reserve16=").append(reserve16);
+        sb.append(", reserve17=").append(reserve17);
+        sb.append(", reserve18=").append(reserve18);
+        sb.append(", reserve19=").append(reserve19);
+        sb.append(", reserve20=").append(reserve20);
         sb.append(", insurance=").append(insurance);
+        sb.append(", notestoyourself=").append(notestoyourself);
+        sb.append(", postageservice=").append(postageservice);
         sb.append(", packagingid=").append(packagingid);
         sb.append(", packagingname=").append(packagingname);
         sb.append(", packagingweight=").append(packagingweight);
+        sb.append(", packagingclass=").append(packagingclass);
         sb.append(", orderweight=").append(orderweight);
         sb.append(", expresstypeid=").append(expresstypeid);
+        sb.append(", oper1=").append(oper1);
+        sb.append(", oper2=").append(oper2);
         sb.append(", sellnum=").append(sellnum);
         sb.append(", ordernum=").append(ordernum);
         sb.append(", storageid=").append(storageid);
+        sb.append(", locationid=").append(locationid);
         sb.append(", location=").append(location);
         sb.append(", storage=").append(storage);
         sb.append(", ordersource=").append(ordersource);
@@ -2204,16 +2238,28 @@ public class DbOrderHistory implements Serializable {
         sb.append(", refundloss=").append(refundloss);
         sb.append(", refundoriginal=").append(refundoriginal);
         sb.append(", bansendflag=").append(bansendflag);
+        sb.append(", slreserve1=").append(slreserve1);
+        sb.append(", slreserve2=").append(slreserve2);
+        sb.append(", slreserve3=").append(slreserve3);
+        sb.append(", slreserve4=").append(slreserve4);
         sb.append(", slreserve5=").append(slreserve5);
         sb.append(", slreserve6=").append(slreserve6);
         sb.append(", slreserve7=").append(slreserve7);
         sb.append(", slreserve8=").append(slreserve8);
         sb.append(", slreserve9=").append(slreserve9);
         sb.append(", slreserve10=").append(slreserve10);
+        sb.append(", xbreserve1=").append(xbreserve1);
+        sb.append(", xbreserve2=").append(xbreserve2);
+        sb.append(", xbreserve3=").append(xbreserve3);
+        sb.append(", xbreserve4=").append(xbreserve4);
         sb.append(", xbreserve5=").append(xbreserve5);
         sb.append(", xbreserve6=").append(xbreserve6);
         sb.append(", xbreserve7=").append(xbreserve7);
         sb.append(", xbreserve8=").append(xbreserve8);
+        sb.append(", qlreserve1=").append(qlreserve1);
+        sb.append(", qlreserve2=").append(qlreserve2);
+        sb.append(", qlreserve3=").append(qlreserve3);
+        sb.append(", qlreserve4=").append(qlreserve4);
         sb.append(", qlreserve5=").append(qlreserve5);
         sb.append(", qlreserve6=").append(qlreserve6);
         sb.append(", qlreserve7=").append(qlreserve7);
@@ -2235,60 +2281,11 @@ public class DbOrderHistory implements Serializable {
         sb.append(", unitmoney=").append(unitmoney);
         sb.append(", fixedmoney1=").append(fixedmoney1);
         sb.append(", fixedmoney2=").append(fixedmoney2);
+        sb.append(", paypacountry=").append(paypacountry);
+        sb.append(", paypalstatus=").append(paypalstatus);
         sb.append(", paypalfeeamount=").append(paypalfeeamount);
         sb.append(", paypalgrossamount=").append(paypalgrossamount);
         sb.append(", paypalnetamount=").append(paypalnetamount);
-        sb.append(", unitweight=").append(unitweight);
-        sb.append(", paypalflag=").append(paypalflag);
-        sb.append(", printtime=").append(printtime);
-        sb.append(", groupid=").append(groupid);
-        sb.append(", customerprovince=").append(customerprovince);
-        sb.append(", customeraddress=").append(customeraddress);
-        sb.append(", statusdescr=").append(statusdescr);
-        sb.append(", content=").append(content);
-        sb.append(", descr1=").append(descr1);
-        sb.append(", descr2=").append(descr2);
-        sb.append(", descr3=").append(descr3);
-        sb.append(", reserve1=").append(reserve1);
-        sb.append(", reserve2=").append(reserve2);
-        sb.append(", reserve3=").append(reserve3);
-        sb.append(", reserve4=").append(reserve4);
-        sb.append(", reserve5=").append(reserve5);
-        sb.append(", reserve6=").append(reserve6);
-        sb.append(", reserve7=").append(reserve7);
-        sb.append(", reserve8=").append(reserve8);
-        sb.append(", reserve9=").append(reserve9);
-        sb.append(", reserve10=").append(reserve10);
-        sb.append(", reserve11=").append(reserve11);
-        sb.append(", reserve12=").append(reserve12);
-        sb.append(", reserve13=").append(reserve13);
-        sb.append(", reserve14=").append(reserve14);
-        sb.append(", reserve15=").append(reserve15);
-        sb.append(", reserve16=").append(reserve16);
-        sb.append(", reserve17=").append(reserve17);
-        sb.append(", reserve18=").append(reserve18);
-        sb.append(", reserve19=").append(reserve19);
-        sb.append(", reserve20=").append(reserve20);
-        sb.append(", notestoyourself=").append(notestoyourself);
-        sb.append(", postageservice=").append(postageservice);
-        sb.append(", packagingclass=").append(packagingclass);
-        sb.append(", oper1=").append(oper1);
-        sb.append(", oper2=").append(oper2);
-        sb.append(", locationid=").append(locationid);
-        sb.append(", slreserve1=").append(slreserve1);
-        sb.append(", slreserve2=").append(slreserve2);
-        sb.append(", slreserve3=").append(slreserve3);
-        sb.append(", slreserve4=").append(slreserve4);
-        sb.append(", xbreserve1=").append(xbreserve1);
-        sb.append(", xbreserve2=").append(xbreserve2);
-        sb.append(", xbreserve3=").append(xbreserve3);
-        sb.append(", xbreserve4=").append(xbreserve4);
-        sb.append(", qlreserve1=").append(qlreserve1);
-        sb.append(", qlreserve2=").append(qlreserve2);
-        sb.append(", qlreserve3=").append(qlreserve3);
-        sb.append(", qlreserve4=").append(qlreserve4);
-        sb.append(", paypacountry=").append(paypacountry);
-        sb.append(", paypalstatus=").append(paypalstatus);
         sb.append(", paypalstreet=").append(paypalstreet);
         sb.append(", paypalstreet1=").append(paypalstreet1);
         sb.append(", paypalstreet2=").append(paypalstreet2);
@@ -2296,6 +2293,9 @@ public class DbOrderHistory implements Serializable {
         sb.append(", paypalprovince=").append(paypalprovince);
         sb.append(", ebaycustomeraddress=").append(ebaycustomeraddress);
         sb.append(", paypalcustomeraddress=").append(paypalcustomeraddress);
+        sb.append(", unitweight=").append(unitweight);
+        sb.append(", paypalflag=").append(paypalflag);
+        sb.append(", printtime=").append(printtime);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

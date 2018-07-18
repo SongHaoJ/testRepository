@@ -18,16 +18,16 @@
   <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
     select SEQUENCEID, SHOPPINGSERVICEID, OPER, SHOPPINGTIMEMIN, OPENFLAG, EXPRESSTYPE, 
     OPERTIME, SITE, SHOPPINGTIMEMAX, SHOPPINGSERVICE, INTERNATIONALSERVICE, WEIGHTREQUIRED
-    from db_ebay_expresspublished
+    from DB_EBAY_EXPRESSPUBLISHED
     where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SEQUENCEID, SHOPPINGSERVICEID, OPER, SHOPPINGTIMEMIN, OPENFLAG, EXPRESSTYPE, 
     OPERTIME, SITE, SHOPPINGTIMEMAX, SHOPPINGSERVICE, INTERNATIONALSERVICE, WEIGHTREQUIRED
-    from db_ebay_expresspublished
+    from DB_EBAY_EXPRESSPUBLISHED
   </select>
   <sql id="TableName">
-    db_ebay_expresspublished
+    DB_EBAY_EXPRESSPUBLISHED
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=DECIMAL} , 
@@ -41,7 +41,7 @@
      #{shoppingtimemax,jdbcType=VARCHAR} , 
      #{shoppingservice,jdbcType=VARCHAR} , 
      #{internationalservice,jdbcType=VARCHAR} , 
-     #{weightrequired,jdbcType=VARCHAR}
+     #{weightrequired,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
@@ -55,85 +55,85 @@
     SHOPPINGTIMEMAX , 
     SHOPPINGSERVICE , 
     INTERNATIONALSERVICE , 
-    WEIGHTREQUIRED
+    WEIGHTREQUIRED , 
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} and 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} and 
     </if>
     <if test="shoppingserviceid != null">
-      SHOPPINGSERVICEID = #{shoppingserviceid,jdbcType=VARCHAR} and 
+      shoppingserviceid = #{shoppingserviceid,jdbcType=VARCHAR} and 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
+      oper = #{oper,jdbcType=VARCHAR} and 
     </if>
     <if test="shoppingtimemin != null">
-      SHOPPINGTIMEMIN = #{shoppingtimemin,jdbcType=VARCHAR} and 
+      shoppingtimemin = #{shoppingtimemin,jdbcType=VARCHAR} and 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
+      openflag = #{openflag,jdbcType=VARCHAR} and 
     </if>
     <if test="expresstype != null">
-      EXPRESSTYPE = #{expresstype,jdbcType=VARCHAR} and 
+      expresstype = #{expresstype,jdbcType=VARCHAR} and 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="site != null">
-      SITE = #{site,jdbcType=VARCHAR} and 
+      site = #{site,jdbcType=VARCHAR} and 
     </if>
     <if test="shoppingtimemax != null">
-      SHOPPINGTIMEMAX = #{shoppingtimemax,jdbcType=VARCHAR} and 
+      shoppingtimemax = #{shoppingtimemax,jdbcType=VARCHAR} and 
     </if>
     <if test="shoppingservice != null">
-      SHOPPINGSERVICE = #{shoppingservice,jdbcType=VARCHAR} and 
+      shoppingservice = #{shoppingservice,jdbcType=VARCHAR} and 
     </if>
     <if test="internationalservice != null">
-      INTERNATIONALSERVICE = #{internationalservice,jdbcType=VARCHAR} and 
+      internationalservice = #{internationalservice,jdbcType=VARCHAR} and 
     </if>
     <if test="weightrequired != null">
-      WEIGHTREQUIRED = #{weightrequired,jdbcType=VARCHAR}
+      weightrequired = #{weightrequired,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} , 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} , 
     </if>
     <if test="shoppingserviceid != null">
-      SHOPPINGSERVICEID = #{shoppingserviceid,jdbcType=VARCHAR} , 
+      shoppingserviceid = #{shoppingserviceid,jdbcType=VARCHAR} , 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
+      oper = #{oper,jdbcType=VARCHAR} , 
     </if>
     <if test="shoppingtimemin != null">
-      SHOPPINGTIMEMIN = #{shoppingtimemin,jdbcType=VARCHAR} , 
+      shoppingtimemin = #{shoppingtimemin,jdbcType=VARCHAR} , 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
+      openflag = #{openflag,jdbcType=VARCHAR} , 
     </if>
     <if test="expresstype != null">
-      EXPRESSTYPE = #{expresstype,jdbcType=VARCHAR} , 
+      expresstype = #{expresstype,jdbcType=VARCHAR} , 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="site != null">
-      SITE = #{site,jdbcType=VARCHAR} , 
+      site = #{site,jdbcType=VARCHAR} , 
     </if>
     <if test="shoppingtimemax != null">
-      SHOPPINGTIMEMAX = #{shoppingtimemax,jdbcType=VARCHAR} , 
+      shoppingtimemax = #{shoppingtimemax,jdbcType=VARCHAR} , 
     </if>
     <if test="shoppingservice != null">
-      SHOPPINGSERVICE = #{shoppingservice,jdbcType=VARCHAR} , 
+      shoppingservice = #{shoppingservice,jdbcType=VARCHAR} , 
     </if>
     <if test="internationalservice != null">
-      INTERNATIONALSERVICE = #{internationalservice,jdbcType=VARCHAR} , 
+      internationalservice = #{internationalservice,jdbcType=VARCHAR} , 
     </if>
     <if test="weightrequired != null">
-      WEIGHTREQUIRED = #{weightrequired,jdbcType=VARCHAR}
+      weightrequired = #{weightrequired,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbEbayExpresspublished" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

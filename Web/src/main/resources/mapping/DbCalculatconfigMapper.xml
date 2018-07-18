@@ -17,16 +17,16 @@
   <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
     select ID, PAYPALRATEB, OPER, FINALVALUEFEERATE, POSITION, PUBLISHFEE, OPERTIME, 
     SITE, PAYPALRATEL, EXTRAFEEL, EXTRAFEEB
-    from db_calculatconfig
+    from DB_CALCULATCONFIG
     where ID = #{id,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select ID, PAYPALRATEB, OPER, FINALVALUEFEERATE, POSITION, PUBLISHFEE, OPERTIME, 
     SITE, PAYPALRATEL, EXTRAFEEL, EXTRAFEEB
-    from db_calculatconfig
+    from DB_CALCULATCONFIG
   </select>
   <sql id="TableName">
-    db_calculatconfig
+    DB_CALCULATCONFIG
   </sql>
   <sql id="Values">
      #{id,jdbcType=DECIMAL} , 
@@ -39,7 +39,7 @@
      #{site,jdbcType=VARCHAR} , 
      #{paypalratel,jdbcType=DECIMAL} , 
      #{extrafeel,jdbcType=DECIMAL} , 
-     #{extrafeeb,jdbcType=DECIMAL}
+     #{extrafeeb,jdbcType=DECIMAL} , 
   </sql>
   <sql id="Columns">
     ID , 
@@ -52,79 +52,79 @@
     SITE , 
     PAYPALRATEL , 
     EXTRAFEEL , 
-    EXTRAFEEB
+    EXTRAFEEB , 
   </sql>
   <sql id="Criteria">
     <if test="id != null">
-      ID = #{id,jdbcType=DECIMAL} and 
+      id = #{id,jdbcType=DECIMAL} and 
     </if>
     <if test="paypalrateb != null">
-      PAYPALRATEB = #{paypalrateb,jdbcType=DECIMAL} and 
+      paypalrateb = #{paypalrateb,jdbcType=DECIMAL} and 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
+      oper = #{oper,jdbcType=VARCHAR} and 
     </if>
     <if test="finalvaluefeerate != null">
-      FINALVALUEFEERATE = #{finalvaluefeerate,jdbcType=DECIMAL} and 
+      finalvaluefeerate = #{finalvaluefeerate,jdbcType=DECIMAL} and 
     </if>
     <if test="position != null">
-      POSITION = #{position,jdbcType=DECIMAL} and 
+      position = #{position,jdbcType=DECIMAL} and 
     </if>
     <if test="publishfee != null">
-      PUBLISHFEE = #{publishfee,jdbcType=DECIMAL} and 
+      publishfee = #{publishfee,jdbcType=DECIMAL} and 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="site != null">
-      SITE = #{site,jdbcType=VARCHAR} and 
+      site = #{site,jdbcType=VARCHAR} and 
     </if>
     <if test="paypalratel != null">
-      PAYPALRATEL = #{paypalratel,jdbcType=DECIMAL} and 
+      paypalratel = #{paypalratel,jdbcType=DECIMAL} and 
     </if>
     <if test="extrafeel != null">
-      EXTRAFEEL = #{extrafeel,jdbcType=DECIMAL} and 
+      extrafeel = #{extrafeel,jdbcType=DECIMAL} and 
     </if>
     <if test="extrafeeb != null">
-      EXTRAFEEB = #{extrafeeb,jdbcType=DECIMAL}
+      extrafeeb = #{extrafeeb,jdbcType=DECIMAL} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="id != null">
-      ID = #{id,jdbcType=DECIMAL} , 
+      id = #{id,jdbcType=DECIMAL} , 
     </if>
     <if test="paypalrateb != null">
-      PAYPALRATEB = #{paypalrateb,jdbcType=DECIMAL} , 
+      paypalrateb = #{paypalrateb,jdbcType=DECIMAL} , 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
+      oper = #{oper,jdbcType=VARCHAR} , 
     </if>
     <if test="finalvaluefeerate != null">
-      FINALVALUEFEERATE = #{finalvaluefeerate,jdbcType=DECIMAL} , 
+      finalvaluefeerate = #{finalvaluefeerate,jdbcType=DECIMAL} , 
     </if>
     <if test="position != null">
-      POSITION = #{position,jdbcType=DECIMAL} , 
+      position = #{position,jdbcType=DECIMAL} , 
     </if>
     <if test="publishfee != null">
-      PUBLISHFEE = #{publishfee,jdbcType=DECIMAL} , 
+      publishfee = #{publishfee,jdbcType=DECIMAL} , 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="site != null">
-      SITE = #{site,jdbcType=VARCHAR} , 
+      site = #{site,jdbcType=VARCHAR} , 
     </if>
     <if test="paypalratel != null">
-      PAYPALRATEL = #{paypalratel,jdbcType=DECIMAL} , 
+      paypalratel = #{paypalratel,jdbcType=DECIMAL} , 
     </if>
     <if test="extrafeel != null">
-      EXTRAFEEL = #{extrafeel,jdbcType=DECIMAL} , 
+      extrafeel = #{extrafeel,jdbcType=DECIMAL} , 
     </if>
     <if test="extrafeeb != null">
-      EXTRAFEEB = #{extrafeeb,jdbcType=DECIMAL}
+      extrafeeb = #{extrafeeb,jdbcType=DECIMAL} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbCalculatconfig" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

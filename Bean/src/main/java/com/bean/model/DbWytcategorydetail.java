@@ -8,11 +8,11 @@ public class DbWytcategorydetail implements Serializable {
 
     private String name;
 
+    private String mwarehouseaddress;
+
     private String costomerid;
 
     private BigDecimal flag;
-
-    private String mwarehouseaddress;
 
     private static final long serialVersionUID = 1L;
 
@@ -32,6 +32,14 @@ public class DbWytcategorydetail implements Serializable {
         this.name = name == null ? null : name.trim();
     }
 
+    public String getMwarehouseaddress() {
+        return mwarehouseaddress;
+    }
+
+    public void setMwarehouseaddress(String mwarehouseaddress) {
+        this.mwarehouseaddress = mwarehouseaddress == null ? null : mwarehouseaddress.trim();
+    }
+
     public String getCostomerid() {
         return costomerid;
     }
@@ -48,14 +56,6 @@ public class DbWytcategorydetail implements Serializable {
         this.flag = flag;
     }
 
-    public String getMwarehouseaddress() {
-        return mwarehouseaddress;
-    }
-
-    public void setMwarehouseaddress(String mwarehouseaddress) {
-        this.mwarehouseaddress = mwarehouseaddress == null ? null : mwarehouseaddress.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -70,9 +70,9 @@ public class DbWytcategorydetail implements Serializable {
         DbWytcategorydetail other = (DbWytcategorydetail) that;
         return (this.getMwarehouseid() == null ? other.getMwarehouseid() == null : this.getMwarehouseid().equals(other.getMwarehouseid()))
             && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
+            && (this.getMwarehouseaddress() == null ? other.getMwarehouseaddress() == null : this.getMwarehouseaddress().equals(other.getMwarehouseaddress()))
             && (this.getCostomerid() == null ? other.getCostomerid() == null : this.getCostomerid().equals(other.getCostomerid()))
-            && (this.getFlag() == null ? other.getFlag() == null : this.getFlag().equals(other.getFlag()))
-            && (this.getMwarehouseaddress() == null ? other.getMwarehouseaddress() == null : this.getMwarehouseaddress().equals(other.getMwarehouseaddress()));
+            && (this.getFlag() == null ? other.getFlag() == null : this.getFlag().equals(other.getFlag()));
     }
 
     @Override
@@ -81,9 +81,9 @@ public class DbWytcategorydetail implements Serializable {
         int result = 1;
         result = prime * result + ((getMwarehouseid() == null) ? 0 : getMwarehouseid().hashCode());
         result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
+        result = prime * result + ((getMwarehouseaddress() == null) ? 0 : getMwarehouseaddress().hashCode());
         result = prime * result + ((getCostomerid() == null) ? 0 : getCostomerid().hashCode());
         result = prime * result + ((getFlag() == null) ? 0 : getFlag().hashCode());
-        result = prime * result + ((getMwarehouseaddress() == null) ? 0 : getMwarehouseaddress().hashCode());
         return result;
     }
 
@@ -95,9 +95,9 @@ public class DbWytcategorydetail implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", mwarehouseid=").append(mwarehouseid);
         sb.append(", name=").append(name);
+        sb.append(", mwarehouseaddress=").append(mwarehouseaddress);
         sb.append(", costomerid=").append(costomerid);
         sb.append(", flag=").append(flag);
-        sb.append(", mwarehouseaddress=").append(mwarehouseaddress);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

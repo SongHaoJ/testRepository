@@ -4,6 +4,7 @@
   <resultMap id="BaseResultMap" type="com.bean.model.DbEnmity">
     <id column="SEQUENCEID" jdbcType="DECIMAL" property="sequenceid" />
     <result column="SHOPNAME" jdbcType="VARCHAR" property="shopname" />
+    <result column="DESCR" jdbcType="VARCHAR" property="descr" />
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
     <result column="OPENFLAG" jdbcType="DECIMAL" property="openflag" />
@@ -12,25 +13,25 @@
     <result column="EBAYITEMID" jdbcType="VARCHAR" property="ebayitemid" />
     <result column="USERNAME" jdbcType="VARCHAR" property="username" />
     <result column="USERNEME" jdbcType="VARCHAR" property="userneme" />
-    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
-    select SEQUENCEID, SHOPNAME, OPER, OPERTIME, OPENFLAG, STATUS, CORPID, EBAYITEMID, 
-    USERNAME, USERNEME, DESCR
-    from db_enmity
+    select SEQUENCEID, SHOPNAME, DESCR, OPER, OPERTIME, OPENFLAG, STATUS, CORPID, EBAYITEMID, 
+    USERNAME, USERNEME
+    from DB_ENMITY
     where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select SEQUENCEID, SHOPNAME, OPER, OPERTIME, OPENFLAG, STATUS, CORPID, EBAYITEMID, 
-    USERNAME, USERNEME, DESCR
-    from db_enmity
+    select SEQUENCEID, SHOPNAME, DESCR, OPER, OPERTIME, OPENFLAG, STATUS, CORPID, EBAYITEMID, 
+    USERNAME, USERNEME
+    from DB_ENMITY
   </select>
   <sql id="TableName">
-    db_enmity
+    DB_ENMITY
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=DECIMAL} , 
      #{shopname,jdbcType=VARCHAR} , 
+     #{descr,jdbcType=VARCHAR} , 
      #{oper,jdbcType=VARCHAR} , 
      #{opertime,jdbcType=TIMESTAMP} , 
      #{openflag,jdbcType=DECIMAL} , 
@@ -39,11 +40,11 @@
      #{ebayitemid,jdbcType=VARCHAR} , 
      #{username,jdbcType=VARCHAR} , 
      #{userneme,jdbcType=VARCHAR} , 
-     #{descr,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
     SHOPNAME , 
+    DESCR , 
     OPER , 
     OPERTIME , 
     OPENFLAG , 
@@ -52,79 +53,78 @@
     EBAYITEMID , 
     USERNAME , 
     USERNEME , 
-    DESCR
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} and 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} and 
     </if>
     <if test="shopname != null">
-      SHOPNAME = #{shopname,jdbcType=VARCHAR} and 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=DECIMAL} and 
-    </if>
-    <if test="status != null">
-      STATUS = #{status,jdbcType=DECIMAL} and 
-    </if>
-    <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=DECIMAL} and 
-    </if>
-    <if test="ebayitemid != null">
-      EBAYITEMID = #{ebayitemid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="username != null">
-      USERNAME = #{username,jdbcType=VARCHAR} and 
-    </if>
-    <if test="userneme != null">
-      USERNEME = #{userneme,jdbcType=VARCHAR} and 
+      shopname = #{shopname,jdbcType=VARCHAR} and 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR}
+      descr = #{descr,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="status != null">
+      status = #{status,jdbcType=DECIMAL} and 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="ebayitemid != null">
+      ebayitemid = #{ebayitemid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="username != null">
+      username = #{username,jdbcType=VARCHAR} and 
+    </if>
+    <if test="userneme != null">
+      userneme = #{userneme,jdbcType=VARCHAR} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} , 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} , 
     </if>
     <if test="shopname != null">
-      SHOPNAME = #{shopname,jdbcType=VARCHAR} , 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=DECIMAL} , 
-    </if>
-    <if test="status != null">
-      STATUS = #{status,jdbcType=DECIMAL} , 
-    </if>
-    <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=DECIMAL} , 
-    </if>
-    <if test="ebayitemid != null">
-      EBAYITEMID = #{ebayitemid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="username != null">
-      USERNAME = #{username,jdbcType=VARCHAR} , 
-    </if>
-    <if test="userneme != null">
-      USERNEME = #{userneme,jdbcType=VARCHAR} , 
+      shopname = #{shopname,jdbcType=VARCHAR} , 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR}
+      descr = #{descr,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="status != null">
+      status = #{status,jdbcType=DECIMAL} , 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="ebayitemid != null">
+      ebayitemid = #{ebayitemid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="username != null">
+      username = #{username,jdbcType=VARCHAR} , 
+    </if>
+    <if test="userneme != null">
+      userneme = #{userneme,jdbcType=VARCHAR} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbEnmity" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

@@ -1,0 +1,823 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbResultlistMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbResultlist">
+    <id column="SID" jdbcType="VARCHAR" property="sid" />
+    <result column="SKU" jdbcType="VARCHAR" property="sku" />
+    <result column="ITEMID" jdbcType="VARCHAR" property="itemid" />
+    <result column="KEYWORDID" jdbcType="VARCHAR" property="keywordid" />
+    <result column="KEYWORD" jdbcType="VARCHAR" property="keyword" />
+    <result column="CATEGORYID" jdbcType="VARCHAR" property="categoryid" />
+    <result column="CATEGORY" jdbcType="VARCHAR" property="category" />
+    <result column="SHOPID" jdbcType="VARCHAR" property="shopid" />
+    <result column="SHOP" jdbcType="VARCHAR" property="shop" />
+    <result column="EBAYSKU" jdbcType="VARCHAR" property="ebaysku" />
+    <result column="EBAYITEMID" jdbcType="VARCHAR" property="ebayitemid" />
+    <result column="EBAYMONEYTYPE" jdbcType="VARCHAR" property="ebaymoneytype" />
+    <result column="EBAYSELLPRICE" jdbcType="DECIMAL" property="ebaysellprice" />
+    <result column="EBAYPICTURE1" jdbcType="VARCHAR" property="ebaypicture1" />
+    <result column="EBAYPICTURE2" jdbcType="VARCHAR" property="ebaypicture2" />
+    <result column="EBAYPICTURE3" jdbcType="VARCHAR" property="ebaypicture3" />
+    <result column="EBAYPICTURE4" jdbcType="VARCHAR" property="ebaypicture4" />
+    <result column="EBAYVIEWITEMURL" jdbcType="VARCHAR" property="ebayviewitemurl" />
+    <result column="EBAYPAYMETHOD" jdbcType="VARCHAR" property="ebaypaymethod" />
+    <result column="EBAYCATEGORYID" jdbcType="VARCHAR" property="ebaycategoryid" />
+    <result column="EBAYCATEGORYNAME" jdbcType="VARCHAR" property="ebaycategoryname" />
+    <result column="EBAYQUANTITY" jdbcType="DECIMAL" property="ebayquantity" />
+    <result column="EBAYQUATITYTHRESTHOD" jdbcType="DECIMAL" property="ebayquatitythresthod" />
+    <result column="EBAYQUATITYTHOD" jdbcType="DECIMAL" property="ebayquatitythod" />
+    <result column="EBAYSITE" jdbcType="VARCHAR" property="ebaysite" />
+    <result column="EBAYSHOPNAME" jdbcType="VARCHAR" property="ebayshopname" />
+    <result column="EBAYITEMSTATUS" jdbcType="VARCHAR" property="ebayitemstatus" />
+    <result column="EBAYTITLE" jdbcType="VARCHAR" property="ebaytitle" />
+    <result column="FLAG" jdbcType="DECIMAL" property="flag" />
+    <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="KEYWORDFLAG" jdbcType="DECIMAL" property="keywordflag" />
+    <result column="CATEGORYFLAG" jdbcType="DECIMAL" property="categoryflag" />
+    <result column="SHOPFLAG" jdbcType="DECIMAL" property="shopflag" />
+    <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="RESERVE5" jdbcType="DECIMAL" property="reserve5" />
+    <result column="RESERVE6" jdbcType="DECIMAL" property="reserve6" />
+    <result column="RESERVE7" jdbcType="DECIMAL" property="reserve7" />
+    <result column="RESERVE8" jdbcType="DECIMAL" property="reserve8" />
+    <result column="RESERVE9" jdbcType="DECIMAL" property="reserve9" />
+    <result column="RESERVE10" jdbcType="DECIMAL" property="reserve10" />
+    <result column="EBAYCOUNTRY" jdbcType="VARCHAR" property="ebaycountry" />
+    <result column="EBAYGALLERURL" jdbcType="VARCHAR" property="ebaygallerurl" />
+    <result column="EBAYSTARTTIME" jdbcType="TIMESTAMP" property="ebaystarttime" />
+    <result column="EBAYENDTIME" jdbcType="TIMESTAMP" property="ebayendtime" />
+    <result column="EBAYLOCATION" jdbcType="VARCHAR" property="ebaylocation" />
+    <result column="EBAYITEMURL" jdbcType="VARCHAR" property="ebayitemurl" />
+    <result column="EBAYSHOPINGTYPE" jdbcType="VARCHAR" property="ebayshopingtype" />
+    <result column="EBAYSHOPINGCOST" jdbcType="DECIMAL" property="ebayshopingcost" />
+    <result column="EBAYSHOPINGMONEYTYPE" jdbcType="VARCHAR" property="ebayshopingmoneytype" />
+    <result column="EBAYCURRENTPRICE" jdbcType="DECIMAL" property="ebaycurrentprice" />
+    <result column="EBAYDAYLEFT" jdbcType="DECIMAL" property="ebaydayleft" />
+    <result column="EBAYHHLEFT" jdbcType="DECIMAL" property="ebayhhleft" />
+    <result column="EBAYMMLEFT" jdbcType="DECIMAL" property="ebaymmleft" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbResultlist">
+    <result column="EBAYDECSR" jdbcType="LONGVARCHAR" property="ebaydecsr" />
+    <result column="RESERVE3" jdbcType="LONGVARCHAR" property="reserve3" />
+    <result column="RESERVE4" jdbcType="LONGVARCHAR" property="reserve4" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SID, SKU, ITEMID, KEYWORDID, KEYWORD, CATEGORYID, CATEGORY, SHOPID, SHOP, EBAYSKU, 
+    EBAYITEMID, EBAYMONEYTYPE, EBAYSELLPRICE, EBAYPICTURE1, EBAYPICTURE2, EBAYPICTURE3, 
+    EBAYPICTURE4, EBAYVIEWITEMURL, EBAYPAYMETHOD, EBAYCATEGORYID, EBAYCATEGORYNAME, EBAYQUANTITY, 
+    EBAYQUATITYTHRESTHOD, EBAYQUATITYTHOD, EBAYSITE, EBAYSHOPNAME, EBAYITEMSTATUS, EBAYTITLE, 
+    FLAG, OPENFLAG, OPER, OPERTIME, CREATETIME, KEYWORDFLAG, CATEGORYFLAG, SHOPFLAG, 
+    CORPID, RESERVE1, RESERVE2, RESERVE5, RESERVE6, RESERVE7, RESERVE8, RESERVE9, RESERVE10, 
+    EBAYCOUNTRY, EBAYGALLERURL, EBAYSTARTTIME, EBAYENDTIME, EBAYLOCATION, EBAYITEMURL, 
+    EBAYSHOPINGTYPE, EBAYSHOPINGCOST, EBAYSHOPINGMONEYTYPE, EBAYCURRENTPRICE, EBAYDAYLEFT, 
+    EBAYHHLEFT, EBAYMMLEFT
+  </sql>
+  <sql id="Blob_Column_List">
+    EBAYDECSR, RESERVE3, RESERVE4
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from db_resultlist
+    where SID = #{sid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from db_resultlist
+    where SID = #{sid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bean.model.DbResultlist">
+    insert into db_resultlist (SID, SKU, ITEMID, 
+      KEYWORDID, KEYWORD, CATEGORYID, 
+      CATEGORY, SHOPID, SHOP, 
+      EBAYSKU, EBAYITEMID, EBAYMONEYTYPE, 
+      EBAYSELLPRICE, EBAYPICTURE1, EBAYPICTURE2, 
+      EBAYPICTURE3, EBAYPICTURE4, EBAYVIEWITEMURL, 
+      EBAYPAYMETHOD, EBAYCATEGORYID, EBAYCATEGORYNAME, 
+      EBAYQUANTITY, EBAYQUATITYTHRESTHOD, EBAYQUATITYTHOD, 
+      EBAYSITE, EBAYSHOPNAME, EBAYITEMSTATUS, 
+      EBAYTITLE, FLAG, OPENFLAG, 
+      OPER, OPERTIME, CREATETIME, 
+      KEYWORDFLAG, CATEGORYFLAG, SHOPFLAG, 
+      CORPID, RESERVE1, RESERVE2, 
+      RESERVE5, RESERVE6, RESERVE7, 
+      RESERVE8, RESERVE9, RESERVE10, 
+      EBAYCOUNTRY, EBAYGALLERURL, EBAYSTARTTIME, 
+      EBAYENDTIME, EBAYLOCATION, EBAYITEMURL, 
+      EBAYSHOPINGTYPE, EBAYSHOPINGCOST, EBAYSHOPINGMONEYTYPE, 
+      EBAYCURRENTPRICE, EBAYDAYLEFT, EBAYHHLEFT, 
+      EBAYMMLEFT, EBAYDECSR, RESERVE3, 
+      RESERVE4)
+    values (#{sid,jdbcType=VARCHAR}, #{sku,jdbcType=VARCHAR}, #{itemid,jdbcType=VARCHAR}, 
+      #{keywordid,jdbcType=VARCHAR}, #{keyword,jdbcType=VARCHAR}, #{categoryid,jdbcType=VARCHAR}, 
+      #{category,jdbcType=VARCHAR}, #{shopid,jdbcType=VARCHAR}, #{shop,jdbcType=VARCHAR}, 
+      #{ebaysku,jdbcType=VARCHAR}, #{ebayitemid,jdbcType=VARCHAR}, #{ebaymoneytype,jdbcType=VARCHAR}, 
+      #{ebaysellprice,jdbcType=DECIMAL}, #{ebaypicture1,jdbcType=VARCHAR}, #{ebaypicture2,jdbcType=VARCHAR}, 
+      #{ebaypicture3,jdbcType=VARCHAR}, #{ebaypicture4,jdbcType=VARCHAR}, #{ebayviewitemurl,jdbcType=VARCHAR}, 
+      #{ebaypaymethod,jdbcType=VARCHAR}, #{ebaycategoryid,jdbcType=VARCHAR}, #{ebaycategoryname,jdbcType=VARCHAR}, 
+      #{ebayquantity,jdbcType=DECIMAL}, #{ebayquatitythresthod,jdbcType=DECIMAL}, #{ebayquatitythod,jdbcType=DECIMAL}, 
+      #{ebaysite,jdbcType=VARCHAR}, #{ebayshopname,jdbcType=VARCHAR}, #{ebayitemstatus,jdbcType=VARCHAR}, 
+      #{ebaytitle,jdbcType=VARCHAR}, #{flag,jdbcType=DECIMAL}, #{openflag,jdbcType=VARCHAR}, 
+      #{oper,jdbcType=VARCHAR}, #{opertime,jdbcType=TIMESTAMP}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{keywordflag,jdbcType=DECIMAL}, #{categoryflag,jdbcType=DECIMAL}, #{shopflag,jdbcType=DECIMAL}, 
+      #{corpid,jdbcType=VARCHAR}, #{reserve1,jdbcType=VARCHAR}, #{reserve2,jdbcType=VARCHAR}, 
+      #{reserve5,jdbcType=DECIMAL}, #{reserve6,jdbcType=DECIMAL}, #{reserve7,jdbcType=DECIMAL}, 
+      #{reserve8,jdbcType=DECIMAL}, #{reserve9,jdbcType=DECIMAL}, #{reserve10,jdbcType=DECIMAL}, 
+      #{ebaycountry,jdbcType=VARCHAR}, #{ebaygallerurl,jdbcType=VARCHAR}, #{ebaystarttime,jdbcType=TIMESTAMP}, 
+      #{ebayendtime,jdbcType=TIMESTAMP}, #{ebaylocation,jdbcType=VARCHAR}, #{ebayitemurl,jdbcType=VARCHAR}, 
+      #{ebayshopingtype,jdbcType=VARCHAR}, #{ebayshopingcost,jdbcType=DECIMAL}, #{ebayshopingmoneytype,jdbcType=VARCHAR}, 
+      #{ebaycurrentprice,jdbcType=DECIMAL}, #{ebaydayleft,jdbcType=DECIMAL}, #{ebayhhleft,jdbcType=DECIMAL}, 
+      #{ebaymmleft,jdbcType=DECIMAL}, #{ebaydecsr,jdbcType=LONGVARCHAR}, #{reserve3,jdbcType=LONGVARCHAR}, 
+      #{reserve4,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbResultlist">
+    insert into db_resultlist
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        SID,
+      </if>
+      <if test="sku != null">
+        SKU,
+      </if>
+      <if test="itemid != null">
+        ITEMID,
+      </if>
+      <if test="keywordid != null">
+        KEYWORDID,
+      </if>
+      <if test="keyword != null">
+        KEYWORD,
+      </if>
+      <if test="categoryid != null">
+        CATEGORYID,
+      </if>
+      <if test="category != null">
+        CATEGORY,
+      </if>
+      <if test="shopid != null">
+        SHOPID,
+      </if>
+      <if test="shop != null">
+        SHOP,
+      </if>
+      <if test="ebaysku != null">
+        EBAYSKU,
+      </if>
+      <if test="ebayitemid != null">
+        EBAYITEMID,
+      </if>
+      <if test="ebaymoneytype != null">
+        EBAYMONEYTYPE,
+      </if>
+      <if test="ebaysellprice != null">
+        EBAYSELLPRICE,
+      </if>
+      <if test="ebaypicture1 != null">
+        EBAYPICTURE1,
+      </if>
+      <if test="ebaypicture2 != null">
+        EBAYPICTURE2,
+      </if>
+      <if test="ebaypicture3 != null">
+        EBAYPICTURE3,
+      </if>
+      <if test="ebaypicture4 != null">
+        EBAYPICTURE4,
+      </if>
+      <if test="ebayviewitemurl != null">
+        EBAYVIEWITEMURL,
+      </if>
+      <if test="ebaypaymethod != null">
+        EBAYPAYMETHOD,
+      </if>
+      <if test="ebaycategoryid != null">
+        EBAYCATEGORYID,
+      </if>
+      <if test="ebaycategoryname != null">
+        EBAYCATEGORYNAME,
+      </if>
+      <if test="ebayquantity != null">
+        EBAYQUANTITY,
+      </if>
+      <if test="ebayquatitythresthod != null">
+        EBAYQUATITYTHRESTHOD,
+      </if>
+      <if test="ebayquatitythod != null">
+        EBAYQUATITYTHOD,
+      </if>
+      <if test="ebaysite != null">
+        EBAYSITE,
+      </if>
+      <if test="ebayshopname != null">
+        EBAYSHOPNAME,
+      </if>
+      <if test="ebayitemstatus != null">
+        EBAYITEMSTATUS,
+      </if>
+      <if test="ebaytitle != null">
+        EBAYTITLE,
+      </if>
+      <if test="flag != null">
+        FLAG,
+      </if>
+      <if test="openflag != null">
+        OPENFLAG,
+      </if>
+      <if test="oper != null">
+        OPER,
+      </if>
+      <if test="opertime != null">
+        OPERTIME,
+      </if>
+      <if test="createtime != null">
+        CREATETIME,
+      </if>
+      <if test="keywordflag != null">
+        KEYWORDFLAG,
+      </if>
+      <if test="categoryflag != null">
+        CATEGORYFLAG,
+      </if>
+      <if test="shopflag != null">
+        SHOPFLAG,
+      </if>
+      <if test="corpid != null">
+        CORPID,
+      </if>
+      <if test="reserve1 != null">
+        RESERVE1,
+      </if>
+      <if test="reserve2 != null">
+        RESERVE2,
+      </if>
+      <if test="reserve5 != null">
+        RESERVE5,
+      </if>
+      <if test="reserve6 != null">
+        RESERVE6,
+      </if>
+      <if test="reserve7 != null">
+        RESERVE7,
+      </if>
+      <if test="reserve8 != null">
+        RESERVE8,
+      </if>
+      <if test="reserve9 != null">
+        RESERVE9,
+      </if>
+      <if test="reserve10 != null">
+        RESERVE10,
+      </if>
+      <if test="ebaycountry != null">
+        EBAYCOUNTRY,
+      </if>
+      <if test="ebaygallerurl != null">
+        EBAYGALLERURL,
+      </if>
+      <if test="ebaystarttime != null">
+        EBAYSTARTTIME,
+      </if>
+      <if test="ebayendtime != null">
+        EBAYENDTIME,
+      </if>
+      <if test="ebaylocation != null">
+        EBAYLOCATION,
+      </if>
+      <if test="ebayitemurl != null">
+        EBAYITEMURL,
+      </if>
+      <if test="ebayshopingtype != null">
+        EBAYSHOPINGTYPE,
+      </if>
+      <if test="ebayshopingcost != null">
+        EBAYSHOPINGCOST,
+      </if>
+      <if test="ebayshopingmoneytype != null">
+        EBAYSHOPINGMONEYTYPE,
+      </if>
+      <if test="ebaycurrentprice != null">
+        EBAYCURRENTPRICE,
+      </if>
+      <if test="ebaydayleft != null">
+        EBAYDAYLEFT,
+      </if>
+      <if test="ebayhhleft != null">
+        EBAYHHLEFT,
+      </if>
+      <if test="ebaymmleft != null">
+        EBAYMMLEFT,
+      </if>
+      <if test="ebaydecsr != null">
+        EBAYDECSR,
+      </if>
+      <if test="reserve3 != null">
+        RESERVE3,
+      </if>
+      <if test="reserve4 != null">
+        RESERVE4,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        #{sid,jdbcType=VARCHAR},
+      </if>
+      <if test="sku != null">
+        #{sku,jdbcType=VARCHAR},
+      </if>
+      <if test="itemid != null">
+        #{itemid,jdbcType=VARCHAR},
+      </if>
+      <if test="keywordid != null">
+        #{keywordid,jdbcType=VARCHAR},
+      </if>
+      <if test="keyword != null">
+        #{keyword,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryid != null">
+        #{categoryid,jdbcType=VARCHAR},
+      </if>
+      <if test="category != null">
+        #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="shopid != null">
+        #{shopid,jdbcType=VARCHAR},
+      </if>
+      <if test="shop != null">
+        #{shop,jdbcType=VARCHAR},
+      </if>
+      <if test="ebaysku != null">
+        #{ebaysku,jdbcType=VARCHAR},
+      </if>
+      <if test="ebayitemid != null">
+        #{ebayitemid,jdbcType=VARCHAR},
+      </if>
+      <if test="ebaymoneytype != null">
+        #{ebaymoneytype,jdbcType=VARCHAR},
+      </if>
+      <if test="ebaysellprice != null">
+        #{ebaysellprice,jdbcType=DECIMAL},
+      </if>
+      <if test="ebaypicture1 != null">
+        #{ebaypicture1,jdbcType=VARCHAR},
+      </if>
+      <if test="ebaypicture2 != null">
+        #{ebaypicture2,jdbcType=VARCHAR},
+      </if>
+      <if test="ebaypicture3 != null">
+        #{ebaypicture3,jdbcType=VARCHAR},
+      </if>
+      <if test="ebaypicture4 != null">
+        #{ebaypicture4,jdbcType=VARCHAR},
+      </if>
+      <if test="ebayviewitemurl != null">
+        #{ebayviewitemurl,jdbcType=VARCHAR},
+      </if>
+      <if test="ebaypaymethod != null">
+        #{ebaypaymethod,jdbcType=VARCHAR},
+      </if>
+      <if test="ebaycategoryid != null">
+        #{ebaycategoryid,jdbcType=VARCHAR},
+      </if>
+      <if test="ebaycategoryname != null">
+        #{ebaycategoryname,jdbcType=VARCHAR},
+      </if>
+      <if test="ebayquantity != null">
+        #{ebayquantity,jdbcType=DECIMAL},
+      </if>
+      <if test="ebayquatitythresthod != null">
+        #{ebayquatitythresthod,jdbcType=DECIMAL},
+      </if>
+      <if test="ebayquatitythod != null">
+        #{ebayquatitythod,jdbcType=DECIMAL},
+      </if>
+      <if test="ebaysite != null">
+        #{ebaysite,jdbcType=VARCHAR},
+      </if>
+      <if test="ebayshopname != null">
+        #{ebayshopname,jdbcType=VARCHAR},
+      </if>
+      <if test="ebayitemstatus != null">
+        #{ebayitemstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="ebaytitle != null">
+        #{ebaytitle,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=DECIMAL},
+      </if>
+      <if test="openflag != null">
+        #{openflag,jdbcType=VARCHAR},
+      </if>
+      <if test="oper != null">
+        #{oper,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null">
+        #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="keywordflag != null">
+        #{keywordflag,jdbcType=DECIMAL},
+      </if>
+      <if test="categoryflag != null">
+        #{categoryflag,jdbcType=DECIMAL},
+      </if>
+      <if test="shopflag != null">
+        #{shopflag,jdbcType=DECIMAL},
+      </if>
+      <if test="corpid != null">
+        #{corpid,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve1 != null">
+        #{reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve2 != null">
+        #{reserve2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve5 != null">
+        #{reserve5,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve6 != null">
+        #{reserve6,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve7 != null">
+        #{reserve7,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve8 != null">
+        #{reserve8,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve9 != null">
+        #{reserve9,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve10 != null">
+        #{reserve10,jdbcType=DECIMAL},
+      </if>
+      <if test="ebaycountry != null">
+        #{ebaycountry,jdbcType=VARCHAR},
+      </if>
+      <if test="ebaygallerurl != null">
+        #{ebaygallerurl,jdbcType=VARCHAR},
+      </if>
+      <if test="ebaystarttime != null">
+        #{ebaystarttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ebayendtime != null">
+        #{ebayendtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ebaylocation != null">
+        #{ebaylocation,jdbcType=VARCHAR},
+      </if>
+      <if test="ebayitemurl != null">
+        #{ebayitemurl,jdbcType=VARCHAR},
+      </if>
+      <if test="ebayshopingtype != null">
+        #{ebayshopingtype,jdbcType=VARCHAR},
+      </if>
+      <if test="ebayshopingcost != null">
+        #{ebayshopingcost,jdbcType=DECIMAL},
+      </if>
+      <if test="ebayshopingmoneytype != null">
+        #{ebayshopingmoneytype,jdbcType=VARCHAR},
+      </if>
+      <if test="ebaycurrentprice != null">
+        #{ebaycurrentprice,jdbcType=DECIMAL},
+      </if>
+      <if test="ebaydayleft != null">
+        #{ebaydayleft,jdbcType=DECIMAL},
+      </if>
+      <if test="ebayhhleft != null">
+        #{ebayhhleft,jdbcType=DECIMAL},
+      </if>
+      <if test="ebaymmleft != null">
+        #{ebaymmleft,jdbcType=DECIMAL},
+      </if>
+      <if test="ebaydecsr != null">
+        #{ebaydecsr,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reserve3 != null">
+        #{reserve3,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reserve4 != null">
+        #{reserve4,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbResultlist">
+    update db_resultlist
+    <set>
+      <if test="sku != null">
+        SKU = #{sku,jdbcType=VARCHAR},
+      </if>
+      <if test="itemid != null">
+        ITEMID = #{itemid,jdbcType=VARCHAR},
+      </if>
+      <if test="keywordid != null">
+        KEYWORDID = #{keywordid,jdbcType=VARCHAR},
+      </if>
+      <if test="keyword != null">
+        KEYWORD = #{keyword,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryid != null">
+        CATEGORYID = #{categoryid,jdbcType=VARCHAR},
+      </if>
+      <if test="category != null">
+        CATEGORY = #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="shopid != null">
+        SHOPID = #{shopid,jdbcType=VARCHAR},
+      </if>
+      <if test="shop != null">
+        SHOP = #{shop,jdbcType=VARCHAR},
+      </if>
+      <if test="ebaysku != null">
+        EBAYSKU = #{ebaysku,jdbcType=VARCHAR},
+      </if>
+      <if test="ebayitemid != null">
+        EBAYITEMID = #{ebayitemid,jdbcType=VARCHAR},
+      </if>
+      <if test="ebaymoneytype != null">
+        EBAYMONEYTYPE = #{ebaymoneytype,jdbcType=VARCHAR},
+      </if>
+      <if test="ebaysellprice != null">
+        EBAYSELLPRICE = #{ebaysellprice,jdbcType=DECIMAL},
+      </if>
+      <if test="ebaypicture1 != null">
+        EBAYPICTURE1 = #{ebaypicture1,jdbcType=VARCHAR},
+      </if>
+      <if test="ebaypicture2 != null">
+        EBAYPICTURE2 = #{ebaypicture2,jdbcType=VARCHAR},
+      </if>
+      <if test="ebaypicture3 != null">
+        EBAYPICTURE3 = #{ebaypicture3,jdbcType=VARCHAR},
+      </if>
+      <if test="ebaypicture4 != null">
+        EBAYPICTURE4 = #{ebaypicture4,jdbcType=VARCHAR},
+      </if>
+      <if test="ebayviewitemurl != null">
+        EBAYVIEWITEMURL = #{ebayviewitemurl,jdbcType=VARCHAR},
+      </if>
+      <if test="ebaypaymethod != null">
+        EBAYPAYMETHOD = #{ebaypaymethod,jdbcType=VARCHAR},
+      </if>
+      <if test="ebaycategoryid != null">
+        EBAYCATEGORYID = #{ebaycategoryid,jdbcType=VARCHAR},
+      </if>
+      <if test="ebaycategoryname != null">
+        EBAYCATEGORYNAME = #{ebaycategoryname,jdbcType=VARCHAR},
+      </if>
+      <if test="ebayquantity != null">
+        EBAYQUANTITY = #{ebayquantity,jdbcType=DECIMAL},
+      </if>
+      <if test="ebayquatitythresthod != null">
+        EBAYQUATITYTHRESTHOD = #{ebayquatitythresthod,jdbcType=DECIMAL},
+      </if>
+      <if test="ebayquatitythod != null">
+        EBAYQUATITYTHOD = #{ebayquatitythod,jdbcType=DECIMAL},
+      </if>
+      <if test="ebaysite != null">
+        EBAYSITE = #{ebaysite,jdbcType=VARCHAR},
+      </if>
+      <if test="ebayshopname != null">
+        EBAYSHOPNAME = #{ebayshopname,jdbcType=VARCHAR},
+      </if>
+      <if test="ebayitemstatus != null">
+        EBAYITEMSTATUS = #{ebayitemstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="ebaytitle != null">
+        EBAYTITLE = #{ebaytitle,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        FLAG = #{flag,jdbcType=DECIMAL},
+      </if>
+      <if test="openflag != null">
+        OPENFLAG = #{openflag,jdbcType=VARCHAR},
+      </if>
+      <if test="oper != null">
+        OPER = #{oper,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null">
+        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createtime != null">
+        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="keywordflag != null">
+        KEYWORDFLAG = #{keywordflag,jdbcType=DECIMAL},
+      </if>
+      <if test="categoryflag != null">
+        CATEGORYFLAG = #{categoryflag,jdbcType=DECIMAL},
+      </if>
+      <if test="shopflag != null">
+        SHOPFLAG = #{shopflag,jdbcType=DECIMAL},
+      </if>
+      <if test="corpid != null">
+        CORPID = #{corpid,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve1 != null">
+        RESERVE1 = #{reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve2 != null">
+        RESERVE2 = #{reserve2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve5 != null">
+        RESERVE5 = #{reserve5,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve6 != null">
+        RESERVE6 = #{reserve6,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve7 != null">
+        RESERVE7 = #{reserve7,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve8 != null">
+        RESERVE8 = #{reserve8,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve9 != null">
+        RESERVE9 = #{reserve9,jdbcType=DECIMAL},
+      </if>
+      <if test="reserve10 != null">
+        RESERVE10 = #{reserve10,jdbcType=DECIMAL},
+      </if>
+      <if test="ebaycountry != null">
+        EBAYCOUNTRY = #{ebaycountry,jdbcType=VARCHAR},
+      </if>
+      <if test="ebaygallerurl != null">
+        EBAYGALLERURL = #{ebaygallerurl,jdbcType=VARCHAR},
+      </if>
+      <if test="ebaystarttime != null">
+        EBAYSTARTTIME = #{ebaystarttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ebayendtime != null">
+        EBAYENDTIME = #{ebayendtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ebaylocation != null">
+        EBAYLOCATION = #{ebaylocation,jdbcType=VARCHAR},
+      </if>
+      <if test="ebayitemurl != null">
+        EBAYITEMURL = #{ebayitemurl,jdbcType=VARCHAR},
+      </if>
+      <if test="ebayshopingtype != null">
+        EBAYSHOPINGTYPE = #{ebayshopingtype,jdbcType=VARCHAR},
+      </if>
+      <if test="ebayshopingcost != null">
+        EBAYSHOPINGCOST = #{ebayshopingcost,jdbcType=DECIMAL},
+      </if>
+      <if test="ebayshopingmoneytype != null">
+        EBAYSHOPINGMONEYTYPE = #{ebayshopingmoneytype,jdbcType=VARCHAR},
+      </if>
+      <if test="ebaycurrentprice != null">
+        EBAYCURRENTPRICE = #{ebaycurrentprice,jdbcType=DECIMAL},
+      </if>
+      <if test="ebaydayleft != null">
+        EBAYDAYLEFT = #{ebaydayleft,jdbcType=DECIMAL},
+      </if>
+      <if test="ebayhhleft != null">
+        EBAYHHLEFT = #{ebayhhleft,jdbcType=DECIMAL},
+      </if>
+      <if test="ebaymmleft != null">
+        EBAYMMLEFT = #{ebaymmleft,jdbcType=DECIMAL},
+      </if>
+      <if test="ebaydecsr != null">
+        EBAYDECSR = #{ebaydecsr,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reserve3 != null">
+        RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reserve4 != null">
+        RESERVE4 = #{reserve4,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where SID = #{sid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbResultlist">
+    update db_resultlist
+    set SKU = #{sku,jdbcType=VARCHAR},
+      ITEMID = #{itemid,jdbcType=VARCHAR},
+      KEYWORDID = #{keywordid,jdbcType=VARCHAR},
+      KEYWORD = #{keyword,jdbcType=VARCHAR},
+      CATEGORYID = #{categoryid,jdbcType=VARCHAR},
+      CATEGORY = #{category,jdbcType=VARCHAR},
+      SHOPID = #{shopid,jdbcType=VARCHAR},
+      SHOP = #{shop,jdbcType=VARCHAR},
+      EBAYSKU = #{ebaysku,jdbcType=VARCHAR},
+      EBAYITEMID = #{ebayitemid,jdbcType=VARCHAR},
+      EBAYMONEYTYPE = #{ebaymoneytype,jdbcType=VARCHAR},
+      EBAYSELLPRICE = #{ebaysellprice,jdbcType=DECIMAL},
+      EBAYPICTURE1 = #{ebaypicture1,jdbcType=VARCHAR},
+      EBAYPICTURE2 = #{ebaypicture2,jdbcType=VARCHAR},
+      EBAYPICTURE3 = #{ebaypicture3,jdbcType=VARCHAR},
+      EBAYPICTURE4 = #{ebaypicture4,jdbcType=VARCHAR},
+      EBAYVIEWITEMURL = #{ebayviewitemurl,jdbcType=VARCHAR},
+      EBAYPAYMETHOD = #{ebaypaymethod,jdbcType=VARCHAR},
+      EBAYCATEGORYID = #{ebaycategoryid,jdbcType=VARCHAR},
+      EBAYCATEGORYNAME = #{ebaycategoryname,jdbcType=VARCHAR},
+      EBAYQUANTITY = #{ebayquantity,jdbcType=DECIMAL},
+      EBAYQUATITYTHRESTHOD = #{ebayquatitythresthod,jdbcType=DECIMAL},
+      EBAYQUATITYTHOD = #{ebayquatitythod,jdbcType=DECIMAL},
+      EBAYSITE = #{ebaysite,jdbcType=VARCHAR},
+      EBAYSHOPNAME = #{ebayshopname,jdbcType=VARCHAR},
+      EBAYITEMSTATUS = #{ebayitemstatus,jdbcType=VARCHAR},
+      EBAYTITLE = #{ebaytitle,jdbcType=VARCHAR},
+      FLAG = #{flag,jdbcType=DECIMAL},
+      OPENFLAG = #{openflag,jdbcType=VARCHAR},
+      OPER = #{oper,jdbcType=VARCHAR},
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      KEYWORDFLAG = #{keywordflag,jdbcType=DECIMAL},
+      CATEGORYFLAG = #{categoryflag,jdbcType=DECIMAL},
+      SHOPFLAG = #{shopflag,jdbcType=DECIMAL},
+      CORPID = #{corpid,jdbcType=VARCHAR},
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR},
+      RESERVE5 = #{reserve5,jdbcType=DECIMAL},
+      RESERVE6 = #{reserve6,jdbcType=DECIMAL},
+      RESERVE7 = #{reserve7,jdbcType=DECIMAL},
+      RESERVE8 = #{reserve8,jdbcType=DECIMAL},
+      RESERVE9 = #{reserve9,jdbcType=DECIMAL},
+      RESERVE10 = #{reserve10,jdbcType=DECIMAL},
+      EBAYCOUNTRY = #{ebaycountry,jdbcType=VARCHAR},
+      EBAYGALLERURL = #{ebaygallerurl,jdbcType=VARCHAR},
+      EBAYSTARTTIME = #{ebaystarttime,jdbcType=TIMESTAMP},
+      EBAYENDTIME = #{ebayendtime,jdbcType=TIMESTAMP},
+      EBAYLOCATION = #{ebaylocation,jdbcType=VARCHAR},
+      EBAYITEMURL = #{ebayitemurl,jdbcType=VARCHAR},
+      EBAYSHOPINGTYPE = #{ebayshopingtype,jdbcType=VARCHAR},
+      EBAYSHOPINGCOST = #{ebayshopingcost,jdbcType=DECIMAL},
+      EBAYSHOPINGMONEYTYPE = #{ebayshopingmoneytype,jdbcType=VARCHAR},
+      EBAYCURRENTPRICE = #{ebaycurrentprice,jdbcType=DECIMAL},
+      EBAYDAYLEFT = #{ebaydayleft,jdbcType=DECIMAL},
+      EBAYHHLEFT = #{ebayhhleft,jdbcType=DECIMAL},
+      EBAYMMLEFT = #{ebaymmleft,jdbcType=DECIMAL},
+      EBAYDECSR = #{ebaydecsr,jdbcType=LONGVARCHAR},
+      RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR},
+      RESERVE4 = #{reserve4,jdbcType=LONGVARCHAR}
+    where SID = #{sid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbResultlist">
+    update db_resultlist
+    set SKU = #{sku,jdbcType=VARCHAR},
+      ITEMID = #{itemid,jdbcType=VARCHAR},
+      KEYWORDID = #{keywordid,jdbcType=VARCHAR},
+      KEYWORD = #{keyword,jdbcType=VARCHAR},
+      CATEGORYID = #{categoryid,jdbcType=VARCHAR},
+      CATEGORY = #{category,jdbcType=VARCHAR},
+      SHOPID = #{shopid,jdbcType=VARCHAR},
+      SHOP = #{shop,jdbcType=VARCHAR},
+      EBAYSKU = #{ebaysku,jdbcType=VARCHAR},
+      EBAYITEMID = #{ebayitemid,jdbcType=VARCHAR},
+      EBAYMONEYTYPE = #{ebaymoneytype,jdbcType=VARCHAR},
+      EBAYSELLPRICE = #{ebaysellprice,jdbcType=DECIMAL},
+      EBAYPICTURE1 = #{ebaypicture1,jdbcType=VARCHAR},
+      EBAYPICTURE2 = #{ebaypicture2,jdbcType=VARCHAR},
+      EBAYPICTURE3 = #{ebaypicture3,jdbcType=VARCHAR},
+      EBAYPICTURE4 = #{ebaypicture4,jdbcType=VARCHAR},
+      EBAYVIEWITEMURL = #{ebayviewitemurl,jdbcType=VARCHAR},
+      EBAYPAYMETHOD = #{ebaypaymethod,jdbcType=VARCHAR},
+      EBAYCATEGORYID = #{ebaycategoryid,jdbcType=VARCHAR},
+      EBAYCATEGORYNAME = #{ebaycategoryname,jdbcType=VARCHAR},
+      EBAYQUANTITY = #{ebayquantity,jdbcType=DECIMAL},
+      EBAYQUATITYTHRESTHOD = #{ebayquatitythresthod,jdbcType=DECIMAL},
+      EBAYQUATITYTHOD = #{ebayquatitythod,jdbcType=DECIMAL},
+      EBAYSITE = #{ebaysite,jdbcType=VARCHAR},
+      EBAYSHOPNAME = #{ebayshopname,jdbcType=VARCHAR},
+      EBAYITEMSTATUS = #{ebayitemstatus,jdbcType=VARCHAR},
+      EBAYTITLE = #{ebaytitle,jdbcType=VARCHAR},
+      FLAG = #{flag,jdbcType=DECIMAL},
+      OPENFLAG = #{openflag,jdbcType=VARCHAR},
+      OPER = #{oper,jdbcType=VARCHAR},
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      KEYWORDFLAG = #{keywordflag,jdbcType=DECIMAL},
+      CATEGORYFLAG = #{categoryflag,jdbcType=DECIMAL},
+      SHOPFLAG = #{shopflag,jdbcType=DECIMAL},
+      CORPID = #{corpid,jdbcType=VARCHAR},
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR},
+      RESERVE5 = #{reserve5,jdbcType=DECIMAL},
+      RESERVE6 = #{reserve6,jdbcType=DECIMAL},
+      RESERVE7 = #{reserve7,jdbcType=DECIMAL},
+      RESERVE8 = #{reserve8,jdbcType=DECIMAL},
+      RESERVE9 = #{reserve9,jdbcType=DECIMAL},
+      RESERVE10 = #{reserve10,jdbcType=DECIMAL},
+      EBAYCOUNTRY = #{ebaycountry,jdbcType=VARCHAR},
+      EBAYGALLERURL = #{ebaygallerurl,jdbcType=VARCHAR},
+      EBAYSTARTTIME = #{ebaystarttime,jdbcType=TIMESTAMP},
+      EBAYENDTIME = #{ebayendtime,jdbcType=TIMESTAMP},
+      EBAYLOCATION = #{ebaylocation,jdbcType=VARCHAR},
+      EBAYITEMURL = #{ebayitemurl,jdbcType=VARCHAR},
+      EBAYSHOPINGTYPE = #{ebayshopingtype,jdbcType=VARCHAR},
+      EBAYSHOPINGCOST = #{ebayshopingcost,jdbcType=DECIMAL},
+      EBAYSHOPINGMONEYTYPE = #{ebayshopingmoneytype,jdbcType=VARCHAR},
+      EBAYCURRENTPRICE = #{ebaycurrentprice,jdbcType=DECIMAL},
+      EBAYDAYLEFT = #{ebaydayleft,jdbcType=DECIMAL},
+      EBAYHHLEFT = #{ebayhhleft,jdbcType=DECIMAL},
+      EBAYMMLEFT = #{ebaymmleft,jdbcType=DECIMAL}
+    where SID = #{sid,jdbcType=VARCHAR}
+  </update>
+</mapper>

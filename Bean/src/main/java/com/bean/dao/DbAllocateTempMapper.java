@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbAllocateTemp;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbAllocateTempMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbAllocateTemp selectByCriteria(DbAllocateTemp DbAllocateTemp);
 
-    int insert(DbAllocateTemp record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbAllocateTemp record);
+    void deleteByCriteria(DbAllocateTemp DbAllocateTemp);
+
+    int insertByCriteria(DbAllocateTemp DbAllocateTemp);
+
+    int updateByCriteria(DbAllocateTemp DbAllocateTemp);
 
     DbAllocateTemp selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbAllocateTemp record);
-
-    int updateByPrimaryKeyWithBLOBs(DbAllocateTemp record);
-
-    int updateByPrimaryKey(DbAllocateTemp record);
+    List<DbAllocateTemp> selectAll();
 }

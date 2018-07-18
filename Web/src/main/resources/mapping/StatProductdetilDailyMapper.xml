@@ -38,13 +38,13 @@
     <result column="PRODUCTSTORAGE" jdbcType="VARCHAR" property="productstorage" />
     <result column="PRODUCTSTATUS" jdbcType="VARCHAR" property="productstatus" />
     <result column="PRODUCTCOSTPRICE" jdbcType="DECIMAL" property="productcostprice" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
+    <result column="RESERVE4" jdbcType="VARCHAR" property="reserve4" />
+    <result column="RESERVE5" jdbcType="VARCHAR" property="reserve5" />
     <result column="SHOPTYPE" jdbcType="VARCHAR" property="shoptype" />
     <result column="SHOPTYPEID" jdbcType="VARCHAR" property="shoptypeid" />
-    <result column="RESERVE1" jdbcType="LONGVARCHAR" property="reserve1" />
-    <result column="RESERVE2" jdbcType="LONGVARCHAR" property="reserve2" />
-    <result column="RESERVE3" jdbcType="LONGVARCHAR" property="reserve3" />
-    <result column="RESERVE4" jdbcType="LONGVARCHAR" property="reserve4" />
-    <result column="RESERVE5" jdbcType="LONGVARCHAR" property="reserve5" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select SEQUENCEID, YYYY, YYYYMM, YYYYMMDD, PRODUCTID, PRODUCTNAME, CATEGORYID, OPER1, 
@@ -52,8 +52,8 @@
     ORDEREXPRESSRATE, SKUEXPRESSRATE, EBAYORDERRATE, EBAYSKURATE, ORDERPAYPALRATE, SKUPAYPALRATE, 
     ORDERWEIGHT, EXPRESSTYPEID, EXPRESSTYPE, ORDEREXPRESSTYPERATE, SKUEXPRESSTYPERATE, 
     PRODUCTWEIGHT, PRODUCTLOCATIONID, MANUFACTURE, MANUFACTUREID, PRODUCTSTORAGE, PRODUCTSTATUS, 
-    PRODUCTCOSTPRICE, SHOPTYPE, SHOPTYPEID, RESERVE1, RESERVE2, RESERVE3, RESERVE4, RESERVE5
-    from stat_productdetil_daily
+    PRODUCTCOSTPRICE, RESERVE1, RESERVE2, RESERVE3, RESERVE4, RESERVE5, SHOPTYPE, SHOPTYPEID
+    from STAT_PRODUCTDETIL_DAILY
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
@@ -62,11 +62,11 @@
     ORDEREXPRESSRATE, SKUEXPRESSRATE, EBAYORDERRATE, EBAYSKURATE, ORDERPAYPALRATE, SKUPAYPALRATE, 
     ORDERWEIGHT, EXPRESSTYPEID, EXPRESSTYPE, ORDEREXPRESSTYPERATE, SKUEXPRESSTYPERATE, 
     PRODUCTWEIGHT, PRODUCTLOCATIONID, MANUFACTURE, MANUFACTUREID, PRODUCTSTORAGE, PRODUCTSTATUS, 
-    PRODUCTCOSTPRICE, SHOPTYPE, SHOPTYPEID, RESERVE1, RESERVE2, RESERVE3, RESERVE4, RESERVE5
-    from stat_productdetil_daily
+    PRODUCTCOSTPRICE, RESERVE1, RESERVE2, RESERVE3, RESERVE4, RESERVE5, SHOPTYPE, SHOPTYPEID
+    from STAT_PRODUCTDETIL_DAILY
   </select>
   <sql id="TableName">
-    stat_productdetil_daily
+    STAT_PRODUCTDETIL_DAILY
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=VARCHAR} , 
@@ -105,13 +105,13 @@
      #{productstorage,jdbcType=VARCHAR} , 
      #{productstatus,jdbcType=VARCHAR} , 
      #{productcostprice,jdbcType=DECIMAL} , 
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+     #{reserve3,jdbcType=VARCHAR} , 
+     #{reserve4,jdbcType=VARCHAR} , 
+     #{reserve5,jdbcType=VARCHAR} , 
      #{shoptype,jdbcType=VARCHAR} , 
      #{shoptypeid,jdbcType=VARCHAR} , 
-     #{reserve1,jdbcType=LONGVARCHAR} , 
-     #{reserve2,jdbcType=LONGVARCHAR} , 
-     #{reserve3,jdbcType=LONGVARCHAR} , 
-     #{reserve4,jdbcType=LONGVARCHAR} , 
-     #{reserve5,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
@@ -150,277 +150,277 @@
     PRODUCTSTORAGE , 
     PRODUCTSTATUS , 
     PRODUCTCOSTPRICE , 
-    SHOPTYPE , 
-    SHOPTYPEID , 
     RESERVE1 , 
     RESERVE2 , 
     RESERVE3 , 
     RESERVE4 , 
-    RESERVE5
+    RESERVE5 , 
+    SHOPTYPE , 
+    SHOPTYPEID , 
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
     </if>
     <if test="yyyy != null">
-      YYYY = #{yyyy,jdbcType=VARCHAR} and 
+      yyyy = #{yyyy,jdbcType=VARCHAR} and 
     </if>
     <if test="yyyymm != null">
-      YYYYMM = #{yyyymm,jdbcType=VARCHAR} and 
+      yyyymm = #{yyyymm,jdbcType=VARCHAR} and 
     </if>
     <if test="yyyymmdd != null">
-      YYYYMMDD = #{yyyymmdd,jdbcType=VARCHAR} and 
+      yyyymmdd = #{yyyymmdd,jdbcType=VARCHAR} and 
     </if>
     <if test="productid != null">
-      PRODUCTID = #{productid,jdbcType=VARCHAR} and 
+      productid = #{productid,jdbcType=VARCHAR} and 
     </if>
     <if test="productname != null">
-      PRODUCTNAME = #{productname,jdbcType=VARCHAR} and 
+      productname = #{productname,jdbcType=VARCHAR} and 
     </if>
     <if test="categoryid != null">
-      CATEGORYID = #{categoryid,jdbcType=VARCHAR} and 
+      categoryid = #{categoryid,jdbcType=VARCHAR} and 
     </if>
     <if test="oper1 != null">
-      OPER1 = #{oper1,jdbcType=VARCHAR} and 
+      oper1 = #{oper1,jdbcType=VARCHAR} and 
     </if>
     <if test="oper2 != null">
-      OPER2 = #{oper2,jdbcType=VARCHAR} and 
+      oper2 = #{oper2,jdbcType=VARCHAR} and 
     </if>
     <if test="oper3 != null">
-      OPER3 = #{oper3,jdbcType=VARCHAR} and 
+      oper3 = #{oper3,jdbcType=VARCHAR} and 
     </if>
     <if test="oper4 != null">
-      OPER4 = #{oper4,jdbcType=VARCHAR} and 
+      oper4 = #{oper4,jdbcType=VARCHAR} and 
     </if>
     <if test="oper5 != null">
-      OPER5 = #{oper5,jdbcType=VARCHAR} and 
+      oper5 = #{oper5,jdbcType=VARCHAR} and 
     </if>
     <if test="oper6 != null">
-      OPER6 = #{oper6,jdbcType=VARCHAR} and 
+      oper6 = #{oper6,jdbcType=VARCHAR} and 
     </if>
     <if test="orderid != null">
-      ORDERID = #{orderid,jdbcType=VARCHAR} and 
+      orderid = #{orderid,jdbcType=VARCHAR} and 
     </if>
     <if test="orderprice != null">
-      ORDERPRICE = #{orderprice,jdbcType=DECIMAL} and 
+      orderprice = #{orderprice,jdbcType=DECIMAL} and 
     </if>
     <if test="skusellprice != null">
-      SKUSELLPRICE = #{skusellprice,jdbcType=DECIMAL} and 
+      skusellprice = #{skusellprice,jdbcType=DECIMAL} and 
     </if>
     <if test="ordernum != null">
-      ORDERNUM = #{ordernum,jdbcType=DECIMAL} and 
+      ordernum = #{ordernum,jdbcType=DECIMAL} and 
     </if>
     <if test="skuallprice != null">
-      SKUALLPRICE = #{skuallprice,jdbcType=DECIMAL} and 
+      skuallprice = #{skuallprice,jdbcType=DECIMAL} and 
     </if>
     <if test="orderexpressrate != null">
-      ORDEREXPRESSRATE = #{orderexpressrate,jdbcType=DECIMAL} and 
+      orderexpressrate = #{orderexpressrate,jdbcType=DECIMAL} and 
     </if>
     <if test="skuexpressrate != null">
-      SKUEXPRESSRATE = #{skuexpressrate,jdbcType=DECIMAL} and 
+      skuexpressrate = #{skuexpressrate,jdbcType=DECIMAL} and 
     </if>
     <if test="ebayorderrate != null">
-      EBAYORDERRATE = #{ebayorderrate,jdbcType=DECIMAL} and 
+      ebayorderrate = #{ebayorderrate,jdbcType=DECIMAL} and 
     </if>
     <if test="ebayskurate != null">
-      EBAYSKURATE = #{ebayskurate,jdbcType=DECIMAL} and 
+      ebayskurate = #{ebayskurate,jdbcType=DECIMAL} and 
     </if>
     <if test="orderpaypalrate != null">
-      ORDERPAYPALRATE = #{orderpaypalrate,jdbcType=DECIMAL} and 
+      orderpaypalrate = #{orderpaypalrate,jdbcType=DECIMAL} and 
     </if>
     <if test="skupaypalrate != null">
-      SKUPAYPALRATE = #{skupaypalrate,jdbcType=DECIMAL} and 
+      skupaypalrate = #{skupaypalrate,jdbcType=DECIMAL} and 
     </if>
     <if test="orderweight != null">
-      ORDERWEIGHT = #{orderweight,jdbcType=DECIMAL} and 
+      orderweight = #{orderweight,jdbcType=DECIMAL} and 
     </if>
     <if test="expresstypeid != null">
-      EXPRESSTYPEID = #{expresstypeid,jdbcType=VARCHAR} and 
+      expresstypeid = #{expresstypeid,jdbcType=VARCHAR} and 
     </if>
     <if test="expresstype != null">
-      EXPRESSTYPE = #{expresstype,jdbcType=VARCHAR} and 
+      expresstype = #{expresstype,jdbcType=VARCHAR} and 
     </if>
     <if test="orderexpresstyperate != null">
-      ORDEREXPRESSTYPERATE = #{orderexpresstyperate,jdbcType=DECIMAL} and 
+      orderexpresstyperate = #{orderexpresstyperate,jdbcType=DECIMAL} and 
     </if>
     <if test="skuexpresstyperate != null">
-      SKUEXPRESSTYPERATE = #{skuexpresstyperate,jdbcType=DECIMAL} and 
+      skuexpresstyperate = #{skuexpresstyperate,jdbcType=DECIMAL} and 
     </if>
     <if test="productweight != null">
-      PRODUCTWEIGHT = #{productweight,jdbcType=DECIMAL} and 
+      productweight = #{productweight,jdbcType=DECIMAL} and 
     </if>
     <if test="productlocationid != null">
-      PRODUCTLOCATIONID = #{productlocationid,jdbcType=VARCHAR} and 
+      productlocationid = #{productlocationid,jdbcType=VARCHAR} and 
     </if>
     <if test="manufacture != null">
-      MANUFACTURE = #{manufacture,jdbcType=VARCHAR} and 
+      manufacture = #{manufacture,jdbcType=VARCHAR} and 
     </if>
     <if test="manufactureid != null">
-      MANUFACTUREID = #{manufactureid,jdbcType=VARCHAR} and 
+      manufactureid = #{manufactureid,jdbcType=VARCHAR} and 
     </if>
     <if test="productstorage != null">
-      PRODUCTSTORAGE = #{productstorage,jdbcType=VARCHAR} and 
+      productstorage = #{productstorage,jdbcType=VARCHAR} and 
     </if>
     <if test="productstatus != null">
-      PRODUCTSTATUS = #{productstatus,jdbcType=VARCHAR} and 
+      productstatus = #{productstatus,jdbcType=VARCHAR} and 
     </if>
     <if test="productcostprice != null">
-      PRODUCTCOSTPRICE = #{productcostprice,jdbcType=DECIMAL} and 
-    </if>
-    <if test="shoptype != null">
-      SHOPTYPE = #{shoptype,jdbcType=VARCHAR} and 
-    </if>
-    <if test="shoptypeid != null">
-      SHOPTYPEID = #{shoptypeid,jdbcType=VARCHAR} and 
+      productcostprice = #{productcostprice,jdbcType=DECIMAL} and 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR} and 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR} and 
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR} and 
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=LONGVARCHAR} and 
+      reserve4 = #{reserve4,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=LONGVARCHAR}
+      reserve5 = #{reserve5,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="shoptype != null">
+      shoptype = #{shoptype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shoptypeid != null">
+      shoptypeid = #{shoptypeid,jdbcType=VARCHAR} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
     </if>
     <if test="yyyy != null">
-      YYYY = #{yyyy,jdbcType=VARCHAR} , 
+      yyyy = #{yyyy,jdbcType=VARCHAR} , 
     </if>
     <if test="yyyymm != null">
-      YYYYMM = #{yyyymm,jdbcType=VARCHAR} , 
+      yyyymm = #{yyyymm,jdbcType=VARCHAR} , 
     </if>
     <if test="yyyymmdd != null">
-      YYYYMMDD = #{yyyymmdd,jdbcType=VARCHAR} , 
+      yyyymmdd = #{yyyymmdd,jdbcType=VARCHAR} , 
     </if>
     <if test="productid != null">
-      PRODUCTID = #{productid,jdbcType=VARCHAR} , 
+      productid = #{productid,jdbcType=VARCHAR} , 
     </if>
     <if test="productname != null">
-      PRODUCTNAME = #{productname,jdbcType=VARCHAR} , 
+      productname = #{productname,jdbcType=VARCHAR} , 
     </if>
     <if test="categoryid != null">
-      CATEGORYID = #{categoryid,jdbcType=VARCHAR} , 
+      categoryid = #{categoryid,jdbcType=VARCHAR} , 
     </if>
     <if test="oper1 != null">
-      OPER1 = #{oper1,jdbcType=VARCHAR} , 
+      oper1 = #{oper1,jdbcType=VARCHAR} , 
     </if>
     <if test="oper2 != null">
-      OPER2 = #{oper2,jdbcType=VARCHAR} , 
+      oper2 = #{oper2,jdbcType=VARCHAR} , 
     </if>
     <if test="oper3 != null">
-      OPER3 = #{oper3,jdbcType=VARCHAR} , 
+      oper3 = #{oper3,jdbcType=VARCHAR} , 
     </if>
     <if test="oper4 != null">
-      OPER4 = #{oper4,jdbcType=VARCHAR} , 
+      oper4 = #{oper4,jdbcType=VARCHAR} , 
     </if>
     <if test="oper5 != null">
-      OPER5 = #{oper5,jdbcType=VARCHAR} , 
+      oper5 = #{oper5,jdbcType=VARCHAR} , 
     </if>
     <if test="oper6 != null">
-      OPER6 = #{oper6,jdbcType=VARCHAR} , 
+      oper6 = #{oper6,jdbcType=VARCHAR} , 
     </if>
     <if test="orderid != null">
-      ORDERID = #{orderid,jdbcType=VARCHAR} , 
+      orderid = #{orderid,jdbcType=VARCHAR} , 
     </if>
     <if test="orderprice != null">
-      ORDERPRICE = #{orderprice,jdbcType=DECIMAL} , 
+      orderprice = #{orderprice,jdbcType=DECIMAL} , 
     </if>
     <if test="skusellprice != null">
-      SKUSELLPRICE = #{skusellprice,jdbcType=DECIMAL} , 
+      skusellprice = #{skusellprice,jdbcType=DECIMAL} , 
     </if>
     <if test="ordernum != null">
-      ORDERNUM = #{ordernum,jdbcType=DECIMAL} , 
+      ordernum = #{ordernum,jdbcType=DECIMAL} , 
     </if>
     <if test="skuallprice != null">
-      SKUALLPRICE = #{skuallprice,jdbcType=DECIMAL} , 
+      skuallprice = #{skuallprice,jdbcType=DECIMAL} , 
     </if>
     <if test="orderexpressrate != null">
-      ORDEREXPRESSRATE = #{orderexpressrate,jdbcType=DECIMAL} , 
+      orderexpressrate = #{orderexpressrate,jdbcType=DECIMAL} , 
     </if>
     <if test="skuexpressrate != null">
-      SKUEXPRESSRATE = #{skuexpressrate,jdbcType=DECIMAL} , 
+      skuexpressrate = #{skuexpressrate,jdbcType=DECIMAL} , 
     </if>
     <if test="ebayorderrate != null">
-      EBAYORDERRATE = #{ebayorderrate,jdbcType=DECIMAL} , 
+      ebayorderrate = #{ebayorderrate,jdbcType=DECIMAL} , 
     </if>
     <if test="ebayskurate != null">
-      EBAYSKURATE = #{ebayskurate,jdbcType=DECIMAL} , 
+      ebayskurate = #{ebayskurate,jdbcType=DECIMAL} , 
     </if>
     <if test="orderpaypalrate != null">
-      ORDERPAYPALRATE = #{orderpaypalrate,jdbcType=DECIMAL} , 
+      orderpaypalrate = #{orderpaypalrate,jdbcType=DECIMAL} , 
     </if>
     <if test="skupaypalrate != null">
-      SKUPAYPALRATE = #{skupaypalrate,jdbcType=DECIMAL} , 
+      skupaypalrate = #{skupaypalrate,jdbcType=DECIMAL} , 
     </if>
     <if test="orderweight != null">
-      ORDERWEIGHT = #{orderweight,jdbcType=DECIMAL} , 
+      orderweight = #{orderweight,jdbcType=DECIMAL} , 
     </if>
     <if test="expresstypeid != null">
-      EXPRESSTYPEID = #{expresstypeid,jdbcType=VARCHAR} , 
+      expresstypeid = #{expresstypeid,jdbcType=VARCHAR} , 
     </if>
     <if test="expresstype != null">
-      EXPRESSTYPE = #{expresstype,jdbcType=VARCHAR} , 
+      expresstype = #{expresstype,jdbcType=VARCHAR} , 
     </if>
     <if test="orderexpresstyperate != null">
-      ORDEREXPRESSTYPERATE = #{orderexpresstyperate,jdbcType=DECIMAL} , 
+      orderexpresstyperate = #{orderexpresstyperate,jdbcType=DECIMAL} , 
     </if>
     <if test="skuexpresstyperate != null">
-      SKUEXPRESSTYPERATE = #{skuexpresstyperate,jdbcType=DECIMAL} , 
+      skuexpresstyperate = #{skuexpresstyperate,jdbcType=DECIMAL} , 
     </if>
     <if test="productweight != null">
-      PRODUCTWEIGHT = #{productweight,jdbcType=DECIMAL} , 
+      productweight = #{productweight,jdbcType=DECIMAL} , 
     </if>
     <if test="productlocationid != null">
-      PRODUCTLOCATIONID = #{productlocationid,jdbcType=VARCHAR} , 
+      productlocationid = #{productlocationid,jdbcType=VARCHAR} , 
     </if>
     <if test="manufacture != null">
-      MANUFACTURE = #{manufacture,jdbcType=VARCHAR} , 
+      manufacture = #{manufacture,jdbcType=VARCHAR} , 
     </if>
     <if test="manufactureid != null">
-      MANUFACTUREID = #{manufactureid,jdbcType=VARCHAR} , 
+      manufactureid = #{manufactureid,jdbcType=VARCHAR} , 
     </if>
     <if test="productstorage != null">
-      PRODUCTSTORAGE = #{productstorage,jdbcType=VARCHAR} , 
+      productstorage = #{productstorage,jdbcType=VARCHAR} , 
     </if>
     <if test="productstatus != null">
-      PRODUCTSTATUS = #{productstatus,jdbcType=VARCHAR} , 
+      productstatus = #{productstatus,jdbcType=VARCHAR} , 
     </if>
     <if test="productcostprice != null">
-      PRODUCTCOSTPRICE = #{productcostprice,jdbcType=DECIMAL} , 
-    </if>
-    <if test="shoptype != null">
-      SHOPTYPE = #{shoptype,jdbcType=VARCHAR} , 
-    </if>
-    <if test="shoptypeid != null">
-      SHOPTYPEID = #{shoptypeid,jdbcType=VARCHAR} , 
+      productcostprice = #{productcostprice,jdbcType=DECIMAL} , 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR} , 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR} , 
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR} , 
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=LONGVARCHAR} , 
+      reserve4 = #{reserve4,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=LONGVARCHAR}
+      reserve5 = #{reserve5,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="shoptype != null">
+      shoptype = #{shoptype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shoptypeid != null">
+      shoptypeid = #{shoptypeid,jdbcType=VARCHAR} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.StatProductdetilDaily" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

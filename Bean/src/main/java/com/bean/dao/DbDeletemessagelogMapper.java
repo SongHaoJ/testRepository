@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbDeletemessagelog;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbDeletemessagelogMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbDeletemessagelog selectByCriteria(DbDeletemessagelog DbDeletemessagelog);
 
-    int insert(DbDeletemessagelog record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbDeletemessagelog record);
+    void deleteByCriteria(DbDeletemessagelog DbDeletemessagelog);
+
+    int insertByCriteria(DbDeletemessagelog DbDeletemessagelog);
+
+    int updateByCriteria(DbDeletemessagelog DbDeletemessagelog);
 
     DbDeletemessagelog selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbDeletemessagelog record);
-
-    int updateByPrimaryKeyWithBLOBs(DbDeletemessagelog record);
-
-    int updateByPrimaryKey(DbDeletemessagelog record);
+    List<DbDeletemessagelog> selectAll();
 }

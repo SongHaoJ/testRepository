@@ -7,6 +7,8 @@ import java.util.Date;
 public class DbSendmessage implements Serializable {
     private String sequenceid;
 
+    private String title;
+
     private String groupid;
 
     private Date createtime;
@@ -31,6 +33,10 @@ public class DbSendmessage implements Serializable {
 
     private String reserve2;
 
+    private String reserve3;
+
+    private String reserve4;
+
     private BigDecimal reserve5;
 
     private BigDecimal reserve6;
@@ -41,12 +47,6 @@ public class DbSendmessage implements Serializable {
 
     private BigDecimal returnid;
 
-    private String title;
-
-    private String reserve3;
-
-    private String reserve4;
-
     private static final long serialVersionUID = 1L;
 
     public String getSequenceid() {
@@ -55,6 +55,14 @@ public class DbSendmessage implements Serializable {
 
     public void setSequenceid(String sequenceid) {
         this.sequenceid = sequenceid == null ? null : sequenceid.trim();
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title == null ? null : title.trim();
     }
 
     public String getGroupid() {
@@ -153,6 +161,22 @@ public class DbSendmessage implements Serializable {
         this.reserve2 = reserve2 == null ? null : reserve2.trim();
     }
 
+    public String getReserve3() {
+        return reserve3;
+    }
+
+    public void setReserve3(String reserve3) {
+        this.reserve3 = reserve3 == null ? null : reserve3.trim();
+    }
+
+    public String getReserve4() {
+        return reserve4;
+    }
+
+    public void setReserve4(String reserve4) {
+        this.reserve4 = reserve4 == null ? null : reserve4.trim();
+    }
+
     public BigDecimal getReserve5() {
         return reserve5;
     }
@@ -193,30 +217,6 @@ public class DbSendmessage implements Serializable {
         this.returnid = returnid;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title == null ? null : title.trim();
-    }
-
-    public String getReserve3() {
-        return reserve3;
-    }
-
-    public void setReserve3(String reserve3) {
-        this.reserve3 = reserve3 == null ? null : reserve3.trim();
-    }
-
-    public String getReserve4() {
-        return reserve4;
-    }
-
-    public void setReserve4(String reserve4) {
-        this.reserve4 = reserve4 == null ? null : reserve4.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -230,6 +230,7 @@ public class DbSendmessage implements Serializable {
         }
         DbSendmessage other = (DbSendmessage) that;
         return (this.getSequenceid() == null ? other.getSequenceid() == null : this.getSequenceid().equals(other.getSequenceid()))
+            && (this.getTitle() == null ? other.getTitle() == null : this.getTitle().equals(other.getTitle()))
             && (this.getGroupid() == null ? other.getGroupid() == null : this.getGroupid().equals(other.getGroupid()))
             && (this.getCreatetime() == null ? other.getCreatetime() == null : this.getCreatetime().equals(other.getCreatetime()))
             && (this.getCreateoper() == null ? other.getCreateoper() == null : this.getCreateoper().equals(other.getCreateoper()))
@@ -242,14 +243,13 @@ public class DbSendmessage implements Serializable {
             && (this.getSendtime() == null ? other.getSendtime() == null : this.getSendtime().equals(other.getSendtime()))
             && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
             && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
+            && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
+            && (this.getReserve4() == null ? other.getReserve4() == null : this.getReserve4().equals(other.getReserve4()))
             && (this.getReserve5() == null ? other.getReserve5() == null : this.getReserve5().equals(other.getReserve5()))
             && (this.getReserve6() == null ? other.getReserve6() == null : this.getReserve6().equals(other.getReserve6()))
             && (this.getReserve7() == null ? other.getReserve7() == null : this.getReserve7().equals(other.getReserve7()))
             && (this.getReserve8() == null ? other.getReserve8() == null : this.getReserve8().equals(other.getReserve8()))
-            && (this.getReturnid() == null ? other.getReturnid() == null : this.getReturnid().equals(other.getReturnid()))
-            && (this.getTitle() == null ? other.getTitle() == null : this.getTitle().equals(other.getTitle()))
-            && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
-            && (this.getReserve4() == null ? other.getReserve4() == null : this.getReserve4().equals(other.getReserve4()));
+            && (this.getReturnid() == null ? other.getReturnid() == null : this.getReturnid().equals(other.getReturnid()));
     }
 
     @Override
@@ -257,6 +257,7 @@ public class DbSendmessage implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getSequenceid() == null) ? 0 : getSequenceid().hashCode());
+        result = prime * result + ((getTitle() == null) ? 0 : getTitle().hashCode());
         result = prime * result + ((getGroupid() == null) ? 0 : getGroupid().hashCode());
         result = prime * result + ((getCreatetime() == null) ? 0 : getCreatetime().hashCode());
         result = prime * result + ((getCreateoper() == null) ? 0 : getCreateoper().hashCode());
@@ -269,14 +270,13 @@ public class DbSendmessage implements Serializable {
         result = prime * result + ((getSendtime() == null) ? 0 : getSendtime().hashCode());
         result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
         result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
+        result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
+        result = prime * result + ((getReserve4() == null) ? 0 : getReserve4().hashCode());
         result = prime * result + ((getReserve5() == null) ? 0 : getReserve5().hashCode());
         result = prime * result + ((getReserve6() == null) ? 0 : getReserve6().hashCode());
         result = prime * result + ((getReserve7() == null) ? 0 : getReserve7().hashCode());
         result = prime * result + ((getReserve8() == null) ? 0 : getReserve8().hashCode());
         result = prime * result + ((getReturnid() == null) ? 0 : getReturnid().hashCode());
-        result = prime * result + ((getTitle() == null) ? 0 : getTitle().hashCode());
-        result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
-        result = prime * result + ((getReserve4() == null) ? 0 : getReserve4().hashCode());
         return result;
     }
 
@@ -287,6 +287,7 @@ public class DbSendmessage implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", sequenceid=").append(sequenceid);
+        sb.append(", title=").append(title);
         sb.append(", groupid=").append(groupid);
         sb.append(", createtime=").append(createtime);
         sb.append(", createoper=").append(createoper);
@@ -299,14 +300,13 @@ public class DbSendmessage implements Serializable {
         sb.append(", sendtime=").append(sendtime);
         sb.append(", reserve1=").append(reserve1);
         sb.append(", reserve2=").append(reserve2);
+        sb.append(", reserve3=").append(reserve3);
+        sb.append(", reserve4=").append(reserve4);
         sb.append(", reserve5=").append(reserve5);
         sb.append(", reserve6=").append(reserve6);
         sb.append(", reserve7=").append(reserve7);
         sb.append(", reserve8=").append(reserve8);
         sb.append(", returnid=").append(returnid);
-        sb.append(", title=").append(title);
-        sb.append(", reserve3=").append(reserve3);
-        sb.append(", reserve4=").append(reserve4);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

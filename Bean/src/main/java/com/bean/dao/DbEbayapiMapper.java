@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbEbayapi;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbEbayapiMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbEbayapi selectByCriteria(DbEbayapi DbEbayapi);
 
-    int insert(DbEbayapi record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbEbayapi record);
+    void deleteByCriteria(DbEbayapi DbEbayapi);
+
+    int insertByCriteria(DbEbayapi DbEbayapi);
+
+    int updateByCriteria(DbEbayapi DbEbayapi);
 
     DbEbayapi selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbEbayapi record);
-
-    int updateByPrimaryKeyWithBLOBs(DbEbayapi record);
-
-    int updateByPrimaryKey(DbEbayapi record);
+    List<DbEbayapi> selectAll();
 }

@@ -16,16 +16,16 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select SEQUENCEID, YYYY, YYYYMM, YYYYMMDD, ALLSAVENUM, ALLCOST, FIELD1, FIELD2, FIELD3, 
     CATEGORYID
-    from db_product_daily
+    from DB_PRODUCT_DAILY
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SEQUENCEID, YYYY, YYYYMM, YYYYMMDD, ALLSAVENUM, ALLCOST, FIELD1, FIELD2, FIELD3, 
     CATEGORYID
-    from db_product_daily
+    from DB_PRODUCT_DAILY
   </select>
   <sql id="TableName">
-    db_product_daily
+    DB_PRODUCT_DAILY
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=VARCHAR} , 
@@ -37,7 +37,7 @@
      #{field1,jdbcType=VARCHAR} , 
      #{field2,jdbcType=VARCHAR} , 
      #{field3,jdbcType=VARCHAR} , 
-     #{categoryid,jdbcType=VARCHAR}
+     #{categoryid,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
@@ -49,73 +49,73 @@
     FIELD1 , 
     FIELD2 , 
     FIELD3 , 
-    CATEGORYID
+    CATEGORYID , 
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
     </if>
     <if test="yyyy != null">
-      YYYY = #{yyyy,jdbcType=VARCHAR} and 
+      yyyy = #{yyyy,jdbcType=VARCHAR} and 
     </if>
     <if test="yyyymm != null">
-      YYYYMM = #{yyyymm,jdbcType=VARCHAR} and 
+      yyyymm = #{yyyymm,jdbcType=VARCHAR} and 
     </if>
     <if test="yyyymmdd != null">
-      YYYYMMDD = #{yyyymmdd,jdbcType=VARCHAR} and 
+      yyyymmdd = #{yyyymmdd,jdbcType=VARCHAR} and 
     </if>
     <if test="allsavenum != null">
-      ALLSAVENUM = #{allsavenum,jdbcType=DECIMAL} and 
+      allsavenum = #{allsavenum,jdbcType=DECIMAL} and 
     </if>
     <if test="allcost != null">
-      ALLCOST = #{allcost,jdbcType=DECIMAL} and 
+      allcost = #{allcost,jdbcType=DECIMAL} and 
     </if>
     <if test="field1 != null">
-      FIELD1 = #{field1,jdbcType=VARCHAR} and 
+      field1 = #{field1,jdbcType=VARCHAR} and 
     </if>
     <if test="field2 != null">
-      FIELD2 = #{field2,jdbcType=VARCHAR} and 
+      field2 = #{field2,jdbcType=VARCHAR} and 
     </if>
     <if test="field3 != null">
-      FIELD3 = #{field3,jdbcType=VARCHAR} and 
+      field3 = #{field3,jdbcType=VARCHAR} and 
     </if>
     <if test="categoryid != null">
-      CATEGORYID = #{categoryid,jdbcType=VARCHAR}
+      categoryid = #{categoryid,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
     </if>
     <if test="yyyy != null">
-      YYYY = #{yyyy,jdbcType=VARCHAR} , 
+      yyyy = #{yyyy,jdbcType=VARCHAR} , 
     </if>
     <if test="yyyymm != null">
-      YYYYMM = #{yyyymm,jdbcType=VARCHAR} , 
+      yyyymm = #{yyyymm,jdbcType=VARCHAR} , 
     </if>
     <if test="yyyymmdd != null">
-      YYYYMMDD = #{yyyymmdd,jdbcType=VARCHAR} , 
+      yyyymmdd = #{yyyymmdd,jdbcType=VARCHAR} , 
     </if>
     <if test="allsavenum != null">
-      ALLSAVENUM = #{allsavenum,jdbcType=DECIMAL} , 
+      allsavenum = #{allsavenum,jdbcType=DECIMAL} , 
     </if>
     <if test="allcost != null">
-      ALLCOST = #{allcost,jdbcType=DECIMAL} , 
+      allcost = #{allcost,jdbcType=DECIMAL} , 
     </if>
     <if test="field1 != null">
-      FIELD1 = #{field1,jdbcType=VARCHAR} , 
+      field1 = #{field1,jdbcType=VARCHAR} , 
     </if>
     <if test="field2 != null">
-      FIELD2 = #{field2,jdbcType=VARCHAR} , 
+      field2 = #{field2,jdbcType=VARCHAR} , 
     </if>
     <if test="field3 != null">
-      FIELD3 = #{field3,jdbcType=VARCHAR} , 
+      field3 = #{field3,jdbcType=VARCHAR} , 
     </if>
     <if test="categoryid != null">
-      CATEGORYID = #{categoryid,jdbcType=VARCHAR}
+      categoryid = #{categoryid,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbProductDaily" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

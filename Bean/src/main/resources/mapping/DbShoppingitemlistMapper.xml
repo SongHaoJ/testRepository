@@ -25,271 +25,223 @@
     <result column="QUANTITYSOLD7" jdbcType="DECIMAL" property="quantitysold7" />
     <result column="QUANTITYSOLDTOTAL" jdbcType="DECIMAL" property="quantitysoldtotal" />
   </resultMap>
-  <sql id="Base_Column_List">
-    ID, HITCOUNT1, PRICETYPE, HITCOUNT56, HITCOUNT14, QUANTITYSOLD56, RUNTIME, HITCOUNT7, 
-    PRICE, QUANTITYSOLD14, QUANTITYSOLD3, HITCOUNT3, QUANTITYSOLD28, UPDATETIME, HITCOUNT28, 
-    HITCOUNT21, HITCOUNTTOTAL, QUANTITYSOLD1, QUANTITYSOLD21, ITEMID, QUANTITYSOLD7, 
-    QUANTITYSOLDTOTAL
-  </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from db_shoppingitemlist
+    select ID, HITCOUNT1, PRICETYPE, HITCOUNT56, HITCOUNT14, QUANTITYSOLD56, RUNTIME, 
+    HITCOUNT7, PRICE, QUANTITYSOLD14, QUANTITYSOLD3, HITCOUNT3, QUANTITYSOLD28, UPDATETIME, 
+    HITCOUNT28, HITCOUNT21, HITCOUNTTOTAL, QUANTITYSOLD1, QUANTITYSOLD21, ITEMID, QUANTITYSOLD7, 
+    QUANTITYSOLDTOTAL
+    from DB_SHOPPINGITEMLIST
     where ID = #{id,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_shoppingitemlist
-    where ID = #{id,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ID, HITCOUNT1, PRICETYPE, HITCOUNT56, HITCOUNT14, QUANTITYSOLD56, RUNTIME, 
+    HITCOUNT7, PRICE, QUANTITYSOLD14, QUANTITYSOLD3, HITCOUNT3, QUANTITYSOLD28, UPDATETIME, 
+    HITCOUNT28, HITCOUNT21, HITCOUNTTOTAL, QUANTITYSOLD1, QUANTITYSOLD21, ITEMID, QUANTITYSOLD7, 
+    QUANTITYSOLDTOTAL
+    from DB_SHOPPINGITEMLIST
+  </select>
+  <sql id="TableName">
+    DB_SHOPPINGITEMLIST
+  </sql>
+  <sql id="Values">
+     #{id,jdbcType=VARCHAR} , 
+     #{hitcount1,jdbcType=DECIMAL} , 
+     #{pricetype,jdbcType=VARCHAR} , 
+     #{hitcount56,jdbcType=DECIMAL} , 
+     #{hitcount14,jdbcType=DECIMAL} , 
+     #{quantitysold56,jdbcType=DECIMAL} , 
+     #{runtime,jdbcType=DECIMAL} , 
+     #{hitcount7,jdbcType=DECIMAL} , 
+     #{price,jdbcType=DECIMAL} , 
+     #{quantitysold14,jdbcType=DECIMAL} , 
+     #{quantitysold3,jdbcType=DECIMAL} , 
+     #{hitcount3,jdbcType=DECIMAL} , 
+     #{quantitysold28,jdbcType=DECIMAL} , 
+     #{updatetime,jdbcType=TIMESTAMP} , 
+     #{hitcount28,jdbcType=DECIMAL} , 
+     #{hitcount21,jdbcType=DECIMAL} , 
+     #{hitcounttotal,jdbcType=DECIMAL} , 
+     #{quantitysold1,jdbcType=DECIMAL} , 
+     #{quantitysold21,jdbcType=DECIMAL} , 
+     #{itemid,jdbcType=DECIMAL} , 
+     #{quantitysold7,jdbcType=DECIMAL} , 
+     #{quantitysoldtotal,jdbcType=DECIMAL} , 
+  </sql>
+  <sql id="Columns">
+    ID , 
+    HITCOUNT1 , 
+    PRICETYPE , 
+    HITCOUNT56 , 
+    HITCOUNT14 , 
+    QUANTITYSOLD56 , 
+    RUNTIME , 
+    HITCOUNT7 , 
+    PRICE , 
+    QUANTITYSOLD14 , 
+    QUANTITYSOLD3 , 
+    HITCOUNT3 , 
+    QUANTITYSOLD28 , 
+    UPDATETIME , 
+    HITCOUNT28 , 
+    HITCOUNT21 , 
+    HITCOUNTTOTAL , 
+    QUANTITYSOLD1 , 
+    QUANTITYSOLD21 , 
+    ITEMID , 
+    QUANTITYSOLD7 , 
+    QUANTITYSOLDTOTAL , 
+  </sql>
+  <sql id="Criteria">
+    <if test="id != null">
+      id = #{id,jdbcType=VARCHAR} and 
+    </if>
+    <if test="hitcount1 != null">
+      hitcount1 = #{hitcount1,jdbcType=DECIMAL} and 
+    </if>
+    <if test="pricetype != null">
+      pricetype = #{pricetype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="hitcount56 != null">
+      hitcount56 = #{hitcount56,jdbcType=DECIMAL} and 
+    </if>
+    <if test="hitcount14 != null">
+      hitcount14 = #{hitcount14,jdbcType=DECIMAL} and 
+    </if>
+    <if test="quantitysold56 != null">
+      quantitysold56 = #{quantitysold56,jdbcType=DECIMAL} and 
+    </if>
+    <if test="runtime != null">
+      runtime = #{runtime,jdbcType=DECIMAL} and 
+    </if>
+    <if test="hitcount7 != null">
+      hitcount7 = #{hitcount7,jdbcType=DECIMAL} and 
+    </if>
+    <if test="price != null">
+      price = #{price,jdbcType=DECIMAL} and 
+    </if>
+    <if test="quantitysold14 != null">
+      quantitysold14 = #{quantitysold14,jdbcType=DECIMAL} and 
+    </if>
+    <if test="quantitysold3 != null">
+      quantitysold3 = #{quantitysold3,jdbcType=DECIMAL} and 
+    </if>
+    <if test="hitcount3 != null">
+      hitcount3 = #{hitcount3,jdbcType=DECIMAL} and 
+    </if>
+    <if test="quantitysold28 != null">
+      quantitysold28 = #{quantitysold28,jdbcType=DECIMAL} and 
+    </if>
+    <if test="updatetime != null">
+      updatetime = #{updatetime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="hitcount28 != null">
+      hitcount28 = #{hitcount28,jdbcType=DECIMAL} and 
+    </if>
+    <if test="hitcount21 != null">
+      hitcount21 = #{hitcount21,jdbcType=DECIMAL} and 
+    </if>
+    <if test="hitcounttotal != null">
+      hitcounttotal = #{hitcounttotal,jdbcType=DECIMAL} and 
+    </if>
+    <if test="quantitysold1 != null">
+      quantitysold1 = #{quantitysold1,jdbcType=DECIMAL} and 
+    </if>
+    <if test="quantitysold21 != null">
+      quantitysold21 = #{quantitysold21,jdbcType=DECIMAL} and 
+    </if>
+    <if test="itemid != null">
+      itemid = #{itemid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="quantitysold7 != null">
+      quantitysold7 = #{quantitysold7,jdbcType=DECIMAL} and 
+    </if>
+    <if test="quantitysoldtotal != null">
+      quantitysoldtotal = #{quantitysoldtotal,jdbcType=DECIMAL} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="id != null">
+      id = #{id,jdbcType=VARCHAR} , 
+    </if>
+    <if test="hitcount1 != null">
+      hitcount1 = #{hitcount1,jdbcType=DECIMAL} , 
+    </if>
+    <if test="pricetype != null">
+      pricetype = #{pricetype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="hitcount56 != null">
+      hitcount56 = #{hitcount56,jdbcType=DECIMAL} , 
+    </if>
+    <if test="hitcount14 != null">
+      hitcount14 = #{hitcount14,jdbcType=DECIMAL} , 
+    </if>
+    <if test="quantitysold56 != null">
+      quantitysold56 = #{quantitysold56,jdbcType=DECIMAL} , 
+    </if>
+    <if test="runtime != null">
+      runtime = #{runtime,jdbcType=DECIMAL} , 
+    </if>
+    <if test="hitcount7 != null">
+      hitcount7 = #{hitcount7,jdbcType=DECIMAL} , 
+    </if>
+    <if test="price != null">
+      price = #{price,jdbcType=DECIMAL} , 
+    </if>
+    <if test="quantitysold14 != null">
+      quantitysold14 = #{quantitysold14,jdbcType=DECIMAL} , 
+    </if>
+    <if test="quantitysold3 != null">
+      quantitysold3 = #{quantitysold3,jdbcType=DECIMAL} , 
+    </if>
+    <if test="hitcount3 != null">
+      hitcount3 = #{hitcount3,jdbcType=DECIMAL} , 
+    </if>
+    <if test="quantitysold28 != null">
+      quantitysold28 = #{quantitysold28,jdbcType=DECIMAL} , 
+    </if>
+    <if test="updatetime != null">
+      updatetime = #{updatetime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="hitcount28 != null">
+      hitcount28 = #{hitcount28,jdbcType=DECIMAL} , 
+    </if>
+    <if test="hitcount21 != null">
+      hitcount21 = #{hitcount21,jdbcType=DECIMAL} , 
+    </if>
+    <if test="hitcounttotal != null">
+      hitcounttotal = #{hitcounttotal,jdbcType=DECIMAL} , 
+    </if>
+    <if test="quantitysold1 != null">
+      quantitysold1 = #{quantitysold1,jdbcType=DECIMAL} , 
+    </if>
+    <if test="quantitysold21 != null">
+      quantitysold21 = #{quantitysold21,jdbcType=DECIMAL} , 
+    </if>
+    <if test="itemid != null">
+      itemid = #{itemid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="quantitysold7 != null">
+      quantitysold7 = #{quantitysold7,jdbcType=DECIMAL} , 
+    </if>
+    <if test="quantitysoldtotal != null">
+      quantitysoldtotal = #{quantitysoldtotal,jdbcType=DECIMAL} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbShoppingitemlist" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where ID=#{ID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbShoppingitemlist">
-    insert into db_shoppingitemlist (ID, HITCOUNT1, PRICETYPE, 
-      HITCOUNT56, HITCOUNT14, QUANTITYSOLD56, 
-      RUNTIME, HITCOUNT7, PRICE, 
-      QUANTITYSOLD14, QUANTITYSOLD3, HITCOUNT3, 
-      QUANTITYSOLD28, UPDATETIME, HITCOUNT28, 
-      HITCOUNT21, HITCOUNTTOTAL, QUANTITYSOLD1, 
-      QUANTITYSOLD21, ITEMID, QUANTITYSOLD7, 
-      QUANTITYSOLDTOTAL)
-    values (#{id,jdbcType=VARCHAR}, #{hitcount1,jdbcType=DECIMAL}, #{pricetype,jdbcType=VARCHAR}, 
-      #{hitcount56,jdbcType=DECIMAL}, #{hitcount14,jdbcType=DECIMAL}, #{quantitysold56,jdbcType=DECIMAL}, 
-      #{runtime,jdbcType=DECIMAL}, #{hitcount7,jdbcType=DECIMAL}, #{price,jdbcType=DECIMAL}, 
-      #{quantitysold14,jdbcType=DECIMAL}, #{quantitysold3,jdbcType=DECIMAL}, #{hitcount3,jdbcType=DECIMAL}, 
-      #{quantitysold28,jdbcType=DECIMAL}, #{updatetime,jdbcType=TIMESTAMP}, #{hitcount28,jdbcType=DECIMAL}, 
-      #{hitcount21,jdbcType=DECIMAL}, #{hitcounttotal,jdbcType=DECIMAL}, #{quantitysold1,jdbcType=DECIMAL}, 
-      #{quantitysold21,jdbcType=DECIMAL}, #{itemid,jdbcType=DECIMAL}, #{quantitysold7,jdbcType=DECIMAL}, 
-      #{quantitysoldtotal,jdbcType=DECIMAL})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbShoppingitemlist">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbShoppingitemlist">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbShoppingitemlist">
-    insert into db_shoppingitemlist
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        ID,
-      </if>
-      <if test="hitcount1 != null">
-        HITCOUNT1,
-      </if>
-      <if test="pricetype != null">
-        PRICETYPE,
-      </if>
-      <if test="hitcount56 != null">
-        HITCOUNT56,
-      </if>
-      <if test="hitcount14 != null">
-        HITCOUNT14,
-      </if>
-      <if test="quantitysold56 != null">
-        QUANTITYSOLD56,
-      </if>
-      <if test="runtime != null">
-        RUNTIME,
-      </if>
-      <if test="hitcount7 != null">
-        HITCOUNT7,
-      </if>
-      <if test="price != null">
-        PRICE,
-      </if>
-      <if test="quantitysold14 != null">
-        QUANTITYSOLD14,
-      </if>
-      <if test="quantitysold3 != null">
-        QUANTITYSOLD3,
-      </if>
-      <if test="hitcount3 != null">
-        HITCOUNT3,
-      </if>
-      <if test="quantitysold28 != null">
-        QUANTITYSOLD28,
-      </if>
-      <if test="updatetime != null">
-        UPDATETIME,
-      </if>
-      <if test="hitcount28 != null">
-        HITCOUNT28,
-      </if>
-      <if test="hitcount21 != null">
-        HITCOUNT21,
-      </if>
-      <if test="hitcounttotal != null">
-        HITCOUNTTOTAL,
-      </if>
-      <if test="quantitysold1 != null">
-        QUANTITYSOLD1,
-      </if>
-      <if test="quantitysold21 != null">
-        QUANTITYSOLD21,
-      </if>
-      <if test="itemid != null">
-        ITEMID,
-      </if>
-      <if test="quantitysold7 != null">
-        QUANTITYSOLD7,
-      </if>
-      <if test="quantitysoldtotal != null">
-        QUANTITYSOLDTOTAL,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=VARCHAR},
-      </if>
-      <if test="hitcount1 != null">
-        #{hitcount1,jdbcType=DECIMAL},
-      </if>
-      <if test="pricetype != null">
-        #{pricetype,jdbcType=VARCHAR},
-      </if>
-      <if test="hitcount56 != null">
-        #{hitcount56,jdbcType=DECIMAL},
-      </if>
-      <if test="hitcount14 != null">
-        #{hitcount14,jdbcType=DECIMAL},
-      </if>
-      <if test="quantitysold56 != null">
-        #{quantitysold56,jdbcType=DECIMAL},
-      </if>
-      <if test="runtime != null">
-        #{runtime,jdbcType=DECIMAL},
-      </if>
-      <if test="hitcount7 != null">
-        #{hitcount7,jdbcType=DECIMAL},
-      </if>
-      <if test="price != null">
-        #{price,jdbcType=DECIMAL},
-      </if>
-      <if test="quantitysold14 != null">
-        #{quantitysold14,jdbcType=DECIMAL},
-      </if>
-      <if test="quantitysold3 != null">
-        #{quantitysold3,jdbcType=DECIMAL},
-      </if>
-      <if test="hitcount3 != null">
-        #{hitcount3,jdbcType=DECIMAL},
-      </if>
-      <if test="quantitysold28 != null">
-        #{quantitysold28,jdbcType=DECIMAL},
-      </if>
-      <if test="updatetime != null">
-        #{updatetime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="hitcount28 != null">
-        #{hitcount28,jdbcType=DECIMAL},
-      </if>
-      <if test="hitcount21 != null">
-        #{hitcount21,jdbcType=DECIMAL},
-      </if>
-      <if test="hitcounttotal != null">
-        #{hitcounttotal,jdbcType=DECIMAL},
-      </if>
-      <if test="quantitysold1 != null">
-        #{quantitysold1,jdbcType=DECIMAL},
-      </if>
-      <if test="quantitysold21 != null">
-        #{quantitysold21,jdbcType=DECIMAL},
-      </if>
-      <if test="itemid != null">
-        #{itemid,jdbcType=DECIMAL},
-      </if>
-      <if test="quantitysold7 != null">
-        #{quantitysold7,jdbcType=DECIMAL},
-      </if>
-      <if test="quantitysoldtotal != null">
-        #{quantitysoldtotal,jdbcType=DECIMAL},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbShoppingitemlist">
-    update db_shoppingitemlist
-    <set>
-      <if test="hitcount1 != null">
-        HITCOUNT1 = #{hitcount1,jdbcType=DECIMAL},
-      </if>
-      <if test="pricetype != null">
-        PRICETYPE = #{pricetype,jdbcType=VARCHAR},
-      </if>
-      <if test="hitcount56 != null">
-        HITCOUNT56 = #{hitcount56,jdbcType=DECIMAL},
-      </if>
-      <if test="hitcount14 != null">
-        HITCOUNT14 = #{hitcount14,jdbcType=DECIMAL},
-      </if>
-      <if test="quantitysold56 != null">
-        QUANTITYSOLD56 = #{quantitysold56,jdbcType=DECIMAL},
-      </if>
-      <if test="runtime != null">
-        RUNTIME = #{runtime,jdbcType=DECIMAL},
-      </if>
-      <if test="hitcount7 != null">
-        HITCOUNT7 = #{hitcount7,jdbcType=DECIMAL},
-      </if>
-      <if test="price != null">
-        PRICE = #{price,jdbcType=DECIMAL},
-      </if>
-      <if test="quantitysold14 != null">
-        QUANTITYSOLD14 = #{quantitysold14,jdbcType=DECIMAL},
-      </if>
-      <if test="quantitysold3 != null">
-        QUANTITYSOLD3 = #{quantitysold3,jdbcType=DECIMAL},
-      </if>
-      <if test="hitcount3 != null">
-        HITCOUNT3 = #{hitcount3,jdbcType=DECIMAL},
-      </if>
-      <if test="quantitysold28 != null">
-        QUANTITYSOLD28 = #{quantitysold28,jdbcType=DECIMAL},
-      </if>
-      <if test="updatetime != null">
-        UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="hitcount28 != null">
-        HITCOUNT28 = #{hitcount28,jdbcType=DECIMAL},
-      </if>
-      <if test="hitcount21 != null">
-        HITCOUNT21 = #{hitcount21,jdbcType=DECIMAL},
-      </if>
-      <if test="hitcounttotal != null">
-        HITCOUNTTOTAL = #{hitcounttotal,jdbcType=DECIMAL},
-      </if>
-      <if test="quantitysold1 != null">
-        QUANTITYSOLD1 = #{quantitysold1,jdbcType=DECIMAL},
-      </if>
-      <if test="quantitysold21 != null">
-        QUANTITYSOLD21 = #{quantitysold21,jdbcType=DECIMAL},
-      </if>
-      <if test="itemid != null">
-        ITEMID = #{itemid,jdbcType=DECIMAL},
-      </if>
-      <if test="quantitysold7 != null">
-        QUANTITYSOLD7 = #{quantitysold7,jdbcType=DECIMAL},
-      </if>
-      <if test="quantitysoldtotal != null">
-        QUANTITYSOLDTOTAL = #{quantitysoldtotal,jdbcType=DECIMAL},
-      </if>
-    </set>
-    where ID = #{id,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbShoppingitemlist">
-    update db_shoppingitemlist
-    set HITCOUNT1 = #{hitcount1,jdbcType=DECIMAL},
-      PRICETYPE = #{pricetype,jdbcType=VARCHAR},
-      HITCOUNT56 = #{hitcount56,jdbcType=DECIMAL},
-      HITCOUNT14 = #{hitcount14,jdbcType=DECIMAL},
-      QUANTITYSOLD56 = #{quantitysold56,jdbcType=DECIMAL},
-      RUNTIME = #{runtime,jdbcType=DECIMAL},
-      HITCOUNT7 = #{hitcount7,jdbcType=DECIMAL},
-      PRICE = #{price,jdbcType=DECIMAL},
-      QUANTITYSOLD14 = #{quantitysold14,jdbcType=DECIMAL},
-      QUANTITYSOLD3 = #{quantitysold3,jdbcType=DECIMAL},
-      HITCOUNT3 = #{hitcount3,jdbcType=DECIMAL},
-      QUANTITYSOLD28 = #{quantitysold28,jdbcType=DECIMAL},
-      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
-      HITCOUNT28 = #{hitcount28,jdbcType=DECIMAL},
-      HITCOUNT21 = #{hitcount21,jdbcType=DECIMAL},
-      HITCOUNTTOTAL = #{hitcounttotal,jdbcType=DECIMAL},
-      QUANTITYSOLD1 = #{quantitysold1,jdbcType=DECIMAL},
-      QUANTITYSOLD21 = #{quantitysold21,jdbcType=DECIMAL},
-      ITEMID = #{itemid,jdbcType=DECIMAL},
-      QUANTITYSOLD7 = #{quantitysold7,jdbcType=DECIMAL},
-      QUANTITYSOLDTOTAL = #{quantitysoldtotal,jdbcType=DECIMAL}
-    where ID = #{id,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbShoppingitemlist">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

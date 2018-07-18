@@ -14,16 +14,16 @@
   <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
     select SID, CATEGROYID, CATEGROYNAME, EBAYCATEGORYID, EBAYCATEGORYNAME, TEMPLETID, 
     FLAG, SITE
-    from db_matecategory
+    from DB_MATECATEGORY
     where SID = #{sid,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SID, CATEGROYID, CATEGROYNAME, EBAYCATEGORYID, EBAYCATEGORYNAME, TEMPLETID, 
     FLAG, SITE
-    from db_matecategory
+    from DB_MATECATEGORY
   </select>
   <sql id="TableName">
-    db_matecategory
+    DB_MATECATEGORY
   </sql>
   <sql id="Values">
      #{sid,jdbcType=DECIMAL} , 
@@ -33,7 +33,7 @@
      #{ebaycategoryname,jdbcType=VARCHAR} , 
      #{templetid,jdbcType=VARCHAR} , 
      #{flag,jdbcType=DECIMAL} , 
-     #{site,jdbcType=VARCHAR}
+     #{site,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     SID , 
@@ -43,61 +43,61 @@
     EBAYCATEGORYNAME , 
     TEMPLETID , 
     FLAG , 
-    SITE
+    SITE , 
   </sql>
   <sql id="Criteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=DECIMAL} and 
+      sid = #{sid,jdbcType=DECIMAL} and 
     </if>
     <if test="categroyid != null">
-      CATEGROYID = #{categroyid,jdbcType=VARCHAR} and 
+      categroyid = #{categroyid,jdbcType=VARCHAR} and 
     </if>
     <if test="categroyname != null">
-      CATEGROYNAME = #{categroyname,jdbcType=VARCHAR} and 
+      categroyname = #{categroyname,jdbcType=VARCHAR} and 
     </if>
     <if test="ebaycategoryid != null">
-      EBAYCATEGORYID = #{ebaycategoryid,jdbcType=VARCHAR} and 
+      ebaycategoryid = #{ebaycategoryid,jdbcType=VARCHAR} and 
     </if>
     <if test="ebaycategoryname != null">
-      EBAYCATEGORYNAME = #{ebaycategoryname,jdbcType=VARCHAR} and 
+      ebaycategoryname = #{ebaycategoryname,jdbcType=VARCHAR} and 
     </if>
     <if test="templetid != null">
-      TEMPLETID = #{templetid,jdbcType=VARCHAR} and 
+      templetid = #{templetid,jdbcType=VARCHAR} and 
     </if>
     <if test="flag != null">
-      FLAG = #{flag,jdbcType=DECIMAL} and 
+      flag = #{flag,jdbcType=DECIMAL} and 
     </if>
     <if test="site != null">
-      SITE = #{site,jdbcType=VARCHAR}
+      site = #{site,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=DECIMAL} , 
+      sid = #{sid,jdbcType=DECIMAL} , 
     </if>
     <if test="categroyid != null">
-      CATEGROYID = #{categroyid,jdbcType=VARCHAR} , 
+      categroyid = #{categroyid,jdbcType=VARCHAR} , 
     </if>
     <if test="categroyname != null">
-      CATEGROYNAME = #{categroyname,jdbcType=VARCHAR} , 
+      categroyname = #{categroyname,jdbcType=VARCHAR} , 
     </if>
     <if test="ebaycategoryid != null">
-      EBAYCATEGORYID = #{ebaycategoryid,jdbcType=VARCHAR} , 
+      ebaycategoryid = #{ebaycategoryid,jdbcType=VARCHAR} , 
     </if>
     <if test="ebaycategoryname != null">
-      EBAYCATEGORYNAME = #{ebaycategoryname,jdbcType=VARCHAR} , 
+      ebaycategoryname = #{ebaycategoryname,jdbcType=VARCHAR} , 
     </if>
     <if test="templetid != null">
-      TEMPLETID = #{templetid,jdbcType=VARCHAR} , 
+      templetid = #{templetid,jdbcType=VARCHAR} , 
     </if>
     <if test="flag != null">
-      FLAG = #{flag,jdbcType=DECIMAL} , 
+      flag = #{flag,jdbcType=DECIMAL} , 
     </if>
     <if test="site != null">
-      SITE = #{site,jdbcType=VARCHAR}
+      site = #{site,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbMatecategory" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

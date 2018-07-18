@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbCalculateTemp;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbCalculateTempMapper {
-    int deleteByPrimaryKey(String sid);
+    DbCalculateTemp selectByCriteria(DbCalculateTemp DbCalculateTemp);
 
-    int insert(DbCalculateTemp record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbCalculateTemp record);
+    void deleteByCriteria(DbCalculateTemp DbCalculateTemp);
+
+    int insertByCriteria(DbCalculateTemp DbCalculateTemp);
+
+    int updateByCriteria(DbCalculateTemp DbCalculateTemp);
 
     DbCalculateTemp selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbCalculateTemp record);
-
-    int updateByPrimaryKey(DbCalculateTemp record);
+    List<DbCalculateTemp> selectAll();
 }

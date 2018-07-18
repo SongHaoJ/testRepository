@@ -19,6 +19,8 @@ public class DbCheckpaypaladdress implements Serializable {
 
     private Date createtime;
 
+    private String error;
+
     private String itemid;
 
     private Date opertime;
@@ -28,8 +30,6 @@ public class DbCheckpaypaladdress implements Serializable {
     private String orgpaypaladdress;
 
     private BigDecimal flag;
-
-    private String error;
 
     private static final long serialVersionUID = 1L;
 
@@ -89,6 +89,14 @@ public class DbCheckpaypaladdress implements Serializable {
         this.createtime = createtime;
     }
 
+    public String getError() {
+        return error;
+    }
+
+    public void setError(String error) {
+        this.error = error == null ? null : error.trim();
+    }
+
     public String getItemid() {
         return itemid;
     }
@@ -129,14 +137,6 @@ public class DbCheckpaypaladdress implements Serializable {
         this.flag = flag;
     }
 
-    public String getError() {
-        return error;
-    }
-
-    public void setError(String error) {
-        this.error = error == null ? null : error.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -156,12 +156,12 @@ public class DbCheckpaypaladdress implements Serializable {
             && (this.getNewpaypaladdress() == null ? other.getNewpaypaladdress() == null : this.getNewpaypaladdress().equals(other.getNewpaypaladdress()))
             && (this.getCreateoper() == null ? other.getCreateoper() == null : this.getCreateoper().equals(other.getCreateoper()))
             && (this.getCreatetime() == null ? other.getCreatetime() == null : this.getCreatetime().equals(other.getCreatetime()))
+            && (this.getError() == null ? other.getError() == null : this.getError().equals(other.getError()))
             && (this.getItemid() == null ? other.getItemid() == null : this.getItemid().equals(other.getItemid()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
             && (this.getSite() == null ? other.getSite() == null : this.getSite().equals(other.getSite()))
             && (this.getOrgpaypaladdress() == null ? other.getOrgpaypaladdress() == null : this.getOrgpaypaladdress().equals(other.getOrgpaypaladdress()))
-            && (this.getFlag() == null ? other.getFlag() == null : this.getFlag().equals(other.getFlag()))
-            && (this.getError() == null ? other.getError() == null : this.getError().equals(other.getError()));
+            && (this.getFlag() == null ? other.getFlag() == null : this.getFlag().equals(other.getFlag()));
     }
 
     @Override
@@ -175,12 +175,12 @@ public class DbCheckpaypaladdress implements Serializable {
         result = prime * result + ((getNewpaypaladdress() == null) ? 0 : getNewpaypaladdress().hashCode());
         result = prime * result + ((getCreateoper() == null) ? 0 : getCreateoper().hashCode());
         result = prime * result + ((getCreatetime() == null) ? 0 : getCreatetime().hashCode());
+        result = prime * result + ((getError() == null) ? 0 : getError().hashCode());
         result = prime * result + ((getItemid() == null) ? 0 : getItemid().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getSite() == null) ? 0 : getSite().hashCode());
         result = prime * result + ((getOrgpaypaladdress() == null) ? 0 : getOrgpaypaladdress().hashCode());
         result = prime * result + ((getFlag() == null) ? 0 : getFlag().hashCode());
-        result = prime * result + ((getError() == null) ? 0 : getError().hashCode());
         return result;
     }
 
@@ -197,12 +197,12 @@ public class DbCheckpaypaladdress implements Serializable {
         sb.append(", newpaypaladdress=").append(newpaypaladdress);
         sb.append(", createoper=").append(createoper);
         sb.append(", createtime=").append(createtime);
+        sb.append(", error=").append(error);
         sb.append(", itemid=").append(itemid);
         sb.append(", opertime=").append(opertime);
         sb.append(", site=").append(site);
         sb.append(", orgpaypaladdress=").append(orgpaypaladdress);
         sb.append(", flag=").append(flag);
-        sb.append(", error=").append(error);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

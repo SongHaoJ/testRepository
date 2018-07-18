@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbItemlistingMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbItemlisting">
+    <id column="ITEMID" jdbcType="VARCHAR" property="itemid" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbItemlisting">
+    <result column="LISTING" jdbcType="LONGVARCHAR" property="listing" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ITEMID
+  </sql>
+  <sql id="Blob_Column_List">
+    LISTING
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from db_itemlisting
+    where ITEMID = #{itemid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from db_itemlisting
+    where ITEMID = #{itemid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bean.model.DbItemlisting">
+    insert into db_itemlisting (ITEMID, LISTING)
+    values (#{itemid,jdbcType=VARCHAR}, #{listing,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbItemlisting">
+    insert into db_itemlisting
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="itemid != null">
+        ITEMID,
+      </if>
+      <if test="listing != null">
+        LISTING,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="itemid != null">
+        #{itemid,jdbcType=VARCHAR},
+      </if>
+      <if test="listing != null">
+        #{listing,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbItemlisting">
+    update db_itemlisting
+    <set>
+      <if test="listing != null">
+        LISTING = #{listing,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where ITEMID = #{itemid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbItemlisting">
+    update db_itemlisting
+    set LISTING = #{listing,jdbcType=LONGVARCHAR}
+    where ITEMID = #{itemid,jdbcType=VARCHAR}
+  </update>
+</mapper>

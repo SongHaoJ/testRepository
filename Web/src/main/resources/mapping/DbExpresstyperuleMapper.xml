@@ -11,23 +11,23 @@
     <result column="VOLUME" jdbcType="DECIMAL" property="volume" />
     <result column="BOTTOMPERIMETER" jdbcType="DECIMAL" property="bottomperimeter" />
     <result column="ADDITIONALCHARGE" jdbcType="DECIMAL" property="additionalcharge" />
+    <result column="SQLFILTER" jdbcType="VARCHAR" property="sqlfilter" />
     <result column="EXPRESSTYPEID" jdbcType="VARCHAR" property="expresstypeid" />
-    <result column="SQLFILTER" jdbcType="LONGVARCHAR" property="sqlfilter" />
-    <result column="FORMULA" jdbcType="LONGVARCHAR" property="formula" />
+    <result column="FORMULA" jdbcType="VARCHAR" property="formula" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
     select SID, LENGTH, WIDTH, HEIGHT, WEIGHT, VOLUMEWEIGHT, VOLUME, BOTTOMPERIMETER, 
-    ADDITIONALCHARGE, EXPRESSTYPEID, SQLFILTER, FORMULA
-    from db_expresstyperule
+    ADDITIONALCHARGE, SQLFILTER, EXPRESSTYPEID, FORMULA
+    from DB_EXPRESSTYPERULE
     where SID = #{sid,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SID, LENGTH, WIDTH, HEIGHT, WEIGHT, VOLUMEWEIGHT, VOLUME, BOTTOMPERIMETER, 
-    ADDITIONALCHARGE, EXPRESSTYPEID, SQLFILTER, FORMULA
-    from db_expresstyperule
+    ADDITIONALCHARGE, SQLFILTER, EXPRESSTYPEID, FORMULA
+    from DB_EXPRESSTYPERULE
   </select>
   <sql id="TableName">
-    db_expresstyperule
+    DB_EXPRESSTYPERULE
   </sql>
   <sql id="Values">
      #{sid,jdbcType=DECIMAL} , 
@@ -39,9 +39,9 @@
      #{volume,jdbcType=DECIMAL} , 
      #{bottomperimeter,jdbcType=DECIMAL} , 
      #{additionalcharge,jdbcType=DECIMAL} , 
+     #{sqlfilter,jdbcType=VARCHAR} , 
      #{expresstypeid,jdbcType=VARCHAR} , 
-     #{sqlfilter,jdbcType=LONGVARCHAR} , 
-     #{formula,jdbcType=LONGVARCHAR}
+     #{formula,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     SID , 
@@ -53,87 +53,87 @@
     VOLUME , 
     BOTTOMPERIMETER , 
     ADDITIONALCHARGE , 
-    EXPRESSTYPEID , 
     SQLFILTER , 
-    FORMULA
+    EXPRESSTYPEID , 
+    FORMULA , 
   </sql>
   <sql id="Criteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=DECIMAL} and 
+      sid = #{sid,jdbcType=DECIMAL} and 
     </if>
     <if test="length != null">
-      LENGTH = #{length,jdbcType=DECIMAL} and 
+      length = #{length,jdbcType=DECIMAL} and 
     </if>
     <if test="width != null">
-      WIDTH = #{width,jdbcType=DECIMAL} and 
+      width = #{width,jdbcType=DECIMAL} and 
     </if>
     <if test="height != null">
-      HEIGHT = #{height,jdbcType=DECIMAL} and 
+      height = #{height,jdbcType=DECIMAL} and 
     </if>
     <if test="weight != null">
-      WEIGHT = #{weight,jdbcType=DECIMAL} and 
+      weight = #{weight,jdbcType=DECIMAL} and 
     </if>
     <if test="volumeweight != null">
-      VOLUMEWEIGHT = #{volumeweight,jdbcType=DECIMAL} and 
+      volumeweight = #{volumeweight,jdbcType=DECIMAL} and 
     </if>
     <if test="volume != null">
-      VOLUME = #{volume,jdbcType=DECIMAL} and 
+      volume = #{volume,jdbcType=DECIMAL} and 
     </if>
     <if test="bottomperimeter != null">
-      BOTTOMPERIMETER = #{bottomperimeter,jdbcType=DECIMAL} and 
+      bottomperimeter = #{bottomperimeter,jdbcType=DECIMAL} and 
     </if>
     <if test="additionalcharge != null">
-      ADDITIONALCHARGE = #{additionalcharge,jdbcType=DECIMAL} and 
-    </if>
-    <if test="expresstypeid != null">
-      EXPRESSTYPEID = #{expresstypeid,jdbcType=VARCHAR} and 
+      additionalcharge = #{additionalcharge,jdbcType=DECIMAL} and 
     </if>
     <if test="sqlfilter != null">
-      SQLFILTER = #{sqlfilter,jdbcType=LONGVARCHAR} and 
+      sqlfilter = #{sqlfilter,jdbcType=VARCHAR} and 
+    </if>
+    <if test="expresstypeid != null">
+      expresstypeid = #{expresstypeid,jdbcType=VARCHAR} and 
     </if>
     <if test="formula != null">
-      FORMULA = #{formula,jdbcType=LONGVARCHAR}
+      formula = #{formula,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=DECIMAL} , 
+      sid = #{sid,jdbcType=DECIMAL} , 
     </if>
     <if test="length != null">
-      LENGTH = #{length,jdbcType=DECIMAL} , 
+      length = #{length,jdbcType=DECIMAL} , 
     </if>
     <if test="width != null">
-      WIDTH = #{width,jdbcType=DECIMAL} , 
+      width = #{width,jdbcType=DECIMAL} , 
     </if>
     <if test="height != null">
-      HEIGHT = #{height,jdbcType=DECIMAL} , 
+      height = #{height,jdbcType=DECIMAL} , 
     </if>
     <if test="weight != null">
-      WEIGHT = #{weight,jdbcType=DECIMAL} , 
+      weight = #{weight,jdbcType=DECIMAL} , 
     </if>
     <if test="volumeweight != null">
-      VOLUMEWEIGHT = #{volumeweight,jdbcType=DECIMAL} , 
+      volumeweight = #{volumeweight,jdbcType=DECIMAL} , 
     </if>
     <if test="volume != null">
-      VOLUME = #{volume,jdbcType=DECIMAL} , 
+      volume = #{volume,jdbcType=DECIMAL} , 
     </if>
     <if test="bottomperimeter != null">
-      BOTTOMPERIMETER = #{bottomperimeter,jdbcType=DECIMAL} , 
+      bottomperimeter = #{bottomperimeter,jdbcType=DECIMAL} , 
     </if>
     <if test="additionalcharge != null">
-      ADDITIONALCHARGE = #{additionalcharge,jdbcType=DECIMAL} , 
-    </if>
-    <if test="expresstypeid != null">
-      EXPRESSTYPEID = #{expresstypeid,jdbcType=VARCHAR} , 
+      additionalcharge = #{additionalcharge,jdbcType=DECIMAL} , 
     </if>
     <if test="sqlfilter != null">
-      SQLFILTER = #{sqlfilter,jdbcType=LONGVARCHAR} , 
+      sqlfilter = #{sqlfilter,jdbcType=VARCHAR} , 
+    </if>
+    <if test="expresstypeid != null">
+      expresstypeid = #{expresstypeid,jdbcType=VARCHAR} , 
     </if>
     <if test="formula != null">
-      FORMULA = #{formula,jdbcType=LONGVARCHAR}
+      formula = #{formula,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbExpresstyperule" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

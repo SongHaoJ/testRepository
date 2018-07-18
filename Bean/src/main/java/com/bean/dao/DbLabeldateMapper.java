@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbLabeldate;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbLabeldateMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbLabeldate selectByCriteria(DbLabeldate DbLabeldate);
 
-    int insert(DbLabeldate record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbLabeldate record);
+    void deleteByCriteria(DbLabeldate DbLabeldate);
+
+    int insertByCriteria(DbLabeldate DbLabeldate);
+
+    int updateByCriteria(DbLabeldate DbLabeldate);
 
     DbLabeldate selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbLabeldate record);
-
-    int updateByPrimaryKeyWithBLOBs(DbLabeldate record);
-
-    int updateByPrimaryKey(DbLabeldate record);
+    List<DbLabeldate> selectAll();
 }

@@ -1,18 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbItemspecificsTemp;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbItemspecificsTempMapper {
-    int deleteByPrimaryKey(BigDecimal sid);
+    DbItemspecificsTemp selectByCriteria(DbItemspecificsTemp DbItemspecificsTemp);
 
-    int insert(DbItemspecificsTemp record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbItemspecificsTemp record);
+    void deleteByCriteria(DbItemspecificsTemp DbItemspecificsTemp);
+
+    int insertByCriteria(DbItemspecificsTemp DbItemspecificsTemp);
+
+    int updateByCriteria(DbItemspecificsTemp DbItemspecificsTemp);
 
     DbItemspecificsTemp selectByPrimaryKey(BigDecimal sid);
 
-    int updateByPrimaryKeySelective(DbItemspecificsTemp record);
-
-    int updateByPrimaryKey(DbItemspecificsTemp record);
+    List<DbItemspecificsTemp> selectAll();
 }

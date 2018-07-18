@@ -10,9 +10,9 @@ public class DbAddfunction implements Serializable {
 
     private String oper;
 
-    private Date opertime;
-
     private String descr;
+
+    private Date opertime;
 
     private static final long serialVersionUID = 1L;
 
@@ -40,20 +40,20 @@ public class DbAddfunction implements Serializable {
         this.oper = oper == null ? null : oper.trim();
     }
 
-    public Date getOpertime() {
-        return opertime;
-    }
-
-    public void setOpertime(Date opertime) {
-        this.opertime = opertime;
-    }
-
     public String getDescr() {
         return descr;
     }
 
     public void setDescr(String descr) {
         this.descr = descr == null ? null : descr.trim();
+    }
+
+    public Date getOpertime() {
+        return opertime;
+    }
+
+    public void setOpertime(Date opertime) {
+        this.opertime = opertime;
     }
 
     @Override
@@ -71,8 +71,8 @@ public class DbAddfunction implements Serializable {
         return (this.getSequenceid() == null ? other.getSequenceid() == null : this.getSequenceid().equals(other.getSequenceid()))
             && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
-            && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
-            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()));
+            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
+            && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()));
     }
 
     @Override
@@ -82,8 +82,8 @@ public class DbAddfunction implements Serializable {
         result = prime * result + ((getSequenceid() == null) ? 0 : getSequenceid().hashCode());
         result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
-        result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
+        result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         return result;
     }
 
@@ -96,8 +96,8 @@ public class DbAddfunction implements Serializable {
         sb.append(", sequenceid=").append(sequenceid);
         sb.append(", name=").append(name);
         sb.append(", oper=").append(oper);
-        sb.append(", opertime=").append(opertime);
         sb.append(", descr=").append(descr);
+        sb.append(", opertime=").append(opertime);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

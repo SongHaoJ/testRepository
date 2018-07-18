@@ -1,20 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbReturnreason;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbReturnreasonMapper {
-    int deleteByPrimaryKey(BigDecimal sid);
+    DbReturnreason selectByCriteria(DbReturnreason DbReturnreason);
 
-    int insert(DbReturnreason record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbReturnreason record);
+    void deleteByCriteria(DbReturnreason DbReturnreason);
+
+    int insertByCriteria(DbReturnreason DbReturnreason);
+
+    int updateByCriteria(DbReturnreason DbReturnreason);
 
     DbReturnreason selectByPrimaryKey(BigDecimal sid);
 
-    int updateByPrimaryKeySelective(DbReturnreason record);
-
-    int updateByPrimaryKeyWithBLOBs(DbReturnreason record);
-
-    int updateByPrimaryKey(DbReturnreason record);
+    List<DbReturnreason> selectAll();
 }

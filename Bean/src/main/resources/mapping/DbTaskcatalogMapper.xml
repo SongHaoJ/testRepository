@@ -3,80 +3,108 @@
 <mapper namespace="com.bean.dao.DbTaskcatalogMapper">
   <resultMap id="BaseResultMap" type="com.bean.model.DbTaskcatalog">
     <result column="SID" jdbcType="VARCHAR" property="sid" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
     <result column="TASKTYPE" jdbcType="VARCHAR" property="tasktype" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
     <result column="CLASSES" jdbcType="VARCHAR" property="classes" />
     <result column="FATHERSID" jdbcType="VARCHAR" property="fathersid" />
+    <result column="DESCR" jdbcType="CLOB" property="descr" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbTaskcatalog">
-    <result column="NAME" jdbcType="LONGVARCHAR" property="name" />
-    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
-  </resultMap>
-  <sql id="Blob_Column_List">
-    'NAME', DESCR
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, NAME, TASKTYPE, OPERTIME, OPER, CLASSES, FATHERSID, DESCR
+    from DB_TASKCATALOG
+  </select>
+  <sql id="TableName">
+    DB_TASKCATALOG
   </sql>
-  <insert id="insert" parameterType="com.bean.model.DbTaskcatalog">
-    insert into db_taskcatalog (SID, TASKTYPE, OPERTIME, 
-      OPER, CLASSES, FATHERSID, 
-      'NAME', DESCR)
-    values (#{sid,jdbcType=VARCHAR}, #{tasktype,jdbcType=VARCHAR}, #{opertime,jdbcType=TIMESTAMP}, 
-      #{oper,jdbcType=VARCHAR}, #{classes,jdbcType=VARCHAR}, #{fathersid,jdbcType=VARCHAR}, 
-      #{name,jdbcType=LONGVARCHAR}, #{descr,jdbcType=LONGVARCHAR})
+  <sql id="Values">
+     #{sid,jdbcType=VARCHAR} , 
+     #{name,jdbcType=VARCHAR} , 
+     #{tasktype,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{classes,jdbcType=VARCHAR} , 
+     #{fathersid,jdbcType=VARCHAR} , 
+     #{descr,jdbcType=CLOB} , 
+  </sql>
+  <sql id="Columns">
+    SID , 
+    NAME , 
+    TASKTYPE , 
+    OPERTIME , 
+    OPER , 
+    CLASSES , 
+    FATHERSID , 
+    DESCR , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} and 
+    </if>
+    <if test="tasktype != null">
+      tasktype = #{tasktype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="classes != null">
+      classes = #{classes,jdbcType=VARCHAR} and 
+    </if>
+    <if test="fathersid != null">
+      fathersid = #{fathersid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="descr != null">
+      descr = #{descr,jdbcType=CLOB} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} , 
+    </if>
+    <if test="tasktype != null">
+      tasktype = #{tasktype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="classes != null">
+      classes = #{classes,jdbcType=VARCHAR} , 
+    </if>
+    <if test="fathersid != null">
+      fathersid = #{fathersid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="descr != null">
+      descr = #{descr,jdbcType=CLOB} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbTaskcatalog" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SID=#{SID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbTaskcatalog">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbTaskcatalog">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbTaskcatalog">
-    insert into db_taskcatalog
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        SID,
-      </if>
-      <if test="tasktype != null">
-        TASKTYPE,
-      </if>
-      <if test="opertime != null">
-        OPERTIME,
-      </if>
-      <if test="oper != null">
-        OPER,
-      </if>
-      <if test="classes != null">
-        CLASSES,
-      </if>
-      <if test="fathersid != null">
-        FATHERSID,
-      </if>
-      <if test="name != null">
-        'NAME',
-      </if>
-      <if test="descr != null">
-        DESCR,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        #{sid,jdbcType=VARCHAR},
-      </if>
-      <if test="tasktype != null">
-        #{tasktype,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="oper != null">
-        #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="classes != null">
-        #{classes,jdbcType=VARCHAR},
-      </if>
-      <if test="fathersid != null">
-        #{fathersid,jdbcType=VARCHAR},
-      </if>
-      <if test="name != null">
-        #{name,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="descr != null">
-        #{descr,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbTaskcatalog">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
 </mapper>

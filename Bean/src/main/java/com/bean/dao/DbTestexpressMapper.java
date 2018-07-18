@@ -2,8 +2,8 @@ package com.bean.dao;
 
 import com.bean.model.DbTestexpress;
 
-public interface DbTestexpressMapper {
-    int insert(DbTestexpress record);
+import java.util.List;
 
-    int insertSelective(DbTestexpress record);
+public interface DbTestexpressMapper {
+    List<DbTestexpress> selectAll();
 }

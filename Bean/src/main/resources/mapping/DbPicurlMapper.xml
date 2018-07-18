@@ -4,92 +4,76 @@
   <resultMap id="BaseResultMap" type="com.bean.model.DbPicurl">
     <id column="SID" jdbcType="DECIMAL" property="sid" />
     <result column="ITEMID" jdbcType="DECIMAL" property="itemid" />
+    <result column="URL" jdbcType="VARCHAR" property="url" />
     <result column="FLAG" jdbcType="DECIMAL" property="flag" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbPicurl">
-    <result column="URL" jdbcType="LONGVARCHAR" property="url" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    SID, ITEMID, FLAG
-  </sql>
-  <sql id="Blob_Column_List">
-    URL
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="ResultMapWithBLOBs">
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from db_picurl
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select SID, ITEMID, URL, FLAG
+    from DB_PICURL
     where SID = #{sid,jdbcType=DECIMAL}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
-    delete from db_picurl
-    where SID = #{sid,jdbcType=DECIMAL}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, ITEMID, URL, FLAG
+    from DB_PICURL
+  </select>
+  <sql id="TableName">
+    DB_PICURL
+  </sql>
+  <sql id="Values">
+     #{sid,jdbcType=DECIMAL} , 
+     #{itemid,jdbcType=DECIMAL} , 
+     #{url,jdbcType=VARCHAR} , 
+     #{flag,jdbcType=DECIMAL} , 
+  </sql>
+  <sql id="Columns">
+    SID , 
+    ITEMID , 
+    URL , 
+    FLAG , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="itemid != null">
+      itemid = #{itemid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="url != null">
+      url = #{url,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=DECIMAL} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="itemid != null">
+      itemid = #{itemid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="url != null">
+      url = #{url,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=DECIMAL} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbPicurl" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="BigDecimal">
+    delete from <include refid="TableName"/> where SID=#{SID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbPicurl">
-    insert into db_picurl (SID, ITEMID, FLAG, 
-      URL)
-    values (#{sid,jdbcType=DECIMAL}, #{itemid,jdbcType=DECIMAL}, #{flag,jdbcType=DECIMAL}, 
-      #{url,jdbcType=LONGVARCHAR})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbPicurl">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbPicurl">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbPicurl">
-    insert into db_picurl
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        SID,
-      </if>
-      <if test="itemid != null">
-        ITEMID,
-      </if>
-      <if test="flag != null">
-        FLAG,
-      </if>
-      <if test="url != null">
-        URL,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        #{sid,jdbcType=DECIMAL},
-      </if>
-      <if test="itemid != null">
-        #{itemid,jdbcType=DECIMAL},
-      </if>
-      <if test="flag != null">
-        #{flag,jdbcType=DECIMAL},
-      </if>
-      <if test="url != null">
-        #{url,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbPicurl">
-    update db_picurl
-    <set>
-      <if test="itemid != null">
-        ITEMID = #{itemid,jdbcType=DECIMAL},
-      </if>
-      <if test="flag != null">
-        FLAG = #{flag,jdbcType=DECIMAL},
-      </if>
-      <if test="url != null">
-        URL = #{url,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where SID = #{sid,jdbcType=DECIMAL}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbPicurl">
-    update db_picurl
-    set ITEMID = #{itemid,jdbcType=DECIMAL},
-      FLAG = #{flag,jdbcType=DECIMAL},
-      URL = #{url,jdbcType=LONGVARCHAR}
-    where SID = #{sid,jdbcType=DECIMAL}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbPicurl">
-    update db_picurl
-    set ITEMID = #{itemid,jdbcType=DECIMAL},
-      FLAG = #{flag,jdbcType=DECIMAL}
-    where SID = #{sid,jdbcType=DECIMAL}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbPicurl">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

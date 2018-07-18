@@ -6,69 +6,69 @@
     <result column="COUNTRYCHINA" jdbcType="VARCHAR" property="countrychina" />
     <result column="COUNTRYENGLISH" jdbcType="VARCHAR" property="countryenglish" />
     <result column="COUNTRYCODE" jdbcType="VARCHAR" property="countrycode" />
-    <result column="COUNTRY" jdbcType="LONGVARCHAR" property="country" />
+    <result column="COUNTRY" jdbcType="VARCHAR" property="country" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select ID, COUNTRYCHINA, COUNTRYENGLISH, COUNTRYCODE, COUNTRY
-    from db_ubicountry
+    from DB_UBICOUNTRY
     where ID = #{id,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select ID, COUNTRYCHINA, COUNTRYENGLISH, COUNTRYCODE, COUNTRY
-    from db_ubicountry
+    from DB_UBICOUNTRY
   </select>
   <sql id="TableName">
-    db_ubicountry
+    DB_UBICOUNTRY
   </sql>
   <sql id="Values">
      #{id,jdbcType=VARCHAR} , 
      #{countrychina,jdbcType=VARCHAR} , 
      #{countryenglish,jdbcType=VARCHAR} , 
      #{countrycode,jdbcType=VARCHAR} , 
-     #{country,jdbcType=LONGVARCHAR}
+     #{country,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     ID , 
     COUNTRYCHINA , 
     COUNTRYENGLISH , 
     COUNTRYCODE , 
-    COUNTRY
+    COUNTRY , 
   </sql>
   <sql id="Criteria">
     <if test="id != null">
-      ID = #{id,jdbcType=VARCHAR} and 
+      id = #{id,jdbcType=VARCHAR} and 
     </if>
     <if test="countrychina != null">
-      COUNTRYCHINA = #{countrychina,jdbcType=VARCHAR} and 
+      countrychina = #{countrychina,jdbcType=VARCHAR} and 
     </if>
     <if test="countryenglish != null">
-      COUNTRYENGLISH = #{countryenglish,jdbcType=VARCHAR} and 
+      countryenglish = #{countryenglish,jdbcType=VARCHAR} and 
     </if>
     <if test="countrycode != null">
-      COUNTRYCODE = #{countrycode,jdbcType=VARCHAR} and 
+      countrycode = #{countrycode,jdbcType=VARCHAR} and 
     </if>
     <if test="country != null">
-      COUNTRY = #{country,jdbcType=LONGVARCHAR}
+      country = #{country,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="id != null">
-      ID = #{id,jdbcType=VARCHAR} , 
+      id = #{id,jdbcType=VARCHAR} , 
     </if>
     <if test="countrychina != null">
-      COUNTRYCHINA = #{countrychina,jdbcType=VARCHAR} , 
+      countrychina = #{countrychina,jdbcType=VARCHAR} , 
     </if>
     <if test="countryenglish != null">
-      COUNTRYENGLISH = #{countryenglish,jdbcType=VARCHAR} , 
+      countryenglish = #{countryenglish,jdbcType=VARCHAR} , 
     </if>
     <if test="countrycode != null">
-      COUNTRYCODE = #{countrycode,jdbcType=VARCHAR} , 
+      countrycode = #{countrycode,jdbcType=VARCHAR} , 
     </if>
     <if test="country != null">
-      COUNTRY = #{country,jdbcType=LONGVARCHAR}
+      country = #{country,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbUbicountry" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

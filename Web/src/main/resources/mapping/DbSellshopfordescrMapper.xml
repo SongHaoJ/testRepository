@@ -3,45 +3,45 @@
 <mapper namespace="com.bean.dao.DbSellshopfordescrMapper">
   <resultMap id="BaseResultMap" type="com.bean.model.DbSellshopfordescr">
     <id column="SEQUENCEID" jdbcType="DECIMAL" property="sequenceid" />
-    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
+    <result column="DESCR" jdbcType="CLOB" property="descr" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
     select SEQUENCEID, DESCR
-    from db_sellshopfordescr
+    from DB_SELLSHOPFORDESCR
     where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SEQUENCEID, DESCR
-    from db_sellshopfordescr
+    from DB_SELLSHOPFORDESCR
   </select>
   <sql id="TableName">
-    db_sellshopfordescr
+    DB_SELLSHOPFORDESCR
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=DECIMAL} , 
-     #{descr,jdbcType=LONGVARCHAR}
+     #{descr,jdbcType=CLOB} , 
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
-    DESCR
+    DESCR , 
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} and 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} and 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR}
+      descr = #{descr,jdbcType=CLOB} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} , 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} , 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR}
+      descr = #{descr,jdbcType=CLOB} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbSellshopfordescr" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

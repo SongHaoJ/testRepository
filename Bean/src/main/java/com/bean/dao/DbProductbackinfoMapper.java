@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbProductbackinfo;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbProductbackinfoMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbProductbackinfo selectByCriteria(DbProductbackinfo DbProductbackinfo);
 
-    int insert(DbProductbackinfo record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbProductbackinfo record);
+    void deleteByCriteria(DbProductbackinfo DbProductbackinfo);
+
+    int insertByCriteria(DbProductbackinfo DbProductbackinfo);
+
+    int updateByCriteria(DbProductbackinfo DbProductbackinfo);
 
     DbProductbackinfo selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbProductbackinfo record);
-
-    int updateByPrimaryKeyWithBLOBs(DbProductbackinfo record);
-
-    int updateByPrimaryKey(DbProductbackinfo record);
+    List<DbProductbackinfo> selectAll();
 }

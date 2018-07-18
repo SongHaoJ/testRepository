@@ -13,141 +13,123 @@
     <result column="ALERTEND3" jdbcType="DECIMAL" property="alertend3" />
     <result column="ALERTSTATIC3" jdbcType="DECIMAL" property="alertstatic3" />
   </resultMap>
-  <sql id="Base_Column_List">
-    SQUENCEID, ALERTSTAR1, ALERTEND1, ALERTSTATIC1, ALERTSTAR2, ALERTEND2, ALERTSTATIC2, 
-    ALERTSTAR3, ALERTEND3, ALERTSTATIC3
-  </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from db_productalert
+    select SQUENCEID, ALERTSTAR1, ALERTEND1, ALERTSTATIC1, ALERTSTAR2, ALERTEND2, ALERTSTATIC2, 
+    ALERTSTAR3, ALERTEND3, ALERTSTATIC3
+    from DB_PRODUCTALERT
     where SQUENCEID = #{squenceid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_productalert
-    where SQUENCEID = #{squenceid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SQUENCEID, ALERTSTAR1, ALERTEND1, ALERTSTATIC1, ALERTSTAR2, ALERTEND2, ALERTSTATIC2, 
+    ALERTSTAR3, ALERTEND3, ALERTSTATIC3
+    from DB_PRODUCTALERT
+  </select>
+  <sql id="TableName">
+    DB_PRODUCTALERT
+  </sql>
+  <sql id="Values">
+     #{squenceid,jdbcType=VARCHAR} , 
+     #{alertstar1,jdbcType=DECIMAL} , 
+     #{alertend1,jdbcType=DECIMAL} , 
+     #{alertstatic1,jdbcType=DECIMAL} , 
+     #{alertstar2,jdbcType=DECIMAL} , 
+     #{alertend2,jdbcType=DECIMAL} , 
+     #{alertstatic2,jdbcType=DECIMAL} , 
+     #{alertstar3,jdbcType=DECIMAL} , 
+     #{alertend3,jdbcType=DECIMAL} , 
+     #{alertstatic3,jdbcType=DECIMAL} , 
+  </sql>
+  <sql id="Columns">
+    SQUENCEID , 
+    ALERTSTAR1 , 
+    ALERTEND1 , 
+    ALERTSTATIC1 , 
+    ALERTSTAR2 , 
+    ALERTEND2 , 
+    ALERTSTATIC2 , 
+    ALERTSTAR3 , 
+    ALERTEND3 , 
+    ALERTSTATIC3 , 
+  </sql>
+  <sql id="Criteria">
+    <if test="squenceid != null">
+      squenceid = #{squenceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="alertstar1 != null">
+      alertstar1 = #{alertstar1,jdbcType=DECIMAL} and 
+    </if>
+    <if test="alertend1 != null">
+      alertend1 = #{alertend1,jdbcType=DECIMAL} and 
+    </if>
+    <if test="alertstatic1 != null">
+      alertstatic1 = #{alertstatic1,jdbcType=DECIMAL} and 
+    </if>
+    <if test="alertstar2 != null">
+      alertstar2 = #{alertstar2,jdbcType=DECIMAL} and 
+    </if>
+    <if test="alertend2 != null">
+      alertend2 = #{alertend2,jdbcType=DECIMAL} and 
+    </if>
+    <if test="alertstatic2 != null">
+      alertstatic2 = #{alertstatic2,jdbcType=DECIMAL} and 
+    </if>
+    <if test="alertstar3 != null">
+      alertstar3 = #{alertstar3,jdbcType=DECIMAL} and 
+    </if>
+    <if test="alertend3 != null">
+      alertend3 = #{alertend3,jdbcType=DECIMAL} and 
+    </if>
+    <if test="alertstatic3 != null">
+      alertstatic3 = #{alertstatic3,jdbcType=DECIMAL} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="squenceid != null">
+      squenceid = #{squenceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="alertstar1 != null">
+      alertstar1 = #{alertstar1,jdbcType=DECIMAL} , 
+    </if>
+    <if test="alertend1 != null">
+      alertend1 = #{alertend1,jdbcType=DECIMAL} , 
+    </if>
+    <if test="alertstatic1 != null">
+      alertstatic1 = #{alertstatic1,jdbcType=DECIMAL} , 
+    </if>
+    <if test="alertstar2 != null">
+      alertstar2 = #{alertstar2,jdbcType=DECIMAL} , 
+    </if>
+    <if test="alertend2 != null">
+      alertend2 = #{alertend2,jdbcType=DECIMAL} , 
+    </if>
+    <if test="alertstatic2 != null">
+      alertstatic2 = #{alertstatic2,jdbcType=DECIMAL} , 
+    </if>
+    <if test="alertstar3 != null">
+      alertstar3 = #{alertstar3,jdbcType=DECIMAL} , 
+    </if>
+    <if test="alertend3 != null">
+      alertend3 = #{alertend3,jdbcType=DECIMAL} , 
+    </if>
+    <if test="alertstatic3 != null">
+      alertstatic3 = #{alertstatic3,jdbcType=DECIMAL} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbProductalert" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SQUENCEID=#{SQUENCEID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbProductalert">
-    insert into db_productalert (SQUENCEID, ALERTSTAR1, ALERTEND1, 
-      ALERTSTATIC1, ALERTSTAR2, ALERTEND2, 
-      ALERTSTATIC2, ALERTSTAR3, ALERTEND3, 
-      ALERTSTATIC3)
-    values (#{squenceid,jdbcType=VARCHAR}, #{alertstar1,jdbcType=DECIMAL}, #{alertend1,jdbcType=DECIMAL}, 
-      #{alertstatic1,jdbcType=DECIMAL}, #{alertstar2,jdbcType=DECIMAL}, #{alertend2,jdbcType=DECIMAL}, 
-      #{alertstatic2,jdbcType=DECIMAL}, #{alertstar3,jdbcType=DECIMAL}, #{alertend3,jdbcType=DECIMAL}, 
-      #{alertstatic3,jdbcType=DECIMAL})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbProductalert">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbProductalert">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbProductalert">
-    insert into db_productalert
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="squenceid != null">
-        SQUENCEID,
-      </if>
-      <if test="alertstar1 != null">
-        ALERTSTAR1,
-      </if>
-      <if test="alertend1 != null">
-        ALERTEND1,
-      </if>
-      <if test="alertstatic1 != null">
-        ALERTSTATIC1,
-      </if>
-      <if test="alertstar2 != null">
-        ALERTSTAR2,
-      </if>
-      <if test="alertend2 != null">
-        ALERTEND2,
-      </if>
-      <if test="alertstatic2 != null">
-        ALERTSTATIC2,
-      </if>
-      <if test="alertstar3 != null">
-        ALERTSTAR3,
-      </if>
-      <if test="alertend3 != null">
-        ALERTEND3,
-      </if>
-      <if test="alertstatic3 != null">
-        ALERTSTATIC3,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="squenceid != null">
-        #{squenceid,jdbcType=VARCHAR},
-      </if>
-      <if test="alertstar1 != null">
-        #{alertstar1,jdbcType=DECIMAL},
-      </if>
-      <if test="alertend1 != null">
-        #{alertend1,jdbcType=DECIMAL},
-      </if>
-      <if test="alertstatic1 != null">
-        #{alertstatic1,jdbcType=DECIMAL},
-      </if>
-      <if test="alertstar2 != null">
-        #{alertstar2,jdbcType=DECIMAL},
-      </if>
-      <if test="alertend2 != null">
-        #{alertend2,jdbcType=DECIMAL},
-      </if>
-      <if test="alertstatic2 != null">
-        #{alertstatic2,jdbcType=DECIMAL},
-      </if>
-      <if test="alertstar3 != null">
-        #{alertstar3,jdbcType=DECIMAL},
-      </if>
-      <if test="alertend3 != null">
-        #{alertend3,jdbcType=DECIMAL},
-      </if>
-      <if test="alertstatic3 != null">
-        #{alertstatic3,jdbcType=DECIMAL},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbProductalert">
-    update db_productalert
-    <set>
-      <if test="alertstar1 != null">
-        ALERTSTAR1 = #{alertstar1,jdbcType=DECIMAL},
-      </if>
-      <if test="alertend1 != null">
-        ALERTEND1 = #{alertend1,jdbcType=DECIMAL},
-      </if>
-      <if test="alertstatic1 != null">
-        ALERTSTATIC1 = #{alertstatic1,jdbcType=DECIMAL},
-      </if>
-      <if test="alertstar2 != null">
-        ALERTSTAR2 = #{alertstar2,jdbcType=DECIMAL},
-      </if>
-      <if test="alertend2 != null">
-        ALERTEND2 = #{alertend2,jdbcType=DECIMAL},
-      </if>
-      <if test="alertstatic2 != null">
-        ALERTSTATIC2 = #{alertstatic2,jdbcType=DECIMAL},
-      </if>
-      <if test="alertstar3 != null">
-        ALERTSTAR3 = #{alertstar3,jdbcType=DECIMAL},
-      </if>
-      <if test="alertend3 != null">
-        ALERTEND3 = #{alertend3,jdbcType=DECIMAL},
-      </if>
-      <if test="alertstatic3 != null">
-        ALERTSTATIC3 = #{alertstatic3,jdbcType=DECIMAL},
-      </if>
-    </set>
-    where SQUENCEID = #{squenceid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbProductalert">
-    update db_productalert
-    set ALERTSTAR1 = #{alertstar1,jdbcType=DECIMAL},
-      ALERTEND1 = #{alertend1,jdbcType=DECIMAL},
-      ALERTSTATIC1 = #{alertstatic1,jdbcType=DECIMAL},
-      ALERTSTAR2 = #{alertstar2,jdbcType=DECIMAL},
-      ALERTEND2 = #{alertend2,jdbcType=DECIMAL},
-      ALERTSTATIC2 = #{alertstatic2,jdbcType=DECIMAL},
-      ALERTSTAR3 = #{alertstar3,jdbcType=DECIMAL},
-      ALERTEND3 = #{alertend3,jdbcType=DECIMAL},
-      ALERTSTATIC3 = #{alertstatic3,jdbcType=DECIMAL}
-    where SQUENCEID = #{squenceid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbProductalert">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

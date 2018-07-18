@@ -5,73 +5,67 @@
     <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
     <result column="SID" jdbcType="VARCHAR" property="sid" />
     <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="DESCR" jdbcType="VARCHAR" property="descr" />
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="FILED1" jdbcType="VARCHAR" property="filed1" />
+    <result column="FILED2" jdbcType="VARCHAR" property="filed2" />
+    <result column="FILED3" jdbcType="VARCHAR" property="filed3" />
+    <result column="FILED4" jdbcType="VARCHAR" property="filed4" />
+    <result column="FILED5" jdbcType="VARCHAR" property="filed5" />
+    <result column="FILED6" jdbcType="VARCHAR" property="filed6" />
+    <result column="FILED7" jdbcType="VARCHAR" property="filed7" />
     <result column="FILED8" jdbcType="DECIMAL" property="filed8" />
     <result column="FILED9" jdbcType="DECIMAL" property="filed9" />
     <result column="FILED10" jdbcType="DECIMAL" property="filed10" />
     <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
     <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
     <result column="OPERTYPE" jdbcType="VARCHAR" property="opertype" />
-    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
-    <result column="FILED1" jdbcType="LONGVARCHAR" property="filed1" />
-    <result column="FILED2" jdbcType="LONGVARCHAR" property="filed2" />
-    <result column="FILED3" jdbcType="LONGVARCHAR" property="filed3" />
-    <result column="FILED4" jdbcType="LONGVARCHAR" property="filed4" />
-    <result column="FILED5" jdbcType="LONGVARCHAR" property="filed5" />
-    <result column="FILED6" jdbcType="LONGVARCHAR" property="filed6" />
-    <result column="FILED7" jdbcType="LONGVARCHAR" property="filed7" />
-    <result column="CONTENT" jdbcType="LONGVARCHAR" property="content" />
+    <result column="CONTENT" jdbcType="VARCHAR" property="content" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select SEQUENCEID, SID, NAME, OPER, OPERTIME, FILED8, FILED9, FILED10, CORPID, OPENFLAG, 
-    OPERTYPE, DESCR, FILED1, FILED2, FILED3, FILED4, FILED5, FILED6, FILED7, CONTENT
-    from db_manufacturelog
+    select SEQUENCEID, SID, NAME, DESCR, OPER, OPERTIME, FILED1, FILED2, FILED3, FILED4, 
+    FILED5, FILED6, FILED7, FILED8, FILED9, FILED10, CORPID, OPENFLAG, OPERTYPE, CONTENT
+    from DB_MANUFACTURELOG
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select SEQUENCEID, SID, NAME, OPER, OPERTIME, FILED8, FILED9, FILED10, CORPID, OPENFLAG, 
-    OPERTYPE, DESCR, FILED1, FILED2, FILED3, FILED4, FILED5, FILED6, FILED7, CONTENT
-    from db_manufacturelog
+    select SEQUENCEID, SID, NAME, DESCR, OPER, OPERTIME, FILED1, FILED2, FILED3, FILED4, 
+    FILED5, FILED6, FILED7, FILED8, FILED9, FILED10, CORPID, OPENFLAG, OPERTYPE, CONTENT
+    from DB_MANUFACTURELOG
   </select>
   <sql id="TableName">
-    db_manufacturelog
+    DB_MANUFACTURELOG
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=VARCHAR} , 
      #{sid,jdbcType=VARCHAR} , 
      #{name,jdbcType=VARCHAR} , 
+     #{descr,jdbcType=VARCHAR} , 
      #{oper,jdbcType=VARCHAR} , 
      #{opertime,jdbcType=TIMESTAMP} , 
+     #{filed1,jdbcType=VARCHAR} , 
+     #{filed2,jdbcType=VARCHAR} , 
+     #{filed3,jdbcType=VARCHAR} , 
+     #{filed4,jdbcType=VARCHAR} , 
+     #{filed5,jdbcType=VARCHAR} , 
+     #{filed6,jdbcType=VARCHAR} , 
+     #{filed7,jdbcType=VARCHAR} , 
      #{filed8,jdbcType=DECIMAL} , 
      #{filed9,jdbcType=DECIMAL} , 
      #{filed10,jdbcType=DECIMAL} , 
      #{corpid,jdbcType=VARCHAR} , 
      #{openflag,jdbcType=VARCHAR} , 
      #{opertype,jdbcType=VARCHAR} , 
-     #{descr,jdbcType=LONGVARCHAR} , 
-     #{filed1,jdbcType=LONGVARCHAR} , 
-     #{filed2,jdbcType=LONGVARCHAR} , 
-     #{filed3,jdbcType=LONGVARCHAR} , 
-     #{filed4,jdbcType=LONGVARCHAR} , 
-     #{filed5,jdbcType=LONGVARCHAR} , 
-     #{filed6,jdbcType=LONGVARCHAR} , 
-     #{filed7,jdbcType=LONGVARCHAR} , 
-     #{content,jdbcType=LONGVARCHAR}
+     #{content,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
     SID , 
     NAME , 
+    DESCR , 
     OPER , 
     OPERTIME , 
-    FILED8 , 
-    FILED9 , 
-    FILED10 , 
-    CORPID , 
-    OPENFLAG , 
-    OPERTYPE , 
-    DESCR , 
     FILED1 , 
     FILED2 , 
     FILED3 , 
@@ -79,133 +73,139 @@
     FILED5 , 
     FILED6 , 
     FILED7 , 
-    CONTENT
+    FILED8 , 
+    FILED9 , 
+    FILED10 , 
+    CORPID , 
+    OPENFLAG , 
+    OPERTYPE , 
+    CONTENT , 
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
     </if>
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} and 
+      sid = #{sid,jdbcType=VARCHAR} and 
     </if>
     <if test="name != null">
-      NAME = #{name,jdbcType=VARCHAR} and 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="filed8 != null">
-      FILED8 = #{filed8,jdbcType=DECIMAL} and 
-    </if>
-    <if test="filed9 != null">
-      FILED9 = #{filed9,jdbcType=DECIMAL} and 
-    </if>
-    <if test="filed10 != null">
-      FILED10 = #{filed10,jdbcType=DECIMAL} and 
-    </if>
-    <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="opertype != null">
-      OPERTYPE = #{opertype,jdbcType=VARCHAR} and 
+      name = #{name,jdbcType=VARCHAR} and 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR} and 
+      descr = #{descr,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="filed1 != null">
-      FILED1 = #{filed1,jdbcType=LONGVARCHAR} and 
+      filed1 = #{filed1,jdbcType=VARCHAR} and 
     </if>
     <if test="filed2 != null">
-      FILED2 = #{filed2,jdbcType=LONGVARCHAR} and 
+      filed2 = #{filed2,jdbcType=VARCHAR} and 
     </if>
     <if test="filed3 != null">
-      FILED3 = #{filed3,jdbcType=LONGVARCHAR} and 
+      filed3 = #{filed3,jdbcType=VARCHAR} and 
     </if>
     <if test="filed4 != null">
-      FILED4 = #{filed4,jdbcType=LONGVARCHAR} and 
+      filed4 = #{filed4,jdbcType=VARCHAR} and 
     </if>
     <if test="filed5 != null">
-      FILED5 = #{filed5,jdbcType=LONGVARCHAR} and 
+      filed5 = #{filed5,jdbcType=VARCHAR} and 
     </if>
     <if test="filed6 != null">
-      FILED6 = #{filed6,jdbcType=LONGVARCHAR} and 
+      filed6 = #{filed6,jdbcType=VARCHAR} and 
     </if>
     <if test="filed7 != null">
-      FILED7 = #{filed7,jdbcType=LONGVARCHAR} and 
+      filed7 = #{filed7,jdbcType=VARCHAR} and 
+    </if>
+    <if test="filed8 != null">
+      filed8 = #{filed8,jdbcType=DECIMAL} and 
+    </if>
+    <if test="filed9 != null">
+      filed9 = #{filed9,jdbcType=DECIMAL} and 
+    </if>
+    <if test="filed10 != null">
+      filed10 = #{filed10,jdbcType=DECIMAL} and 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertype != null">
+      opertype = #{opertype,jdbcType=VARCHAR} and 
     </if>
     <if test="content != null">
-      CONTENT = #{content,jdbcType=LONGVARCHAR}
+      content = #{content,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
     </if>
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} , 
+      sid = #{sid,jdbcType=VARCHAR} , 
     </if>
     <if test="name != null">
-      NAME = #{name,jdbcType=VARCHAR} , 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="filed8 != null">
-      FILED8 = #{filed8,jdbcType=DECIMAL} , 
-    </if>
-    <if test="filed9 != null">
-      FILED9 = #{filed9,jdbcType=DECIMAL} , 
-    </if>
-    <if test="filed10 != null">
-      FILED10 = #{filed10,jdbcType=DECIMAL} , 
-    </if>
-    <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="opertype != null">
-      OPERTYPE = #{opertype,jdbcType=VARCHAR} , 
+      name = #{name,jdbcType=VARCHAR} , 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR} , 
+      descr = #{descr,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="filed1 != null">
-      FILED1 = #{filed1,jdbcType=LONGVARCHAR} , 
+      filed1 = #{filed1,jdbcType=VARCHAR} , 
     </if>
     <if test="filed2 != null">
-      FILED2 = #{filed2,jdbcType=LONGVARCHAR} , 
+      filed2 = #{filed2,jdbcType=VARCHAR} , 
     </if>
     <if test="filed3 != null">
-      FILED3 = #{filed3,jdbcType=LONGVARCHAR} , 
+      filed3 = #{filed3,jdbcType=VARCHAR} , 
     </if>
     <if test="filed4 != null">
-      FILED4 = #{filed4,jdbcType=LONGVARCHAR} , 
+      filed4 = #{filed4,jdbcType=VARCHAR} , 
     </if>
     <if test="filed5 != null">
-      FILED5 = #{filed5,jdbcType=LONGVARCHAR} , 
+      filed5 = #{filed5,jdbcType=VARCHAR} , 
     </if>
     <if test="filed6 != null">
-      FILED6 = #{filed6,jdbcType=LONGVARCHAR} , 
+      filed6 = #{filed6,jdbcType=VARCHAR} , 
     </if>
     <if test="filed7 != null">
-      FILED7 = #{filed7,jdbcType=LONGVARCHAR} , 
+      filed7 = #{filed7,jdbcType=VARCHAR} , 
+    </if>
+    <if test="filed8 != null">
+      filed8 = #{filed8,jdbcType=DECIMAL} , 
+    </if>
+    <if test="filed9 != null">
+      filed9 = #{filed9,jdbcType=DECIMAL} , 
+    </if>
+    <if test="filed10 != null">
+      filed10 = #{filed10,jdbcType=DECIMAL} , 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertype != null">
+      opertype = #{opertype,jdbcType=VARCHAR} , 
     </if>
     <if test="content != null">
-      CONTENT = #{content,jdbcType=LONGVARCHAR}
+      content = #{content,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbManufacturelog" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

@@ -23,11 +23,11 @@ public class DbPostitemTemp implements Serializable {
 
     private BigDecimal flag;
 
+    private String error;
+
     private String oper;
 
     private Date opertime;
-
-    private String error;
 
     private static final long serialVersionUID = 1L;
 
@@ -103,6 +103,14 @@ public class DbPostitemTemp implements Serializable {
         this.flag = flag;
     }
 
+    public String getError() {
+        return error;
+    }
+
+    public void setError(String error) {
+        this.error = error == null ? null : error.trim();
+    }
+
     public String getOper() {
         return oper;
     }
@@ -117,14 +125,6 @@ public class DbPostitemTemp implements Serializable {
 
     public void setOpertime(Date opertime) {
         this.opertime = opertime;
-    }
-
-    public String getError() {
-        return error;
-    }
-
-    public void setError(String error) {
-        this.error = error == null ? null : error.trim();
     }
 
     @Override
@@ -148,9 +148,9 @@ public class DbPostitemTemp implements Serializable {
             && (this.getPrice() == null ? other.getPrice() == null : this.getPrice().equals(other.getPrice()))
             && (this.getSku() == null ? other.getSku() == null : this.getSku().equals(other.getSku()))
             && (this.getFlag() == null ? other.getFlag() == null : this.getFlag().equals(other.getFlag()))
+            && (this.getError() == null ? other.getError() == null : this.getError().equals(other.getError()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
-            && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
-            && (this.getError() == null ? other.getError() == null : this.getError().equals(other.getError()));
+            && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()));
     }
 
     @Override
@@ -166,9 +166,9 @@ public class DbPostitemTemp implements Serializable {
         result = prime * result + ((getPrice() == null) ? 0 : getPrice().hashCode());
         result = prime * result + ((getSku() == null) ? 0 : getSku().hashCode());
         result = prime * result + ((getFlag() == null) ? 0 : getFlag().hashCode());
+        result = prime * result + ((getError() == null) ? 0 : getError().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
-        result = prime * result + ((getError() == null) ? 0 : getError().hashCode());
         return result;
     }
 
@@ -187,9 +187,9 @@ public class DbPostitemTemp implements Serializable {
         sb.append(", price=").append(price);
         sb.append(", sku=").append(sku);
         sb.append(", flag=").append(flag);
+        sb.append(", error=").append(error);
         sb.append(", oper=").append(oper);
         sb.append(", opertime=").append(opertime);
-        sb.append(", error=").append(error);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

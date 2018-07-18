@@ -8,32 +8,32 @@
     <result column="MONEYRATE" jdbcType="VARCHAR" property="moneyrate" />
     <result column="MONEY" jdbcType="DECIMAL" property="money" />
     <result column="GROUPID" jdbcType="VARCHAR" property="groupid" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
     <result column="RESERVE4" jdbcType="DECIMAL" property="reserve4" />
     <result column="RESERVE5" jdbcType="DECIMAL" property="reserve5" />
     <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
     <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
     <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="DESCR" jdbcType="VARCHAR" property="descr" />
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
-    <result column="REMARK" jdbcType="LONGVARCHAR" property="remark" />
-    <result column="RESERVE1" jdbcType="LONGVARCHAR" property="reserve1" />
-    <result column="RESERVE2" jdbcType="LONGVARCHAR" property="reserve2" />
-    <result column="RESERVE3" jdbcType="LONGVARCHAR" property="reserve3" />
-    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select SEQUENCEID, SOURCE, SOURCEID, MONEYRATE, MONEY, GROUPID, RESERVE4, RESERVE5, 
-    CORPID, OPENFLAG, STATUS, OPER, OPERTIME, REMARK, RESERVE1, RESERVE2, RESERVE3, DESCR
-    from db_caiwulog
+    select SEQUENCEID, SOURCE, SOURCEID, MONEYRATE, MONEY, GROUPID, REMARK, RESERVE1, 
+    RESERVE2, RESERVE3, RESERVE4, RESERVE5, CORPID, OPENFLAG, STATUS, DESCR, OPER, OPERTIME
+    from DB_CAIWULOG
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select SEQUENCEID, SOURCE, SOURCEID, MONEYRATE, MONEY, GROUPID, RESERVE4, RESERVE5, 
-    CORPID, OPENFLAG, STATUS, OPER, OPERTIME, REMARK, RESERVE1, RESERVE2, RESERVE3, DESCR
-    from db_caiwulog
+    select SEQUENCEID, SOURCE, SOURCEID, MONEYRATE, MONEY, GROUPID, REMARK, RESERVE1, 
+    RESERVE2, RESERVE3, RESERVE4, RESERVE5, CORPID, OPENFLAG, STATUS, DESCR, OPER, OPERTIME
+    from DB_CAIWULOG
   </select>
   <sql id="TableName">
-    db_caiwulog
+    DB_CAIWULOG
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=VARCHAR} , 
@@ -42,18 +42,18 @@
      #{moneyrate,jdbcType=VARCHAR} , 
      #{money,jdbcType=DECIMAL} , 
      #{groupid,jdbcType=VARCHAR} , 
+     #{remark,jdbcType=VARCHAR} , 
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+     #{reserve3,jdbcType=VARCHAR} , 
      #{reserve4,jdbcType=DECIMAL} , 
      #{reserve5,jdbcType=DECIMAL} , 
      #{corpid,jdbcType=VARCHAR} , 
      #{openflag,jdbcType=VARCHAR} , 
      #{status,jdbcType=VARCHAR} , 
+     #{descr,jdbcType=VARCHAR} , 
      #{oper,jdbcType=VARCHAR} , 
      #{opertime,jdbcType=TIMESTAMP} , 
-     #{remark,jdbcType=LONGVARCHAR} , 
-     #{reserve1,jdbcType=LONGVARCHAR} , 
-     #{reserve2,jdbcType=LONGVARCHAR} , 
-     #{reserve3,jdbcType=LONGVARCHAR} , 
-     #{descr,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
@@ -62,132 +62,132 @@
     MONEYRATE , 
     MONEY , 
     GROUPID , 
+    REMARK , 
+    RESERVE1 , 
+    RESERVE2 , 
+    RESERVE3 , 
     RESERVE4 , 
     RESERVE5 , 
     CORPID , 
     OPENFLAG , 
     STATUS , 
+    DESCR , 
     OPER , 
     OPERTIME , 
-    REMARK , 
-    RESERVE1 , 
-    RESERVE2 , 
-    RESERVE3 , 
-    DESCR
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
     </if>
     <if test="source != null">
-      SOURCE = #{source,jdbcType=VARCHAR} and 
+      source = #{source,jdbcType=VARCHAR} and 
     </if>
     <if test="sourceid != null">
-      SOURCEID = #{sourceid,jdbcType=VARCHAR} and 
+      sourceid = #{sourceid,jdbcType=VARCHAR} and 
     </if>
     <if test="moneyrate != null">
-      MONEYRATE = #{moneyrate,jdbcType=VARCHAR} and 
+      moneyrate = #{moneyrate,jdbcType=VARCHAR} and 
     </if>
     <if test="money != null">
-      MONEY = #{money,jdbcType=DECIMAL} and 
+      money = #{money,jdbcType=DECIMAL} and 
     </if>
     <if test="groupid != null">
-      GROUPID = #{groupid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=DECIMAL} and 
-    </if>
-    <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=DECIMAL} and 
-    </if>
-    <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="status != null">
-      STATUS = #{status,jdbcType=VARCHAR} and 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+      groupid = #{groupid,jdbcType=VARCHAR} and 
     </if>
     <if test="remark != null">
-      REMARK = #{remark,jdbcType=LONGVARCHAR} and 
+      remark = #{remark,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR} and 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR} and 
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR} and 
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=DECIMAL} and 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="status != null">
+      status = #{status,jdbcType=VARCHAR} and 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR}
+      descr = #{descr,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
     </if>
     <if test="source != null">
-      SOURCE = #{source,jdbcType=VARCHAR} , 
+      source = #{source,jdbcType=VARCHAR} , 
     </if>
     <if test="sourceid != null">
-      SOURCEID = #{sourceid,jdbcType=VARCHAR} , 
+      sourceid = #{sourceid,jdbcType=VARCHAR} , 
     </if>
     <if test="moneyrate != null">
-      MONEYRATE = #{moneyrate,jdbcType=VARCHAR} , 
+      moneyrate = #{moneyrate,jdbcType=VARCHAR} , 
     </if>
     <if test="money != null">
-      MONEY = #{money,jdbcType=DECIMAL} , 
+      money = #{money,jdbcType=DECIMAL} , 
     </if>
     <if test="groupid != null">
-      GROUPID = #{groupid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=DECIMAL} , 
-    </if>
-    <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=DECIMAL} , 
-    </if>
-    <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="status != null">
-      STATUS = #{status,jdbcType=VARCHAR} , 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+      groupid = #{groupid,jdbcType=VARCHAR} , 
     </if>
     <if test="remark != null">
-      REMARK = #{remark,jdbcType=LONGVARCHAR} , 
+      remark = #{remark,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR} , 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR} , 
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR} , 
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=DECIMAL} , 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="status != null">
+      status = #{status,jdbcType=VARCHAR} , 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR}
+      descr = #{descr,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbCaiwulog" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

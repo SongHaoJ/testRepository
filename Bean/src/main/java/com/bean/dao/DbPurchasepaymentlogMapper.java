@@ -1,9 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbPurchasepaymentlog;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbPurchasepaymentlogMapper {
-    int insert(DbPurchasepaymentlog record);
+    DbPurchasepaymentlog selectByCriteria(DbPurchasepaymentlog DbPurchasepaymentlog);
 
-    int insertSelective(DbPurchasepaymentlog record);
+    void deleteByPrimaryKey(String SID);
+
+    void deleteByCriteria(DbPurchasepaymentlog DbPurchasepaymentlog);
+
+    int insertByCriteria(DbPurchasepaymentlog DbPurchasepaymentlog);
+
+    int updateByCriteria(DbPurchasepaymentlog DbPurchasepaymentlog);
+
+    DbPurchasepaymentlog selectByPrimaryKey(String sid);
+
+    List<DbPurchasepaymentlog> selectAll();
 }

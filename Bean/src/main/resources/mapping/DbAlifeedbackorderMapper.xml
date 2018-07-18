@@ -5,117 +5,93 @@
     <id column="TRADEID" jdbcType="VARCHAR" property="tradeid" />
     <result column="FEEDBACKTIME" jdbcType="TIMESTAMP" property="feedbacktime" />
     <result column="FLAG" jdbcType="VARCHAR" property="flag" />
+    <result column="DESCR" jdbcType="VARCHAR" property="descr" />
     <result column="SHOPID" jdbcType="VARCHAR" property="shopid" />
     <result column="UPDATEFLAG" jdbcType="VARCHAR" property="updateflag" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbAlifeedbackorder">
-    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    TRADEID, FEEDBACKTIME, FLAG, SHOPID, UPDATEFLAG
-  </sql>
-  <sql id="Blob_Column_List">
-    DESCR
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from db_alifeedbackorder
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select TRADEID, FEEDBACKTIME, FLAG, DESCR, SHOPID, UPDATEFLAG
+    from DB_ALIFEEDBACKORDER
     where TRADEID = #{tradeid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_alifeedbackorder
-    where TRADEID = #{tradeid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select TRADEID, FEEDBACKTIME, FLAG, DESCR, SHOPID, UPDATEFLAG
+    from DB_ALIFEEDBACKORDER
+  </select>
+  <sql id="TableName">
+    DB_ALIFEEDBACKORDER
+  </sql>
+  <sql id="Values">
+     #{tradeid,jdbcType=VARCHAR} , 
+     #{feedbacktime,jdbcType=TIMESTAMP} , 
+     #{flag,jdbcType=VARCHAR} , 
+     #{descr,jdbcType=VARCHAR} , 
+     #{shopid,jdbcType=VARCHAR} , 
+     #{updateflag,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    TRADEID , 
+    FEEDBACKTIME , 
+    FLAG , 
+    DESCR , 
+    SHOPID , 
+    UPDATEFLAG , 
+  </sql>
+  <sql id="Criteria">
+    <if test="tradeid != null">
+      tradeid = #{tradeid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="feedbacktime != null">
+      feedbacktime = #{feedbacktime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="descr != null">
+      descr = #{descr,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shopid != null">
+      shopid = #{shopid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="updateflag != null">
+      updateflag = #{updateflag,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="tradeid != null">
+      tradeid = #{tradeid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="feedbacktime != null">
+      feedbacktime = #{feedbacktime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="descr != null">
+      descr = #{descr,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shopid != null">
+      shopid = #{shopid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="updateflag != null">
+      updateflag = #{updateflag,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbAlifeedbackorder" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where TRADEID=#{TRADEID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbAlifeedbackorder">
-    insert into db_alifeedbackorder (TRADEID, FEEDBACKTIME, FLAG, 
-      SHOPID, UPDATEFLAG, DESCR
-      )
-    values (#{tradeid,jdbcType=VARCHAR}, #{feedbacktime,jdbcType=TIMESTAMP}, #{flag,jdbcType=VARCHAR}, 
-      #{shopid,jdbcType=VARCHAR}, #{updateflag,jdbcType=VARCHAR}, #{descr,jdbcType=LONGVARCHAR}
-      )
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbAlifeedbackorder">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbAlifeedbackorder">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbAlifeedbackorder">
-    insert into db_alifeedbackorder
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="tradeid != null">
-        TRADEID,
-      </if>
-      <if test="feedbacktime != null">
-        FEEDBACKTIME,
-      </if>
-      <if test="flag != null">
-        FLAG,
-      </if>
-      <if test="shopid != null">
-        SHOPID,
-      </if>
-      <if test="updateflag != null">
-        UPDATEFLAG,
-      </if>
-      <if test="descr != null">
-        DESCR,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="tradeid != null">
-        #{tradeid,jdbcType=VARCHAR},
-      </if>
-      <if test="feedbacktime != null">
-        #{feedbacktime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="flag != null">
-        #{flag,jdbcType=VARCHAR},
-      </if>
-      <if test="shopid != null">
-        #{shopid,jdbcType=VARCHAR},
-      </if>
-      <if test="updateflag != null">
-        #{updateflag,jdbcType=VARCHAR},
-      </if>
-      <if test="descr != null">
-        #{descr,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbAlifeedbackorder">
-    update db_alifeedbackorder
-    <set>
-      <if test="feedbacktime != null">
-        FEEDBACKTIME = #{feedbacktime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="flag != null">
-        FLAG = #{flag,jdbcType=VARCHAR},
-      </if>
-      <if test="shopid != null">
-        SHOPID = #{shopid,jdbcType=VARCHAR},
-      </if>
-      <if test="updateflag != null">
-        UPDATEFLAG = #{updateflag,jdbcType=VARCHAR},
-      </if>
-      <if test="descr != null">
-        DESCR = #{descr,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where TRADEID = #{tradeid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbAlifeedbackorder">
-    update db_alifeedbackorder
-    set FEEDBACKTIME = #{feedbacktime,jdbcType=TIMESTAMP},
-      FLAG = #{flag,jdbcType=VARCHAR},
-      SHOPID = #{shopid,jdbcType=VARCHAR},
-      UPDATEFLAG = #{updateflag,jdbcType=VARCHAR},
-      DESCR = #{descr,jdbcType=LONGVARCHAR}
-    where TRADEID = #{tradeid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbAlifeedbackorder">
-    update db_alifeedbackorder
-    set FEEDBACKTIME = #{feedbacktime,jdbcType=TIMESTAMP},
-      FLAG = #{flag,jdbcType=VARCHAR},
-      SHOPID = #{shopid,jdbcType=VARCHAR},
-      UPDATEFLAG = #{updateflag,jdbcType=VARCHAR}
-    where TRADEID = #{tradeid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbAlifeedbackorder">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

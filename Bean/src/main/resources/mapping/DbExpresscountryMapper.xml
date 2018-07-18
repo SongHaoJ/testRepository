@@ -5,55 +5,79 @@
     <result column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
     <result column="EXPRESSID" jdbcType="VARCHAR" property="expressid" />
     <result column="COUNTRYID" jdbcType="VARCHAR" property="countryid" />
+    <result column="COUNTRYNAME" jdbcType="VARCHAR" property="countryname" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbExpresscountry">
-    <result column="COUNTRYNAME" jdbcType="LONGVARCHAR" property="countryname" />
-    <result column="NAME" jdbcType="LONGVARCHAR" property="name" />
-  </resultMap>
-  <sql id="Blob_Column_List">
-    COUNTRYNAME, 'NAME'
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, EXPRESSID, COUNTRYID, COUNTRYNAME, NAME
+    from DB_EXPRESSCOUNTRY
+  </select>
+  <sql id="TableName">
+    DB_EXPRESSCOUNTRY
   </sql>
-  <insert id="insert" parameterType="com.bean.model.DbExpresscountry">
-    insert into db_expresscountry (SEQUENCEID, EXPRESSID, COUNTRYID, 
-      COUNTRYNAME, 'NAME')
-    values (#{sequenceid,jdbcType=VARCHAR}, #{expressid,jdbcType=VARCHAR}, #{countryid,jdbcType=VARCHAR}, 
-      #{countryname,jdbcType=LONGVARCHAR}, #{name,jdbcType=LONGVARCHAR})
+  <sql id="Values">
+     #{sequenceid,jdbcType=VARCHAR} , 
+     #{expressid,jdbcType=VARCHAR} , 
+     #{countryid,jdbcType=VARCHAR} , 
+     #{countryname,jdbcType=VARCHAR} , 
+     #{name,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    EXPRESSID , 
+    COUNTRYID , 
+    COUNTRYNAME , 
+    NAME , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="expressid != null">
+      expressid = #{expressid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="countryid != null">
+      countryid = #{countryid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="countryname != null">
+      countryname = #{countryname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="expressid != null">
+      expressid = #{expressid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="countryid != null">
+      countryid = #{countryid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="countryname != null">
+      countryname = #{countryname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbExpresscountry" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbExpresscountry">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbExpresscountry">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbExpresscountry">
-    insert into db_expresscountry
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        SEQUENCEID,
-      </if>
-      <if test="expressid != null">
-        EXPRESSID,
-      </if>
-      <if test="countryid != null">
-        COUNTRYID,
-      </if>
-      <if test="countryname != null">
-        COUNTRYNAME,
-      </if>
-      <if test="name != null">
-        'NAME',
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        #{sequenceid,jdbcType=VARCHAR},
-      </if>
-      <if test="expressid != null">
-        #{expressid,jdbcType=VARCHAR},
-      </if>
-      <if test="countryid != null">
-        #{countryid,jdbcType=VARCHAR},
-      </if>
-      <if test="countryname != null">
-        #{countryname,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="name != null">
-        #{name,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbExpresscountry">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
 </mapper>

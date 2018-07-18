@@ -22,9 +22,9 @@ public class DbExpresstyperule implements Serializable {
 
     private BigDecimal additionalcharge;
 
-    private String expresstypeid;
-
     private String sqlfilter;
+
+    private String expresstypeid;
 
     private String formula;
 
@@ -102,20 +102,20 @@ public class DbExpresstyperule implements Serializable {
         this.additionalcharge = additionalcharge;
     }
 
-    public String getExpresstypeid() {
-        return expresstypeid;
-    }
-
-    public void setExpresstypeid(String expresstypeid) {
-        this.expresstypeid = expresstypeid == null ? null : expresstypeid.trim();
-    }
-
     public String getSqlfilter() {
         return sqlfilter;
     }
 
     public void setSqlfilter(String sqlfilter) {
         this.sqlfilter = sqlfilter == null ? null : sqlfilter.trim();
+    }
+
+    public String getExpresstypeid() {
+        return expresstypeid;
+    }
+
+    public void setExpresstypeid(String expresstypeid) {
+        this.expresstypeid = expresstypeid == null ? null : expresstypeid.trim();
     }
 
     public String getFormula() {
@@ -147,8 +147,8 @@ public class DbExpresstyperule implements Serializable {
             && (this.getVolume() == null ? other.getVolume() == null : this.getVolume().equals(other.getVolume()))
             && (this.getBottomperimeter() == null ? other.getBottomperimeter() == null : this.getBottomperimeter().equals(other.getBottomperimeter()))
             && (this.getAdditionalcharge() == null ? other.getAdditionalcharge() == null : this.getAdditionalcharge().equals(other.getAdditionalcharge()))
-            && (this.getExpresstypeid() == null ? other.getExpresstypeid() == null : this.getExpresstypeid().equals(other.getExpresstypeid()))
             && (this.getSqlfilter() == null ? other.getSqlfilter() == null : this.getSqlfilter().equals(other.getSqlfilter()))
+            && (this.getExpresstypeid() == null ? other.getExpresstypeid() == null : this.getExpresstypeid().equals(other.getExpresstypeid()))
             && (this.getFormula() == null ? other.getFormula() == null : this.getFormula().equals(other.getFormula()));
     }
 
@@ -165,8 +165,8 @@ public class DbExpresstyperule implements Serializable {
         result = prime * result + ((getVolume() == null) ? 0 : getVolume().hashCode());
         result = prime * result + ((getBottomperimeter() == null) ? 0 : getBottomperimeter().hashCode());
         result = prime * result + ((getAdditionalcharge() == null) ? 0 : getAdditionalcharge().hashCode());
-        result = prime * result + ((getExpresstypeid() == null) ? 0 : getExpresstypeid().hashCode());
         result = prime * result + ((getSqlfilter() == null) ? 0 : getSqlfilter().hashCode());
+        result = prime * result + ((getExpresstypeid() == null) ? 0 : getExpresstypeid().hashCode());
         result = prime * result + ((getFormula() == null) ? 0 : getFormula().hashCode());
         return result;
     }
@@ -186,8 +186,8 @@ public class DbExpresstyperule implements Serializable {
         sb.append(", volume=").append(volume);
         sb.append(", bottomperimeter=").append(bottomperimeter);
         sb.append(", additionalcharge=").append(additionalcharge);
-        sb.append(", expresstypeid=").append(expresstypeid);
         sb.append(", sqlfilter=").append(sqlfilter);
+        sb.append(", expresstypeid=").append(expresstypeid);
         sb.append(", formula=").append(formula);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");

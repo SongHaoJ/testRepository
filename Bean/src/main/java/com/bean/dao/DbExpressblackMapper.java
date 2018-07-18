@@ -1,9 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbExpressblack;
+import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+import java.util.List;
+
+@Service
 public interface DbExpressblackMapper {
-    int insert(DbExpressblack record);
+    DbExpressblack selectByCriteria(DbExpressblack DbExpressblack);
 
-    int insertSelective(DbExpressblack record);
+    void deleteByPrimaryKey(String SEQUENCEID);
+
+    void deleteByCriteria(DbExpressblack DbExpressblack);
+
+    int insertByCriteria(DbExpressblack DbExpressblack);
+
+    int updateByCriteria(DbExpressblack DbExpressblack);
+
+    DbExpressblack selectByPrimaryKey(BigDecimal sequenceid);
+
+    List<DbExpressblack> selectAll();
 }

@@ -17,6 +17,10 @@ public class DbTradefree implements Serializable {
 
     private BigDecimal endprice;
 
+    private String expression;
+
+    private String remark;
+
     private String oper;
 
     private Date opertime;
@@ -36,10 +40,6 @@ public class DbTradefree implements Serializable {
     private Date createdate;
 
     private String corpid;
-
-    private String expression;
-
-    private String remark;
 
     private static final long serialVersionUID = 1L;
 
@@ -89,6 +89,22 @@ public class DbTradefree implements Serializable {
 
     public void setEndprice(BigDecimal endprice) {
         this.endprice = endprice;
+    }
+
+    public String getExpression() {
+        return expression;
+    }
+
+    public void setExpression(String expression) {
+        this.expression = expression == null ? null : expression.trim();
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark == null ? null : remark.trim();
     }
 
     public String getOper() {
@@ -171,22 +187,6 @@ public class DbTradefree implements Serializable {
         this.corpid = corpid == null ? null : corpid.trim();
     }
 
-    public String getExpression() {
-        return expression;
-    }
-
-    public void setExpression(String expression) {
-        this.expression = expression == null ? null : expression.trim();
-    }
-
-    public String getRemark() {
-        return remark;
-    }
-
-    public void setRemark(String remark) {
-        this.remark = remark == null ? null : remark.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -205,6 +205,8 @@ public class DbTradefree implements Serializable {
             && (this.getSalemethod() == null ? other.getSalemethod() == null : this.getSalemethod().equals(other.getSalemethod()))
             && (this.getStarprice() == null ? other.getStarprice() == null : this.getStarprice().equals(other.getStarprice()))
             && (this.getEndprice() == null ? other.getEndprice() == null : this.getEndprice().equals(other.getEndprice()))
+            && (this.getExpression() == null ? other.getExpression() == null : this.getExpression().equals(other.getExpression()))
+            && (this.getRemark() == null ? other.getRemark() == null : this.getRemark().equals(other.getRemark()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
             && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
@@ -214,9 +216,7 @@ public class DbTradefree implements Serializable {
             && (this.getReserve5() == null ? other.getReserve5() == null : this.getReserve5().equals(other.getReserve5()))
             && (this.getCreateoper() == null ? other.getCreateoper() == null : this.getCreateoper().equals(other.getCreateoper()))
             && (this.getCreatedate() == null ? other.getCreatedate() == null : this.getCreatedate().equals(other.getCreatedate()))
-            && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()))
-            && (this.getExpression() == null ? other.getExpression() == null : this.getExpression().equals(other.getExpression()))
-            && (this.getRemark() == null ? other.getRemark() == null : this.getRemark().equals(other.getRemark()));
+            && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()));
     }
 
     @Override
@@ -229,6 +229,8 @@ public class DbTradefree implements Serializable {
         result = prime * result + ((getSalemethod() == null) ? 0 : getSalemethod().hashCode());
         result = prime * result + ((getStarprice() == null) ? 0 : getStarprice().hashCode());
         result = prime * result + ((getEndprice() == null) ? 0 : getEndprice().hashCode());
+        result = prime * result + ((getExpression() == null) ? 0 : getExpression().hashCode());
+        result = prime * result + ((getRemark() == null) ? 0 : getRemark().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
@@ -239,8 +241,6 @@ public class DbTradefree implements Serializable {
         result = prime * result + ((getCreateoper() == null) ? 0 : getCreateoper().hashCode());
         result = prime * result + ((getCreatedate() == null) ? 0 : getCreatedate().hashCode());
         result = prime * result + ((getCorpid() == null) ? 0 : getCorpid().hashCode());
-        result = prime * result + ((getExpression() == null) ? 0 : getExpression().hashCode());
-        result = prime * result + ((getRemark() == null) ? 0 : getRemark().hashCode());
         return result;
     }
 
@@ -256,6 +256,8 @@ public class DbTradefree implements Serializable {
         sb.append(", salemethod=").append(salemethod);
         sb.append(", starprice=").append(starprice);
         sb.append(", endprice=").append(endprice);
+        sb.append(", expression=").append(expression);
+        sb.append(", remark=").append(remark);
         sb.append(", oper=").append(oper);
         sb.append(", opertime=").append(opertime);
         sb.append(", reserve1=").append(reserve1);
@@ -266,8 +268,6 @@ public class DbTradefree implements Serializable {
         sb.append(", createoper=").append(createoper);
         sb.append(", createdate=").append(createdate);
         sb.append(", corpid=").append(corpid);
-        sb.append(", expression=").append(expression);
-        sb.append(", remark=").append(remark);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

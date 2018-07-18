@@ -29,6 +29,10 @@ public class DbReturnmanagerment implements Serializable {
 
     private BigDecimal shoptypeid;
 
+    private String customername;
+
+    private String customercountry;
+
     private String shoptype;
 
     private String orderstatus;
@@ -41,11 +45,17 @@ public class DbReturnmanagerment implements Serializable {
 
     private String customercountryen;
 
+    private String content;
+
     private BigDecimal disposeflag;
 
     private BigDecimal returnprostatus;
 
     private BigDecimal returnmoneystatus;
+
+    private String replayorderid;
+
+    private String returndescr;
 
     private BigDecimal returnflag;
 
@@ -64,16 +74,6 @@ public class DbReturnmanagerment implements Serializable {
     private BigDecimal reasonid;
 
     private String reason;
-
-    private String customername;
-
-    private String customercountry;
-
-    private String content;
-
-    private String replayorderid;
-
-    private String returndescr;
 
     private String skuresult;
 
@@ -175,6 +175,22 @@ public class DbReturnmanagerment implements Serializable {
         this.shoptypeid = shoptypeid;
     }
 
+    public String getCustomername() {
+        return customername;
+    }
+
+    public void setCustomername(String customername) {
+        this.customername = customername == null ? null : customername.trim();
+    }
+
+    public String getCustomercountry() {
+        return customercountry;
+    }
+
+    public void setCustomercountry(String customercountry) {
+        this.customercountry = customercountry == null ? null : customercountry.trim();
+    }
+
     public String getShoptype() {
         return shoptype;
     }
@@ -223,6 +239,14 @@ public class DbReturnmanagerment implements Serializable {
         this.customercountryen = customercountryen == null ? null : customercountryen.trim();
     }
 
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content == null ? null : content.trim();
+    }
+
     public BigDecimal getDisposeflag() {
         return disposeflag;
     }
@@ -245,6 +269,22 @@ public class DbReturnmanagerment implements Serializable {
 
     public void setReturnmoneystatus(BigDecimal returnmoneystatus) {
         this.returnmoneystatus = returnmoneystatus;
+    }
+
+    public String getReplayorderid() {
+        return replayorderid;
+    }
+
+    public void setReplayorderid(String replayorderid) {
+        this.replayorderid = replayorderid == null ? null : replayorderid.trim();
+    }
+
+    public String getReturndescr() {
+        return returndescr;
+    }
+
+    public void setReturndescr(String returndescr) {
+        this.returndescr = returndescr == null ? null : returndescr.trim();
     }
 
     public BigDecimal getReturnflag() {
@@ -319,46 +359,6 @@ public class DbReturnmanagerment implements Serializable {
         this.reason = reason == null ? null : reason.trim();
     }
 
-    public String getCustomername() {
-        return customername;
-    }
-
-    public void setCustomername(String customername) {
-        this.customername = customername == null ? null : customername.trim();
-    }
-
-    public String getCustomercountry() {
-        return customercountry;
-    }
-
-    public void setCustomercountry(String customercountry) {
-        this.customercountry = customercountry == null ? null : customercountry.trim();
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content == null ? null : content.trim();
-    }
-
-    public String getReplayorderid() {
-        return replayorderid;
-    }
-
-    public void setReplayorderid(String replayorderid) {
-        this.replayorderid = replayorderid == null ? null : replayorderid.trim();
-    }
-
-    public String getReturndescr() {
-        return returndescr;
-    }
-
-    public void setReturndescr(String returndescr) {
-        this.returndescr = returndescr == null ? null : returndescr.trim();
-    }
-
     public String getSkuresult() {
         return skuresult;
     }
@@ -391,15 +391,20 @@ public class DbReturnmanagerment implements Serializable {
             && (this.getOrderid() == null ? other.getOrderid() == null : this.getOrderid().equals(other.getOrderid()))
             && (this.getMessageid() == null ? other.getMessageid() == null : this.getMessageid().equals(other.getMessageid()))
             && (this.getShoptypeid() == null ? other.getShoptypeid() == null : this.getShoptypeid().equals(other.getShoptypeid()))
+            && (this.getCustomername() == null ? other.getCustomername() == null : this.getCustomername().equals(other.getCustomername()))
+            && (this.getCustomercountry() == null ? other.getCustomercountry() == null : this.getCustomercountry().equals(other.getCustomercountry()))
             && (this.getShoptype() == null ? other.getShoptype() == null : this.getShoptype().equals(other.getShoptype()))
             && (this.getOrderstatus() == null ? other.getOrderstatus() == null : this.getOrderstatus().equals(other.getOrderstatus()))
             && (this.getOrdersource() == null ? other.getOrdersource() == null : this.getOrdersource().equals(other.getOrdersource()))
             && (this.getOrdertime() == null ? other.getOrdertime() == null : this.getOrdertime().equals(other.getOrdertime()))
             && (this.getCustomercountryid() == null ? other.getCustomercountryid() == null : this.getCustomercountryid().equals(other.getCustomercountryid()))
             && (this.getCustomercountryen() == null ? other.getCustomercountryen() == null : this.getCustomercountryen().equals(other.getCustomercountryen()))
+            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
             && (this.getDisposeflag() == null ? other.getDisposeflag() == null : this.getDisposeflag().equals(other.getDisposeflag()))
             && (this.getReturnprostatus() == null ? other.getReturnprostatus() == null : this.getReturnprostatus().equals(other.getReturnprostatus()))
             && (this.getReturnmoneystatus() == null ? other.getReturnmoneystatus() == null : this.getReturnmoneystatus().equals(other.getReturnmoneystatus()))
+            && (this.getReplayorderid() == null ? other.getReplayorderid() == null : this.getReplayorderid().equals(other.getReplayorderid()))
+            && (this.getReturndescr() == null ? other.getReturndescr() == null : this.getReturndescr().equals(other.getReturndescr()))
             && (this.getReturnflag() == null ? other.getReturnflag() == null : this.getReturnflag().equals(other.getReturnflag()))
             && (this.getActualsavenum() == null ? other.getActualsavenum() == null : this.getActualsavenum().equals(other.getActualsavenum()))
             && (this.getKeywords() == null ? other.getKeywords() == null : this.getKeywords().equals(other.getKeywords()))
@@ -409,11 +414,6 @@ public class DbReturnmanagerment implements Serializable {
             && (this.getOriginordertime() == null ? other.getOriginordertime() == null : this.getOriginordertime().equals(other.getOriginordertime()))
             && (this.getReasonid() == null ? other.getReasonid() == null : this.getReasonid().equals(other.getReasonid()))
             && (this.getReason() == null ? other.getReason() == null : this.getReason().equals(other.getReason()))
-            && (this.getCustomername() == null ? other.getCustomername() == null : this.getCustomername().equals(other.getCustomername()))
-            && (this.getCustomercountry() == null ? other.getCustomercountry() == null : this.getCustomercountry().equals(other.getCustomercountry()))
-            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
-            && (this.getReplayorderid() == null ? other.getReplayorderid() == null : this.getReplayorderid().equals(other.getReplayorderid()))
-            && (this.getReturndescr() == null ? other.getReturndescr() == null : this.getReturndescr().equals(other.getReturndescr()))
             && (this.getSkuresult() == null ? other.getSkuresult() == null : this.getSkuresult().equals(other.getSkuresult()));
     }
 
@@ -433,15 +433,20 @@ public class DbReturnmanagerment implements Serializable {
         result = prime * result + ((getOrderid() == null) ? 0 : getOrderid().hashCode());
         result = prime * result + ((getMessageid() == null) ? 0 : getMessageid().hashCode());
         result = prime * result + ((getShoptypeid() == null) ? 0 : getShoptypeid().hashCode());
+        result = prime * result + ((getCustomername() == null) ? 0 : getCustomername().hashCode());
+        result = prime * result + ((getCustomercountry() == null) ? 0 : getCustomercountry().hashCode());
         result = prime * result + ((getShoptype() == null) ? 0 : getShoptype().hashCode());
         result = prime * result + ((getOrderstatus() == null) ? 0 : getOrderstatus().hashCode());
         result = prime * result + ((getOrdersource() == null) ? 0 : getOrdersource().hashCode());
         result = prime * result + ((getOrdertime() == null) ? 0 : getOrdertime().hashCode());
         result = prime * result + ((getCustomercountryid() == null) ? 0 : getCustomercountryid().hashCode());
         result = prime * result + ((getCustomercountryen() == null) ? 0 : getCustomercountryen().hashCode());
+        result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
         result = prime * result + ((getDisposeflag() == null) ? 0 : getDisposeflag().hashCode());
         result = prime * result + ((getReturnprostatus() == null) ? 0 : getReturnprostatus().hashCode());
         result = prime * result + ((getReturnmoneystatus() == null) ? 0 : getReturnmoneystatus().hashCode());
+        result = prime * result + ((getReplayorderid() == null) ? 0 : getReplayorderid().hashCode());
+        result = prime * result + ((getReturndescr() == null) ? 0 : getReturndescr().hashCode());
         result = prime * result + ((getReturnflag() == null) ? 0 : getReturnflag().hashCode());
         result = prime * result + ((getActualsavenum() == null) ? 0 : getActualsavenum().hashCode());
         result = prime * result + ((getKeywords() == null) ? 0 : getKeywords().hashCode());
@@ -451,11 +456,6 @@ public class DbReturnmanagerment implements Serializable {
         result = prime * result + ((getOriginordertime() == null) ? 0 : getOriginordertime().hashCode());
         result = prime * result + ((getReasonid() == null) ? 0 : getReasonid().hashCode());
         result = prime * result + ((getReason() == null) ? 0 : getReason().hashCode());
-        result = prime * result + ((getCustomername() == null) ? 0 : getCustomername().hashCode());
-        result = prime * result + ((getCustomercountry() == null) ? 0 : getCustomercountry().hashCode());
-        result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
-        result = prime * result + ((getReplayorderid() == null) ? 0 : getReplayorderid().hashCode());
-        result = prime * result + ((getReturndescr() == null) ? 0 : getReturndescr().hashCode());
         result = prime * result + ((getSkuresult() == null) ? 0 : getSkuresult().hashCode());
         return result;
     }
@@ -478,15 +478,20 @@ public class DbReturnmanagerment implements Serializable {
         sb.append(", orderid=").append(orderid);
         sb.append(", messageid=").append(messageid);
         sb.append(", shoptypeid=").append(shoptypeid);
+        sb.append(", customername=").append(customername);
+        sb.append(", customercountry=").append(customercountry);
         sb.append(", shoptype=").append(shoptype);
         sb.append(", orderstatus=").append(orderstatus);
         sb.append(", ordersource=").append(ordersource);
         sb.append(", ordertime=").append(ordertime);
         sb.append(", customercountryid=").append(customercountryid);
         sb.append(", customercountryen=").append(customercountryen);
+        sb.append(", content=").append(content);
         sb.append(", disposeflag=").append(disposeflag);
         sb.append(", returnprostatus=").append(returnprostatus);
         sb.append(", returnmoneystatus=").append(returnmoneystatus);
+        sb.append(", replayorderid=").append(replayorderid);
+        sb.append(", returndescr=").append(returndescr);
         sb.append(", returnflag=").append(returnflag);
         sb.append(", actualsavenum=").append(actualsavenum);
         sb.append(", keywords=").append(keywords);
@@ -496,11 +501,6 @@ public class DbReturnmanagerment implements Serializable {
         sb.append(", originordertime=").append(originordertime);
         sb.append(", reasonid=").append(reasonid);
         sb.append(", reason=").append(reason);
-        sb.append(", customername=").append(customername);
-        sb.append(", customercountry=").append(customercountry);
-        sb.append(", content=").append(content);
-        sb.append(", replayorderid=").append(replayorderid);
-        sb.append(", returndescr=").append(returndescr);
         sb.append(", skuresult=").append(skuresult);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");

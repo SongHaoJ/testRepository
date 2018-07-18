@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbItemspevalue;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbItemspevalueMapper {
-    int deleteByPrimaryKey(String sid);
+    DbItemspevalue selectByCriteria(DbItemspevalue DbItemspevalue);
 
-    int insert(DbItemspevalue record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbItemspevalue record);
+    void deleteByCriteria(DbItemspevalue DbItemspevalue);
+
+    int insertByCriteria(DbItemspevalue DbItemspevalue);
+
+    int updateByCriteria(DbItemspevalue DbItemspevalue);
 
     DbItemspevalue selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbItemspevalue record);
-
-    int updateByPrimaryKeyWithBLOBs(DbItemspevalue record);
-
-    int updateByPrimaryKey(DbItemspevalue record);
+    List<DbItemspevalue> selectAll();
 }

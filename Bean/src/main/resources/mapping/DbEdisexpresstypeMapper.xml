@@ -11,148 +11,134 @@
     <result column="SUPPORTELEC" jdbcType="DECIMAL" property="supportelec" />
     <result column="INCOTERMS" jdbcType="DECIMAL" property="incoterms" />
     <result column="DIRECTIONS" jdbcType="VARCHAR" property="directions" />
+    <result column="DESCRIPTIONCN" jdbcType="VARCHAR" property="descriptioncn" />
+    <result column="DESCRIPTIONEN" jdbcType="VARCHAR" property="descriptionen" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbEdisexpresstype">
-    <result column="DESCRIPTIONCN" jdbcType="LONGVARCHAR" property="descriptioncn" />
-    <result column="DESCRIPTIONEN" jdbcType="LONGVARCHAR" property="descriptionen" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    SID, NAMECN, NAMEEN, MAXWEIGHT, MAXTOTALLENGTH, MAXLENGTH, SUPPORTELEC, INCOTERMS, 
-    DIRECTIONS
-  </sql>
-  <sql id="Blob_Column_List">
-    DESCRIPTIONCN, DESCRIPTIONEN
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from db_edisexpresstype
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SID, NAMECN, NAMEEN, MAXWEIGHT, MAXTOTALLENGTH, MAXLENGTH, SUPPORTELEC, INCOTERMS, 
+    DIRECTIONS, DESCRIPTIONCN, DESCRIPTIONEN
+    from DB_EDISEXPRESSTYPE
     where SID = #{sid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_edisexpresstype
-    where SID = #{sid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, NAMECN, NAMEEN, MAXWEIGHT, MAXTOTALLENGTH, MAXLENGTH, SUPPORTELEC, INCOTERMS, 
+    DIRECTIONS, DESCRIPTIONCN, DESCRIPTIONEN
+    from DB_EDISEXPRESSTYPE
+  </select>
+  <sql id="TableName">
+    DB_EDISEXPRESSTYPE
+  </sql>
+  <sql id="Values">
+     #{sid,jdbcType=VARCHAR} , 
+     #{namecn,jdbcType=VARCHAR} , 
+     #{nameen,jdbcType=VARCHAR} , 
+     #{maxweight,jdbcType=DECIMAL} , 
+     #{maxtotallength,jdbcType=DECIMAL} , 
+     #{maxlength,jdbcType=DECIMAL} , 
+     #{supportelec,jdbcType=DECIMAL} , 
+     #{incoterms,jdbcType=DECIMAL} , 
+     #{directions,jdbcType=VARCHAR} , 
+     #{descriptioncn,jdbcType=VARCHAR} , 
+     #{descriptionen,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    SID , 
+    NAMECN , 
+    NAMEEN , 
+    MAXWEIGHT , 
+    MAXTOTALLENGTH , 
+    MAXLENGTH , 
+    SUPPORTELEC , 
+    INCOTERMS , 
+    DIRECTIONS , 
+    DESCRIPTIONCN , 
+    DESCRIPTIONEN , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="namecn != null">
+      namecn = #{namecn,jdbcType=VARCHAR} and 
+    </if>
+    <if test="nameen != null">
+      nameen = #{nameen,jdbcType=VARCHAR} and 
+    </if>
+    <if test="maxweight != null">
+      maxweight = #{maxweight,jdbcType=DECIMAL} and 
+    </if>
+    <if test="maxtotallength != null">
+      maxtotallength = #{maxtotallength,jdbcType=DECIMAL} and 
+    </if>
+    <if test="maxlength != null">
+      maxlength = #{maxlength,jdbcType=DECIMAL} and 
+    </if>
+    <if test="supportelec != null">
+      supportelec = #{supportelec,jdbcType=DECIMAL} and 
+    </if>
+    <if test="incoterms != null">
+      incoterms = #{incoterms,jdbcType=DECIMAL} and 
+    </if>
+    <if test="directions != null">
+      directions = #{directions,jdbcType=VARCHAR} and 
+    </if>
+    <if test="descriptioncn != null">
+      descriptioncn = #{descriptioncn,jdbcType=VARCHAR} and 
+    </if>
+    <if test="descriptionen != null">
+      descriptionen = #{descriptionen,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="namecn != null">
+      namecn = #{namecn,jdbcType=VARCHAR} , 
+    </if>
+    <if test="nameen != null">
+      nameen = #{nameen,jdbcType=VARCHAR} , 
+    </if>
+    <if test="maxweight != null">
+      maxweight = #{maxweight,jdbcType=DECIMAL} , 
+    </if>
+    <if test="maxtotallength != null">
+      maxtotallength = #{maxtotallength,jdbcType=DECIMAL} , 
+    </if>
+    <if test="maxlength != null">
+      maxlength = #{maxlength,jdbcType=DECIMAL} , 
+    </if>
+    <if test="supportelec != null">
+      supportelec = #{supportelec,jdbcType=DECIMAL} , 
+    </if>
+    <if test="incoterms != null">
+      incoterms = #{incoterms,jdbcType=DECIMAL} , 
+    </if>
+    <if test="directions != null">
+      directions = #{directions,jdbcType=VARCHAR} , 
+    </if>
+    <if test="descriptioncn != null">
+      descriptioncn = #{descriptioncn,jdbcType=VARCHAR} , 
+    </if>
+    <if test="descriptionen != null">
+      descriptionen = #{descriptionen,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbEdisexpresstype" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SID=#{SID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbEdisexpresstype">
-    insert into db_edisexpresstype (SID, NAMECN, NAMEEN, 
-      MAXWEIGHT, MAXTOTALLENGTH, MAXLENGTH, 
-      SUPPORTELEC, INCOTERMS, DIRECTIONS, 
-      DESCRIPTIONCN, DESCRIPTIONEN)
-    values (#{sid,jdbcType=VARCHAR}, #{namecn,jdbcType=VARCHAR}, #{nameen,jdbcType=VARCHAR}, 
-      #{maxweight,jdbcType=DECIMAL}, #{maxtotallength,jdbcType=DECIMAL}, #{maxlength,jdbcType=DECIMAL}, 
-      #{supportelec,jdbcType=DECIMAL}, #{incoterms,jdbcType=DECIMAL}, #{directions,jdbcType=VARCHAR}, 
-      #{descriptioncn,jdbcType=LONGVARCHAR}, #{descriptionen,jdbcType=LONGVARCHAR})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbEdisexpresstype">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbEdisexpresstype">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbEdisexpresstype">
-    insert into db_edisexpresstype
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        SID,
-      </if>
-      <if test="namecn != null">
-        NAMECN,
-      </if>
-      <if test="nameen != null">
-        NAMEEN,
-      </if>
-      <if test="maxweight != null">
-        MAXWEIGHT,
-      </if>
-      <if test="maxtotallength != null">
-        MAXTOTALLENGTH,
-      </if>
-      <if test="maxlength != null">
-        MAXLENGTH,
-      </if>
-      <if test="supportelec != null">
-        SUPPORTELEC,
-      </if>
-      <if test="incoterms != null">
-        INCOTERMS,
-      </if>
-      <if test="directions != null">
-        DIRECTIONS,
-      </if>
-      <if test="descriptioncn != null">
-        DESCRIPTIONCN,
-      </if>
-      <if test="descriptionen != null">
-        DESCRIPTIONEN,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        #{sid,jdbcType=VARCHAR},
-      </if>
-      <if test="namecn != null">
-        #{namecn,jdbcType=VARCHAR},
-      </if>
-      <if test="nameen != null">
-        #{nameen,jdbcType=VARCHAR},
-      </if>
-      <if test="maxweight != null">
-        #{maxweight,jdbcType=DECIMAL},
-      </if>
-      <if test="maxtotallength != null">
-        #{maxtotallength,jdbcType=DECIMAL},
-      </if>
-      <if test="maxlength != null">
-        #{maxlength,jdbcType=DECIMAL},
-      </if>
-      <if test="supportelec != null">
-        #{supportelec,jdbcType=DECIMAL},
-      </if>
-      <if test="incoterms != null">
-        #{incoterms,jdbcType=DECIMAL},
-      </if>
-      <if test="directions != null">
-        #{directions,jdbcType=VARCHAR},
-      </if>
-      <if test="descriptioncn != null">
-        #{descriptioncn,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="descriptionen != null">
-        #{descriptionen,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbEdisexpresstype">
-    update db_edisexpresstype
-    <set>
-      <if test="namecn != null">
-        NAMECN = #{namecn,jdbcType=VARCHAR},
-      </if>
-      <if test="nameen != null">
-        NAMEEN = #{nameen,jdbcType=VARCHAR},
-      </if>
-      <if test="maxweight != null">
-        MAXWEIGHT = #{maxweight,jdbcType=DECIMAL},
-      </if>
-      <if test="maxtotallength != null">
-        MAXTOTALLENGTH = #{maxtotallength,jdbcType=DECIMAL},
-      </if>
-      <if test="maxlength != null">
-        MAXLENGTH = #{maxlength,jdbcType=DECIMAL},
-      </if>
-      <if test="supportelec != null">
-        SUPPORTELEC = #{supportelec,jdbcType=DECIMAL},
-      </if>
-      <if test="incoterms != null">
-        INCOTERMS = #{incoterms,jdbcType=DECIMAL},
-      </if>
-      <if test="directions != null">
-        DIRECTIONS = #{directions,jdbcType=VARCHAR},
-      </if>
-      <if test="descriptioncn != null">
-        DESCRIPTIONCN = #{descriptioncn,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="descriptionen != null">
-        DESCRIPTIONEN = #{descriptionen,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where SID = #{sid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbEdisexpresstype">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
-
 </mapper>

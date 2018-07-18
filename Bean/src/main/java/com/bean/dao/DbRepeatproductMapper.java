@@ -1,20 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbRepeatproduct;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbRepeatproductMapper {
-    int deleteByPrimaryKey(BigDecimal sequenceid);
+    DbRepeatproduct selectByCriteria(DbRepeatproduct DbRepeatproduct);
 
-    int insert(DbRepeatproduct record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbRepeatproduct record);
+    void deleteByCriteria(DbRepeatproduct DbRepeatproduct);
+
+    int insertByCriteria(DbRepeatproduct DbRepeatproduct);
+
+    int updateByCriteria(DbRepeatproduct DbRepeatproduct);
 
     DbRepeatproduct selectByPrimaryKey(BigDecimal sequenceid);
 
-    int updateByPrimaryKeySelective(DbRepeatproduct record);
-
-    int updateByPrimaryKeyWithBLOBs(DbRepeatproduct record);
-
-    int updateByPrimaryKey(DbRepeatproduct record);
+    List<DbRepeatproduct> selectAll();
 }

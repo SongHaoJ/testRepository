@@ -9,6 +9,10 @@ public class DbGift implements Serializable {
 
     private String productid;
 
+    private String productname;
+
+    private String productnameen;
+
     private BigDecimal weight;
 
     private BigDecimal costprice;
@@ -25,9 +29,17 @@ public class DbGift implements Serializable {
 
     private String shoptypeid;
 
+    private String pictureurl;
+
     private String ebayitemid;
 
     private String ebaysite;
+
+    private String reserve1;
+
+    private String reserve2;
+
+    private String reserve3;
 
     private BigDecimal reserve4;
 
@@ -49,18 +61,6 @@ public class DbGift implements Serializable {
 
     private Date createtime;
 
-    private String productname;
-
-    private String productnameen;
-
-    private String pictureurl;
-
-    private String reserve1;
-
-    private String reserve2;
-
-    private String reserve3;
-
     private static final long serialVersionUID = 1L;
 
     public String getSequenceid() {
@@ -77,6 +77,22 @@ public class DbGift implements Serializable {
 
     public void setProductid(String productid) {
         this.productid = productid == null ? null : productid.trim();
+    }
+
+    public String getProductname() {
+        return productname;
+    }
+
+    public void setProductname(String productname) {
+        this.productname = productname == null ? null : productname.trim();
+    }
+
+    public String getProductnameen() {
+        return productnameen;
+    }
+
+    public void setProductnameen(String productnameen) {
+        this.productnameen = productnameen == null ? null : productnameen.trim();
     }
 
     public BigDecimal getWeight() {
@@ -143,6 +159,14 @@ public class DbGift implements Serializable {
         this.shoptypeid = shoptypeid == null ? null : shoptypeid.trim();
     }
 
+    public String getPictureurl() {
+        return pictureurl;
+    }
+
+    public void setPictureurl(String pictureurl) {
+        this.pictureurl = pictureurl == null ? null : pictureurl.trim();
+    }
+
     public String getEbayitemid() {
         return ebayitemid;
     }
@@ -157,6 +181,30 @@ public class DbGift implements Serializable {
 
     public void setEbaysite(String ebaysite) {
         this.ebaysite = ebaysite == null ? null : ebaysite.trim();
+    }
+
+    public String getReserve1() {
+        return reserve1;
+    }
+
+    public void setReserve1(String reserve1) {
+        this.reserve1 = reserve1 == null ? null : reserve1.trim();
+    }
+
+    public String getReserve2() {
+        return reserve2;
+    }
+
+    public void setReserve2(String reserve2) {
+        this.reserve2 = reserve2 == null ? null : reserve2.trim();
+    }
+
+    public String getReserve3() {
+        return reserve3;
+    }
+
+    public void setReserve3(String reserve3) {
+        this.reserve3 = reserve3 == null ? null : reserve3.trim();
     }
 
     public BigDecimal getReserve4() {
@@ -239,54 +287,6 @@ public class DbGift implements Serializable {
         this.createtime = createtime;
     }
 
-    public String getProductname() {
-        return productname;
-    }
-
-    public void setProductname(String productname) {
-        this.productname = productname == null ? null : productname.trim();
-    }
-
-    public String getProductnameen() {
-        return productnameen;
-    }
-
-    public void setProductnameen(String productnameen) {
-        this.productnameen = productnameen == null ? null : productnameen.trim();
-    }
-
-    public String getPictureurl() {
-        return pictureurl;
-    }
-
-    public void setPictureurl(String pictureurl) {
-        this.pictureurl = pictureurl == null ? null : pictureurl.trim();
-    }
-
-    public String getReserve1() {
-        return reserve1;
-    }
-
-    public void setReserve1(String reserve1) {
-        this.reserve1 = reserve1 == null ? null : reserve1.trim();
-    }
-
-    public String getReserve2() {
-        return reserve2;
-    }
-
-    public void setReserve2(String reserve2) {
-        this.reserve2 = reserve2 == null ? null : reserve2.trim();
-    }
-
-    public String getReserve3() {
-        return reserve3;
-    }
-
-    public void setReserve3(String reserve3) {
-        this.reserve3 = reserve3 == null ? null : reserve3.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -301,6 +301,8 @@ public class DbGift implements Serializable {
         DbGift other = (DbGift) that;
         return (this.getSequenceid() == null ? other.getSequenceid() == null : this.getSequenceid().equals(other.getSequenceid()))
             && (this.getProductid() == null ? other.getProductid() == null : this.getProductid().equals(other.getProductid()))
+            && (this.getProductname() == null ? other.getProductname() == null : this.getProductname().equals(other.getProductname()))
+            && (this.getProductnameen() == null ? other.getProductnameen() == null : this.getProductnameen().equals(other.getProductnameen()))
             && (this.getWeight() == null ? other.getWeight() == null : this.getWeight().equals(other.getWeight()))
             && (this.getCostprice() == null ? other.getCostprice() == null : this.getCostprice().equals(other.getCostprice()))
             && (this.getSellprice() == null ? other.getSellprice() == null : this.getSellprice().equals(other.getSellprice()))
@@ -309,8 +311,12 @@ public class DbGift implements Serializable {
             && (this.getOper2() == null ? other.getOper2() == null : this.getOper2().equals(other.getOper2()))
             && (this.getShoptype() == null ? other.getShoptype() == null : this.getShoptype().equals(other.getShoptype()))
             && (this.getShoptypeid() == null ? other.getShoptypeid() == null : this.getShoptypeid().equals(other.getShoptypeid()))
+            && (this.getPictureurl() == null ? other.getPictureurl() == null : this.getPictureurl().equals(other.getPictureurl()))
             && (this.getEbayitemid() == null ? other.getEbayitemid() == null : this.getEbayitemid().equals(other.getEbayitemid()))
             && (this.getEbaysite() == null ? other.getEbaysite() == null : this.getEbaysite().equals(other.getEbaysite()))
+            && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
+            && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
+            && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
             && (this.getReserve4() == null ? other.getReserve4() == null : this.getReserve4().equals(other.getReserve4()))
             && (this.getReserve5() == null ? other.getReserve5() == null : this.getReserve5().equals(other.getReserve5()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
@@ -320,13 +326,7 @@ public class DbGift implements Serializable {
             && (this.getCategoryid() == null ? other.getCategoryid() == null : this.getCategoryid().equals(other.getCategoryid()))
             && (this.getCategory() == null ? other.getCategory() == null : this.getCategory().equals(other.getCategory()))
             && (this.getCreateoper() == null ? other.getCreateoper() == null : this.getCreateoper().equals(other.getCreateoper()))
-            && (this.getCreatetime() == null ? other.getCreatetime() == null : this.getCreatetime().equals(other.getCreatetime()))
-            && (this.getProductname() == null ? other.getProductname() == null : this.getProductname().equals(other.getProductname()))
-            && (this.getProductnameen() == null ? other.getProductnameen() == null : this.getProductnameen().equals(other.getProductnameen()))
-            && (this.getPictureurl() == null ? other.getPictureurl() == null : this.getPictureurl().equals(other.getPictureurl()))
-            && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
-            && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
-            && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()));
+            && (this.getCreatetime() == null ? other.getCreatetime() == null : this.getCreatetime().equals(other.getCreatetime()));
     }
 
     @Override
@@ -335,6 +335,8 @@ public class DbGift implements Serializable {
         int result = 1;
         result = prime * result + ((getSequenceid() == null) ? 0 : getSequenceid().hashCode());
         result = prime * result + ((getProductid() == null) ? 0 : getProductid().hashCode());
+        result = prime * result + ((getProductname() == null) ? 0 : getProductname().hashCode());
+        result = prime * result + ((getProductnameen() == null) ? 0 : getProductnameen().hashCode());
         result = prime * result + ((getWeight() == null) ? 0 : getWeight().hashCode());
         result = prime * result + ((getCostprice() == null) ? 0 : getCostprice().hashCode());
         result = prime * result + ((getSellprice() == null) ? 0 : getSellprice().hashCode());
@@ -343,8 +345,12 @@ public class DbGift implements Serializable {
         result = prime * result + ((getOper2() == null) ? 0 : getOper2().hashCode());
         result = prime * result + ((getShoptype() == null) ? 0 : getShoptype().hashCode());
         result = prime * result + ((getShoptypeid() == null) ? 0 : getShoptypeid().hashCode());
+        result = prime * result + ((getPictureurl() == null) ? 0 : getPictureurl().hashCode());
         result = prime * result + ((getEbayitemid() == null) ? 0 : getEbayitemid().hashCode());
         result = prime * result + ((getEbaysite() == null) ? 0 : getEbaysite().hashCode());
+        result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
+        result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
+        result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
         result = prime * result + ((getReserve4() == null) ? 0 : getReserve4().hashCode());
         result = prime * result + ((getReserve5() == null) ? 0 : getReserve5().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
@@ -355,12 +361,6 @@ public class DbGift implements Serializable {
         result = prime * result + ((getCategory() == null) ? 0 : getCategory().hashCode());
         result = prime * result + ((getCreateoper() == null) ? 0 : getCreateoper().hashCode());
         result = prime * result + ((getCreatetime() == null) ? 0 : getCreatetime().hashCode());
-        result = prime * result + ((getProductname() == null) ? 0 : getProductname().hashCode());
-        result = prime * result + ((getProductnameen() == null) ? 0 : getProductnameen().hashCode());
-        result = prime * result + ((getPictureurl() == null) ? 0 : getPictureurl().hashCode());
-        result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
-        result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
-        result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
         return result;
     }
 
@@ -372,6 +372,8 @@ public class DbGift implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", sequenceid=").append(sequenceid);
         sb.append(", productid=").append(productid);
+        sb.append(", productname=").append(productname);
+        sb.append(", productnameen=").append(productnameen);
         sb.append(", weight=").append(weight);
         sb.append(", costprice=").append(costprice);
         sb.append(", sellprice=").append(sellprice);
@@ -380,8 +382,12 @@ public class DbGift implements Serializable {
         sb.append(", oper2=").append(oper2);
         sb.append(", shoptype=").append(shoptype);
         sb.append(", shoptypeid=").append(shoptypeid);
+        sb.append(", pictureurl=").append(pictureurl);
         sb.append(", ebayitemid=").append(ebayitemid);
         sb.append(", ebaysite=").append(ebaysite);
+        sb.append(", reserve1=").append(reserve1);
+        sb.append(", reserve2=").append(reserve2);
+        sb.append(", reserve3=").append(reserve3);
         sb.append(", reserve4=").append(reserve4);
         sb.append(", reserve5=").append(reserve5);
         sb.append(", oper=").append(oper);
@@ -392,12 +398,6 @@ public class DbGift implements Serializable {
         sb.append(", category=").append(category);
         sb.append(", createoper=").append(createoper);
         sb.append(", createtime=").append(createtime);
-        sb.append(", productname=").append(productname);
-        sb.append(", productnameen=").append(productnameen);
-        sb.append(", pictureurl=").append(pictureurl);
-        sb.append(", reserve1=").append(reserve1);
-        sb.append(", reserve2=").append(reserve2);
-        sb.append(", reserve3=").append(reserve3);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

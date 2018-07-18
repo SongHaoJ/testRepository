@@ -1,20 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbLazadaorderinfo;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-@Repository
+
+@Service
 public interface DbLazadaorderinfoMapper {
-    int deleteByPrimaryKey(String sequenceid)throws Exception;
+    DbLazadaorderinfo selectByCriteria(DbLazadaorderinfo DbLazadaorderinfo);
 
-    int insert(DbLazadaorderinfo record)throws Exception;
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbLazadaorderinfo record)throws Exception;
+    void deleteByCriteria(DbLazadaorderinfo DbLazadaorderinfo);
 
-    DbLazadaorderinfo selectByPrimaryKey(String sequenceid)throws Exception;
+    int insertByCriteria(DbLazadaorderinfo DbLazadaorderinfo);
 
-    int updateByPrimaryKeySelective(DbLazadaorderinfo record)throws Exception;
+    int updateByCriteria(DbLazadaorderinfo DbLazadaorderinfo);
 
-    List<DbLazadaorderinfo> selectByCriteria(DbLazadaorderinfo orderInfo)throws Exception;
+    DbLazadaorderinfo selectByPrimaryKey(String sequenceid);
+
+    List<DbLazadaorderinfo> selectAll();
 }

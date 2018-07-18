@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbBirdexpresstype;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbBirdexpresstypeMapper {
-    int deleteByPrimaryKey(String sid);
+    DbBirdexpresstype selectByCriteria(DbBirdexpresstype DbBirdexpresstype);
 
-    int insert(DbBirdexpresstype record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbBirdexpresstype record);
+    void deleteByCriteria(DbBirdexpresstype DbBirdexpresstype);
+
+    int insertByCriteria(DbBirdexpresstype DbBirdexpresstype);
+
+    int updateByCriteria(DbBirdexpresstype DbBirdexpresstype);
 
     DbBirdexpresstype selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbBirdexpresstype record);
-
-    int updateByPrimaryKey(DbBirdexpresstype record);
+    List<DbBirdexpresstype> selectAll();
 }

@@ -1,20 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbAmazonexpresstype;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbAmazonexpresstypeMapper {
-    int deleteByPrimaryKey(BigDecimal sid);
+    DbAmazonexpresstype selectByCriteria(DbAmazonexpresstype DbAmazonexpresstype);
 
-    int insert(DbAmazonexpresstype record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbAmazonexpresstype record);
+    void deleteByCriteria(DbAmazonexpresstype DbAmazonexpresstype);
+
+    int insertByCriteria(DbAmazonexpresstype DbAmazonexpresstype);
+
+    int updateByCriteria(DbAmazonexpresstype DbAmazonexpresstype);
 
     DbAmazonexpresstype selectByPrimaryKey(BigDecimal sid);
 
-    int updateByPrimaryKeySelective(DbAmazonexpresstype record);
-
-    int updateByPrimaryKeyWithBLOBs(DbAmazonexpresstype record);
-
-    int updateByPrimaryKey(DbAmazonexpresstype record);
+    List<DbAmazonexpresstype> selectAll();
 }

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbTaskstatusconfigMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbTaskstatusconfig">
+    <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
+    <result column="NODEID" jdbcType="VARCHAR" property="nodeid" />
+    <result column="NODENAME" jdbcType="VARCHAR" property="nodename" />
+    <result column="NEXTNODEID" jdbcType="VARCHAR" property="nextnodeid" />
+    <result column="NEXTNODENAME" jdbcType="VARCHAR" property="nextnodename" />
+    <result column="DIRECT" jdbcType="VARCHAR" property="direct" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="STYPE" jdbcType="VARCHAR" property="stype" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SEQUENCEID, NODEID, 'NODENAME', NEXTNODEID, NEXTNODENAME, DIRECT, OPER, OPERTIME, 
+    CORPID, RESERVE1, RESERVE2, STYPE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from db_taskstatusconfig
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from db_taskstatusconfig
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bean.model.DbTaskstatusconfig">
+    insert into db_taskstatusconfig (SEQUENCEID, NODEID, 'NODENAME', 
+      NEXTNODEID, NEXTNODENAME, DIRECT, 
+      OPER, OPERTIME, CORPID, 
+      RESERVE1, RESERVE2, STYPE
+      )
+    values (#{sequenceid,jdbcType=VARCHAR}, #{nodeid,jdbcType=VARCHAR}, #{nodename,jdbcType=VARCHAR}, 
+      #{nextnodeid,jdbcType=VARCHAR}, #{nextnodename,jdbcType=VARCHAR}, #{direct,jdbcType=VARCHAR}, 
+      #{oper,jdbcType=VARCHAR}, #{opertime,jdbcType=TIMESTAMP}, #{corpid,jdbcType=VARCHAR}, 
+      #{reserve1,jdbcType=VARCHAR}, #{reserve2,jdbcType=VARCHAR}, #{stype,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbTaskstatusconfig">
+    insert into db_taskstatusconfig
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        SEQUENCEID,
+      </if>
+      <if test="nodeid != null">
+        NODEID,
+      </if>
+      <if test="nodename != null">
+        'NODENAME',
+      </if>
+      <if test="nextnodeid != null">
+        NEXTNODEID,
+      </if>
+      <if test="nextnodename != null">
+        NEXTNODENAME,
+      </if>
+      <if test="direct != null">
+        DIRECT,
+      </if>
+      <if test="oper != null">
+        OPER,
+      </if>
+      <if test="opertime != null">
+        OPERTIME,
+      </if>
+      <if test="corpid != null">
+        CORPID,
+      </if>
+      <if test="reserve1 != null">
+        RESERVE1,
+      </if>
+      <if test="reserve2 != null">
+        RESERVE2,
+      </if>
+      <if test="stype != null">
+        STYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        #{sequenceid,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeid != null">
+        #{nodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="nodename != null">
+        #{nodename,jdbcType=VARCHAR},
+      </if>
+      <if test="nextnodeid != null">
+        #{nextnodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="nextnodename != null">
+        #{nextnodename,jdbcType=VARCHAR},
+      </if>
+      <if test="direct != null">
+        #{direct,jdbcType=VARCHAR},
+      </if>
+      <if test="oper != null">
+        #{oper,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null">
+        #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="corpid != null">
+        #{corpid,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve1 != null">
+        #{reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve2 != null">
+        #{reserve2,jdbcType=VARCHAR},
+      </if>
+      <if test="stype != null">
+        #{stype,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbTaskstatusconfig">
+    update db_taskstatusconfig
+    <set>
+      <if test="nodeid != null">
+        NODEID = #{nodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="nodename != null">
+        'NODENAME' = #{nodename,jdbcType=VARCHAR},
+      </if>
+      <if test="nextnodeid != null">
+        NEXTNODEID = #{nextnodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="nextnodename != null">
+        NEXTNODENAME = #{nextnodename,jdbcType=VARCHAR},
+      </if>
+      <if test="direct != null">
+        DIRECT = #{direct,jdbcType=VARCHAR},
+      </if>
+      <if test="oper != null">
+        OPER = #{oper,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null">
+        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="corpid != null">
+        CORPID = #{corpid,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve1 != null">
+        RESERVE1 = #{reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve2 != null">
+        RESERVE2 = #{reserve2,jdbcType=VARCHAR},
+      </if>
+      <if test="stype != null">
+        STYPE = #{stype,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbTaskstatusconfig">
+    update db_taskstatusconfig
+    set NODEID = #{nodeid,jdbcType=VARCHAR},
+      'NODENAME' = #{nodename,jdbcType=VARCHAR},
+      NEXTNODEID = #{nextnodeid,jdbcType=VARCHAR},
+      NEXTNODENAME = #{nextnodename,jdbcType=VARCHAR},
+      DIRECT = #{direct,jdbcType=VARCHAR},
+      OPER = #{oper,jdbcType=VARCHAR},
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      CORPID = #{corpid,jdbcType=VARCHAR},
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR},
+      STYPE = #{stype,jdbcType=VARCHAR}
+    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  </update>
+</mapper>

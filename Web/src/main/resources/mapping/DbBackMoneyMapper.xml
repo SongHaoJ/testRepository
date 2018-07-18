@@ -17,16 +17,16 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select SEQUENCEID, SUPPLIERID, SUPPLIERNAME, BACKMONEY, OPER, OPERTIME, PRODUCTID, 
     CREATETIME, OPERFLAG, CORPID, CREATEOPER
-    from db_back_money
+    from DB_BACK_MONEY
     where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SEQUENCEID, SUPPLIERID, SUPPLIERNAME, BACKMONEY, OPER, OPERTIME, PRODUCTID, 
     CREATETIME, OPERFLAG, CORPID, CREATEOPER
-    from db_back_money
+    from DB_BACK_MONEY
   </select>
   <sql id="TableName">
-    db_back_money
+    DB_BACK_MONEY
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=DECIMAL} , 
@@ -39,7 +39,7 @@
      #{createtime,jdbcType=TIMESTAMP} , 
      #{operflag,jdbcType=VARCHAR} , 
      #{corpid,jdbcType=VARCHAR} , 
-     #{createoper,jdbcType=VARCHAR}
+     #{createoper,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
@@ -52,79 +52,79 @@
     CREATETIME , 
     OPERFLAG , 
     CORPID , 
-    CREATEOPER
+    CREATEOPER , 
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} and 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} and 
     </if>
     <if test="supplierid != null">
-      SUPPLIERID = #{supplierid,jdbcType=VARCHAR} and 
+      supplierid = #{supplierid,jdbcType=VARCHAR} and 
     </if>
     <if test="suppliername != null">
-      SUPPLIERNAME = #{suppliername,jdbcType=VARCHAR} and 
+      suppliername = #{suppliername,jdbcType=VARCHAR} and 
     </if>
     <if test="backmoney != null">
-      BACKMONEY = #{backmoney,jdbcType=DECIMAL} and 
+      backmoney = #{backmoney,jdbcType=DECIMAL} and 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
+      oper = #{oper,jdbcType=VARCHAR} and 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="productid != null">
-      PRODUCTID = #{productid,jdbcType=VARCHAR} and 
+      productid = #{productid,jdbcType=VARCHAR} and 
     </if>
     <if test="createtime != null">
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP} and 
+      createtime = #{createtime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="operflag != null">
-      OPERFLAG = #{operflag,jdbcType=VARCHAR} and 
+      operflag = #{operflag,jdbcType=VARCHAR} and 
     </if>
     <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} and 
+      corpid = #{corpid,jdbcType=VARCHAR} and 
     </if>
     <if test="createoper != null">
-      CREATEOPER = #{createoper,jdbcType=VARCHAR}
+      createoper = #{createoper,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} , 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} , 
     </if>
     <if test="supplierid != null">
-      SUPPLIERID = #{supplierid,jdbcType=VARCHAR} , 
+      supplierid = #{supplierid,jdbcType=VARCHAR} , 
     </if>
     <if test="suppliername != null">
-      SUPPLIERNAME = #{suppliername,jdbcType=VARCHAR} , 
+      suppliername = #{suppliername,jdbcType=VARCHAR} , 
     </if>
     <if test="backmoney != null">
-      BACKMONEY = #{backmoney,jdbcType=DECIMAL} , 
+      backmoney = #{backmoney,jdbcType=DECIMAL} , 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
+      oper = #{oper,jdbcType=VARCHAR} , 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="productid != null">
-      PRODUCTID = #{productid,jdbcType=VARCHAR} , 
+      productid = #{productid,jdbcType=VARCHAR} , 
     </if>
     <if test="createtime != null">
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP} , 
+      createtime = #{createtime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="operflag != null">
-      OPERFLAG = #{operflag,jdbcType=VARCHAR} , 
+      operflag = #{operflag,jdbcType=VARCHAR} , 
     </if>
     <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} , 
+      corpid = #{corpid,jdbcType=VARCHAR} , 
     </if>
     <if test="createoper != null">
-      CREATEOPER = #{createoper,jdbcType=VARCHAR}
+      createoper = #{createoper,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbBackMoney" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

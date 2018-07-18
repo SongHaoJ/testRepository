@@ -2,8 +2,8 @@ package com.bean.dao;
 
 import com.bean.model.DbKdexpresstypeandcountry;
 
-public interface DbKdexpresstypeandcountryMapper {
-    int insert(DbKdexpresstypeandcountry record);
+import java.util.List;
 
-    int insertSelective(DbKdexpresstypeandcountry record);
+public interface DbKdexpresstypeandcountryMapper {
+    List<DbKdexpresstypeandcountry> selectAll();
 }

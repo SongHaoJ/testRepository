@@ -8,9 +8,9 @@ public class DbEbayidmanagehtmlsource implements Serializable {
 
     private BigDecimal ebayidmanageid;
 
-    private BigDecimal sort;
-
     private String descr;
+
+    private BigDecimal sort;
 
     private static final long serialVersionUID = 1L;
 
@@ -30,20 +30,20 @@ public class DbEbayidmanagehtmlsource implements Serializable {
         this.ebayidmanageid = ebayidmanageid;
     }
 
-    public BigDecimal getSort() {
-        return sort;
-    }
-
-    public void setSort(BigDecimal sort) {
-        this.sort = sort;
-    }
-
     public String getDescr() {
         return descr;
     }
 
     public void setDescr(String descr) {
         this.descr = descr == null ? null : descr.trim();
+    }
+
+    public BigDecimal getSort() {
+        return sort;
+    }
+
+    public void setSort(BigDecimal sort) {
+        this.sort = sort;
     }
 
     @Override
@@ -60,8 +60,8 @@ public class DbEbayidmanagehtmlsource implements Serializable {
         DbEbayidmanagehtmlsource other = (DbEbayidmanagehtmlsource) that;
         return (this.getSequenceid() == null ? other.getSequenceid() == null : this.getSequenceid().equals(other.getSequenceid()))
             && (this.getEbayidmanageid() == null ? other.getEbayidmanageid() == null : this.getEbayidmanageid().equals(other.getEbayidmanageid()))
-            && (this.getSort() == null ? other.getSort() == null : this.getSort().equals(other.getSort()))
-            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()));
+            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
+            && (this.getSort() == null ? other.getSort() == null : this.getSort().equals(other.getSort()));
     }
 
     @Override
@@ -70,8 +70,8 @@ public class DbEbayidmanagehtmlsource implements Serializable {
         int result = 1;
         result = prime * result + ((getSequenceid() == null) ? 0 : getSequenceid().hashCode());
         result = prime * result + ((getEbayidmanageid() == null) ? 0 : getEbayidmanageid().hashCode());
-        result = prime * result + ((getSort() == null) ? 0 : getSort().hashCode());
         result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
+        result = prime * result + ((getSort() == null) ? 0 : getSort().hashCode());
         return result;
     }
 
@@ -83,8 +83,8 @@ public class DbEbayidmanagehtmlsource implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", sequenceid=").append(sequenceid);
         sb.append(", ebayidmanageid=").append(ebayidmanageid);
-        sb.append(", sort=").append(sort);
         sb.append(", descr=").append(descr);
+        sb.append(", sort=").append(sort);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

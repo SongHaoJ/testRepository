@@ -52,7 +52,7 @@
     RESERVE20, RESERVE21, RESERVE22, RESERVE23, RESERVE24, RESERVE25, RESERVE26, RESERVE27, 
     RESERVE28, RESERVE29, RESERVE30, RESERVE31, RESERVE32, RESERVE33, RESERVE34, RESERVE35, 
     OPENFLAG, OPER, OPERTIME
-    from db_mymabang
+    from DB_MYMABANG
     where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
@@ -62,10 +62,10 @@
     RESERVE20, RESERVE21, RESERVE22, RESERVE23, RESERVE24, RESERVE25, RESERVE26, RESERVE27, 
     RESERVE28, RESERVE29, RESERVE30, RESERVE31, RESERVE32, RESERVE33, RESERVE34, RESERVE35, 
     OPENFLAG, OPER, OPERTIME
-    from db_mymabang
+    from DB_MYMABANG
   </select>
   <sql id="TableName">
-    db_mymabang
+    DB_MYMABANG
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=DECIMAL} , 
@@ -109,7 +109,7 @@
      #{reserve35,jdbcType=TIMESTAMP} , 
      #{openflag,jdbcType=VARCHAR} , 
      #{oper,jdbcType=VARCHAR} , 
-     #{opertime,jdbcType=TIMESTAMP}
+     #{opertime,jdbcType=TIMESTAMP} , 
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
@@ -153,265 +153,265 @@
     RESERVE35 , 
     OPENFLAG , 
     OPER , 
-    OPERTIME
+    OPERTIME , 
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} and 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} and 
     </if>
     <if test="encryptionkey != null">
-      ENCRYPTIONKEY = #{encryptionkey,jdbcType=VARCHAR} and 
+      encryptionkey = #{encryptionkey,jdbcType=VARCHAR} and 
     </if>
     <if test="userid != null">
-      USERID = #{userid,jdbcType=VARCHAR} and 
+      userid = #{userid,jdbcType=VARCHAR} and 
     </if>
     <if test="password != null">
-      PASSWORD = #{password,jdbcType=VARCHAR} and 
+      password = #{password,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR} and 
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=VARCHAR} and 
+      reserve4 = #{reserve4,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=VARCHAR} and 
+      reserve5 = #{reserve5,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve6 != null">
-      RESERVE6 = #{reserve6,jdbcType=VARCHAR} and 
+      reserve6 = #{reserve6,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve7 != null">
-      RESERVE7 = #{reserve7,jdbcType=VARCHAR} and 
+      reserve7 = #{reserve7,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve8 != null">
-      RESERVE8 = #{reserve8,jdbcType=VARCHAR} and 
+      reserve8 = #{reserve8,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve9 != null">
-      RESERVE9 = #{reserve9,jdbcType=VARCHAR} and 
+      reserve9 = #{reserve9,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve10 != null">
-      RESERVE10 = #{reserve10,jdbcType=VARCHAR} and 
+      reserve10 = #{reserve10,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve11 != null">
-      RESERVE11 = #{reserve11,jdbcType=VARCHAR} and 
+      reserve11 = #{reserve11,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve12 != null">
-      RESERVE12 = #{reserve12,jdbcType=VARCHAR} and 
+      reserve12 = #{reserve12,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve13 != null">
-      RESERVE13 = #{reserve13,jdbcType=VARCHAR} and 
+      reserve13 = #{reserve13,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve14 != null">
-      RESERVE14 = #{reserve14,jdbcType=VARCHAR} and 
+      reserve14 = #{reserve14,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve15 != null">
-      RESERVE15 = #{reserve15,jdbcType=VARCHAR} and 
+      reserve15 = #{reserve15,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve16 != null">
-      RESERVE16 = #{reserve16,jdbcType=VARCHAR} and 
+      reserve16 = #{reserve16,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve17 != null">
-      RESERVE17 = #{reserve17,jdbcType=VARCHAR} and 
+      reserve17 = #{reserve17,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve18 != null">
-      RESERVE18 = #{reserve18,jdbcType=VARCHAR} and 
+      reserve18 = #{reserve18,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve19 != null">
-      RESERVE19 = #{reserve19,jdbcType=VARCHAR} and 
+      reserve19 = #{reserve19,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve20 != null">
-      RESERVE20 = #{reserve20,jdbcType=VARCHAR} and 
+      reserve20 = #{reserve20,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve21 != null">
-      RESERVE21 = #{reserve21,jdbcType=DECIMAL} and 
+      reserve21 = #{reserve21,jdbcType=DECIMAL} and 
     </if>
     <if test="reserve22 != null">
-      RESERVE22 = #{reserve22,jdbcType=DECIMAL} and 
+      reserve22 = #{reserve22,jdbcType=DECIMAL} and 
     </if>
     <if test="reserve23 != null">
-      RESERVE23 = #{reserve23,jdbcType=DECIMAL} and 
+      reserve23 = #{reserve23,jdbcType=DECIMAL} and 
     </if>
     <if test="reserve24 != null">
-      RESERVE24 = #{reserve24,jdbcType=DECIMAL} and 
+      reserve24 = #{reserve24,jdbcType=DECIMAL} and 
     </if>
     <if test="reserve25 != null">
-      RESERVE25 = #{reserve25,jdbcType=DECIMAL} and 
+      reserve25 = #{reserve25,jdbcType=DECIMAL} and 
     </if>
     <if test="reserve26 != null">
-      RESERVE26 = #{reserve26,jdbcType=DECIMAL} and 
+      reserve26 = #{reserve26,jdbcType=DECIMAL} and 
     </if>
     <if test="reserve27 != null">
-      RESERVE27 = #{reserve27,jdbcType=DECIMAL} and 
+      reserve27 = #{reserve27,jdbcType=DECIMAL} and 
     </if>
     <if test="reserve28 != null">
-      RESERVE28 = #{reserve28,jdbcType=DECIMAL} and 
+      reserve28 = #{reserve28,jdbcType=DECIMAL} and 
     </if>
     <if test="reserve29 != null">
-      RESERVE29 = #{reserve29,jdbcType=DECIMAL} and 
+      reserve29 = #{reserve29,jdbcType=DECIMAL} and 
     </if>
     <if test="reserve30 != null">
-      RESERVE30 = #{reserve30,jdbcType=DECIMAL} and 
+      reserve30 = #{reserve30,jdbcType=DECIMAL} and 
     </if>
     <if test="reserve31 != null">
-      RESERVE31 = #{reserve31,jdbcType=TIMESTAMP} and 
+      reserve31 = #{reserve31,jdbcType=TIMESTAMP} and 
     </if>
     <if test="reserve32 != null">
-      RESERVE32 = #{reserve32,jdbcType=TIMESTAMP} and 
+      reserve32 = #{reserve32,jdbcType=TIMESTAMP} and 
     </if>
     <if test="reserve33 != null">
-      RESERVE33 = #{reserve33,jdbcType=TIMESTAMP} and 
+      reserve33 = #{reserve33,jdbcType=TIMESTAMP} and 
     </if>
     <if test="reserve34 != null">
-      RESERVE34 = #{reserve34,jdbcType=TIMESTAMP} and 
+      reserve34 = #{reserve34,jdbcType=TIMESTAMP} and 
     </if>
     <if test="reserve35 != null">
-      RESERVE35 = #{reserve35,jdbcType=TIMESTAMP} and 
+      reserve35 = #{reserve35,jdbcType=TIMESTAMP} and 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
+      openflag = #{openflag,jdbcType=VARCHAR} and 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
+      oper = #{oper,jdbcType=VARCHAR} and 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP}
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} , 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} , 
     </if>
     <if test="encryptionkey != null">
-      ENCRYPTIONKEY = #{encryptionkey,jdbcType=VARCHAR} , 
+      encryptionkey = #{encryptionkey,jdbcType=VARCHAR} , 
     </if>
     <if test="userid != null">
-      USERID = #{userid,jdbcType=VARCHAR} , 
+      userid = #{userid,jdbcType=VARCHAR} , 
     </if>
     <if test="password != null">
-      PASSWORD = #{password,jdbcType=VARCHAR} , 
+      password = #{password,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR} , 
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=VARCHAR} , 
+      reserve4 = #{reserve4,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=VARCHAR} , 
+      reserve5 = #{reserve5,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve6 != null">
-      RESERVE6 = #{reserve6,jdbcType=VARCHAR} , 
+      reserve6 = #{reserve6,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve7 != null">
-      RESERVE7 = #{reserve7,jdbcType=VARCHAR} , 
+      reserve7 = #{reserve7,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve8 != null">
-      RESERVE8 = #{reserve8,jdbcType=VARCHAR} , 
+      reserve8 = #{reserve8,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve9 != null">
-      RESERVE9 = #{reserve9,jdbcType=VARCHAR} , 
+      reserve9 = #{reserve9,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve10 != null">
-      RESERVE10 = #{reserve10,jdbcType=VARCHAR} , 
+      reserve10 = #{reserve10,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve11 != null">
-      RESERVE11 = #{reserve11,jdbcType=VARCHAR} , 
+      reserve11 = #{reserve11,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve12 != null">
-      RESERVE12 = #{reserve12,jdbcType=VARCHAR} , 
+      reserve12 = #{reserve12,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve13 != null">
-      RESERVE13 = #{reserve13,jdbcType=VARCHAR} , 
+      reserve13 = #{reserve13,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve14 != null">
-      RESERVE14 = #{reserve14,jdbcType=VARCHAR} , 
+      reserve14 = #{reserve14,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve15 != null">
-      RESERVE15 = #{reserve15,jdbcType=VARCHAR} , 
+      reserve15 = #{reserve15,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve16 != null">
-      RESERVE16 = #{reserve16,jdbcType=VARCHAR} , 
+      reserve16 = #{reserve16,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve17 != null">
-      RESERVE17 = #{reserve17,jdbcType=VARCHAR} , 
+      reserve17 = #{reserve17,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve18 != null">
-      RESERVE18 = #{reserve18,jdbcType=VARCHAR} , 
+      reserve18 = #{reserve18,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve19 != null">
-      RESERVE19 = #{reserve19,jdbcType=VARCHAR} , 
+      reserve19 = #{reserve19,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve20 != null">
-      RESERVE20 = #{reserve20,jdbcType=VARCHAR} , 
+      reserve20 = #{reserve20,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve21 != null">
-      RESERVE21 = #{reserve21,jdbcType=DECIMAL} , 
+      reserve21 = #{reserve21,jdbcType=DECIMAL} , 
     </if>
     <if test="reserve22 != null">
-      RESERVE22 = #{reserve22,jdbcType=DECIMAL} , 
+      reserve22 = #{reserve22,jdbcType=DECIMAL} , 
     </if>
     <if test="reserve23 != null">
-      RESERVE23 = #{reserve23,jdbcType=DECIMAL} , 
+      reserve23 = #{reserve23,jdbcType=DECIMAL} , 
     </if>
     <if test="reserve24 != null">
-      RESERVE24 = #{reserve24,jdbcType=DECIMAL} , 
+      reserve24 = #{reserve24,jdbcType=DECIMAL} , 
     </if>
     <if test="reserve25 != null">
-      RESERVE25 = #{reserve25,jdbcType=DECIMAL} , 
+      reserve25 = #{reserve25,jdbcType=DECIMAL} , 
     </if>
     <if test="reserve26 != null">
-      RESERVE26 = #{reserve26,jdbcType=DECIMAL} , 
+      reserve26 = #{reserve26,jdbcType=DECIMAL} , 
     </if>
     <if test="reserve27 != null">
-      RESERVE27 = #{reserve27,jdbcType=DECIMAL} , 
+      reserve27 = #{reserve27,jdbcType=DECIMAL} , 
     </if>
     <if test="reserve28 != null">
-      RESERVE28 = #{reserve28,jdbcType=DECIMAL} , 
+      reserve28 = #{reserve28,jdbcType=DECIMAL} , 
     </if>
     <if test="reserve29 != null">
-      RESERVE29 = #{reserve29,jdbcType=DECIMAL} , 
+      reserve29 = #{reserve29,jdbcType=DECIMAL} , 
     </if>
     <if test="reserve30 != null">
-      RESERVE30 = #{reserve30,jdbcType=DECIMAL} , 
+      reserve30 = #{reserve30,jdbcType=DECIMAL} , 
     </if>
     <if test="reserve31 != null">
-      RESERVE31 = #{reserve31,jdbcType=TIMESTAMP} , 
+      reserve31 = #{reserve31,jdbcType=TIMESTAMP} , 
     </if>
     <if test="reserve32 != null">
-      RESERVE32 = #{reserve32,jdbcType=TIMESTAMP} , 
+      reserve32 = #{reserve32,jdbcType=TIMESTAMP} , 
     </if>
     <if test="reserve33 != null">
-      RESERVE33 = #{reserve33,jdbcType=TIMESTAMP} , 
+      reserve33 = #{reserve33,jdbcType=TIMESTAMP} , 
     </if>
     <if test="reserve34 != null">
-      RESERVE34 = #{reserve34,jdbcType=TIMESTAMP} , 
+      reserve34 = #{reserve34,jdbcType=TIMESTAMP} , 
     </if>
     <if test="reserve35 != null">
-      RESERVE35 = #{reserve35,jdbcType=TIMESTAMP} , 
+      reserve35 = #{reserve35,jdbcType=TIMESTAMP} , 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
+      openflag = #{openflag,jdbcType=VARCHAR} , 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
+      oper = #{oper,jdbcType=VARCHAR} , 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP}
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbMymabang" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

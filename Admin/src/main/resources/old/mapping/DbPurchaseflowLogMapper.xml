@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbPurchaseflowLogMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbPurchaseflowLog">
+    <id column="SEQUENCEID" jdbcType="DECIMAL" property="sequenceid" />
+    <result column="FLOWSID" jdbcType="DECIMAL" property="flowsid" />
+    <result column="DEVELOPSID" jdbcType="DECIMAL" property="developsid" />
+    <result column="PRODUCTID" jdbcType="VARCHAR" property="productid" />
+    <result column="ORDERNUM" jdbcType="DECIMAL" property="ordernum" />
+    <result column="STOCKPRICE" jdbcType="DECIMAL" property="stockprice" />
+    <result column="CREATEDATE" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="CREATEOPER" jdbcType="VARCHAR" property="createoper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTYPE" jdbcType="DECIMAL" property="opertype" />
+    <result column="GROUPID" jdbcType="VARCHAR" property="groupid" />
+    <result column="STATUS" jdbcType="DECIMAL" property="status" />
+    <result column="LCLSID" jdbcType="DECIMAL" property="lclsid" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbPurchaseflowLog">
+    <result column="CONTENT" jdbcType="LONGVARCHAR" property="content" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SEQUENCEID, FLOWSID, DEVELOPSID, PRODUCTID, ORDERNUM, STOCKPRICE, CREATEDATE, CREATEOPER, 
+    OPERTIME, OPER, OPERTYPE, GROUPID, 'STATUS', LCLSID
+  </sql>
+  <sql id="Blob_Column_List">
+    CONTENT
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from db_purchaseflow_log
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
+    delete from db_purchaseflow_log
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.bean.model.DbPurchaseflowLog">
+    insert into db_purchaseflow_log (SEQUENCEID, FLOWSID, DEVELOPSID, 
+      PRODUCTID, ORDERNUM, STOCKPRICE, 
+      CREATEDATE, CREATEOPER, OPERTIME, 
+      OPER, OPERTYPE, GROUPID, 
+      'STATUS', LCLSID, CONTENT
+      )
+    values (#{sequenceid,jdbcType=DECIMAL}, #{flowsid,jdbcType=DECIMAL}, #{developsid,jdbcType=DECIMAL}, 
+      #{productid,jdbcType=VARCHAR}, #{ordernum,jdbcType=DECIMAL}, #{stockprice,jdbcType=DECIMAL}, 
+      #{createdate,jdbcType=TIMESTAMP}, #{createoper,jdbcType=VARCHAR}, #{opertime,jdbcType=TIMESTAMP}, 
+      #{oper,jdbcType=VARCHAR}, #{opertype,jdbcType=DECIMAL}, #{groupid,jdbcType=VARCHAR}, 
+      #{status,jdbcType=DECIMAL}, #{lclsid,jdbcType=DECIMAL}, #{content,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbPurchaseflowLog">
+    insert into db_purchaseflow_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        SEQUENCEID,
+      </if>
+      <if test="flowsid != null">
+        FLOWSID,
+      </if>
+      <if test="developsid != null">
+        DEVELOPSID,
+      </if>
+      <if test="productid != null">
+        PRODUCTID,
+      </if>
+      <if test="ordernum != null">
+        ORDERNUM,
+      </if>
+      <if test="stockprice != null">
+        STOCKPRICE,
+      </if>
+      <if test="createdate != null">
+        CREATEDATE,
+      </if>
+      <if test="createoper != null">
+        CREATEOPER,
+      </if>
+      <if test="opertime != null">
+        OPERTIME,
+      </if>
+      <if test="oper != null">
+        OPER,
+      </if>
+      <if test="opertype != null">
+        OPERTYPE,
+      </if>
+      <if test="groupid != null">
+        GROUPID,
+      </if>
+      <if test="status != null">
+        'STATUS',
+      </if>
+      <if test="lclsid != null">
+        LCLSID,
+      </if>
+      <if test="content != null">
+        CONTENT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        #{sequenceid,jdbcType=DECIMAL},
+      </if>
+      <if test="flowsid != null">
+        #{flowsid,jdbcType=DECIMAL},
+      </if>
+      <if test="developsid != null">
+        #{developsid,jdbcType=DECIMAL},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="ordernum != null">
+        #{ordernum,jdbcType=DECIMAL},
+      </if>
+      <if test="stockprice != null">
+        #{stockprice,jdbcType=DECIMAL},
+      </if>
+      <if test="createdate != null">
+        #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createoper != null">
+        #{createoper,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null">
+        #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oper != null">
+        #{oper,jdbcType=VARCHAR},
+      </if>
+      <if test="opertype != null">
+        #{opertype,jdbcType=DECIMAL},
+      </if>
+      <if test="groupid != null">
+        #{groupid,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="lclsid != null">
+        #{lclsid,jdbcType=DECIMAL},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbPurchaseflowLog">
+    update db_purchaseflow_log
+    <set>
+      <if test="flowsid != null">
+        FLOWSID = #{flowsid,jdbcType=DECIMAL},
+      </if>
+      <if test="developsid != null">
+        DEVELOPSID = #{developsid,jdbcType=DECIMAL},
+      </if>
+      <if test="productid != null">
+        PRODUCTID = #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="ordernum != null">
+        ORDERNUM = #{ordernum,jdbcType=DECIMAL},
+      </if>
+      <if test="stockprice != null">
+        STOCKPRICE = #{stockprice,jdbcType=DECIMAL},
+      </if>
+      <if test="createdate != null">
+        CREATEDATE = #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createoper != null">
+        CREATEOPER = #{createoper,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null">
+        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oper != null">
+        OPER = #{oper,jdbcType=VARCHAR},
+      </if>
+      <if test="opertype != null">
+        OPERTYPE = #{opertype,jdbcType=DECIMAL},
+      </if>
+      <if test="groupid != null">
+        GROUPID = #{groupid,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        'STATUS' = #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="lclsid != null">
+        LCLSID = #{lclsid,jdbcType=DECIMAL},
+      </if>
+      <if test="content != null">
+        CONTENT = #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbPurchaseflowLog">
+    update db_purchaseflow_log
+    set FLOWSID = #{flowsid,jdbcType=DECIMAL},
+      DEVELOPSID = #{developsid,jdbcType=DECIMAL},
+      PRODUCTID = #{productid,jdbcType=VARCHAR},
+      ORDERNUM = #{ordernum,jdbcType=DECIMAL},
+      STOCKPRICE = #{stockprice,jdbcType=DECIMAL},
+      CREATEDATE = #{createdate,jdbcType=TIMESTAMP},
+      CREATEOPER = #{createoper,jdbcType=VARCHAR},
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      OPER = #{oper,jdbcType=VARCHAR},
+      OPERTYPE = #{opertype,jdbcType=DECIMAL},
+      GROUPID = #{groupid,jdbcType=VARCHAR},
+      'STATUS' = #{status,jdbcType=DECIMAL},
+      LCLSID = #{lclsid,jdbcType=DECIMAL},
+      CONTENT = #{content,jdbcType=LONGVARCHAR}
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbPurchaseflowLog">
+    update db_purchaseflow_log
+    set FLOWSID = #{flowsid,jdbcType=DECIMAL},
+      DEVELOPSID = #{developsid,jdbcType=DECIMAL},
+      PRODUCTID = #{productid,jdbcType=VARCHAR},
+      ORDERNUM = #{ordernum,jdbcType=DECIMAL},
+      STOCKPRICE = #{stockprice,jdbcType=DECIMAL},
+      CREATEDATE = #{createdate,jdbcType=TIMESTAMP},
+      CREATEOPER = #{createoper,jdbcType=VARCHAR},
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      OPER = #{oper,jdbcType=VARCHAR},
+      OPERTYPE = #{opertype,jdbcType=DECIMAL},
+      GROUPID = #{groupid,jdbcType=VARCHAR},
+      'STATUS' = #{status,jdbcType=DECIMAL},
+      LCLSID = #{lclsid,jdbcType=DECIMAL}
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </update>
+</mapper>

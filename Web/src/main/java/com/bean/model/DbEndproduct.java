@@ -13,6 +13,8 @@ public class DbEndproduct implements Serializable {
 
     private String checkoper;
 
+    private String error;
+
     private BigDecimal openflag;
 
     private String itemid;
@@ -22,8 +24,6 @@ public class DbEndproduct implements Serializable {
     private String site;
 
     private Date checktime;
-
-    private String error;
 
     private String checkdescr;
 
@@ -59,6 +59,14 @@ public class DbEndproduct implements Serializable {
 
     public void setCheckoper(String checkoper) {
         this.checkoper = checkoper == null ? null : checkoper.trim();
+    }
+
+    public String getError() {
+        return error;
+    }
+
+    public void setError(String error) {
+        this.error = error == null ? null : error.trim();
     }
 
     public BigDecimal getOpenflag() {
@@ -101,14 +109,6 @@ public class DbEndproduct implements Serializable {
         this.checktime = checktime;
     }
 
-    public String getError() {
-        return error;
-    }
-
-    public void setError(String error) {
-        this.error = error == null ? null : error.trim();
-    }
-
     public String getCheckdescr() {
         return checkdescr;
     }
@@ -133,12 +133,12 @@ public class DbEndproduct implements Serializable {
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getShopid() == null ? other.getShopid() == null : this.getShopid().equals(other.getShopid()))
             && (this.getCheckoper() == null ? other.getCheckoper() == null : this.getCheckoper().equals(other.getCheckoper()))
+            && (this.getError() == null ? other.getError() == null : this.getError().equals(other.getError()))
             && (this.getOpenflag() == null ? other.getOpenflag() == null : this.getOpenflag().equals(other.getOpenflag()))
             && (this.getItemid() == null ? other.getItemid() == null : this.getItemid().equals(other.getItemid()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
             && (this.getSite() == null ? other.getSite() == null : this.getSite().equals(other.getSite()))
             && (this.getChecktime() == null ? other.getChecktime() == null : this.getChecktime().equals(other.getChecktime()))
-            && (this.getError() == null ? other.getError() == null : this.getError().equals(other.getError()))
             && (this.getCheckdescr() == null ? other.getCheckdescr() == null : this.getCheckdescr().equals(other.getCheckdescr()));
     }
 
@@ -150,12 +150,12 @@ public class DbEndproduct implements Serializable {
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getShopid() == null) ? 0 : getShopid().hashCode());
         result = prime * result + ((getCheckoper() == null) ? 0 : getCheckoper().hashCode());
+        result = prime * result + ((getError() == null) ? 0 : getError().hashCode());
         result = prime * result + ((getOpenflag() == null) ? 0 : getOpenflag().hashCode());
         result = prime * result + ((getItemid() == null) ? 0 : getItemid().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getSite() == null) ? 0 : getSite().hashCode());
         result = prime * result + ((getChecktime() == null) ? 0 : getChecktime().hashCode());
-        result = prime * result + ((getError() == null) ? 0 : getError().hashCode());
         result = prime * result + ((getCheckdescr() == null) ? 0 : getCheckdescr().hashCode());
         return result;
     }
@@ -170,12 +170,12 @@ public class DbEndproduct implements Serializable {
         sb.append(", oper=").append(oper);
         sb.append(", shopid=").append(shopid);
         sb.append(", checkoper=").append(checkoper);
+        sb.append(", error=").append(error);
         sb.append(", openflag=").append(openflag);
         sb.append(", itemid=").append(itemid);
         sb.append(", opertime=").append(opertime);
         sb.append(", site=").append(site);
         sb.append(", checktime=").append(checktime);
-        sb.append(", error=").append(error);
         sb.append(", checkdescr=").append(checkdescr);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");

@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbAywarehouse;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbAywarehouseMapper {
-    int deleteByPrimaryKey(Long id);
+    DbAywarehouse selectByCriteria(DbAywarehouse DbAywarehouse);
 
-    int insert(DbAywarehouse record);
+    void deleteByPrimaryKey(String ID);
 
-    int insertSelective(DbAywarehouse record);
+    void deleteByCriteria(DbAywarehouse DbAywarehouse);
+
+    int insertByCriteria(DbAywarehouse DbAywarehouse);
+
+    int updateByCriteria(DbAywarehouse DbAywarehouse);
 
     DbAywarehouse selectByPrimaryKey(Long id);
 
-    int updateByPrimaryKeySelective(DbAywarehouse record);
-
-    int updateByPrimaryKey(DbAywarehouse record);
+    List<DbAywarehouse> selectAll();
 }

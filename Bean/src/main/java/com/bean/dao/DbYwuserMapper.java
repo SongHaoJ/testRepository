@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbYwuser;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbYwuserMapper {
-    int deleteByPrimaryKey(String sid);
+    DbYwuser selectByCriteria(DbYwuser DbYwuser);
 
-    int insert(DbYwuser record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbYwuser record);
+    void deleteByCriteria(DbYwuser DbYwuser);
+
+    int insertByCriteria(DbYwuser DbYwuser);
+
+    int updateByCriteria(DbYwuser DbYwuser);
 
     DbYwuser selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbYwuser record);
-
-    int updateByPrimaryKeyWithBLOBs(DbYwuser record);
-
-    int updateByPrimaryKey(DbYwuser record);
+    List<DbYwuser> selectAll();
 }
