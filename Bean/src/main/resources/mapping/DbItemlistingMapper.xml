@@ -3,63 +3,59 @@
 <mapper namespace="com.bean.dao.DbItemlistingMapper">
   <resultMap id="BaseResultMap" type="com.bean.model.DbItemlisting">
     <id column="ITEMID" jdbcType="VARCHAR" property="itemid" />
+    <result column="LISTING" jdbcType="VARCHAR" property="listing" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbItemlisting">
-    <result column="LISTING" jdbcType="LONGVARCHAR" property="listing" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    ITEMID
-  </sql>
-  <sql id="Blob_Column_List">
-    LISTING
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from db_itemlisting
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select ITEMID, LISTING
+    from DB_ITEMLISTING
     where ITEMID = #{itemid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_itemlisting
-    where ITEMID = #{itemid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ITEMID, LISTING
+    from DB_ITEMLISTING
+  </select>
+  <sql id="TableName">
+    DB_ITEMLISTING
+  </sql>
+  <sql id="Values">
+     #{itemid,jdbcType=VARCHAR} , 
+     #{listing,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    ITEMID , 
+    LISTING , 
+  </sql>
+  <sql id="Criteria">
+    <if test="itemid != null">
+      itemid = #{itemid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="listing != null">
+      listing = #{listing,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="itemid != null">
+      itemid = #{itemid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="listing != null">
+      listing = #{listing,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbItemlisting" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where ITEMID=#{ITEMID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbItemlisting">
-    insert into db_itemlisting (ITEMID, LISTING)
-    values (#{itemid,jdbcType=VARCHAR}, #{listing,jdbcType=LONGVARCHAR})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbItemlisting">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbItemlisting">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbItemlisting">
-    insert into db_itemlisting
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="itemid != null">
-        ITEMID,
-      </if>
-      <if test="listing != null">
-        LISTING,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="itemid != null">
-        #{itemid,jdbcType=VARCHAR},
-      </if>
-      <if test="listing != null">
-        #{listing,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbItemlisting">
-    update db_itemlisting
-    <set>
-      <if test="listing != null">
-        LISTING = #{listing,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where ITEMID = #{itemid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbItemlisting">
-    update db_itemlisting
-    set LISTING = #{listing,jdbcType=LONGVARCHAR}
-    where ITEMID = #{itemid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbItemlisting">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

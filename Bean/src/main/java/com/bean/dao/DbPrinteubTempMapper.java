@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbPrinteubTemp;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbPrinteubTempMapper {
-    int deleteByPrimaryKey(String sequenceuid);
+    DbPrinteubTemp selectByCriteria(DbPrinteubTemp DbPrinteubTemp);
 
-    int insert(DbPrinteubTemp record);
+    void deleteByPrimaryKey(String SEQUENCEUID);
 
-    int insertSelective(DbPrinteubTemp record);
+    void deleteByCriteria(DbPrinteubTemp DbPrinteubTemp);
+
+    int insertByCriteria(DbPrinteubTemp DbPrinteubTemp);
+
+    int updateByCriteria(DbPrinteubTemp DbPrinteubTemp);
 
     DbPrinteubTemp selectByPrimaryKey(String sequenceuid);
 
-    int updateByPrimaryKeySelective(DbPrinteubTemp record);
-
-    int updateByPrimaryKeyWithBLOBs(DbPrinteubTemp record);
-
-    int updateByPrimaryKey(DbPrinteubTemp record);
+    List<DbPrinteubTemp> selectAll();
 }

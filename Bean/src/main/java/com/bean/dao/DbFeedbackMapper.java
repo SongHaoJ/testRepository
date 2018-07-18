@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbFeedback;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbFeedbackMapper {
-    int deleteByPrimaryKey(String feedbackid);
+    DbFeedback selectByCriteria(DbFeedback DbFeedback);
 
-    int insert(DbFeedback record);
+    void deleteByPrimaryKey(String FEEDBACKID);
 
-    int insertSelective(DbFeedback record);
+    void deleteByCriteria(DbFeedback DbFeedback);
+
+    int insertByCriteria(DbFeedback DbFeedback);
+
+    int updateByCriteria(DbFeedback DbFeedback);
 
     DbFeedback selectByPrimaryKey(String feedbackid);
 
-    int updateByPrimaryKeySelective(DbFeedback record);
-
-    int updateByPrimaryKeyWithBLOBs(DbFeedback record);
-
-    int updateByPrimaryKey(DbFeedback record);
+    List<DbFeedback> selectAll();
 }

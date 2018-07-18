@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbQtwarehouses;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbQtwarehousesMapper {
-    int deleteByPrimaryKey(String warehouseid);
+    DbQtwarehouses selectByCriteria(DbQtwarehouses DbQtwarehouses);
 
-    int insert(DbQtwarehouses record);
+    void deleteByPrimaryKey(String WAREHOUSEID);
 
-    int insertSelective(DbQtwarehouses record);
+    void deleteByCriteria(DbQtwarehouses DbQtwarehouses);
+
+    int insertByCriteria(DbQtwarehouses DbQtwarehouses);
+
+    int updateByCriteria(DbQtwarehouses DbQtwarehouses);
 
     DbQtwarehouses selectByPrimaryKey(String warehouseid);
 
-    int updateByPrimaryKeySelective(DbQtwarehouses record);
-
-    int updateByPrimaryKey(DbQtwarehouses record);
+    List<DbQtwarehouses> selectAll();
 }

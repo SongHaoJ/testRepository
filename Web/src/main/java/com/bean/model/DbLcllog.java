@@ -29,6 +29,8 @@ public class DbLcllog implements Serializable {
 
     private String oper;
 
+    private String containerinfo;
+
     private String packageinglist;
 
     private String expressid;
@@ -48,8 +50,6 @@ public class DbLcllog implements Serializable {
     private String content;
 
     private BigDecimal opertype;
-
-    private String containerinfo;
 
     private static final long serialVersionUID = 1L;
 
@@ -149,6 +149,14 @@ public class DbLcllog implements Serializable {
         this.oper = oper == null ? null : oper.trim();
     }
 
+    public String getContainerinfo() {
+        return containerinfo;
+    }
+
+    public void setContainerinfo(String containerinfo) {
+        this.containerinfo = containerinfo == null ? null : containerinfo.trim();
+    }
+
     public String getPackageinglist() {
         return packageinglist;
     }
@@ -229,14 +237,6 @@ public class DbLcllog implements Serializable {
         this.opertype = opertype;
     }
 
-    public String getContainerinfo() {
-        return containerinfo;
-    }
-
-    public void setContainerinfo(String containerinfo) {
-        this.containerinfo = containerinfo == null ? null : containerinfo.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -261,6 +261,7 @@ public class DbLcllog implements Serializable {
             && (this.getCreateoper() == null ? other.getCreateoper() == null : this.getCreateoper().equals(other.getCreateoper()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
+            && (this.getContainerinfo() == null ? other.getContainerinfo() == null : this.getContainerinfo().equals(other.getContainerinfo()))
             && (this.getPackageinglist() == null ? other.getPackageinglist() == null : this.getPackageinglist().equals(other.getPackageinglist()))
             && (this.getExpressid() == null ? other.getExpressid() == null : this.getExpressid().equals(other.getExpressid()))
             && (this.getChecktime() == null ? other.getChecktime() == null : this.getChecktime().equals(other.getChecktime()))
@@ -270,8 +271,7 @@ public class DbLcllog implements Serializable {
             && (this.getTransportfare() == null ? other.getTransportfare() == null : this.getTransportfare().equals(other.getTransportfare()))
             && (this.getPosition() == null ? other.getPosition() == null : this.getPosition().equals(other.getPosition()))
             && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
-            && (this.getOpertype() == null ? other.getOpertype() == null : this.getOpertype().equals(other.getOpertype()))
-            && (this.getContainerinfo() == null ? other.getContainerinfo() == null : this.getContainerinfo().equals(other.getContainerinfo()));
+            && (this.getOpertype() == null ? other.getOpertype() == null : this.getOpertype().equals(other.getOpertype()));
     }
 
     @Override
@@ -290,6 +290,7 @@ public class DbLcllog implements Serializable {
         result = prime * result + ((getCreateoper() == null) ? 0 : getCreateoper().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
+        result = prime * result + ((getContainerinfo() == null) ? 0 : getContainerinfo().hashCode());
         result = prime * result + ((getPackageinglist() == null) ? 0 : getPackageinglist().hashCode());
         result = prime * result + ((getExpressid() == null) ? 0 : getExpressid().hashCode());
         result = prime * result + ((getChecktime() == null) ? 0 : getChecktime().hashCode());
@@ -300,7 +301,6 @@ public class DbLcllog implements Serializable {
         result = prime * result + ((getPosition() == null) ? 0 : getPosition().hashCode());
         result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
         result = prime * result + ((getOpertype() == null) ? 0 : getOpertype().hashCode());
-        result = prime * result + ((getContainerinfo() == null) ? 0 : getContainerinfo().hashCode());
         return result;
     }
 
@@ -322,6 +322,7 @@ public class DbLcllog implements Serializable {
         sb.append(", createoper=").append(createoper);
         sb.append(", opertime=").append(opertime);
         sb.append(", oper=").append(oper);
+        sb.append(", containerinfo=").append(containerinfo);
         sb.append(", packageinglist=").append(packageinglist);
         sb.append(", expressid=").append(expressid);
         sb.append(", checktime=").append(checktime);
@@ -332,7 +333,6 @@ public class DbLcllog implements Serializable {
         sb.append(", position=").append(position);
         sb.append(", content=").append(content);
         sb.append(", opertype=").append(opertype);
-        sb.append(", containerinfo=").append(containerinfo);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

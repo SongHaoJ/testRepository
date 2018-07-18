@@ -27,13 +27,13 @@ public class DbProductfortemplet implements Serializable {
 
     private BigDecimal reserve2;
 
+    private String reserve3;
+
     private Date reserve4;
 
     private BigDecimal reserve5;
 
     private BigDecimal reserve6;
-
-    private String reserve3;
 
     private String note;
 
@@ -127,6 +127,14 @@ public class DbProductfortemplet implements Serializable {
         this.reserve2 = reserve2;
     }
 
+    public String getReserve3() {
+        return reserve3;
+    }
+
+    public void setReserve3(String reserve3) {
+        this.reserve3 = reserve3 == null ? null : reserve3.trim();
+    }
+
     public Date getReserve4() {
         return reserve4;
     }
@@ -149,14 +157,6 @@ public class DbProductfortemplet implements Serializable {
 
     public void setReserve6(BigDecimal reserve6) {
         this.reserve6 = reserve6;
-    }
-
-    public String getReserve3() {
-        return reserve3;
-    }
-
-    public void setReserve3(String reserve3) {
-        this.reserve3 = reserve3 == null ? null : reserve3.trim();
     }
 
     public String getNote() {
@@ -190,10 +190,10 @@ public class DbProductfortemplet implements Serializable {
             && (this.getDsecr() == null ? other.getDsecr() == null : this.getDsecr().equals(other.getDsecr()))
             && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
             && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
+            && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
             && (this.getReserve4() == null ? other.getReserve4() == null : this.getReserve4().equals(other.getReserve4()))
             && (this.getReserve5() == null ? other.getReserve5() == null : this.getReserve5().equals(other.getReserve5()))
             && (this.getReserve6() == null ? other.getReserve6() == null : this.getReserve6().equals(other.getReserve6()))
-            && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
             && (this.getNote() == null ? other.getNote() == null : this.getNote().equals(other.getNote()));
     }
 
@@ -212,10 +212,10 @@ public class DbProductfortemplet implements Serializable {
         result = prime * result + ((getDsecr() == null) ? 0 : getDsecr().hashCode());
         result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
         result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
+        result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
         result = prime * result + ((getReserve4() == null) ? 0 : getReserve4().hashCode());
         result = prime * result + ((getReserve5() == null) ? 0 : getReserve5().hashCode());
         result = prime * result + ((getReserve6() == null) ? 0 : getReserve6().hashCode());
-        result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
         result = prime * result + ((getNote() == null) ? 0 : getNote().hashCode());
         return result;
     }
@@ -237,10 +237,10 @@ public class DbProductfortemplet implements Serializable {
         sb.append(", dsecr=").append(dsecr);
         sb.append(", reserve1=").append(reserve1);
         sb.append(", reserve2=").append(reserve2);
+        sb.append(", reserve3=").append(reserve3);
         sb.append(", reserve4=").append(reserve4);
         sb.append(", reserve5=").append(reserve5);
         sb.append(", reserve6=").append(reserve6);
-        sb.append(", reserve3=").append(reserve3);
         sb.append(", note=").append(note);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");

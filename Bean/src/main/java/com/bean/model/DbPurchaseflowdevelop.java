@@ -35,6 +35,8 @@ public class DbPurchaseflowdevelop implements Serializable {
 
     private Date sendtime;
 
+    private String portcity;
+
     private Date actualsendtime;
 
     private Date lcltime;
@@ -59,6 +61,8 @@ public class DbPurchaseflowdevelop implements Serializable {
 
     private String position;
 
+    private String withasingle;
+
     private String photoqc;
 
     private Date completetime;
@@ -77,6 +81,8 @@ public class DbPurchaseflowdevelop implements Serializable {
 
     private Date cutofftime;
 
+    private String containerinfo;
+
     private String packageinglist;
 
     private String billoflading;
@@ -94,6 +100,8 @@ public class DbPurchaseflowdevelop implements Serializable {
     private BigDecimal finalmoney;
 
     private Date finalpaytime;
+
+    private String followdescr;
 
     private String expressid;
 
@@ -134,14 +142,6 @@ public class DbPurchaseflowdevelop implements Serializable {
     private BigDecimal classnum;
 
     private BigDecimal developtotalvolume;
-
-    private String portcity;
-
-    private String withasingle;
-
-    private String containerinfo;
-
-    private String followdescr;
 
     private String district;
 
@@ -267,6 +267,14 @@ public class DbPurchaseflowdevelop implements Serializable {
         this.sendtime = sendtime;
     }
 
+    public String getPortcity() {
+        return portcity;
+    }
+
+    public void setPortcity(String portcity) {
+        this.portcity = portcity == null ? null : portcity.trim();
+    }
+
     public Date getActualsendtime() {
         return actualsendtime;
     }
@@ -363,6 +371,14 @@ public class DbPurchaseflowdevelop implements Serializable {
         this.position = position == null ? null : position.trim();
     }
 
+    public String getWithasingle() {
+        return withasingle;
+    }
+
+    public void setWithasingle(String withasingle) {
+        this.withasingle = withasingle == null ? null : withasingle.trim();
+    }
+
     public String getPhotoqc() {
         return photoqc;
     }
@@ -435,6 +451,14 @@ public class DbPurchaseflowdevelop implements Serializable {
         this.cutofftime = cutofftime;
     }
 
+    public String getContainerinfo() {
+        return containerinfo;
+    }
+
+    public void setContainerinfo(String containerinfo) {
+        this.containerinfo = containerinfo == null ? null : containerinfo.trim();
+    }
+
     public String getPackageinglist() {
         return packageinglist;
     }
@@ -505,6 +529,14 @@ public class DbPurchaseflowdevelop implements Serializable {
 
     public void setFinalpaytime(Date finalpaytime) {
         this.finalpaytime = finalpaytime;
+    }
+
+    public String getFollowdescr() {
+        return followdescr;
+    }
+
+    public void setFollowdescr(String followdescr) {
+        this.followdescr = followdescr == null ? null : followdescr.trim();
     }
 
     public String getExpressid() {
@@ -667,38 +699,6 @@ public class DbPurchaseflowdevelop implements Serializable {
         this.developtotalvolume = developtotalvolume;
     }
 
-    public String getPortcity() {
-        return portcity;
-    }
-
-    public void setPortcity(String portcity) {
-        this.portcity = portcity == null ? null : portcity.trim();
-    }
-
-    public String getWithasingle() {
-        return withasingle;
-    }
-
-    public void setWithasingle(String withasingle) {
-        this.withasingle = withasingle == null ? null : withasingle.trim();
-    }
-
-    public String getContainerinfo() {
-        return containerinfo;
-    }
-
-    public void setContainerinfo(String containerinfo) {
-        this.containerinfo = containerinfo == null ? null : containerinfo.trim();
-    }
-
-    public String getFollowdescr() {
-        return followdescr;
-    }
-
-    public void setFollowdescr(String followdescr) {
-        this.followdescr = followdescr == null ? null : followdescr.trim();
-    }
-
     public String getDistrict() {
         return district;
     }
@@ -734,6 +734,7 @@ public class DbPurchaseflowdevelop implements Serializable {
             && (this.getDelivery() == null ? other.getDelivery() == null : this.getDelivery().equals(other.getDelivery()))
             && (this.getArrivalperiod() == null ? other.getArrivalperiod() == null : this.getArrivalperiod().equals(other.getArrivalperiod()))
             && (this.getSendtime() == null ? other.getSendtime() == null : this.getSendtime().equals(other.getSendtime()))
+            && (this.getPortcity() == null ? other.getPortcity() == null : this.getPortcity().equals(other.getPortcity()))
             && (this.getActualsendtime() == null ? other.getActualsendtime() == null : this.getActualsendtime().equals(other.getActualsendtime()))
             && (this.getLcltime() == null ? other.getLcltime() == null : this.getLcltime().equals(other.getLcltime()))
             && (this.getOutporttime() == null ? other.getOutporttime() == null : this.getOutporttime().equals(other.getOutporttime()))
@@ -746,6 +747,7 @@ public class DbPurchaseflowdevelop implements Serializable {
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getOpenflag() == null ? other.getOpenflag() == null : this.getOpenflag().equals(other.getOpenflag()))
             && (this.getPosition() == null ? other.getPosition() == null : this.getPosition().equals(other.getPosition()))
+            && (this.getWithasingle() == null ? other.getWithasingle() == null : this.getWithasingle().equals(other.getWithasingle()))
             && (this.getPhotoqc() == null ? other.getPhotoqc() == null : this.getPhotoqc().equals(other.getPhotoqc()))
             && (this.getCompletetime() == null ? other.getCompletetime() == null : this.getCompletetime().equals(other.getCompletetime()))
             && (this.getReceipt() == null ? other.getReceipt() == null : this.getReceipt().equals(other.getReceipt()))
@@ -755,6 +757,7 @@ public class DbPurchaseflowdevelop implements Serializable {
             && (this.getDepositstime() == null ? other.getDepositstime() == null : this.getDepositstime().equals(other.getDepositstime()))
             && (this.getRonumber() == null ? other.getRonumber() == null : this.getRonumber().equals(other.getRonumber()))
             && (this.getCutofftime() == null ? other.getCutofftime() == null : this.getCutofftime().equals(other.getCutofftime()))
+            && (this.getContainerinfo() == null ? other.getContainerinfo() == null : this.getContainerinfo().equals(other.getContainerinfo()))
             && (this.getPackageinglist() == null ? other.getPackageinglist() == null : this.getPackageinglist().equals(other.getPackageinglist()))
             && (this.getBilloflading() == null ? other.getBilloflading() == null : this.getBilloflading().equals(other.getBilloflading()))
             && (this.getTransportfare() == null ? other.getTransportfare() == null : this.getTransportfare().equals(other.getTransportfare()))
@@ -764,6 +767,7 @@ public class DbPurchaseflowdevelop implements Serializable {
             && (this.getToportpaytime() == null ? other.getToportpaytime() == null : this.getToportpaytime().equals(other.getToportpaytime()))
             && (this.getFinalmoney() == null ? other.getFinalmoney() == null : this.getFinalmoney().equals(other.getFinalmoney()))
             && (this.getFinalpaytime() == null ? other.getFinalpaytime() == null : this.getFinalpaytime().equals(other.getFinalpaytime()))
+            && (this.getFollowdescr() == null ? other.getFollowdescr() == null : this.getFollowdescr().equals(other.getFollowdescr()))
             && (this.getExpressid() == null ? other.getExpressid() == null : this.getExpressid().equals(other.getExpressid()))
             && (this.getDepositsflag() == null ? other.getDepositsflag() == null : this.getDepositsflag().equals(other.getDepositsflag()))
             && (this.getSendmoneyflag() == null ? other.getSendmoneyflag() == null : this.getSendmoneyflag().equals(other.getSendmoneyflag()))
@@ -784,10 +788,6 @@ public class DbPurchaseflowdevelop implements Serializable {
             && (this.getOrdernum() == null ? other.getOrdernum() == null : this.getOrdernum().equals(other.getOrdernum()))
             && (this.getClassnum() == null ? other.getClassnum() == null : this.getClassnum().equals(other.getClassnum()))
             && (this.getDeveloptotalvolume() == null ? other.getDeveloptotalvolume() == null : this.getDeveloptotalvolume().equals(other.getDeveloptotalvolume()))
-            && (this.getPortcity() == null ? other.getPortcity() == null : this.getPortcity().equals(other.getPortcity()))
-            && (this.getWithasingle() == null ? other.getWithasingle() == null : this.getWithasingle().equals(other.getWithasingle()))
-            && (this.getContainerinfo() == null ? other.getContainerinfo() == null : this.getContainerinfo().equals(other.getContainerinfo()))
-            && (this.getFollowdescr() == null ? other.getFollowdescr() == null : this.getFollowdescr().equals(other.getFollowdescr()))
             && (this.getDistrict() == null ? other.getDistrict() == null : this.getDistrict().equals(other.getDistrict()));
     }
 
@@ -810,6 +810,7 @@ public class DbPurchaseflowdevelop implements Serializable {
         result = prime * result + ((getDelivery() == null) ? 0 : getDelivery().hashCode());
         result = prime * result + ((getArrivalperiod() == null) ? 0 : getArrivalperiod().hashCode());
         result = prime * result + ((getSendtime() == null) ? 0 : getSendtime().hashCode());
+        result = prime * result + ((getPortcity() == null) ? 0 : getPortcity().hashCode());
         result = prime * result + ((getActualsendtime() == null) ? 0 : getActualsendtime().hashCode());
         result = prime * result + ((getLcltime() == null) ? 0 : getLcltime().hashCode());
         result = prime * result + ((getOutporttime() == null) ? 0 : getOutporttime().hashCode());
@@ -822,6 +823,7 @@ public class DbPurchaseflowdevelop implements Serializable {
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getOpenflag() == null) ? 0 : getOpenflag().hashCode());
         result = prime * result + ((getPosition() == null) ? 0 : getPosition().hashCode());
+        result = prime * result + ((getWithasingle() == null) ? 0 : getWithasingle().hashCode());
         result = prime * result + ((getPhotoqc() == null) ? 0 : getPhotoqc().hashCode());
         result = prime * result + ((getCompletetime() == null) ? 0 : getCompletetime().hashCode());
         result = prime * result + ((getReceipt() == null) ? 0 : getReceipt().hashCode());
@@ -831,6 +833,7 @@ public class DbPurchaseflowdevelop implements Serializable {
         result = prime * result + ((getDepositstime() == null) ? 0 : getDepositstime().hashCode());
         result = prime * result + ((getRonumber() == null) ? 0 : getRonumber().hashCode());
         result = prime * result + ((getCutofftime() == null) ? 0 : getCutofftime().hashCode());
+        result = prime * result + ((getContainerinfo() == null) ? 0 : getContainerinfo().hashCode());
         result = prime * result + ((getPackageinglist() == null) ? 0 : getPackageinglist().hashCode());
         result = prime * result + ((getBilloflading() == null) ? 0 : getBilloflading().hashCode());
         result = prime * result + ((getTransportfare() == null) ? 0 : getTransportfare().hashCode());
@@ -840,6 +843,7 @@ public class DbPurchaseflowdevelop implements Serializable {
         result = prime * result + ((getToportpaytime() == null) ? 0 : getToportpaytime().hashCode());
         result = prime * result + ((getFinalmoney() == null) ? 0 : getFinalmoney().hashCode());
         result = prime * result + ((getFinalpaytime() == null) ? 0 : getFinalpaytime().hashCode());
+        result = prime * result + ((getFollowdescr() == null) ? 0 : getFollowdescr().hashCode());
         result = prime * result + ((getExpressid() == null) ? 0 : getExpressid().hashCode());
         result = prime * result + ((getDepositsflag() == null) ? 0 : getDepositsflag().hashCode());
         result = prime * result + ((getSendmoneyflag() == null) ? 0 : getSendmoneyflag().hashCode());
@@ -860,10 +864,6 @@ public class DbPurchaseflowdevelop implements Serializable {
         result = prime * result + ((getOrdernum() == null) ? 0 : getOrdernum().hashCode());
         result = prime * result + ((getClassnum() == null) ? 0 : getClassnum().hashCode());
         result = prime * result + ((getDeveloptotalvolume() == null) ? 0 : getDeveloptotalvolume().hashCode());
-        result = prime * result + ((getPortcity() == null) ? 0 : getPortcity().hashCode());
-        result = prime * result + ((getWithasingle() == null) ? 0 : getWithasingle().hashCode());
-        result = prime * result + ((getContainerinfo() == null) ? 0 : getContainerinfo().hashCode());
-        result = prime * result + ((getFollowdescr() == null) ? 0 : getFollowdescr().hashCode());
         result = prime * result + ((getDistrict() == null) ? 0 : getDistrict().hashCode());
         return result;
     }
@@ -889,6 +889,7 @@ public class DbPurchaseflowdevelop implements Serializable {
         sb.append(", delivery=").append(delivery);
         sb.append(", arrivalperiod=").append(arrivalperiod);
         sb.append(", sendtime=").append(sendtime);
+        sb.append(", portcity=").append(portcity);
         sb.append(", actualsendtime=").append(actualsendtime);
         sb.append(", lcltime=").append(lcltime);
         sb.append(", outporttime=").append(outporttime);
@@ -901,6 +902,7 @@ public class DbPurchaseflowdevelop implements Serializable {
         sb.append(", oper=").append(oper);
         sb.append(", openflag=").append(openflag);
         sb.append(", position=").append(position);
+        sb.append(", withasingle=").append(withasingle);
         sb.append(", photoqc=").append(photoqc);
         sb.append(", completetime=").append(completetime);
         sb.append(", receipt=").append(receipt);
@@ -910,6 +912,7 @@ public class DbPurchaseflowdevelop implements Serializable {
         sb.append(", depositstime=").append(depositstime);
         sb.append(", ronumber=").append(ronumber);
         sb.append(", cutofftime=").append(cutofftime);
+        sb.append(", containerinfo=").append(containerinfo);
         sb.append(", packageinglist=").append(packageinglist);
         sb.append(", billoflading=").append(billoflading);
         sb.append(", transportfare=").append(transportfare);
@@ -919,6 +922,7 @@ public class DbPurchaseflowdevelop implements Serializable {
         sb.append(", toportpaytime=").append(toportpaytime);
         sb.append(", finalmoney=").append(finalmoney);
         sb.append(", finalpaytime=").append(finalpaytime);
+        sb.append(", followdescr=").append(followdescr);
         sb.append(", expressid=").append(expressid);
         sb.append(", depositsflag=").append(depositsflag);
         sb.append(", sendmoneyflag=").append(sendmoneyflag);
@@ -939,10 +943,6 @@ public class DbPurchaseflowdevelop implements Serializable {
         sb.append(", ordernum=").append(ordernum);
         sb.append(", classnum=").append(classnum);
         sb.append(", developtotalvolume=").append(developtotalvolume);
-        sb.append(", portcity=").append(portcity);
-        sb.append(", withasingle=").append(withasingle);
-        sb.append(", containerinfo=").append(containerinfo);
-        sb.append(", followdescr=").append(followdescr);
         sb.append(", district=").append(district);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");

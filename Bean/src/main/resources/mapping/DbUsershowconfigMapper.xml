@@ -13,198 +13,150 @@
     <result column="EMAILFLAG" jdbcType="DECIMAL" property="emailflag" />
     <result column="TELFLAG" jdbcType="DECIMAL" property="telflag" />
     <result column="CONTENT" jdbcType="VARCHAR" property="content" />
+    <result column="VALUE" jdbcType="VARCHAR" property="value" />
     <result column="ORDERTYPE" jdbcType="VARCHAR" property="ordertype" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbUsershowconfig">
-    <result column="VALUE" jdbcType="LONGVARCHAR" property="value" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    ID, APIID, TITLE, COLUMNAME, SORT, NEEDFLAG, LENGTHFLAG, FILEDLENGTH, EMAILFLAG, 
-    TELFLAG, CONTENT, ORDERTYPE
-  </sql>
-  <sql id="Blob_Column_List">
-    'VALUE'
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from db_usershowconfig
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select ID, APIID, TITLE, COLUMNAME, SORT, NEEDFLAG, LENGTHFLAG, FILEDLENGTH, EMAILFLAG, 
+    TELFLAG, CONTENT, VALUE, ORDERTYPE
+    from DB_USERSHOWCONFIG
     where ID = #{id,jdbcType=DECIMAL}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from db_usershowconfig
-    where ID = #{id,jdbcType=DECIMAL}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ID, APIID, TITLE, COLUMNAME, SORT, NEEDFLAG, LENGTHFLAG, FILEDLENGTH, EMAILFLAG, 
+    TELFLAG, CONTENT, VALUE, ORDERTYPE
+    from DB_USERSHOWCONFIG
+  </select>
+  <sql id="TableName">
+    DB_USERSHOWCONFIG
+  </sql>
+  <sql id="Values">
+     #{id,jdbcType=DECIMAL} , 
+     #{apiid,jdbcType=DECIMAL} , 
+     #{title,jdbcType=VARCHAR} , 
+     #{columname,jdbcType=VARCHAR} , 
+     #{sort,jdbcType=DECIMAL} , 
+     #{needflag,jdbcType=DECIMAL} , 
+     #{lengthflag,jdbcType=DECIMAL} , 
+     #{filedlength,jdbcType=DECIMAL} , 
+     #{emailflag,jdbcType=DECIMAL} , 
+     #{telflag,jdbcType=DECIMAL} , 
+     #{content,jdbcType=VARCHAR} , 
+     #{value,jdbcType=VARCHAR} , 
+     #{ordertype,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    ID , 
+    APIID , 
+    TITLE , 
+    COLUMNAME , 
+    SORT , 
+    NEEDFLAG , 
+    LENGTHFLAG , 
+    FILEDLENGTH , 
+    EMAILFLAG , 
+    TELFLAG , 
+    CONTENT , 
+    VALUE , 
+    ORDERTYPE , 
+  </sql>
+  <sql id="Criteria">
+    <if test="id != null">
+      id = #{id,jdbcType=DECIMAL} and 
+    </if>
+    <if test="apiid != null">
+      apiid = #{apiid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="title != null">
+      title = #{title,jdbcType=VARCHAR} and 
+    </if>
+    <if test="columname != null">
+      columname = #{columname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sort != null">
+      sort = #{sort,jdbcType=DECIMAL} and 
+    </if>
+    <if test="needflag != null">
+      needflag = #{needflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="lengthflag != null">
+      lengthflag = #{lengthflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="filedlength != null">
+      filedlength = #{filedlength,jdbcType=DECIMAL} and 
+    </if>
+    <if test="emailflag != null">
+      emailflag = #{emailflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="telflag != null">
+      telflag = #{telflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="content != null">
+      content = #{content,jdbcType=VARCHAR} and 
+    </if>
+    <if test="value != null">
+      value = #{value,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ordertype != null">
+      ordertype = #{ordertype,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="id != null">
+      id = #{id,jdbcType=DECIMAL} , 
+    </if>
+    <if test="apiid != null">
+      apiid = #{apiid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="title != null">
+      title = #{title,jdbcType=VARCHAR} , 
+    </if>
+    <if test="columname != null">
+      columname = #{columname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sort != null">
+      sort = #{sort,jdbcType=DECIMAL} , 
+    </if>
+    <if test="needflag != null">
+      needflag = #{needflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="lengthflag != null">
+      lengthflag = #{lengthflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="filedlength != null">
+      filedlength = #{filedlength,jdbcType=DECIMAL} , 
+    </if>
+    <if test="emailflag != null">
+      emailflag = #{emailflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="telflag != null">
+      telflag = #{telflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="content != null">
+      content = #{content,jdbcType=VARCHAR} , 
+    </if>
+    <if test="value != null">
+      value = #{value,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ordertype != null">
+      ordertype = #{ordertype,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbUsershowconfig" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="Integer">
+    delete from <include refid="TableName"/> where ID=#{ID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbUsershowconfig">
-    insert into db_usershowconfig (ID, APIID, TITLE, 
-      COLUMNAME, SORT, NEEDFLAG, 
-      LENGTHFLAG, FILEDLENGTH, EMAILFLAG, 
-      TELFLAG, CONTENT, ORDERTYPE, 
-      'VALUE')
-    values (#{id,jdbcType=DECIMAL}, #{apiid,jdbcType=DECIMAL}, #{title,jdbcType=VARCHAR}, 
-      #{columname,jdbcType=VARCHAR}, #{sort,jdbcType=DECIMAL}, #{needflag,jdbcType=DECIMAL}, 
-      #{lengthflag,jdbcType=DECIMAL}, #{filedlength,jdbcType=DECIMAL}, #{emailflag,jdbcType=DECIMAL}, 
-      #{telflag,jdbcType=DECIMAL}, #{content,jdbcType=VARCHAR}, #{ordertype,jdbcType=VARCHAR}, 
-      #{value,jdbcType=LONGVARCHAR})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbUsershowconfig">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbUsershowconfig">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbUsershowconfig">
-    insert into db_usershowconfig
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        ID,
-      </if>
-      <if test="apiid != null">
-        APIID,
-      </if>
-      <if test="title != null">
-        TITLE,
-      </if>
-      <if test="columname != null">
-        COLUMNAME,
-      </if>
-      <if test="sort != null">
-        SORT,
-      </if>
-      <if test="needflag != null">
-        NEEDFLAG,
-      </if>
-      <if test="lengthflag != null">
-        LENGTHFLAG,
-      </if>
-      <if test="filedlength != null">
-        FILEDLENGTH,
-      </if>
-      <if test="emailflag != null">
-        EMAILFLAG,
-      </if>
-      <if test="telflag != null">
-        TELFLAG,
-      </if>
-      <if test="content != null">
-        CONTENT,
-      </if>
-      <if test="ordertype != null">
-        ORDERTYPE,
-      </if>
-      <if test="value != null">
-        'VALUE',
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=DECIMAL},
-      </if>
-      <if test="apiid != null">
-        #{apiid,jdbcType=DECIMAL},
-      </if>
-      <if test="title != null">
-        #{title,jdbcType=VARCHAR},
-      </if>
-      <if test="columname != null">
-        #{columname,jdbcType=VARCHAR},
-      </if>
-      <if test="sort != null">
-        #{sort,jdbcType=DECIMAL},
-      </if>
-      <if test="needflag != null">
-        #{needflag,jdbcType=DECIMAL},
-      </if>
-      <if test="lengthflag != null">
-        #{lengthflag,jdbcType=DECIMAL},
-      </if>
-      <if test="filedlength != null">
-        #{filedlength,jdbcType=DECIMAL},
-      </if>
-      <if test="emailflag != null">
-        #{emailflag,jdbcType=DECIMAL},
-      </if>
-      <if test="telflag != null">
-        #{telflag,jdbcType=DECIMAL},
-      </if>
-      <if test="content != null">
-        #{content,jdbcType=VARCHAR},
-      </if>
-      <if test="ordertype != null">
-        #{ordertype,jdbcType=VARCHAR},
-      </if>
-      <if test="value != null">
-        #{value,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbUsershowconfig">
-    update db_usershowconfig
-    <set>
-      <if test="apiid != null">
-        APIID = #{apiid,jdbcType=DECIMAL},
-      </if>
-      <if test="title != null">
-        TITLE = #{title,jdbcType=VARCHAR},
-      </if>
-      <if test="columname != null">
-        COLUMNAME = #{columname,jdbcType=VARCHAR},
-      </if>
-      <if test="sort != null">
-        SORT = #{sort,jdbcType=DECIMAL},
-      </if>
-      <if test="needflag != null">
-        NEEDFLAG = #{needflag,jdbcType=DECIMAL},
-      </if>
-      <if test="lengthflag != null">
-        LENGTHFLAG = #{lengthflag,jdbcType=DECIMAL},
-      </if>
-      <if test="filedlength != null">
-        FILEDLENGTH = #{filedlength,jdbcType=DECIMAL},
-      </if>
-      <if test="emailflag != null">
-        EMAILFLAG = #{emailflag,jdbcType=DECIMAL},
-      </if>
-      <if test="telflag != null">
-        TELFLAG = #{telflag,jdbcType=DECIMAL},
-      </if>
-      <if test="content != null">
-        CONTENT = #{content,jdbcType=VARCHAR},
-      </if>
-      <if test="ordertype != null">
-        ORDERTYPE = #{ordertype,jdbcType=VARCHAR},
-      </if>
-      <if test="value != null">
-        'VALUE' = #{value,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where ID = #{id,jdbcType=DECIMAL}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbUsershowconfig">
-    update db_usershowconfig
-    set APIID = #{apiid,jdbcType=DECIMAL},
-      TITLE = #{title,jdbcType=VARCHAR},
-      COLUMNAME = #{columname,jdbcType=VARCHAR},
-      SORT = #{sort,jdbcType=DECIMAL},
-      NEEDFLAG = #{needflag,jdbcType=DECIMAL},
-      LENGTHFLAG = #{lengthflag,jdbcType=DECIMAL},
-      FILEDLENGTH = #{filedlength,jdbcType=DECIMAL},
-      EMAILFLAG = #{emailflag,jdbcType=DECIMAL},
-      TELFLAG = #{telflag,jdbcType=DECIMAL},
-      CONTENT = #{content,jdbcType=VARCHAR},
-      ORDERTYPE = #{ordertype,jdbcType=VARCHAR},
-      'VALUE' = #{value,jdbcType=LONGVARCHAR}
-    where ID = #{id,jdbcType=DECIMAL}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbUsershowconfig">
-    update db_usershowconfig
-    set APIID = #{apiid,jdbcType=DECIMAL},
-      TITLE = #{title,jdbcType=VARCHAR},
-      COLUMNAME = #{columname,jdbcType=VARCHAR},
-      SORT = #{sort,jdbcType=DECIMAL},
-      NEEDFLAG = #{needflag,jdbcType=DECIMAL},
-      LENGTHFLAG = #{lengthflag,jdbcType=DECIMAL},
-      FILEDLENGTH = #{filedlength,jdbcType=DECIMAL},
-      EMAILFLAG = #{emailflag,jdbcType=DECIMAL},
-      TELFLAG = #{telflag,jdbcType=DECIMAL},
-      CONTENT = #{content,jdbcType=VARCHAR},
-      ORDERTYPE = #{ordertype,jdbcType=VARCHAR}
-    where ID = #{id,jdbcType=DECIMAL}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbUsershowconfig">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

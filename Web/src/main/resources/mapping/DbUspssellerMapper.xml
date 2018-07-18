@@ -30,17 +30,17 @@
     select SID, USERID, USERNAME, PASSWORD, FIRSTNAME, LASTNAME, EMAIL, ADDRESS1, ADDRESS2, 
     CITY, STATE, ZIP5, ZIP4, PHONE, OPENFLAG, OPER, OPERTIME, CORPID, RESERVE1, RESERVE2, 
     RESERVE3, RESERVE4, RESERVE5
-    from db_uspsseller
+    from DB_USPSSELLER
     where SID = #{sid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SID, USERID, USERNAME, PASSWORD, FIRSTNAME, LASTNAME, EMAIL, ADDRESS1, ADDRESS2, 
     CITY, STATE, ZIP5, ZIP4, PHONE, OPENFLAG, OPER, OPERTIME, CORPID, RESERVE1, RESERVE2, 
     RESERVE3, RESERVE4, RESERVE5
-    from db_uspsseller
+    from DB_USPSSELLER
   </select>
   <sql id="TableName">
-    db_uspsseller
+    DB_USPSSELLER
   </sql>
   <sql id="Values">
      #{sid,jdbcType=VARCHAR} , 
@@ -65,7 +65,7 @@
      #{reserve2,jdbcType=VARCHAR} , 
      #{reserve3,jdbcType=VARCHAR} , 
      #{reserve4,jdbcType=VARCHAR} , 
-     #{reserve5,jdbcType=VARCHAR}
+     #{reserve5,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     SID , 
@@ -90,151 +90,151 @@
     RESERVE2 , 
     RESERVE3 , 
     RESERVE4 , 
-    RESERVE5
+    RESERVE5 , 
   </sql>
   <sql id="Criteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} and 
+      sid = #{sid,jdbcType=VARCHAR} and 
     </if>
     <if test="userid != null">
-      USERID = #{userid,jdbcType=VARCHAR} and 
+      userid = #{userid,jdbcType=VARCHAR} and 
     </if>
     <if test="username != null">
-      USERNAME = #{username,jdbcType=VARCHAR} and 
+      username = #{username,jdbcType=VARCHAR} and 
     </if>
     <if test="password != null">
-      PASSWORD = #{password,jdbcType=VARCHAR} and 
+      password = #{password,jdbcType=VARCHAR} and 
     </if>
     <if test="firstname != null">
-      FIRSTNAME = #{firstname,jdbcType=VARCHAR} and 
+      firstname = #{firstname,jdbcType=VARCHAR} and 
     </if>
     <if test="lastname != null">
-      LASTNAME = #{lastname,jdbcType=VARCHAR} and 
+      lastname = #{lastname,jdbcType=VARCHAR} and 
     </if>
     <if test="email != null">
-      EMAIL = #{email,jdbcType=VARCHAR} and 
+      email = #{email,jdbcType=VARCHAR} and 
     </if>
     <if test="address1 != null">
-      ADDRESS1 = #{address1,jdbcType=VARCHAR} and 
+      address1 = #{address1,jdbcType=VARCHAR} and 
     </if>
     <if test="address2 != null">
-      ADDRESS2 = #{address2,jdbcType=VARCHAR} and 
+      address2 = #{address2,jdbcType=VARCHAR} and 
     </if>
     <if test="city != null">
-      CITY = #{city,jdbcType=VARCHAR} and 
+      city = #{city,jdbcType=VARCHAR} and 
     </if>
     <if test="state != null">
-      STATE = #{state,jdbcType=VARCHAR} and 
+      state = #{state,jdbcType=VARCHAR} and 
     </if>
     <if test="zip5 != null">
-      ZIP5 = #{zip5,jdbcType=VARCHAR} and 
+      zip5 = #{zip5,jdbcType=VARCHAR} and 
     </if>
     <if test="zip4 != null">
-      ZIP4 = #{zip4,jdbcType=VARCHAR} and 
+      zip4 = #{zip4,jdbcType=VARCHAR} and 
     </if>
     <if test="phone != null">
-      PHONE = #{phone,jdbcType=VARCHAR} and 
+      phone = #{phone,jdbcType=VARCHAR} and 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
+      openflag = #{openflag,jdbcType=VARCHAR} and 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
+      oper = #{oper,jdbcType=VARCHAR} and 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} and 
+      corpid = #{corpid,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR} and 
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=VARCHAR} and 
+      reserve4 = #{reserve4,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=VARCHAR}
+      reserve5 = #{reserve5,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} , 
+      sid = #{sid,jdbcType=VARCHAR} , 
     </if>
     <if test="userid != null">
-      USERID = #{userid,jdbcType=VARCHAR} , 
+      userid = #{userid,jdbcType=VARCHAR} , 
     </if>
     <if test="username != null">
-      USERNAME = #{username,jdbcType=VARCHAR} , 
+      username = #{username,jdbcType=VARCHAR} , 
     </if>
     <if test="password != null">
-      PASSWORD = #{password,jdbcType=VARCHAR} , 
+      password = #{password,jdbcType=VARCHAR} , 
     </if>
     <if test="firstname != null">
-      FIRSTNAME = #{firstname,jdbcType=VARCHAR} , 
+      firstname = #{firstname,jdbcType=VARCHAR} , 
     </if>
     <if test="lastname != null">
-      LASTNAME = #{lastname,jdbcType=VARCHAR} , 
+      lastname = #{lastname,jdbcType=VARCHAR} , 
     </if>
     <if test="email != null">
-      EMAIL = #{email,jdbcType=VARCHAR} , 
+      email = #{email,jdbcType=VARCHAR} , 
     </if>
     <if test="address1 != null">
-      ADDRESS1 = #{address1,jdbcType=VARCHAR} , 
+      address1 = #{address1,jdbcType=VARCHAR} , 
     </if>
     <if test="address2 != null">
-      ADDRESS2 = #{address2,jdbcType=VARCHAR} , 
+      address2 = #{address2,jdbcType=VARCHAR} , 
     </if>
     <if test="city != null">
-      CITY = #{city,jdbcType=VARCHAR} , 
+      city = #{city,jdbcType=VARCHAR} , 
     </if>
     <if test="state != null">
-      STATE = #{state,jdbcType=VARCHAR} , 
+      state = #{state,jdbcType=VARCHAR} , 
     </if>
     <if test="zip5 != null">
-      ZIP5 = #{zip5,jdbcType=VARCHAR} , 
+      zip5 = #{zip5,jdbcType=VARCHAR} , 
     </if>
     <if test="zip4 != null">
-      ZIP4 = #{zip4,jdbcType=VARCHAR} , 
+      zip4 = #{zip4,jdbcType=VARCHAR} , 
     </if>
     <if test="phone != null">
-      PHONE = #{phone,jdbcType=VARCHAR} , 
+      phone = #{phone,jdbcType=VARCHAR} , 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
+      openflag = #{openflag,jdbcType=VARCHAR} , 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
+      oper = #{oper,jdbcType=VARCHAR} , 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} , 
+      corpid = #{corpid,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR} , 
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=VARCHAR} , 
+      reserve4 = #{reserve4,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=VARCHAR}
+      reserve5 = #{reserve5,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbUspsseller" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbWishexpresstype;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbWishexpresstypeMapper {
-    int deleteByPrimaryKey(Short sid);
+    DbWishexpresstype selectByCriteria(DbWishexpresstype DbWishexpresstype);
 
-    int insert(DbWishexpresstype record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbWishexpresstype record);
+    void deleteByCriteria(DbWishexpresstype DbWishexpresstype);
+
+    int insertByCriteria(DbWishexpresstype DbWishexpresstype);
+
+    int updateByCriteria(DbWishexpresstype DbWishexpresstype);
 
     DbWishexpresstype selectByPrimaryKey(Short sid);
 
-    int updateByPrimaryKeySelective(DbWishexpresstype record);
-
-    int updateByPrimaryKeyWithBLOBs(DbWishexpresstype record);
-
-    int updateByPrimaryKey(DbWishexpresstype record);
+    List<DbWishexpresstype> selectAll();
 }

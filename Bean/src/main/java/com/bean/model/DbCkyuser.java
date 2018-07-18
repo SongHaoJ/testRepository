@@ -47,6 +47,10 @@ public class DbCkyuser implements Serializable {
 
     private String company;
 
+    private String street1;
+
+    private String street2;
+
     private String city;
 
     private String province;
@@ -68,10 +72,6 @@ public class DbCkyuser implements Serializable {
     private BigDecimal reserve8;
 
     private BigDecimal reserve7;
-
-    private String street1;
-
-    private String street2;
 
     private static final long serialVersionUID = 1L;
 
@@ -243,6 +243,22 @@ public class DbCkyuser implements Serializable {
         this.company = company == null ? null : company.trim();
     }
 
+    public String getStreet1() {
+        return street1;
+    }
+
+    public void setStreet1(String street1) {
+        this.street1 = street1 == null ? null : street1.trim();
+    }
+
+    public String getStreet2() {
+        return street2;
+    }
+
+    public void setStreet2(String street2) {
+        this.street2 = street2 == null ? null : street2.trim();
+    }
+
     public String getCity() {
         return city;
     }
@@ -331,22 +347,6 @@ public class DbCkyuser implements Serializable {
         this.reserve7 = reserve7;
     }
 
-    public String getStreet1() {
-        return street1;
-    }
-
-    public void setStreet1(String street1) {
-        this.street1 = street1 == null ? null : street1.trim();
-    }
-
-    public String getStreet2() {
-        return street2;
-    }
-
-    public void setStreet2(String street2) {
-        this.street2 = street2 == null ? null : street2.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -380,6 +380,8 @@ public class DbCkyuser implements Serializable {
             && (this.getReserve6() == null ? other.getReserve6() == null : this.getReserve6().equals(other.getReserve6()))
             && (this.getContact() == null ? other.getContact() == null : this.getContact().equals(other.getContact()))
             && (this.getCompany() == null ? other.getCompany() == null : this.getCompany().equals(other.getCompany()))
+            && (this.getStreet1() == null ? other.getStreet1() == null : this.getStreet1().equals(other.getStreet1()))
+            && (this.getStreet2() == null ? other.getStreet2() == null : this.getStreet2().equals(other.getStreet2()))
             && (this.getCity() == null ? other.getCity() == null : this.getCity().equals(other.getCity()))
             && (this.getProvince() == null ? other.getProvince() == null : this.getProvince().equals(other.getProvince()))
             && (this.getCountry() == null ? other.getCountry() == null : this.getCountry().equals(other.getCountry()))
@@ -390,9 +392,7 @@ public class DbCkyuser implements Serializable {
             && (this.getEmail() == null ? other.getEmail() == null : this.getEmail().equals(other.getEmail()))
             && (this.getUserid() == null ? other.getUserid() == null : this.getUserid().equals(other.getUserid()))
             && (this.getReserve8() == null ? other.getReserve8() == null : this.getReserve8().equals(other.getReserve8()))
-            && (this.getReserve7() == null ? other.getReserve7() == null : this.getReserve7().equals(other.getReserve7()))
-            && (this.getStreet1() == null ? other.getStreet1() == null : this.getStreet1().equals(other.getStreet1()))
-            && (this.getStreet2() == null ? other.getStreet2() == null : this.getStreet2().equals(other.getStreet2()));
+            && (this.getReserve7() == null ? other.getReserve7() == null : this.getReserve7().equals(other.getReserve7()));
     }
 
     @Override
@@ -420,6 +420,8 @@ public class DbCkyuser implements Serializable {
         result = prime * result + ((getReserve6() == null) ? 0 : getReserve6().hashCode());
         result = prime * result + ((getContact() == null) ? 0 : getContact().hashCode());
         result = prime * result + ((getCompany() == null) ? 0 : getCompany().hashCode());
+        result = prime * result + ((getStreet1() == null) ? 0 : getStreet1().hashCode());
+        result = prime * result + ((getStreet2() == null) ? 0 : getStreet2().hashCode());
         result = prime * result + ((getCity() == null) ? 0 : getCity().hashCode());
         result = prime * result + ((getProvince() == null) ? 0 : getProvince().hashCode());
         result = prime * result + ((getCountry() == null) ? 0 : getCountry().hashCode());
@@ -431,8 +433,6 @@ public class DbCkyuser implements Serializable {
         result = prime * result + ((getUserid() == null) ? 0 : getUserid().hashCode());
         result = prime * result + ((getReserve8() == null) ? 0 : getReserve8().hashCode());
         result = prime * result + ((getReserve7() == null) ? 0 : getReserve7().hashCode());
-        result = prime * result + ((getStreet1() == null) ? 0 : getStreet1().hashCode());
-        result = prime * result + ((getStreet2() == null) ? 0 : getStreet2().hashCode());
         return result;
     }
 
@@ -463,6 +463,8 @@ public class DbCkyuser implements Serializable {
         sb.append(", reserve6=").append(reserve6);
         sb.append(", contact=").append(contact);
         sb.append(", company=").append(company);
+        sb.append(", street1=").append(street1);
+        sb.append(", street2=").append(street2);
         sb.append(", city=").append(city);
         sb.append(", province=").append(province);
         sb.append(", country=").append(country);
@@ -474,8 +476,6 @@ public class DbCkyuser implements Serializable {
         sb.append(", userid=").append(userid);
         sb.append(", reserve8=").append(reserve8);
         sb.append(", reserve7=").append(reserve7);
-        sb.append(", street1=").append(street1);
-        sb.append(", street2=").append(street2);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

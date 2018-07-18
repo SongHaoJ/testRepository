@@ -1,18 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbPaymentmethodTemp;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbPaymentmethodTempMapper {
-    int deleteByPrimaryKey(BigDecimal sid);
+    DbPaymentmethodTemp selectByCriteria(DbPaymentmethodTemp DbPaymentmethodTemp);
 
-    int insert(DbPaymentmethodTemp record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbPaymentmethodTemp record);
+    void deleteByCriteria(DbPaymentmethodTemp DbPaymentmethodTemp);
+
+    int insertByCriteria(DbPaymentmethodTemp DbPaymentmethodTemp);
+
+    int updateByCriteria(DbPaymentmethodTemp DbPaymentmethodTemp);
 
     DbPaymentmethodTemp selectByPrimaryKey(BigDecimal sid);
 
-    int updateByPrimaryKeySelective(DbPaymentmethodTemp record);
-
-    int updateByPrimaryKey(DbPaymentmethodTemp record);
+    List<DbPaymentmethodTemp> selectAll();
 }

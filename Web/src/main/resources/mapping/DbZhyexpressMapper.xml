@@ -7,22 +7,22 @@
     <result column="SHIPPINGNAMECN" jdbcType="VARCHAR" property="shippingnamecn" />
     <result column="SHIPPINGNAMEEN" jdbcType="VARCHAR" property="shippingnameen" />
     <result column="SHIPPINTIMGURL" jdbcType="VARCHAR" property="shippintimgurl" />
+    <result column="SHIPPINTADDRESS" jdbcType="VARCHAR" property="shippintaddress" />
     <result column="STATUS" jdbcType="VARCHAR" property="status" />
-    <result column="SHIPPINTADDRESS" jdbcType="LONGVARCHAR" property="shippintaddress" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
     select SEQUENCEID, SHIPPINGCODE, SHIPPINGNAMECN, SHIPPINGNAMEEN, SHIPPINTIMGURL, 
-    STATUS, SHIPPINTADDRESS
-    from db_zhyexpress
+    SHIPPINTADDRESS, STATUS
+    from DB_ZHYEXPRESS
     where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SEQUENCEID, SHIPPINGCODE, SHIPPINGNAMECN, SHIPPINGNAMEEN, SHIPPINTIMGURL, 
-    STATUS, SHIPPINTADDRESS
-    from db_zhyexpress
+    SHIPPINTADDRESS, STATUS
+    from DB_ZHYEXPRESS
   </select>
   <sql id="TableName">
-    db_zhyexpress
+    DB_ZHYEXPRESS
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=DECIMAL} , 
@@ -30,8 +30,8 @@
      #{shippingnamecn,jdbcType=VARCHAR} , 
      #{shippingnameen,jdbcType=VARCHAR} , 
      #{shippintimgurl,jdbcType=VARCHAR} , 
+     #{shippintaddress,jdbcType=VARCHAR} , 
      #{status,jdbcType=VARCHAR} , 
-     #{shippintaddress,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
@@ -39,56 +39,56 @@
     SHIPPINGNAMECN , 
     SHIPPINGNAMEEN , 
     SHIPPINTIMGURL , 
+    SHIPPINTADDRESS , 
     STATUS , 
-    SHIPPINTADDRESS
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} and 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} and 
     </if>
     <if test="shippingcode != null">
-      SHIPPINGCODE = #{shippingcode,jdbcType=VARCHAR} and 
+      shippingcode = #{shippingcode,jdbcType=VARCHAR} and 
     </if>
     <if test="shippingnamecn != null">
-      SHIPPINGNAMECN = #{shippingnamecn,jdbcType=VARCHAR} and 
+      shippingnamecn = #{shippingnamecn,jdbcType=VARCHAR} and 
     </if>
     <if test="shippingnameen != null">
-      SHIPPINGNAMEEN = #{shippingnameen,jdbcType=VARCHAR} and 
+      shippingnameen = #{shippingnameen,jdbcType=VARCHAR} and 
     </if>
     <if test="shippintimgurl != null">
-      SHIPPINTIMGURL = #{shippintimgurl,jdbcType=VARCHAR} and 
-    </if>
-    <if test="status != null">
-      STATUS = #{status,jdbcType=VARCHAR} and 
+      shippintimgurl = #{shippintimgurl,jdbcType=VARCHAR} and 
     </if>
     <if test="shippintaddress != null">
-      SHIPPINTADDRESS = #{shippintaddress,jdbcType=LONGVARCHAR}
+      shippintaddress = #{shippintaddress,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="status != null">
+      status = #{status,jdbcType=VARCHAR} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} , 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} , 
     </if>
     <if test="shippingcode != null">
-      SHIPPINGCODE = #{shippingcode,jdbcType=VARCHAR} , 
+      shippingcode = #{shippingcode,jdbcType=VARCHAR} , 
     </if>
     <if test="shippingnamecn != null">
-      SHIPPINGNAMECN = #{shippingnamecn,jdbcType=VARCHAR} , 
+      shippingnamecn = #{shippingnamecn,jdbcType=VARCHAR} , 
     </if>
     <if test="shippingnameen != null">
-      SHIPPINGNAMEEN = #{shippingnameen,jdbcType=VARCHAR} , 
+      shippingnameen = #{shippingnameen,jdbcType=VARCHAR} , 
     </if>
     <if test="shippintimgurl != null">
-      SHIPPINTIMGURL = #{shippintimgurl,jdbcType=VARCHAR} , 
-    </if>
-    <if test="status != null">
-      STATUS = #{status,jdbcType=VARCHAR} , 
+      shippintimgurl = #{shippintimgurl,jdbcType=VARCHAR} , 
     </if>
     <if test="shippintaddress != null">
-      SHIPPINTADDRESS = #{shippintaddress,jdbcType=LONGVARCHAR}
+      shippintaddress = #{shippintaddress,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="status != null">
+      status = #{status,jdbcType=VARCHAR} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbZhyexpress" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

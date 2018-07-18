@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbCalcupaypaltypelog;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbCalcupaypaltypelogMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbCalcupaypaltypelog selectByCriteria(DbCalcupaypaltypelog DbCalcupaypaltypelog);
 
-    int insert(DbCalcupaypaltypelog record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbCalcupaypaltypelog record);
+    void deleteByCriteria(DbCalcupaypaltypelog DbCalcupaypaltypelog);
+
+    int insertByCriteria(DbCalcupaypaltypelog DbCalcupaypaltypelog);
+
+    int updateByCriteria(DbCalcupaypaltypelog DbCalcupaypaltypelog);
 
     DbCalcupaypaltypelog selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbCalcupaypaltypelog record);
-
-    int updateByPrimaryKeyWithBLOBs(DbCalcupaypaltypelog record);
-
-    int updateByPrimaryKey(DbCalcupaypaltypelog record);
+    List<DbCalcupaypaltypelog> selectAll();
 }

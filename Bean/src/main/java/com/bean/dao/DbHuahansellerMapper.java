@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbHuahanseller;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbHuahansellerMapper {
-    int deleteByPrimaryKey(String sid);
+    DbHuahanseller selectByCriteria(DbHuahanseller DbHuahanseller);
 
-    int insert(DbHuahanseller record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbHuahanseller record);
+    void deleteByCriteria(DbHuahanseller DbHuahanseller);
+
+    int insertByCriteria(DbHuahanseller DbHuahanseller);
+
+    int updateByCriteria(DbHuahanseller DbHuahanseller);
 
     DbHuahanseller selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbHuahanseller record);
-
-    int updateByPrimaryKeyWithBLOBs(DbHuahanseller record);
-
-    int updateByPrimaryKey(DbHuahanseller record);
+    List<DbHuahanseller> selectAll();
 }

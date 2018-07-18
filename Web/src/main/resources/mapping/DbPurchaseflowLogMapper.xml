@@ -16,21 +16,21 @@
     <result column="GROUPID" jdbcType="VARCHAR" property="groupid" />
     <result column="STATUS" jdbcType="DECIMAL" property="status" />
     <result column="LCLSID" jdbcType="DECIMAL" property="lclsid" />
-    <result column="CONTENT" jdbcType="LONGVARCHAR" property="content" />
+    <result column="CONTENT" jdbcType="VARCHAR" property="content" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
     select SEQUENCEID, FLOWSID, DEVELOPSID, PRODUCTID, ORDERNUM, STOCKPRICE, CREATEDATE, 
     CREATEOPER, OPERTIME, OPER, OPERTYPE, GROUPID, STATUS, LCLSID, CONTENT
-    from db_purchaseflow_log
+    from DB_PURCHASEFLOW_LOG
     where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SEQUENCEID, FLOWSID, DEVELOPSID, PRODUCTID, ORDERNUM, STOCKPRICE, CREATEDATE, 
     CREATEOPER, OPERTIME, OPER, OPERTYPE, GROUPID, STATUS, LCLSID, CONTENT
-    from db_purchaseflow_log
+    from DB_PURCHASEFLOW_LOG
   </select>
   <sql id="TableName">
-    db_purchaseflow_log
+    DB_PURCHASEFLOW_LOG
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=DECIMAL} , 
@@ -47,7 +47,7 @@
      #{groupid,jdbcType=VARCHAR} , 
      #{status,jdbcType=DECIMAL} , 
      #{lclsid,jdbcType=DECIMAL} , 
-     #{content,jdbcType=LONGVARCHAR}
+     #{content,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
@@ -64,103 +64,103 @@
     GROUPID , 
     STATUS , 
     LCLSID , 
-    CONTENT
+    CONTENT , 
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} and 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} and 
     </if>
     <if test="flowsid != null">
-      FLOWSID = #{flowsid,jdbcType=DECIMAL} and 
+      flowsid = #{flowsid,jdbcType=DECIMAL} and 
     </if>
     <if test="developsid != null">
-      DEVELOPSID = #{developsid,jdbcType=DECIMAL} and 
+      developsid = #{developsid,jdbcType=DECIMAL} and 
     </if>
     <if test="productid != null">
-      PRODUCTID = #{productid,jdbcType=VARCHAR} and 
+      productid = #{productid,jdbcType=VARCHAR} and 
     </if>
     <if test="ordernum != null">
-      ORDERNUM = #{ordernum,jdbcType=DECIMAL} and 
+      ordernum = #{ordernum,jdbcType=DECIMAL} and 
     </if>
     <if test="stockprice != null">
-      STOCKPRICE = #{stockprice,jdbcType=DECIMAL} and 
+      stockprice = #{stockprice,jdbcType=DECIMAL} and 
     </if>
     <if test="createdate != null">
-      CREATEDATE = #{createdate,jdbcType=TIMESTAMP} and 
+      createdate = #{createdate,jdbcType=TIMESTAMP} and 
     </if>
     <if test="createoper != null">
-      CREATEOPER = #{createoper,jdbcType=VARCHAR} and 
+      createoper = #{createoper,jdbcType=VARCHAR} and 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
+      oper = #{oper,jdbcType=VARCHAR} and 
     </if>
     <if test="opertype != null">
-      OPERTYPE = #{opertype,jdbcType=DECIMAL} and 
+      opertype = #{opertype,jdbcType=DECIMAL} and 
     </if>
     <if test="groupid != null">
-      GROUPID = #{groupid,jdbcType=VARCHAR} and 
+      groupid = #{groupid,jdbcType=VARCHAR} and 
     </if>
     <if test="status != null">
-      STATUS = #{status,jdbcType=DECIMAL} and 
+      status = #{status,jdbcType=DECIMAL} and 
     </if>
     <if test="lclsid != null">
-      LCLSID = #{lclsid,jdbcType=DECIMAL} and 
+      lclsid = #{lclsid,jdbcType=DECIMAL} and 
     </if>
     <if test="content != null">
-      CONTENT = #{content,jdbcType=LONGVARCHAR}
+      content = #{content,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} , 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} , 
     </if>
     <if test="flowsid != null">
-      FLOWSID = #{flowsid,jdbcType=DECIMAL} , 
+      flowsid = #{flowsid,jdbcType=DECIMAL} , 
     </if>
     <if test="developsid != null">
-      DEVELOPSID = #{developsid,jdbcType=DECIMAL} , 
+      developsid = #{developsid,jdbcType=DECIMAL} , 
     </if>
     <if test="productid != null">
-      PRODUCTID = #{productid,jdbcType=VARCHAR} , 
+      productid = #{productid,jdbcType=VARCHAR} , 
     </if>
     <if test="ordernum != null">
-      ORDERNUM = #{ordernum,jdbcType=DECIMAL} , 
+      ordernum = #{ordernum,jdbcType=DECIMAL} , 
     </if>
     <if test="stockprice != null">
-      STOCKPRICE = #{stockprice,jdbcType=DECIMAL} , 
+      stockprice = #{stockprice,jdbcType=DECIMAL} , 
     </if>
     <if test="createdate != null">
-      CREATEDATE = #{createdate,jdbcType=TIMESTAMP} , 
+      createdate = #{createdate,jdbcType=TIMESTAMP} , 
     </if>
     <if test="createoper != null">
-      CREATEOPER = #{createoper,jdbcType=VARCHAR} , 
+      createoper = #{createoper,jdbcType=VARCHAR} , 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
+      oper = #{oper,jdbcType=VARCHAR} , 
     </if>
     <if test="opertype != null">
-      OPERTYPE = #{opertype,jdbcType=DECIMAL} , 
+      opertype = #{opertype,jdbcType=DECIMAL} , 
     </if>
     <if test="groupid != null">
-      GROUPID = #{groupid,jdbcType=VARCHAR} , 
+      groupid = #{groupid,jdbcType=VARCHAR} , 
     </if>
     <if test="status != null">
-      STATUS = #{status,jdbcType=DECIMAL} , 
+      status = #{status,jdbcType=DECIMAL} , 
     </if>
     <if test="lclsid != null">
-      LCLSID = #{lclsid,jdbcType=DECIMAL} , 
+      lclsid = #{lclsid,jdbcType=DECIMAL} , 
     </if>
     <if test="content != null">
-      CONTENT = #{content,jdbcType=LONGVARCHAR}
+      content = #{content,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbPurchaseflowLog" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

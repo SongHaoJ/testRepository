@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbTaskcustomertype;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbTaskcustomertypeMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbTaskcustomertype selectByCriteria(DbTaskcustomertype DbTaskcustomertype);
 
-    int insert(DbTaskcustomertype record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbTaskcustomertype record);
+    void deleteByCriteria(DbTaskcustomertype DbTaskcustomertype);
+
+    int insertByCriteria(DbTaskcustomertype DbTaskcustomertype);
+
+    int updateByCriteria(DbTaskcustomertype DbTaskcustomertype);
 
     DbTaskcustomertype selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbTaskcustomertype record);
-
-    int updateByPrimaryKeyWithBLOBs(DbTaskcustomertype record);
-
-    int updateByPrimaryKey(DbTaskcustomertype record);
+    List<DbTaskcustomertype> selectAll();
 }

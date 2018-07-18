@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbArea;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbAreaMapper {
-    int deleteByPrimaryKey(String area);
+    DbArea selectByCriteria(DbArea DbArea);
 
-    int insert(DbArea record);
+    void deleteByPrimaryKey(String AREA);
 
-    int insertSelective(DbArea record);
+    void deleteByCriteria(DbArea DbArea);
+
+    int insertByCriteria(DbArea DbArea);
+
+    int updateByCriteria(DbArea DbArea);
 
     DbArea selectByPrimaryKey(String area);
 
-    int updateByPrimaryKeySelective(DbArea record);
-
-    int updateByPrimaryKey(DbArea record);
+    List<DbArea> selectAll();
 }

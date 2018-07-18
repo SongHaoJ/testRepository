@@ -5,54 +5,57 @@
     <id column="AREA" jdbcType="VARCHAR" property="area" />
     <result column="CITY" jdbcType="VARCHAR" property="city" />
   </resultMap>
-  <sql id="Base_Column_List">
-    AREA, CITY
-  </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from db_area1
+    select AREA, CITY
+    from DB_AREA1
     where AREA = #{area,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_area1
-    where AREA = #{area,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select AREA, CITY
+    from DB_AREA1
+  </select>
+  <sql id="TableName">
+    DB_AREA1
+  </sql>
+  <sql id="Values">
+     #{area,jdbcType=VARCHAR} , 
+     #{city,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    AREA , 
+    CITY , 
+  </sql>
+  <sql id="Criteria">
+    <if test="area != null">
+      area = #{area,jdbcType=VARCHAR} and 
+    </if>
+    <if test="city != null">
+      city = #{city,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="area != null">
+      area = #{area,jdbcType=VARCHAR} , 
+    </if>
+    <if test="city != null">
+      city = #{city,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbArea1" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where AREA=#{AREA}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbArea1">
-    insert into db_area1 (AREA, CITY)
-    values (#{area,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbArea1">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbArea1">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbArea1">
-    insert into db_area1
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="area != null">
-        AREA,
-      </if>
-      <if test="city != null">
-        CITY,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="area != null">
-        #{area,jdbcType=VARCHAR},
-      </if>
-      <if test="city != null">
-        #{city,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbArea1">
-    update db_area1
-    <set>
-      <if test="city != null">
-        CITY = #{city,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where AREA = #{area,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbArea1">
-    update db_area1
-    set CITY = #{city,jdbcType=VARCHAR}
-    where AREA = #{area,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbArea1">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

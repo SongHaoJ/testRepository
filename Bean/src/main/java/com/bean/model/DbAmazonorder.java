@@ -11,6 +11,10 @@ public class DbAmazonorder implements Serializable {
 
     private String groupid;
 
+    private String customerid;
+
+    private String customername;
+
     private String customertel1;
 
     private String customertel2;
@@ -20,6 +24,22 @@ public class DbAmazonorder implements Serializable {
     private String customerqq;
 
     private String customermsn;
+
+    private String customercountry;
+
+    private String customerprovince;
+
+    private String customercity;
+
+    private String customeraddress;
+
+    private String customeraddress1;
+
+    private String customeraddress2;
+
+    private String customeraddress3;
+
+    private String customeraddressall;
 
     private String customerzipcode;
 
@@ -67,26 +87,6 @@ public class DbAmazonorder implements Serializable {
 
     private Date latestshipdate;
 
-    private String customerid;
-
-    private String customername;
-
-    private String customercountry;
-
-    private String customerprovince;
-
-    private String customercity;
-
-    private String customeraddress;
-
-    private String customeraddress1;
-
-    private String customeraddress2;
-
-    private String customeraddress3;
-
-    private String customeraddressall;
-
     private static final long serialVersionUID = 1L;
 
     public String getOrderid() {
@@ -111,6 +111,22 @@ public class DbAmazonorder implements Serializable {
 
     public void setGroupid(String groupid) {
         this.groupid = groupid == null ? null : groupid.trim();
+    }
+
+    public String getCustomerid() {
+        return customerid;
+    }
+
+    public void setCustomerid(String customerid) {
+        this.customerid = customerid == null ? null : customerid.trim();
+    }
+
+    public String getCustomername() {
+        return customername;
+    }
+
+    public void setCustomername(String customername) {
+        this.customername = customername == null ? null : customername.trim();
     }
 
     public String getCustomertel1() {
@@ -151,6 +167,70 @@ public class DbAmazonorder implements Serializable {
 
     public void setCustomermsn(String customermsn) {
         this.customermsn = customermsn == null ? null : customermsn.trim();
+    }
+
+    public String getCustomercountry() {
+        return customercountry;
+    }
+
+    public void setCustomercountry(String customercountry) {
+        this.customercountry = customercountry == null ? null : customercountry.trim();
+    }
+
+    public String getCustomerprovince() {
+        return customerprovince;
+    }
+
+    public void setCustomerprovince(String customerprovince) {
+        this.customerprovince = customerprovince == null ? null : customerprovince.trim();
+    }
+
+    public String getCustomercity() {
+        return customercity;
+    }
+
+    public void setCustomercity(String customercity) {
+        this.customercity = customercity == null ? null : customercity.trim();
+    }
+
+    public String getCustomeraddress() {
+        return customeraddress;
+    }
+
+    public void setCustomeraddress(String customeraddress) {
+        this.customeraddress = customeraddress == null ? null : customeraddress.trim();
+    }
+
+    public String getCustomeraddress1() {
+        return customeraddress1;
+    }
+
+    public void setCustomeraddress1(String customeraddress1) {
+        this.customeraddress1 = customeraddress1 == null ? null : customeraddress1.trim();
+    }
+
+    public String getCustomeraddress2() {
+        return customeraddress2;
+    }
+
+    public void setCustomeraddress2(String customeraddress2) {
+        this.customeraddress2 = customeraddress2 == null ? null : customeraddress2.trim();
+    }
+
+    public String getCustomeraddress3() {
+        return customeraddress3;
+    }
+
+    public void setCustomeraddress3(String customeraddress3) {
+        this.customeraddress3 = customeraddress3 == null ? null : customeraddress3.trim();
+    }
+
+    public String getCustomeraddressall() {
+        return customeraddressall;
+    }
+
+    public void setCustomeraddressall(String customeraddressall) {
+        this.customeraddressall = customeraddressall == null ? null : customeraddressall.trim();
     }
 
     public String getCustomerzipcode() {
@@ -337,86 +417,6 @@ public class DbAmazonorder implements Serializable {
         this.latestshipdate = latestshipdate;
     }
 
-    public String getCustomerid() {
-        return customerid;
-    }
-
-    public void setCustomerid(String customerid) {
-        this.customerid = customerid == null ? null : customerid.trim();
-    }
-
-    public String getCustomername() {
-        return customername;
-    }
-
-    public void setCustomername(String customername) {
-        this.customername = customername == null ? null : customername.trim();
-    }
-
-    public String getCustomercountry() {
-        return customercountry;
-    }
-
-    public void setCustomercountry(String customercountry) {
-        this.customercountry = customercountry == null ? null : customercountry.trim();
-    }
-
-    public String getCustomerprovince() {
-        return customerprovince;
-    }
-
-    public void setCustomerprovince(String customerprovince) {
-        this.customerprovince = customerprovince == null ? null : customerprovince.trim();
-    }
-
-    public String getCustomercity() {
-        return customercity;
-    }
-
-    public void setCustomercity(String customercity) {
-        this.customercity = customercity == null ? null : customercity.trim();
-    }
-
-    public String getCustomeraddress() {
-        return customeraddress;
-    }
-
-    public void setCustomeraddress(String customeraddress) {
-        this.customeraddress = customeraddress == null ? null : customeraddress.trim();
-    }
-
-    public String getCustomeraddress1() {
-        return customeraddress1;
-    }
-
-    public void setCustomeraddress1(String customeraddress1) {
-        this.customeraddress1 = customeraddress1 == null ? null : customeraddress1.trim();
-    }
-
-    public String getCustomeraddress2() {
-        return customeraddress2;
-    }
-
-    public void setCustomeraddress2(String customeraddress2) {
-        this.customeraddress2 = customeraddress2 == null ? null : customeraddress2.trim();
-    }
-
-    public String getCustomeraddress3() {
-        return customeraddress3;
-    }
-
-    public void setCustomeraddress3(String customeraddress3) {
-        this.customeraddress3 = customeraddress3 == null ? null : customeraddress3.trim();
-    }
-
-    public String getCustomeraddressall() {
-        return customeraddressall;
-    }
-
-    public void setCustomeraddressall(String customeraddressall) {
-        this.customeraddressall = customeraddressall == null ? null : customeraddressall.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -432,11 +432,21 @@ public class DbAmazonorder implements Serializable {
         return (this.getOrderid() == null ? other.getOrderid() == null : this.getOrderid().equals(other.getOrderid()))
             && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()))
             && (this.getGroupid() == null ? other.getGroupid() == null : this.getGroupid().equals(other.getGroupid()))
+            && (this.getCustomerid() == null ? other.getCustomerid() == null : this.getCustomerid().equals(other.getCustomerid()))
+            && (this.getCustomername() == null ? other.getCustomername() == null : this.getCustomername().equals(other.getCustomername()))
             && (this.getCustomertel1() == null ? other.getCustomertel1() == null : this.getCustomertel1().equals(other.getCustomertel1()))
             && (this.getCustomertel2() == null ? other.getCustomertel2() == null : this.getCustomertel2().equals(other.getCustomertel2()))
             && (this.getCustomeremail() == null ? other.getCustomeremail() == null : this.getCustomeremail().equals(other.getCustomeremail()))
             && (this.getCustomerqq() == null ? other.getCustomerqq() == null : this.getCustomerqq().equals(other.getCustomerqq()))
             && (this.getCustomermsn() == null ? other.getCustomermsn() == null : this.getCustomermsn().equals(other.getCustomermsn()))
+            && (this.getCustomercountry() == null ? other.getCustomercountry() == null : this.getCustomercountry().equals(other.getCustomercountry()))
+            && (this.getCustomerprovince() == null ? other.getCustomerprovince() == null : this.getCustomerprovince().equals(other.getCustomerprovince()))
+            && (this.getCustomercity() == null ? other.getCustomercity() == null : this.getCustomercity().equals(other.getCustomercity()))
+            && (this.getCustomeraddress() == null ? other.getCustomeraddress() == null : this.getCustomeraddress().equals(other.getCustomeraddress()))
+            && (this.getCustomeraddress1() == null ? other.getCustomeraddress1() == null : this.getCustomeraddress1().equals(other.getCustomeraddress1()))
+            && (this.getCustomeraddress2() == null ? other.getCustomeraddress2() == null : this.getCustomeraddress2().equals(other.getCustomeraddress2()))
+            && (this.getCustomeraddress3() == null ? other.getCustomeraddress3() == null : this.getCustomeraddress3().equals(other.getCustomeraddress3()))
+            && (this.getCustomeraddressall() == null ? other.getCustomeraddressall() == null : this.getCustomeraddressall().equals(other.getCustomeraddressall()))
             && (this.getCustomerzipcode() == null ? other.getCustomerzipcode() == null : this.getCustomerzipcode().equals(other.getCustomerzipcode()))
             && (this.getCustomerfax() == null ? other.getCustomerfax() == null : this.getCustomerfax().equals(other.getCustomerfax()))
             && (this.getShoptypeid() == null ? other.getShoptypeid() == null : this.getShoptypeid().equals(other.getShoptypeid()))
@@ -459,17 +469,7 @@ public class DbAmazonorder implements Serializable {
             && (this.getOriginfinalvaluefee() == null ? other.getOriginfinalvaluefee() == null : this.getOriginfinalvaluefee().equals(other.getOriginfinalvaluefee()))
             && (this.getFinalvaluefee() == null ? other.getFinalvaluefee() == null : this.getFinalvaluefee().equals(other.getFinalvaluefee()))
             && (this.getFinalvaluefeemoneytype() == null ? other.getFinalvaluefeemoneytype() == null : this.getFinalvaluefeemoneytype().equals(other.getFinalvaluefeemoneytype()))
-            && (this.getLatestshipdate() == null ? other.getLatestshipdate() == null : this.getLatestshipdate().equals(other.getLatestshipdate()))
-            && (this.getCustomerid() == null ? other.getCustomerid() == null : this.getCustomerid().equals(other.getCustomerid()))
-            && (this.getCustomername() == null ? other.getCustomername() == null : this.getCustomername().equals(other.getCustomername()))
-            && (this.getCustomercountry() == null ? other.getCustomercountry() == null : this.getCustomercountry().equals(other.getCustomercountry()))
-            && (this.getCustomerprovince() == null ? other.getCustomerprovince() == null : this.getCustomerprovince().equals(other.getCustomerprovince()))
-            && (this.getCustomercity() == null ? other.getCustomercity() == null : this.getCustomercity().equals(other.getCustomercity()))
-            && (this.getCustomeraddress() == null ? other.getCustomeraddress() == null : this.getCustomeraddress().equals(other.getCustomeraddress()))
-            && (this.getCustomeraddress1() == null ? other.getCustomeraddress1() == null : this.getCustomeraddress1().equals(other.getCustomeraddress1()))
-            && (this.getCustomeraddress2() == null ? other.getCustomeraddress2() == null : this.getCustomeraddress2().equals(other.getCustomeraddress2()))
-            && (this.getCustomeraddress3() == null ? other.getCustomeraddress3() == null : this.getCustomeraddress3().equals(other.getCustomeraddress3()))
-            && (this.getCustomeraddressall() == null ? other.getCustomeraddressall() == null : this.getCustomeraddressall().equals(other.getCustomeraddressall()));
+            && (this.getLatestshipdate() == null ? other.getLatestshipdate() == null : this.getLatestshipdate().equals(other.getLatestshipdate()));
     }
 
     @Override
@@ -479,11 +479,21 @@ public class DbAmazonorder implements Serializable {
         result = prime * result + ((getOrderid() == null) ? 0 : getOrderid().hashCode());
         result = prime * result + ((getCorpid() == null) ? 0 : getCorpid().hashCode());
         result = prime * result + ((getGroupid() == null) ? 0 : getGroupid().hashCode());
+        result = prime * result + ((getCustomerid() == null) ? 0 : getCustomerid().hashCode());
+        result = prime * result + ((getCustomername() == null) ? 0 : getCustomername().hashCode());
         result = prime * result + ((getCustomertel1() == null) ? 0 : getCustomertel1().hashCode());
         result = prime * result + ((getCustomertel2() == null) ? 0 : getCustomertel2().hashCode());
         result = prime * result + ((getCustomeremail() == null) ? 0 : getCustomeremail().hashCode());
         result = prime * result + ((getCustomerqq() == null) ? 0 : getCustomerqq().hashCode());
         result = prime * result + ((getCustomermsn() == null) ? 0 : getCustomermsn().hashCode());
+        result = prime * result + ((getCustomercountry() == null) ? 0 : getCustomercountry().hashCode());
+        result = prime * result + ((getCustomerprovince() == null) ? 0 : getCustomerprovince().hashCode());
+        result = prime * result + ((getCustomercity() == null) ? 0 : getCustomercity().hashCode());
+        result = prime * result + ((getCustomeraddress() == null) ? 0 : getCustomeraddress().hashCode());
+        result = prime * result + ((getCustomeraddress1() == null) ? 0 : getCustomeraddress1().hashCode());
+        result = prime * result + ((getCustomeraddress2() == null) ? 0 : getCustomeraddress2().hashCode());
+        result = prime * result + ((getCustomeraddress3() == null) ? 0 : getCustomeraddress3().hashCode());
+        result = prime * result + ((getCustomeraddressall() == null) ? 0 : getCustomeraddressall().hashCode());
         result = prime * result + ((getCustomerzipcode() == null) ? 0 : getCustomerzipcode().hashCode());
         result = prime * result + ((getCustomerfax() == null) ? 0 : getCustomerfax().hashCode());
         result = prime * result + ((getShoptypeid() == null) ? 0 : getShoptypeid().hashCode());
@@ -507,16 +517,6 @@ public class DbAmazonorder implements Serializable {
         result = prime * result + ((getFinalvaluefee() == null) ? 0 : getFinalvaluefee().hashCode());
         result = prime * result + ((getFinalvaluefeemoneytype() == null) ? 0 : getFinalvaluefeemoneytype().hashCode());
         result = prime * result + ((getLatestshipdate() == null) ? 0 : getLatestshipdate().hashCode());
-        result = prime * result + ((getCustomerid() == null) ? 0 : getCustomerid().hashCode());
-        result = prime * result + ((getCustomername() == null) ? 0 : getCustomername().hashCode());
-        result = prime * result + ((getCustomercountry() == null) ? 0 : getCustomercountry().hashCode());
-        result = prime * result + ((getCustomerprovince() == null) ? 0 : getCustomerprovince().hashCode());
-        result = prime * result + ((getCustomercity() == null) ? 0 : getCustomercity().hashCode());
-        result = prime * result + ((getCustomeraddress() == null) ? 0 : getCustomeraddress().hashCode());
-        result = prime * result + ((getCustomeraddress1() == null) ? 0 : getCustomeraddress1().hashCode());
-        result = prime * result + ((getCustomeraddress2() == null) ? 0 : getCustomeraddress2().hashCode());
-        result = prime * result + ((getCustomeraddress3() == null) ? 0 : getCustomeraddress3().hashCode());
-        result = prime * result + ((getCustomeraddressall() == null) ? 0 : getCustomeraddressall().hashCode());
         return result;
     }
 
@@ -529,11 +529,21 @@ public class DbAmazonorder implements Serializable {
         sb.append(", orderid=").append(orderid);
         sb.append(", corpid=").append(corpid);
         sb.append(", groupid=").append(groupid);
+        sb.append(", customerid=").append(customerid);
+        sb.append(", customername=").append(customername);
         sb.append(", customertel1=").append(customertel1);
         sb.append(", customertel2=").append(customertel2);
         sb.append(", customeremail=").append(customeremail);
         sb.append(", customerqq=").append(customerqq);
         sb.append(", customermsn=").append(customermsn);
+        sb.append(", customercountry=").append(customercountry);
+        sb.append(", customerprovince=").append(customerprovince);
+        sb.append(", customercity=").append(customercity);
+        sb.append(", customeraddress=").append(customeraddress);
+        sb.append(", customeraddress1=").append(customeraddress1);
+        sb.append(", customeraddress2=").append(customeraddress2);
+        sb.append(", customeraddress3=").append(customeraddress3);
+        sb.append(", customeraddressall=").append(customeraddressall);
         sb.append(", customerzipcode=").append(customerzipcode);
         sb.append(", customerfax=").append(customerfax);
         sb.append(", shoptypeid=").append(shoptypeid);
@@ -557,16 +567,6 @@ public class DbAmazonorder implements Serializable {
         sb.append(", finalvaluefee=").append(finalvaluefee);
         sb.append(", finalvaluefeemoneytype=").append(finalvaluefeemoneytype);
         sb.append(", latestshipdate=").append(latestshipdate);
-        sb.append(", customerid=").append(customerid);
-        sb.append(", customername=").append(customername);
-        sb.append(", customercountry=").append(customercountry);
-        sb.append(", customerprovince=").append(customerprovince);
-        sb.append(", customercity=").append(customercity);
-        sb.append(", customeraddress=").append(customeraddress);
-        sb.append(", customeraddress1=").append(customeraddress1);
-        sb.append(", customeraddress2=").append(customeraddress2);
-        sb.append(", customeraddress3=").append(customeraddress3);
-        sb.append(", customeraddressall=").append(customeraddressall);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

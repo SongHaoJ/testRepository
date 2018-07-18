@@ -6,199 +6,199 @@
     <result column="ORDERID" jdbcType="VARCHAR" property="orderid" />
     <result column="GROUPID" jdbcType="VARCHAR" property="groupid" />
     <result column="UPDATEFLAG" jdbcType="VARCHAR" property="updateflag" />
+    <result column="DESCR" jdbcType="VARCHAR" property="descr" />
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
     <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
     <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
+    <result column="RESERVE4" jdbcType="VARCHAR" property="reserve4" />
     <result column="RESERVE5" jdbcType="DECIMAL" property="reserve5" />
     <result column="RESERVE6" jdbcType="DECIMAL" property="reserve6" />
     <result column="RESERVE7" jdbcType="DECIMAL" property="reserve7" />
     <result column="RESERVE8" jdbcType="DECIMAL" property="reserve8" />
     <result column="SELLUSER" jdbcType="VARCHAR" property="selluser" />
     <result column="EXPRESSID" jdbcType="VARCHAR" property="expressid" />
-    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
-    <result column="RESERVE3" jdbcType="LONGVARCHAR" property="reserve3" />
-    <result column="RESERVE4" jdbcType="LONGVARCHAR" property="reserve4" />
-    <result column="SKUS" jdbcType="LONGVARCHAR" property="skus" />
-    <result column="EBAYITEMIDS" jdbcType="LONGVARCHAR" property="ebayitemids" />
+    <result column="SKUS" jdbcType="VARCHAR" property="skus" />
+    <result column="EBAYITEMIDS" jdbcType="VARCHAR" property="ebayitemids" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select SEQUENCEID, ORDERID, GROUPID, UPDATEFLAG, OPER, OPERTIME, RESERVE1, RESERVE2, 
-    RESERVE5, RESERVE6, RESERVE7, RESERVE8, SELLUSER, EXPRESSID, DESCR, RESERVE3, RESERVE4, 
+    select SEQUENCEID, ORDERID, GROUPID, UPDATEFLAG, DESCR, OPER, OPERTIME, RESERVE1, 
+    RESERVE2, RESERVE3, RESERVE4, RESERVE5, RESERVE6, RESERVE7, RESERVE8, SELLUSER, EXPRESSID, 
     SKUS, EBAYITEMIDS
-    from db_sendlist
+    from DB_SENDLIST
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select SEQUENCEID, ORDERID, GROUPID, UPDATEFLAG, OPER, OPERTIME, RESERVE1, RESERVE2, 
-    RESERVE5, RESERVE6, RESERVE7, RESERVE8, SELLUSER, EXPRESSID, DESCR, RESERVE3, RESERVE4, 
+    select SEQUENCEID, ORDERID, GROUPID, UPDATEFLAG, DESCR, OPER, OPERTIME, RESERVE1, 
+    RESERVE2, RESERVE3, RESERVE4, RESERVE5, RESERVE6, RESERVE7, RESERVE8, SELLUSER, EXPRESSID, 
     SKUS, EBAYITEMIDS
-    from db_sendlist
+    from DB_SENDLIST
   </select>
   <sql id="TableName">
-    db_sendlist
+    DB_SENDLIST
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=VARCHAR} , 
      #{orderid,jdbcType=VARCHAR} , 
      #{groupid,jdbcType=VARCHAR} , 
      #{updateflag,jdbcType=VARCHAR} , 
+     #{descr,jdbcType=VARCHAR} , 
      #{oper,jdbcType=VARCHAR} , 
      #{opertime,jdbcType=TIMESTAMP} , 
      #{reserve1,jdbcType=VARCHAR} , 
      #{reserve2,jdbcType=VARCHAR} , 
+     #{reserve3,jdbcType=VARCHAR} , 
+     #{reserve4,jdbcType=VARCHAR} , 
      #{reserve5,jdbcType=DECIMAL} , 
      #{reserve6,jdbcType=DECIMAL} , 
      #{reserve7,jdbcType=DECIMAL} , 
      #{reserve8,jdbcType=DECIMAL} , 
      #{selluser,jdbcType=VARCHAR} , 
      #{expressid,jdbcType=VARCHAR} , 
-     #{descr,jdbcType=LONGVARCHAR} , 
-     #{reserve3,jdbcType=LONGVARCHAR} , 
-     #{reserve4,jdbcType=LONGVARCHAR} , 
-     #{skus,jdbcType=LONGVARCHAR} , 
-     #{ebayitemids,jdbcType=LONGVARCHAR}
+     #{skus,jdbcType=VARCHAR} , 
+     #{ebayitemids,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
     ORDERID , 
     GROUPID , 
     UPDATEFLAG , 
+    DESCR , 
     OPER , 
     OPERTIME , 
     RESERVE1 , 
     RESERVE2 , 
+    RESERVE3 , 
+    RESERVE4 , 
     RESERVE5 , 
     RESERVE6 , 
     RESERVE7 , 
     RESERVE8 , 
     SELLUSER , 
     EXPRESSID , 
-    DESCR , 
-    RESERVE3 , 
-    RESERVE4 , 
     SKUS , 
-    EBAYITEMIDS
+    EBAYITEMIDS , 
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
     </if>
     <if test="orderid != null">
-      ORDERID = #{orderid,jdbcType=VARCHAR} and 
+      orderid = #{orderid,jdbcType=VARCHAR} and 
     </if>
     <if test="groupid != null">
-      GROUPID = #{groupid,jdbcType=VARCHAR} and 
+      groupid = #{groupid,jdbcType=VARCHAR} and 
     </if>
     <if test="updateflag != null">
-      UPDATEFLAG = #{updateflag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=DECIMAL} and 
-    </if>
-    <if test="reserve6 != null">
-      RESERVE6 = #{reserve6,jdbcType=DECIMAL} and 
-    </if>
-    <if test="reserve7 != null">
-      RESERVE7 = #{reserve7,jdbcType=DECIMAL} and 
-    </if>
-    <if test="reserve8 != null">
-      RESERVE8 = #{reserve8,jdbcType=DECIMAL} and 
-    </if>
-    <if test="selluser != null">
-      SELLUSER = #{selluser,jdbcType=VARCHAR} and 
-    </if>
-    <if test="expressid != null">
-      EXPRESSID = #{expressid,jdbcType=VARCHAR} and 
+      updateflag = #{updateflag,jdbcType=VARCHAR} and 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR} and 
+      descr = #{descr,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR} and 
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=LONGVARCHAR} and 
+      reserve4 = #{reserve4,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve6 != null">
+      reserve6 = #{reserve6,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve7 != null">
+      reserve7 = #{reserve7,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve8 != null">
+      reserve8 = #{reserve8,jdbcType=DECIMAL} and 
+    </if>
+    <if test="selluser != null">
+      selluser = #{selluser,jdbcType=VARCHAR} and 
+    </if>
+    <if test="expressid != null">
+      expressid = #{expressid,jdbcType=VARCHAR} and 
     </if>
     <if test="skus != null">
-      SKUS = #{skus,jdbcType=LONGVARCHAR} and 
+      skus = #{skus,jdbcType=VARCHAR} and 
     </if>
     <if test="ebayitemids != null">
-      EBAYITEMIDS = #{ebayitemids,jdbcType=LONGVARCHAR}
+      ebayitemids = #{ebayitemids,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
     </if>
     <if test="orderid != null">
-      ORDERID = #{orderid,jdbcType=VARCHAR} , 
+      orderid = #{orderid,jdbcType=VARCHAR} , 
     </if>
     <if test="groupid != null">
-      GROUPID = #{groupid,jdbcType=VARCHAR} , 
+      groupid = #{groupid,jdbcType=VARCHAR} , 
     </if>
     <if test="updateflag != null">
-      UPDATEFLAG = #{updateflag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=DECIMAL} , 
-    </if>
-    <if test="reserve6 != null">
-      RESERVE6 = #{reserve6,jdbcType=DECIMAL} , 
-    </if>
-    <if test="reserve7 != null">
-      RESERVE7 = #{reserve7,jdbcType=DECIMAL} , 
-    </if>
-    <if test="reserve8 != null">
-      RESERVE8 = #{reserve8,jdbcType=DECIMAL} , 
-    </if>
-    <if test="selluser != null">
-      SELLUSER = #{selluser,jdbcType=VARCHAR} , 
-    </if>
-    <if test="expressid != null">
-      EXPRESSID = #{expressid,jdbcType=VARCHAR} , 
+      updateflag = #{updateflag,jdbcType=VARCHAR} , 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR} , 
+      descr = #{descr,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR} , 
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=LONGVARCHAR} , 
+      reserve4 = #{reserve4,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve6 != null">
+      reserve6 = #{reserve6,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve7 != null">
+      reserve7 = #{reserve7,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve8 != null">
+      reserve8 = #{reserve8,jdbcType=DECIMAL} , 
+    </if>
+    <if test="selluser != null">
+      selluser = #{selluser,jdbcType=VARCHAR} , 
+    </if>
+    <if test="expressid != null">
+      expressid = #{expressid,jdbcType=VARCHAR} , 
     </if>
     <if test="skus != null">
-      SKUS = #{skus,jdbcType=LONGVARCHAR} , 
+      skus = #{skus,jdbcType=VARCHAR} , 
     </if>
     <if test="ebayitemids != null">
-      EBAYITEMIDS = #{ebayitemids,jdbcType=LONGVARCHAR}
+      ebayitemids = #{ebayitemids,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbSendlist" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

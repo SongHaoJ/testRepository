@@ -8,25 +8,25 @@
     <result column="SPBASECODE" jdbcType="VARCHAR" property="spbasecode" />
     <result column="OPENFLAG" jdbcType="DECIMAL" property="openflag" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="DESCR" jdbcType="VARCHAR" property="descr" />
     <result column="CREATOPER" jdbcType="VARCHAR" property="creatoper" />
     <result column="STATUS" jdbcType="DECIMAL" property="status" />
     <result column="FUNCTIONID" jdbcType="DECIMAL" property="functionid" />
     <result column="CREATTIME" jdbcType="TIMESTAMP" property="creattime" />
-    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
-    select SID, NAME, OPER, SPBASECODE, OPENFLAG, OPERTIME, CREATOPER, STATUS, FUNCTIONID, 
-    CREATTIME, DESCR
-    from db_functionconfig
+    select SID, NAME, OPER, SPBASECODE, OPENFLAG, OPERTIME, DESCR, CREATOPER, STATUS, 
+    FUNCTIONID, CREATTIME
+    from DB_FUNCTIONCONFIG
     where SID = #{sid,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select SID, NAME, OPER, SPBASECODE, OPENFLAG, OPERTIME, CREATOPER, STATUS, FUNCTIONID, 
-    CREATTIME, DESCR
-    from db_functionconfig
+    select SID, NAME, OPER, SPBASECODE, OPENFLAG, OPERTIME, DESCR, CREATOPER, STATUS, 
+    FUNCTIONID, CREATTIME
+    from DB_FUNCTIONCONFIG
   </select>
   <sql id="TableName">
-    db_functionconfig
+    DB_FUNCTIONCONFIG
   </sql>
   <sql id="Values">
      #{sid,jdbcType=DECIMAL} , 
@@ -35,11 +35,11 @@
      #{spbasecode,jdbcType=VARCHAR} , 
      #{openflag,jdbcType=DECIMAL} , 
      #{opertime,jdbcType=TIMESTAMP} , 
+     #{descr,jdbcType=VARCHAR} , 
      #{creatoper,jdbcType=VARCHAR} , 
      #{status,jdbcType=DECIMAL} , 
      #{functionid,jdbcType=DECIMAL} , 
      #{creattime,jdbcType=TIMESTAMP} , 
-     #{descr,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     SID , 
@@ -48,83 +48,83 @@
     SPBASECODE , 
     OPENFLAG , 
     OPERTIME , 
+    DESCR , 
     CREATOPER , 
     STATUS , 
     FUNCTIONID , 
     CREATTIME , 
-    DESCR
   </sql>
   <sql id="Criteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=DECIMAL} and 
+      sid = #{sid,jdbcType=DECIMAL} and 
     </if>
     <if test="name != null">
-      NAME = #{name,jdbcType=VARCHAR} and 
+      name = #{name,jdbcType=VARCHAR} and 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
+      oper = #{oper,jdbcType=VARCHAR} and 
     </if>
     <if test="spbasecode != null">
-      SPBASECODE = #{spbasecode,jdbcType=VARCHAR} and 
+      spbasecode = #{spbasecode,jdbcType=VARCHAR} and 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=DECIMAL} and 
+      openflag = #{openflag,jdbcType=DECIMAL} and 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="creatoper != null">
-      CREATOPER = #{creatoper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="status != null">
-      STATUS = #{status,jdbcType=DECIMAL} and 
-    </if>
-    <if test="functionid != null">
-      FUNCTIONID = #{functionid,jdbcType=DECIMAL} and 
-    </if>
-    <if test="creattime != null">
-      CREATTIME = #{creattime,jdbcType=TIMESTAMP} and 
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR}
+      descr = #{descr,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="creatoper != null">
+      creatoper = #{creatoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="status != null">
+      status = #{status,jdbcType=DECIMAL} and 
+    </if>
+    <if test="functionid != null">
+      functionid = #{functionid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="creattime != null">
+      creattime = #{creattime,jdbcType=TIMESTAMP} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=DECIMAL} , 
+      sid = #{sid,jdbcType=DECIMAL} , 
     </if>
     <if test="name != null">
-      NAME = #{name,jdbcType=VARCHAR} , 
+      name = #{name,jdbcType=VARCHAR} , 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
+      oper = #{oper,jdbcType=VARCHAR} , 
     </if>
     <if test="spbasecode != null">
-      SPBASECODE = #{spbasecode,jdbcType=VARCHAR} , 
+      spbasecode = #{spbasecode,jdbcType=VARCHAR} , 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=DECIMAL} , 
+      openflag = #{openflag,jdbcType=DECIMAL} , 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="creatoper != null">
-      CREATOPER = #{creatoper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="status != null">
-      STATUS = #{status,jdbcType=DECIMAL} , 
-    </if>
-    <if test="functionid != null">
-      FUNCTIONID = #{functionid,jdbcType=DECIMAL} , 
-    </if>
-    <if test="creattime != null">
-      CREATTIME = #{creattime,jdbcType=TIMESTAMP} , 
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR}
+      descr = #{descr,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="creatoper != null">
+      creatoper = #{creatoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="status != null">
+      status = #{status,jdbcType=DECIMAL} , 
+    </if>
+    <if test="functionid != null">
+      functionid = #{functionid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="creattime != null">
+      creattime = #{creattime,jdbcType=TIMESTAMP} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbFunctionconfig" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

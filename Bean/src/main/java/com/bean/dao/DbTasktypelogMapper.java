@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbTasktypelog;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbTasktypelogMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbTasktypelog selectByCriteria(DbTasktypelog DbTasktypelog);
 
-    int insert(DbTasktypelog record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbTasktypelog record);
+    void deleteByCriteria(DbTasktypelog DbTasktypelog);
+
+    int insertByCriteria(DbTasktypelog DbTasktypelog);
+
+    int updateByCriteria(DbTasktypelog DbTasktypelog);
 
     DbTasktypelog selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbTasktypelog record);
-
-    int updateByPrimaryKeyWithBLOBs(DbTasktypelog record);
-
-    int updateByPrimaryKey(DbTasktypelog record);
+    List<DbTasktypelog> selectAll();
 }

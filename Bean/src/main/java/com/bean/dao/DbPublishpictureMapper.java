@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbPublishpicture;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbPublishpictureMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbPublishpicture selectByCriteria(DbPublishpicture DbPublishpicture);
 
-    int insert(DbPublishpicture record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbPublishpicture record);
+    void deleteByCriteria(DbPublishpicture DbPublishpicture);
+
+    int insertByCriteria(DbPublishpicture DbPublishpicture);
+
+    int updateByCriteria(DbPublishpicture DbPublishpicture);
 
     DbPublishpicture selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbPublishpicture record);
-
-    int updateByPrimaryKeyWithBLOBs(DbPublishpicture record);
-
-    int updateByPrimaryKey(DbPublishpicture record);
+    List<DbPublishpicture> selectAll();
 }

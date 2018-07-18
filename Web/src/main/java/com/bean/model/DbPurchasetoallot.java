@@ -13,9 +13,13 @@ public class DbPurchasetoallot implements Serializable {
 
     private BigDecimal purchaseindexid;
 
+    private String reserve3;
+
     private BigDecimal havepayed;
 
     private BigDecimal purchaseflag;
+
+    private String name;
 
     private BigDecimal paymentid;
 
@@ -32,6 +36,12 @@ public class DbPurchasetoallot implements Serializable {
     private Date inporttime;
 
     private String shipnum;
+
+    private String productname;
+
+    private String remarks;
+
+    private String descr;
 
     private String creatoper;
 
@@ -53,6 +63,8 @@ public class DbPurchasetoallot implements Serializable {
 
     private BigDecimal discount2;
 
+    private String reserve11;
+
     private BigDecimal inportprice;
 
     private BigDecimal savenum;
@@ -65,7 +77,11 @@ public class DbPurchasetoallot implements Serializable {
 
     private Date opertime;
 
+    private String reserve13;
+
     private BigDecimal actualprice;
+
+    private String reserve12;
 
     private String manufacture;
 
@@ -95,6 +111,8 @@ public class DbPurchasetoallot implements Serializable {
 
     private String reserve5;
 
+    private String reserve15;
+
     private String corpid;
 
     private Date creatdate;
@@ -116,24 +134,6 @@ public class DbPurchasetoallot implements Serializable {
     private BigDecimal ninenum;
 
     private BigDecimal actualamount;
-
-    private String reserve3;
-
-    private String name;
-
-    private String productname;
-
-    private String remarks;
-
-    private String descr;
-
-    private String reserve11;
-
-    private String reserve13;
-
-    private String reserve12;
-
-    private String reserve15;
 
     private static final long serialVersionUID = 1L;
 
@@ -169,6 +169,14 @@ public class DbPurchasetoallot implements Serializable {
         this.purchaseindexid = purchaseindexid;
     }
 
+    public String getReserve3() {
+        return reserve3;
+    }
+
+    public void setReserve3(String reserve3) {
+        this.reserve3 = reserve3 == null ? null : reserve3.trim();
+    }
+
     public BigDecimal getHavepayed() {
         return havepayed;
     }
@@ -183,6 +191,14 @@ public class DbPurchasetoallot implements Serializable {
 
     public void setPurchaseflag(BigDecimal purchaseflag) {
         this.purchaseflag = purchaseflag;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
     }
 
     public BigDecimal getPaymentid() {
@@ -247,6 +263,30 @@ public class DbPurchasetoallot implements Serializable {
 
     public void setShipnum(String shipnum) {
         this.shipnum = shipnum == null ? null : shipnum.trim();
+    }
+
+    public String getProductname() {
+        return productname;
+    }
+
+    public void setProductname(String productname) {
+        this.productname = productname == null ? null : productname.trim();
+    }
+
+    public String getRemarks() {
+        return remarks;
+    }
+
+    public void setRemarks(String remarks) {
+        this.remarks = remarks == null ? null : remarks.trim();
+    }
+
+    public String getDescr() {
+        return descr;
+    }
+
+    public void setDescr(String descr) {
+        this.descr = descr == null ? null : descr.trim();
     }
 
     public String getCreatoper() {
@@ -329,6 +369,14 @@ public class DbPurchasetoallot implements Serializable {
         this.discount2 = discount2;
     }
 
+    public String getReserve11() {
+        return reserve11;
+    }
+
+    public void setReserve11(String reserve11) {
+        this.reserve11 = reserve11 == null ? null : reserve11.trim();
+    }
+
     public BigDecimal getInportprice() {
         return inportprice;
     }
@@ -377,12 +425,28 @@ public class DbPurchasetoallot implements Serializable {
         this.opertime = opertime;
     }
 
+    public String getReserve13() {
+        return reserve13;
+    }
+
+    public void setReserve13(String reserve13) {
+        this.reserve13 = reserve13 == null ? null : reserve13.trim();
+    }
+
     public BigDecimal getActualprice() {
         return actualprice;
     }
 
     public void setActualprice(BigDecimal actualprice) {
         this.actualprice = actualprice;
+    }
+
+    public String getReserve12() {
+        return reserve12;
+    }
+
+    public void setReserve12(String reserve12) {
+        this.reserve12 = reserve12 == null ? null : reserve12.trim();
     }
 
     public String getManufacture() {
@@ -497,6 +561,14 @@ public class DbPurchasetoallot implements Serializable {
         this.reserve5 = reserve5 == null ? null : reserve5.trim();
     }
 
+    public String getReserve15() {
+        return reserve15;
+    }
+
+    public void setReserve15(String reserve15) {
+        this.reserve15 = reserve15 == null ? null : reserve15.trim();
+    }
+
     public String getCorpid() {
         return corpid;
     }
@@ -585,78 +657,6 @@ public class DbPurchasetoallot implements Serializable {
         this.actualamount = actualamount;
     }
 
-    public String getReserve3() {
-        return reserve3;
-    }
-
-    public void setReserve3(String reserve3) {
-        this.reserve3 = reserve3 == null ? null : reserve3.trim();
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
-    }
-
-    public String getProductname() {
-        return productname;
-    }
-
-    public void setProductname(String productname) {
-        this.productname = productname == null ? null : productname.trim();
-    }
-
-    public String getRemarks() {
-        return remarks;
-    }
-
-    public void setRemarks(String remarks) {
-        this.remarks = remarks == null ? null : remarks.trim();
-    }
-
-    public String getDescr() {
-        return descr;
-    }
-
-    public void setDescr(String descr) {
-        this.descr = descr == null ? null : descr.trim();
-    }
-
-    public String getReserve11() {
-        return reserve11;
-    }
-
-    public void setReserve11(String reserve11) {
-        this.reserve11 = reserve11 == null ? null : reserve11.trim();
-    }
-
-    public String getReserve13() {
-        return reserve13;
-    }
-
-    public void setReserve13(String reserve13) {
-        this.reserve13 = reserve13 == null ? null : reserve13.trim();
-    }
-
-    public String getReserve12() {
-        return reserve12;
-    }
-
-    public void setReserve12(String reserve12) {
-        this.reserve12 = reserve12 == null ? null : reserve12.trim();
-    }
-
-    public String getReserve15() {
-        return reserve15;
-    }
-
-    public void setReserve15(String reserve15) {
-        this.reserve15 = reserve15 == null ? null : reserve15.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -673,8 +673,10 @@ public class DbPurchasetoallot implements Serializable {
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getReceiveoper() == null ? other.getReceiveoper() == null : this.getReceiveoper().equals(other.getReceiveoper()))
             && (this.getPurchaseindexid() == null ? other.getPurchaseindexid() == null : this.getPurchaseindexid().equals(other.getPurchaseindexid()))
+            && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
             && (this.getHavepayed() == null ? other.getHavepayed() == null : this.getHavepayed().equals(other.getHavepayed()))
             && (this.getPurchaseflag() == null ? other.getPurchaseflag() == null : this.getPurchaseflag().equals(other.getPurchaseflag()))
+            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
             && (this.getPaymentid() == null ? other.getPaymentid() == null : this.getPaymentid().equals(other.getPaymentid()))
             && (this.getGroupid() == null ? other.getGroupid() == null : this.getGroupid().equals(other.getGroupid()))
             && (this.getReserve8() == null ? other.getReserve8() == null : this.getReserve8().equals(other.getReserve8()))
@@ -683,6 +685,9 @@ public class DbPurchasetoallot implements Serializable {
             && (this.getReserve9() == null ? other.getReserve9() == null : this.getReserve9().equals(other.getReserve9()))
             && (this.getInporttime() == null ? other.getInporttime() == null : this.getInporttime().equals(other.getInporttime()))
             && (this.getShipnum() == null ? other.getShipnum() == null : this.getShipnum().equals(other.getShipnum()))
+            && (this.getProductname() == null ? other.getProductname() == null : this.getProductname().equals(other.getProductname()))
+            && (this.getRemarks() == null ? other.getRemarks() == null : this.getRemarks().equals(other.getRemarks()))
+            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
             && (this.getCreatoper() == null ? other.getCreatoper() == null : this.getCreatoper().equals(other.getCreatoper()))
             && (this.getThreenum() == null ? other.getThreenum() == null : this.getThreenum().equals(other.getThreenum()))
             && (this.getActualnum() == null ? other.getActualnum() == null : this.getActualnum().equals(other.getActualnum()))
@@ -693,13 +698,16 @@ public class DbPurchasetoallot implements Serializable {
             && (this.getSlevel() == null ? other.getSlevel() == null : this.getSlevel().equals(other.getSlevel()))
             && (this.getSid() == null ? other.getSid() == null : this.getSid().equals(other.getSid()))
             && (this.getDiscount2() == null ? other.getDiscount2() == null : this.getDiscount2().equals(other.getDiscount2()))
+            && (this.getReserve11() == null ? other.getReserve11() == null : this.getReserve11().equals(other.getReserve11()))
             && (this.getInportprice() == null ? other.getInportprice() == null : this.getInportprice().equals(other.getInportprice()))
             && (this.getSavenum() == null ? other.getSavenum() == null : this.getSavenum().equals(other.getSavenum()))
             && (this.getPayflag() == null ? other.getPayflag() == null : this.getPayflag().equals(other.getPayflag()))
             && (this.getDiscount3() == null ? other.getDiscount3() == null : this.getDiscount3().equals(other.getDiscount3()))
             && (this.getReserve4() == null ? other.getReserve4() == null : this.getReserve4().equals(other.getReserve4()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
+            && (this.getReserve13() == null ? other.getReserve13() == null : this.getReserve13().equals(other.getReserve13()))
             && (this.getActualprice() == null ? other.getActualprice() == null : this.getActualprice().equals(other.getActualprice()))
+            && (this.getReserve12() == null ? other.getReserve12() == null : this.getReserve12().equals(other.getReserve12()))
             && (this.getManufacture() == null ? other.getManufacture() == null : this.getManufacture().equals(other.getManufacture()))
             && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
             && (this.getSendtime() == null ? other.getSendtime() == null : this.getSendtime().equals(other.getSendtime()))
@@ -714,6 +722,7 @@ public class DbPurchasetoallot implements Serializable {
             && (this.getReceivetime() == null ? other.getReceivetime() == null : this.getReceivetime().equals(other.getReceivetime()))
             && (this.getGiftnum() == null ? other.getGiftnum() == null : this.getGiftnum().equals(other.getGiftnum()))
             && (this.getReserve5() == null ? other.getReserve5() == null : this.getReserve5().equals(other.getReserve5()))
+            && (this.getReserve15() == null ? other.getReserve15() == null : this.getReserve15().equals(other.getReserve15()))
             && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()))
             && (this.getCreatdate() == null ? other.getCreatdate() == null : this.getCreatdate().equals(other.getCreatdate()))
             && (this.getSevennum() == null ? other.getSevennum() == null : this.getSevennum().equals(other.getSevennum()))
@@ -724,16 +733,7 @@ public class DbPurchasetoallot implements Serializable {
             && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
             && (this.getAmount() == null ? other.getAmount() == null : this.getAmount().equals(other.getAmount()))
             && (this.getNinenum() == null ? other.getNinenum() == null : this.getNinenum().equals(other.getNinenum()))
-            && (this.getActualamount() == null ? other.getActualamount() == null : this.getActualamount().equals(other.getActualamount()))
-            && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
-            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
-            && (this.getProductname() == null ? other.getProductname() == null : this.getProductname().equals(other.getProductname()))
-            && (this.getRemarks() == null ? other.getRemarks() == null : this.getRemarks().equals(other.getRemarks()))
-            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
-            && (this.getReserve11() == null ? other.getReserve11() == null : this.getReserve11().equals(other.getReserve11()))
-            && (this.getReserve13() == null ? other.getReserve13() == null : this.getReserve13().equals(other.getReserve13()))
-            && (this.getReserve12() == null ? other.getReserve12() == null : this.getReserve12().equals(other.getReserve12()))
-            && (this.getReserve15() == null ? other.getReserve15() == null : this.getReserve15().equals(other.getReserve15()));
+            && (this.getActualamount() == null ? other.getActualamount() == null : this.getActualamount().equals(other.getActualamount()));
     }
 
     @Override
@@ -744,8 +744,10 @@ public class DbPurchasetoallot implements Serializable {
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getReceiveoper() == null) ? 0 : getReceiveoper().hashCode());
         result = prime * result + ((getPurchaseindexid() == null) ? 0 : getPurchaseindexid().hashCode());
+        result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
         result = prime * result + ((getHavepayed() == null) ? 0 : getHavepayed().hashCode());
         result = prime * result + ((getPurchaseflag() == null) ? 0 : getPurchaseflag().hashCode());
+        result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
         result = prime * result + ((getPaymentid() == null) ? 0 : getPaymentid().hashCode());
         result = prime * result + ((getGroupid() == null) ? 0 : getGroupid().hashCode());
         result = prime * result + ((getReserve8() == null) ? 0 : getReserve8().hashCode());
@@ -754,6 +756,9 @@ public class DbPurchasetoallot implements Serializable {
         result = prime * result + ((getReserve9() == null) ? 0 : getReserve9().hashCode());
         result = prime * result + ((getInporttime() == null) ? 0 : getInporttime().hashCode());
         result = prime * result + ((getShipnum() == null) ? 0 : getShipnum().hashCode());
+        result = prime * result + ((getProductname() == null) ? 0 : getProductname().hashCode());
+        result = prime * result + ((getRemarks() == null) ? 0 : getRemarks().hashCode());
+        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
         result = prime * result + ((getCreatoper() == null) ? 0 : getCreatoper().hashCode());
         result = prime * result + ((getThreenum() == null) ? 0 : getThreenum().hashCode());
         result = prime * result + ((getActualnum() == null) ? 0 : getActualnum().hashCode());
@@ -764,13 +769,16 @@ public class DbPurchasetoallot implements Serializable {
         result = prime * result + ((getSlevel() == null) ? 0 : getSlevel().hashCode());
         result = prime * result + ((getSid() == null) ? 0 : getSid().hashCode());
         result = prime * result + ((getDiscount2() == null) ? 0 : getDiscount2().hashCode());
+        result = prime * result + ((getReserve11() == null) ? 0 : getReserve11().hashCode());
         result = prime * result + ((getInportprice() == null) ? 0 : getInportprice().hashCode());
         result = prime * result + ((getSavenum() == null) ? 0 : getSavenum().hashCode());
         result = prime * result + ((getPayflag() == null) ? 0 : getPayflag().hashCode());
         result = prime * result + ((getDiscount3() == null) ? 0 : getDiscount3().hashCode());
         result = prime * result + ((getReserve4() == null) ? 0 : getReserve4().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
+        result = prime * result + ((getReserve13() == null) ? 0 : getReserve13().hashCode());
         result = prime * result + ((getActualprice() == null) ? 0 : getActualprice().hashCode());
+        result = prime * result + ((getReserve12() == null) ? 0 : getReserve12().hashCode());
         result = prime * result + ((getManufacture() == null) ? 0 : getManufacture().hashCode());
         result = prime * result + ((getStatus() == null) ? 0 : getStatus().hashCode());
         result = prime * result + ((getSendtime() == null) ? 0 : getSendtime().hashCode());
@@ -785,6 +793,7 @@ public class DbPurchasetoallot implements Serializable {
         result = prime * result + ((getReceivetime() == null) ? 0 : getReceivetime().hashCode());
         result = prime * result + ((getGiftnum() == null) ? 0 : getGiftnum().hashCode());
         result = prime * result + ((getReserve5() == null) ? 0 : getReserve5().hashCode());
+        result = prime * result + ((getReserve15() == null) ? 0 : getReserve15().hashCode());
         result = prime * result + ((getCorpid() == null) ? 0 : getCorpid().hashCode());
         result = prime * result + ((getCreatdate() == null) ? 0 : getCreatdate().hashCode());
         result = prime * result + ((getSevennum() == null) ? 0 : getSevennum().hashCode());
@@ -796,15 +805,6 @@ public class DbPurchasetoallot implements Serializable {
         result = prime * result + ((getAmount() == null) ? 0 : getAmount().hashCode());
         result = prime * result + ((getNinenum() == null) ? 0 : getNinenum().hashCode());
         result = prime * result + ((getActualamount() == null) ? 0 : getActualamount().hashCode());
-        result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
-        result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
-        result = prime * result + ((getProductname() == null) ? 0 : getProductname().hashCode());
-        result = prime * result + ((getRemarks() == null) ? 0 : getRemarks().hashCode());
-        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
-        result = prime * result + ((getReserve11() == null) ? 0 : getReserve11().hashCode());
-        result = prime * result + ((getReserve13() == null) ? 0 : getReserve13().hashCode());
-        result = prime * result + ((getReserve12() == null) ? 0 : getReserve12().hashCode());
-        result = prime * result + ((getReserve15() == null) ? 0 : getReserve15().hashCode());
         return result;
     }
 
@@ -818,8 +818,10 @@ public class DbPurchasetoallot implements Serializable {
         sb.append(", oper=").append(oper);
         sb.append(", receiveoper=").append(receiveoper);
         sb.append(", purchaseindexid=").append(purchaseindexid);
+        sb.append(", reserve3=").append(reserve3);
         sb.append(", havepayed=").append(havepayed);
         sb.append(", purchaseflag=").append(purchaseflag);
+        sb.append(", name=").append(name);
         sb.append(", paymentid=").append(paymentid);
         sb.append(", groupid=").append(groupid);
         sb.append(", reserve8=").append(reserve8);
@@ -828,6 +830,9 @@ public class DbPurchasetoallot implements Serializable {
         sb.append(", reserve9=").append(reserve9);
         sb.append(", inporttime=").append(inporttime);
         sb.append(", shipnum=").append(shipnum);
+        sb.append(", productname=").append(productname);
+        sb.append(", remarks=").append(remarks);
+        sb.append(", descr=").append(descr);
         sb.append(", creatoper=").append(creatoper);
         sb.append(", threenum=").append(threenum);
         sb.append(", actualnum=").append(actualnum);
@@ -838,13 +843,16 @@ public class DbPurchasetoallot implements Serializable {
         sb.append(", slevel=").append(slevel);
         sb.append(", sid=").append(sid);
         sb.append(", discount2=").append(discount2);
+        sb.append(", reserve11=").append(reserve11);
         sb.append(", inportprice=").append(inportprice);
         sb.append(", savenum=").append(savenum);
         sb.append(", payflag=").append(payflag);
         sb.append(", discount3=").append(discount3);
         sb.append(", reserve4=").append(reserve4);
         sb.append(", opertime=").append(opertime);
+        sb.append(", reserve13=").append(reserve13);
         sb.append(", actualprice=").append(actualprice);
+        sb.append(", reserve12=").append(reserve12);
         sb.append(", manufacture=").append(manufacture);
         sb.append(", status=").append(status);
         sb.append(", sendtime=").append(sendtime);
@@ -859,6 +867,7 @@ public class DbPurchasetoallot implements Serializable {
         sb.append(", receivetime=").append(receivetime);
         sb.append(", giftnum=").append(giftnum);
         sb.append(", reserve5=").append(reserve5);
+        sb.append(", reserve15=").append(reserve15);
         sb.append(", corpid=").append(corpid);
         sb.append(", creatdate=").append(creatdate);
         sb.append(", sevennum=").append(sevennum);
@@ -870,15 +879,6 @@ public class DbPurchasetoallot implements Serializable {
         sb.append(", amount=").append(amount);
         sb.append(", ninenum=").append(ninenum);
         sb.append(", actualamount=").append(actualamount);
-        sb.append(", reserve3=").append(reserve3);
-        sb.append(", name=").append(name);
-        sb.append(", productname=").append(productname);
-        sb.append(", remarks=").append(remarks);
-        sb.append(", descr=").append(descr);
-        sb.append(", reserve11=").append(reserve11);
-        sb.append(", reserve13=").append(reserve13);
-        sb.append(", reserve12=").append(reserve12);
-        sb.append(", reserve15=").append(reserve15);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

@@ -50,7 +50,7 @@
     CUSTOMERRESERVE4, CUSTOMERRESERVE5, CUSTOMERRESERVE6, CUSTOMERRESERVE7, CUSTOMERRESERVE8, 
     CUSTOMERRESERVE9, CUSTOMERRESERVE10, OPENFLAG, OPER, OPERTIME, ORDERCOUNT, ORDERNUM, 
     ORDERMONEY, SLEVEL, ORDERRESERVE1, ORDERRESERVE2
-    from db_customer
+    from DB_CUSTOMER
     where CUSTOMERID = #{customerid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
@@ -61,10 +61,10 @@
     CUSTOMERRESERVE4, CUSTOMERRESERVE5, CUSTOMERRESERVE6, CUSTOMERRESERVE7, CUSTOMERRESERVE8, 
     CUSTOMERRESERVE9, CUSTOMERRESERVE10, OPENFLAG, OPER, OPERTIME, ORDERCOUNT, ORDERNUM, 
     ORDERMONEY, SLEVEL, ORDERRESERVE1, ORDERRESERVE2
-    from db_customer
+    from DB_CUSTOMER
   </select>
   <sql id="TableName">
-    db_customer
+    DB_CUSTOMER
   </sql>
   <sql id="Values">
      #{customerid,jdbcType=VARCHAR} , 
@@ -105,7 +105,7 @@
      #{ordermoney,jdbcType=DECIMAL} , 
      #{slevel,jdbcType=DECIMAL} , 
      #{orderreserve1,jdbcType=VARCHAR} , 
-     #{orderreserve2,jdbcType=VARCHAR}
+     #{orderreserve2,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     CUSTOMERID , 
@@ -146,247 +146,247 @@
     ORDERMONEY , 
     SLEVEL , 
     ORDERRESERVE1 , 
-    ORDERRESERVE2
+    ORDERRESERVE2 , 
   </sql>
   <sql id="Criteria">
     <if test="customerid != null">
-      CUSTOMERID = #{customerid,jdbcType=VARCHAR} and 
+      customerid = #{customerid,jdbcType=VARCHAR} and 
     </if>
     <if test="customername != null">
-      CUSTOMERNAME = #{customername,jdbcType=VARCHAR} and 
+      customername = #{customername,jdbcType=VARCHAR} and 
     </if>
     <if test="password != null">
-      PASSWORD = #{password,jdbcType=VARCHAR} and 
+      password = #{password,jdbcType=VARCHAR} and 
     </if>
     <if test="customersex != null">
-      CUSTOMERSEX = #{customersex,jdbcType=VARCHAR} and 
+      customersex = #{customersex,jdbcType=VARCHAR} and 
     </if>
     <if test="customerage != null">
-      CUSTOMERAGE = #{customerage,jdbcType=VARCHAR} and 
+      customerage = #{customerage,jdbcType=VARCHAR} and 
     </if>
     <if test="customerbirthday != null">
-      CUSTOMERBIRTHDAY = #{customerbirthday,jdbcType=VARCHAR} and 
+      customerbirthday = #{customerbirthday,jdbcType=VARCHAR} and 
     </if>
     <if test="customerfirstname != null">
-      CUSTOMERFIRSTNAME = #{customerfirstname,jdbcType=VARCHAR} and 
+      customerfirstname = #{customerfirstname,jdbcType=VARCHAR} and 
     </if>
     <if test="customerlastname != null">
-      CUSTOMERLASTNAME = #{customerlastname,jdbcType=VARCHAR} and 
+      customerlastname = #{customerlastname,jdbcType=VARCHAR} and 
     </if>
     <if test="customertype != null">
-      CUSTOMERTYPE = #{customertype,jdbcType=VARCHAR} and 
+      customertype = #{customertype,jdbcType=VARCHAR} and 
     </if>
     <if test="customertel1 != null">
-      CUSTOMERTEL1 = #{customertel1,jdbcType=VARCHAR} and 
+      customertel1 = #{customertel1,jdbcType=VARCHAR} and 
     </if>
     <if test="customertel2 != null">
-      CUSTOMERTEL2 = #{customertel2,jdbcType=VARCHAR} and 
+      customertel2 = #{customertel2,jdbcType=VARCHAR} and 
     </if>
     <if test="customeremail != null">
-      CUSTOMEREMAIL = #{customeremail,jdbcType=VARCHAR} and 
+      customeremail = #{customeremail,jdbcType=VARCHAR} and 
     </if>
     <if test="customerqq != null">
-      CUSTOMERQQ = #{customerqq,jdbcType=VARCHAR} and 
+      customerqq = #{customerqq,jdbcType=VARCHAR} and 
     </if>
     <if test="customermsn != null">
-      CUSTOMERMSN = #{customermsn,jdbcType=VARCHAR} and 
+      customermsn = #{customermsn,jdbcType=VARCHAR} and 
     </if>
     <if test="customercountry != null">
-      CUSTOMERCOUNTRY = #{customercountry,jdbcType=VARCHAR} and 
+      customercountry = #{customercountry,jdbcType=VARCHAR} and 
     </if>
     <if test="customerprovince != null">
-      CUSTOMERPROVINCE = #{customerprovince,jdbcType=VARCHAR} and 
+      customerprovince = #{customerprovince,jdbcType=VARCHAR} and 
     </if>
     <if test="customercity != null">
-      CUSTOMERCITY = #{customercity,jdbcType=VARCHAR} and 
+      customercity = #{customercity,jdbcType=VARCHAR} and 
     </if>
     <if test="customeraddress != null">
-      CUSTOMERADDRESS = #{customeraddress,jdbcType=VARCHAR} and 
+      customeraddress = #{customeraddress,jdbcType=VARCHAR} and 
     </if>
     <if test="customerzipcode != null">
-      CUSTOMERZIPCODE = #{customerzipcode,jdbcType=VARCHAR} and 
+      customerzipcode = #{customerzipcode,jdbcType=VARCHAR} and 
     </if>
     <if test="customerfax != null">
-      CUSTOMERFAX = #{customerfax,jdbcType=VARCHAR} and 
+      customerfax = #{customerfax,jdbcType=VARCHAR} and 
     </if>
     <if test="customerreserve1 != null">
-      CUSTOMERRESERVE1 = #{customerreserve1,jdbcType=VARCHAR} and 
+      customerreserve1 = #{customerreserve1,jdbcType=VARCHAR} and 
     </if>
     <if test="customerreserve2 != null">
-      CUSTOMERRESERVE2 = #{customerreserve2,jdbcType=VARCHAR} and 
+      customerreserve2 = #{customerreserve2,jdbcType=VARCHAR} and 
     </if>
     <if test="customerreserve3 != null">
-      CUSTOMERRESERVE3 = #{customerreserve3,jdbcType=VARCHAR} and 
+      customerreserve3 = #{customerreserve3,jdbcType=VARCHAR} and 
     </if>
     <if test="customerreserve4 != null">
-      CUSTOMERRESERVE4 = #{customerreserve4,jdbcType=VARCHAR} and 
+      customerreserve4 = #{customerreserve4,jdbcType=VARCHAR} and 
     </if>
     <if test="customerreserve5 != null">
-      CUSTOMERRESERVE5 = #{customerreserve5,jdbcType=VARCHAR} and 
+      customerreserve5 = #{customerreserve5,jdbcType=VARCHAR} and 
     </if>
     <if test="customerreserve6 != null">
-      CUSTOMERRESERVE6 = #{customerreserve6,jdbcType=VARCHAR} and 
+      customerreserve6 = #{customerreserve6,jdbcType=VARCHAR} and 
     </if>
     <if test="customerreserve7 != null">
-      CUSTOMERRESERVE7 = #{customerreserve7,jdbcType=VARCHAR} and 
+      customerreserve7 = #{customerreserve7,jdbcType=VARCHAR} and 
     </if>
     <if test="customerreserve8 != null">
-      CUSTOMERRESERVE8 = #{customerreserve8,jdbcType=VARCHAR} and 
+      customerreserve8 = #{customerreserve8,jdbcType=VARCHAR} and 
     </if>
     <if test="customerreserve9 != null">
-      CUSTOMERRESERVE9 = #{customerreserve9,jdbcType=VARCHAR} and 
+      customerreserve9 = #{customerreserve9,jdbcType=VARCHAR} and 
     </if>
     <if test="customerreserve10 != null">
-      CUSTOMERRESERVE10 = #{customerreserve10,jdbcType=VARCHAR} and 
+      customerreserve10 = #{customerreserve10,jdbcType=VARCHAR} and 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
+      openflag = #{openflag,jdbcType=VARCHAR} and 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
+      oper = #{oper,jdbcType=VARCHAR} and 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="ordercount != null">
-      ORDERCOUNT = #{ordercount,jdbcType=DECIMAL} and 
+      ordercount = #{ordercount,jdbcType=DECIMAL} and 
     </if>
     <if test="ordernum != null">
-      ORDERNUM = #{ordernum,jdbcType=DECIMAL} and 
+      ordernum = #{ordernum,jdbcType=DECIMAL} and 
     </if>
     <if test="ordermoney != null">
-      ORDERMONEY = #{ordermoney,jdbcType=DECIMAL} and 
+      ordermoney = #{ordermoney,jdbcType=DECIMAL} and 
     </if>
     <if test="slevel != null">
-      SLEVEL = #{slevel,jdbcType=DECIMAL} and 
+      slevel = #{slevel,jdbcType=DECIMAL} and 
     </if>
     <if test="orderreserve1 != null">
-      ORDERRESERVE1 = #{orderreserve1,jdbcType=VARCHAR} and 
+      orderreserve1 = #{orderreserve1,jdbcType=VARCHAR} and 
     </if>
     <if test="orderreserve2 != null">
-      ORDERRESERVE2 = #{orderreserve2,jdbcType=VARCHAR}
+      orderreserve2 = #{orderreserve2,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="customerid != null">
-      CUSTOMERID = #{customerid,jdbcType=VARCHAR} , 
+      customerid = #{customerid,jdbcType=VARCHAR} , 
     </if>
     <if test="customername != null">
-      CUSTOMERNAME = #{customername,jdbcType=VARCHAR} , 
+      customername = #{customername,jdbcType=VARCHAR} , 
     </if>
     <if test="password != null">
-      PASSWORD = #{password,jdbcType=VARCHAR} , 
+      password = #{password,jdbcType=VARCHAR} , 
     </if>
     <if test="customersex != null">
-      CUSTOMERSEX = #{customersex,jdbcType=VARCHAR} , 
+      customersex = #{customersex,jdbcType=VARCHAR} , 
     </if>
     <if test="customerage != null">
-      CUSTOMERAGE = #{customerage,jdbcType=VARCHAR} , 
+      customerage = #{customerage,jdbcType=VARCHAR} , 
     </if>
     <if test="customerbirthday != null">
-      CUSTOMERBIRTHDAY = #{customerbirthday,jdbcType=VARCHAR} , 
+      customerbirthday = #{customerbirthday,jdbcType=VARCHAR} , 
     </if>
     <if test="customerfirstname != null">
-      CUSTOMERFIRSTNAME = #{customerfirstname,jdbcType=VARCHAR} , 
+      customerfirstname = #{customerfirstname,jdbcType=VARCHAR} , 
     </if>
     <if test="customerlastname != null">
-      CUSTOMERLASTNAME = #{customerlastname,jdbcType=VARCHAR} , 
+      customerlastname = #{customerlastname,jdbcType=VARCHAR} , 
     </if>
     <if test="customertype != null">
-      CUSTOMERTYPE = #{customertype,jdbcType=VARCHAR} , 
+      customertype = #{customertype,jdbcType=VARCHAR} , 
     </if>
     <if test="customertel1 != null">
-      CUSTOMERTEL1 = #{customertel1,jdbcType=VARCHAR} , 
+      customertel1 = #{customertel1,jdbcType=VARCHAR} , 
     </if>
     <if test="customertel2 != null">
-      CUSTOMERTEL2 = #{customertel2,jdbcType=VARCHAR} , 
+      customertel2 = #{customertel2,jdbcType=VARCHAR} , 
     </if>
     <if test="customeremail != null">
-      CUSTOMEREMAIL = #{customeremail,jdbcType=VARCHAR} , 
+      customeremail = #{customeremail,jdbcType=VARCHAR} , 
     </if>
     <if test="customerqq != null">
-      CUSTOMERQQ = #{customerqq,jdbcType=VARCHAR} , 
+      customerqq = #{customerqq,jdbcType=VARCHAR} , 
     </if>
     <if test="customermsn != null">
-      CUSTOMERMSN = #{customermsn,jdbcType=VARCHAR} , 
+      customermsn = #{customermsn,jdbcType=VARCHAR} , 
     </if>
     <if test="customercountry != null">
-      CUSTOMERCOUNTRY = #{customercountry,jdbcType=VARCHAR} , 
+      customercountry = #{customercountry,jdbcType=VARCHAR} , 
     </if>
     <if test="customerprovince != null">
-      CUSTOMERPROVINCE = #{customerprovince,jdbcType=VARCHAR} , 
+      customerprovince = #{customerprovince,jdbcType=VARCHAR} , 
     </if>
     <if test="customercity != null">
-      CUSTOMERCITY = #{customercity,jdbcType=VARCHAR} , 
+      customercity = #{customercity,jdbcType=VARCHAR} , 
     </if>
     <if test="customeraddress != null">
-      CUSTOMERADDRESS = #{customeraddress,jdbcType=VARCHAR} , 
+      customeraddress = #{customeraddress,jdbcType=VARCHAR} , 
     </if>
     <if test="customerzipcode != null">
-      CUSTOMERZIPCODE = #{customerzipcode,jdbcType=VARCHAR} , 
+      customerzipcode = #{customerzipcode,jdbcType=VARCHAR} , 
     </if>
     <if test="customerfax != null">
-      CUSTOMERFAX = #{customerfax,jdbcType=VARCHAR} , 
+      customerfax = #{customerfax,jdbcType=VARCHAR} , 
     </if>
     <if test="customerreserve1 != null">
-      CUSTOMERRESERVE1 = #{customerreserve1,jdbcType=VARCHAR} , 
+      customerreserve1 = #{customerreserve1,jdbcType=VARCHAR} , 
     </if>
     <if test="customerreserve2 != null">
-      CUSTOMERRESERVE2 = #{customerreserve2,jdbcType=VARCHAR} , 
+      customerreserve2 = #{customerreserve2,jdbcType=VARCHAR} , 
     </if>
     <if test="customerreserve3 != null">
-      CUSTOMERRESERVE3 = #{customerreserve3,jdbcType=VARCHAR} , 
+      customerreserve3 = #{customerreserve3,jdbcType=VARCHAR} , 
     </if>
     <if test="customerreserve4 != null">
-      CUSTOMERRESERVE4 = #{customerreserve4,jdbcType=VARCHAR} , 
+      customerreserve4 = #{customerreserve4,jdbcType=VARCHAR} , 
     </if>
     <if test="customerreserve5 != null">
-      CUSTOMERRESERVE5 = #{customerreserve5,jdbcType=VARCHAR} , 
+      customerreserve5 = #{customerreserve5,jdbcType=VARCHAR} , 
     </if>
     <if test="customerreserve6 != null">
-      CUSTOMERRESERVE6 = #{customerreserve6,jdbcType=VARCHAR} , 
+      customerreserve6 = #{customerreserve6,jdbcType=VARCHAR} , 
     </if>
     <if test="customerreserve7 != null">
-      CUSTOMERRESERVE7 = #{customerreserve7,jdbcType=VARCHAR} , 
+      customerreserve7 = #{customerreserve7,jdbcType=VARCHAR} , 
     </if>
     <if test="customerreserve8 != null">
-      CUSTOMERRESERVE8 = #{customerreserve8,jdbcType=VARCHAR} , 
+      customerreserve8 = #{customerreserve8,jdbcType=VARCHAR} , 
     </if>
     <if test="customerreserve9 != null">
-      CUSTOMERRESERVE9 = #{customerreserve9,jdbcType=VARCHAR} , 
+      customerreserve9 = #{customerreserve9,jdbcType=VARCHAR} , 
     </if>
     <if test="customerreserve10 != null">
-      CUSTOMERRESERVE10 = #{customerreserve10,jdbcType=VARCHAR} , 
+      customerreserve10 = #{customerreserve10,jdbcType=VARCHAR} , 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
+      openflag = #{openflag,jdbcType=VARCHAR} , 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
+      oper = #{oper,jdbcType=VARCHAR} , 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="ordercount != null">
-      ORDERCOUNT = #{ordercount,jdbcType=DECIMAL} , 
+      ordercount = #{ordercount,jdbcType=DECIMAL} , 
     </if>
     <if test="ordernum != null">
-      ORDERNUM = #{ordernum,jdbcType=DECIMAL} , 
+      ordernum = #{ordernum,jdbcType=DECIMAL} , 
     </if>
     <if test="ordermoney != null">
-      ORDERMONEY = #{ordermoney,jdbcType=DECIMAL} , 
+      ordermoney = #{ordermoney,jdbcType=DECIMAL} , 
     </if>
     <if test="slevel != null">
-      SLEVEL = #{slevel,jdbcType=DECIMAL} , 
+      slevel = #{slevel,jdbcType=DECIMAL} , 
     </if>
     <if test="orderreserve1 != null">
-      ORDERRESERVE1 = #{orderreserve1,jdbcType=VARCHAR} , 
+      orderreserve1 = #{orderreserve1,jdbcType=VARCHAR} , 
     </if>
     <if test="orderreserve2 != null">
-      ORDERRESERVE2 = #{orderreserve2,jdbcType=VARCHAR}
+      orderreserve2 = #{orderreserve2,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbCustomer" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

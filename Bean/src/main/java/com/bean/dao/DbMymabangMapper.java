@@ -1,18 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbMymabang;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbMymabangMapper {
-    int deleteByPrimaryKey(BigDecimal sequenceid);
+    DbMymabang selectByCriteria(DbMymabang DbMymabang);
 
-    int insert(DbMymabang record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbMymabang record);
+    void deleteByCriteria(DbMymabang DbMymabang);
+
+    int insertByCriteria(DbMymabang DbMymabang);
+
+    int updateByCriteria(DbMymabang DbMymabang);
 
     DbMymabang selectByPrimaryKey(BigDecimal sequenceid);
 
-    int updateByPrimaryKeySelective(DbMymabang record);
-
-    int updateByPrimaryKey(DbMymabang record);
+    List<DbMymabang> selectAll();
 }

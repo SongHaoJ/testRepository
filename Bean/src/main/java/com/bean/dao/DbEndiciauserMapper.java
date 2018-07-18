@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbEndiciauser;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbEndiciauserMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbEndiciauser selectByCriteria(DbEndiciauser DbEndiciauser);
 
-    int insert(DbEndiciauser record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbEndiciauser record);
+    void deleteByCriteria(DbEndiciauser DbEndiciauser);
+
+    int insertByCriteria(DbEndiciauser DbEndiciauser);
+
+    int updateByCriteria(DbEndiciauser DbEndiciauser);
 
     DbEndiciauser selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbEndiciauser record);
-
-    int updateByPrimaryKeyWithBLOBs(DbEndiciauser record);
-
-    int updateByPrimaryKey(DbEndiciauser record);
+    List<DbEndiciauser> selectAll();
 }

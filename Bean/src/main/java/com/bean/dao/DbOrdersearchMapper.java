@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbOrdersearch;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbOrdersearchMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbOrdersearch selectByCriteria(DbOrdersearch DbOrdersearch);
 
-    int insert(DbOrdersearch record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbOrdersearch record);
+    void deleteByCriteria(DbOrdersearch DbOrdersearch);
+
+    int insertByCriteria(DbOrdersearch DbOrdersearch);
+
+    int updateByCriteria(DbOrdersearch DbOrdersearch);
 
     DbOrdersearch selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbOrdersearch record);
-
-    int updateByPrimaryKeyWithBLOBs(DbOrdersearch record);
-
-    int updateByPrimaryKey(DbOrdersearch record);
+    List<DbOrdersearch> selectAll();
 }

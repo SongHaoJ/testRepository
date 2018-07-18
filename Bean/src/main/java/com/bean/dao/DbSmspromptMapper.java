@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbSmsprompt;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbSmspromptMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbSmsprompt selectByCriteria(DbSmsprompt DbSmsprompt);
 
-    int insert(DbSmsprompt record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbSmsprompt record);
+    void deleteByCriteria(DbSmsprompt DbSmsprompt);
+
+    int insertByCriteria(DbSmsprompt DbSmsprompt);
+
+    int updateByCriteria(DbSmsprompt DbSmsprompt);
 
     DbSmsprompt selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbSmsprompt record);
-
-    int updateByPrimaryKeyWithBLOBs(DbSmsprompt record);
-
-    int updateByPrimaryKey(DbSmsprompt record);
+    List<DbSmsprompt> selectAll();
 }

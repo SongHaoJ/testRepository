@@ -1,20 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbRelistitem;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbRelistitemMapper {
-    int deleteByPrimaryKey(BigDecimal sid);
+    DbRelistitem selectByCriteria(DbRelistitem DbRelistitem);
 
-    int insert(DbRelistitem record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbRelistitem record);
+    void deleteByCriteria(DbRelistitem DbRelistitem);
+
+    int insertByCriteria(DbRelistitem DbRelistitem);
+
+    int updateByCriteria(DbRelistitem DbRelistitem);
 
     DbRelistitem selectByPrimaryKey(BigDecimal sid);
 
-    int updateByPrimaryKeySelective(DbRelistitem record);
-
-    int updateByPrimaryKeyWithBLOBs(DbRelistitem record);
-
-    int updateByPrimaryKey(DbRelistitem record);
+    List<DbRelistitem> selectAll();
 }

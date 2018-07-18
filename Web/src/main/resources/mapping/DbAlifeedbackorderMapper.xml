@@ -5,79 +5,79 @@
     <id column="TRADEID" jdbcType="VARCHAR" property="tradeid" />
     <result column="FEEDBACKTIME" jdbcType="TIMESTAMP" property="feedbacktime" />
     <result column="FLAG" jdbcType="VARCHAR" property="flag" />
+    <result column="DESCR" jdbcType="VARCHAR" property="descr" />
     <result column="SHOPID" jdbcType="VARCHAR" property="shopid" />
     <result column="UPDATEFLAG" jdbcType="VARCHAR" property="updateflag" />
-    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select TRADEID, FEEDBACKTIME, FLAG, SHOPID, UPDATEFLAG, DESCR
-    from db_alifeedbackorder
+    select TRADEID, FEEDBACKTIME, FLAG, DESCR, SHOPID, UPDATEFLAG
+    from DB_ALIFEEDBACKORDER
     where TRADEID = #{tradeid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select TRADEID, FEEDBACKTIME, FLAG, SHOPID, UPDATEFLAG, DESCR
-    from db_alifeedbackorder
+    select TRADEID, FEEDBACKTIME, FLAG, DESCR, SHOPID, UPDATEFLAG
+    from DB_ALIFEEDBACKORDER
   </select>
   <sql id="TableName">
-    db_alifeedbackorder
+    DB_ALIFEEDBACKORDER
   </sql>
   <sql id="Values">
      #{tradeid,jdbcType=VARCHAR} , 
      #{feedbacktime,jdbcType=TIMESTAMP} , 
      #{flag,jdbcType=VARCHAR} , 
+     #{descr,jdbcType=VARCHAR} , 
      #{shopid,jdbcType=VARCHAR} , 
      #{updateflag,jdbcType=VARCHAR} , 
-     #{descr,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     TRADEID , 
     FEEDBACKTIME , 
     FLAG , 
+    DESCR , 
     SHOPID , 
     UPDATEFLAG , 
-    DESCR
   </sql>
   <sql id="Criteria">
     <if test="tradeid != null">
-      TRADEID = #{tradeid,jdbcType=VARCHAR} and 
+      tradeid = #{tradeid,jdbcType=VARCHAR} and 
     </if>
     <if test="feedbacktime != null">
-      FEEDBACKTIME = #{feedbacktime,jdbcType=TIMESTAMP} and 
+      feedbacktime = #{feedbacktime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="flag != null">
-      FLAG = #{flag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="shopid != null">
-      SHOPID = #{shopid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="updateflag != null">
-      UPDATEFLAG = #{updateflag,jdbcType=VARCHAR} and 
+      flag = #{flag,jdbcType=VARCHAR} and 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR}
+      descr = #{descr,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="shopid != null">
+      shopid = #{shopid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="updateflag != null">
+      updateflag = #{updateflag,jdbcType=VARCHAR} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="tradeid != null">
-      TRADEID = #{tradeid,jdbcType=VARCHAR} , 
+      tradeid = #{tradeid,jdbcType=VARCHAR} , 
     </if>
     <if test="feedbacktime != null">
-      FEEDBACKTIME = #{feedbacktime,jdbcType=TIMESTAMP} , 
+      feedbacktime = #{feedbacktime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="flag != null">
-      FLAG = #{flag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="shopid != null">
-      SHOPID = #{shopid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="updateflag != null">
-      UPDATEFLAG = #{updateflag,jdbcType=VARCHAR} , 
+      flag = #{flag,jdbcType=VARCHAR} , 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR}
+      descr = #{descr,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="shopid != null">
+      shopid = #{shopid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="updateflag != null">
+      updateflag = #{updateflag,jdbcType=VARCHAR} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbAlifeedbackorder" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

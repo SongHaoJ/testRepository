@@ -7,9 +7,9 @@ public class DbItemspevalue implements Serializable {
 
     private String ebayitemspeid;
 
-    private String flag;
-
     private String ebayitemspename;
+
+    private String flag;
 
     private static final long serialVersionUID = 1L;
 
@@ -29,20 +29,20 @@ public class DbItemspevalue implements Serializable {
         this.ebayitemspeid = ebayitemspeid == null ? null : ebayitemspeid.trim();
     }
 
-    public String getFlag() {
-        return flag;
-    }
-
-    public void setFlag(String flag) {
-        this.flag = flag == null ? null : flag.trim();
-    }
-
     public String getEbayitemspename() {
         return ebayitemspename;
     }
 
     public void setEbayitemspename(String ebayitemspename) {
         this.ebayitemspename = ebayitemspename == null ? null : ebayitemspename.trim();
+    }
+
+    public String getFlag() {
+        return flag;
+    }
+
+    public void setFlag(String flag) {
+        this.flag = flag == null ? null : flag.trim();
     }
 
     @Override
@@ -59,8 +59,8 @@ public class DbItemspevalue implements Serializable {
         DbItemspevalue other = (DbItemspevalue) that;
         return (this.getSid() == null ? other.getSid() == null : this.getSid().equals(other.getSid()))
             && (this.getEbayitemspeid() == null ? other.getEbayitemspeid() == null : this.getEbayitemspeid().equals(other.getEbayitemspeid()))
-            && (this.getFlag() == null ? other.getFlag() == null : this.getFlag().equals(other.getFlag()))
-            && (this.getEbayitemspename() == null ? other.getEbayitemspename() == null : this.getEbayitemspename().equals(other.getEbayitemspename()));
+            && (this.getEbayitemspename() == null ? other.getEbayitemspename() == null : this.getEbayitemspename().equals(other.getEbayitemspename()))
+            && (this.getFlag() == null ? other.getFlag() == null : this.getFlag().equals(other.getFlag()));
     }
 
     @Override
@@ -69,8 +69,8 @@ public class DbItemspevalue implements Serializable {
         int result = 1;
         result = prime * result + ((getSid() == null) ? 0 : getSid().hashCode());
         result = prime * result + ((getEbayitemspeid() == null) ? 0 : getEbayitemspeid().hashCode());
-        result = prime * result + ((getFlag() == null) ? 0 : getFlag().hashCode());
         result = prime * result + ((getEbayitemspename() == null) ? 0 : getEbayitemspename().hashCode());
+        result = prime * result + ((getFlag() == null) ? 0 : getFlag().hashCode());
         return result;
     }
 
@@ -82,8 +82,8 @@ public class DbItemspevalue implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", sid=").append(sid);
         sb.append(", ebayitemspeid=").append(ebayitemspeid);
-        sb.append(", flag=").append(flag);
         sb.append(", ebayitemspename=").append(ebayitemspename);
+        sb.append(", flag=").append(flag);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

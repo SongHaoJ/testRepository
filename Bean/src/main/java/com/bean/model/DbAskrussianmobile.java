@@ -10,13 +10,13 @@ public class DbAskrussianmobile implements Serializable {
 
     private String shopname;
 
-    private String errorflag;
-
-    private Date sendtime;
-
     private String content;
 
+    private String errorflag;
+
     private String errordescr;
+
+    private Date sendtime;
 
     private static final long serialVersionUID = 1L;
 
@@ -44,22 +44,6 @@ public class DbAskrussianmobile implements Serializable {
         this.shopname = shopname == null ? null : shopname.trim();
     }
 
-    public String getErrorflag() {
-        return errorflag;
-    }
-
-    public void setErrorflag(String errorflag) {
-        this.errorflag = errorflag == null ? null : errorflag.trim();
-    }
-
-    public Date getSendtime() {
-        return sendtime;
-    }
-
-    public void setSendtime(Date sendtime) {
-        this.sendtime = sendtime;
-    }
-
     public String getContent() {
         return content;
     }
@@ -68,12 +52,28 @@ public class DbAskrussianmobile implements Serializable {
         this.content = content == null ? null : content.trim();
     }
 
+    public String getErrorflag() {
+        return errorflag;
+    }
+
+    public void setErrorflag(String errorflag) {
+        this.errorflag = errorflag == null ? null : errorflag.trim();
+    }
+
     public String getErrordescr() {
         return errordescr;
     }
 
     public void setErrordescr(String errordescr) {
         this.errordescr = errordescr == null ? null : errordescr.trim();
+    }
+
+    public Date getSendtime() {
+        return sendtime;
+    }
+
+    public void setSendtime(Date sendtime) {
+        this.sendtime = sendtime;
     }
 
     @Override
@@ -91,10 +91,10 @@ public class DbAskrussianmobile implements Serializable {
         return (this.getOrderid() == null ? other.getOrderid() == null : this.getOrderid().equals(other.getOrderid()))
             && (this.getShopid() == null ? other.getShopid() == null : this.getShopid().equals(other.getShopid()))
             && (this.getShopname() == null ? other.getShopname() == null : this.getShopname().equals(other.getShopname()))
-            && (this.getErrorflag() == null ? other.getErrorflag() == null : this.getErrorflag().equals(other.getErrorflag()))
-            && (this.getSendtime() == null ? other.getSendtime() == null : this.getSendtime().equals(other.getSendtime()))
             && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
-            && (this.getErrordescr() == null ? other.getErrordescr() == null : this.getErrordescr().equals(other.getErrordescr()));
+            && (this.getErrorflag() == null ? other.getErrorflag() == null : this.getErrorflag().equals(other.getErrorflag()))
+            && (this.getErrordescr() == null ? other.getErrordescr() == null : this.getErrordescr().equals(other.getErrordescr()))
+            && (this.getSendtime() == null ? other.getSendtime() == null : this.getSendtime().equals(other.getSendtime()));
     }
 
     @Override
@@ -104,10 +104,10 @@ public class DbAskrussianmobile implements Serializable {
         result = prime * result + ((getOrderid() == null) ? 0 : getOrderid().hashCode());
         result = prime * result + ((getShopid() == null) ? 0 : getShopid().hashCode());
         result = prime * result + ((getShopname() == null) ? 0 : getShopname().hashCode());
-        result = prime * result + ((getErrorflag() == null) ? 0 : getErrorflag().hashCode());
-        result = prime * result + ((getSendtime() == null) ? 0 : getSendtime().hashCode());
         result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
+        result = prime * result + ((getErrorflag() == null) ? 0 : getErrorflag().hashCode());
         result = prime * result + ((getErrordescr() == null) ? 0 : getErrordescr().hashCode());
+        result = prime * result + ((getSendtime() == null) ? 0 : getSendtime().hashCode());
         return result;
     }
 
@@ -120,10 +120,10 @@ public class DbAskrussianmobile implements Serializable {
         sb.append(", orderid=").append(orderid);
         sb.append(", shopid=").append(shopid);
         sb.append(", shopname=").append(shopname);
-        sb.append(", errorflag=").append(errorflag);
-        sb.append(", sendtime=").append(sendtime);
         sb.append(", content=").append(content);
+        sb.append(", errorflag=").append(errorflag);
         sb.append(", errordescr=").append(errordescr);
+        sb.append(", sendtime=").append(sendtime);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

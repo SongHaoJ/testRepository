@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbEbaysite;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbEbaysiteMapper {
-    int deleteByPrimaryKey(String sid);
+    DbEbaysite selectByCriteria(DbEbaysite DbEbaysite);
 
-    int insert(DbEbaysite record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbEbaysite record);
+    void deleteByCriteria(DbEbaysite DbEbaysite);
+
+    int insertByCriteria(DbEbaysite DbEbaysite);
+
+    int updateByCriteria(DbEbaysite DbEbaysite);
 
     DbEbaysite selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbEbaysite record);
-
-    int updateByPrimaryKey(DbEbaysite record);
+    List<DbEbaysite> selectAll();
 }

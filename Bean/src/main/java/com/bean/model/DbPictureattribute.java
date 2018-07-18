@@ -11,11 +11,15 @@ public class DbPictureattribute implements Serializable {
 
     private String uploadflag;
 
+    private String thisurl;
+
     private String ftpip;
 
     private String ftpusername;
 
     private String ftppassword;
+
+    private String ftpurl;
 
     private String reserve1;
 
@@ -36,10 +40,6 @@ public class DbPictureattribute implements Serializable {
     private Date opertime;
 
     private String attributeid;
-
-    private String thisurl;
-
-    private String ftpurl;
 
     private static final long serialVersionUID = 1L;
 
@@ -67,6 +67,14 @@ public class DbPictureattribute implements Serializable {
         this.uploadflag = uploadflag == null ? null : uploadflag.trim();
     }
 
+    public String getThisurl() {
+        return thisurl;
+    }
+
+    public void setThisurl(String thisurl) {
+        this.thisurl = thisurl == null ? null : thisurl.trim();
+    }
+
     public String getFtpip() {
         return ftpip;
     }
@@ -89,6 +97,14 @@ public class DbPictureattribute implements Serializable {
 
     public void setFtppassword(String ftppassword) {
         this.ftppassword = ftppassword == null ? null : ftppassword.trim();
+    }
+
+    public String getFtpurl() {
+        return ftpurl;
+    }
+
+    public void setFtpurl(String ftpurl) {
+        this.ftpurl = ftpurl == null ? null : ftpurl.trim();
     }
 
     public String getReserve1() {
@@ -171,22 +187,6 @@ public class DbPictureattribute implements Serializable {
         this.attributeid = attributeid == null ? null : attributeid.trim();
     }
 
-    public String getThisurl() {
-        return thisurl;
-    }
-
-    public void setThisurl(String thisurl) {
-        this.thisurl = thisurl == null ? null : thisurl.trim();
-    }
-
-    public String getFtpurl() {
-        return ftpurl;
-    }
-
-    public void setFtpurl(String ftpurl) {
-        this.ftpurl = ftpurl == null ? null : ftpurl.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -202,9 +202,11 @@ public class DbPictureattribute implements Serializable {
         return (this.getSequenceid() == null ? other.getSequenceid() == null : this.getSequenceid().equals(other.getSequenceid()))
             && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
             && (this.getUploadflag() == null ? other.getUploadflag() == null : this.getUploadflag().equals(other.getUploadflag()))
+            && (this.getThisurl() == null ? other.getThisurl() == null : this.getThisurl().equals(other.getThisurl()))
             && (this.getFtpip() == null ? other.getFtpip() == null : this.getFtpip().equals(other.getFtpip()))
             && (this.getFtpusername() == null ? other.getFtpusername() == null : this.getFtpusername().equals(other.getFtpusername()))
             && (this.getFtppassword() == null ? other.getFtppassword() == null : this.getFtppassword().equals(other.getFtppassword()))
+            && (this.getFtpurl() == null ? other.getFtpurl() == null : this.getFtpurl().equals(other.getFtpurl()))
             && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
             && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
             && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
@@ -214,9 +216,7 @@ public class DbPictureattribute implements Serializable {
             && (this.getOpenflag() == null ? other.getOpenflag() == null : this.getOpenflag().equals(other.getOpenflag()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
-            && (this.getAttributeid() == null ? other.getAttributeid() == null : this.getAttributeid().equals(other.getAttributeid()))
-            && (this.getThisurl() == null ? other.getThisurl() == null : this.getThisurl().equals(other.getThisurl()))
-            && (this.getFtpurl() == null ? other.getFtpurl() == null : this.getFtpurl().equals(other.getFtpurl()));
+            && (this.getAttributeid() == null ? other.getAttributeid() == null : this.getAttributeid().equals(other.getAttributeid()));
     }
 
     @Override
@@ -226,9 +226,11 @@ public class DbPictureattribute implements Serializable {
         result = prime * result + ((getSequenceid() == null) ? 0 : getSequenceid().hashCode());
         result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
         result = prime * result + ((getUploadflag() == null) ? 0 : getUploadflag().hashCode());
+        result = prime * result + ((getThisurl() == null) ? 0 : getThisurl().hashCode());
         result = prime * result + ((getFtpip() == null) ? 0 : getFtpip().hashCode());
         result = prime * result + ((getFtpusername() == null) ? 0 : getFtpusername().hashCode());
         result = prime * result + ((getFtppassword() == null) ? 0 : getFtppassword().hashCode());
+        result = prime * result + ((getFtpurl() == null) ? 0 : getFtpurl().hashCode());
         result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
         result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
         result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
@@ -239,8 +241,6 @@ public class DbPictureattribute implements Serializable {
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getAttributeid() == null) ? 0 : getAttributeid().hashCode());
-        result = prime * result + ((getThisurl() == null) ? 0 : getThisurl().hashCode());
-        result = prime * result + ((getFtpurl() == null) ? 0 : getFtpurl().hashCode());
         return result;
     }
 
@@ -253,9 +253,11 @@ public class DbPictureattribute implements Serializable {
         sb.append(", sequenceid=").append(sequenceid);
         sb.append(", name=").append(name);
         sb.append(", uploadflag=").append(uploadflag);
+        sb.append(", thisurl=").append(thisurl);
         sb.append(", ftpip=").append(ftpip);
         sb.append(", ftpusername=").append(ftpusername);
         sb.append(", ftppassword=").append(ftppassword);
+        sb.append(", ftpurl=").append(ftpurl);
         sb.append(", reserve1=").append(reserve1);
         sb.append(", reserve2=").append(reserve2);
         sb.append(", reserve3=").append(reserve3);
@@ -266,8 +268,6 @@ public class DbPictureattribute implements Serializable {
         sb.append(", oper=").append(oper);
         sb.append(", opertime=").append(opertime);
         sb.append(", attributeid=").append(attributeid);
-        sb.append(", thisurl=").append(thisurl);
-        sb.append(", ftpurl=").append(ftpurl);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

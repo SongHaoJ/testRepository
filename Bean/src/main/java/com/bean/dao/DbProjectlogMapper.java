@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbProjectlog;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbProjectlogMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbProjectlog selectByCriteria(DbProjectlog DbProjectlog);
 
-    int insert(DbProjectlog record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbProjectlog record);
+    void deleteByCriteria(DbProjectlog DbProjectlog);
+
+    int insertByCriteria(DbProjectlog DbProjectlog);
+
+    int updateByCriteria(DbProjectlog DbProjectlog);
 
     DbProjectlog selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbProjectlog record);
-
-    int updateByPrimaryKeyWithBLOBs(DbProjectlog record);
-
-    int updateByPrimaryKey(DbProjectlog record);
+    List<DbProjectlog> selectAll();
 }

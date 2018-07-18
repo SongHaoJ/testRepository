@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbOrdertype;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbOrdertypeMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbOrdertype selectByCriteria(DbOrdertype DbOrdertype);
 
-    int insert(DbOrdertype record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbOrdertype record);
+    void deleteByCriteria(DbOrdertype DbOrdertype);
+
+    int insertByCriteria(DbOrdertype DbOrdertype);
+
+    int updateByCriteria(DbOrdertype DbOrdertype);
 
     DbOrdertype selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbOrdertype record);
-
-    int updateByPrimaryKeyWithBLOBs(DbOrdertype record);
-
-    int updateByPrimaryKey(DbOrdertype record);
+    List<DbOrdertype> selectAll();
 }

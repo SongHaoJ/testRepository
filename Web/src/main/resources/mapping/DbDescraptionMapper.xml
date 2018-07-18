@@ -3,45 +3,45 @@
 <mapper namespace="com.bean.dao.DbDescraptionMapper">
   <resultMap id="BaseResultMap" type="com.bean.model.DbDescraption">
     <id column="SID" jdbcType="DECIMAL" property="sid" />
-    <result column="PRODUCTCONTENT" jdbcType="LONGVARCHAR" property="productcontent" />
+    <result column="PRODUCTCONTENT" jdbcType="CLOB" property="productcontent" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
     select SID, PRODUCTCONTENT
-    from db_descraption
+    from DB_DESCRAPTION
     where SID = #{sid,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SID, PRODUCTCONTENT
-    from db_descraption
+    from DB_DESCRAPTION
   </select>
   <sql id="TableName">
-    db_descraption
+    DB_DESCRAPTION
   </sql>
   <sql id="Values">
      #{sid,jdbcType=DECIMAL} , 
-     #{productcontent,jdbcType=LONGVARCHAR}
+     #{productcontent,jdbcType=CLOB} , 
   </sql>
   <sql id="Columns">
     SID , 
-    PRODUCTCONTENT
+    PRODUCTCONTENT , 
   </sql>
   <sql id="Criteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=DECIMAL} and 
+      sid = #{sid,jdbcType=DECIMAL} and 
     </if>
     <if test="productcontent != null">
-      PRODUCTCONTENT = #{productcontent,jdbcType=LONGVARCHAR}
+      productcontent = #{productcontent,jdbcType=CLOB} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=DECIMAL} , 
+      sid = #{sid,jdbcType=DECIMAL} , 
     </if>
     <if test="productcontent != null">
-      PRODUCTCONTENT = #{productcontent,jdbcType=LONGVARCHAR}
+      productcontent = #{productcontent,jdbcType=CLOB} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbDescraption" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

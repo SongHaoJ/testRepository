@@ -2,8 +2,8 @@ package com.bean.dao;
 
 import com.bean.model.DbMenufuncBak;
 
-public interface DbMenufuncBakMapper {
-    int insert(DbMenufuncBak record);
+import java.util.List;
 
-    int insertSelective(DbMenufuncBak record);
+public interface DbMenufuncBakMapper {
+    List<DbMenufuncBak> selectAll();
 }

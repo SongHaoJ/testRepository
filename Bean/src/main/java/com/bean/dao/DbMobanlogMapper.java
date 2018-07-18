@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbMobanlog;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbMobanlogMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbMobanlog selectByCriteria(DbMobanlog DbMobanlog);
 
-    int insert(DbMobanlog record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbMobanlog record);
+    void deleteByCriteria(DbMobanlog DbMobanlog);
+
+    int insertByCriteria(DbMobanlog DbMobanlog);
+
+    int updateByCriteria(DbMobanlog DbMobanlog);
 
     DbMobanlog selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbMobanlog record);
-
-    int updateByPrimaryKeyWithBLOBs(DbMobanlog record);
-
-    int updateByPrimaryKey(DbMobanlog record);
+    List<DbMobanlog> selectAll();
 }

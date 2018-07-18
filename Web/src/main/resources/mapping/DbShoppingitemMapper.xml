@@ -50,6 +50,7 @@
     <result column="HITCOUNT1" jdbcType="DECIMAL" property="hitcount1" />
     <result column="HITCOUNT56" jdbcType="DECIMAL" property="hitcount56" />
     <result column="ENDTIME" jdbcType="TIMESTAMP" property="endtime" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
     <result column="QUANTITYSOLD14" jdbcType="DECIMAL" property="quantitysold14" />
     <result column="FEEDBACKRATE" jdbcType="DECIMAL" property="feedbackrate" />
     <result column="BIDCOUNT" jdbcType="DECIMAL" property="bidcount" />
@@ -62,7 +63,6 @@
     <result column="STOREURL" jdbcType="VARCHAR" property="storeurl" />
     <result column="SHIPPINGCOST" jdbcType="DECIMAL" property="shippingcost" />
     <result column="LISTINGSTATUS" jdbcType="VARCHAR" property="listingstatus" />
-    <result column="TITLE" jdbcType="LONGVARCHAR" property="title" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
     select ITEMID, QUANTITYSOLD56, RUNTIME, AVGALL, STORENAME, HITCOUNT7, RETURNSACCEPTED, 
@@ -71,10 +71,10 @@
     PAYMENTMETHOD, LISTSHIPPINGCOSTTYPE, STARTTIME, FEEDBACKSCORE, QUANTIRY, QUANTITYSOLD28, 
     ITEMURL, AVG15, QUANTITYSOLD7, CATEGORYID, QUANTITYSOLDTOTAL, LASTRUNTIME, CURRENTPRICE, 
     TASKID, ITEMFLAG, HITCOUNT14, LOCATION, CATEGORYNAME, TIMELIFT, LISTINGTYPE, QUANTITYSOLD3, 
-    QUANTITYSOLD1, QUANTITYSOLD21, SITE, HITCOUNT1, HITCOUNT56, ENDTIME, QUANTITYSOLD14, 
+    QUANTITYSOLD1, QUANTITYSOLD21, SITE, HITCOUNT1, HITCOUNT56, ENDTIME, TITLE, QUANTITYSOLD14, 
     FEEDBACKRATE, BIDCOUNT, CURRENTPRICETYPE, HITCOUNT3, SHIPTOLOCATIONS, HITCOUNT, UPDATETIME, 
-    COUNTRY, STOREURL, SHIPPINGCOST, LISTINGSTATUS, TITLE
-    from db_shoppingitem
+    COUNTRY, STOREURL, SHIPPINGCOST, LISTINGSTATUS
+    from DB_SHOPPINGITEM
     where ITEMID = #{itemid,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
@@ -84,13 +84,13 @@
     PAYMENTMETHOD, LISTSHIPPINGCOSTTYPE, STARTTIME, FEEDBACKSCORE, QUANTIRY, QUANTITYSOLD28, 
     ITEMURL, AVG15, QUANTITYSOLD7, CATEGORYID, QUANTITYSOLDTOTAL, LASTRUNTIME, CURRENTPRICE, 
     TASKID, ITEMFLAG, HITCOUNT14, LOCATION, CATEGORYNAME, TIMELIFT, LISTINGTYPE, QUANTITYSOLD3, 
-    QUANTITYSOLD1, QUANTITYSOLD21, SITE, HITCOUNT1, HITCOUNT56, ENDTIME, QUANTITYSOLD14, 
+    QUANTITYSOLD1, QUANTITYSOLD21, SITE, HITCOUNT1, HITCOUNT56, ENDTIME, TITLE, QUANTITYSOLD14, 
     FEEDBACKRATE, BIDCOUNT, CURRENTPRICETYPE, HITCOUNT3, SHIPTOLOCATIONS, HITCOUNT, UPDATETIME, 
-    COUNTRY, STOREURL, SHIPPINGCOST, LISTINGSTATUS, TITLE
-    from db_shoppingitem
+    COUNTRY, STOREURL, SHIPPINGCOST, LISTINGSTATUS
+    from DB_SHOPPINGITEM
   </select>
   <sql id="TableName">
-    db_shoppingitem
+    DB_SHOPPINGITEM
   </sql>
   <sql id="Values">
      #{itemid,jdbcType=DECIMAL} , 
@@ -141,6 +141,7 @@
      #{hitcount1,jdbcType=DECIMAL} , 
      #{hitcount56,jdbcType=DECIMAL} , 
      #{endtime,jdbcType=TIMESTAMP} , 
+     #{title,jdbcType=VARCHAR} , 
      #{quantitysold14,jdbcType=DECIMAL} , 
      #{feedbackrate,jdbcType=DECIMAL} , 
      #{bidcount,jdbcType=DECIMAL} , 
@@ -153,7 +154,6 @@
      #{storeurl,jdbcType=VARCHAR} , 
      #{shippingcost,jdbcType=DECIMAL} , 
      #{listingstatus,jdbcType=VARCHAR} , 
-     #{title,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     ITEMID , 
@@ -204,6 +204,7 @@
     HITCOUNT1 , 
     HITCOUNT56 , 
     ENDTIME , 
+    TITLE , 
     QUANTITYSOLD14 , 
     FEEDBACKRATE , 
     BIDCOUNT , 
@@ -216,379 +217,378 @@
     STOREURL , 
     SHIPPINGCOST , 
     LISTINGSTATUS , 
-    TITLE
   </sql>
   <sql id="Criteria">
     <if test="itemid != null">
-      ITEMID = #{itemid,jdbcType=DECIMAL} and 
+      itemid = #{itemid,jdbcType=DECIMAL} and 
     </if>
     <if test="quantitysold56 != null">
-      QUANTITYSOLD56 = #{quantitysold56,jdbcType=DECIMAL} and 
+      quantitysold56 = #{quantitysold56,jdbcType=DECIMAL} and 
     </if>
     <if test="runtime != null">
-      RUNTIME = #{runtime,jdbcType=DECIMAL} and 
+      runtime = #{runtime,jdbcType=DECIMAL} and 
     </if>
     <if test="avgall != null">
-      AVGALL = #{avgall,jdbcType=DECIMAL} and 
+      avgall = #{avgall,jdbcType=DECIMAL} and 
     </if>
     <if test="storename != null">
-      STORENAME = #{storename,jdbcType=VARCHAR} and 
+      storename = #{storename,jdbcType=VARCHAR} and 
     </if>
     <if test="hitcount7 != null">
-      HITCOUNT7 = #{hitcount7,jdbcType=DECIMAL} and 
+      hitcount7 = #{hitcount7,jdbcType=DECIMAL} and 
     </if>
     <if test="returnsaccepted != null">
-      RETURNSACCEPTED = #{returnsaccepted,jdbcType=VARCHAR} and 
+      returnsaccepted = #{returnsaccepted,jdbcType=VARCHAR} and 
     </if>
     <if test="userid != null">
-      USERID = #{userid,jdbcType=VARCHAR} and 
+      userid = #{userid,jdbcType=VARCHAR} and 
     </if>
     <if test="avg30 != null">
-      AVG30 = #{avg30,jdbcType=DECIMAL} and 
+      avg30 = #{avg30,jdbcType=DECIMAL} and 
     </if>
     <if test="shippingtype != null">
-      SHIPPINGTYPE = #{shippingtype,jdbcType=VARCHAR} and 
+      shippingtype = #{shippingtype,jdbcType=VARCHAR} and 
     </if>
     <if test="hitcount28 != null">
-      HITCOUNT28 = #{hitcount28,jdbcType=DECIMAL} and 
+      hitcount28 = #{hitcount28,jdbcType=DECIMAL} and 
     </if>
     <if test="hitcount21 != null">
-      HITCOUNT21 = #{hitcount21,jdbcType=DECIMAL} and 
+      hitcount21 = #{hitcount21,jdbcType=DECIMAL} and 
     </if>
     <if test="refund != null">
-      REFUND = #{refund,jdbcType=VARCHAR} and 
+      refund = #{refund,jdbcType=VARCHAR} and 
     </if>
     <if test="hitcounttotal != null">
-      HITCOUNTTOTAL = #{hitcounttotal,jdbcType=DECIMAL} and 
+      hitcounttotal = #{hitcounttotal,jdbcType=DECIMAL} and 
     </if>
     <if test="shippingcosttype != null">
-      SHIPPINGCOSTTYPE = #{shippingcosttype,jdbcType=VARCHAR} and 
+      shippingcosttype = #{shippingcosttype,jdbcType=VARCHAR} and 
     </if>
     <if test="shippingcostpaidby != null">
-      SHIPPINGCOSTPAIDBY = #{shippingcostpaidby,jdbcType=VARCHAR} and 
+      shippingcostpaidby = #{shippingcostpaidby,jdbcType=VARCHAR} and 
     </if>
     <if test="avg7 != null">
-      AVG7 = #{avg7,jdbcType=DECIMAL} and 
+      avg7 = #{avg7,jdbcType=DECIMAL} and 
     </if>
     <if test="returnswithin != null">
-      RETURNSWITHIN = #{returnswithin,jdbcType=VARCHAR} and 
+      returnswithin = #{returnswithin,jdbcType=VARCHAR} and 
     </if>
     <if test="listingflag != null">
-      LISTINGFLAG = #{listingflag,jdbcType=DECIMAL} and 
+      listingflag = #{listingflag,jdbcType=DECIMAL} and 
     </if>
     <if test="quantitysold != null">
-      QUANTITYSOLD = #{quantitysold,jdbcType=DECIMAL} and 
+      quantitysold = #{quantitysold,jdbcType=DECIMAL} and 
     </if>
     <if test="listshippingcost != null">
-      LISTSHIPPINGCOST = #{listshippingcost,jdbcType=DECIMAL} and 
+      listshippingcost = #{listshippingcost,jdbcType=DECIMAL} and 
     </if>
     <if test="paymentmethod != null">
-      PAYMENTMETHOD = #{paymentmethod,jdbcType=VARCHAR} and 
+      paymentmethod = #{paymentmethod,jdbcType=VARCHAR} and 
     </if>
     <if test="listshippingcosttype != null">
-      LISTSHIPPINGCOSTTYPE = #{listshippingcosttype,jdbcType=VARCHAR} and 
+      listshippingcosttype = #{listshippingcosttype,jdbcType=VARCHAR} and 
     </if>
     <if test="starttime != null">
-      STARTTIME = #{starttime,jdbcType=TIMESTAMP} and 
+      starttime = #{starttime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="feedbackscore != null">
-      FEEDBACKSCORE = #{feedbackscore,jdbcType=DECIMAL} and 
+      feedbackscore = #{feedbackscore,jdbcType=DECIMAL} and 
     </if>
     <if test="quantiry != null">
-      QUANTIRY = #{quantiry,jdbcType=DECIMAL} and 
+      quantiry = #{quantiry,jdbcType=DECIMAL} and 
     </if>
     <if test="quantitysold28 != null">
-      QUANTITYSOLD28 = #{quantitysold28,jdbcType=DECIMAL} and 
+      quantitysold28 = #{quantitysold28,jdbcType=DECIMAL} and 
     </if>
     <if test="itemurl != null">
-      ITEMURL = #{itemurl,jdbcType=VARCHAR} and 
+      itemurl = #{itemurl,jdbcType=VARCHAR} and 
     </if>
     <if test="avg15 != null">
-      AVG15 = #{avg15,jdbcType=DECIMAL} and 
+      avg15 = #{avg15,jdbcType=DECIMAL} and 
     </if>
     <if test="quantitysold7 != null">
-      QUANTITYSOLD7 = #{quantitysold7,jdbcType=DECIMAL} and 
+      quantitysold7 = #{quantitysold7,jdbcType=DECIMAL} and 
     </if>
     <if test="categoryid != null">
-      CATEGORYID = #{categoryid,jdbcType=VARCHAR} and 
+      categoryid = #{categoryid,jdbcType=VARCHAR} and 
     </if>
     <if test="quantitysoldtotal != null">
-      QUANTITYSOLDTOTAL = #{quantitysoldtotal,jdbcType=DECIMAL} and 
+      quantitysoldtotal = #{quantitysoldtotal,jdbcType=DECIMAL} and 
     </if>
     <if test="lastruntime != null">
-      LASTRUNTIME = #{lastruntime,jdbcType=DECIMAL} and 
+      lastruntime = #{lastruntime,jdbcType=DECIMAL} and 
     </if>
     <if test="currentprice != null">
-      CURRENTPRICE = #{currentprice,jdbcType=DECIMAL} and 
+      currentprice = #{currentprice,jdbcType=DECIMAL} and 
     </if>
     <if test="taskid != null">
-      TASKID = #{taskid,jdbcType=DECIMAL} and 
+      taskid = #{taskid,jdbcType=DECIMAL} and 
     </if>
     <if test="itemflag != null">
-      ITEMFLAG = #{itemflag,jdbcType=DECIMAL} and 
+      itemflag = #{itemflag,jdbcType=DECIMAL} and 
     </if>
     <if test="hitcount14 != null">
-      HITCOUNT14 = #{hitcount14,jdbcType=DECIMAL} and 
+      hitcount14 = #{hitcount14,jdbcType=DECIMAL} and 
     </if>
     <if test="location != null">
-      LOCATION = #{location,jdbcType=VARCHAR} and 
+      location = #{location,jdbcType=VARCHAR} and 
     </if>
     <if test="categoryname != null">
-      CATEGORYNAME = #{categoryname,jdbcType=VARCHAR} and 
+      categoryname = #{categoryname,jdbcType=VARCHAR} and 
     </if>
     <if test="timelift != null">
-      TIMELIFT = #{timelift,jdbcType=VARCHAR} and 
+      timelift = #{timelift,jdbcType=VARCHAR} and 
     </if>
     <if test="listingtype != null">
-      LISTINGTYPE = #{listingtype,jdbcType=VARCHAR} and 
+      listingtype = #{listingtype,jdbcType=VARCHAR} and 
     </if>
     <if test="quantitysold3 != null">
-      QUANTITYSOLD3 = #{quantitysold3,jdbcType=DECIMAL} and 
+      quantitysold3 = #{quantitysold3,jdbcType=DECIMAL} and 
     </if>
     <if test="quantitysold1 != null">
-      QUANTITYSOLD1 = #{quantitysold1,jdbcType=DECIMAL} and 
+      quantitysold1 = #{quantitysold1,jdbcType=DECIMAL} and 
     </if>
     <if test="quantitysold21 != null">
-      QUANTITYSOLD21 = #{quantitysold21,jdbcType=DECIMAL} and 
+      quantitysold21 = #{quantitysold21,jdbcType=DECIMAL} and 
     </if>
     <if test="site != null">
-      SITE = #{site,jdbcType=VARCHAR} and 
+      site = #{site,jdbcType=VARCHAR} and 
     </if>
     <if test="hitcount1 != null">
-      HITCOUNT1 = #{hitcount1,jdbcType=DECIMAL} and 
+      hitcount1 = #{hitcount1,jdbcType=DECIMAL} and 
     </if>
     <if test="hitcount56 != null">
-      HITCOUNT56 = #{hitcount56,jdbcType=DECIMAL} and 
+      hitcount56 = #{hitcount56,jdbcType=DECIMAL} and 
     </if>
     <if test="endtime != null">
-      ENDTIME = #{endtime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="quantitysold14 != null">
-      QUANTITYSOLD14 = #{quantitysold14,jdbcType=DECIMAL} and 
-    </if>
-    <if test="feedbackrate != null">
-      FEEDBACKRATE = #{feedbackrate,jdbcType=DECIMAL} and 
-    </if>
-    <if test="bidcount != null">
-      BIDCOUNT = #{bidcount,jdbcType=DECIMAL} and 
-    </if>
-    <if test="currentpricetype != null">
-      CURRENTPRICETYPE = #{currentpricetype,jdbcType=VARCHAR} and 
-    </if>
-    <if test="hitcount3 != null">
-      HITCOUNT3 = #{hitcount3,jdbcType=DECIMAL} and 
-    </if>
-    <if test="shiptolocations != null">
-      SHIPTOLOCATIONS = #{shiptolocations,jdbcType=VARCHAR} and 
-    </if>
-    <if test="hitcount != null">
-      HITCOUNT = #{hitcount,jdbcType=DECIMAL} and 
-    </if>
-    <if test="updatetime != null">
-      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="country != null">
-      COUNTRY = #{country,jdbcType=VARCHAR} and 
-    </if>
-    <if test="storeurl != null">
-      STOREURL = #{storeurl,jdbcType=VARCHAR} and 
-    </if>
-    <if test="shippingcost != null">
-      SHIPPINGCOST = #{shippingcost,jdbcType=DECIMAL} and 
-    </if>
-    <if test="listingstatus != null">
-      LISTINGSTATUS = #{listingstatus,jdbcType=VARCHAR} and 
+      endtime = #{endtime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="title != null">
-      TITLE = #{title,jdbcType=LONGVARCHAR}
+      title = #{title,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="quantitysold14 != null">
+      quantitysold14 = #{quantitysold14,jdbcType=DECIMAL} and 
+    </if>
+    <if test="feedbackrate != null">
+      feedbackrate = #{feedbackrate,jdbcType=DECIMAL} and 
+    </if>
+    <if test="bidcount != null">
+      bidcount = #{bidcount,jdbcType=DECIMAL} and 
+    </if>
+    <if test="currentpricetype != null">
+      currentpricetype = #{currentpricetype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="hitcount3 != null">
+      hitcount3 = #{hitcount3,jdbcType=DECIMAL} and 
+    </if>
+    <if test="shiptolocations != null">
+      shiptolocations = #{shiptolocations,jdbcType=VARCHAR} and 
+    </if>
+    <if test="hitcount != null">
+      hitcount = #{hitcount,jdbcType=DECIMAL} and 
+    </if>
+    <if test="updatetime != null">
+      updatetime = #{updatetime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="country != null">
+      country = #{country,jdbcType=VARCHAR} and 
+    </if>
+    <if test="storeurl != null">
+      storeurl = #{storeurl,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shippingcost != null">
+      shippingcost = #{shippingcost,jdbcType=DECIMAL} and 
+    </if>
+    <if test="listingstatus != null">
+      listingstatus = #{listingstatus,jdbcType=VARCHAR} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="itemid != null">
-      ITEMID = #{itemid,jdbcType=DECIMAL} , 
+      itemid = #{itemid,jdbcType=DECIMAL} , 
     </if>
     <if test="quantitysold56 != null">
-      QUANTITYSOLD56 = #{quantitysold56,jdbcType=DECIMAL} , 
+      quantitysold56 = #{quantitysold56,jdbcType=DECIMAL} , 
     </if>
     <if test="runtime != null">
-      RUNTIME = #{runtime,jdbcType=DECIMAL} , 
+      runtime = #{runtime,jdbcType=DECIMAL} , 
     </if>
     <if test="avgall != null">
-      AVGALL = #{avgall,jdbcType=DECIMAL} , 
+      avgall = #{avgall,jdbcType=DECIMAL} , 
     </if>
     <if test="storename != null">
-      STORENAME = #{storename,jdbcType=VARCHAR} , 
+      storename = #{storename,jdbcType=VARCHAR} , 
     </if>
     <if test="hitcount7 != null">
-      HITCOUNT7 = #{hitcount7,jdbcType=DECIMAL} , 
+      hitcount7 = #{hitcount7,jdbcType=DECIMAL} , 
     </if>
     <if test="returnsaccepted != null">
-      RETURNSACCEPTED = #{returnsaccepted,jdbcType=VARCHAR} , 
+      returnsaccepted = #{returnsaccepted,jdbcType=VARCHAR} , 
     </if>
     <if test="userid != null">
-      USERID = #{userid,jdbcType=VARCHAR} , 
+      userid = #{userid,jdbcType=VARCHAR} , 
     </if>
     <if test="avg30 != null">
-      AVG30 = #{avg30,jdbcType=DECIMAL} , 
+      avg30 = #{avg30,jdbcType=DECIMAL} , 
     </if>
     <if test="shippingtype != null">
-      SHIPPINGTYPE = #{shippingtype,jdbcType=VARCHAR} , 
+      shippingtype = #{shippingtype,jdbcType=VARCHAR} , 
     </if>
     <if test="hitcount28 != null">
-      HITCOUNT28 = #{hitcount28,jdbcType=DECIMAL} , 
+      hitcount28 = #{hitcount28,jdbcType=DECIMAL} , 
     </if>
     <if test="hitcount21 != null">
-      HITCOUNT21 = #{hitcount21,jdbcType=DECIMAL} , 
+      hitcount21 = #{hitcount21,jdbcType=DECIMAL} , 
     </if>
     <if test="refund != null">
-      REFUND = #{refund,jdbcType=VARCHAR} , 
+      refund = #{refund,jdbcType=VARCHAR} , 
     </if>
     <if test="hitcounttotal != null">
-      HITCOUNTTOTAL = #{hitcounttotal,jdbcType=DECIMAL} , 
+      hitcounttotal = #{hitcounttotal,jdbcType=DECIMAL} , 
     </if>
     <if test="shippingcosttype != null">
-      SHIPPINGCOSTTYPE = #{shippingcosttype,jdbcType=VARCHAR} , 
+      shippingcosttype = #{shippingcosttype,jdbcType=VARCHAR} , 
     </if>
     <if test="shippingcostpaidby != null">
-      SHIPPINGCOSTPAIDBY = #{shippingcostpaidby,jdbcType=VARCHAR} , 
+      shippingcostpaidby = #{shippingcostpaidby,jdbcType=VARCHAR} , 
     </if>
     <if test="avg7 != null">
-      AVG7 = #{avg7,jdbcType=DECIMAL} , 
+      avg7 = #{avg7,jdbcType=DECIMAL} , 
     </if>
     <if test="returnswithin != null">
-      RETURNSWITHIN = #{returnswithin,jdbcType=VARCHAR} , 
+      returnswithin = #{returnswithin,jdbcType=VARCHAR} , 
     </if>
     <if test="listingflag != null">
-      LISTINGFLAG = #{listingflag,jdbcType=DECIMAL} , 
+      listingflag = #{listingflag,jdbcType=DECIMAL} , 
     </if>
     <if test="quantitysold != null">
-      QUANTITYSOLD = #{quantitysold,jdbcType=DECIMAL} , 
+      quantitysold = #{quantitysold,jdbcType=DECIMAL} , 
     </if>
     <if test="listshippingcost != null">
-      LISTSHIPPINGCOST = #{listshippingcost,jdbcType=DECIMAL} , 
+      listshippingcost = #{listshippingcost,jdbcType=DECIMAL} , 
     </if>
     <if test="paymentmethod != null">
-      PAYMENTMETHOD = #{paymentmethod,jdbcType=VARCHAR} , 
+      paymentmethod = #{paymentmethod,jdbcType=VARCHAR} , 
     </if>
     <if test="listshippingcosttype != null">
-      LISTSHIPPINGCOSTTYPE = #{listshippingcosttype,jdbcType=VARCHAR} , 
+      listshippingcosttype = #{listshippingcosttype,jdbcType=VARCHAR} , 
     </if>
     <if test="starttime != null">
-      STARTTIME = #{starttime,jdbcType=TIMESTAMP} , 
+      starttime = #{starttime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="feedbackscore != null">
-      FEEDBACKSCORE = #{feedbackscore,jdbcType=DECIMAL} , 
+      feedbackscore = #{feedbackscore,jdbcType=DECIMAL} , 
     </if>
     <if test="quantiry != null">
-      QUANTIRY = #{quantiry,jdbcType=DECIMAL} , 
+      quantiry = #{quantiry,jdbcType=DECIMAL} , 
     </if>
     <if test="quantitysold28 != null">
-      QUANTITYSOLD28 = #{quantitysold28,jdbcType=DECIMAL} , 
+      quantitysold28 = #{quantitysold28,jdbcType=DECIMAL} , 
     </if>
     <if test="itemurl != null">
-      ITEMURL = #{itemurl,jdbcType=VARCHAR} , 
+      itemurl = #{itemurl,jdbcType=VARCHAR} , 
     </if>
     <if test="avg15 != null">
-      AVG15 = #{avg15,jdbcType=DECIMAL} , 
+      avg15 = #{avg15,jdbcType=DECIMAL} , 
     </if>
     <if test="quantitysold7 != null">
-      QUANTITYSOLD7 = #{quantitysold7,jdbcType=DECIMAL} , 
+      quantitysold7 = #{quantitysold7,jdbcType=DECIMAL} , 
     </if>
     <if test="categoryid != null">
-      CATEGORYID = #{categoryid,jdbcType=VARCHAR} , 
+      categoryid = #{categoryid,jdbcType=VARCHAR} , 
     </if>
     <if test="quantitysoldtotal != null">
-      QUANTITYSOLDTOTAL = #{quantitysoldtotal,jdbcType=DECIMAL} , 
+      quantitysoldtotal = #{quantitysoldtotal,jdbcType=DECIMAL} , 
     </if>
     <if test="lastruntime != null">
-      LASTRUNTIME = #{lastruntime,jdbcType=DECIMAL} , 
+      lastruntime = #{lastruntime,jdbcType=DECIMAL} , 
     </if>
     <if test="currentprice != null">
-      CURRENTPRICE = #{currentprice,jdbcType=DECIMAL} , 
+      currentprice = #{currentprice,jdbcType=DECIMAL} , 
     </if>
     <if test="taskid != null">
-      TASKID = #{taskid,jdbcType=DECIMAL} , 
+      taskid = #{taskid,jdbcType=DECIMAL} , 
     </if>
     <if test="itemflag != null">
-      ITEMFLAG = #{itemflag,jdbcType=DECIMAL} , 
+      itemflag = #{itemflag,jdbcType=DECIMAL} , 
     </if>
     <if test="hitcount14 != null">
-      HITCOUNT14 = #{hitcount14,jdbcType=DECIMAL} , 
+      hitcount14 = #{hitcount14,jdbcType=DECIMAL} , 
     </if>
     <if test="location != null">
-      LOCATION = #{location,jdbcType=VARCHAR} , 
+      location = #{location,jdbcType=VARCHAR} , 
     </if>
     <if test="categoryname != null">
-      CATEGORYNAME = #{categoryname,jdbcType=VARCHAR} , 
+      categoryname = #{categoryname,jdbcType=VARCHAR} , 
     </if>
     <if test="timelift != null">
-      TIMELIFT = #{timelift,jdbcType=VARCHAR} , 
+      timelift = #{timelift,jdbcType=VARCHAR} , 
     </if>
     <if test="listingtype != null">
-      LISTINGTYPE = #{listingtype,jdbcType=VARCHAR} , 
+      listingtype = #{listingtype,jdbcType=VARCHAR} , 
     </if>
     <if test="quantitysold3 != null">
-      QUANTITYSOLD3 = #{quantitysold3,jdbcType=DECIMAL} , 
+      quantitysold3 = #{quantitysold3,jdbcType=DECIMAL} , 
     </if>
     <if test="quantitysold1 != null">
-      QUANTITYSOLD1 = #{quantitysold1,jdbcType=DECIMAL} , 
+      quantitysold1 = #{quantitysold1,jdbcType=DECIMAL} , 
     </if>
     <if test="quantitysold21 != null">
-      QUANTITYSOLD21 = #{quantitysold21,jdbcType=DECIMAL} , 
+      quantitysold21 = #{quantitysold21,jdbcType=DECIMAL} , 
     </if>
     <if test="site != null">
-      SITE = #{site,jdbcType=VARCHAR} , 
+      site = #{site,jdbcType=VARCHAR} , 
     </if>
     <if test="hitcount1 != null">
-      HITCOUNT1 = #{hitcount1,jdbcType=DECIMAL} , 
+      hitcount1 = #{hitcount1,jdbcType=DECIMAL} , 
     </if>
     <if test="hitcount56 != null">
-      HITCOUNT56 = #{hitcount56,jdbcType=DECIMAL} , 
+      hitcount56 = #{hitcount56,jdbcType=DECIMAL} , 
     </if>
     <if test="endtime != null">
-      ENDTIME = #{endtime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="quantitysold14 != null">
-      QUANTITYSOLD14 = #{quantitysold14,jdbcType=DECIMAL} , 
-    </if>
-    <if test="feedbackrate != null">
-      FEEDBACKRATE = #{feedbackrate,jdbcType=DECIMAL} , 
-    </if>
-    <if test="bidcount != null">
-      BIDCOUNT = #{bidcount,jdbcType=DECIMAL} , 
-    </if>
-    <if test="currentpricetype != null">
-      CURRENTPRICETYPE = #{currentpricetype,jdbcType=VARCHAR} , 
-    </if>
-    <if test="hitcount3 != null">
-      HITCOUNT3 = #{hitcount3,jdbcType=DECIMAL} , 
-    </if>
-    <if test="shiptolocations != null">
-      SHIPTOLOCATIONS = #{shiptolocations,jdbcType=VARCHAR} , 
-    </if>
-    <if test="hitcount != null">
-      HITCOUNT = #{hitcount,jdbcType=DECIMAL} , 
-    </if>
-    <if test="updatetime != null">
-      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="country != null">
-      COUNTRY = #{country,jdbcType=VARCHAR} , 
-    </if>
-    <if test="storeurl != null">
-      STOREURL = #{storeurl,jdbcType=VARCHAR} , 
-    </if>
-    <if test="shippingcost != null">
-      SHIPPINGCOST = #{shippingcost,jdbcType=DECIMAL} , 
-    </if>
-    <if test="listingstatus != null">
-      LISTINGSTATUS = #{listingstatus,jdbcType=VARCHAR} , 
+      endtime = #{endtime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="title != null">
-      TITLE = #{title,jdbcType=LONGVARCHAR}
+      title = #{title,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="quantitysold14 != null">
+      quantitysold14 = #{quantitysold14,jdbcType=DECIMAL} , 
+    </if>
+    <if test="feedbackrate != null">
+      feedbackrate = #{feedbackrate,jdbcType=DECIMAL} , 
+    </if>
+    <if test="bidcount != null">
+      bidcount = #{bidcount,jdbcType=DECIMAL} , 
+    </if>
+    <if test="currentpricetype != null">
+      currentpricetype = #{currentpricetype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="hitcount3 != null">
+      hitcount3 = #{hitcount3,jdbcType=DECIMAL} , 
+    </if>
+    <if test="shiptolocations != null">
+      shiptolocations = #{shiptolocations,jdbcType=VARCHAR} , 
+    </if>
+    <if test="hitcount != null">
+      hitcount = #{hitcount,jdbcType=DECIMAL} , 
+    </if>
+    <if test="updatetime != null">
+      updatetime = #{updatetime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="country != null">
+      country = #{country,jdbcType=VARCHAR} , 
+    </if>
+    <if test="storeurl != null">
+      storeurl = #{storeurl,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shippingcost != null">
+      shippingcost = #{shippingcost,jdbcType=DECIMAL} , 
+    </if>
+    <if test="listingstatus != null">
+      listingstatus = #{listingstatus,jdbcType=VARCHAR} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbShoppingitem" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

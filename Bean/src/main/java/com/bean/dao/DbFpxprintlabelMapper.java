@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbFpxprintlabel;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbFpxprintlabelMapper {
-    int deleteByPrimaryKey(String orderid);
+    DbFpxprintlabel selectByCriteria(DbFpxprintlabel DbFpxprintlabel);
 
-    int insert(DbFpxprintlabel record);
+    void deleteByPrimaryKey(String ORDERID);
 
-    int insertSelective(DbFpxprintlabel record);
+    void deleteByCriteria(DbFpxprintlabel DbFpxprintlabel);
+
+    int insertByCriteria(DbFpxprintlabel DbFpxprintlabel);
+
+    int updateByCriteria(DbFpxprintlabel DbFpxprintlabel);
 
     DbFpxprintlabel selectByPrimaryKey(String orderid);
 
-    int updateByPrimaryKeySelective(DbFpxprintlabel record);
-
-    int updateByPrimaryKeyWithBLOBs(DbFpxprintlabel record);
-
-    int updateByPrimaryKey(DbFpxprintlabel record);
+    List<DbFpxprintlabel> selectAll();
 }

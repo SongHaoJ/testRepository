@@ -15,16 +15,16 @@
   <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
     select SEQUENCEID, EBAYIDMANAGEID, ACTIVITY, ITEMS, AMOUNT, OPER, OPERTIME, CORPID, 
     OPENFLAG
-    from db_ebaylimit
+    from DB_EBAYLIMIT
     where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SEQUENCEID, EBAYIDMANAGEID, ACTIVITY, ITEMS, AMOUNT, OPER, OPERTIME, CORPID, 
     OPENFLAG
-    from db_ebaylimit
+    from DB_EBAYLIMIT
   </select>
   <sql id="TableName">
-    db_ebaylimit
+    DB_EBAYLIMIT
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=DECIMAL} , 
@@ -35,7 +35,7 @@
      #{oper,jdbcType=VARCHAR} , 
      #{opertime,jdbcType=TIMESTAMP} , 
      #{corpid,jdbcType=VARCHAR} , 
-     #{openflag,jdbcType=VARCHAR}
+     #{openflag,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
@@ -46,67 +46,67 @@
     OPER , 
     OPERTIME , 
     CORPID , 
-    OPENFLAG
+    OPENFLAG , 
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} and 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} and 
     </if>
     <if test="ebayidmanageid != null">
-      EBAYIDMANAGEID = #{ebayidmanageid,jdbcType=DECIMAL} and 
+      ebayidmanageid = #{ebayidmanageid,jdbcType=DECIMAL} and 
     </if>
     <if test="activity != null">
-      ACTIVITY = #{activity,jdbcType=VARCHAR} and 
+      activity = #{activity,jdbcType=VARCHAR} and 
     </if>
     <if test="items != null">
-      ITEMS = #{items,jdbcType=VARCHAR} and 
+      items = #{items,jdbcType=VARCHAR} and 
     </if>
     <if test="amount != null">
-      AMOUNT = #{amount,jdbcType=VARCHAR} and 
+      amount = #{amount,jdbcType=VARCHAR} and 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
+      oper = #{oper,jdbcType=VARCHAR} and 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} and 
+      corpid = #{corpid,jdbcType=VARCHAR} and 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR}
+      openflag = #{openflag,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} , 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} , 
     </if>
     <if test="ebayidmanageid != null">
-      EBAYIDMANAGEID = #{ebayidmanageid,jdbcType=DECIMAL} , 
+      ebayidmanageid = #{ebayidmanageid,jdbcType=DECIMAL} , 
     </if>
     <if test="activity != null">
-      ACTIVITY = #{activity,jdbcType=VARCHAR} , 
+      activity = #{activity,jdbcType=VARCHAR} , 
     </if>
     <if test="items != null">
-      ITEMS = #{items,jdbcType=VARCHAR} , 
+      items = #{items,jdbcType=VARCHAR} , 
     </if>
     <if test="amount != null">
-      AMOUNT = #{amount,jdbcType=VARCHAR} , 
+      amount = #{amount,jdbcType=VARCHAR} , 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
+      oper = #{oper,jdbcType=VARCHAR} , 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} , 
+      corpid = #{corpid,jdbcType=VARCHAR} , 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR}
+      openflag = #{openflag,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbEbaylimit" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

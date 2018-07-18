@@ -31,6 +31,8 @@ public class DbPurchasepayment implements Serializable {
 
     private String shipnum;
 
+    private String content;
+
     private BigDecimal pcmoney;
 
     private String checkoper;
@@ -54,8 +56,6 @@ public class DbPurchasepayment implements Serializable {
     private String flag;
 
     private Date paytime;
-
-    private String content;
 
     private static final long serialVersionUID = 1L;
 
@@ -163,6 +163,14 @@ public class DbPurchasepayment implements Serializable {
         this.shipnum = shipnum == null ? null : shipnum.trim();
     }
 
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content == null ? null : content.trim();
+    }
+
     public BigDecimal getPcmoney() {
         return pcmoney;
     }
@@ -259,14 +267,6 @@ public class DbPurchasepayment implements Serializable {
         this.paytime = paytime;
     }
 
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content == null ? null : content.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -292,6 +292,7 @@ public class DbPurchasepayment implements Serializable {
             && (this.getMoneyneedpay() == null ? other.getMoneyneedpay() == null : this.getMoneyneedpay().equals(other.getMoneyneedpay()))
             && (this.getMoneynotpay() == null ? other.getMoneynotpay() == null : this.getMoneynotpay().equals(other.getMoneynotpay()))
             && (this.getShipnum() == null ? other.getShipnum() == null : this.getShipnum().equals(other.getShipnum()))
+            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
             && (this.getPcmoney() == null ? other.getPcmoney() == null : this.getPcmoney().equals(other.getPcmoney()))
             && (this.getCheckoper() == null ? other.getCheckoper() == null : this.getCheckoper().equals(other.getCheckoper()))
             && (this.getExpressmoney() == null ? other.getExpressmoney() == null : this.getExpressmoney().equals(other.getExpressmoney()))
@@ -303,8 +304,7 @@ public class DbPurchasepayment implements Serializable {
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
             && (this.getManufacture() == null ? other.getManufacture() == null : this.getManufacture().equals(other.getManufacture()))
             && (this.getFlag() == null ? other.getFlag() == null : this.getFlag().equals(other.getFlag()))
-            && (this.getPaytime() == null ? other.getPaytime() == null : this.getPaytime().equals(other.getPaytime()))
-            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()));
+            && (this.getPaytime() == null ? other.getPaytime() == null : this.getPaytime().equals(other.getPaytime()));
     }
 
     @Override
@@ -324,6 +324,7 @@ public class DbPurchasepayment implements Serializable {
         result = prime * result + ((getMoneyneedpay() == null) ? 0 : getMoneyneedpay().hashCode());
         result = prime * result + ((getMoneynotpay() == null) ? 0 : getMoneynotpay().hashCode());
         result = prime * result + ((getShipnum() == null) ? 0 : getShipnum().hashCode());
+        result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
         result = prime * result + ((getPcmoney() == null) ? 0 : getPcmoney().hashCode());
         result = prime * result + ((getCheckoper() == null) ? 0 : getCheckoper().hashCode());
         result = prime * result + ((getExpressmoney() == null) ? 0 : getExpressmoney().hashCode());
@@ -336,7 +337,6 @@ public class DbPurchasepayment implements Serializable {
         result = prime * result + ((getManufacture() == null) ? 0 : getManufacture().hashCode());
         result = prime * result + ((getFlag() == null) ? 0 : getFlag().hashCode());
         result = prime * result + ((getPaytime() == null) ? 0 : getPaytime().hashCode());
-        result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
         return result;
     }
 
@@ -359,6 +359,7 @@ public class DbPurchasepayment implements Serializable {
         sb.append(", moneyneedpay=").append(moneyneedpay);
         sb.append(", moneynotpay=").append(moneynotpay);
         sb.append(", shipnum=").append(shipnum);
+        sb.append(", content=").append(content);
         sb.append(", pcmoney=").append(pcmoney);
         sb.append(", checkoper=").append(checkoper);
         sb.append(", expressmoney=").append(expressmoney);
@@ -371,7 +372,6 @@ public class DbPurchasepayment implements Serializable {
         sb.append(", manufacture=").append(manufacture);
         sb.append(", flag=").append(flag);
         sb.append(", paytime=").append(paytime);
-        sb.append(", content=").append(content);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

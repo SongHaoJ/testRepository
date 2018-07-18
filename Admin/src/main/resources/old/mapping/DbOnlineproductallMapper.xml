@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbOnlineproductallMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbOnlineproductall">
+    <id column="SID" jdbcType="VARCHAR" property="sid" />
+    <result column="SKU" jdbcType="VARCHAR" property="sku" />
+    <result column="ITEMID" jdbcType="VARCHAR" property="itemid" />
+    <result column="FLAG" jdbcType="DECIMAL" property="flag" />
+    <result column="SHOPID" jdbcType="VARCHAR" property="shopid" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbOnlineproductall">
+    <result column="SHOPNAME" jdbcType="LONGVARCHAR" property="shopname" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SID, SKU, ITEMID, FLAG, SHOPID
+  </sql>
+  <sql id="Blob_Column_List">
+    SHOPNAME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from db_onlineproductall
+    where SID = #{sid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from db_onlineproductall
+    where SID = #{sid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bean.model.DbOnlineproductall">
+    insert into db_onlineproductall (SID, SKU, ITEMID, 
+      FLAG, SHOPID, SHOPNAME
+      )
+    values (#{sid,jdbcType=VARCHAR}, #{sku,jdbcType=VARCHAR}, #{itemid,jdbcType=VARCHAR}, 
+      #{flag,jdbcType=DECIMAL}, #{shopid,jdbcType=VARCHAR}, #{shopname,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbOnlineproductall">
+    insert into db_onlineproductall
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        SID,
+      </if>
+      <if test="sku != null">
+        SKU,
+      </if>
+      <if test="itemid != null">
+        ITEMID,
+      </if>
+      <if test="flag != null">
+        FLAG,
+      </if>
+      <if test="shopid != null">
+        SHOPID,
+      </if>
+      <if test="shopname != null">
+        SHOPNAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        #{sid,jdbcType=VARCHAR},
+      </if>
+      <if test="sku != null">
+        #{sku,jdbcType=VARCHAR},
+      </if>
+      <if test="itemid != null">
+        #{itemid,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=DECIMAL},
+      </if>
+      <if test="shopid != null">
+        #{shopid,jdbcType=VARCHAR},
+      </if>
+      <if test="shopname != null">
+        #{shopname,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbOnlineproductall">
+    update db_onlineproductall
+    <set>
+      <if test="sku != null">
+        SKU = #{sku,jdbcType=VARCHAR},
+      </if>
+      <if test="itemid != null">
+        ITEMID = #{itemid,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        FLAG = #{flag,jdbcType=DECIMAL},
+      </if>
+      <if test="shopid != null">
+        SHOPID = #{shopid,jdbcType=VARCHAR},
+      </if>
+      <if test="shopname != null">
+        SHOPNAME = #{shopname,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where SID = #{sid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbOnlineproductall">
+    update db_onlineproductall
+    set SKU = #{sku,jdbcType=VARCHAR},
+      ITEMID = #{itemid,jdbcType=VARCHAR},
+      FLAG = #{flag,jdbcType=DECIMAL},
+      SHOPID = #{shopid,jdbcType=VARCHAR},
+      SHOPNAME = #{shopname,jdbcType=LONGVARCHAR}
+    where SID = #{sid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbOnlineproductall">
+    update db_onlineproductall
+    set SKU = #{sku,jdbcType=VARCHAR},
+      ITEMID = #{itemid,jdbcType=VARCHAR},
+      FLAG = #{flag,jdbcType=DECIMAL},
+      SHOPID = #{shopid,jdbcType=VARCHAR}
+    where SID = #{sid,jdbcType=VARCHAR}
+  </update>
+</mapper>

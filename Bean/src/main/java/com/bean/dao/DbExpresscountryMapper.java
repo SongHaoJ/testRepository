@@ -2,8 +2,8 @@ package com.bean.dao;
 
 import com.bean.model.DbExpresscountry;
 
-public interface DbExpresscountryMapper {
-    int insert(DbExpresscountry record);
+import java.util.List;
 
-    int insertSelective(DbExpresscountry record);
+public interface DbExpresscountryMapper {
+    List<DbExpresscountry> selectAll();
 }

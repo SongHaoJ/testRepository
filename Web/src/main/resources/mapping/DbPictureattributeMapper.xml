@@ -5,9 +5,11 @@
     <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
     <result column="NAME" jdbcType="VARCHAR" property="name" />
     <result column="UPLOADFLAG" jdbcType="VARCHAR" property="uploadflag" />
+    <result column="THISURL" jdbcType="VARCHAR" property="thisurl" />
     <result column="FTPIP" jdbcType="VARCHAR" property="ftpip" />
     <result column="FTPUSERNAME" jdbcType="VARCHAR" property="ftpusername" />
     <result column="FTPPASSWORD" jdbcType="VARCHAR" property="ftppassword" />
+    <result column="FTPURL" jdbcType="VARCHAR" property="ftpurl" />
     <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
     <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
     <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
@@ -18,32 +20,32 @@
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
     <result column="ATTRIBUTEID" jdbcType="VARCHAR" property="attributeid" />
-    <result column="THISURL" jdbcType="LONGVARCHAR" property="thisurl" />
-    <result column="FTPURL" jdbcType="LONGVARCHAR" property="ftpurl" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select SEQUENCEID, NAME, UPLOADFLAG, FTPIP, FTPUSERNAME, FTPPASSWORD, RESERVE1, RESERVE2, 
-    RESERVE3, RESERVE4, RESERVE5, CORPID, OPENFLAG, OPER, OPERTIME, ATTRIBUTEID, THISURL, 
-    FTPURL
-    from db_pictureattribute
+    select SEQUENCEID, NAME, UPLOADFLAG, THISURL, FTPIP, FTPUSERNAME, FTPPASSWORD, FTPURL, 
+    RESERVE1, RESERVE2, RESERVE3, RESERVE4, RESERVE5, CORPID, OPENFLAG, OPER, OPERTIME, 
+    ATTRIBUTEID
+    from DB_PICTUREATTRIBUTE
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select SEQUENCEID, NAME, UPLOADFLAG, FTPIP, FTPUSERNAME, FTPPASSWORD, RESERVE1, RESERVE2, 
-    RESERVE3, RESERVE4, RESERVE5, CORPID, OPENFLAG, OPER, OPERTIME, ATTRIBUTEID, THISURL, 
-    FTPURL
-    from db_pictureattribute
+    select SEQUENCEID, NAME, UPLOADFLAG, THISURL, FTPIP, FTPUSERNAME, FTPPASSWORD, FTPURL, 
+    RESERVE1, RESERVE2, RESERVE3, RESERVE4, RESERVE5, CORPID, OPENFLAG, OPER, OPERTIME, 
+    ATTRIBUTEID
+    from DB_PICTUREATTRIBUTE
   </select>
   <sql id="TableName">
-    db_pictureattribute
+    DB_PICTUREATTRIBUTE
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=VARCHAR} , 
      #{name,jdbcType=VARCHAR} , 
      #{uploadflag,jdbcType=VARCHAR} , 
+     #{thisurl,jdbcType=VARCHAR} , 
      #{ftpip,jdbcType=VARCHAR} , 
      #{ftpusername,jdbcType=VARCHAR} , 
      #{ftppassword,jdbcType=VARCHAR} , 
+     #{ftpurl,jdbcType=VARCHAR} , 
      #{reserve1,jdbcType=VARCHAR} , 
      #{reserve2,jdbcType=VARCHAR} , 
      #{reserve3,jdbcType=VARCHAR} , 
@@ -54,16 +56,16 @@
      #{oper,jdbcType=VARCHAR} , 
      #{opertime,jdbcType=TIMESTAMP} , 
      #{attributeid,jdbcType=VARCHAR} , 
-     #{thisurl,jdbcType=LONGVARCHAR} , 
-     #{ftpurl,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
     NAME , 
     UPLOADFLAG , 
+    THISURL , 
     FTPIP , 
     FTPUSERNAME , 
     FTPPASSWORD , 
+    FTPURL , 
     RESERVE1 , 
     RESERVE2 , 
     RESERVE3 , 
@@ -74,122 +76,120 @@
     OPER , 
     OPERTIME , 
     ATTRIBUTEID , 
-    THISURL , 
-    FTPURL
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
     </if>
     <if test="name != null">
-      NAME = #{name,jdbcType=VARCHAR} and 
+      name = #{name,jdbcType=VARCHAR} and 
     </if>
     <if test="uploadflag != null">
-      UPLOADFLAG = #{uploadflag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="ftpip != null">
-      FTPIP = #{ftpip,jdbcType=VARCHAR} and 
-    </if>
-    <if test="ftpusername != null">
-      FTPUSERNAME = #{ftpusername,jdbcType=VARCHAR} and 
-    </if>
-    <if test="ftppassword != null">
-      FTPPASSWORD = #{ftppassword,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=DECIMAL} and 
-    </if>
-    <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=DECIMAL} and 
-    </if>
-    <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="attributeid != null">
-      ATTRIBUTEID = #{attributeid,jdbcType=VARCHAR} and 
+      uploadflag = #{uploadflag,jdbcType=VARCHAR} and 
     </if>
     <if test="thisurl != null">
-      THISURL = #{thisurl,jdbcType=LONGVARCHAR} and 
+      thisurl = #{thisurl,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ftpip != null">
+      ftpip = #{ftpip,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ftpusername != null">
+      ftpusername = #{ftpusername,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ftppassword != null">
+      ftppassword = #{ftppassword,jdbcType=VARCHAR} and 
     </if>
     <if test="ftpurl != null">
-      FTPURL = #{ftpurl,jdbcType=LONGVARCHAR}
+      ftpurl = #{ftpurl,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=DECIMAL} and 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="attributeid != null">
+      attributeid = #{attributeid,jdbcType=VARCHAR} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
     </if>
     <if test="name != null">
-      NAME = #{name,jdbcType=VARCHAR} , 
+      name = #{name,jdbcType=VARCHAR} , 
     </if>
     <if test="uploadflag != null">
-      UPLOADFLAG = #{uploadflag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="ftpip != null">
-      FTPIP = #{ftpip,jdbcType=VARCHAR} , 
-    </if>
-    <if test="ftpusername != null">
-      FTPUSERNAME = #{ftpusername,jdbcType=VARCHAR} , 
-    </if>
-    <if test="ftppassword != null">
-      FTPPASSWORD = #{ftppassword,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=DECIMAL} , 
-    </if>
-    <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=DECIMAL} , 
-    </if>
-    <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="attributeid != null">
-      ATTRIBUTEID = #{attributeid,jdbcType=VARCHAR} , 
+      uploadflag = #{uploadflag,jdbcType=VARCHAR} , 
     </if>
     <if test="thisurl != null">
-      THISURL = #{thisurl,jdbcType=LONGVARCHAR} , 
+      thisurl = #{thisurl,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ftpip != null">
+      ftpip = #{ftpip,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ftpusername != null">
+      ftpusername = #{ftpusername,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ftppassword != null">
+      ftppassword = #{ftppassword,jdbcType=VARCHAR} , 
     </if>
     <if test="ftpurl != null">
-      FTPURL = #{ftpurl,jdbcType=LONGVARCHAR}
+      ftpurl = #{ftpurl,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=DECIMAL} , 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="attributeid != null">
+      attributeid = #{attributeid,jdbcType=VARCHAR} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbPictureattribute" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

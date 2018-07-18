@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbSalescoefficient;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbSalescoefficientMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbSalescoefficient selectByCriteria(DbSalescoefficient DbSalescoefficient);
 
-    int insert(DbSalescoefficient record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbSalescoefficient record);
+    void deleteByCriteria(DbSalescoefficient DbSalescoefficient);
+
+    int insertByCriteria(DbSalescoefficient DbSalescoefficient);
+
+    int updateByCriteria(DbSalescoefficient DbSalescoefficient);
 
     DbSalescoefficient selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbSalescoefficient record);
-
-    int updateByPrimaryKey(DbSalescoefficient record);
+    List<DbSalescoefficient> selectAll();
 }

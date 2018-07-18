@@ -9,57 +9,57 @@
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select SID, COUNTRYCN, COUNTRYEN, OPENFLAG
-    from db_fpxcountry
+    from DB_FPXCOUNTRY
     where SID = #{sid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SID, COUNTRYCN, COUNTRYEN, OPENFLAG
-    from db_fpxcountry
+    from DB_FPXCOUNTRY
   </select>
   <sql id="TableName">
-    db_fpxcountry
+    DB_FPXCOUNTRY
   </sql>
   <sql id="Values">
      #{sid,jdbcType=VARCHAR} , 
      #{countrycn,jdbcType=VARCHAR} , 
      #{countryen,jdbcType=VARCHAR} , 
-     #{openflag,jdbcType=VARCHAR}
+     #{openflag,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     SID , 
     COUNTRYCN , 
     COUNTRYEN , 
-    OPENFLAG
+    OPENFLAG , 
   </sql>
   <sql id="Criteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} and 
+      sid = #{sid,jdbcType=VARCHAR} and 
     </if>
     <if test="countrycn != null">
-      COUNTRYCN = #{countrycn,jdbcType=VARCHAR} and 
+      countrycn = #{countrycn,jdbcType=VARCHAR} and 
     </if>
     <if test="countryen != null">
-      COUNTRYEN = #{countryen,jdbcType=VARCHAR} and 
+      countryen = #{countryen,jdbcType=VARCHAR} and 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR}
+      openflag = #{openflag,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} , 
+      sid = #{sid,jdbcType=VARCHAR} , 
     </if>
     <if test="countrycn != null">
-      COUNTRYCN = #{countrycn,jdbcType=VARCHAR} , 
+      countrycn = #{countrycn,jdbcType=VARCHAR} , 
     </if>
     <if test="countryen != null">
-      COUNTRYEN = #{countryen,jdbcType=VARCHAR} , 
+      countryen = #{countryen,jdbcType=VARCHAR} , 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR}
+      openflag = #{openflag,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbFpxcountry" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

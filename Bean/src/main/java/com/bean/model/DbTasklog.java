@@ -9,6 +9,10 @@ public class DbTasklog implements Serializable {
 
     private String sid;
 
+    private String title;
+
+    private String question;
+
     private String stype;
 
     private String stypename;
@@ -21,6 +25,8 @@ public class DbTasklog implements Serializable {
 
     private Date toopertime;
 
+    private String answer;
+
     private String status;
 
     private String statusname;
@@ -30,6 +36,8 @@ public class DbTasklog implements Serializable {
     private String checkresult;
 
     private BigDecimal scores;
+
+    private String checkdescr;
 
     private String checkoper;
 
@@ -55,21 +63,13 @@ public class DbTasklog implements Serializable {
 
     private String opertype;
 
-    private String statusflag;
-
-    private String customertype;
-
-    private String title;
-
-    private String question;
-
-    private String answer;
-
-    private String checkdescr;
-
     private String content;
 
+    private String statusflag;
+
     private String member;
+
+    private String customertype;
 
     private String customername;
 
@@ -89,6 +89,22 @@ public class DbTasklog implements Serializable {
 
     public void setSid(String sid) {
         this.sid = sid == null ? null : sid.trim();
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title == null ? null : title.trim();
+    }
+
+    public String getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(String question) {
+        this.question = question == null ? null : question.trim();
     }
 
     public String getStype() {
@@ -139,6 +155,14 @@ public class DbTasklog implements Serializable {
         this.toopertime = toopertime;
     }
 
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer == null ? null : answer.trim();
+    }
+
     public String getStatus() {
         return status;
     }
@@ -177,6 +201,14 @@ public class DbTasklog implements Serializable {
 
     public void setScores(BigDecimal scores) {
         this.scores = scores;
+    }
+
+    public String getCheckdescr() {
+        return checkdescr;
+    }
+
+    public void setCheckdescr(String checkdescr) {
+        this.checkdescr = checkdescr == null ? null : checkdescr.trim();
     }
 
     public String getCheckoper() {
@@ -275,54 +307,6 @@ public class DbTasklog implements Serializable {
         this.opertype = opertype == null ? null : opertype.trim();
     }
 
-    public String getStatusflag() {
-        return statusflag;
-    }
-
-    public void setStatusflag(String statusflag) {
-        this.statusflag = statusflag == null ? null : statusflag.trim();
-    }
-
-    public String getCustomertype() {
-        return customertype;
-    }
-
-    public void setCustomertype(String customertype) {
-        this.customertype = customertype == null ? null : customertype.trim();
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title == null ? null : title.trim();
-    }
-
-    public String getQuestion() {
-        return question;
-    }
-
-    public void setQuestion(String question) {
-        this.question = question == null ? null : question.trim();
-    }
-
-    public String getAnswer() {
-        return answer;
-    }
-
-    public void setAnswer(String answer) {
-        this.answer = answer == null ? null : answer.trim();
-    }
-
-    public String getCheckdescr() {
-        return checkdescr;
-    }
-
-    public void setCheckdescr(String checkdescr) {
-        this.checkdescr = checkdescr == null ? null : checkdescr.trim();
-    }
-
     public String getContent() {
         return content;
     }
@@ -331,12 +315,28 @@ public class DbTasklog implements Serializable {
         this.content = content == null ? null : content.trim();
     }
 
+    public String getStatusflag() {
+        return statusflag;
+    }
+
+    public void setStatusflag(String statusflag) {
+        this.statusflag = statusflag == null ? null : statusflag.trim();
+    }
+
     public String getMember() {
         return member;
     }
 
     public void setMember(String member) {
         this.member = member == null ? null : member.trim();
+    }
+
+    public String getCustomertype() {
+        return customertype;
+    }
+
+    public void setCustomertype(String customertype) {
+        this.customertype = customertype == null ? null : customertype.trim();
     }
 
     public String getCustomername() {
@@ -361,17 +361,21 @@ public class DbTasklog implements Serializable {
         DbTasklog other = (DbTasklog) that;
         return (this.getSequenceid() == null ? other.getSequenceid() == null : this.getSequenceid().equals(other.getSequenceid()))
             && (this.getSid() == null ? other.getSid() == null : this.getSid().equals(other.getSid()))
+            && (this.getTitle() == null ? other.getTitle() == null : this.getTitle().equals(other.getTitle()))
+            && (this.getQuestion() == null ? other.getQuestion() == null : this.getQuestion().equals(other.getQuestion()))
             && (this.getStype() == null ? other.getStype() == null : this.getStype().equals(other.getStype()))
             && (this.getStypename() == null ? other.getStypename() == null : this.getStypename().equals(other.getStypename()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
             && (this.getTooper() == null ? other.getTooper() == null : this.getTooper().equals(other.getTooper()))
             && (this.getToopertime() == null ? other.getToopertime() == null : this.getToopertime().equals(other.getToopertime()))
+            && (this.getAnswer() == null ? other.getAnswer() == null : this.getAnswer().equals(other.getAnswer()))
             && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
             && (this.getStatusname() == null ? other.getStatusname() == null : this.getStatusname().equals(other.getStatusname()))
             && (this.getSlevel() == null ? other.getSlevel() == null : this.getSlevel().equals(other.getSlevel()))
             && (this.getCheckresult() == null ? other.getCheckresult() == null : this.getCheckresult().equals(other.getCheckresult()))
             && (this.getScores() == null ? other.getScores() == null : this.getScores().equals(other.getScores()))
+            && (this.getCheckdescr() == null ? other.getCheckdescr() == null : this.getCheckdescr().equals(other.getCheckdescr()))
             && (this.getCheckoper() == null ? other.getCheckoper() == null : this.getCheckoper().equals(other.getCheckoper()))
             && (this.getChecktime() == null ? other.getChecktime() == null : this.getChecktime().equals(other.getChecktime()))
             && (this.getPublicflag() == null ? other.getPublicflag() == null : this.getPublicflag().equals(other.getPublicflag()))
@@ -384,14 +388,10 @@ public class DbTasklog implements Serializable {
             && (this.getDatediff() == null ? other.getDatediff() == null : this.getDatediff().equals(other.getDatediff()))
             && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()))
             && (this.getOpertype() == null ? other.getOpertype() == null : this.getOpertype().equals(other.getOpertype()))
-            && (this.getStatusflag() == null ? other.getStatusflag() == null : this.getStatusflag().equals(other.getStatusflag()))
-            && (this.getCustomertype() == null ? other.getCustomertype() == null : this.getCustomertype().equals(other.getCustomertype()))
-            && (this.getTitle() == null ? other.getTitle() == null : this.getTitle().equals(other.getTitle()))
-            && (this.getQuestion() == null ? other.getQuestion() == null : this.getQuestion().equals(other.getQuestion()))
-            && (this.getAnswer() == null ? other.getAnswer() == null : this.getAnswer().equals(other.getAnswer()))
-            && (this.getCheckdescr() == null ? other.getCheckdescr() == null : this.getCheckdescr().equals(other.getCheckdescr()))
             && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
+            && (this.getStatusflag() == null ? other.getStatusflag() == null : this.getStatusflag().equals(other.getStatusflag()))
             && (this.getMember() == null ? other.getMember() == null : this.getMember().equals(other.getMember()))
+            && (this.getCustomertype() == null ? other.getCustomertype() == null : this.getCustomertype().equals(other.getCustomertype()))
             && (this.getCustomername() == null ? other.getCustomername() == null : this.getCustomername().equals(other.getCustomername()));
     }
 
@@ -401,17 +401,21 @@ public class DbTasklog implements Serializable {
         int result = 1;
         result = prime * result + ((getSequenceid() == null) ? 0 : getSequenceid().hashCode());
         result = prime * result + ((getSid() == null) ? 0 : getSid().hashCode());
+        result = prime * result + ((getTitle() == null) ? 0 : getTitle().hashCode());
+        result = prime * result + ((getQuestion() == null) ? 0 : getQuestion().hashCode());
         result = prime * result + ((getStype() == null) ? 0 : getStype().hashCode());
         result = prime * result + ((getStypename() == null) ? 0 : getStypename().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getTooper() == null) ? 0 : getTooper().hashCode());
         result = prime * result + ((getToopertime() == null) ? 0 : getToopertime().hashCode());
+        result = prime * result + ((getAnswer() == null) ? 0 : getAnswer().hashCode());
         result = prime * result + ((getStatus() == null) ? 0 : getStatus().hashCode());
         result = prime * result + ((getStatusname() == null) ? 0 : getStatusname().hashCode());
         result = prime * result + ((getSlevel() == null) ? 0 : getSlevel().hashCode());
         result = prime * result + ((getCheckresult() == null) ? 0 : getCheckresult().hashCode());
         result = prime * result + ((getScores() == null) ? 0 : getScores().hashCode());
+        result = prime * result + ((getCheckdescr() == null) ? 0 : getCheckdescr().hashCode());
         result = prime * result + ((getCheckoper() == null) ? 0 : getCheckoper().hashCode());
         result = prime * result + ((getChecktime() == null) ? 0 : getChecktime().hashCode());
         result = prime * result + ((getPublicflag() == null) ? 0 : getPublicflag().hashCode());
@@ -424,14 +428,10 @@ public class DbTasklog implements Serializable {
         result = prime * result + ((getDatediff() == null) ? 0 : getDatediff().hashCode());
         result = prime * result + ((getCorpid() == null) ? 0 : getCorpid().hashCode());
         result = prime * result + ((getOpertype() == null) ? 0 : getOpertype().hashCode());
-        result = prime * result + ((getStatusflag() == null) ? 0 : getStatusflag().hashCode());
-        result = prime * result + ((getCustomertype() == null) ? 0 : getCustomertype().hashCode());
-        result = prime * result + ((getTitle() == null) ? 0 : getTitle().hashCode());
-        result = prime * result + ((getQuestion() == null) ? 0 : getQuestion().hashCode());
-        result = prime * result + ((getAnswer() == null) ? 0 : getAnswer().hashCode());
-        result = prime * result + ((getCheckdescr() == null) ? 0 : getCheckdescr().hashCode());
         result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
+        result = prime * result + ((getStatusflag() == null) ? 0 : getStatusflag().hashCode());
         result = prime * result + ((getMember() == null) ? 0 : getMember().hashCode());
+        result = prime * result + ((getCustomertype() == null) ? 0 : getCustomertype().hashCode());
         result = prime * result + ((getCustomername() == null) ? 0 : getCustomername().hashCode());
         return result;
     }
@@ -444,17 +444,21 @@ public class DbTasklog implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", sequenceid=").append(sequenceid);
         sb.append(", sid=").append(sid);
+        sb.append(", title=").append(title);
+        sb.append(", question=").append(question);
         sb.append(", stype=").append(stype);
         sb.append(", stypename=").append(stypename);
         sb.append(", oper=").append(oper);
         sb.append(", opertime=").append(opertime);
         sb.append(", tooper=").append(tooper);
         sb.append(", toopertime=").append(toopertime);
+        sb.append(", answer=").append(answer);
         sb.append(", status=").append(status);
         sb.append(", statusname=").append(statusname);
         sb.append(", slevel=").append(slevel);
         sb.append(", checkresult=").append(checkresult);
         sb.append(", scores=").append(scores);
+        sb.append(", checkdescr=").append(checkdescr);
         sb.append(", checkoper=").append(checkoper);
         sb.append(", checktime=").append(checktime);
         sb.append(", publicflag=").append(publicflag);
@@ -467,14 +471,10 @@ public class DbTasklog implements Serializable {
         sb.append(", datediff=").append(datediff);
         sb.append(", corpid=").append(corpid);
         sb.append(", opertype=").append(opertype);
-        sb.append(", statusflag=").append(statusflag);
-        sb.append(", customertype=").append(customertype);
-        sb.append(", title=").append(title);
-        sb.append(", question=").append(question);
-        sb.append(", answer=").append(answer);
-        sb.append(", checkdescr=").append(checkdescr);
         sb.append(", content=").append(content);
+        sb.append(", statusflag=").append(statusflag);
         sb.append(", member=").append(member);
+        sb.append(", customertype=").append(customertype);
         sb.append(", customername=").append(customername);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");

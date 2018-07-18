@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbAmazonsell;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbAmazonsellMapper {
-    int deleteByPrimaryKey(String sid);
+    DbAmazonsell selectByCriteria(DbAmazonsell DbAmazonsell);
 
-    int insert(DbAmazonsell record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbAmazonsell record);
+    void deleteByCriteria(DbAmazonsell DbAmazonsell);
+
+    int insertByCriteria(DbAmazonsell DbAmazonsell);
+
+    int updateByCriteria(DbAmazonsell DbAmazonsell);
 
     DbAmazonsell selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbAmazonsell record);
-
-    int updateByPrimaryKeyWithBLOBs(DbAmazonsell record);
-
-    int updateByPrimaryKey(DbAmazonsell record);
+    List<DbAmazonsell> selectAll();
 }

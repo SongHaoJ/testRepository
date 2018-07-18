@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbPackaginglog;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbPackaginglogMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbPackaginglog selectByCriteria(DbPackaginglog DbPackaginglog);
 
-    int insert(DbPackaginglog record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbPackaginglog record);
+    void deleteByCriteria(DbPackaginglog DbPackaginglog);
+
+    int insertByCriteria(DbPackaginglog DbPackaginglog);
+
+    int updateByCriteria(DbPackaginglog DbPackaginglog);
 
     DbPackaginglog selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbPackaginglog record);
-
-    int updateByPrimaryKeyWithBLOBs(DbPackaginglog record);
-
-    int updateByPrimaryKey(DbPackaginglog record);
+    List<DbPackaginglog> selectAll();
 }

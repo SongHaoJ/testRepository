@@ -2,17 +2,23 @@ package com.bean.dao;
 
 import com.bean.model.DbProductandsell;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbProductandsellMapper {
-    int deleteByPrimaryKey(@Param("sequenceid") String sequenceid, @Param("sku") String sku);
+    DbProductandsell selectByCriteria(DbProductandsell DbProductandsell);
 
-    int insert(DbProductandsell record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbProductandsell record);
+    void deleteByCriteria(DbProductandsell DbProductandsell);
+
+    int insertByCriteria(DbProductandsell DbProductandsell);
+
+    int updateByCriteria(DbProductandsell DbProductandsell);
 
     DbProductandsell selectByPrimaryKey(@Param("sequenceid") String sequenceid, @Param("sku") String sku);
 
-    int updateByPrimaryKeySelective(DbProductandsell record);
-
-    int updateByPrimaryKey(DbProductandsell record);
+    List<DbProductandsell> selectAll();
 }

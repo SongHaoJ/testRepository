@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbPurchaseTemp;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbPurchaseTempMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbPurchaseTemp selectByCriteria(DbPurchaseTemp DbPurchaseTemp);
 
-    int insert(DbPurchaseTemp record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbPurchaseTemp record);
+    void deleteByCriteria(DbPurchaseTemp DbPurchaseTemp);
+
+    int insertByCriteria(DbPurchaseTemp DbPurchaseTemp);
+
+    int updateByCriteria(DbPurchaseTemp DbPurchaseTemp);
 
     DbPurchaseTemp selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbPurchaseTemp record);
-
-    int updateByPrimaryKeyWithBLOBs(DbPurchaseTemp record);
-
-    int updateByPrimaryKey(DbPurchaseTemp record);
+    List<DbPurchaseTemp> selectAll();
 }

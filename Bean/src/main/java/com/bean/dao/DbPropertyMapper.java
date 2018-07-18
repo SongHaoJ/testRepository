@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbProperty;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbPropertyMapper {
-    int deleteByPrimaryKey(String sid);
+    DbProperty selectByCriteria(DbProperty DbProperty);
 
-    int insert(DbProperty record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbProperty record);
+    void deleteByCriteria(DbProperty DbProperty);
+
+    int insertByCriteria(DbProperty DbProperty);
+
+    int updateByCriteria(DbProperty DbProperty);
 
     DbProperty selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbProperty record);
-
-    int updateByPrimaryKey(DbProperty record);
+    List<DbProperty> selectAll();
 }

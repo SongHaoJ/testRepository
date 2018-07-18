@@ -8,86 +8,81 @@
     <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
     <result column="PROVINCEEN" jdbcType="VARCHAR" property="provinceen" />
   </resultMap>
-  <sql id="Base_Column_List">
-    PROVINCEID, PROVINCENAME, CORPID, OPENFLAG, PROVINCEEN
-  </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from db_eubprovince
+    select PROVINCEID, PROVINCENAME, CORPID, OPENFLAG, PROVINCEEN
+    from DB_EUBPROVINCE
     where PROVINCEID = #{provinceid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_eubprovince
-    where PROVINCEID = #{provinceid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select PROVINCEID, PROVINCENAME, CORPID, OPENFLAG, PROVINCEEN
+    from DB_EUBPROVINCE
+  </select>
+  <sql id="TableName">
+    DB_EUBPROVINCE
+  </sql>
+  <sql id="Values">
+     #{provinceid,jdbcType=VARCHAR} , 
+     #{provincename,jdbcType=VARCHAR} , 
+     #{corpid,jdbcType=VARCHAR} , 
+     #{openflag,jdbcType=VARCHAR} , 
+     #{provinceen,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    PROVINCEID , 
+    PROVINCENAME , 
+    CORPID , 
+    OPENFLAG , 
+    PROVINCEEN , 
+  </sql>
+  <sql id="Criteria">
+    <if test="provinceid != null">
+      provinceid = #{provinceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="provincename != null">
+      provincename = #{provincename,jdbcType=VARCHAR} and 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="provinceen != null">
+      provinceen = #{provinceen,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="provinceid != null">
+      provinceid = #{provinceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="provincename != null">
+      provincename = #{provincename,jdbcType=VARCHAR} , 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="provinceen != null">
+      provinceen = #{provinceen,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbEubprovince" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where PROVINCEID=#{PROVINCEID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbEubprovince">
-    insert into db_eubprovince (PROVINCEID, PROVINCENAME, CORPID, 
-      OPENFLAG, PROVINCEEN)
-    values (#{provinceid,jdbcType=VARCHAR}, #{provincename,jdbcType=VARCHAR}, #{corpid,jdbcType=VARCHAR}, 
-      #{openflag,jdbcType=VARCHAR}, #{provinceen,jdbcType=VARCHAR})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbEubprovince">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbEubprovince">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbEubprovince">
-    insert into db_eubprovince
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="provinceid != null">
-        PROVINCEID,
-      </if>
-      <if test="provincename != null">
-        PROVINCENAME,
-      </if>
-      <if test="corpid != null">
-        CORPID,
-      </if>
-      <if test="openflag != null">
-        OPENFLAG,
-      </if>
-      <if test="provinceen != null">
-        PROVINCEEN,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="provinceid != null">
-        #{provinceid,jdbcType=VARCHAR},
-      </if>
-      <if test="provincename != null">
-        #{provincename,jdbcType=VARCHAR},
-      </if>
-      <if test="corpid != null">
-        #{corpid,jdbcType=VARCHAR},
-      </if>
-      <if test="openflag != null">
-        #{openflag,jdbcType=VARCHAR},
-      </if>
-      <if test="provinceen != null">
-        #{provinceen,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbEubprovince">
-    update db_eubprovince
-    <set>
-      <if test="provincename != null">
-        PROVINCENAME = #{provincename,jdbcType=VARCHAR},
-      </if>
-      <if test="corpid != null">
-        CORPID = #{corpid,jdbcType=VARCHAR},
-      </if>
-      <if test="openflag != null">
-        OPENFLAG = #{openflag,jdbcType=VARCHAR},
-      </if>
-      <if test="provinceen != null">
-        PROVINCEEN = #{provinceen,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where PROVINCEID = #{provinceid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbEubprovince">
-    update db_eubprovince
-    set PROVINCENAME = #{provincename,jdbcType=VARCHAR},
-      CORPID = #{corpid,jdbcType=VARCHAR},
-      OPENFLAG = #{openflag,jdbcType=VARCHAR},
-      PROVINCEEN = #{provinceen,jdbcType=VARCHAR}
-    where PROVINCEID = #{provinceid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbEubprovince">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

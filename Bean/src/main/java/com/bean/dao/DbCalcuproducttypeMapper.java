@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbCalcuproducttype;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbCalcuproducttypeMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbCalcuproducttype selectByCriteria(DbCalcuproducttype DbCalcuproducttype);
 
-    int insert(DbCalcuproducttype record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbCalcuproducttype record);
+    void deleteByCriteria(DbCalcuproducttype DbCalcuproducttype);
+
+    int insertByCriteria(DbCalcuproducttype DbCalcuproducttype);
+
+    int updateByCriteria(DbCalcuproducttype DbCalcuproducttype);
 
     DbCalcuproducttype selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbCalcuproducttype record);
-
-    int updateByPrimaryKeyWithBLOBs(DbCalcuproducttype record);
-
-    int updateByPrimaryKey(DbCalcuproducttype record);
+    List<DbCalcuproducttype> selectAll();
 }

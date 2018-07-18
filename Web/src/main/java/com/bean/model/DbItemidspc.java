@@ -14,13 +14,13 @@ public class DbItemidspc implements Serializable {
 
     private String title;
 
+    private String url;
+
     private String site;
 
     private BigDecimal sellprice;
 
     private BigDecimal flag;
-
-    private String url;
 
     private static final long serialVersionUID = 1L;
 
@@ -64,6 +64,14 @@ public class DbItemidspc implements Serializable {
         this.title = title == null ? null : title.trim();
     }
 
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url == null ? null : url.trim();
+    }
+
     public String getSite() {
         return site;
     }
@@ -88,14 +96,6 @@ public class DbItemidspc implements Serializable {
         this.flag = flag;
     }
 
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url == null ? null : url.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -113,10 +113,10 @@ public class DbItemidspc implements Serializable {
             && (this.getSku() == null ? other.getSku() == null : this.getSku().equals(other.getSku()))
             && (this.getHitcount() == null ? other.getHitcount() == null : this.getHitcount().equals(other.getHitcount()))
             && (this.getTitle() == null ? other.getTitle() == null : this.getTitle().equals(other.getTitle()))
+            && (this.getUrl() == null ? other.getUrl() == null : this.getUrl().equals(other.getUrl()))
             && (this.getSite() == null ? other.getSite() == null : this.getSite().equals(other.getSite()))
             && (this.getSellprice() == null ? other.getSellprice() == null : this.getSellprice().equals(other.getSellprice()))
-            && (this.getFlag() == null ? other.getFlag() == null : this.getFlag().equals(other.getFlag()))
-            && (this.getUrl() == null ? other.getUrl() == null : this.getUrl().equals(other.getUrl()));
+            && (this.getFlag() == null ? other.getFlag() == null : this.getFlag().equals(other.getFlag()));
     }
 
     @Override
@@ -128,10 +128,10 @@ public class DbItemidspc implements Serializable {
         result = prime * result + ((getSku() == null) ? 0 : getSku().hashCode());
         result = prime * result + ((getHitcount() == null) ? 0 : getHitcount().hashCode());
         result = prime * result + ((getTitle() == null) ? 0 : getTitle().hashCode());
+        result = prime * result + ((getUrl() == null) ? 0 : getUrl().hashCode());
         result = prime * result + ((getSite() == null) ? 0 : getSite().hashCode());
         result = prime * result + ((getSellprice() == null) ? 0 : getSellprice().hashCode());
         result = prime * result + ((getFlag() == null) ? 0 : getFlag().hashCode());
-        result = prime * result + ((getUrl() == null) ? 0 : getUrl().hashCode());
         return result;
     }
 
@@ -146,10 +146,10 @@ public class DbItemidspc implements Serializable {
         sb.append(", sku=").append(sku);
         sb.append(", hitcount=").append(hitcount);
         sb.append(", title=").append(title);
+        sb.append(", url=").append(url);
         sb.append(", site=").append(site);
         sb.append(", sellprice=").append(sellprice);
         sb.append(", flag=").append(flag);
-        sb.append(", url=").append(url);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

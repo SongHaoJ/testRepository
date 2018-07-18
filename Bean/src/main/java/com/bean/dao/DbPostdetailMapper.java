@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbPostdetail;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbPostdetailMapper {
-    int deleteByPrimaryKey(String sid);
+    DbPostdetail selectByCriteria(DbPostdetail DbPostdetail);
 
-    int insert(DbPostdetail record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbPostdetail record);
+    void deleteByCriteria(DbPostdetail DbPostdetail);
+
+    int insertByCriteria(DbPostdetail DbPostdetail);
+
+    int updateByCriteria(DbPostdetail DbPostdetail);
 
     DbPostdetail selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbPostdetail record);
-
-    int updateByPrimaryKey(DbPostdetail record);
+    List<DbPostdetail> selectAll();
 }

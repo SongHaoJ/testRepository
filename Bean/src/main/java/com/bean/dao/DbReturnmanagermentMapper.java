@@ -1,20 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbReturnmanagerment;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbReturnmanagermentMapper {
-    int deleteByPrimaryKey(BigDecimal sequenceid);
+    DbReturnmanagerment selectByCriteria(DbReturnmanagerment DbReturnmanagerment);
 
-    int insert(DbReturnmanagerment record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbReturnmanagerment record);
+    void deleteByCriteria(DbReturnmanagerment DbReturnmanagerment);
+
+    int insertByCriteria(DbReturnmanagerment DbReturnmanagerment);
+
+    int updateByCriteria(DbReturnmanagerment DbReturnmanagerment);
 
     DbReturnmanagerment selectByPrimaryKey(BigDecimal sequenceid);
 
-    int updateByPrimaryKeySelective(DbReturnmanagerment record);
-
-    int updateByPrimaryKeyWithBLOBs(DbReturnmanagerment record);
-
-    int updateByPrimaryKey(DbReturnmanagerment record);
+    List<DbReturnmanagerment> selectAll();
 }

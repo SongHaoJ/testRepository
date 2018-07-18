@@ -42,7 +42,7 @@
     PROVINCEEN, NAME, DISTRICT, CITYEN, CITYID, POSTCODE2, CITY, PHONE, COMPANY, PROVINCE, 
     COUNTRYID, DISTRICTEN, EMAIL, STREETEN, CONTACTEN, PROVINCEID, COMPANYEN, RESERVE1, 
     RESERVE4, COUNTRY, OPERTIME, COUNTRYEN, STREET, TOKENTYPE, DISTRICTID
-    from db_beiubuser
+    from DB_BEIUBUSER
     where SID = #{sid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
@@ -50,10 +50,10 @@
     PROVINCEEN, NAME, DISTRICT, CITYEN, CITYID, POSTCODE2, CITY, PHONE, COMPANY, PROVINCE, 
     COUNTRYID, DISTRICTEN, EMAIL, STREETEN, CONTACTEN, PROVINCEID, COMPANYEN, RESERVE1, 
     RESERVE4, COUNTRY, OPERTIME, COUNTRYEN, STREET, TOKENTYPE, DISTRICTID
-    from db_beiubuser
+    from DB_BEIUBUSER
   </select>
   <sql id="TableName">
-    db_beiubuser
+    DB_BEIUBUSER
   </sql>
   <sql id="Values">
      #{sid,jdbcType=VARCHAR} , 
@@ -89,7 +89,7 @@
      #{countryen,jdbcType=VARCHAR} , 
      #{street,jdbcType=VARCHAR} , 
      #{tokentype,jdbcType=VARCHAR} , 
-     #{districtid,jdbcType=VARCHAR}
+     #{districtid,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     SID , 
@@ -125,217 +125,217 @@
     COUNTRYEN , 
     STREET , 
     TOKENTYPE , 
-    DISTRICTID
+    DISTRICTID , 
   </sql>
   <sql id="Criteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} and 
+      sid = #{sid,jdbcType=VARCHAR} and 
     </if>
     <if test="tokenid != null">
-      TOKENID = #{tokenid,jdbcType=VARCHAR} and 
+      tokenid = #{tokenid,jdbcType=VARCHAR} and 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
+      oper = #{oper,jdbcType=VARCHAR} and 
     </if>
     <if test="postcode != null">
-      POSTCODE = #{postcode,jdbcType=VARCHAR} and 
+      postcode = #{postcode,jdbcType=VARCHAR} and 
     </if>
     <if test="contact != null">
-      CONTACT = #{contact,jdbcType=VARCHAR} and 
+      contact = #{contact,jdbcType=VARCHAR} and 
     </if>
     <if test="mobile != null">
-      MOBILE = #{mobile,jdbcType=VARCHAR} and 
+      mobile = #{mobile,jdbcType=VARCHAR} and 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
+      openflag = #{openflag,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR} and 
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
     </if>
     <if test="provinceen != null">
-      PROVINCEEN = #{provinceen,jdbcType=VARCHAR} and 
+      provinceen = #{provinceen,jdbcType=VARCHAR} and 
     </if>
     <if test="name != null">
-      NAME = #{name,jdbcType=VARCHAR} and 
+      name = #{name,jdbcType=VARCHAR} and 
     </if>
     <if test="district != null">
-      DISTRICT = #{district,jdbcType=VARCHAR} and 
+      district = #{district,jdbcType=VARCHAR} and 
     </if>
     <if test="cityen != null">
-      CITYEN = #{cityen,jdbcType=VARCHAR} and 
+      cityen = #{cityen,jdbcType=VARCHAR} and 
     </if>
     <if test="cityid != null">
-      CITYID = #{cityid,jdbcType=VARCHAR} and 
+      cityid = #{cityid,jdbcType=VARCHAR} and 
     </if>
     <if test="postcode2 != null">
-      POSTCODE2 = #{postcode2,jdbcType=VARCHAR} and 
+      postcode2 = #{postcode2,jdbcType=VARCHAR} and 
     </if>
     <if test="city != null">
-      CITY = #{city,jdbcType=VARCHAR} and 
+      city = #{city,jdbcType=VARCHAR} and 
     </if>
     <if test="phone != null">
-      PHONE = #{phone,jdbcType=VARCHAR} and 
+      phone = #{phone,jdbcType=VARCHAR} and 
     </if>
     <if test="company != null">
-      COMPANY = #{company,jdbcType=VARCHAR} and 
+      company = #{company,jdbcType=VARCHAR} and 
     </if>
     <if test="province != null">
-      PROVINCE = #{province,jdbcType=VARCHAR} and 
+      province = #{province,jdbcType=VARCHAR} and 
     </if>
     <if test="countryid != null">
-      COUNTRYID = #{countryid,jdbcType=VARCHAR} and 
+      countryid = #{countryid,jdbcType=VARCHAR} and 
     </if>
     <if test="districten != null">
-      DISTRICTEN = #{districten,jdbcType=VARCHAR} and 
+      districten = #{districten,jdbcType=VARCHAR} and 
     </if>
     <if test="email != null">
-      EMAIL = #{email,jdbcType=VARCHAR} and 
+      email = #{email,jdbcType=VARCHAR} and 
     </if>
     <if test="streeten != null">
-      STREETEN = #{streeten,jdbcType=VARCHAR} and 
+      streeten = #{streeten,jdbcType=VARCHAR} and 
     </if>
     <if test="contacten != null">
-      CONTACTEN = #{contacten,jdbcType=VARCHAR} and 
+      contacten = #{contacten,jdbcType=VARCHAR} and 
     </if>
     <if test="provinceid != null">
-      PROVINCEID = #{provinceid,jdbcType=VARCHAR} and 
+      provinceid = #{provinceid,jdbcType=VARCHAR} and 
     </if>
     <if test="companyen != null">
-      COMPANYEN = #{companyen,jdbcType=VARCHAR} and 
+      companyen = #{companyen,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=VARCHAR} and 
+      reserve4 = #{reserve4,jdbcType=VARCHAR} and 
     </if>
     <if test="country != null">
-      COUNTRY = #{country,jdbcType=VARCHAR} and 
+      country = #{country,jdbcType=VARCHAR} and 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="countryen != null">
-      COUNTRYEN = #{countryen,jdbcType=VARCHAR} and 
+      countryen = #{countryen,jdbcType=VARCHAR} and 
     </if>
     <if test="street != null">
-      STREET = #{street,jdbcType=VARCHAR} and 
+      street = #{street,jdbcType=VARCHAR} and 
     </if>
     <if test="tokentype != null">
-      TOKENTYPE = #{tokentype,jdbcType=VARCHAR} and 
+      tokentype = #{tokentype,jdbcType=VARCHAR} and 
     </if>
     <if test="districtid != null">
-      DISTRICTID = #{districtid,jdbcType=VARCHAR}
+      districtid = #{districtid,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} , 
+      sid = #{sid,jdbcType=VARCHAR} , 
     </if>
     <if test="tokenid != null">
-      TOKENID = #{tokenid,jdbcType=VARCHAR} , 
+      tokenid = #{tokenid,jdbcType=VARCHAR} , 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
+      oper = #{oper,jdbcType=VARCHAR} , 
     </if>
     <if test="postcode != null">
-      POSTCODE = #{postcode,jdbcType=VARCHAR} , 
+      postcode = #{postcode,jdbcType=VARCHAR} , 
     </if>
     <if test="contact != null">
-      CONTACT = #{contact,jdbcType=VARCHAR} , 
+      contact = #{contact,jdbcType=VARCHAR} , 
     </if>
     <if test="mobile != null">
-      MOBILE = #{mobile,jdbcType=VARCHAR} , 
+      mobile = #{mobile,jdbcType=VARCHAR} , 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
+      openflag = #{openflag,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR} , 
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
     </if>
     <if test="provinceen != null">
-      PROVINCEEN = #{provinceen,jdbcType=VARCHAR} , 
+      provinceen = #{provinceen,jdbcType=VARCHAR} , 
     </if>
     <if test="name != null">
-      NAME = #{name,jdbcType=VARCHAR} , 
+      name = #{name,jdbcType=VARCHAR} , 
     </if>
     <if test="district != null">
-      DISTRICT = #{district,jdbcType=VARCHAR} , 
+      district = #{district,jdbcType=VARCHAR} , 
     </if>
     <if test="cityen != null">
-      CITYEN = #{cityen,jdbcType=VARCHAR} , 
+      cityen = #{cityen,jdbcType=VARCHAR} , 
     </if>
     <if test="cityid != null">
-      CITYID = #{cityid,jdbcType=VARCHAR} , 
+      cityid = #{cityid,jdbcType=VARCHAR} , 
     </if>
     <if test="postcode2 != null">
-      POSTCODE2 = #{postcode2,jdbcType=VARCHAR} , 
+      postcode2 = #{postcode2,jdbcType=VARCHAR} , 
     </if>
     <if test="city != null">
-      CITY = #{city,jdbcType=VARCHAR} , 
+      city = #{city,jdbcType=VARCHAR} , 
     </if>
     <if test="phone != null">
-      PHONE = #{phone,jdbcType=VARCHAR} , 
+      phone = #{phone,jdbcType=VARCHAR} , 
     </if>
     <if test="company != null">
-      COMPANY = #{company,jdbcType=VARCHAR} , 
+      company = #{company,jdbcType=VARCHAR} , 
     </if>
     <if test="province != null">
-      PROVINCE = #{province,jdbcType=VARCHAR} , 
+      province = #{province,jdbcType=VARCHAR} , 
     </if>
     <if test="countryid != null">
-      COUNTRYID = #{countryid,jdbcType=VARCHAR} , 
+      countryid = #{countryid,jdbcType=VARCHAR} , 
     </if>
     <if test="districten != null">
-      DISTRICTEN = #{districten,jdbcType=VARCHAR} , 
+      districten = #{districten,jdbcType=VARCHAR} , 
     </if>
     <if test="email != null">
-      EMAIL = #{email,jdbcType=VARCHAR} , 
+      email = #{email,jdbcType=VARCHAR} , 
     </if>
     <if test="streeten != null">
-      STREETEN = #{streeten,jdbcType=VARCHAR} , 
+      streeten = #{streeten,jdbcType=VARCHAR} , 
     </if>
     <if test="contacten != null">
-      CONTACTEN = #{contacten,jdbcType=VARCHAR} , 
+      contacten = #{contacten,jdbcType=VARCHAR} , 
     </if>
     <if test="provinceid != null">
-      PROVINCEID = #{provinceid,jdbcType=VARCHAR} , 
+      provinceid = #{provinceid,jdbcType=VARCHAR} , 
     </if>
     <if test="companyen != null">
-      COMPANYEN = #{companyen,jdbcType=VARCHAR} , 
+      companyen = #{companyen,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=VARCHAR} , 
+      reserve4 = #{reserve4,jdbcType=VARCHAR} , 
     </if>
     <if test="country != null">
-      COUNTRY = #{country,jdbcType=VARCHAR} , 
+      country = #{country,jdbcType=VARCHAR} , 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="countryen != null">
-      COUNTRYEN = #{countryen,jdbcType=VARCHAR} , 
+      countryen = #{countryen,jdbcType=VARCHAR} , 
     </if>
     <if test="street != null">
-      STREET = #{street,jdbcType=VARCHAR} , 
+      street = #{street,jdbcType=VARCHAR} , 
     </if>
     <if test="tokentype != null">
-      TOKENTYPE = #{tokentype,jdbcType=VARCHAR} , 
+      tokentype = #{tokentype,jdbcType=VARCHAR} , 
     </if>
     <if test="districtid != null">
-      DISTRICTID = #{districtid,jdbcType=VARCHAR}
+      districtid = #{districtid,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbBeiubuser" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

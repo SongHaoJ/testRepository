@@ -5,6 +5,7 @@
     <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
     <result column="SID" jdbcType="VARCHAR" property="sid" />
     <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="DESCR" jdbcType="VARCHAR" property="descr" />
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
     <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
@@ -22,234 +23,205 @@
     <result column="APIFLAG" jdbcType="VARCHAR" property="apiflag" />
     <result column="DAYTYPE" jdbcType="VARCHAR" property="daytype" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbEbayapilog">
-    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    SEQUENCEID, SID, 'NAME', OPER, OPERTIME, CORPID, OPENFLAG, SHOPTYPEID, SHOPTYPENAME, 
-    APITIME, LASTAPITIME, ORDERNUM, RESERVE1, RESERVE2, RESERVE3, RESERVE4, DAYDIFF, 
-    APIFLAG, DAYTYPE
-  </sql>
-  <sql id="Blob_Column_List">
-    DESCR
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from db_ebayapilog
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SEQUENCEID, SID, NAME, DESCR, OPER, OPERTIME, CORPID, OPENFLAG, SHOPTYPEID, 
+    SHOPTYPENAME, APITIME, LASTAPITIME, ORDERNUM, RESERVE1, RESERVE2, RESERVE3, RESERVE4, 
+    DAYDIFF, APIFLAG, DAYTYPE
+    from DB_EBAYAPILOG
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_ebayapilog
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, SID, NAME, DESCR, OPER, OPERTIME, CORPID, OPENFLAG, SHOPTYPEID, 
+    SHOPTYPENAME, APITIME, LASTAPITIME, ORDERNUM, RESERVE1, RESERVE2, RESERVE3, RESERVE4, 
+    DAYDIFF, APIFLAG, DAYTYPE
+    from DB_EBAYAPILOG
+  </select>
+  <sql id="TableName">
+    DB_EBAYAPILOG
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=VARCHAR} , 
+     #{sid,jdbcType=VARCHAR} , 
+     #{name,jdbcType=VARCHAR} , 
+     #{descr,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{corpid,jdbcType=VARCHAR} , 
+     #{openflag,jdbcType=VARCHAR} , 
+     #{shoptypeid,jdbcType=VARCHAR} , 
+     #{shoptypename,jdbcType=VARCHAR} , 
+     #{apitime,jdbcType=VARCHAR} , 
+     #{lastapitime,jdbcType=TIMESTAMP} , 
+     #{ordernum,jdbcType=DECIMAL} , 
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+     #{reserve3,jdbcType=VARCHAR} , 
+     #{reserve4,jdbcType=VARCHAR} , 
+     #{daydiff,jdbcType=DECIMAL} , 
+     #{apiflag,jdbcType=VARCHAR} , 
+     #{daytype,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    SID , 
+    NAME , 
+    DESCR , 
+    OPER , 
+    OPERTIME , 
+    CORPID , 
+    OPENFLAG , 
+    SHOPTYPEID , 
+    SHOPTYPENAME , 
+    APITIME , 
+    LASTAPITIME , 
+    ORDERNUM , 
+    RESERVE1 , 
+    RESERVE2 , 
+    RESERVE3 , 
+    RESERVE4 , 
+    DAYDIFF , 
+    APIFLAG , 
+    DAYTYPE , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} and 
+    </if>
+    <if test="descr != null">
+      descr = #{descr,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shoptypeid != null">
+      shoptypeid = #{shoptypeid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shoptypename != null">
+      shoptypename = #{shoptypename,jdbcType=VARCHAR} and 
+    </if>
+    <if test="apitime != null">
+      apitime = #{apitime,jdbcType=VARCHAR} and 
+    </if>
+    <if test="lastapitime != null">
+      lastapitime = #{lastapitime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="ordernum != null">
+      ordernum = #{ordernum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=VARCHAR} and 
+    </if>
+    <if test="daydiff != null">
+      daydiff = #{daydiff,jdbcType=DECIMAL} and 
+    </if>
+    <if test="apiflag != null">
+      apiflag = #{apiflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="daytype != null">
+      daytype = #{daytype,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} , 
+    </if>
+    <if test="descr != null">
+      descr = #{descr,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shoptypeid != null">
+      shoptypeid = #{shoptypeid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shoptypename != null">
+      shoptypename = #{shoptypename,jdbcType=VARCHAR} , 
+    </if>
+    <if test="apitime != null">
+      apitime = #{apitime,jdbcType=VARCHAR} , 
+    </if>
+    <if test="lastapitime != null">
+      lastapitime = #{lastapitime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="ordernum != null">
+      ordernum = #{ordernum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=VARCHAR} , 
+    </if>
+    <if test="daydiff != null">
+      daydiff = #{daydiff,jdbcType=DECIMAL} , 
+    </if>
+    <if test="apiflag != null">
+      apiflag = #{apiflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="daytype != null">
+      daytype = #{daytype,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbEbayapilog" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbEbayapilog">
-    insert into db_ebayapilog (SEQUENCEID, SID, 'NAME', 
-      OPER, OPERTIME, CORPID, 
-      OPENFLAG, SHOPTYPEID, SHOPTYPENAME, 
-      APITIME, LASTAPITIME, ORDERNUM, 
-      RESERVE1, RESERVE2, RESERVE3, 
-      RESERVE4, DAYDIFF, APIFLAG, 
-      DAYTYPE, DESCR)
-    values (#{sequenceid,jdbcType=VARCHAR}, #{sid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
-      #{oper,jdbcType=VARCHAR}, #{opertime,jdbcType=TIMESTAMP}, #{corpid,jdbcType=VARCHAR}, 
-      #{openflag,jdbcType=VARCHAR}, #{shoptypeid,jdbcType=VARCHAR}, #{shoptypename,jdbcType=VARCHAR}, 
-      #{apitime,jdbcType=VARCHAR}, #{lastapitime,jdbcType=TIMESTAMP}, #{ordernum,jdbcType=DECIMAL}, 
-      #{reserve1,jdbcType=VARCHAR}, #{reserve2,jdbcType=VARCHAR}, #{reserve3,jdbcType=VARCHAR}, 
-      #{reserve4,jdbcType=VARCHAR}, #{daydiff,jdbcType=DECIMAL}, #{apiflag,jdbcType=VARCHAR}, 
-      #{daytype,jdbcType=VARCHAR}, #{descr,jdbcType=LONGVARCHAR})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbEbayapilog">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbEbayapilog">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbEbayapilog">
-    insert into db_ebayapilog
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        SEQUENCEID,
-      </if>
-      <if test="sid != null">
-        SID,
-      </if>
-      <if test="name != null">
-        'NAME',
-      </if>
-      <if test="oper != null">
-        OPER,
-      </if>
-      <if test="opertime != null">
-        OPERTIME,
-      </if>
-      <if test="corpid != null">
-        CORPID,
-      </if>
-      <if test="openflag != null">
-        OPENFLAG,
-      </if>
-      <if test="shoptypeid != null">
-        SHOPTYPEID,
-      </if>
-      <if test="shoptypename != null">
-        SHOPTYPENAME,
-      </if>
-      <if test="apitime != null">
-        APITIME,
-      </if>
-      <if test="lastapitime != null">
-        LASTAPITIME,
-      </if>
-      <if test="ordernum != null">
-        ORDERNUM,
-      </if>
-      <if test="reserve1 != null">
-        RESERVE1,
-      </if>
-      <if test="reserve2 != null">
-        RESERVE2,
-      </if>
-      <if test="reserve3 != null">
-        RESERVE3,
-      </if>
-      <if test="reserve4 != null">
-        RESERVE4,
-      </if>
-      <if test="daydiff != null">
-        DAYDIFF,
-      </if>
-      <if test="apiflag != null">
-        APIFLAG,
-      </if>
-      <if test="daytype != null">
-        DAYTYPE,
-      </if>
-      <if test="descr != null">
-        DESCR,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        #{sequenceid,jdbcType=VARCHAR},
-      </if>
-      <if test="sid != null">
-        #{sid,jdbcType=VARCHAR},
-      </if>
-      <if test="name != null">
-        #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="oper != null">
-        #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="corpid != null">
-        #{corpid,jdbcType=VARCHAR},
-      </if>
-      <if test="openflag != null">
-        #{openflag,jdbcType=VARCHAR},
-      </if>
-      <if test="shoptypeid != null">
-        #{shoptypeid,jdbcType=VARCHAR},
-      </if>
-      <if test="shoptypename != null">
-        #{shoptypename,jdbcType=VARCHAR},
-      </if>
-      <if test="apitime != null">
-        #{apitime,jdbcType=VARCHAR},
-      </if>
-      <if test="lastapitime != null">
-        #{lastapitime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="ordernum != null">
-        #{ordernum,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve1 != null">
-        #{reserve1,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve2 != null">
-        #{reserve2,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve3 != null">
-        #{reserve3,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve4 != null">
-        #{reserve4,jdbcType=VARCHAR},
-      </if>
-      <if test="daydiff != null">
-        #{daydiff,jdbcType=DECIMAL},
-      </if>
-      <if test="apiflag != null">
-        #{apiflag,jdbcType=VARCHAR},
-      </if>
-      <if test="daytype != null">
-        #{daytype,jdbcType=VARCHAR},
-      </if>
-      <if test="descr != null">
-        #{descr,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbEbayapilog">
-    update db_ebayapilog
-    <set>
-      <if test="sid != null">
-        SID = #{sid,jdbcType=VARCHAR},
-      </if>
-      <if test="name != null">
-        'NAME' = #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="oper != null">
-        OPER = #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="corpid != null">
-        CORPID = #{corpid,jdbcType=VARCHAR},
-      </if>
-      <if test="openflag != null">
-        OPENFLAG = #{openflag,jdbcType=VARCHAR},
-      </if>
-      <if test="shoptypeid != null">
-        SHOPTYPEID = #{shoptypeid,jdbcType=VARCHAR},
-      </if>
-      <if test="shoptypename != null">
-        SHOPTYPENAME = #{shoptypename,jdbcType=VARCHAR},
-      </if>
-      <if test="apitime != null">
-        APITIME = #{apitime,jdbcType=VARCHAR},
-      </if>
-      <if test="lastapitime != null">
-        LASTAPITIME = #{lastapitime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="ordernum != null">
-        ORDERNUM = #{ordernum,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve1 != null">
-        RESERVE1 = #{reserve1,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve2 != null">
-        RESERVE2 = #{reserve2,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve3 != null">
-        RESERVE3 = #{reserve3,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve4 != null">
-        RESERVE4 = #{reserve4,jdbcType=VARCHAR},
-      </if>
-      <if test="daydiff != null">
-        DAYDIFF = #{daydiff,jdbcType=DECIMAL},
-      </if>
-      <if test="apiflag != null">
-        APIFLAG = #{apiflag,jdbcType=VARCHAR},
-      </if>
-      <if test="daytype != null">
-        DAYTYPE = #{daytype,jdbcType=VARCHAR},
-      </if>
-      <if test="descr != null">
-        DESCR = #{descr,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbEbayapilog">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
-
 </mapper>

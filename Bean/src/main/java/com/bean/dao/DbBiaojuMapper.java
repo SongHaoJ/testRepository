@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbBiaoju;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbBiaojuMapper {
-    int deleteByPrimaryKey(Integer id);
+    DbBiaoju selectByCriteria(DbBiaoju DbBiaoju);
 
-    int insert(DbBiaoju record);
+    void deleteByPrimaryKey(String ID);
 
-    int insertSelective(DbBiaoju record);
+    void deleteByCriteria(DbBiaoju DbBiaoju);
+
+    int insertByCriteria(DbBiaoju DbBiaoju);
+
+    int updateByCriteria(DbBiaoju DbBiaoju);
 
     DbBiaoju selectByPrimaryKey(Integer id);
 
-    int updateByPrimaryKeySelective(DbBiaoju record);
-
-    int updateByPrimaryKeyWithBLOBs(DbBiaoju record);
-
-    int updateByPrimaryKey(DbBiaoju record);
+    List<DbBiaoju> selectAll();
 }

@@ -8,38 +8,38 @@
     <result column="WAREHOUSEID" jdbcType="VARCHAR" property="warehouseid" />
     <result column="SELLERORDERNO" jdbcType="VARCHAR" property="sellerorderno" />
     <result column="RECORDID" jdbcType="VARCHAR" property="recordid" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
     <result column="PHONE" jdbcType="VARCHAR" property="phone" />
     <result column="POSTAL" jdbcType="VARCHAR" property="postal" />
     <result column="EMAIL" jdbcType="VARCHAR" property="email" />
     <result column="COUNTRYNAME" jdbcType="VARCHAR" property="countryname" />
+    <result column="REGIONNAME" jdbcType="VARCHAR" property="regionname" />
+    <result column="ADDRESS1" jdbcType="VARCHAR" property="address1" />
+    <result column="ADDRESS2" jdbcType="VARCHAR" property="address2" />
+    <result column="CITY" jdbcType="VARCHAR" property="city" />
     <result column="FLAG" jdbcType="DECIMAL" property="flag" />
     <result column="TRACKINGNUM" jdbcType="VARCHAR" property="trackingnum" />
     <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
     <result column="UPDATETIME" jdbcType="TIMESTAMP" property="updatetime" />
-    <result column="NAME" jdbcType="LONGVARCHAR" property="name" />
-    <result column="REGIONNAME" jdbcType="LONGVARCHAR" property="regionname" />
-    <result column="ADDRESS1" jdbcType="LONGVARCHAR" property="address1" />
-    <result column="ADDRESS2" jdbcType="LONGVARCHAR" property="address2" />
-    <result column="CITY" jdbcType="LONGVARCHAR" property="city" />
-    <result column="ERROR" jdbcType="LONGVARCHAR" property="error" />
+    <result column="ERROR" jdbcType="VARCHAR" property="error" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select EBAYORDERID, DELIVERYWAYID, DELIVERYINSURANCETYPEID, WAREHOUSEID, SELLERORDERNO, 
-    RECORDID, PHONE, POSTAL, EMAIL, COUNTRYNAME, FLAG, TRACKINGNUM, CREATETIME, OPERTIME, 
-    OPER, UPDATETIME, NAME, REGIONNAME, ADDRESS1, ADDRESS2, CITY, ERROR
-    from db_outcategoryorder
+    RECORDID, NAME, PHONE, POSTAL, EMAIL, COUNTRYNAME, REGIONNAME, ADDRESS1, ADDRESS2, 
+    CITY, FLAG, TRACKINGNUM, CREATETIME, OPERTIME, OPER, UPDATETIME, ERROR
+    from DB_OUTCATEGORYORDER
     where EBAYORDERID = #{ebayorderid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select EBAYORDERID, DELIVERYWAYID, DELIVERYINSURANCETYPEID, WAREHOUSEID, SELLERORDERNO, 
-    RECORDID, PHONE, POSTAL, EMAIL, COUNTRYNAME, FLAG, TRACKINGNUM, CREATETIME, OPERTIME, 
-    OPER, UPDATETIME, NAME, REGIONNAME, ADDRESS1, ADDRESS2, CITY, ERROR
-    from db_outcategoryorder
+    RECORDID, NAME, PHONE, POSTAL, EMAIL, COUNTRYNAME, REGIONNAME, ADDRESS1, ADDRESS2, 
+    CITY, FLAG, TRACKINGNUM, CREATETIME, OPERTIME, OPER, UPDATETIME, ERROR
+    from DB_OUTCATEGORYORDER
   </select>
   <sql id="TableName">
-    db_outcategoryorder
+    DB_OUTCATEGORYORDER
   </sql>
   <sql id="Values">
      #{ebayorderid,jdbcType=VARCHAR} , 
@@ -48,22 +48,22 @@
      #{warehouseid,jdbcType=VARCHAR} , 
      #{sellerorderno,jdbcType=VARCHAR} , 
      #{recordid,jdbcType=VARCHAR} , 
+     #{name,jdbcType=VARCHAR} , 
      #{phone,jdbcType=VARCHAR} , 
      #{postal,jdbcType=VARCHAR} , 
      #{email,jdbcType=VARCHAR} , 
      #{countryname,jdbcType=VARCHAR} , 
+     #{regionname,jdbcType=VARCHAR} , 
+     #{address1,jdbcType=VARCHAR} , 
+     #{address2,jdbcType=VARCHAR} , 
+     #{city,jdbcType=VARCHAR} , 
      #{flag,jdbcType=DECIMAL} , 
      #{trackingnum,jdbcType=VARCHAR} , 
      #{createtime,jdbcType=TIMESTAMP} , 
      #{opertime,jdbcType=TIMESTAMP} , 
      #{oper,jdbcType=VARCHAR} , 
      #{updatetime,jdbcType=TIMESTAMP} , 
-     #{name,jdbcType=LONGVARCHAR} , 
-     #{regionname,jdbcType=LONGVARCHAR} , 
-     #{address1,jdbcType=LONGVARCHAR} , 
-     #{address2,jdbcType=LONGVARCHAR} , 
-     #{city,jdbcType=LONGVARCHAR} , 
-     #{error,jdbcType=LONGVARCHAR}
+     #{error,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     EBAYORDERID , 
@@ -72,160 +72,160 @@
     WAREHOUSEID , 
     SELLERORDERNO , 
     RECORDID , 
+    NAME , 
     PHONE , 
     POSTAL , 
     EMAIL , 
     COUNTRYNAME , 
+    REGIONNAME , 
+    ADDRESS1 , 
+    ADDRESS2 , 
+    CITY , 
     FLAG , 
     TRACKINGNUM , 
     CREATETIME , 
     OPERTIME , 
     OPER , 
     UPDATETIME , 
-    NAME , 
-    REGIONNAME , 
-    ADDRESS1 , 
-    ADDRESS2 , 
-    CITY , 
-    ERROR
+    ERROR , 
   </sql>
   <sql id="Criteria">
     <if test="ebayorderid != null">
-      EBAYORDERID = #{ebayorderid,jdbcType=VARCHAR} and 
+      ebayorderid = #{ebayorderid,jdbcType=VARCHAR} and 
     </if>
     <if test="deliverywayid != null">
-      DELIVERYWAYID = #{deliverywayid,jdbcType=VARCHAR} and 
+      deliverywayid = #{deliverywayid,jdbcType=VARCHAR} and 
     </if>
     <if test="deliveryinsurancetypeid != null">
-      DELIVERYINSURANCETYPEID = #{deliveryinsurancetypeid,jdbcType=VARCHAR} and 
+      deliveryinsurancetypeid = #{deliveryinsurancetypeid,jdbcType=VARCHAR} and 
     </if>
     <if test="warehouseid != null">
-      WAREHOUSEID = #{warehouseid,jdbcType=VARCHAR} and 
+      warehouseid = #{warehouseid,jdbcType=VARCHAR} and 
     </if>
     <if test="sellerorderno != null">
-      SELLERORDERNO = #{sellerorderno,jdbcType=VARCHAR} and 
+      sellerorderno = #{sellerorderno,jdbcType=VARCHAR} and 
     </if>
     <if test="recordid != null">
-      RECORDID = #{recordid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="phone != null">
-      PHONE = #{phone,jdbcType=VARCHAR} and 
-    </if>
-    <if test="postal != null">
-      POSTAL = #{postal,jdbcType=VARCHAR} and 
-    </if>
-    <if test="email != null">
-      EMAIL = #{email,jdbcType=VARCHAR} and 
-    </if>
-    <if test="countryname != null">
-      COUNTRYNAME = #{countryname,jdbcType=VARCHAR} and 
-    </if>
-    <if test="flag != null">
-      FLAG = #{flag,jdbcType=DECIMAL} and 
-    </if>
-    <if test="trackingnum != null">
-      TRACKINGNUM = #{trackingnum,jdbcType=VARCHAR} and 
-    </if>
-    <if test="createtime != null">
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="updatetime != null">
-      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP} and 
+      recordid = #{recordid,jdbcType=VARCHAR} and 
     </if>
     <if test="name != null">
-      NAME = #{name,jdbcType=LONGVARCHAR} and 
+      name = #{name,jdbcType=VARCHAR} and 
+    </if>
+    <if test="phone != null">
+      phone = #{phone,jdbcType=VARCHAR} and 
+    </if>
+    <if test="postal != null">
+      postal = #{postal,jdbcType=VARCHAR} and 
+    </if>
+    <if test="email != null">
+      email = #{email,jdbcType=VARCHAR} and 
+    </if>
+    <if test="countryname != null">
+      countryname = #{countryname,jdbcType=VARCHAR} and 
     </if>
     <if test="regionname != null">
-      REGIONNAME = #{regionname,jdbcType=LONGVARCHAR} and 
+      regionname = #{regionname,jdbcType=VARCHAR} and 
     </if>
     <if test="address1 != null">
-      ADDRESS1 = #{address1,jdbcType=LONGVARCHAR} and 
+      address1 = #{address1,jdbcType=VARCHAR} and 
     </if>
     <if test="address2 != null">
-      ADDRESS2 = #{address2,jdbcType=LONGVARCHAR} and 
+      address2 = #{address2,jdbcType=VARCHAR} and 
     </if>
     <if test="city != null">
-      CITY = #{city,jdbcType=LONGVARCHAR} and 
+      city = #{city,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="trackingnum != null">
+      trackingnum = #{trackingnum,jdbcType=VARCHAR} and 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="updatetime != null">
+      updatetime = #{updatetime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="error != null">
-      ERROR = #{error,jdbcType=LONGVARCHAR}
+      error = #{error,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="ebayorderid != null">
-      EBAYORDERID = #{ebayorderid,jdbcType=VARCHAR} , 
+      ebayorderid = #{ebayorderid,jdbcType=VARCHAR} , 
     </if>
     <if test="deliverywayid != null">
-      DELIVERYWAYID = #{deliverywayid,jdbcType=VARCHAR} , 
+      deliverywayid = #{deliverywayid,jdbcType=VARCHAR} , 
     </if>
     <if test="deliveryinsurancetypeid != null">
-      DELIVERYINSURANCETYPEID = #{deliveryinsurancetypeid,jdbcType=VARCHAR} , 
+      deliveryinsurancetypeid = #{deliveryinsurancetypeid,jdbcType=VARCHAR} , 
     </if>
     <if test="warehouseid != null">
-      WAREHOUSEID = #{warehouseid,jdbcType=VARCHAR} , 
+      warehouseid = #{warehouseid,jdbcType=VARCHAR} , 
     </if>
     <if test="sellerorderno != null">
-      SELLERORDERNO = #{sellerorderno,jdbcType=VARCHAR} , 
+      sellerorderno = #{sellerorderno,jdbcType=VARCHAR} , 
     </if>
     <if test="recordid != null">
-      RECORDID = #{recordid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="phone != null">
-      PHONE = #{phone,jdbcType=VARCHAR} , 
-    </if>
-    <if test="postal != null">
-      POSTAL = #{postal,jdbcType=VARCHAR} , 
-    </if>
-    <if test="email != null">
-      EMAIL = #{email,jdbcType=VARCHAR} , 
-    </if>
-    <if test="countryname != null">
-      COUNTRYNAME = #{countryname,jdbcType=VARCHAR} , 
-    </if>
-    <if test="flag != null">
-      FLAG = #{flag,jdbcType=DECIMAL} , 
-    </if>
-    <if test="trackingnum != null">
-      TRACKINGNUM = #{trackingnum,jdbcType=VARCHAR} , 
-    </if>
-    <if test="createtime != null">
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="updatetime != null">
-      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP} , 
+      recordid = #{recordid,jdbcType=VARCHAR} , 
     </if>
     <if test="name != null">
-      NAME = #{name,jdbcType=LONGVARCHAR} , 
+      name = #{name,jdbcType=VARCHAR} , 
+    </if>
+    <if test="phone != null">
+      phone = #{phone,jdbcType=VARCHAR} , 
+    </if>
+    <if test="postal != null">
+      postal = #{postal,jdbcType=VARCHAR} , 
+    </if>
+    <if test="email != null">
+      email = #{email,jdbcType=VARCHAR} , 
+    </if>
+    <if test="countryname != null">
+      countryname = #{countryname,jdbcType=VARCHAR} , 
     </if>
     <if test="regionname != null">
-      REGIONNAME = #{regionname,jdbcType=LONGVARCHAR} , 
+      regionname = #{regionname,jdbcType=VARCHAR} , 
     </if>
     <if test="address1 != null">
-      ADDRESS1 = #{address1,jdbcType=LONGVARCHAR} , 
+      address1 = #{address1,jdbcType=VARCHAR} , 
     </if>
     <if test="address2 != null">
-      ADDRESS2 = #{address2,jdbcType=LONGVARCHAR} , 
+      address2 = #{address2,jdbcType=VARCHAR} , 
     </if>
     <if test="city != null">
-      CITY = #{city,jdbcType=LONGVARCHAR} , 
+      city = #{city,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="trackingnum != null">
+      trackingnum = #{trackingnum,jdbcType=VARCHAR} , 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="updatetime != null">
+      updatetime = #{updatetime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="error != null">
-      ERROR = #{error,jdbcType=LONGVARCHAR}
+      error = #{error,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbOutcategoryorder" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

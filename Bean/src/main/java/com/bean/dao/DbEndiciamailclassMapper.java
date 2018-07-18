@@ -2,10 +2,8 @@ package com.bean.dao;
 
 import com.bean.model.DbEndiciamailclass;
 
+import java.util.List;
+
 public interface DbEndiciamailclassMapper {
-    int deleteByPrimaryKey(String dbclass);
-
-    int insert(DbEndiciamailclass record);
-
-    int insertSelective(DbEndiciamailclass record);
+    List<DbEndiciamailclass> selectAll();
 }

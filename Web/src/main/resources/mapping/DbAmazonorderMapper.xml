@@ -5,11 +5,21 @@
     <id column="ORDERID" jdbcType="VARCHAR" property="orderid" />
     <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
     <result column="GROUPID" jdbcType="VARCHAR" property="groupid" />
+    <result column="CUSTOMERID" jdbcType="VARCHAR" property="customerid" />
+    <result column="CUSTOMERNAME" jdbcType="VARCHAR" property="customername" />
     <result column="CUSTOMERTEL1" jdbcType="VARCHAR" property="customertel1" />
     <result column="CUSTOMERTEL2" jdbcType="VARCHAR" property="customertel2" />
     <result column="CUSTOMEREMAIL" jdbcType="VARCHAR" property="customeremail" />
     <result column="CUSTOMERQQ" jdbcType="VARCHAR" property="customerqq" />
     <result column="CUSTOMERMSN" jdbcType="VARCHAR" property="customermsn" />
+    <result column="CUSTOMERCOUNTRY" jdbcType="VARCHAR" property="customercountry" />
+    <result column="CUSTOMERPROVINCE" jdbcType="VARCHAR" property="customerprovince" />
+    <result column="CUSTOMERCITY" jdbcType="VARCHAR" property="customercity" />
+    <result column="CUSTOMERADDRESS" jdbcType="VARCHAR" property="customeraddress" />
+    <result column="CUSTOMERADDRESS1" jdbcType="VARCHAR" property="customeraddress1" />
+    <result column="CUSTOMERADDRESS2" jdbcType="VARCHAR" property="customeraddress2" />
+    <result column="CUSTOMERADDRESS3" jdbcType="VARCHAR" property="customeraddress3" />
+    <result column="CUSTOMERADDRESSALL" jdbcType="VARCHAR" property="customeraddressall" />
     <result column="CUSTOMERZIPCODE" jdbcType="VARCHAR" property="customerzipcode" />
     <result column="CUSTOMERFAX" jdbcType="VARCHAR" property="customerfax" />
     <result column="SHOPTYPEID" jdbcType="VARCHAR" property="shoptypeid" />
@@ -33,50 +43,50 @@
     <result column="FINALVALUEFEE" jdbcType="DECIMAL" property="finalvaluefee" />
     <result column="FINALVALUEFEEMONEYTYPE" jdbcType="VARCHAR" property="finalvaluefeemoneytype" />
     <result column="LATESTSHIPDATE" jdbcType="TIMESTAMP" property="latestshipdate" />
-    <result column="CUSTOMERID" jdbcType="LONGVARCHAR" property="customerid" />
-    <result column="CUSTOMERNAME" jdbcType="LONGVARCHAR" property="customername" />
-    <result column="CUSTOMERCOUNTRY" jdbcType="LONGVARCHAR" property="customercountry" />
-    <result column="CUSTOMERPROVINCE" jdbcType="LONGVARCHAR" property="customerprovince" />
-    <result column="CUSTOMERCITY" jdbcType="LONGVARCHAR" property="customercity" />
-    <result column="CUSTOMERADDRESS" jdbcType="LONGVARCHAR" property="customeraddress" />
-    <result column="CUSTOMERADDRESS1" jdbcType="LONGVARCHAR" property="customeraddress1" />
-    <result column="CUSTOMERADDRESS2" jdbcType="LONGVARCHAR" property="customeraddress2" />
-    <result column="CUSTOMERADDRESS3" jdbcType="LONGVARCHAR" property="customeraddress3" />
-    <result column="CUSTOMERADDRESSALL" jdbcType="LONGVARCHAR" property="customeraddressall" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select ORDERID, CORPID, GROUPID, CUSTOMERTEL1, CUSTOMERTEL2, CUSTOMEREMAIL, CUSTOMERQQ, 
-    CUSTOMERMSN, CUSTOMERZIPCODE, CUSTOMERFAX, SHOPTYPEID, SHOPTYPE, SALESOURCE, MONEYTYPE, 
-    MONEYORIGIN, ORIGINMONEYTOTAL, MONEYTOTAL, ORDERNUM, ORDERTIME, UPLOADTIME, PAYTIME, 
-    EXPRESSTYPE, TRANSACTIONID, MONEYEXPRESS, ORIGINMONEYEXPRE, EXPRESSMONEYTYPE, STATUS, 
-    ORIGINFINALVALUEFEE, FINALVALUEFEE, FINALVALUEFEEMONEYTYPE, LATESTSHIPDATE, CUSTOMERID, 
-    CUSTOMERNAME, CUSTOMERCOUNTRY, CUSTOMERPROVINCE, CUSTOMERCITY, CUSTOMERADDRESS, CUSTOMERADDRESS1, 
-    CUSTOMERADDRESS2, CUSTOMERADDRESS3, CUSTOMERADDRESSALL
-    from db_amazonorder
+    select ORDERID, CORPID, GROUPID, CUSTOMERID, CUSTOMERNAME, CUSTOMERTEL1, CUSTOMERTEL2, 
+    CUSTOMEREMAIL, CUSTOMERQQ, CUSTOMERMSN, CUSTOMERCOUNTRY, CUSTOMERPROVINCE, CUSTOMERCITY, 
+    CUSTOMERADDRESS, CUSTOMERADDRESS1, CUSTOMERADDRESS2, CUSTOMERADDRESS3, CUSTOMERADDRESSALL, 
+    CUSTOMERZIPCODE, CUSTOMERFAX, SHOPTYPEID, SHOPTYPE, SALESOURCE, MONEYTYPE, MONEYORIGIN, 
+    ORIGINMONEYTOTAL, MONEYTOTAL, ORDERNUM, ORDERTIME, UPLOADTIME, PAYTIME, EXPRESSTYPE, 
+    TRANSACTIONID, MONEYEXPRESS, ORIGINMONEYEXPRE, EXPRESSMONEYTYPE, STATUS, ORIGINFINALVALUEFEE, 
+    FINALVALUEFEE, FINALVALUEFEEMONEYTYPE, LATESTSHIPDATE
+    from DB_AMAZONORDER
     where ORDERID = #{orderid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select ORDERID, CORPID, GROUPID, CUSTOMERTEL1, CUSTOMERTEL2, CUSTOMEREMAIL, CUSTOMERQQ, 
-    CUSTOMERMSN, CUSTOMERZIPCODE, CUSTOMERFAX, SHOPTYPEID, SHOPTYPE, SALESOURCE, MONEYTYPE, 
-    MONEYORIGIN, ORIGINMONEYTOTAL, MONEYTOTAL, ORDERNUM, ORDERTIME, UPLOADTIME, PAYTIME, 
-    EXPRESSTYPE, TRANSACTIONID, MONEYEXPRESS, ORIGINMONEYEXPRE, EXPRESSMONEYTYPE, STATUS, 
-    ORIGINFINALVALUEFEE, FINALVALUEFEE, FINALVALUEFEEMONEYTYPE, LATESTSHIPDATE, CUSTOMERID, 
-    CUSTOMERNAME, CUSTOMERCOUNTRY, CUSTOMERPROVINCE, CUSTOMERCITY, CUSTOMERADDRESS, CUSTOMERADDRESS1, 
-    CUSTOMERADDRESS2, CUSTOMERADDRESS3, CUSTOMERADDRESSALL
-    from db_amazonorder
+    select ORDERID, CORPID, GROUPID, CUSTOMERID, CUSTOMERNAME, CUSTOMERTEL1, CUSTOMERTEL2, 
+    CUSTOMEREMAIL, CUSTOMERQQ, CUSTOMERMSN, CUSTOMERCOUNTRY, CUSTOMERPROVINCE, CUSTOMERCITY, 
+    CUSTOMERADDRESS, CUSTOMERADDRESS1, CUSTOMERADDRESS2, CUSTOMERADDRESS3, CUSTOMERADDRESSALL, 
+    CUSTOMERZIPCODE, CUSTOMERFAX, SHOPTYPEID, SHOPTYPE, SALESOURCE, MONEYTYPE, MONEYORIGIN, 
+    ORIGINMONEYTOTAL, MONEYTOTAL, ORDERNUM, ORDERTIME, UPLOADTIME, PAYTIME, EXPRESSTYPE, 
+    TRANSACTIONID, MONEYEXPRESS, ORIGINMONEYEXPRE, EXPRESSMONEYTYPE, STATUS, ORIGINFINALVALUEFEE, 
+    FINALVALUEFEE, FINALVALUEFEEMONEYTYPE, LATESTSHIPDATE
+    from DB_AMAZONORDER
   </select>
   <sql id="TableName">
-    db_amazonorder
+    DB_AMAZONORDER
   </sql>
   <sql id="Values">
      #{orderid,jdbcType=VARCHAR} , 
      #{corpid,jdbcType=VARCHAR} , 
      #{groupid,jdbcType=VARCHAR} , 
+     #{customerid,jdbcType=VARCHAR} , 
+     #{customername,jdbcType=VARCHAR} , 
      #{customertel1,jdbcType=VARCHAR} , 
      #{customertel2,jdbcType=VARCHAR} , 
      #{customeremail,jdbcType=VARCHAR} , 
      #{customerqq,jdbcType=VARCHAR} , 
      #{customermsn,jdbcType=VARCHAR} , 
+     #{customercountry,jdbcType=VARCHAR} , 
+     #{customerprovince,jdbcType=VARCHAR} , 
+     #{customercity,jdbcType=VARCHAR} , 
+     #{customeraddress,jdbcType=VARCHAR} , 
+     #{customeraddress1,jdbcType=VARCHAR} , 
+     #{customeraddress2,jdbcType=VARCHAR} , 
+     #{customeraddress3,jdbcType=VARCHAR} , 
+     #{customeraddressall,jdbcType=VARCHAR} , 
      #{customerzipcode,jdbcType=VARCHAR} , 
      #{customerfax,jdbcType=VARCHAR} , 
      #{shoptypeid,jdbcType=VARCHAR} , 
@@ -100,26 +110,26 @@
      #{finalvaluefee,jdbcType=DECIMAL} , 
      #{finalvaluefeemoneytype,jdbcType=VARCHAR} , 
      #{latestshipdate,jdbcType=TIMESTAMP} , 
-     #{customerid,jdbcType=LONGVARCHAR} , 
-     #{customername,jdbcType=LONGVARCHAR} , 
-     #{customercountry,jdbcType=LONGVARCHAR} , 
-     #{customerprovince,jdbcType=LONGVARCHAR} , 
-     #{customercity,jdbcType=LONGVARCHAR} , 
-     #{customeraddress,jdbcType=LONGVARCHAR} , 
-     #{customeraddress1,jdbcType=LONGVARCHAR} , 
-     #{customeraddress2,jdbcType=LONGVARCHAR} , 
-     #{customeraddress3,jdbcType=LONGVARCHAR} , 
-     #{customeraddressall,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     ORDERID , 
     CORPID , 
     GROUPID , 
+    CUSTOMERID , 
+    CUSTOMERNAME , 
     CUSTOMERTEL1 , 
     CUSTOMERTEL2 , 
     CUSTOMEREMAIL , 
     CUSTOMERQQ , 
     CUSTOMERMSN , 
+    CUSTOMERCOUNTRY , 
+    CUSTOMERPROVINCE , 
+    CUSTOMERCITY , 
+    CUSTOMERADDRESS , 
+    CUSTOMERADDRESS1 , 
+    CUSTOMERADDRESS2 , 
+    CUSTOMERADDRESS3 , 
+    CUSTOMERADDRESSALL , 
     CUSTOMERZIPCODE , 
     CUSTOMERFAX , 
     SHOPTYPEID , 
@@ -143,268 +153,258 @@
     FINALVALUEFEE , 
     FINALVALUEFEEMONEYTYPE , 
     LATESTSHIPDATE , 
-    CUSTOMERID , 
-    CUSTOMERNAME , 
-    CUSTOMERCOUNTRY , 
-    CUSTOMERPROVINCE , 
-    CUSTOMERCITY , 
-    CUSTOMERADDRESS , 
-    CUSTOMERADDRESS1 , 
-    CUSTOMERADDRESS2 , 
-    CUSTOMERADDRESS3 , 
-    CUSTOMERADDRESSALL
   </sql>
   <sql id="Criteria">
     <if test="orderid != null">
-      ORDERID = #{orderid,jdbcType=VARCHAR} and 
+      orderid = #{orderid,jdbcType=VARCHAR} and 
     </if>
     <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} and 
+      corpid = #{corpid,jdbcType=VARCHAR} and 
     </if>
     <if test="groupid != null">
-      GROUPID = #{groupid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="customertel1 != null">
-      CUSTOMERTEL1 = #{customertel1,jdbcType=VARCHAR} and 
-    </if>
-    <if test="customertel2 != null">
-      CUSTOMERTEL2 = #{customertel2,jdbcType=VARCHAR} and 
-    </if>
-    <if test="customeremail != null">
-      CUSTOMEREMAIL = #{customeremail,jdbcType=VARCHAR} and 
-    </if>
-    <if test="customerqq != null">
-      CUSTOMERQQ = #{customerqq,jdbcType=VARCHAR} and 
-    </if>
-    <if test="customermsn != null">
-      CUSTOMERMSN = #{customermsn,jdbcType=VARCHAR} and 
-    </if>
-    <if test="customerzipcode != null">
-      CUSTOMERZIPCODE = #{customerzipcode,jdbcType=VARCHAR} and 
-    </if>
-    <if test="customerfax != null">
-      CUSTOMERFAX = #{customerfax,jdbcType=VARCHAR} and 
-    </if>
-    <if test="shoptypeid != null">
-      SHOPTYPEID = #{shoptypeid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="shoptype != null">
-      SHOPTYPE = #{shoptype,jdbcType=VARCHAR} and 
-    </if>
-    <if test="salesource != null">
-      SALESOURCE = #{salesource,jdbcType=VARCHAR} and 
-    </if>
-    <if test="moneytype != null">
-      MONEYTYPE = #{moneytype,jdbcType=VARCHAR} and 
-    </if>
-    <if test="moneyorigin != null">
-      MONEYORIGIN = #{moneyorigin,jdbcType=DECIMAL} and 
-    </if>
-    <if test="originmoneytotal != null">
-      ORIGINMONEYTOTAL = #{originmoneytotal,jdbcType=DECIMAL} and 
-    </if>
-    <if test="moneytotal != null">
-      MONEYTOTAL = #{moneytotal,jdbcType=DECIMAL} and 
-    </if>
-    <if test="ordernum != null">
-      ORDERNUM = #{ordernum,jdbcType=DECIMAL} and 
-    </if>
-    <if test="ordertime != null">
-      ORDERTIME = #{ordertime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="uploadtime != null">
-      UPLOADTIME = #{uploadtime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="paytime != null">
-      PAYTIME = #{paytime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="expresstype != null">
-      EXPRESSTYPE = #{expresstype,jdbcType=VARCHAR} and 
-    </if>
-    <if test="transactionid != null">
-      TRANSACTIONID = #{transactionid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="moneyexpress != null">
-      MONEYEXPRESS = #{moneyexpress,jdbcType=DECIMAL} and 
-    </if>
-    <if test="originmoneyexpre != null">
-      ORIGINMONEYEXPRE = #{originmoneyexpre,jdbcType=DECIMAL} and 
-    </if>
-    <if test="expressmoneytype != null">
-      EXPRESSMONEYTYPE = #{expressmoneytype,jdbcType=VARCHAR} and 
-    </if>
-    <if test="status != null">
-      STATUS = #{status,jdbcType=VARCHAR} and 
-    </if>
-    <if test="originfinalvaluefee != null">
-      ORIGINFINALVALUEFEE = #{originfinalvaluefee,jdbcType=DECIMAL} and 
-    </if>
-    <if test="finalvaluefee != null">
-      FINALVALUEFEE = #{finalvaluefee,jdbcType=DECIMAL} and 
-    </if>
-    <if test="finalvaluefeemoneytype != null">
-      FINALVALUEFEEMONEYTYPE = #{finalvaluefeemoneytype,jdbcType=VARCHAR} and 
-    </if>
-    <if test="latestshipdate != null">
-      LATESTSHIPDATE = #{latestshipdate,jdbcType=TIMESTAMP} and 
+      groupid = #{groupid,jdbcType=VARCHAR} and 
     </if>
     <if test="customerid != null">
-      CUSTOMERID = #{customerid,jdbcType=LONGVARCHAR} and 
+      customerid = #{customerid,jdbcType=VARCHAR} and 
     </if>
     <if test="customername != null">
-      CUSTOMERNAME = #{customername,jdbcType=LONGVARCHAR} and 
+      customername = #{customername,jdbcType=VARCHAR} and 
+    </if>
+    <if test="customertel1 != null">
+      customertel1 = #{customertel1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="customertel2 != null">
+      customertel2 = #{customertel2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="customeremail != null">
+      customeremail = #{customeremail,jdbcType=VARCHAR} and 
+    </if>
+    <if test="customerqq != null">
+      customerqq = #{customerqq,jdbcType=VARCHAR} and 
+    </if>
+    <if test="customermsn != null">
+      customermsn = #{customermsn,jdbcType=VARCHAR} and 
     </if>
     <if test="customercountry != null">
-      CUSTOMERCOUNTRY = #{customercountry,jdbcType=LONGVARCHAR} and 
+      customercountry = #{customercountry,jdbcType=VARCHAR} and 
     </if>
     <if test="customerprovince != null">
-      CUSTOMERPROVINCE = #{customerprovince,jdbcType=LONGVARCHAR} and 
+      customerprovince = #{customerprovince,jdbcType=VARCHAR} and 
     </if>
     <if test="customercity != null">
-      CUSTOMERCITY = #{customercity,jdbcType=LONGVARCHAR} and 
+      customercity = #{customercity,jdbcType=VARCHAR} and 
     </if>
     <if test="customeraddress != null">
-      CUSTOMERADDRESS = #{customeraddress,jdbcType=LONGVARCHAR} and 
+      customeraddress = #{customeraddress,jdbcType=VARCHAR} and 
     </if>
     <if test="customeraddress1 != null">
-      CUSTOMERADDRESS1 = #{customeraddress1,jdbcType=LONGVARCHAR} and 
+      customeraddress1 = #{customeraddress1,jdbcType=VARCHAR} and 
     </if>
     <if test="customeraddress2 != null">
-      CUSTOMERADDRESS2 = #{customeraddress2,jdbcType=LONGVARCHAR} and 
+      customeraddress2 = #{customeraddress2,jdbcType=VARCHAR} and 
     </if>
     <if test="customeraddress3 != null">
-      CUSTOMERADDRESS3 = #{customeraddress3,jdbcType=LONGVARCHAR} and 
+      customeraddress3 = #{customeraddress3,jdbcType=VARCHAR} and 
     </if>
     <if test="customeraddressall != null">
-      CUSTOMERADDRESSALL = #{customeraddressall,jdbcType=LONGVARCHAR}
+      customeraddressall = #{customeraddressall,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="customerzipcode != null">
+      customerzipcode = #{customerzipcode,jdbcType=VARCHAR} and 
+    </if>
+    <if test="customerfax != null">
+      customerfax = #{customerfax,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shoptypeid != null">
+      shoptypeid = #{shoptypeid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shoptype != null">
+      shoptype = #{shoptype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="salesource != null">
+      salesource = #{salesource,jdbcType=VARCHAR} and 
+    </if>
+    <if test="moneytype != null">
+      moneytype = #{moneytype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="moneyorigin != null">
+      moneyorigin = #{moneyorigin,jdbcType=DECIMAL} and 
+    </if>
+    <if test="originmoneytotal != null">
+      originmoneytotal = #{originmoneytotal,jdbcType=DECIMAL} and 
+    </if>
+    <if test="moneytotal != null">
+      moneytotal = #{moneytotal,jdbcType=DECIMAL} and 
+    </if>
+    <if test="ordernum != null">
+      ordernum = #{ordernum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="ordertime != null">
+      ordertime = #{ordertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="uploadtime != null">
+      uploadtime = #{uploadtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="paytime != null">
+      paytime = #{paytime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="expresstype != null">
+      expresstype = #{expresstype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="transactionid != null">
+      transactionid = #{transactionid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="moneyexpress != null">
+      moneyexpress = #{moneyexpress,jdbcType=DECIMAL} and 
+    </if>
+    <if test="originmoneyexpre != null">
+      originmoneyexpre = #{originmoneyexpre,jdbcType=DECIMAL} and 
+    </if>
+    <if test="expressmoneytype != null">
+      expressmoneytype = #{expressmoneytype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="status != null">
+      status = #{status,jdbcType=VARCHAR} and 
+    </if>
+    <if test="originfinalvaluefee != null">
+      originfinalvaluefee = #{originfinalvaluefee,jdbcType=DECIMAL} and 
+    </if>
+    <if test="finalvaluefee != null">
+      finalvaluefee = #{finalvaluefee,jdbcType=DECIMAL} and 
+    </if>
+    <if test="finalvaluefeemoneytype != null">
+      finalvaluefeemoneytype = #{finalvaluefeemoneytype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="latestshipdate != null">
+      latestshipdate = #{latestshipdate,jdbcType=TIMESTAMP} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="orderid != null">
-      ORDERID = #{orderid,jdbcType=VARCHAR} , 
+      orderid = #{orderid,jdbcType=VARCHAR} , 
     </if>
     <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} , 
+      corpid = #{corpid,jdbcType=VARCHAR} , 
     </if>
     <if test="groupid != null">
-      GROUPID = #{groupid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="customertel1 != null">
-      CUSTOMERTEL1 = #{customertel1,jdbcType=VARCHAR} , 
-    </if>
-    <if test="customertel2 != null">
-      CUSTOMERTEL2 = #{customertel2,jdbcType=VARCHAR} , 
-    </if>
-    <if test="customeremail != null">
-      CUSTOMEREMAIL = #{customeremail,jdbcType=VARCHAR} , 
-    </if>
-    <if test="customerqq != null">
-      CUSTOMERQQ = #{customerqq,jdbcType=VARCHAR} , 
-    </if>
-    <if test="customermsn != null">
-      CUSTOMERMSN = #{customermsn,jdbcType=VARCHAR} , 
-    </if>
-    <if test="customerzipcode != null">
-      CUSTOMERZIPCODE = #{customerzipcode,jdbcType=VARCHAR} , 
-    </if>
-    <if test="customerfax != null">
-      CUSTOMERFAX = #{customerfax,jdbcType=VARCHAR} , 
-    </if>
-    <if test="shoptypeid != null">
-      SHOPTYPEID = #{shoptypeid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="shoptype != null">
-      SHOPTYPE = #{shoptype,jdbcType=VARCHAR} , 
-    </if>
-    <if test="salesource != null">
-      SALESOURCE = #{salesource,jdbcType=VARCHAR} , 
-    </if>
-    <if test="moneytype != null">
-      MONEYTYPE = #{moneytype,jdbcType=VARCHAR} , 
-    </if>
-    <if test="moneyorigin != null">
-      MONEYORIGIN = #{moneyorigin,jdbcType=DECIMAL} , 
-    </if>
-    <if test="originmoneytotal != null">
-      ORIGINMONEYTOTAL = #{originmoneytotal,jdbcType=DECIMAL} , 
-    </if>
-    <if test="moneytotal != null">
-      MONEYTOTAL = #{moneytotal,jdbcType=DECIMAL} , 
-    </if>
-    <if test="ordernum != null">
-      ORDERNUM = #{ordernum,jdbcType=DECIMAL} , 
-    </if>
-    <if test="ordertime != null">
-      ORDERTIME = #{ordertime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="uploadtime != null">
-      UPLOADTIME = #{uploadtime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="paytime != null">
-      PAYTIME = #{paytime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="expresstype != null">
-      EXPRESSTYPE = #{expresstype,jdbcType=VARCHAR} , 
-    </if>
-    <if test="transactionid != null">
-      TRANSACTIONID = #{transactionid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="moneyexpress != null">
-      MONEYEXPRESS = #{moneyexpress,jdbcType=DECIMAL} , 
-    </if>
-    <if test="originmoneyexpre != null">
-      ORIGINMONEYEXPRE = #{originmoneyexpre,jdbcType=DECIMAL} , 
-    </if>
-    <if test="expressmoneytype != null">
-      EXPRESSMONEYTYPE = #{expressmoneytype,jdbcType=VARCHAR} , 
-    </if>
-    <if test="status != null">
-      STATUS = #{status,jdbcType=VARCHAR} , 
-    </if>
-    <if test="originfinalvaluefee != null">
-      ORIGINFINALVALUEFEE = #{originfinalvaluefee,jdbcType=DECIMAL} , 
-    </if>
-    <if test="finalvaluefee != null">
-      FINALVALUEFEE = #{finalvaluefee,jdbcType=DECIMAL} , 
-    </if>
-    <if test="finalvaluefeemoneytype != null">
-      FINALVALUEFEEMONEYTYPE = #{finalvaluefeemoneytype,jdbcType=VARCHAR} , 
-    </if>
-    <if test="latestshipdate != null">
-      LATESTSHIPDATE = #{latestshipdate,jdbcType=TIMESTAMP} , 
+      groupid = #{groupid,jdbcType=VARCHAR} , 
     </if>
     <if test="customerid != null">
-      CUSTOMERID = #{customerid,jdbcType=LONGVARCHAR} , 
+      customerid = #{customerid,jdbcType=VARCHAR} , 
     </if>
     <if test="customername != null">
-      CUSTOMERNAME = #{customername,jdbcType=LONGVARCHAR} , 
+      customername = #{customername,jdbcType=VARCHAR} , 
+    </if>
+    <if test="customertel1 != null">
+      customertel1 = #{customertel1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="customertel2 != null">
+      customertel2 = #{customertel2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="customeremail != null">
+      customeremail = #{customeremail,jdbcType=VARCHAR} , 
+    </if>
+    <if test="customerqq != null">
+      customerqq = #{customerqq,jdbcType=VARCHAR} , 
+    </if>
+    <if test="customermsn != null">
+      customermsn = #{customermsn,jdbcType=VARCHAR} , 
     </if>
     <if test="customercountry != null">
-      CUSTOMERCOUNTRY = #{customercountry,jdbcType=LONGVARCHAR} , 
+      customercountry = #{customercountry,jdbcType=VARCHAR} , 
     </if>
     <if test="customerprovince != null">
-      CUSTOMERPROVINCE = #{customerprovince,jdbcType=LONGVARCHAR} , 
+      customerprovince = #{customerprovince,jdbcType=VARCHAR} , 
     </if>
     <if test="customercity != null">
-      CUSTOMERCITY = #{customercity,jdbcType=LONGVARCHAR} , 
+      customercity = #{customercity,jdbcType=VARCHAR} , 
     </if>
     <if test="customeraddress != null">
-      CUSTOMERADDRESS = #{customeraddress,jdbcType=LONGVARCHAR} , 
+      customeraddress = #{customeraddress,jdbcType=VARCHAR} , 
     </if>
     <if test="customeraddress1 != null">
-      CUSTOMERADDRESS1 = #{customeraddress1,jdbcType=LONGVARCHAR} , 
+      customeraddress1 = #{customeraddress1,jdbcType=VARCHAR} , 
     </if>
     <if test="customeraddress2 != null">
-      CUSTOMERADDRESS2 = #{customeraddress2,jdbcType=LONGVARCHAR} , 
+      customeraddress2 = #{customeraddress2,jdbcType=VARCHAR} , 
     </if>
     <if test="customeraddress3 != null">
-      CUSTOMERADDRESS3 = #{customeraddress3,jdbcType=LONGVARCHAR} , 
+      customeraddress3 = #{customeraddress3,jdbcType=VARCHAR} , 
     </if>
     <if test="customeraddressall != null">
-      CUSTOMERADDRESSALL = #{customeraddressall,jdbcType=LONGVARCHAR}
+      customeraddressall = #{customeraddressall,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="customerzipcode != null">
+      customerzipcode = #{customerzipcode,jdbcType=VARCHAR} , 
+    </if>
+    <if test="customerfax != null">
+      customerfax = #{customerfax,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shoptypeid != null">
+      shoptypeid = #{shoptypeid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shoptype != null">
+      shoptype = #{shoptype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="salesource != null">
+      salesource = #{salesource,jdbcType=VARCHAR} , 
+    </if>
+    <if test="moneytype != null">
+      moneytype = #{moneytype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="moneyorigin != null">
+      moneyorigin = #{moneyorigin,jdbcType=DECIMAL} , 
+    </if>
+    <if test="originmoneytotal != null">
+      originmoneytotal = #{originmoneytotal,jdbcType=DECIMAL} , 
+    </if>
+    <if test="moneytotal != null">
+      moneytotal = #{moneytotal,jdbcType=DECIMAL} , 
+    </if>
+    <if test="ordernum != null">
+      ordernum = #{ordernum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="ordertime != null">
+      ordertime = #{ordertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="uploadtime != null">
+      uploadtime = #{uploadtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="paytime != null">
+      paytime = #{paytime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="expresstype != null">
+      expresstype = #{expresstype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="transactionid != null">
+      transactionid = #{transactionid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="moneyexpress != null">
+      moneyexpress = #{moneyexpress,jdbcType=DECIMAL} , 
+    </if>
+    <if test="originmoneyexpre != null">
+      originmoneyexpre = #{originmoneyexpre,jdbcType=DECIMAL} , 
+    </if>
+    <if test="expressmoneytype != null">
+      expressmoneytype = #{expressmoneytype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="status != null">
+      status = #{status,jdbcType=VARCHAR} , 
+    </if>
+    <if test="originfinalvaluefee != null">
+      originfinalvaluefee = #{originfinalvaluefee,jdbcType=DECIMAL} , 
+    </if>
+    <if test="finalvaluefee != null">
+      finalvaluefee = #{finalvaluefee,jdbcType=DECIMAL} , 
+    </if>
+    <if test="finalvaluefeemoneytype != null">
+      finalvaluefeemoneytype = #{finalvaluefeemoneytype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="latestshipdate != null">
+      latestshipdate = #{latestshipdate,jdbcType=TIMESTAMP} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbAmazonorder" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

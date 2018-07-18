@@ -1,20 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbProjectdesrc;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbProjectdesrcMapper {
-    int deleteByPrimaryKey(BigDecimal sequenceid);
+    DbProjectdesrc selectByCriteria(DbProjectdesrc DbProjectdesrc);
 
-    int insert(DbProjectdesrc record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbProjectdesrc record);
+    void deleteByCriteria(DbProjectdesrc DbProjectdesrc);
+
+    int insertByCriteria(DbProjectdesrc DbProjectdesrc);
+
+    int updateByCriteria(DbProjectdesrc DbProjectdesrc);
 
     DbProjectdesrc selectByPrimaryKey(BigDecimal sequenceid);
 
-    int updateByPrimaryKeySelective(DbProjectdesrc record);
-
-    int updateByPrimaryKeyWithBLOBs(DbProjectdesrc record);
-
-    int updateByPrimaryKey(DbProjectdesrc record);
+    List<DbProjectdesrc> selectAll();
 }

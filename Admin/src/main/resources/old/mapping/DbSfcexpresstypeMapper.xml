@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbSfcexpresstypeMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbSfcexpresstype">
+    <result column="CODE" jdbcType="VARCHAR" property="code" />
+    <result column="ENNAME" jdbcType="VARCHAR" property="enname" />
+    <result column="CNNAME" jdbcType="VARCHAR" property="cnname" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bean.model.DbSfcexpresstype">
+    insert into db_sfcexpresstype (CODE, ENNAME, CNNAME
+      )
+    values (#{code,jdbcType=VARCHAR}, #{enname,jdbcType=VARCHAR}, #{cnname,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbSfcexpresstype">
+    insert into db_sfcexpresstype
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="code != null">
+        CODE,
+      </if>
+      <if test="enname != null">
+        ENNAME,
+      </if>
+      <if test="cnname != null">
+        CNNAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="enname != null">
+        #{enname,jdbcType=VARCHAR},
+      </if>
+      <if test="cnname != null">
+        #{cnname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

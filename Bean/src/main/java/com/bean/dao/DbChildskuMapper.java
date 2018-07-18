@@ -1,18 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbChildsku;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbChildskuMapper {
-    int deleteByPrimaryKey(BigDecimal sid);
+    DbChildsku selectByCriteria(DbChildsku DbChildsku);
 
-    int insert(DbChildsku record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbChildsku record);
+    void deleteByCriteria(DbChildsku DbChildsku);
+
+    int insertByCriteria(DbChildsku DbChildsku);
+
+    int updateByCriteria(DbChildsku DbChildsku);
 
     DbChildsku selectByPrimaryKey(BigDecimal sid);
 
-    int updateByPrimaryKeySelective(DbChildsku record);
-
-    int updateByPrimaryKey(DbChildsku record);
+    List<DbChildsku> selectAll();
 }

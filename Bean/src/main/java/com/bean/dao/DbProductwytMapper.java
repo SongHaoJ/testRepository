@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbProductwyt;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbProductwytMapper {
-    int deleteByPrimaryKey(String sid);
+    DbProductwyt selectByCriteria(DbProductwyt DbProductwyt);
 
-    int insert(DbProductwyt record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbProductwyt record);
+    void deleteByCriteria(DbProductwyt DbProductwyt);
+
+    int insertByCriteria(DbProductwyt DbProductwyt);
+
+    int updateByCriteria(DbProductwyt DbProductwyt);
 
     DbProductwyt selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbProductwyt record);
-
-    int updateByPrimaryKeyWithBLOBs(DbProductwyt record);
-
-    int updateByPrimaryKey(DbProductwyt record);
+    List<DbProductwyt> selectAll();
 }

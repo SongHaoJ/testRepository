@@ -9,6 +9,10 @@ public class DbTempsavenum implements Serializable {
 
     private String oper;
 
+    private String nextdescr;
+
+    private String purchasedescr;
+
     private String purchaseoper;
 
     private String nextoper;
@@ -23,19 +27,15 @@ public class DbTempsavenum implements Serializable {
 
     private Date nextopertime;
 
+    private String productname;
+
+    private String descr;
+
     private Date purchseopertime;
 
     private String flag;
 
     private BigDecimal checknum;
-
-    private String nextdescr;
-
-    private String purchasedescr;
-
-    private String productname;
-
-    private String descr;
 
     private static final long serialVersionUID = 1L;
 
@@ -53,6 +53,22 @@ public class DbTempsavenum implements Serializable {
 
     public void setOper(String oper) {
         this.oper = oper == null ? null : oper.trim();
+    }
+
+    public String getNextdescr() {
+        return nextdescr;
+    }
+
+    public void setNextdescr(String nextdescr) {
+        this.nextdescr = nextdescr == null ? null : nextdescr.trim();
+    }
+
+    public String getPurchasedescr() {
+        return purchasedescr;
+    }
+
+    public void setPurchasedescr(String purchasedescr) {
+        this.purchasedescr = purchasedescr == null ? null : purchasedescr.trim();
     }
 
     public String getPurchaseoper() {
@@ -111,6 +127,22 @@ public class DbTempsavenum implements Serializable {
         this.nextopertime = nextopertime;
     }
 
+    public String getProductname() {
+        return productname;
+    }
+
+    public void setProductname(String productname) {
+        this.productname = productname == null ? null : productname.trim();
+    }
+
+    public String getDescr() {
+        return descr;
+    }
+
+    public void setDescr(String descr) {
+        this.descr = descr == null ? null : descr.trim();
+    }
+
     public Date getPurchseopertime() {
         return purchseopertime;
     }
@@ -135,38 +167,6 @@ public class DbTempsavenum implements Serializable {
         this.checknum = checknum;
     }
 
-    public String getNextdescr() {
-        return nextdescr;
-    }
-
-    public void setNextdescr(String nextdescr) {
-        this.nextdescr = nextdescr == null ? null : nextdescr.trim();
-    }
-
-    public String getPurchasedescr() {
-        return purchasedescr;
-    }
-
-    public void setPurchasedescr(String purchasedescr) {
-        this.purchasedescr = purchasedescr == null ? null : purchasedescr.trim();
-    }
-
-    public String getProductname() {
-        return productname;
-    }
-
-    public void setProductname(String productname) {
-        this.productname = productname == null ? null : productname.trim();
-    }
-
-    public String getDescr() {
-        return descr;
-    }
-
-    public void setDescr(String descr) {
-        this.descr = descr == null ? null : descr.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -181,6 +181,8 @@ public class DbTempsavenum implements Serializable {
         DbTempsavenum other = (DbTempsavenum) that;
         return (this.getProductid() == null ? other.getProductid() == null : this.getProductid().equals(other.getProductid()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
+            && (this.getNextdescr() == null ? other.getNextdescr() == null : this.getNextdescr().equals(other.getNextdescr()))
+            && (this.getPurchasedescr() == null ? other.getPurchasedescr() == null : this.getPurchasedescr().equals(other.getPurchasedescr()))
             && (this.getPurchaseoper() == null ? other.getPurchaseoper() == null : this.getPurchaseoper().equals(other.getPurchaseoper()))
             && (this.getNextoper() == null ? other.getNextoper() == null : this.getNextoper().equals(other.getNextoper()))
             && (this.getSavenum() == null ? other.getSavenum() == null : this.getSavenum().equals(other.getSavenum()))
@@ -188,13 +190,11 @@ public class DbTempsavenum implements Serializable {
             && (this.getNextnum() == null ? other.getNextnum() == null : this.getNextnum().equals(other.getNextnum()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
             && (this.getNextopertime() == null ? other.getNextopertime() == null : this.getNextopertime().equals(other.getNextopertime()))
+            && (this.getProductname() == null ? other.getProductname() == null : this.getProductname().equals(other.getProductname()))
+            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
             && (this.getPurchseopertime() == null ? other.getPurchseopertime() == null : this.getPurchseopertime().equals(other.getPurchseopertime()))
             && (this.getFlag() == null ? other.getFlag() == null : this.getFlag().equals(other.getFlag()))
-            && (this.getChecknum() == null ? other.getChecknum() == null : this.getChecknum().equals(other.getChecknum()))
-            && (this.getNextdescr() == null ? other.getNextdescr() == null : this.getNextdescr().equals(other.getNextdescr()))
-            && (this.getPurchasedescr() == null ? other.getPurchasedescr() == null : this.getPurchasedescr().equals(other.getPurchasedescr()))
-            && (this.getProductname() == null ? other.getProductname() == null : this.getProductname().equals(other.getProductname()))
-            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()));
+            && (this.getChecknum() == null ? other.getChecknum() == null : this.getChecknum().equals(other.getChecknum()));
     }
 
     @Override
@@ -203,6 +203,8 @@ public class DbTempsavenum implements Serializable {
         int result = 1;
         result = prime * result + ((getProductid() == null) ? 0 : getProductid().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
+        result = prime * result + ((getNextdescr() == null) ? 0 : getNextdescr().hashCode());
+        result = prime * result + ((getPurchasedescr() == null) ? 0 : getPurchasedescr().hashCode());
         result = prime * result + ((getPurchaseoper() == null) ? 0 : getPurchaseoper().hashCode());
         result = prime * result + ((getNextoper() == null) ? 0 : getNextoper().hashCode());
         result = prime * result + ((getSavenum() == null) ? 0 : getSavenum().hashCode());
@@ -210,13 +212,11 @@ public class DbTempsavenum implements Serializable {
         result = prime * result + ((getNextnum() == null) ? 0 : getNextnum().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getNextopertime() == null) ? 0 : getNextopertime().hashCode());
+        result = prime * result + ((getProductname() == null) ? 0 : getProductname().hashCode());
+        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
         result = prime * result + ((getPurchseopertime() == null) ? 0 : getPurchseopertime().hashCode());
         result = prime * result + ((getFlag() == null) ? 0 : getFlag().hashCode());
         result = prime * result + ((getChecknum() == null) ? 0 : getChecknum().hashCode());
-        result = prime * result + ((getNextdescr() == null) ? 0 : getNextdescr().hashCode());
-        result = prime * result + ((getPurchasedescr() == null) ? 0 : getPurchasedescr().hashCode());
-        result = prime * result + ((getProductname() == null) ? 0 : getProductname().hashCode());
-        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
         return result;
     }
 
@@ -228,6 +228,8 @@ public class DbTempsavenum implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", productid=").append(productid);
         sb.append(", oper=").append(oper);
+        sb.append(", nextdescr=").append(nextdescr);
+        sb.append(", purchasedescr=").append(purchasedescr);
         sb.append(", purchaseoper=").append(purchaseoper);
         sb.append(", nextoper=").append(nextoper);
         sb.append(", savenum=").append(savenum);
@@ -235,13 +237,11 @@ public class DbTempsavenum implements Serializable {
         sb.append(", nextnum=").append(nextnum);
         sb.append(", opertime=").append(opertime);
         sb.append(", nextopertime=").append(nextopertime);
+        sb.append(", productname=").append(productname);
+        sb.append(", descr=").append(descr);
         sb.append(", purchseopertime=").append(purchseopertime);
         sb.append(", flag=").append(flag);
         sb.append(", checknum=").append(checknum);
-        sb.append(", nextdescr=").append(nextdescr);
-        sb.append(", purchasedescr=").append(purchasedescr);
-        sb.append(", productname=").append(productname);
-        sb.append(", descr=").append(descr);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

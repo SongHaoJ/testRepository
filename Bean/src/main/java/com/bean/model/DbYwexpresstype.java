@@ -8,9 +8,11 @@ public class DbYwexpresstype implements Serializable {
 
     private String expresstype;
 
-    private String dbpackage;
+    private String dbPackage;
 
     private String currency;
+
+    private String labelstr;
 
     private BigDecimal a4;
 
@@ -19,8 +21,6 @@ public class DbYwexpresstype implements Serializable {
     private BigDecimal a7;
 
     private BigDecimal cnminiparcel10x10;
-
-    private String labelstr;
 
     private static final long serialVersionUID = 1L;
 
@@ -40,12 +40,12 @@ public class DbYwexpresstype implements Serializable {
         this.expresstype = expresstype == null ? null : expresstype.trim();
     }
 
-    public String getDbpackage() {
-        return dbpackage;
+    public String getDbPackage() {
+        return dbPackage;
     }
 
-    public void setDbpackage(String dbpackage) {
-        this.dbpackage = dbpackage == null ? null : dbpackage.trim();
+    public void setDbPackage(String dbPackage) {
+        this.dbPackage = dbPackage == null ? null : dbPackage.trim();
     }
 
     public String getCurrency() {
@@ -54,6 +54,14 @@ public class DbYwexpresstype implements Serializable {
 
     public void setCurrency(String currency) {
         this.currency = currency == null ? null : currency.trim();
+    }
+
+    public String getLabelstr() {
+        return labelstr;
+    }
+
+    public void setLabelstr(String labelstr) {
+        this.labelstr = labelstr == null ? null : labelstr.trim();
     }
 
     public BigDecimal getA4() {
@@ -88,14 +96,6 @@ public class DbYwexpresstype implements Serializable {
         this.cnminiparcel10x10 = cnminiparcel10x10;
     }
 
-    public String getLabelstr() {
-        return labelstr;
-    }
-
-    public void setLabelstr(String labelstr) {
-        this.labelstr = labelstr == null ? null : labelstr.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -110,13 +110,13 @@ public class DbYwexpresstype implements Serializable {
         DbYwexpresstype other = (DbYwexpresstype) that;
         return (this.getSid() == null ? other.getSid() == null : this.getSid().equals(other.getSid()))
             && (this.getExpresstype() == null ? other.getExpresstype() == null : this.getExpresstype().equals(other.getExpresstype()))
-            && (this.getDbpackage() == null ? other.getDbpackage() == null : this.getDbpackage().equals(other.getDbpackage()))
+            && (this.getDbPackage() == null ? other.getDbPackage() == null : this.getDbPackage().equals(other.getDbPackage()))
             && (this.getCurrency() == null ? other.getCurrency() == null : this.getCurrency().equals(other.getCurrency()))
+            && (this.getLabelstr() == null ? other.getLabelstr() == null : this.getLabelstr().equals(other.getLabelstr()))
             && (this.getA4() == null ? other.getA4() == null : this.getA4().equals(other.getA4()))
             && (this.getA6() == null ? other.getA6() == null : this.getA6().equals(other.getA6()))
             && (this.getA7() == null ? other.getA7() == null : this.getA7().equals(other.getA7()))
-            && (this.getCnminiparcel10x10() == null ? other.getCnminiparcel10x10() == null : this.getCnminiparcel10x10().equals(other.getCnminiparcel10x10()))
-            && (this.getLabelstr() == null ? other.getLabelstr() == null : this.getLabelstr().equals(other.getLabelstr()));
+            && (this.getCnminiparcel10x10() == null ? other.getCnminiparcel10x10() == null : this.getCnminiparcel10x10().equals(other.getCnminiparcel10x10()));
     }
 
     @Override
@@ -125,13 +125,13 @@ public class DbYwexpresstype implements Serializable {
         int result = 1;
         result = prime * result + ((getSid() == null) ? 0 : getSid().hashCode());
         result = prime * result + ((getExpresstype() == null) ? 0 : getExpresstype().hashCode());
-        result = prime * result + ((getDbpackage() == null) ? 0 : getDbpackage().hashCode());
+        result = prime * result + ((getDbPackage() == null) ? 0 : getDbPackage().hashCode());
         result = prime * result + ((getCurrency() == null) ? 0 : getCurrency().hashCode());
+        result = prime * result + ((getLabelstr() == null) ? 0 : getLabelstr().hashCode());
         result = prime * result + ((getA4() == null) ? 0 : getA4().hashCode());
         result = prime * result + ((getA6() == null) ? 0 : getA6().hashCode());
         result = prime * result + ((getA7() == null) ? 0 : getA7().hashCode());
         result = prime * result + ((getCnminiparcel10x10() == null) ? 0 : getCnminiparcel10x10().hashCode());
-        result = prime * result + ((getLabelstr() == null) ? 0 : getLabelstr().hashCode());
         return result;
     }
 
@@ -143,13 +143,13 @@ public class DbYwexpresstype implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", sid=").append(sid);
         sb.append(", expresstype=").append(expresstype);
-        sb.append(", dbpackage=").append(dbpackage);
+        sb.append(", dbPackage=").append(dbPackage);
         sb.append(", currency=").append(currency);
+        sb.append(", labelstr=").append(labelstr);
         sb.append(", a4=").append(a4);
         sb.append(", a6=").append(a6);
         sb.append(", a7=").append(a7);
         sb.append(", cnminiparcel10x10=").append(cnminiparcel10x10);
-        sb.append(", labelstr=").append(labelstr);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

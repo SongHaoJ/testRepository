@@ -38,6 +38,8 @@ public class DbEbayinquiry implements Serializable {
 
     private String lastactor;
 
+    private String lastdescription;
+
     private Date lastdate;
 
     private Short apistatus;
@@ -45,8 +47,6 @@ public class DbEbayinquiry implements Serializable {
     private Date apidate;
 
     private String apidescr;
-
-    private String lastdescription;
 
     private static final long serialVersionUID = 1L;
 
@@ -186,6 +186,14 @@ public class DbEbayinquiry implements Serializable {
         this.lastactor = lastactor == null ? null : lastactor.trim();
     }
 
+    public String getLastdescription() {
+        return lastdescription;
+    }
+
+    public void setLastdescription(String lastdescription) {
+        this.lastdescription = lastdescription == null ? null : lastdescription.trim();
+    }
+
     public Date getLastdate() {
         return lastdate;
     }
@@ -218,14 +226,6 @@ public class DbEbayinquiry implements Serializable {
         this.apidescr = apidescr == null ? null : apidescr.trim();
     }
 
-    public String getLastdescription() {
-        return lastdescription;
-    }
-
-    public void setLastdescription(String lastdescription) {
-        this.lastdescription = lastdescription == null ? null : lastdescription.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -255,11 +255,11 @@ public class DbEbayinquiry implements Serializable {
             && (this.getCreationdate() == null ? other.getCreationdate() == null : this.getCreationdate().equals(other.getCreationdate()))
             && (this.getLastaction() == null ? other.getLastaction() == null : this.getLastaction().equals(other.getLastaction()))
             && (this.getLastactor() == null ? other.getLastactor() == null : this.getLastactor().equals(other.getLastactor()))
+            && (this.getLastdescription() == null ? other.getLastdescription() == null : this.getLastdescription().equals(other.getLastdescription()))
             && (this.getLastdate() == null ? other.getLastdate() == null : this.getLastdate().equals(other.getLastdate()))
             && (this.getApistatus() == null ? other.getApistatus() == null : this.getApistatus().equals(other.getApistatus()))
             && (this.getApidate() == null ? other.getApidate() == null : this.getApidate().equals(other.getApidate()))
-            && (this.getApidescr() == null ? other.getApidescr() == null : this.getApidescr().equals(other.getApidescr()))
-            && (this.getLastdescription() == null ? other.getLastdescription() == null : this.getLastdescription().equals(other.getLastdescription()));
+            && (this.getApidescr() == null ? other.getApidescr() == null : this.getApidescr().equals(other.getApidescr()));
     }
 
     @Override
@@ -283,11 +283,11 @@ public class DbEbayinquiry implements Serializable {
         result = prime * result + ((getCreationdate() == null) ? 0 : getCreationdate().hashCode());
         result = prime * result + ((getLastaction() == null) ? 0 : getLastaction().hashCode());
         result = prime * result + ((getLastactor() == null) ? 0 : getLastactor().hashCode());
+        result = prime * result + ((getLastdescription() == null) ? 0 : getLastdescription().hashCode());
         result = prime * result + ((getLastdate() == null) ? 0 : getLastdate().hashCode());
         result = prime * result + ((getApistatus() == null) ? 0 : getApistatus().hashCode());
         result = prime * result + ((getApidate() == null) ? 0 : getApidate().hashCode());
         result = prime * result + ((getApidescr() == null) ? 0 : getApidescr().hashCode());
-        result = prime * result + ((getLastdescription() == null) ? 0 : getLastdescription().hashCode());
         return result;
     }
 
@@ -314,11 +314,11 @@ public class DbEbayinquiry implements Serializable {
         sb.append(", creationdate=").append(creationdate);
         sb.append(", lastaction=").append(lastaction);
         sb.append(", lastactor=").append(lastactor);
+        sb.append(", lastdescription=").append(lastdescription);
         sb.append(", lastdate=").append(lastdate);
         sb.append(", apistatus=").append(apistatus);
         sb.append(", apidate=").append(apidate);
         sb.append(", apidescr=").append(apidescr);
-        sb.append(", lastdescription=").append(lastdescription);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

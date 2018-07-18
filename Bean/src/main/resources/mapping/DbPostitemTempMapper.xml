@@ -11,185 +11,143 @@
     <result column="PRICE" jdbcType="DECIMAL" property="price" />
     <result column="SKU" jdbcType="VARCHAR" property="sku" />
     <result column="FLAG" jdbcType="DECIMAL" property="flag" />
+    <result column="ERROR" jdbcType="VARCHAR" property="error" />
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbPostitemTemp">
-    <result column="ERROR" jdbcType="LONGVARCHAR" property="error" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    SID, ITEMID, SHOPID, SHOPNAME, PRICETYPE, SITE, PRICE, SKU, FLAG, OPER, OPERTIME
-  </sql>
-  <sql id="Blob_Column_List">
-    ERROR
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from db_postitem_temp
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SID, ITEMID, SHOPID, SHOPNAME, PRICETYPE, SITE, PRICE, SKU, FLAG, ERROR, OPER, 
+    OPERTIME
+    from DB_POSTITEM_TEMP
     where SID = #{sid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_postitem_temp
-    where SID = #{sid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, ITEMID, SHOPID, SHOPNAME, PRICETYPE, SITE, PRICE, SKU, FLAG, ERROR, OPER, 
+    OPERTIME
+    from DB_POSTITEM_TEMP
+  </select>
+  <sql id="TableName">
+    DB_POSTITEM_TEMP
+  </sql>
+  <sql id="Values">
+     #{sid,jdbcType=VARCHAR} , 
+     #{itemid,jdbcType=VARCHAR} , 
+     #{shopid,jdbcType=VARCHAR} , 
+     #{shopname,jdbcType=VARCHAR} , 
+     #{pricetype,jdbcType=DECIMAL} , 
+     #{site,jdbcType=VARCHAR} , 
+     #{price,jdbcType=DECIMAL} , 
+     #{sku,jdbcType=VARCHAR} , 
+     #{flag,jdbcType=DECIMAL} , 
+     #{error,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+  </sql>
+  <sql id="Columns">
+    SID , 
+    ITEMID , 
+    SHOPID , 
+    SHOPNAME , 
+    PRICETYPE , 
+    SITE , 
+    PRICE , 
+    SKU , 
+    FLAG , 
+    ERROR , 
+    OPER , 
+    OPERTIME , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="itemid != null">
+      itemid = #{itemid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shopid != null">
+      shopid = #{shopid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shopname != null">
+      shopname = #{shopname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="pricetype != null">
+      pricetype = #{pricetype,jdbcType=DECIMAL} and 
+    </if>
+    <if test="site != null">
+      site = #{site,jdbcType=VARCHAR} and 
+    </if>
+    <if test="price != null">
+      price = #{price,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sku != null">
+      sku = #{sku,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="error != null">
+      error = #{error,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="itemid != null">
+      itemid = #{itemid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shopid != null">
+      shopid = #{shopid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shopname != null">
+      shopname = #{shopname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="pricetype != null">
+      pricetype = #{pricetype,jdbcType=DECIMAL} , 
+    </if>
+    <if test="site != null">
+      site = #{site,jdbcType=VARCHAR} , 
+    </if>
+    <if test="price != null">
+      price = #{price,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sku != null">
+      sku = #{sku,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="error != null">
+      error = #{error,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbPostitemTemp" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SID=#{SID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbPostitemTemp">
-    insert into db_postitem_temp (SID, ITEMID, SHOPID, 
-      SHOPNAME, PRICETYPE, SITE, 
-      PRICE, SKU, FLAG, OPER, 
-      OPERTIME, ERROR)
-    values (#{sid,jdbcType=VARCHAR}, #{itemid,jdbcType=VARCHAR}, #{shopid,jdbcType=VARCHAR}, 
-      #{shopname,jdbcType=VARCHAR}, #{pricetype,jdbcType=DECIMAL}, #{site,jdbcType=VARCHAR}, 
-      #{price,jdbcType=DECIMAL}, #{sku,jdbcType=VARCHAR}, #{flag,jdbcType=DECIMAL}, #{oper,jdbcType=VARCHAR}, 
-      #{opertime,jdbcType=TIMESTAMP}, #{error,jdbcType=LONGVARCHAR})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbPostitemTemp">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbPostitemTemp">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbPostitemTemp">
-    insert into db_postitem_temp
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        SID,
-      </if>
-      <if test="itemid != null">
-        ITEMID,
-      </if>
-      <if test="shopid != null">
-        SHOPID,
-      </if>
-      <if test="shopname != null">
-        SHOPNAME,
-      </if>
-      <if test="pricetype != null">
-        PRICETYPE,
-      </if>
-      <if test="site != null">
-        SITE,
-      </if>
-      <if test="price != null">
-        PRICE,
-      </if>
-      <if test="sku != null">
-        SKU,
-      </if>
-      <if test="flag != null">
-        FLAG,
-      </if>
-      <if test="oper != null">
-        OPER,
-      </if>
-      <if test="opertime != null">
-        OPERTIME,
-      </if>
-      <if test="error != null">
-        ERROR,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        #{sid,jdbcType=VARCHAR},
-      </if>
-      <if test="itemid != null">
-        #{itemid,jdbcType=VARCHAR},
-      </if>
-      <if test="shopid != null">
-        #{shopid,jdbcType=VARCHAR},
-      </if>
-      <if test="shopname != null">
-        #{shopname,jdbcType=VARCHAR},
-      </if>
-      <if test="pricetype != null">
-        #{pricetype,jdbcType=DECIMAL},
-      </if>
-      <if test="site != null">
-        #{site,jdbcType=VARCHAR},
-      </if>
-      <if test="price != null">
-        #{price,jdbcType=DECIMAL},
-      </if>
-      <if test="sku != null">
-        #{sku,jdbcType=VARCHAR},
-      </if>
-      <if test="flag != null">
-        #{flag,jdbcType=DECIMAL},
-      </if>
-      <if test="oper != null">
-        #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="error != null">
-        #{error,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbPostitemTemp">
-    update db_postitem_temp
-    <set>
-      <if test="itemid != null">
-        ITEMID = #{itemid,jdbcType=VARCHAR},
-      </if>
-      <if test="shopid != null">
-        SHOPID = #{shopid,jdbcType=VARCHAR},
-      </if>
-      <if test="shopname != null">
-        SHOPNAME = #{shopname,jdbcType=VARCHAR},
-      </if>
-      <if test="pricetype != null">
-        PRICETYPE = #{pricetype,jdbcType=DECIMAL},
-      </if>
-      <if test="site != null">
-        SITE = #{site,jdbcType=VARCHAR},
-      </if>
-      <if test="price != null">
-        PRICE = #{price,jdbcType=DECIMAL},
-      </if>
-      <if test="sku != null">
-        SKU = #{sku,jdbcType=VARCHAR},
-      </if>
-      <if test="flag != null">
-        FLAG = #{flag,jdbcType=DECIMAL},
-      </if>
-      <if test="oper != null">
-        OPER = #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="error != null">
-        ERROR = #{error,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where SID = #{sid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbPostitemTemp">
-    update db_postitem_temp
-    set ITEMID = #{itemid,jdbcType=VARCHAR},
-      SHOPID = #{shopid,jdbcType=VARCHAR},
-      SHOPNAME = #{shopname,jdbcType=VARCHAR},
-      PRICETYPE = #{pricetype,jdbcType=DECIMAL},
-      SITE = #{site,jdbcType=VARCHAR},
-      PRICE = #{price,jdbcType=DECIMAL},
-      SKU = #{sku,jdbcType=VARCHAR},
-      FLAG = #{flag,jdbcType=DECIMAL},
-      OPER = #{oper,jdbcType=VARCHAR},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      ERROR = #{error,jdbcType=LONGVARCHAR}
-    where SID = #{sid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbPostitemTemp">
-    update db_postitem_temp
-    set ITEMID = #{itemid,jdbcType=VARCHAR},
-      SHOPID = #{shopid,jdbcType=VARCHAR},
-      SHOPNAME = #{shopname,jdbcType=VARCHAR},
-      PRICETYPE = #{pricetype,jdbcType=DECIMAL},
-      SITE = #{site,jdbcType=VARCHAR},
-      PRICE = #{price,jdbcType=DECIMAL},
-      SKU = #{sku,jdbcType=VARCHAR},
-      FLAG = #{flag,jdbcType=DECIMAL},
-      OPER = #{oper,jdbcType=VARCHAR},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP}
-    where SID = #{sid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbPostitemTemp">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

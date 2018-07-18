@@ -13,16 +13,16 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select SID, EBAYITEMID, EBAYQUANTITYSOLD, EBAYHITCOUNT, UPDATETIME1, UPDATETIME, 
     CALCULATEFLAG
-    from db_calculate_temp1
+    from DB_CALCULATE_TEMP1
     where SID = #{sid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SID, EBAYITEMID, EBAYQUANTITYSOLD, EBAYHITCOUNT, UPDATETIME1, UPDATETIME, 
     CALCULATEFLAG
-    from db_calculate_temp1
+    from DB_CALCULATE_TEMP1
   </select>
   <sql id="TableName">
-    db_calculate_temp1
+    DB_CALCULATE_TEMP1
   </sql>
   <sql id="Values">
      #{sid,jdbcType=VARCHAR} , 
@@ -31,7 +31,7 @@
      #{ebayhitcount,jdbcType=DECIMAL} , 
      #{updatetime1,jdbcType=VARCHAR} , 
      #{updatetime,jdbcType=TIMESTAMP} , 
-     #{calculateflag,jdbcType=VARCHAR}
+     #{calculateflag,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     SID , 
@@ -40,55 +40,55 @@
     EBAYHITCOUNT , 
     UPDATETIME1 , 
     UPDATETIME , 
-    CALCULATEFLAG
+    CALCULATEFLAG , 
   </sql>
   <sql id="Criteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} and 
+      sid = #{sid,jdbcType=VARCHAR} and 
     </if>
     <if test="ebayitemid != null">
-      EBAYITEMID = #{ebayitemid,jdbcType=VARCHAR} and 
+      ebayitemid = #{ebayitemid,jdbcType=VARCHAR} and 
     </if>
     <if test="ebayquantitysold != null">
-      EBAYQUANTITYSOLD = #{ebayquantitysold,jdbcType=DECIMAL} and 
+      ebayquantitysold = #{ebayquantitysold,jdbcType=DECIMAL} and 
     </if>
     <if test="ebayhitcount != null">
-      EBAYHITCOUNT = #{ebayhitcount,jdbcType=DECIMAL} and 
+      ebayhitcount = #{ebayhitcount,jdbcType=DECIMAL} and 
     </if>
     <if test="updatetime1 != null">
-      UPDATETIME1 = #{updatetime1,jdbcType=VARCHAR} and 
+      updatetime1 = #{updatetime1,jdbcType=VARCHAR} and 
     </if>
     <if test="updatetime != null">
-      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP} and 
+      updatetime = #{updatetime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="calculateflag != null">
-      CALCULATEFLAG = #{calculateflag,jdbcType=VARCHAR}
+      calculateflag = #{calculateflag,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} , 
+      sid = #{sid,jdbcType=VARCHAR} , 
     </if>
     <if test="ebayitemid != null">
-      EBAYITEMID = #{ebayitemid,jdbcType=VARCHAR} , 
+      ebayitemid = #{ebayitemid,jdbcType=VARCHAR} , 
     </if>
     <if test="ebayquantitysold != null">
-      EBAYQUANTITYSOLD = #{ebayquantitysold,jdbcType=DECIMAL} , 
+      ebayquantitysold = #{ebayquantitysold,jdbcType=DECIMAL} , 
     </if>
     <if test="ebayhitcount != null">
-      EBAYHITCOUNT = #{ebayhitcount,jdbcType=DECIMAL} , 
+      ebayhitcount = #{ebayhitcount,jdbcType=DECIMAL} , 
     </if>
     <if test="updatetime1 != null">
-      UPDATETIME1 = #{updatetime1,jdbcType=VARCHAR} , 
+      updatetime1 = #{updatetime1,jdbcType=VARCHAR} , 
     </if>
     <if test="updatetime != null">
-      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP} , 
+      updatetime = #{updatetime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="calculateflag != null">
-      CALCULATEFLAG = #{calculateflag,jdbcType=VARCHAR}
+      calculateflag = #{calculateflag,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbCalculateTemp1" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

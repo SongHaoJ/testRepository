@@ -11,27 +11,11 @@ public class DbCalcuplatformlog implements Serializable {
 
     private String name;
 
+    private String descr;
+
     private String oper;
 
     private Date opertime;
-
-    private BigDecimal filed8;
-
-    private BigDecimal filed9;
-
-    private BigDecimal filed10;
-
-    private String corpid;
-
-    private String openflag;
-
-    private String opertype;
-
-    private BigDecimal filed11;
-
-    private BigDecimal filed12;
-
-    private String descr;
 
     private String filed1;
 
@@ -47,7 +31,23 @@ public class DbCalcuplatformlog implements Serializable {
 
     private String filed7;
 
+    private BigDecimal filed8;
+
+    private BigDecimal filed9;
+
+    private BigDecimal filed10;
+
+    private String corpid;
+
+    private String openflag;
+
+    private String opertype;
+
     private String content;
+
+    private BigDecimal filed11;
+
+    private BigDecimal filed12;
 
     private static final long serialVersionUID = 1L;
 
@@ -75,6 +75,14 @@ public class DbCalcuplatformlog implements Serializable {
         this.name = name == null ? null : name.trim();
     }
 
+    public String getDescr() {
+        return descr;
+    }
+
+    public void setDescr(String descr) {
+        this.descr = descr == null ? null : descr.trim();
+    }
+
     public String getOper() {
         return oper;
     }
@@ -89,78 +97,6 @@ public class DbCalcuplatformlog implements Serializable {
 
     public void setOpertime(Date opertime) {
         this.opertime = opertime;
-    }
-
-    public BigDecimal getFiled8() {
-        return filed8;
-    }
-
-    public void setFiled8(BigDecimal filed8) {
-        this.filed8 = filed8;
-    }
-
-    public BigDecimal getFiled9() {
-        return filed9;
-    }
-
-    public void setFiled9(BigDecimal filed9) {
-        this.filed9 = filed9;
-    }
-
-    public BigDecimal getFiled10() {
-        return filed10;
-    }
-
-    public void setFiled10(BigDecimal filed10) {
-        this.filed10 = filed10;
-    }
-
-    public String getCorpid() {
-        return corpid;
-    }
-
-    public void setCorpid(String corpid) {
-        this.corpid = corpid == null ? null : corpid.trim();
-    }
-
-    public String getOpenflag() {
-        return openflag;
-    }
-
-    public void setOpenflag(String openflag) {
-        this.openflag = openflag == null ? null : openflag.trim();
-    }
-
-    public String getOpertype() {
-        return opertype;
-    }
-
-    public void setOpertype(String opertype) {
-        this.opertype = opertype == null ? null : opertype.trim();
-    }
-
-    public BigDecimal getFiled11() {
-        return filed11;
-    }
-
-    public void setFiled11(BigDecimal filed11) {
-        this.filed11 = filed11;
-    }
-
-    public BigDecimal getFiled12() {
-        return filed12;
-    }
-
-    public void setFiled12(BigDecimal filed12) {
-        this.filed12 = filed12;
-    }
-
-    public String getDescr() {
-        return descr;
-    }
-
-    public void setDescr(String descr) {
-        this.descr = descr == null ? null : descr.trim();
     }
 
     public String getFiled1() {
@@ -219,12 +155,76 @@ public class DbCalcuplatformlog implements Serializable {
         this.filed7 = filed7 == null ? null : filed7.trim();
     }
 
+    public BigDecimal getFiled8() {
+        return filed8;
+    }
+
+    public void setFiled8(BigDecimal filed8) {
+        this.filed8 = filed8;
+    }
+
+    public BigDecimal getFiled9() {
+        return filed9;
+    }
+
+    public void setFiled9(BigDecimal filed9) {
+        this.filed9 = filed9;
+    }
+
+    public BigDecimal getFiled10() {
+        return filed10;
+    }
+
+    public void setFiled10(BigDecimal filed10) {
+        this.filed10 = filed10;
+    }
+
+    public String getCorpid() {
+        return corpid;
+    }
+
+    public void setCorpid(String corpid) {
+        this.corpid = corpid == null ? null : corpid.trim();
+    }
+
+    public String getOpenflag() {
+        return openflag;
+    }
+
+    public void setOpenflag(String openflag) {
+        this.openflag = openflag == null ? null : openflag.trim();
+    }
+
+    public String getOpertype() {
+        return opertype;
+    }
+
+    public void setOpertype(String opertype) {
+        this.opertype = opertype == null ? null : opertype.trim();
+    }
+
     public String getContent() {
         return content;
     }
 
     public void setContent(String content) {
         this.content = content == null ? null : content.trim();
+    }
+
+    public BigDecimal getFiled11() {
+        return filed11;
+    }
+
+    public void setFiled11(BigDecimal filed11) {
+        this.filed11 = filed11;
+    }
+
+    public BigDecimal getFiled12() {
+        return filed12;
+    }
+
+    public void setFiled12(BigDecimal filed12) {
+        this.filed12 = filed12;
     }
 
     @Override
@@ -242,17 +242,9 @@ public class DbCalcuplatformlog implements Serializable {
         return (this.getSequenceid() == null ? other.getSequenceid() == null : this.getSequenceid().equals(other.getSequenceid()))
             && (this.getSid() == null ? other.getSid() == null : this.getSid().equals(other.getSid()))
             && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
+            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
-            && (this.getFiled8() == null ? other.getFiled8() == null : this.getFiled8().equals(other.getFiled8()))
-            && (this.getFiled9() == null ? other.getFiled9() == null : this.getFiled9().equals(other.getFiled9()))
-            && (this.getFiled10() == null ? other.getFiled10() == null : this.getFiled10().equals(other.getFiled10()))
-            && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()))
-            && (this.getOpenflag() == null ? other.getOpenflag() == null : this.getOpenflag().equals(other.getOpenflag()))
-            && (this.getOpertype() == null ? other.getOpertype() == null : this.getOpertype().equals(other.getOpertype()))
-            && (this.getFiled11() == null ? other.getFiled11() == null : this.getFiled11().equals(other.getFiled11()))
-            && (this.getFiled12() == null ? other.getFiled12() == null : this.getFiled12().equals(other.getFiled12()))
-            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
             && (this.getFiled1() == null ? other.getFiled1() == null : this.getFiled1().equals(other.getFiled1()))
             && (this.getFiled2() == null ? other.getFiled2() == null : this.getFiled2().equals(other.getFiled2()))
             && (this.getFiled3() == null ? other.getFiled3() == null : this.getFiled3().equals(other.getFiled3()))
@@ -260,7 +252,15 @@ public class DbCalcuplatformlog implements Serializable {
             && (this.getFiled5() == null ? other.getFiled5() == null : this.getFiled5().equals(other.getFiled5()))
             && (this.getFiled6() == null ? other.getFiled6() == null : this.getFiled6().equals(other.getFiled6()))
             && (this.getFiled7() == null ? other.getFiled7() == null : this.getFiled7().equals(other.getFiled7()))
-            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()));
+            && (this.getFiled8() == null ? other.getFiled8() == null : this.getFiled8().equals(other.getFiled8()))
+            && (this.getFiled9() == null ? other.getFiled9() == null : this.getFiled9().equals(other.getFiled9()))
+            && (this.getFiled10() == null ? other.getFiled10() == null : this.getFiled10().equals(other.getFiled10()))
+            && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()))
+            && (this.getOpenflag() == null ? other.getOpenflag() == null : this.getOpenflag().equals(other.getOpenflag()))
+            && (this.getOpertype() == null ? other.getOpertype() == null : this.getOpertype().equals(other.getOpertype()))
+            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
+            && (this.getFiled11() == null ? other.getFiled11() == null : this.getFiled11().equals(other.getFiled11()))
+            && (this.getFiled12() == null ? other.getFiled12() == null : this.getFiled12().equals(other.getFiled12()));
     }
 
     @Override
@@ -270,17 +270,9 @@ public class DbCalcuplatformlog implements Serializable {
         result = prime * result + ((getSequenceid() == null) ? 0 : getSequenceid().hashCode());
         result = prime * result + ((getSid() == null) ? 0 : getSid().hashCode());
         result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
+        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
-        result = prime * result + ((getFiled8() == null) ? 0 : getFiled8().hashCode());
-        result = prime * result + ((getFiled9() == null) ? 0 : getFiled9().hashCode());
-        result = prime * result + ((getFiled10() == null) ? 0 : getFiled10().hashCode());
-        result = prime * result + ((getCorpid() == null) ? 0 : getCorpid().hashCode());
-        result = prime * result + ((getOpenflag() == null) ? 0 : getOpenflag().hashCode());
-        result = prime * result + ((getOpertype() == null) ? 0 : getOpertype().hashCode());
-        result = prime * result + ((getFiled11() == null) ? 0 : getFiled11().hashCode());
-        result = prime * result + ((getFiled12() == null) ? 0 : getFiled12().hashCode());
-        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
         result = prime * result + ((getFiled1() == null) ? 0 : getFiled1().hashCode());
         result = prime * result + ((getFiled2() == null) ? 0 : getFiled2().hashCode());
         result = prime * result + ((getFiled3() == null) ? 0 : getFiled3().hashCode());
@@ -288,7 +280,15 @@ public class DbCalcuplatformlog implements Serializable {
         result = prime * result + ((getFiled5() == null) ? 0 : getFiled5().hashCode());
         result = prime * result + ((getFiled6() == null) ? 0 : getFiled6().hashCode());
         result = prime * result + ((getFiled7() == null) ? 0 : getFiled7().hashCode());
+        result = prime * result + ((getFiled8() == null) ? 0 : getFiled8().hashCode());
+        result = prime * result + ((getFiled9() == null) ? 0 : getFiled9().hashCode());
+        result = prime * result + ((getFiled10() == null) ? 0 : getFiled10().hashCode());
+        result = prime * result + ((getCorpid() == null) ? 0 : getCorpid().hashCode());
+        result = prime * result + ((getOpenflag() == null) ? 0 : getOpenflag().hashCode());
+        result = prime * result + ((getOpertype() == null) ? 0 : getOpertype().hashCode());
         result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
+        result = prime * result + ((getFiled11() == null) ? 0 : getFiled11().hashCode());
+        result = prime * result + ((getFiled12() == null) ? 0 : getFiled12().hashCode());
         return result;
     }
 
@@ -301,17 +301,9 @@ public class DbCalcuplatformlog implements Serializable {
         sb.append(", sequenceid=").append(sequenceid);
         sb.append(", sid=").append(sid);
         sb.append(", name=").append(name);
+        sb.append(", descr=").append(descr);
         sb.append(", oper=").append(oper);
         sb.append(", opertime=").append(opertime);
-        sb.append(", filed8=").append(filed8);
-        sb.append(", filed9=").append(filed9);
-        sb.append(", filed10=").append(filed10);
-        sb.append(", corpid=").append(corpid);
-        sb.append(", openflag=").append(openflag);
-        sb.append(", opertype=").append(opertype);
-        sb.append(", filed11=").append(filed11);
-        sb.append(", filed12=").append(filed12);
-        sb.append(", descr=").append(descr);
         sb.append(", filed1=").append(filed1);
         sb.append(", filed2=").append(filed2);
         sb.append(", filed3=").append(filed3);
@@ -319,7 +311,15 @@ public class DbCalcuplatformlog implements Serializable {
         sb.append(", filed5=").append(filed5);
         sb.append(", filed6=").append(filed6);
         sb.append(", filed7=").append(filed7);
+        sb.append(", filed8=").append(filed8);
+        sb.append(", filed9=").append(filed9);
+        sb.append(", filed10=").append(filed10);
+        sb.append(", corpid=").append(corpid);
+        sb.append(", openflag=").append(openflag);
+        sb.append(", opertype=").append(opertype);
         sb.append(", content=").append(content);
+        sb.append(", filed11=").append(filed11);
+        sb.append(", filed12=").append(filed12);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

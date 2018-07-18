@@ -1,20 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbDescription;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbDescriptionMapper {
-    int deleteByPrimaryKey(BigDecimal itemid);
+    DbDescription selectByCriteria(DbDescription DbDescription);
 
-    int insert(DbDescription record);
+    void deleteByPrimaryKey(String ITEMID);
 
-    int insertSelective(DbDescription record);
+    void deleteByCriteria(DbDescription DbDescription);
+
+    int insertByCriteria(DbDescription DbDescription);
+
+    int updateByCriteria(DbDescription DbDescription);
 
     DbDescription selectByPrimaryKey(BigDecimal itemid);
 
-    int updateByPrimaryKeySelective(DbDescription record);
-
-    int updateByPrimaryKeyWithBLOBs(DbDescription record);
-
-    int updateByPrimaryKey(DbDescription record);
+    List<DbDescription> selectAll();
 }

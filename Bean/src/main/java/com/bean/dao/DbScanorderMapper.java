@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbScanorder;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbScanorderMapper {
-    int deleteByPrimaryKey(String orderid);
+    DbScanorder selectByCriteria(DbScanorder DbScanorder);
 
-    int insert(DbScanorder record);
+    void deleteByPrimaryKey(String ORDERID);
 
-    int insertSelective(DbScanorder record);
+    void deleteByCriteria(DbScanorder DbScanorder);
+
+    int insertByCriteria(DbScanorder DbScanorder);
+
+    int updateByCriteria(DbScanorder DbScanorder);
 
     DbScanorder selectByPrimaryKey(String orderid);
 
-    int updateByPrimaryKeySelective(DbScanorder record);
-
-    int updateByPrimaryKeyWithBLOBs(DbScanorder record);
-
-    int updateByPrimaryKey(DbScanorder record);
+    List<DbScanorder> selectAll();
 }

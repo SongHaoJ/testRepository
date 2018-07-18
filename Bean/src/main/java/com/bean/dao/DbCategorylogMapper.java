@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbCategorylog;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbCategorylogMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbCategorylog selectByCriteria(DbCategorylog DbCategorylog);
 
-    int insert(DbCategorylog record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbCategorylog record);
+    void deleteByCriteria(DbCategorylog DbCategorylog);
+
+    int insertByCriteria(DbCategorylog DbCategorylog);
+
+    int updateByCriteria(DbCategorylog DbCategorylog);
 
     DbCategorylog selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbCategorylog record);
-
-    int updateByPrimaryKeyWithBLOBs(DbCategorylog record);
-
-    int updateByPrimaryKey(DbCategorylog record);
+    List<DbCategorylog> selectAll();
 }

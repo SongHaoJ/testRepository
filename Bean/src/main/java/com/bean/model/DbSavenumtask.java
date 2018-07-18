@@ -17,6 +17,8 @@ public class DbSavenumtask implements Serializable {
 
     private String type;
 
+    private String origindescr;
+
     private String oper;
 
     private Date createtime;
@@ -24,8 +26,6 @@ public class DbSavenumtask implements Serializable {
     private String change;
 
     private String relationid;
-
-    private String origindescr;
 
     private static final long serialVersionUID = 1L;
 
@@ -77,6 +77,14 @@ public class DbSavenumtask implements Serializable {
         this.type = type == null ? null : type.trim();
     }
 
+    public String getOrigindescr() {
+        return origindescr;
+    }
+
+    public void setOrigindescr(String origindescr) {
+        this.origindescr = origindescr == null ? null : origindescr.trim();
+    }
+
     public String getOper() {
         return oper;
     }
@@ -109,14 +117,6 @@ public class DbSavenumtask implements Serializable {
         this.relationid = relationid == null ? null : relationid.trim();
     }
 
-    public String getOrigindescr() {
-        return origindescr;
-    }
-
-    public void setOrigindescr(String origindescr) {
-        this.origindescr = origindescr == null ? null : origindescr.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -135,11 +135,11 @@ public class DbSavenumtask implements Serializable {
             && (this.getQuantity() == null ? other.getQuantity() == null : this.getQuantity().equals(other.getQuantity()))
             && (this.getCostprice() == null ? other.getCostprice() == null : this.getCostprice().equals(other.getCostprice()))
             && (this.getType() == null ? other.getType() == null : this.getType().equals(other.getType()))
+            && (this.getOrigindescr() == null ? other.getOrigindescr() == null : this.getOrigindescr().equals(other.getOrigindescr()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getCreatetime() == null ? other.getCreatetime() == null : this.getCreatetime().equals(other.getCreatetime()))
             && (this.getChange() == null ? other.getChange() == null : this.getChange().equals(other.getChange()))
-            && (this.getRelationid() == null ? other.getRelationid() == null : this.getRelationid().equals(other.getRelationid()))
-            && (this.getOrigindescr() == null ? other.getOrigindescr() == null : this.getOrigindescr().equals(other.getOrigindescr()));
+            && (this.getRelationid() == null ? other.getRelationid() == null : this.getRelationid().equals(other.getRelationid()));
     }
 
     @Override
@@ -152,11 +152,11 @@ public class DbSavenumtask implements Serializable {
         result = prime * result + ((getQuantity() == null) ? 0 : getQuantity().hashCode());
         result = prime * result + ((getCostprice() == null) ? 0 : getCostprice().hashCode());
         result = prime * result + ((getType() == null) ? 0 : getType().hashCode());
+        result = prime * result + ((getOrigindescr() == null) ? 0 : getOrigindescr().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getCreatetime() == null) ? 0 : getCreatetime().hashCode());
         result = prime * result + ((getChange() == null) ? 0 : getChange().hashCode());
         result = prime * result + ((getRelationid() == null) ? 0 : getRelationid().hashCode());
-        result = prime * result + ((getOrigindescr() == null) ? 0 : getOrigindescr().hashCode());
         return result;
     }
 
@@ -172,11 +172,11 @@ public class DbSavenumtask implements Serializable {
         sb.append(", quantity=").append(quantity);
         sb.append(", costprice=").append(costprice);
         sb.append(", type=").append(type);
+        sb.append(", origindescr=").append(origindescr);
         sb.append(", oper=").append(oper);
         sb.append(", createtime=").append(createtime);
         sb.append(", change=").append(change);
         sb.append(", relationid=").append(relationid);
-        sb.append(", origindescr=").append(origindescr);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

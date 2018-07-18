@@ -1,18 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbProductebayfee;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbProductebayfeeMapper {
-    int deleteByPrimaryKey(BigDecimal sid);
+    DbProductebayfee selectByCriteria(DbProductebayfee DbProductebayfee);
 
-    int insert(DbProductebayfee record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbProductebayfee record);
+    void deleteByCriteria(DbProductebayfee DbProductebayfee);
+
+    int insertByCriteria(DbProductebayfee DbProductebayfee);
+
+    int updateByCriteria(DbProductebayfee DbProductebayfee);
 
     DbProductebayfee selectByPrimaryKey(BigDecimal sid);
 
-    int updateByPrimaryKeySelective(DbProductebayfee record);
-
-    int updateByPrimaryKey(DbProductebayfee record);
+    List<DbProductebayfee> selectAll();
 }

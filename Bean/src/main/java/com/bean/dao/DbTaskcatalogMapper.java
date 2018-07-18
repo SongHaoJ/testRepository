@@ -2,8 +2,8 @@ package com.bean.dao;
 
 import com.bean.model.DbTaskcatalog;
 
-public interface DbTaskcatalogMapper {
-    int insert(DbTaskcatalog record);
+import java.util.List;
 
-    int insertSelective(DbTaskcatalog record);
+public interface DbTaskcatalogMapper {
+    List<DbTaskcatalog> selectAll();
 }

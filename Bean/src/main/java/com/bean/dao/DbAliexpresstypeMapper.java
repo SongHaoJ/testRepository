@@ -1,18 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbAliexpresstype;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbAliexpresstypeMapper {
-    int deleteByPrimaryKey(BigDecimal sid);
+    DbAliexpresstype selectByCriteria(DbAliexpresstype DbAliexpresstype);
 
-    int insert(DbAliexpresstype record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbAliexpresstype record);
+    void deleteByCriteria(DbAliexpresstype DbAliexpresstype);
+
+    int insertByCriteria(DbAliexpresstype DbAliexpresstype);
+
+    int updateByCriteria(DbAliexpresstype DbAliexpresstype);
 
     DbAliexpresstype selectByPrimaryKey(BigDecimal sid);
 
-    int updateByPrimaryKeySelective(DbAliexpresstype record);
-
-    int updateByPrimaryKey(DbAliexpresstype record);
+    List<DbAliexpresstype> selectAll();
 }

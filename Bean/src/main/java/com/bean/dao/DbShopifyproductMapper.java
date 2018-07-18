@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbShopifyproduct;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbShopifyproductMapper {
-    int deleteByPrimaryKey(String variantid);
+    DbShopifyproduct selectByCriteria(DbShopifyproduct DbShopifyproduct);
 
-    int insert(DbShopifyproduct record);
+    void deleteByPrimaryKey(String VARIANTID);
 
-    int insertSelective(DbShopifyproduct record);
+    void deleteByCriteria(DbShopifyproduct DbShopifyproduct);
+
+    int insertByCriteria(DbShopifyproduct DbShopifyproduct);
+
+    int updateByCriteria(DbShopifyproduct DbShopifyproduct);
 
     DbShopifyproduct selectByPrimaryKey(String variantid);
 
-    int updateByPrimaryKeySelective(DbShopifyproduct record);
-
-    int updateByPrimaryKey(DbShopifyproduct record);
+    List<DbShopifyproduct> selectAll();
 }

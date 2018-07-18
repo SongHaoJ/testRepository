@@ -3,63 +3,59 @@
 <mapper namespace="com.bean.dao.DbBullettypeMapper">
   <resultMap id="BaseResultMap" type="com.bean.model.DbBullettype">
     <id column="BULLETTYPE" jdbcType="DECIMAL" property="bullettype" />
+    <result column="DESCR" jdbcType="VARCHAR" property="descr" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbBullettype">
-    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    BULLETTYPE
-  </sql>
-  <sql id="Blob_Column_List">
-    DESCR
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="ResultMapWithBLOBs">
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from db_bullettype
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select BULLETTYPE, DESCR
+    from DB_BULLETTYPE
     where BULLETTYPE = #{bullettype,jdbcType=DECIMAL}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
-    delete from db_bullettype
-    where BULLETTYPE = #{bullettype,jdbcType=DECIMAL}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select BULLETTYPE, DESCR
+    from DB_BULLETTYPE
+  </select>
+  <sql id="TableName">
+    DB_BULLETTYPE
+  </sql>
+  <sql id="Values">
+     #{bullettype,jdbcType=DECIMAL} , 
+     #{descr,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    BULLETTYPE , 
+    DESCR , 
+  </sql>
+  <sql id="Criteria">
+    <if test="bullettype != null">
+      bullettype = #{bullettype,jdbcType=DECIMAL} and 
+    </if>
+    <if test="descr != null">
+      descr = #{descr,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="bullettype != null">
+      bullettype = #{bullettype,jdbcType=DECIMAL} , 
+    </if>
+    <if test="descr != null">
+      descr = #{descr,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbBullettype" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="BigDecimal">
+    delete from <include refid="TableName"/> where BULLETTYPE=#{BULLETTYPE}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbBullettype">
-    insert into db_bullettype (BULLETTYPE, DESCR)
-    values (#{bullettype,jdbcType=DECIMAL}, #{descr,jdbcType=LONGVARCHAR})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbBullettype">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbBullettype">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbBullettype">
-    insert into db_bullettype
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="bullettype != null">
-        BULLETTYPE,
-      </if>
-      <if test="descr != null">
-        DESCR,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="bullettype != null">
-        #{bullettype,jdbcType=DECIMAL},
-      </if>
-      <if test="descr != null">
-        #{descr,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbBullettype">
-    update db_bullettype
-    <set>
-      <if test="descr != null">
-        DESCR = #{descr,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where BULLETTYPE = #{bullettype,jdbcType=DECIMAL}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbBullettype">
-    update db_bullettype
-    set DESCR = #{descr,jdbcType=LONGVARCHAR}
-    where BULLETTYPE = #{bullettype,jdbcType=DECIMAL}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbBullettype">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

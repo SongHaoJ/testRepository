@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbCkytypeMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbCkytype">
+    <id column="SID" jdbcType="VARCHAR" property="sid" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="CTYPE" jdbcType="VARCHAR" property="ctype" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbCkytype">
+    <result column="RESERVE1" jdbcType="LONGVARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="LONGVARCHAR" property="reserve2" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SID, 'NAME', CTYPE
+  </sql>
+  <sql id="Blob_Column_List">
+    RESERVE1, RESERVE2
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from db_ckytype
+    where SID = #{sid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from db_ckytype
+    where SID = #{sid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bean.model.DbCkytype">
+    insert into db_ckytype (SID, 'NAME', CTYPE, 
+      RESERVE1, RESERVE2)
+    values (#{sid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{ctype,jdbcType=VARCHAR}, 
+      #{reserve1,jdbcType=LONGVARCHAR}, #{reserve2,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbCkytype">
+    insert into db_ckytype
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        SID,
+      </if>
+      <if test="name != null">
+        'NAME',
+      </if>
+      <if test="ctype != null">
+        CTYPE,
+      </if>
+      <if test="reserve1 != null">
+        RESERVE1,
+      </if>
+      <if test="reserve2 != null">
+        RESERVE2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        #{sid,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="ctype != null">
+        #{ctype,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve1 != null">
+        #{reserve1,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reserve2 != null">
+        #{reserve2,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbCkytype">
+    update db_ckytype
+    <set>
+      <if test="name != null">
+        'NAME' = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="ctype != null">
+        CTYPE = #{ctype,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve1 != null">
+        RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reserve2 != null">
+        RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where SID = #{sid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbCkytype">
+    update db_ckytype
+    set 'NAME' = #{name,jdbcType=VARCHAR},
+      CTYPE = #{ctype,jdbcType=VARCHAR},
+      RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR},
+      RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR}
+    where SID = #{sid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbCkytype">
+    update db_ckytype
+    set 'NAME' = #{name,jdbcType=VARCHAR},
+      CTYPE = #{ctype,jdbcType=VARCHAR}
+    where SID = #{sid,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -6,6 +6,7 @@
     <result column="PRODUCTID" jdbcType="VARCHAR" property="productid" />
     <result column="LOCATIONNAME" jdbcType="VARCHAR" property="locationname" />
     <result column="CREATEDATE" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="FILED1" jdbcType="VARCHAR" property="filed1" />
     <result column="FILED2" jdbcType="VARCHAR" property="filed2" />
     <result column="FILED3" jdbcType="VARCHAR" property="filed3" />
     <result column="FILED4" jdbcType="DECIMAL" property="filed4" />
@@ -13,27 +14,27 @@
     <result column="FILED6" jdbcType="TIMESTAMP" property="filed6" />
     <result column="STORAGEID" jdbcType="VARCHAR" property="storageid" />
     <result column="STORAGENAME" jdbcType="VARCHAR" property="storagename" />
-    <result column="FILED1" jdbcType="LONGVARCHAR" property="filed1" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select SEQUENCEID, PRODUCTID, LOCATIONNAME, CREATEDATE, FILED2, FILED3, FILED4, FILED5, 
-    FILED6, STORAGEID, STORAGENAME, FILED1
-    from db_modifylocation_temp
+    select SEQUENCEID, PRODUCTID, LOCATIONNAME, CREATEDATE, FILED1, FILED2, FILED3, FILED4, 
+    FILED5, FILED6, STORAGEID, STORAGENAME
+    from DB_MODIFYLOCATION_TEMP
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select SEQUENCEID, PRODUCTID, LOCATIONNAME, CREATEDATE, FILED2, FILED3, FILED4, FILED5, 
-    FILED6, STORAGEID, STORAGENAME, FILED1
-    from db_modifylocation_temp
+    select SEQUENCEID, PRODUCTID, LOCATIONNAME, CREATEDATE, FILED1, FILED2, FILED3, FILED4, 
+    FILED5, FILED6, STORAGEID, STORAGENAME
+    from DB_MODIFYLOCATION_TEMP
   </select>
   <sql id="TableName">
-    db_modifylocation_temp
+    DB_MODIFYLOCATION_TEMP
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=VARCHAR} , 
      #{productid,jdbcType=VARCHAR} , 
      #{locationname,jdbcType=VARCHAR} , 
      #{createdate,jdbcType=TIMESTAMP} , 
+     #{filed1,jdbcType=VARCHAR} , 
      #{filed2,jdbcType=VARCHAR} , 
      #{filed3,jdbcType=VARCHAR} , 
      #{filed4,jdbcType=DECIMAL} , 
@@ -41,13 +42,13 @@
      #{filed6,jdbcType=TIMESTAMP} , 
      #{storageid,jdbcType=VARCHAR} , 
      #{storagename,jdbcType=VARCHAR} , 
-     #{filed1,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
     PRODUCTID , 
     LOCATIONNAME , 
     CREATEDATE , 
+    FILED1 , 
     FILED2 , 
     FILED3 , 
     FILED4 , 
@@ -55,85 +56,84 @@
     FILED6 , 
     STORAGEID , 
     STORAGENAME , 
-    FILED1
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
     </if>
     <if test="productid != null">
-      PRODUCTID = #{productid,jdbcType=VARCHAR} and 
+      productid = #{productid,jdbcType=VARCHAR} and 
     </if>
     <if test="locationname != null">
-      LOCATIONNAME = #{locationname,jdbcType=VARCHAR} and 
+      locationname = #{locationname,jdbcType=VARCHAR} and 
     </if>
     <if test="createdate != null">
-      CREATEDATE = #{createdate,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="filed2 != null">
-      FILED2 = #{filed2,jdbcType=VARCHAR} and 
-    </if>
-    <if test="filed3 != null">
-      FILED3 = #{filed3,jdbcType=VARCHAR} and 
-    </if>
-    <if test="filed4 != null">
-      FILED4 = #{filed4,jdbcType=DECIMAL} and 
-    </if>
-    <if test="filed5 != null">
-      FILED5 = #{filed5,jdbcType=DECIMAL} and 
-    </if>
-    <if test="filed6 != null">
-      FILED6 = #{filed6,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="storageid != null">
-      STORAGEID = #{storageid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="storagename != null">
-      STORAGENAME = #{storagename,jdbcType=VARCHAR} and 
+      createdate = #{createdate,jdbcType=TIMESTAMP} and 
     </if>
     <if test="filed1 != null">
-      FILED1 = #{filed1,jdbcType=LONGVARCHAR}
+      filed1 = #{filed1,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="filed2 != null">
+      filed2 = #{filed2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="filed3 != null">
+      filed3 = #{filed3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="filed4 != null">
+      filed4 = #{filed4,jdbcType=DECIMAL} and 
+    </if>
+    <if test="filed5 != null">
+      filed5 = #{filed5,jdbcType=DECIMAL} and 
+    </if>
+    <if test="filed6 != null">
+      filed6 = #{filed6,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="storageid != null">
+      storageid = #{storageid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="storagename != null">
+      storagename = #{storagename,jdbcType=VARCHAR} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
     </if>
     <if test="productid != null">
-      PRODUCTID = #{productid,jdbcType=VARCHAR} , 
+      productid = #{productid,jdbcType=VARCHAR} , 
     </if>
     <if test="locationname != null">
-      LOCATIONNAME = #{locationname,jdbcType=VARCHAR} , 
+      locationname = #{locationname,jdbcType=VARCHAR} , 
     </if>
     <if test="createdate != null">
-      CREATEDATE = #{createdate,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="filed2 != null">
-      FILED2 = #{filed2,jdbcType=VARCHAR} , 
-    </if>
-    <if test="filed3 != null">
-      FILED3 = #{filed3,jdbcType=VARCHAR} , 
-    </if>
-    <if test="filed4 != null">
-      FILED4 = #{filed4,jdbcType=DECIMAL} , 
-    </if>
-    <if test="filed5 != null">
-      FILED5 = #{filed5,jdbcType=DECIMAL} , 
-    </if>
-    <if test="filed6 != null">
-      FILED6 = #{filed6,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="storageid != null">
-      STORAGEID = #{storageid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="storagename != null">
-      STORAGENAME = #{storagename,jdbcType=VARCHAR} , 
+      createdate = #{createdate,jdbcType=TIMESTAMP} , 
     </if>
     <if test="filed1 != null">
-      FILED1 = #{filed1,jdbcType=LONGVARCHAR}
+      filed1 = #{filed1,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="filed2 != null">
+      filed2 = #{filed2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="filed3 != null">
+      filed3 = #{filed3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="filed4 != null">
+      filed4 = #{filed4,jdbcType=DECIMAL} , 
+    </if>
+    <if test="filed5 != null">
+      filed5 = #{filed5,jdbcType=DECIMAL} , 
+    </if>
+    <if test="filed6 != null">
+      filed6 = #{filed6,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="storageid != null">
+      storageid = #{storageid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="storagename != null">
+      storagename = #{storagename,jdbcType=VARCHAR} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbModifylocationTemp" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

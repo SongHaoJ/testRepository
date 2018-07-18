@@ -31,17 +31,17 @@
     select SKU, SELLNUM2, SELLNUM1, DIFF3, DIFF4, SELLNUM6, QUSHI, PURCHASEDAY, RESERVE3, 
     SELLNUM0, RESERVE2, YYYYMMDD, DIFF5, DIFF2, SELLNUM5, RESERVE1, RESERVE4, DIFF1, 
     SELLNUM4, DIFF0, DIFFAVG, SELLNUM3, DIFF6, DAYS
-    from db_product_avg
+    from DB_PRODUCT_AVG
     where SKU = #{sku,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SKU, SELLNUM2, SELLNUM1, DIFF3, DIFF4, SELLNUM6, QUSHI, PURCHASEDAY, RESERVE3, 
     SELLNUM0, RESERVE2, YYYYMMDD, DIFF5, DIFF2, SELLNUM5, RESERVE1, RESERVE4, DIFF1, 
     SELLNUM4, DIFF0, DIFFAVG, SELLNUM3, DIFF6, DAYS
-    from db_product_avg
+    from DB_PRODUCT_AVG
   </select>
   <sql id="TableName">
-    db_product_avg
+    DB_PRODUCT_AVG
   </sql>
   <sql id="Values">
      #{sku,jdbcType=VARCHAR} , 
@@ -67,7 +67,7 @@
      #{diffavg,jdbcType=DECIMAL} , 
      #{sellnum3,jdbcType=DECIMAL} , 
      #{diff6,jdbcType=DECIMAL} , 
-     #{days,jdbcType=DECIMAL}
+     #{days,jdbcType=DECIMAL} , 
   </sql>
   <sql id="Columns">
     SKU , 
@@ -93,157 +93,157 @@
     DIFFAVG , 
     SELLNUM3 , 
     DIFF6 , 
-    DAYS
+    DAYS , 
   </sql>
   <sql id="Criteria">
     <if test="sku != null">
-      SKU = #{sku,jdbcType=VARCHAR} and 
+      sku = #{sku,jdbcType=VARCHAR} and 
     </if>
     <if test="sellnum2 != null">
-      SELLNUM2 = #{sellnum2,jdbcType=DECIMAL} and 
+      sellnum2 = #{sellnum2,jdbcType=DECIMAL} and 
     </if>
     <if test="sellnum1 != null">
-      SELLNUM1 = #{sellnum1,jdbcType=DECIMAL} and 
+      sellnum1 = #{sellnum1,jdbcType=DECIMAL} and 
     </if>
     <if test="diff3 != null">
-      DIFF3 = #{diff3,jdbcType=DECIMAL} and 
+      diff3 = #{diff3,jdbcType=DECIMAL} and 
     </if>
     <if test="diff4 != null">
-      DIFF4 = #{diff4,jdbcType=DECIMAL} and 
+      diff4 = #{diff4,jdbcType=DECIMAL} and 
     </if>
     <if test="sellnum6 != null">
-      SELLNUM6 = #{sellnum6,jdbcType=DECIMAL} and 
+      sellnum6 = #{sellnum6,jdbcType=DECIMAL} and 
     </if>
     <if test="qushi != null">
-      QUSHI = #{qushi,jdbcType=DECIMAL} and 
+      qushi = #{qushi,jdbcType=DECIMAL} and 
     </if>
     <if test="purchaseday != null">
-      PURCHASEDAY = #{purchaseday,jdbcType=DECIMAL} and 
+      purchaseday = #{purchaseday,jdbcType=DECIMAL} and 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=DECIMAL} and 
+      reserve3 = #{reserve3,jdbcType=DECIMAL} and 
     </if>
     <if test="sellnum0 != null">
-      SELLNUM0 = #{sellnum0,jdbcType=DECIMAL} and 
+      sellnum0 = #{sellnum0,jdbcType=DECIMAL} and 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
     </if>
     <if test="yyyymmdd != null">
-      YYYYMMDD = #{yyyymmdd,jdbcType=VARCHAR} and 
+      yyyymmdd = #{yyyymmdd,jdbcType=VARCHAR} and 
     </if>
     <if test="diff5 != null">
-      DIFF5 = #{diff5,jdbcType=DECIMAL} and 
+      diff5 = #{diff5,jdbcType=DECIMAL} and 
     </if>
     <if test="diff2 != null">
-      DIFF2 = #{diff2,jdbcType=DECIMAL} and 
+      diff2 = #{diff2,jdbcType=DECIMAL} and 
     </if>
     <if test="sellnum5 != null">
-      SELLNUM5 = #{sellnum5,jdbcType=DECIMAL} and 
+      sellnum5 = #{sellnum5,jdbcType=DECIMAL} and 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=DECIMAL} and 
+      reserve4 = #{reserve4,jdbcType=DECIMAL} and 
     </if>
     <if test="diff1 != null">
-      DIFF1 = #{diff1,jdbcType=DECIMAL} and 
+      diff1 = #{diff1,jdbcType=DECIMAL} and 
     </if>
     <if test="sellnum4 != null">
-      SELLNUM4 = #{sellnum4,jdbcType=DECIMAL} and 
+      sellnum4 = #{sellnum4,jdbcType=DECIMAL} and 
     </if>
     <if test="diff0 != null">
-      DIFF0 = #{diff0,jdbcType=DECIMAL} and 
+      diff0 = #{diff0,jdbcType=DECIMAL} and 
     </if>
     <if test="diffavg != null">
-      DIFFAVG = #{diffavg,jdbcType=DECIMAL} and 
+      diffavg = #{diffavg,jdbcType=DECIMAL} and 
     </if>
     <if test="sellnum3 != null">
-      SELLNUM3 = #{sellnum3,jdbcType=DECIMAL} and 
+      sellnum3 = #{sellnum3,jdbcType=DECIMAL} and 
     </if>
     <if test="diff6 != null">
-      DIFF6 = #{diff6,jdbcType=DECIMAL} and 
+      diff6 = #{diff6,jdbcType=DECIMAL} and 
     </if>
     <if test="days != null">
-      DAYS = #{days,jdbcType=DECIMAL}
+      days = #{days,jdbcType=DECIMAL} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sku != null">
-      SKU = #{sku,jdbcType=VARCHAR} , 
+      sku = #{sku,jdbcType=VARCHAR} , 
     </if>
     <if test="sellnum2 != null">
-      SELLNUM2 = #{sellnum2,jdbcType=DECIMAL} , 
+      sellnum2 = #{sellnum2,jdbcType=DECIMAL} , 
     </if>
     <if test="sellnum1 != null">
-      SELLNUM1 = #{sellnum1,jdbcType=DECIMAL} , 
+      sellnum1 = #{sellnum1,jdbcType=DECIMAL} , 
     </if>
     <if test="diff3 != null">
-      DIFF3 = #{diff3,jdbcType=DECIMAL} , 
+      diff3 = #{diff3,jdbcType=DECIMAL} , 
     </if>
     <if test="diff4 != null">
-      DIFF4 = #{diff4,jdbcType=DECIMAL} , 
+      diff4 = #{diff4,jdbcType=DECIMAL} , 
     </if>
     <if test="sellnum6 != null">
-      SELLNUM6 = #{sellnum6,jdbcType=DECIMAL} , 
+      sellnum6 = #{sellnum6,jdbcType=DECIMAL} , 
     </if>
     <if test="qushi != null">
-      QUSHI = #{qushi,jdbcType=DECIMAL} , 
+      qushi = #{qushi,jdbcType=DECIMAL} , 
     </if>
     <if test="purchaseday != null">
-      PURCHASEDAY = #{purchaseday,jdbcType=DECIMAL} , 
+      purchaseday = #{purchaseday,jdbcType=DECIMAL} , 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=DECIMAL} , 
+      reserve3 = #{reserve3,jdbcType=DECIMAL} , 
     </if>
     <if test="sellnum0 != null">
-      SELLNUM0 = #{sellnum0,jdbcType=DECIMAL} , 
+      sellnum0 = #{sellnum0,jdbcType=DECIMAL} , 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
     </if>
     <if test="yyyymmdd != null">
-      YYYYMMDD = #{yyyymmdd,jdbcType=VARCHAR} , 
+      yyyymmdd = #{yyyymmdd,jdbcType=VARCHAR} , 
     </if>
     <if test="diff5 != null">
-      DIFF5 = #{diff5,jdbcType=DECIMAL} , 
+      diff5 = #{diff5,jdbcType=DECIMAL} , 
     </if>
     <if test="diff2 != null">
-      DIFF2 = #{diff2,jdbcType=DECIMAL} , 
+      diff2 = #{diff2,jdbcType=DECIMAL} , 
     </if>
     <if test="sellnum5 != null">
-      SELLNUM5 = #{sellnum5,jdbcType=DECIMAL} , 
+      sellnum5 = #{sellnum5,jdbcType=DECIMAL} , 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=DECIMAL} , 
+      reserve4 = #{reserve4,jdbcType=DECIMAL} , 
     </if>
     <if test="diff1 != null">
-      DIFF1 = #{diff1,jdbcType=DECIMAL} , 
+      diff1 = #{diff1,jdbcType=DECIMAL} , 
     </if>
     <if test="sellnum4 != null">
-      SELLNUM4 = #{sellnum4,jdbcType=DECIMAL} , 
+      sellnum4 = #{sellnum4,jdbcType=DECIMAL} , 
     </if>
     <if test="diff0 != null">
-      DIFF0 = #{diff0,jdbcType=DECIMAL} , 
+      diff0 = #{diff0,jdbcType=DECIMAL} , 
     </if>
     <if test="diffavg != null">
-      DIFFAVG = #{diffavg,jdbcType=DECIMAL} , 
+      diffavg = #{diffavg,jdbcType=DECIMAL} , 
     </if>
     <if test="sellnum3 != null">
-      SELLNUM3 = #{sellnum3,jdbcType=DECIMAL} , 
+      sellnum3 = #{sellnum3,jdbcType=DECIMAL} , 
     </if>
     <if test="diff6 != null">
-      DIFF6 = #{diff6,jdbcType=DECIMAL} , 
+      diff6 = #{diff6,jdbcType=DECIMAL} , 
     </if>
     <if test="days != null">
-      DAYS = #{days,jdbcType=DECIMAL}
+      days = #{days,jdbcType=DECIMAL} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbProductAvg" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

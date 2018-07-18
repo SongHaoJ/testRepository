@@ -13,6 +13,10 @@ public class DbShopmessagereportforms implements Serializable {
 
     private BigDecimal itemid;
 
+    private String photourl;
+
+    private String title;
+
     private String price;
 
     private String shippingcost;
@@ -47,11 +51,15 @@ public class DbShopmessagereportforms implements Serializable {
 
     private String sales;
 
+    private String viewitem;
+
     private Date createtime;
 
     private String oper;
 
     private String operid;
+
+    private String note;
 
     private String openflag;
 
@@ -82,14 +90,6 @@ public class DbShopmessagereportforms implements Serializable {
     private String rankwatch;
 
     private String moneytype;
-
-    private String photourl;
-
-    private String title;
-
-    private String viewitem;
-
-    private String note;
 
     private static final long serialVersionUID = 1L;
 
@@ -123,6 +123,22 @@ public class DbShopmessagereportforms implements Serializable {
 
     public void setItemid(BigDecimal itemid) {
         this.itemid = itemid;
+    }
+
+    public String getPhotourl() {
+        return photourl;
+    }
+
+    public void setPhotourl(String photourl) {
+        this.photourl = photourl == null ? null : photourl.trim();
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title == null ? null : title.trim();
     }
 
     public String getPrice() {
@@ -261,6 +277,14 @@ public class DbShopmessagereportforms implements Serializable {
         this.sales = sales == null ? null : sales.trim();
     }
 
+    public String getViewitem() {
+        return viewitem;
+    }
+
+    public void setViewitem(String viewitem) {
+        this.viewitem = viewitem == null ? null : viewitem.trim();
+    }
+
     public Date getCreatetime() {
         return createtime;
     }
@@ -283,6 +307,14 @@ public class DbShopmessagereportforms implements Serializable {
 
     public void setOperid(String operid) {
         this.operid = operid == null ? null : operid.trim();
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note == null ? null : note.trim();
     }
 
     public String getOpenflag() {
@@ -405,38 +437,6 @@ public class DbShopmessagereportforms implements Serializable {
         this.moneytype = moneytype == null ? null : moneytype.trim();
     }
 
-    public String getPhotourl() {
-        return photourl;
-    }
-
-    public void setPhotourl(String photourl) {
-        this.photourl = photourl == null ? null : photourl.trim();
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title == null ? null : title.trim();
-    }
-
-    public String getViewitem() {
-        return viewitem;
-    }
-
-    public void setViewitem(String viewitem) {
-        this.viewitem = viewitem == null ? null : viewitem.trim();
-    }
-
-    public String getNote() {
-        return note;
-    }
-
-    public void setNote(String note) {
-        this.note = note == null ? null : note.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -453,6 +453,8 @@ public class DbShopmessagereportforms implements Serializable {
             && (this.getShopid() == null ? other.getShopid() == null : this.getShopid().equals(other.getShopid()))
             && (this.getShopname() == null ? other.getShopname() == null : this.getShopname().equals(other.getShopname()))
             && (this.getItemid() == null ? other.getItemid() == null : this.getItemid().equals(other.getItemid()))
+            && (this.getPhotourl() == null ? other.getPhotourl() == null : this.getPhotourl().equals(other.getPhotourl()))
+            && (this.getTitle() == null ? other.getTitle() == null : this.getTitle().equals(other.getTitle()))
             && (this.getPrice() == null ? other.getPrice() == null : this.getPrice().equals(other.getPrice()))
             && (this.getShippingcost() == null ? other.getShippingcost() == null : this.getShippingcost().equals(other.getShippingcost()))
             && (this.getTotalquantity() == null ? other.getTotalquantity() == null : this.getTotalquantity().equals(other.getTotalquantity()))
@@ -470,9 +472,11 @@ public class DbShopmessagereportforms implements Serializable {
             && (this.getImpressionsthrough() == null ? other.getImpressionsthrough() == null : this.getImpressionsthrough().equals(other.getImpressionsthrough()))
             && (this.getWatchers() == null ? other.getWatchers() == null : this.getWatchers().equals(other.getWatchers()))
             && (this.getSales() == null ? other.getSales() == null : this.getSales().equals(other.getSales()))
+            && (this.getViewitem() == null ? other.getViewitem() == null : this.getViewitem().equals(other.getViewitem()))
             && (this.getCreatetime() == null ? other.getCreatetime() == null : this.getCreatetime().equals(other.getCreatetime()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getOperid() == null ? other.getOperid() == null : this.getOperid().equals(other.getOperid()))
+            && (this.getNote() == null ? other.getNote() == null : this.getNote().equals(other.getNote()))
             && (this.getOpenflag() == null ? other.getOpenflag() == null : this.getOpenflag().equals(other.getOpenflag()))
             && (this.getSiteid() == null ? other.getSiteid() == null : this.getSiteid().equals(other.getSiteid()))
             && (this.getSitename() == null ? other.getSitename() == null : this.getSitename().equals(other.getSitename()))
@@ -487,11 +491,7 @@ public class DbShopmessagereportforms implements Serializable {
             && (this.getRankclick() == null ? other.getRankclick() == null : this.getRankclick().equals(other.getRankclick()))
             && (this.getRanksold() == null ? other.getRanksold() == null : this.getRanksold().equals(other.getRanksold()))
             && (this.getRankwatch() == null ? other.getRankwatch() == null : this.getRankwatch().equals(other.getRankwatch()))
-            && (this.getMoneytype() == null ? other.getMoneytype() == null : this.getMoneytype().equals(other.getMoneytype()))
-            && (this.getPhotourl() == null ? other.getPhotourl() == null : this.getPhotourl().equals(other.getPhotourl()))
-            && (this.getTitle() == null ? other.getTitle() == null : this.getTitle().equals(other.getTitle()))
-            && (this.getViewitem() == null ? other.getViewitem() == null : this.getViewitem().equals(other.getViewitem()))
-            && (this.getNote() == null ? other.getNote() == null : this.getNote().equals(other.getNote()));
+            && (this.getMoneytype() == null ? other.getMoneytype() == null : this.getMoneytype().equals(other.getMoneytype()));
     }
 
     @Override
@@ -502,6 +502,8 @@ public class DbShopmessagereportforms implements Serializable {
         result = prime * result + ((getShopid() == null) ? 0 : getShopid().hashCode());
         result = prime * result + ((getShopname() == null) ? 0 : getShopname().hashCode());
         result = prime * result + ((getItemid() == null) ? 0 : getItemid().hashCode());
+        result = prime * result + ((getPhotourl() == null) ? 0 : getPhotourl().hashCode());
+        result = prime * result + ((getTitle() == null) ? 0 : getTitle().hashCode());
         result = prime * result + ((getPrice() == null) ? 0 : getPrice().hashCode());
         result = prime * result + ((getShippingcost() == null) ? 0 : getShippingcost().hashCode());
         result = prime * result + ((getTotalquantity() == null) ? 0 : getTotalquantity().hashCode());
@@ -519,9 +521,11 @@ public class DbShopmessagereportforms implements Serializable {
         result = prime * result + ((getImpressionsthrough() == null) ? 0 : getImpressionsthrough().hashCode());
         result = prime * result + ((getWatchers() == null) ? 0 : getWatchers().hashCode());
         result = prime * result + ((getSales() == null) ? 0 : getSales().hashCode());
+        result = prime * result + ((getViewitem() == null) ? 0 : getViewitem().hashCode());
         result = prime * result + ((getCreatetime() == null) ? 0 : getCreatetime().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getOperid() == null) ? 0 : getOperid().hashCode());
+        result = prime * result + ((getNote() == null) ? 0 : getNote().hashCode());
         result = prime * result + ((getOpenflag() == null) ? 0 : getOpenflag().hashCode());
         result = prime * result + ((getSiteid() == null) ? 0 : getSiteid().hashCode());
         result = prime * result + ((getSitename() == null) ? 0 : getSitename().hashCode());
@@ -537,10 +541,6 @@ public class DbShopmessagereportforms implements Serializable {
         result = prime * result + ((getRanksold() == null) ? 0 : getRanksold().hashCode());
         result = prime * result + ((getRankwatch() == null) ? 0 : getRankwatch().hashCode());
         result = prime * result + ((getMoneytype() == null) ? 0 : getMoneytype().hashCode());
-        result = prime * result + ((getPhotourl() == null) ? 0 : getPhotourl().hashCode());
-        result = prime * result + ((getTitle() == null) ? 0 : getTitle().hashCode());
-        result = prime * result + ((getViewitem() == null) ? 0 : getViewitem().hashCode());
-        result = prime * result + ((getNote() == null) ? 0 : getNote().hashCode());
         return result;
     }
 
@@ -554,6 +554,8 @@ public class DbShopmessagereportforms implements Serializable {
         sb.append(", shopid=").append(shopid);
         sb.append(", shopname=").append(shopname);
         sb.append(", itemid=").append(itemid);
+        sb.append(", photourl=").append(photourl);
+        sb.append(", title=").append(title);
         sb.append(", price=").append(price);
         sb.append(", shippingcost=").append(shippingcost);
         sb.append(", totalquantity=").append(totalquantity);
@@ -571,9 +573,11 @@ public class DbShopmessagereportforms implements Serializable {
         sb.append(", impressionsthrough=").append(impressionsthrough);
         sb.append(", watchers=").append(watchers);
         sb.append(", sales=").append(sales);
+        sb.append(", viewitem=").append(viewitem);
         sb.append(", createtime=").append(createtime);
         sb.append(", oper=").append(oper);
         sb.append(", operid=").append(operid);
+        sb.append(", note=").append(note);
         sb.append(", openflag=").append(openflag);
         sb.append(", siteid=").append(siteid);
         sb.append(", sitename=").append(sitename);
@@ -589,10 +593,6 @@ public class DbShopmessagereportforms implements Serializable {
         sb.append(", ranksold=").append(ranksold);
         sb.append(", rankwatch=").append(rankwatch);
         sb.append(", moneytype=").append(moneytype);
-        sb.append(", photourl=").append(photourl);
-        sb.append(", title=").append(title);
-        sb.append(", viewitem=").append(viewitem);
-        sb.append(", note=").append(note);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

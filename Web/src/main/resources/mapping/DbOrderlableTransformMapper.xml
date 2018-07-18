@@ -4,118 +4,118 @@
   <resultMap id="BaseResultMap" type="com.bean.model.DbOrderlableTransform">
     <id column="ID" jdbcType="DECIMAL" property="id" />
     <result column="ORDERID" jdbcType="VARCHAR" property="orderid" />
+    <result column="PDFURL" jdbcType="VARCHAR" property="pdfurl" />
+    <result column="PARAMDATA" jdbcType="VARCHAR" property="paramdata" />
     <result column="FLAG" jdbcType="DECIMAL" property="flag" />
+    <result column="ERROR" jdbcType="VARCHAR" property="error" />
     <result column="PICNUM" jdbcType="DECIMAL" property="picnum" />
     <result column="DOWNLOADTIME" jdbcType="TIMESTAMP" property="downloadtime" />
     <result column="PICTIME" jdbcType="TIMESTAMP" property="pictime" />
     <result column="EXPRESSTYPE" jdbcType="VARCHAR" property="expresstype" />
-    <result column="PDFURL" jdbcType="LONGVARCHAR" property="pdfurl" />
-    <result column="PARAMDATA" jdbcType="LONGVARCHAR" property="paramdata" />
-    <result column="ERROR" jdbcType="LONGVARCHAR" property="error" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select ID, ORDERID, FLAG, PICNUM, DOWNLOADTIME, PICTIME, EXPRESSTYPE, PDFURL, PARAMDATA, 
-    ERROR
-    from db_orderlable_transform
+    select ID, ORDERID, PDFURL, PARAMDATA, FLAG, ERROR, PICNUM, DOWNLOADTIME, PICTIME, 
+    EXPRESSTYPE
+    from DB_ORDERLABLE_TRANSFORM
     where ID = #{id,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select ID, ORDERID, FLAG, PICNUM, DOWNLOADTIME, PICTIME, EXPRESSTYPE, PDFURL, PARAMDATA, 
-    ERROR
-    from db_orderlable_transform
+    select ID, ORDERID, PDFURL, PARAMDATA, FLAG, ERROR, PICNUM, DOWNLOADTIME, PICTIME, 
+    EXPRESSTYPE
+    from DB_ORDERLABLE_TRANSFORM
   </select>
   <sql id="TableName">
-    db_orderlable_transform
+    DB_ORDERLABLE_TRANSFORM
   </sql>
   <sql id="Values">
      #{id,jdbcType=DECIMAL} , 
      #{orderid,jdbcType=VARCHAR} , 
+     #{pdfurl,jdbcType=VARCHAR} , 
+     #{paramdata,jdbcType=VARCHAR} , 
      #{flag,jdbcType=DECIMAL} , 
+     #{error,jdbcType=VARCHAR} , 
      #{picnum,jdbcType=DECIMAL} , 
      #{downloadtime,jdbcType=TIMESTAMP} , 
      #{pictime,jdbcType=TIMESTAMP} , 
      #{expresstype,jdbcType=VARCHAR} , 
-     #{pdfurl,jdbcType=LONGVARCHAR} , 
-     #{paramdata,jdbcType=LONGVARCHAR} , 
-     #{error,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     ID , 
     ORDERID , 
+    PDFURL , 
+    PARAMDATA , 
     FLAG , 
+    ERROR , 
     PICNUM , 
     DOWNLOADTIME , 
     PICTIME , 
     EXPRESSTYPE , 
-    PDFURL , 
-    PARAMDATA , 
-    ERROR
   </sql>
   <sql id="Criteria">
     <if test="id != null">
-      ID = #{id,jdbcType=DECIMAL} and 
+      id = #{id,jdbcType=DECIMAL} and 
     </if>
     <if test="orderid != null">
-      ORDERID = #{orderid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="flag != null">
-      FLAG = #{flag,jdbcType=DECIMAL} and 
-    </if>
-    <if test="picnum != null">
-      PICNUM = #{picnum,jdbcType=DECIMAL} and 
-    </if>
-    <if test="downloadtime != null">
-      DOWNLOADTIME = #{downloadtime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="pictime != null">
-      PICTIME = #{pictime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="expresstype != null">
-      EXPRESSTYPE = #{expresstype,jdbcType=VARCHAR} and 
+      orderid = #{orderid,jdbcType=VARCHAR} and 
     </if>
     <if test="pdfurl != null">
-      PDFURL = #{pdfurl,jdbcType=LONGVARCHAR} and 
+      pdfurl = #{pdfurl,jdbcType=VARCHAR} and 
     </if>
     <if test="paramdata != null">
-      PARAMDATA = #{paramdata,jdbcType=LONGVARCHAR} and 
+      paramdata = #{paramdata,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=DECIMAL} and 
     </if>
     <if test="error != null">
-      ERROR = #{error,jdbcType=LONGVARCHAR}
+      error = #{error,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="picnum != null">
+      picnum = #{picnum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="downloadtime != null">
+      downloadtime = #{downloadtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="pictime != null">
+      pictime = #{pictime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="expresstype != null">
+      expresstype = #{expresstype,jdbcType=VARCHAR} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="id != null">
-      ID = #{id,jdbcType=DECIMAL} , 
+      id = #{id,jdbcType=DECIMAL} , 
     </if>
     <if test="orderid != null">
-      ORDERID = #{orderid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="flag != null">
-      FLAG = #{flag,jdbcType=DECIMAL} , 
-    </if>
-    <if test="picnum != null">
-      PICNUM = #{picnum,jdbcType=DECIMAL} , 
-    </if>
-    <if test="downloadtime != null">
-      DOWNLOADTIME = #{downloadtime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="pictime != null">
-      PICTIME = #{pictime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="expresstype != null">
-      EXPRESSTYPE = #{expresstype,jdbcType=VARCHAR} , 
+      orderid = #{orderid,jdbcType=VARCHAR} , 
     </if>
     <if test="pdfurl != null">
-      PDFURL = #{pdfurl,jdbcType=LONGVARCHAR} , 
+      pdfurl = #{pdfurl,jdbcType=VARCHAR} , 
     </if>
     <if test="paramdata != null">
-      PARAMDATA = #{paramdata,jdbcType=LONGVARCHAR} , 
+      paramdata = #{paramdata,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=DECIMAL} , 
     </if>
     <if test="error != null">
-      ERROR = #{error,jdbcType=LONGVARCHAR}
+      error = #{error,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="picnum != null">
+      picnum = #{picnum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="downloadtime != null">
+      downloadtime = #{downloadtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="pictime != null">
+      pictime = #{pictime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="expresstype != null">
+      expresstype = #{expresstype,jdbcType=VARCHAR} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbOrderlableTransform" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

@@ -11,6 +11,18 @@ public class DbSmtaddress implements Serializable {
 
     private String country;
 
+    private String province;
+
+    private String county;
+
+    private String city;
+
+    private String area;
+
+    private String street;
+
+    private String streetaddress;
+
     private String name;
 
     private String phone;
@@ -30,18 +42,6 @@ public class DbSmtaddress implements Serializable {
     private String isneedtoupdate;
 
     private Long openflag;
-
-    private String province;
-
-    private String county;
-
-    private String city;
-
-    private String area;
-
-    private String street;
-
-    private String streetaddress;
 
     private static final long serialVersionUID = 1L;
 
@@ -75,6 +75,54 @@ public class DbSmtaddress implements Serializable {
 
     public void setCountry(String country) {
         this.country = country == null ? null : country.trim();
+    }
+
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province == null ? null : province.trim();
+    }
+
+    public String getCounty() {
+        return county;
+    }
+
+    public void setCounty(String county) {
+        this.county = county == null ? null : county.trim();
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city == null ? null : city.trim();
+    }
+
+    public String getArea() {
+        return area;
+    }
+
+    public void setArea(String area) {
+        this.area = area == null ? null : area.trim();
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street == null ? null : street.trim();
+    }
+
+    public String getStreetaddress() {
+        return streetaddress;
+    }
+
+    public void setStreetaddress(String streetaddress) {
+        this.streetaddress = streetaddress == null ? null : streetaddress.trim();
     }
 
     public String getName() {
@@ -157,54 +205,6 @@ public class DbSmtaddress implements Serializable {
         this.openflag = openflag;
     }
 
-    public String getProvince() {
-        return province;
-    }
-
-    public void setProvince(String province) {
-        this.province = province == null ? null : province.trim();
-    }
-
-    public String getCounty() {
-        return county;
-    }
-
-    public void setCounty(String county) {
-        this.county = county == null ? null : county.trim();
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city == null ? null : city.trim();
-    }
-
-    public String getArea() {
-        return area;
-    }
-
-    public void setArea(String area) {
-        this.area = area == null ? null : area.trim();
-    }
-
-    public String getStreet() {
-        return street;
-    }
-
-    public void setStreet(String street) {
-        this.street = street == null ? null : street.trim();
-    }
-
-    public String getStreetaddress() {
-        return streetaddress;
-    }
-
-    public void setStreetaddress(String streetaddress) {
-        this.streetaddress = streetaddress == null ? null : streetaddress.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -221,6 +221,12 @@ public class DbSmtaddress implements Serializable {
             && (this.getShopid() == null ? other.getShopid() == null : this.getShopid().equals(other.getShopid()))
             && (this.getShopname() == null ? other.getShopname() == null : this.getShopname().equals(other.getShopname()))
             && (this.getCountry() == null ? other.getCountry() == null : this.getCountry().equals(other.getCountry()))
+            && (this.getProvince() == null ? other.getProvince() == null : this.getProvince().equals(other.getProvince()))
+            && (this.getCounty() == null ? other.getCounty() == null : this.getCounty().equals(other.getCounty()))
+            && (this.getCity() == null ? other.getCity() == null : this.getCity().equals(other.getCity()))
+            && (this.getArea() == null ? other.getArea() == null : this.getArea().equals(other.getArea()))
+            && (this.getStreet() == null ? other.getStreet() == null : this.getStreet().equals(other.getStreet()))
+            && (this.getStreetaddress() == null ? other.getStreetaddress() == null : this.getStreetaddress().equals(other.getStreetaddress()))
             && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
             && (this.getPhone() == null ? other.getPhone() == null : this.getPhone().equals(other.getPhone()))
             && (this.getMembertype() == null ? other.getMembertype() == null : this.getMembertype().equals(other.getMembertype()))
@@ -230,13 +236,7 @@ public class DbSmtaddress implements Serializable {
             && (this.getIsdefault() == null ? other.getIsdefault() == null : this.getIsdefault().equals(other.getIsdefault()))
             && (this.getEmail() == null ? other.getEmail() == null : this.getEmail().equals(other.getEmail()))
             && (this.getIsneedtoupdate() == null ? other.getIsneedtoupdate() == null : this.getIsneedtoupdate().equals(other.getIsneedtoupdate()))
-            && (this.getOpenflag() == null ? other.getOpenflag() == null : this.getOpenflag().equals(other.getOpenflag()))
-            && (this.getProvince() == null ? other.getProvince() == null : this.getProvince().equals(other.getProvince()))
-            && (this.getCounty() == null ? other.getCounty() == null : this.getCounty().equals(other.getCounty()))
-            && (this.getCity() == null ? other.getCity() == null : this.getCity().equals(other.getCity()))
-            && (this.getArea() == null ? other.getArea() == null : this.getArea().equals(other.getArea()))
-            && (this.getStreet() == null ? other.getStreet() == null : this.getStreet().equals(other.getStreet()))
-            && (this.getStreetaddress() == null ? other.getStreetaddress() == null : this.getStreetaddress().equals(other.getStreetaddress()));
+            && (this.getOpenflag() == null ? other.getOpenflag() == null : this.getOpenflag().equals(other.getOpenflag()));
     }
 
     @Override
@@ -247,6 +247,12 @@ public class DbSmtaddress implements Serializable {
         result = prime * result + ((getShopid() == null) ? 0 : getShopid().hashCode());
         result = prime * result + ((getShopname() == null) ? 0 : getShopname().hashCode());
         result = prime * result + ((getCountry() == null) ? 0 : getCountry().hashCode());
+        result = prime * result + ((getProvince() == null) ? 0 : getProvince().hashCode());
+        result = prime * result + ((getCounty() == null) ? 0 : getCounty().hashCode());
+        result = prime * result + ((getCity() == null) ? 0 : getCity().hashCode());
+        result = prime * result + ((getArea() == null) ? 0 : getArea().hashCode());
+        result = prime * result + ((getStreet() == null) ? 0 : getStreet().hashCode());
+        result = prime * result + ((getStreetaddress() == null) ? 0 : getStreetaddress().hashCode());
         result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
         result = prime * result + ((getPhone() == null) ? 0 : getPhone().hashCode());
         result = prime * result + ((getMembertype() == null) ? 0 : getMembertype().hashCode());
@@ -257,12 +263,6 @@ public class DbSmtaddress implements Serializable {
         result = prime * result + ((getEmail() == null) ? 0 : getEmail().hashCode());
         result = prime * result + ((getIsneedtoupdate() == null) ? 0 : getIsneedtoupdate().hashCode());
         result = prime * result + ((getOpenflag() == null) ? 0 : getOpenflag().hashCode());
-        result = prime * result + ((getProvince() == null) ? 0 : getProvince().hashCode());
-        result = prime * result + ((getCounty() == null) ? 0 : getCounty().hashCode());
-        result = prime * result + ((getCity() == null) ? 0 : getCity().hashCode());
-        result = prime * result + ((getArea() == null) ? 0 : getArea().hashCode());
-        result = prime * result + ((getStreet() == null) ? 0 : getStreet().hashCode());
-        result = prime * result + ((getStreetaddress() == null) ? 0 : getStreetaddress().hashCode());
         return result;
     }
 
@@ -276,6 +276,12 @@ public class DbSmtaddress implements Serializable {
         sb.append(", shopid=").append(shopid);
         sb.append(", shopname=").append(shopname);
         sb.append(", country=").append(country);
+        sb.append(", province=").append(province);
+        sb.append(", county=").append(county);
+        sb.append(", city=").append(city);
+        sb.append(", area=").append(area);
+        sb.append(", street=").append(street);
+        sb.append(", streetaddress=").append(streetaddress);
         sb.append(", name=").append(name);
         sb.append(", phone=").append(phone);
         sb.append(", membertype=").append(membertype);
@@ -286,12 +292,6 @@ public class DbSmtaddress implements Serializable {
         sb.append(", email=").append(email);
         sb.append(", isneedtoupdate=").append(isneedtoupdate);
         sb.append(", openflag=").append(openflag);
-        sb.append(", province=").append(province);
-        sb.append(", county=").append(county);
-        sb.append(", city=").append(city);
-        sb.append(", area=").append(area);
-        sb.append(", street=").append(street);
-        sb.append(", streetaddress=").append(streetaddress);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

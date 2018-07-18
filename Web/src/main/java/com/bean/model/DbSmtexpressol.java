@@ -13,6 +13,8 @@ public class DbSmtexpressol implements Serializable {
 
     private String openflag;
 
+    private String address;
+
     private String reserve1;
 
     private String reserve2;
@@ -22,8 +24,6 @@ public class DbSmtexpressol implements Serializable {
     private String warehousecode;
 
     private String ordertype;
-
-    private String address;
 
     private static final long serialVersionUID = 1L;
 
@@ -67,6 +67,14 @@ public class DbSmtexpressol implements Serializable {
         this.openflag = openflag == null ? null : openflag.trim();
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address == null ? null : address.trim();
+    }
+
     public String getReserve1() {
         return reserve1;
     }
@@ -107,14 +115,6 @@ public class DbSmtexpressol implements Serializable {
         this.ordertype = ordertype == null ? null : ordertype.trim();
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address == null ? null : address.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -132,12 +132,12 @@ public class DbSmtexpressol implements Serializable {
             && (this.getNameen() == null ? other.getNameen() == null : this.getNameen().equals(other.getNameen()))
             && (this.getCountry() == null ? other.getCountry() == null : this.getCountry().equals(other.getCountry()))
             && (this.getOpenflag() == null ? other.getOpenflag() == null : this.getOpenflag().equals(other.getOpenflag()))
+            && (this.getAddress() == null ? other.getAddress() == null : this.getAddress().equals(other.getAddress()))
             && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
             && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
             && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
             && (this.getWarehousecode() == null ? other.getWarehousecode() == null : this.getWarehousecode().equals(other.getWarehousecode()))
-            && (this.getOrdertype() == null ? other.getOrdertype() == null : this.getOrdertype().equals(other.getOrdertype()))
-            && (this.getAddress() == null ? other.getAddress() == null : this.getAddress().equals(other.getAddress()));
+            && (this.getOrdertype() == null ? other.getOrdertype() == null : this.getOrdertype().equals(other.getOrdertype()));
     }
 
     @Override
@@ -149,12 +149,12 @@ public class DbSmtexpressol implements Serializable {
         result = prime * result + ((getNameen() == null) ? 0 : getNameen().hashCode());
         result = prime * result + ((getCountry() == null) ? 0 : getCountry().hashCode());
         result = prime * result + ((getOpenflag() == null) ? 0 : getOpenflag().hashCode());
+        result = prime * result + ((getAddress() == null) ? 0 : getAddress().hashCode());
         result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
         result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
         result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
         result = prime * result + ((getWarehousecode() == null) ? 0 : getWarehousecode().hashCode());
         result = prime * result + ((getOrdertype() == null) ? 0 : getOrdertype().hashCode());
-        result = prime * result + ((getAddress() == null) ? 0 : getAddress().hashCode());
         return result;
     }
 
@@ -169,12 +169,12 @@ public class DbSmtexpressol implements Serializable {
         sb.append(", nameen=").append(nameen);
         sb.append(", country=").append(country);
         sb.append(", openflag=").append(openflag);
+        sb.append(", address=").append(address);
         sb.append(", reserve1=").append(reserve1);
         sb.append(", reserve2=").append(reserve2);
         sb.append(", reserve3=").append(reserve3);
         sb.append(", warehousecode=").append(warehousecode);
         sb.append(", ordertype=").append(ordertype);
-        sb.append(", address=").append(address);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

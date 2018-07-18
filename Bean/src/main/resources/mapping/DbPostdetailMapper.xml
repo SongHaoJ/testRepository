@@ -9,98 +9,89 @@
     <result column="TYPE" jdbcType="DECIMAL" property="type" />
     <result column="VALUE" jdbcType="VARCHAR" property="value" />
   </resultMap>
-  <sql id="Base_Column_List">
-    SID, TASKSID, PROPERTYID, PROPERTYVALUE, 'TYPE', 'VALUE'
-  </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from db_postdetail
+    select SID, TASKSID, PROPERTYID, PROPERTYVALUE, TYPE, VALUE
+    from DB_POSTDETAIL
     where SID = #{sid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_postdetail
-    where SID = #{sid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, TASKSID, PROPERTYID, PROPERTYVALUE, TYPE, VALUE
+    from DB_POSTDETAIL
+  </select>
+  <sql id="TableName">
+    DB_POSTDETAIL
+  </sql>
+  <sql id="Values">
+     #{sid,jdbcType=VARCHAR} , 
+     #{tasksid,jdbcType=VARCHAR} , 
+     #{propertyid,jdbcType=VARCHAR} , 
+     #{propertyvalue,jdbcType=VARCHAR} , 
+     #{type,jdbcType=DECIMAL} , 
+     #{value,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    SID , 
+    TASKSID , 
+    PROPERTYID , 
+    PROPERTYVALUE , 
+    TYPE , 
+    VALUE , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="tasksid != null">
+      tasksid = #{tasksid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="propertyid != null">
+      propertyid = #{propertyid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="propertyvalue != null">
+      propertyvalue = #{propertyvalue,jdbcType=VARCHAR} and 
+    </if>
+    <if test="type != null">
+      type = #{type,jdbcType=DECIMAL} and 
+    </if>
+    <if test="value != null">
+      value = #{value,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="tasksid != null">
+      tasksid = #{tasksid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="propertyid != null">
+      propertyid = #{propertyid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="propertyvalue != null">
+      propertyvalue = #{propertyvalue,jdbcType=VARCHAR} , 
+    </if>
+    <if test="type != null">
+      type = #{type,jdbcType=DECIMAL} , 
+    </if>
+    <if test="value != null">
+      value = #{value,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbPostdetail" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SID=#{SID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbPostdetail">
-    insert into db_postdetail (SID, TASKSID, PROPERTYID, 
-      PROPERTYVALUE, 'TYPE', 'VALUE'
-      )
-    values (#{sid,jdbcType=VARCHAR}, #{tasksid,jdbcType=VARCHAR}, #{propertyid,jdbcType=VARCHAR}, 
-      #{propertyvalue,jdbcType=VARCHAR}, #{type,jdbcType=DECIMAL}, #{value,jdbcType=VARCHAR}
-      )
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbPostdetail">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbPostdetail">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbPostdetail">
-    insert into db_postdetail
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        SID,
-      </if>
-      <if test="tasksid != null">
-        TASKSID,
-      </if>
-      <if test="propertyid != null">
-        PROPERTYID,
-      </if>
-      <if test="propertyvalue != null">
-        PROPERTYVALUE,
-      </if>
-      <if test="type != null">
-        'TYPE',
-      </if>
-      <if test="value != null">
-        'VALUE',
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        #{sid,jdbcType=VARCHAR},
-      </if>
-      <if test="tasksid != null">
-        #{tasksid,jdbcType=VARCHAR},
-      </if>
-      <if test="propertyid != null">
-        #{propertyid,jdbcType=VARCHAR},
-      </if>
-      <if test="propertyvalue != null">
-        #{propertyvalue,jdbcType=VARCHAR},
-      </if>
-      <if test="type != null">
-        #{type,jdbcType=DECIMAL},
-      </if>
-      <if test="value != null">
-        #{value,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbPostdetail">
-    update db_postdetail
-    <set>
-      <if test="tasksid != null">
-        TASKSID = #{tasksid,jdbcType=VARCHAR},
-      </if>
-      <if test="propertyid != null">
-        PROPERTYID = #{propertyid,jdbcType=VARCHAR},
-      </if>
-      <if test="propertyvalue != null">
-        PROPERTYVALUE = #{propertyvalue,jdbcType=VARCHAR},
-      </if>
-      <if test="type != null">
-        'TYPE' = #{type,jdbcType=DECIMAL},
-      </if>
-      <if test="value != null">
-        'VALUE' = #{value,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where SID = #{sid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbPostdetail">
-    update db_postdetail
-    set TASKSID = #{tasksid,jdbcType=VARCHAR},
-      PROPERTYID = #{propertyid,jdbcType=VARCHAR},
-      PROPERTYVALUE = #{propertyvalue,jdbcType=VARCHAR},
-      'TYPE' = #{type,jdbcType=DECIMAL},
-      'VALUE' = #{value,jdbcType=VARCHAR}
-    where SID = #{sid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbPostdetail">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

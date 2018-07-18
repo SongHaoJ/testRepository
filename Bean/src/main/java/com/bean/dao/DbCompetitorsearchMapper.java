@@ -1,20 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbCompetitorsearch;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbCompetitorsearchMapper {
-    int deleteByPrimaryKey(BigDecimal sequenceid);
+    DbCompetitorsearch selectByCriteria(DbCompetitorsearch DbCompetitorsearch);
 
-    int insert(DbCompetitorsearch record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbCompetitorsearch record);
+    void deleteByCriteria(DbCompetitorsearch DbCompetitorsearch);
+
+    int insertByCriteria(DbCompetitorsearch DbCompetitorsearch);
+
+    int updateByCriteria(DbCompetitorsearch DbCompetitorsearch);
 
     DbCompetitorsearch selectByPrimaryKey(BigDecimal sequenceid);
 
-    int updateByPrimaryKeySelective(DbCompetitorsearch record);
-
-    int updateByPrimaryKeyWithBLOBs(DbCompetitorsearch record);
-
-    int updateByPrimaryKey(DbCompetitorsearch record);
+    List<DbCompetitorsearch> selectAll();
 }

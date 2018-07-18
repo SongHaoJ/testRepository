@@ -13,141 +13,123 @@
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
   </resultMap>
-  <sql id="Base_Column_List">
-    SEQUENCEID, EBAYIDMANAGEID, BBENUM, BBEPERCENT, BBE2, BBE3, CORPID, OPENFLAG, OPER, 
-    OPERTIME
-  </sql>
   <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from db_ebaybbe
+    select SEQUENCEID, EBAYIDMANAGEID, BBENUM, BBEPERCENT, BBE2, BBE3, CORPID, OPENFLAG, 
+    OPER, OPERTIME
+    from DB_EBAYBBE
     where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
-    delete from db_ebaybbe
-    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, EBAYIDMANAGEID, BBENUM, BBEPERCENT, BBE2, BBE3, CORPID, OPENFLAG, 
+    OPER, OPERTIME
+    from DB_EBAYBBE
+  </select>
+  <sql id="TableName">
+    DB_EBAYBBE
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=DECIMAL} , 
+     #{ebayidmanageid,jdbcType=DECIMAL} , 
+     #{bbenum,jdbcType=VARCHAR} , 
+     #{bbepercent,jdbcType=VARCHAR} , 
+     #{bbe2,jdbcType=VARCHAR} , 
+     #{bbe3,jdbcType=VARCHAR} , 
+     #{corpid,jdbcType=VARCHAR} , 
+     #{openflag,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    EBAYIDMANAGEID , 
+    BBENUM , 
+    BBEPERCENT , 
+    BBE2 , 
+    BBE3 , 
+    CORPID , 
+    OPENFLAG , 
+    OPER , 
+    OPERTIME , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="ebayidmanageid != null">
+      ebayidmanageid = #{ebayidmanageid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="bbenum != null">
+      bbenum = #{bbenum,jdbcType=VARCHAR} and 
+    </if>
+    <if test="bbepercent != null">
+      bbepercent = #{bbepercent,jdbcType=VARCHAR} and 
+    </if>
+    <if test="bbe2 != null">
+      bbe2 = #{bbe2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="bbe3 != null">
+      bbe3 = #{bbe3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="ebayidmanageid != null">
+      ebayidmanageid = #{ebayidmanageid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="bbenum != null">
+      bbenum = #{bbenum,jdbcType=VARCHAR} , 
+    </if>
+    <if test="bbepercent != null">
+      bbepercent = #{bbepercent,jdbcType=VARCHAR} , 
+    </if>
+    <if test="bbe2 != null">
+      bbe2 = #{bbe2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="bbe3 != null">
+      bbe3 = #{bbe3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbEbaybbe" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="BigDecimal">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbEbaybbe">
-    insert into db_ebaybbe (SEQUENCEID, EBAYIDMANAGEID, BBENUM, 
-      BBEPERCENT, BBE2, BBE3, 
-      CORPID, OPENFLAG, OPER, 
-      OPERTIME)
-    values (#{sequenceid,jdbcType=DECIMAL}, #{ebayidmanageid,jdbcType=DECIMAL}, #{bbenum,jdbcType=VARCHAR}, 
-      #{bbepercent,jdbcType=VARCHAR}, #{bbe2,jdbcType=VARCHAR}, #{bbe3,jdbcType=VARCHAR}, 
-      #{corpid,jdbcType=VARCHAR}, #{openflag,jdbcType=VARCHAR}, #{oper,jdbcType=VARCHAR}, 
-      #{opertime,jdbcType=TIMESTAMP})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbEbaybbe">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbEbaybbe">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbEbaybbe">
-    insert into db_ebaybbe
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        SEQUENCEID,
-      </if>
-      <if test="ebayidmanageid != null">
-        EBAYIDMANAGEID,
-      </if>
-      <if test="bbenum != null">
-        BBENUM,
-      </if>
-      <if test="bbepercent != null">
-        BBEPERCENT,
-      </if>
-      <if test="bbe2 != null">
-        BBE2,
-      </if>
-      <if test="bbe3 != null">
-        BBE3,
-      </if>
-      <if test="corpid != null">
-        CORPID,
-      </if>
-      <if test="openflag != null">
-        OPENFLAG,
-      </if>
-      <if test="oper != null">
-        OPER,
-      </if>
-      <if test="opertime != null">
-        OPERTIME,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        #{sequenceid,jdbcType=DECIMAL},
-      </if>
-      <if test="ebayidmanageid != null">
-        #{ebayidmanageid,jdbcType=DECIMAL},
-      </if>
-      <if test="bbenum != null">
-        #{bbenum,jdbcType=VARCHAR},
-      </if>
-      <if test="bbepercent != null">
-        #{bbepercent,jdbcType=VARCHAR},
-      </if>
-      <if test="bbe2 != null">
-        #{bbe2,jdbcType=VARCHAR},
-      </if>
-      <if test="bbe3 != null">
-        #{bbe3,jdbcType=VARCHAR},
-      </if>
-      <if test="corpid != null">
-        #{corpid,jdbcType=VARCHAR},
-      </if>
-      <if test="openflag != null">
-        #{openflag,jdbcType=VARCHAR},
-      </if>
-      <if test="oper != null">
-        #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        #{opertime,jdbcType=TIMESTAMP},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbEbaybbe">
-    update db_ebaybbe
-    <set>
-      <if test="ebayidmanageid != null">
-        EBAYIDMANAGEID = #{ebayidmanageid,jdbcType=DECIMAL},
-      </if>
-      <if test="bbenum != null">
-        BBENUM = #{bbenum,jdbcType=VARCHAR},
-      </if>
-      <if test="bbepercent != null">
-        BBEPERCENT = #{bbepercent,jdbcType=VARCHAR},
-      </if>
-      <if test="bbe2 != null">
-        BBE2 = #{bbe2,jdbcType=VARCHAR},
-      </if>
-      <if test="bbe3 != null">
-        BBE3 = #{bbe3,jdbcType=VARCHAR},
-      </if>
-      <if test="corpid != null">
-        CORPID = #{corpid,jdbcType=VARCHAR},
-      </if>
-      <if test="openflag != null">
-        OPENFLAG = #{openflag,jdbcType=VARCHAR},
-      </if>
-      <if test="oper != null">
-        OPER = #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbEbaybbe">
-    update db_ebaybbe
-    set EBAYIDMANAGEID = #{ebayidmanageid,jdbcType=DECIMAL},
-      BBENUM = #{bbenum,jdbcType=VARCHAR},
-      BBEPERCENT = #{bbepercent,jdbcType=VARCHAR},
-      BBE2 = #{bbe2,jdbcType=VARCHAR},
-      BBE3 = #{bbe3,jdbcType=VARCHAR},
-      CORPID = #{corpid,jdbcType=VARCHAR},
-      OPENFLAG = #{openflag,jdbcType=VARCHAR},
-      OPER = #{oper,jdbcType=VARCHAR},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP}
-    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbEbaybbe">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

@@ -11,19 +11,19 @@ public class DbFunctionconfiglog implements Serializable {
 
     private String oper;
 
+    private String content;
+
     private BigDecimal openflag;
 
     private Date opertime;
 
     private BigDecimal opertype;
 
+    private String descr;
+
     private BigDecimal status;
 
     private BigDecimal functionid;
-
-    private String content;
-
-    private String descr;
 
     private static final long serialVersionUID = 1L;
 
@@ -51,6 +51,14 @@ public class DbFunctionconfiglog implements Serializable {
         this.oper = oper == null ? null : oper.trim();
     }
 
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content == null ? null : content.trim();
+    }
+
     public BigDecimal getOpenflag() {
         return openflag;
     }
@@ -75,6 +83,14 @@ public class DbFunctionconfiglog implements Serializable {
         this.opertype = opertype;
     }
 
+    public String getDescr() {
+        return descr;
+    }
+
+    public void setDescr(String descr) {
+        this.descr = descr == null ? null : descr.trim();
+    }
+
     public BigDecimal getStatus() {
         return status;
     }
@@ -89,22 +105,6 @@ public class DbFunctionconfiglog implements Serializable {
 
     public void setFunctionid(BigDecimal functionid) {
         this.functionid = functionid;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content == null ? null : content.trim();
-    }
-
-    public String getDescr() {
-        return descr;
-    }
-
-    public void setDescr(String descr) {
-        this.descr = descr == null ? null : descr.trim();
     }
 
     @Override
@@ -122,13 +122,13 @@ public class DbFunctionconfiglog implements Serializable {
         return (this.getSid() == null ? other.getSid() == null : this.getSid().equals(other.getSid()))
             && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
+            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
             && (this.getOpenflag() == null ? other.getOpenflag() == null : this.getOpenflag().equals(other.getOpenflag()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
             && (this.getOpertype() == null ? other.getOpertype() == null : this.getOpertype().equals(other.getOpertype()))
+            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
             && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
-            && (this.getFunctionid() == null ? other.getFunctionid() == null : this.getFunctionid().equals(other.getFunctionid()))
-            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
-            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()));
+            && (this.getFunctionid() == null ? other.getFunctionid() == null : this.getFunctionid().equals(other.getFunctionid()));
     }
 
     @Override
@@ -138,13 +138,13 @@ public class DbFunctionconfiglog implements Serializable {
         result = prime * result + ((getSid() == null) ? 0 : getSid().hashCode());
         result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
+        result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
         result = prime * result + ((getOpenflag() == null) ? 0 : getOpenflag().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getOpertype() == null) ? 0 : getOpertype().hashCode());
+        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
         result = prime * result + ((getStatus() == null) ? 0 : getStatus().hashCode());
         result = prime * result + ((getFunctionid() == null) ? 0 : getFunctionid().hashCode());
-        result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
-        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
         return result;
     }
 
@@ -157,13 +157,13 @@ public class DbFunctionconfiglog implements Serializable {
         sb.append(", sid=").append(sid);
         sb.append(", name=").append(name);
         sb.append(", oper=").append(oper);
+        sb.append(", content=").append(content);
         sb.append(", openflag=").append(openflag);
         sb.append(", opertime=").append(opertime);
         sb.append(", opertype=").append(opertype);
+        sb.append(", descr=").append(descr);
         sb.append(", status=").append(status);
         sb.append(", functionid=").append(functionid);
-        sb.append(", content=").append(content);
-        sb.append(", descr=").append(descr);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

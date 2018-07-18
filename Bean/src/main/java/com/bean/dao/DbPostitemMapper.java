@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbPostitem;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbPostitemMapper {
-    int deleteByPrimaryKey(String sid);
+    DbPostitem selectByCriteria(DbPostitem DbPostitem);
 
-    int insert(DbPostitem record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbPostitem record);
+    void deleteByCriteria(DbPostitem DbPostitem);
+
+    int insertByCriteria(DbPostitem DbPostitem);
+
+    int updateByCriteria(DbPostitem DbPostitem);
 
     DbPostitem selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbPostitem record);
-
-    int updateByPrimaryKeyWithBLOBs(DbPostitem record);
-
-    int updateByPrimaryKey(DbPostitem record);
+    List<DbPostitem> selectAll();
 }

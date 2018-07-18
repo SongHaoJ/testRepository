@@ -9,6 +9,8 @@ public class DbEbaymessagebind implements Serializable {
 
     private String name;
 
+    private String descr;
+
     private String key;
 
     private String oper;
@@ -22,8 +24,6 @@ public class DbEbaymessagebind implements Serializable {
     private String reserve3;
 
     private BigDecimal sort;
-
-    private String descr;
 
     private static final long serialVersionUID = 1L;
 
@@ -41,6 +41,14 @@ public class DbEbaymessagebind implements Serializable {
 
     public void setName(String name) {
         this.name = name == null ? null : name.trim();
+    }
+
+    public String getDescr() {
+        return descr;
+    }
+
+    public void setDescr(String descr) {
+        this.descr = descr == null ? null : descr.trim();
     }
 
     public String getKey() {
@@ -99,14 +107,6 @@ public class DbEbaymessagebind implements Serializable {
         this.sort = sort;
     }
 
-    public String getDescr() {
-        return descr;
-    }
-
-    public void setDescr(String descr) {
-        this.descr = descr == null ? null : descr.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -121,14 +121,14 @@ public class DbEbaymessagebind implements Serializable {
         DbEbaymessagebind other = (DbEbaymessagebind) that;
         return (this.getSequenceid() == null ? other.getSequenceid() == null : this.getSequenceid().equals(other.getSequenceid()))
             && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
+            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
             && (this.getKey() == null ? other.getKey() == null : this.getKey().equals(other.getKey()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
             && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
             && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
             && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
-            && (this.getSort() == null ? other.getSort() == null : this.getSort().equals(other.getSort()))
-            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()));
+            && (this.getSort() == null ? other.getSort() == null : this.getSort().equals(other.getSort()));
     }
 
     @Override
@@ -137,6 +137,7 @@ public class DbEbaymessagebind implements Serializable {
         int result = 1;
         result = prime * result + ((getSequenceid() == null) ? 0 : getSequenceid().hashCode());
         result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
+        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
         result = prime * result + ((getKey() == null) ? 0 : getKey().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
@@ -144,7 +145,6 @@ public class DbEbaymessagebind implements Serializable {
         result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
         result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
         result = prime * result + ((getSort() == null) ? 0 : getSort().hashCode());
-        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
         return result;
     }
 
@@ -156,6 +156,7 @@ public class DbEbaymessagebind implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", sequenceid=").append(sequenceid);
         sb.append(", name=").append(name);
+        sb.append(", descr=").append(descr);
         sb.append(", key=").append(key);
         sb.append(", oper=").append(oper);
         sb.append(", opertime=").append(opertime);
@@ -163,7 +164,6 @@ public class DbEbaymessagebind implements Serializable {
         sb.append(", reserve2=").append(reserve2);
         sb.append(", reserve3=").append(reserve3);
         sb.append(", sort=").append(sort);
-        sb.append(", descr=").append(descr);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

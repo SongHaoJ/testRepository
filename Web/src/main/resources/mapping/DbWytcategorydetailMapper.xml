@@ -4,71 +4,71 @@
   <resultMap id="BaseResultMap" type="com.bean.model.DbWytcategorydetail">
     <id column="MWAREHOUSEID" jdbcType="VARCHAR" property="mwarehouseid" />
     <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="MWAREHOUSEADDRESS" jdbcType="VARCHAR" property="mwarehouseaddress" />
     <result column="COSTOMERID" jdbcType="VARCHAR" property="costomerid" />
     <result column="FLAG" jdbcType="DECIMAL" property="flag" />
-    <result column="MWAREHOUSEADDRESS" jdbcType="LONGVARCHAR" property="mwarehouseaddress" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select MWAREHOUSEID, NAME, COSTOMERID, FLAG, MWAREHOUSEADDRESS
-    from db_wytcategorydetail
+    select MWAREHOUSEID, NAME, MWAREHOUSEADDRESS, COSTOMERID, FLAG
+    from DB_WYTCATEGORYDETAIL
     where MWAREHOUSEID = #{mwarehouseid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select MWAREHOUSEID, NAME, COSTOMERID, FLAG, MWAREHOUSEADDRESS
-    from db_wytcategorydetail
+    select MWAREHOUSEID, NAME, MWAREHOUSEADDRESS, COSTOMERID, FLAG
+    from DB_WYTCATEGORYDETAIL
   </select>
   <sql id="TableName">
-    db_wytcategorydetail
+    DB_WYTCATEGORYDETAIL
   </sql>
   <sql id="Values">
      #{mwarehouseid,jdbcType=VARCHAR} , 
      #{name,jdbcType=VARCHAR} , 
+     #{mwarehouseaddress,jdbcType=VARCHAR} , 
      #{costomerid,jdbcType=VARCHAR} , 
      #{flag,jdbcType=DECIMAL} , 
-     #{mwarehouseaddress,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     MWAREHOUSEID , 
     NAME , 
+    MWAREHOUSEADDRESS , 
     COSTOMERID , 
     FLAG , 
-    MWAREHOUSEADDRESS
   </sql>
   <sql id="Criteria">
     <if test="mwarehouseid != null">
-      MWAREHOUSEID = #{mwarehouseid,jdbcType=VARCHAR} and 
+      mwarehouseid = #{mwarehouseid,jdbcType=VARCHAR} and 
     </if>
     <if test="name != null">
-      NAME = #{name,jdbcType=VARCHAR} and 
-    </if>
-    <if test="costomerid != null">
-      COSTOMERID = #{costomerid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="flag != null">
-      FLAG = #{flag,jdbcType=DECIMAL} and 
+      name = #{name,jdbcType=VARCHAR} and 
     </if>
     <if test="mwarehouseaddress != null">
-      MWAREHOUSEADDRESS = #{mwarehouseaddress,jdbcType=LONGVARCHAR}
+      mwarehouseaddress = #{mwarehouseaddress,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="costomerid != null">
+      costomerid = #{costomerid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=DECIMAL} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="mwarehouseid != null">
-      MWAREHOUSEID = #{mwarehouseid,jdbcType=VARCHAR} , 
+      mwarehouseid = #{mwarehouseid,jdbcType=VARCHAR} , 
     </if>
     <if test="name != null">
-      NAME = #{name,jdbcType=VARCHAR} , 
-    </if>
-    <if test="costomerid != null">
-      COSTOMERID = #{costomerid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="flag != null">
-      FLAG = #{flag,jdbcType=DECIMAL} , 
+      name = #{name,jdbcType=VARCHAR} , 
     </if>
     <if test="mwarehouseaddress != null">
-      MWAREHOUSEADDRESS = #{mwarehouseaddress,jdbcType=LONGVARCHAR}
+      mwarehouseaddress = #{mwarehouseaddress,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="costomerid != null">
+      costomerid = #{costomerid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=DECIMAL} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbWytcategorydetail" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

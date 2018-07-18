@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbEbaymessagedescr;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbEbaymessagedescrMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbEbaymessagedescr selectByCriteria(DbEbaymessagedescr DbEbaymessagedescr);
 
-    int insert(DbEbaymessagedescr record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbEbaymessagedescr record);
+    void deleteByCriteria(DbEbaymessagedescr DbEbaymessagedescr);
+
+    int insertByCriteria(DbEbaymessagedescr DbEbaymessagedescr);
+
+    int updateByCriteria(DbEbaymessagedescr DbEbaymessagedescr);
 
     DbEbaymessagedescr selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbEbaymessagedescr record);
-
-    int updateByPrimaryKeyWithBLOBs(DbEbaymessagedescr record);
+    List<DbEbaymessagedescr> selectAll();
 }

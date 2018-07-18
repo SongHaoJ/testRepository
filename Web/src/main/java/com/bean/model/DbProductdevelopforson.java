@@ -11,6 +11,10 @@ public class DbProductdevelopforson implements Serializable {
 
     private String productid;
 
+    private String name;
+
+    private String enname;
+
     private BigDecimal savenum;
 
     private BigDecimal sellprice;
@@ -31,11 +35,19 @@ public class DbProductdevelopforson implements Serializable {
 
     private BigDecimal minnum;
 
+    private String photourl;
+
     private String chaseoper;
+
+    private String reserve1;
+
+    private String reserve2;
 
     private BigDecimal reserve3;
 
     private BigDecimal reserve4;
+
+    private String title;
 
     private String openflag;
 
@@ -56,18 +68,6 @@ public class DbProductdevelopforson implements Serializable {
     private String reserve7;
 
     private String reserve8;
-
-    private String name;
-
-    private String enname;
-
-    private String photourl;
-
-    private String reserve1;
-
-    private String reserve2;
-
-    private String title;
 
     private static final long serialVersionUID = 1L;
 
@@ -93,6 +93,22 @@ public class DbProductdevelopforson implements Serializable {
 
     public void setProductid(String productid) {
         this.productid = productid == null ? null : productid.trim();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
+    }
+
+    public String getEnname() {
+        return enname;
+    }
+
+    public void setEnname(String enname) {
+        this.enname = enname == null ? null : enname.trim();
     }
 
     public BigDecimal getSavenum() {
@@ -175,12 +191,36 @@ public class DbProductdevelopforson implements Serializable {
         this.minnum = minnum;
     }
 
+    public String getPhotourl() {
+        return photourl;
+    }
+
+    public void setPhotourl(String photourl) {
+        this.photourl = photourl == null ? null : photourl.trim();
+    }
+
     public String getChaseoper() {
         return chaseoper;
     }
 
     public void setChaseoper(String chaseoper) {
         this.chaseoper = chaseoper == null ? null : chaseoper.trim();
+    }
+
+    public String getReserve1() {
+        return reserve1;
+    }
+
+    public void setReserve1(String reserve1) {
+        this.reserve1 = reserve1 == null ? null : reserve1.trim();
+    }
+
+    public String getReserve2() {
+        return reserve2;
+    }
+
+    public void setReserve2(String reserve2) {
+        this.reserve2 = reserve2 == null ? null : reserve2.trim();
     }
 
     public BigDecimal getReserve3() {
@@ -197,6 +237,14 @@ public class DbProductdevelopforson implements Serializable {
 
     public void setReserve4(BigDecimal reserve4) {
         this.reserve4 = reserve4;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title == null ? null : title.trim();
     }
 
     public String getOpenflag() {
@@ -279,54 +327,6 @@ public class DbProductdevelopforson implements Serializable {
         this.reserve8 = reserve8 == null ? null : reserve8.trim();
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
-    }
-
-    public String getEnname() {
-        return enname;
-    }
-
-    public void setEnname(String enname) {
-        this.enname = enname == null ? null : enname.trim();
-    }
-
-    public String getPhotourl() {
-        return photourl;
-    }
-
-    public void setPhotourl(String photourl) {
-        this.photourl = photourl == null ? null : photourl.trim();
-    }
-
-    public String getReserve1() {
-        return reserve1;
-    }
-
-    public void setReserve1(String reserve1) {
-        this.reserve1 = reserve1 == null ? null : reserve1.trim();
-    }
-
-    public String getReserve2() {
-        return reserve2;
-    }
-
-    public void setReserve2(String reserve2) {
-        this.reserve2 = reserve2 == null ? null : reserve2.trim();
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title == null ? null : title.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -342,6 +342,8 @@ public class DbProductdevelopforson implements Serializable {
         return (this.getSequenceid() == null ? other.getSequenceid() == null : this.getSequenceid().equals(other.getSequenceid()))
             && (this.getFathindexid() == null ? other.getFathindexid() == null : this.getFathindexid().equals(other.getFathindexid()))
             && (this.getProductid() == null ? other.getProductid() == null : this.getProductid().equals(other.getProductid()))
+            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
+            && (this.getEnname() == null ? other.getEnname() == null : this.getEnname().equals(other.getEnname()))
             && (this.getSavenum() == null ? other.getSavenum() == null : this.getSavenum().equals(other.getSavenum()))
             && (this.getSellprice() == null ? other.getSellprice() == null : this.getSellprice().equals(other.getSellprice()))
             && (this.getCostprice() == null ? other.getCostprice() == null : this.getCostprice().equals(other.getCostprice()))
@@ -352,9 +354,13 @@ public class DbProductdevelopforson implements Serializable {
             && (this.getManufacturename() == null ? other.getManufacturename() == null : this.getManufacturename().equals(other.getManufacturename()))
             && (this.getQuote() == null ? other.getQuote() == null : this.getQuote().equals(other.getQuote()))
             && (this.getMinnum() == null ? other.getMinnum() == null : this.getMinnum().equals(other.getMinnum()))
+            && (this.getPhotourl() == null ? other.getPhotourl() == null : this.getPhotourl().equals(other.getPhotourl()))
             && (this.getChaseoper() == null ? other.getChaseoper() == null : this.getChaseoper().equals(other.getChaseoper()))
+            && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
+            && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
             && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
             && (this.getReserve4() == null ? other.getReserve4() == null : this.getReserve4().equals(other.getReserve4()))
+            && (this.getTitle() == null ? other.getTitle() == null : this.getTitle().equals(other.getTitle()))
             && (this.getOpenflag() == null ? other.getOpenflag() == null : this.getOpenflag().equals(other.getOpenflag()))
             && (this.getFlag() == null ? other.getFlag() == null : this.getFlag().equals(other.getFlag()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
@@ -364,13 +370,7 @@ public class DbProductdevelopforson implements Serializable {
             && (this.getReserve5() == null ? other.getReserve5() == null : this.getReserve5().equals(other.getReserve5()))
             && (this.getReserve6() == null ? other.getReserve6() == null : this.getReserve6().equals(other.getReserve6()))
             && (this.getReserve7() == null ? other.getReserve7() == null : this.getReserve7().equals(other.getReserve7()))
-            && (this.getReserve8() == null ? other.getReserve8() == null : this.getReserve8().equals(other.getReserve8()))
-            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
-            && (this.getEnname() == null ? other.getEnname() == null : this.getEnname().equals(other.getEnname()))
-            && (this.getPhotourl() == null ? other.getPhotourl() == null : this.getPhotourl().equals(other.getPhotourl()))
-            && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
-            && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
-            && (this.getTitle() == null ? other.getTitle() == null : this.getTitle().equals(other.getTitle()));
+            && (this.getReserve8() == null ? other.getReserve8() == null : this.getReserve8().equals(other.getReserve8()));
     }
 
     @Override
@@ -380,6 +380,8 @@ public class DbProductdevelopforson implements Serializable {
         result = prime * result + ((getSequenceid() == null) ? 0 : getSequenceid().hashCode());
         result = prime * result + ((getFathindexid() == null) ? 0 : getFathindexid().hashCode());
         result = prime * result + ((getProductid() == null) ? 0 : getProductid().hashCode());
+        result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
+        result = prime * result + ((getEnname() == null) ? 0 : getEnname().hashCode());
         result = prime * result + ((getSavenum() == null) ? 0 : getSavenum().hashCode());
         result = prime * result + ((getSellprice() == null) ? 0 : getSellprice().hashCode());
         result = prime * result + ((getCostprice() == null) ? 0 : getCostprice().hashCode());
@@ -390,9 +392,13 @@ public class DbProductdevelopforson implements Serializable {
         result = prime * result + ((getManufacturename() == null) ? 0 : getManufacturename().hashCode());
         result = prime * result + ((getQuote() == null) ? 0 : getQuote().hashCode());
         result = prime * result + ((getMinnum() == null) ? 0 : getMinnum().hashCode());
+        result = prime * result + ((getPhotourl() == null) ? 0 : getPhotourl().hashCode());
         result = prime * result + ((getChaseoper() == null) ? 0 : getChaseoper().hashCode());
+        result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
+        result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
         result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
         result = prime * result + ((getReserve4() == null) ? 0 : getReserve4().hashCode());
+        result = prime * result + ((getTitle() == null) ? 0 : getTitle().hashCode());
         result = prime * result + ((getOpenflag() == null) ? 0 : getOpenflag().hashCode());
         result = prime * result + ((getFlag() == null) ? 0 : getFlag().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
@@ -403,12 +409,6 @@ public class DbProductdevelopforson implements Serializable {
         result = prime * result + ((getReserve6() == null) ? 0 : getReserve6().hashCode());
         result = prime * result + ((getReserve7() == null) ? 0 : getReserve7().hashCode());
         result = prime * result + ((getReserve8() == null) ? 0 : getReserve8().hashCode());
-        result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
-        result = prime * result + ((getEnname() == null) ? 0 : getEnname().hashCode());
-        result = prime * result + ((getPhotourl() == null) ? 0 : getPhotourl().hashCode());
-        result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
-        result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
-        result = prime * result + ((getTitle() == null) ? 0 : getTitle().hashCode());
         return result;
     }
 
@@ -421,6 +421,8 @@ public class DbProductdevelopforson implements Serializable {
         sb.append(", sequenceid=").append(sequenceid);
         sb.append(", fathindexid=").append(fathindexid);
         sb.append(", productid=").append(productid);
+        sb.append(", name=").append(name);
+        sb.append(", enname=").append(enname);
         sb.append(", savenum=").append(savenum);
         sb.append(", sellprice=").append(sellprice);
         sb.append(", costprice=").append(costprice);
@@ -431,9 +433,13 @@ public class DbProductdevelopforson implements Serializable {
         sb.append(", manufacturename=").append(manufacturename);
         sb.append(", quote=").append(quote);
         sb.append(", minnum=").append(minnum);
+        sb.append(", photourl=").append(photourl);
         sb.append(", chaseoper=").append(chaseoper);
+        sb.append(", reserve1=").append(reserve1);
+        sb.append(", reserve2=").append(reserve2);
         sb.append(", reserve3=").append(reserve3);
         sb.append(", reserve4=").append(reserve4);
+        sb.append(", title=").append(title);
         sb.append(", openflag=").append(openflag);
         sb.append(", flag=").append(flag);
         sb.append(", oper=").append(oper);
@@ -444,12 +450,6 @@ public class DbProductdevelopforson implements Serializable {
         sb.append(", reserve6=").append(reserve6);
         sb.append(", reserve7=").append(reserve7);
         sb.append(", reserve8=").append(reserve8);
-        sb.append(", name=").append(name);
-        sb.append(", enname=").append(enname);
-        sb.append(", photourl=").append(photourl);
-        sb.append(", reserve1=").append(reserve1);
-        sb.append(", reserve2=").append(reserve2);
-        sb.append(", title=").append(title);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

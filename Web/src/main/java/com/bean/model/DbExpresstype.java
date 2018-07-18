@@ -9,9 +9,25 @@ public class DbExpresstype implements Serializable {
 
     private String name;
 
+    private String descr;
+
     private String oper;
 
     private Date opertime;
+
+    private String filed1;
+
+    private String filed2;
+
+    private String filed3;
+
+    private String filed4;
+
+    private String filed5;
+
+    private String filed6;
+
+    private String filed7;
 
     private BigDecimal filed8;
 
@@ -32,6 +48,16 @@ public class DbExpresstype implements Serializable {
     private String nameen;
 
     private String expresstypefeeid;
+
+    private String filed14;
+
+    private String filed15;
+
+    private String filed16;
+
+    private String filed17;
+
+    private String filed18;
 
     private String tokenconfigid;
 
@@ -109,32 +135,6 @@ public class DbExpresstype implements Serializable {
 
     private String uploadnum;
 
-    private String descr;
-
-    private String filed1;
-
-    private String filed2;
-
-    private String filed3;
-
-    private String filed4;
-
-    private String filed5;
-
-    private String filed6;
-
-    private String filed7;
-
-    private String filed14;
-
-    private String filed15;
-
-    private String filed16;
-
-    private String filed17;
-
-    private String filed18;
-
     private static final long serialVersionUID = 1L;
 
     public String getSequenceid() {
@@ -153,6 +153,14 @@ public class DbExpresstype implements Serializable {
         this.name = name == null ? null : name.trim();
     }
 
+    public String getDescr() {
+        return descr;
+    }
+
+    public void setDescr(String descr) {
+        this.descr = descr == null ? null : descr.trim();
+    }
+
     public String getOper() {
         return oper;
     }
@@ -167,6 +175,62 @@ public class DbExpresstype implements Serializable {
 
     public void setOpertime(Date opertime) {
         this.opertime = opertime;
+    }
+
+    public String getFiled1() {
+        return filed1;
+    }
+
+    public void setFiled1(String filed1) {
+        this.filed1 = filed1 == null ? null : filed1.trim();
+    }
+
+    public String getFiled2() {
+        return filed2;
+    }
+
+    public void setFiled2(String filed2) {
+        this.filed2 = filed2 == null ? null : filed2.trim();
+    }
+
+    public String getFiled3() {
+        return filed3;
+    }
+
+    public void setFiled3(String filed3) {
+        this.filed3 = filed3 == null ? null : filed3.trim();
+    }
+
+    public String getFiled4() {
+        return filed4;
+    }
+
+    public void setFiled4(String filed4) {
+        this.filed4 = filed4 == null ? null : filed4.trim();
+    }
+
+    public String getFiled5() {
+        return filed5;
+    }
+
+    public void setFiled5(String filed5) {
+        this.filed5 = filed5 == null ? null : filed5.trim();
+    }
+
+    public String getFiled6() {
+        return filed6;
+    }
+
+    public void setFiled6(String filed6) {
+        this.filed6 = filed6 == null ? null : filed6.trim();
+    }
+
+    public String getFiled7() {
+        return filed7;
+    }
+
+    public void setFiled7(String filed7) {
+        this.filed7 = filed7 == null ? null : filed7.trim();
     }
 
     public BigDecimal getFiled8() {
@@ -247,6 +311,46 @@ public class DbExpresstype implements Serializable {
 
     public void setExpresstypefeeid(String expresstypefeeid) {
         this.expresstypefeeid = expresstypefeeid == null ? null : expresstypefeeid.trim();
+    }
+
+    public String getFiled14() {
+        return filed14;
+    }
+
+    public void setFiled14(String filed14) {
+        this.filed14 = filed14 == null ? null : filed14.trim();
+    }
+
+    public String getFiled15() {
+        return filed15;
+    }
+
+    public void setFiled15(String filed15) {
+        this.filed15 = filed15 == null ? null : filed15.trim();
+    }
+
+    public String getFiled16() {
+        return filed16;
+    }
+
+    public void setFiled16(String filed16) {
+        this.filed16 = filed16 == null ? null : filed16.trim();
+    }
+
+    public String getFiled17() {
+        return filed17;
+    }
+
+    public void setFiled17(String filed17) {
+        this.filed17 = filed17 == null ? null : filed17.trim();
+    }
+
+    public String getFiled18() {
+        return filed18;
+    }
+
+    public void setFiled18(String filed18) {
+        this.filed18 = filed18 == null ? null : filed18.trim();
     }
 
     public String getTokenconfigid() {
@@ -553,110 +657,6 @@ public class DbExpresstype implements Serializable {
         this.uploadnum = uploadnum == null ? null : uploadnum.trim();
     }
 
-    public String getDescr() {
-        return descr;
-    }
-
-    public void setDescr(String descr) {
-        this.descr = descr == null ? null : descr.trim();
-    }
-
-    public String getFiled1() {
-        return filed1;
-    }
-
-    public void setFiled1(String filed1) {
-        this.filed1 = filed1 == null ? null : filed1.trim();
-    }
-
-    public String getFiled2() {
-        return filed2;
-    }
-
-    public void setFiled2(String filed2) {
-        this.filed2 = filed2 == null ? null : filed2.trim();
-    }
-
-    public String getFiled3() {
-        return filed3;
-    }
-
-    public void setFiled3(String filed3) {
-        this.filed3 = filed3 == null ? null : filed3.trim();
-    }
-
-    public String getFiled4() {
-        return filed4;
-    }
-
-    public void setFiled4(String filed4) {
-        this.filed4 = filed4 == null ? null : filed4.trim();
-    }
-
-    public String getFiled5() {
-        return filed5;
-    }
-
-    public void setFiled5(String filed5) {
-        this.filed5 = filed5 == null ? null : filed5.trim();
-    }
-
-    public String getFiled6() {
-        return filed6;
-    }
-
-    public void setFiled6(String filed6) {
-        this.filed6 = filed6 == null ? null : filed6.trim();
-    }
-
-    public String getFiled7() {
-        return filed7;
-    }
-
-    public void setFiled7(String filed7) {
-        this.filed7 = filed7 == null ? null : filed7.trim();
-    }
-
-    public String getFiled14() {
-        return filed14;
-    }
-
-    public void setFiled14(String filed14) {
-        this.filed14 = filed14 == null ? null : filed14.trim();
-    }
-
-    public String getFiled15() {
-        return filed15;
-    }
-
-    public void setFiled15(String filed15) {
-        this.filed15 = filed15 == null ? null : filed15.trim();
-    }
-
-    public String getFiled16() {
-        return filed16;
-    }
-
-    public void setFiled16(String filed16) {
-        this.filed16 = filed16 == null ? null : filed16.trim();
-    }
-
-    public String getFiled17() {
-        return filed17;
-    }
-
-    public void setFiled17(String filed17) {
-        this.filed17 = filed17 == null ? null : filed17.trim();
-    }
-
-    public String getFiled18() {
-        return filed18;
-    }
-
-    public void setFiled18(String filed18) {
-        this.filed18 = filed18 == null ? null : filed18.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -671,8 +671,16 @@ public class DbExpresstype implements Serializable {
         DbExpresstype other = (DbExpresstype) that;
         return (this.getSequenceid() == null ? other.getSequenceid() == null : this.getSequenceid().equals(other.getSequenceid()))
             && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
+            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
+            && (this.getFiled1() == null ? other.getFiled1() == null : this.getFiled1().equals(other.getFiled1()))
+            && (this.getFiled2() == null ? other.getFiled2() == null : this.getFiled2().equals(other.getFiled2()))
+            && (this.getFiled3() == null ? other.getFiled3() == null : this.getFiled3().equals(other.getFiled3()))
+            && (this.getFiled4() == null ? other.getFiled4() == null : this.getFiled4().equals(other.getFiled4()))
+            && (this.getFiled5() == null ? other.getFiled5() == null : this.getFiled5().equals(other.getFiled5()))
+            && (this.getFiled6() == null ? other.getFiled6() == null : this.getFiled6().equals(other.getFiled6()))
+            && (this.getFiled7() == null ? other.getFiled7() == null : this.getFiled7().equals(other.getFiled7()))
             && (this.getFiled8() == null ? other.getFiled8() == null : this.getFiled8().equals(other.getFiled8()))
             && (this.getFiled9() == null ? other.getFiled9() == null : this.getFiled9().equals(other.getFiled9()))
             && (this.getFiled10() == null ? other.getFiled10() == null : this.getFiled10().equals(other.getFiled10()))
@@ -683,6 +691,11 @@ public class DbExpresstype implements Serializable {
             && (this.getFiled13() == null ? other.getFiled13() == null : this.getFiled13().equals(other.getFiled13()))
             && (this.getNameen() == null ? other.getNameen() == null : this.getNameen().equals(other.getNameen()))
             && (this.getExpresstypefeeid() == null ? other.getExpresstypefeeid() == null : this.getExpresstypefeeid().equals(other.getExpresstypefeeid()))
+            && (this.getFiled14() == null ? other.getFiled14() == null : this.getFiled14().equals(other.getFiled14()))
+            && (this.getFiled15() == null ? other.getFiled15() == null : this.getFiled15().equals(other.getFiled15()))
+            && (this.getFiled16() == null ? other.getFiled16() == null : this.getFiled16().equals(other.getFiled16()))
+            && (this.getFiled17() == null ? other.getFiled17() == null : this.getFiled17().equals(other.getFiled17()))
+            && (this.getFiled18() == null ? other.getFiled18() == null : this.getFiled18().equals(other.getFiled18()))
             && (this.getTokenconfigid() == null ? other.getTokenconfigid() == null : this.getTokenconfigid().equals(other.getTokenconfigid()))
             && (this.getToken() == null ? other.getToken() == null : this.getToken().equals(other.getToken()))
             && (this.getUserkey() == null ? other.getUserkey() == null : this.getUserkey().equals(other.getUserkey()))
@@ -720,20 +733,7 @@ public class DbExpresstype implements Serializable {
             && (this.getDeclcurrency() == null ? other.getDeclcurrency() == null : this.getDeclcurrency().equals(other.getDeclcurrency()))
             && (this.getShopifyexpresstype() == null ? other.getShopifyexpresstype() == null : this.getShopifyexpresstype().equals(other.getShopifyexpresstype()))
             && (this.getShopeeexpresstype() == null ? other.getShopeeexpresstype() == null : this.getShopeeexpresstype().equals(other.getShopeeexpresstype()))
-            && (this.getUploadnum() == null ? other.getUploadnum() == null : this.getUploadnum().equals(other.getUploadnum()))
-            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
-            && (this.getFiled1() == null ? other.getFiled1() == null : this.getFiled1().equals(other.getFiled1()))
-            && (this.getFiled2() == null ? other.getFiled2() == null : this.getFiled2().equals(other.getFiled2()))
-            && (this.getFiled3() == null ? other.getFiled3() == null : this.getFiled3().equals(other.getFiled3()))
-            && (this.getFiled4() == null ? other.getFiled4() == null : this.getFiled4().equals(other.getFiled4()))
-            && (this.getFiled5() == null ? other.getFiled5() == null : this.getFiled5().equals(other.getFiled5()))
-            && (this.getFiled6() == null ? other.getFiled6() == null : this.getFiled6().equals(other.getFiled6()))
-            && (this.getFiled7() == null ? other.getFiled7() == null : this.getFiled7().equals(other.getFiled7()))
-            && (this.getFiled14() == null ? other.getFiled14() == null : this.getFiled14().equals(other.getFiled14()))
-            && (this.getFiled15() == null ? other.getFiled15() == null : this.getFiled15().equals(other.getFiled15()))
-            && (this.getFiled16() == null ? other.getFiled16() == null : this.getFiled16().equals(other.getFiled16()))
-            && (this.getFiled17() == null ? other.getFiled17() == null : this.getFiled17().equals(other.getFiled17()))
-            && (this.getFiled18() == null ? other.getFiled18() == null : this.getFiled18().equals(other.getFiled18()));
+            && (this.getUploadnum() == null ? other.getUploadnum() == null : this.getUploadnum().equals(other.getUploadnum()));
     }
 
     @Override
@@ -742,8 +742,16 @@ public class DbExpresstype implements Serializable {
         int result = 1;
         result = prime * result + ((getSequenceid() == null) ? 0 : getSequenceid().hashCode());
         result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
+        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
+        result = prime * result + ((getFiled1() == null) ? 0 : getFiled1().hashCode());
+        result = prime * result + ((getFiled2() == null) ? 0 : getFiled2().hashCode());
+        result = prime * result + ((getFiled3() == null) ? 0 : getFiled3().hashCode());
+        result = prime * result + ((getFiled4() == null) ? 0 : getFiled4().hashCode());
+        result = prime * result + ((getFiled5() == null) ? 0 : getFiled5().hashCode());
+        result = prime * result + ((getFiled6() == null) ? 0 : getFiled6().hashCode());
+        result = prime * result + ((getFiled7() == null) ? 0 : getFiled7().hashCode());
         result = prime * result + ((getFiled8() == null) ? 0 : getFiled8().hashCode());
         result = prime * result + ((getFiled9() == null) ? 0 : getFiled9().hashCode());
         result = prime * result + ((getFiled10() == null) ? 0 : getFiled10().hashCode());
@@ -754,6 +762,11 @@ public class DbExpresstype implements Serializable {
         result = prime * result + ((getFiled13() == null) ? 0 : getFiled13().hashCode());
         result = prime * result + ((getNameen() == null) ? 0 : getNameen().hashCode());
         result = prime * result + ((getExpresstypefeeid() == null) ? 0 : getExpresstypefeeid().hashCode());
+        result = prime * result + ((getFiled14() == null) ? 0 : getFiled14().hashCode());
+        result = prime * result + ((getFiled15() == null) ? 0 : getFiled15().hashCode());
+        result = prime * result + ((getFiled16() == null) ? 0 : getFiled16().hashCode());
+        result = prime * result + ((getFiled17() == null) ? 0 : getFiled17().hashCode());
+        result = prime * result + ((getFiled18() == null) ? 0 : getFiled18().hashCode());
         result = prime * result + ((getTokenconfigid() == null) ? 0 : getTokenconfigid().hashCode());
         result = prime * result + ((getToken() == null) ? 0 : getToken().hashCode());
         result = prime * result + ((getUserkey() == null) ? 0 : getUserkey().hashCode());
@@ -792,19 +805,6 @@ public class DbExpresstype implements Serializable {
         result = prime * result + ((getShopifyexpresstype() == null) ? 0 : getShopifyexpresstype().hashCode());
         result = prime * result + ((getShopeeexpresstype() == null) ? 0 : getShopeeexpresstype().hashCode());
         result = prime * result + ((getUploadnum() == null) ? 0 : getUploadnum().hashCode());
-        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
-        result = prime * result + ((getFiled1() == null) ? 0 : getFiled1().hashCode());
-        result = prime * result + ((getFiled2() == null) ? 0 : getFiled2().hashCode());
-        result = prime * result + ((getFiled3() == null) ? 0 : getFiled3().hashCode());
-        result = prime * result + ((getFiled4() == null) ? 0 : getFiled4().hashCode());
-        result = prime * result + ((getFiled5() == null) ? 0 : getFiled5().hashCode());
-        result = prime * result + ((getFiled6() == null) ? 0 : getFiled6().hashCode());
-        result = prime * result + ((getFiled7() == null) ? 0 : getFiled7().hashCode());
-        result = prime * result + ((getFiled14() == null) ? 0 : getFiled14().hashCode());
-        result = prime * result + ((getFiled15() == null) ? 0 : getFiled15().hashCode());
-        result = prime * result + ((getFiled16() == null) ? 0 : getFiled16().hashCode());
-        result = prime * result + ((getFiled17() == null) ? 0 : getFiled17().hashCode());
-        result = prime * result + ((getFiled18() == null) ? 0 : getFiled18().hashCode());
         return result;
     }
 
@@ -816,8 +816,16 @@ public class DbExpresstype implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", sequenceid=").append(sequenceid);
         sb.append(", name=").append(name);
+        sb.append(", descr=").append(descr);
         sb.append(", oper=").append(oper);
         sb.append(", opertime=").append(opertime);
+        sb.append(", filed1=").append(filed1);
+        sb.append(", filed2=").append(filed2);
+        sb.append(", filed3=").append(filed3);
+        sb.append(", filed4=").append(filed4);
+        sb.append(", filed5=").append(filed5);
+        sb.append(", filed6=").append(filed6);
+        sb.append(", filed7=").append(filed7);
         sb.append(", filed8=").append(filed8);
         sb.append(", filed9=").append(filed9);
         sb.append(", filed10=").append(filed10);
@@ -828,6 +836,11 @@ public class DbExpresstype implements Serializable {
         sb.append(", filed13=").append(filed13);
         sb.append(", nameen=").append(nameen);
         sb.append(", expresstypefeeid=").append(expresstypefeeid);
+        sb.append(", filed14=").append(filed14);
+        sb.append(", filed15=").append(filed15);
+        sb.append(", filed16=").append(filed16);
+        sb.append(", filed17=").append(filed17);
+        sb.append(", filed18=").append(filed18);
         sb.append(", tokenconfigid=").append(tokenconfigid);
         sb.append(", token=").append(token);
         sb.append(", userkey=").append(userkey);
@@ -866,19 +879,6 @@ public class DbExpresstype implements Serializable {
         sb.append(", shopifyexpresstype=").append(shopifyexpresstype);
         sb.append(", shopeeexpresstype=").append(shopeeexpresstype);
         sb.append(", uploadnum=").append(uploadnum);
-        sb.append(", descr=").append(descr);
-        sb.append(", filed1=").append(filed1);
-        sb.append(", filed2=").append(filed2);
-        sb.append(", filed3=").append(filed3);
-        sb.append(", filed4=").append(filed4);
-        sb.append(", filed5=").append(filed5);
-        sb.append(", filed6=").append(filed6);
-        sb.append(", filed7=").append(filed7);
-        sb.append(", filed14=").append(filed14);
-        sb.append(", filed15=").append(filed15);
-        sb.append(", filed16=").append(filed16);
-        sb.append(", filed17=").append(filed17);
-        sb.append(", filed18=").append(filed18);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

@@ -1,9 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbSfcexpresstype;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbSfcexpresstypeMapper {
-    int insert(DbSfcexpresstype record);
+    DbSfcexpresstype selectByCriteria(DbSfcexpresstype DbSfcexpresstype);
 
-    int insertSelective(DbSfcexpresstype record);
+    void deleteByPrimaryKey(String CODE);
+
+    void deleteByCriteria(DbSfcexpresstype DbSfcexpresstype);
+
+    int insertByCriteria(DbSfcexpresstype DbSfcexpresstype);
+
+    int updateByCriteria(DbSfcexpresstype DbSfcexpresstype);
+
+    DbSfcexpresstype selectByPrimaryKey(String code);
+
+    List<DbSfcexpresstype> selectAll();
 }

@@ -11,32 +11,32 @@
     <result column="SITEID" jdbcType="VARCHAR" property="siteid" />
     <result column="COUNTRYCODE" jdbcType="VARCHAR" property="countrycode" />
     <result column="FEDERALTAXID" jdbcType="VARCHAR" property="federaltaxid" />
+    <result column="ADDRESSLINE" jdbcType="VARCHAR" property="addressline" />
     <result column="OPERFLAG" jdbcType="DECIMAL" property="operflag" />
+    <result column="POSTALCODE" jdbcType="VARCHAR" property="postalcode" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="SHIPPERACCOUNTNUMBER" jdbcType="VARCHAR" property="shipperaccountnumber" />
+    <result column="CITY" jdbcType="VARCHAR" property="city" />
     <result column="COUNTRYNAME" jdbcType="VARCHAR" property="countryname" />
     <result column="LANGUAGECODE" jdbcType="VARCHAR" property="languagecode" />
     <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
     <result column="DUTYPAYMENTTYPE" jdbcType="VARCHAR" property="dutypaymenttype" />
-    <result column="ADDRESSLINE" jdbcType="LONGVARCHAR" property="addressline" />
-    <result column="POSTALCODE" jdbcType="LONGVARCHAR" property="postalcode" />
-    <result column="SHIPPERACCOUNTNUMBER" jdbcType="LONGVARCHAR" property="shipperaccountnumber" />
-    <result column="CITY" jdbcType="LONGVARCHAR" property="city" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
     select ID, OPER, PHONENUMBER, SHIPPINGPAYMENTTYPE, COMPANYNAME, PERSONNAME, SITEID, 
-    COUNTRYCODE, FEDERALTAXID, OPERFLAG, OPERTIME, COUNTRYNAME, LANGUAGECODE, PASSWORD, 
-    DUTYPAYMENTTYPE, ADDRESSLINE, POSTALCODE, SHIPPERACCOUNTNUMBER, CITY
-    from db_dhluser
+    COUNTRYCODE, FEDERALTAXID, ADDRESSLINE, OPERFLAG, POSTALCODE, OPERTIME, SHIPPERACCOUNTNUMBER, 
+    CITY, COUNTRYNAME, LANGUAGECODE, PASSWORD, DUTYPAYMENTTYPE
+    from DB_DHLUSER
     where ID = #{id,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select ID, OPER, PHONENUMBER, SHIPPINGPAYMENTTYPE, COMPANYNAME, PERSONNAME, SITEID, 
-    COUNTRYCODE, FEDERALTAXID, OPERFLAG, OPERTIME, COUNTRYNAME, LANGUAGECODE, PASSWORD, 
-    DUTYPAYMENTTYPE, ADDRESSLINE, POSTALCODE, SHIPPERACCOUNTNUMBER, CITY
-    from db_dhluser
+    COUNTRYCODE, FEDERALTAXID, ADDRESSLINE, OPERFLAG, POSTALCODE, OPERTIME, SHIPPERACCOUNTNUMBER, 
+    CITY, COUNTRYNAME, LANGUAGECODE, PASSWORD, DUTYPAYMENTTYPE
+    from DB_DHLUSER
   </select>
   <sql id="TableName">
-    db_dhluser
+    DB_DHLUSER
   </sql>
   <sql id="Values">
      #{id,jdbcType=DECIMAL} , 
@@ -48,16 +48,16 @@
      #{siteid,jdbcType=VARCHAR} , 
      #{countrycode,jdbcType=VARCHAR} , 
      #{federaltaxid,jdbcType=VARCHAR} , 
+     #{addressline,jdbcType=VARCHAR} , 
      #{operflag,jdbcType=DECIMAL} , 
+     #{postalcode,jdbcType=VARCHAR} , 
      #{opertime,jdbcType=TIMESTAMP} , 
+     #{shipperaccountnumber,jdbcType=VARCHAR} , 
+     #{city,jdbcType=VARCHAR} , 
      #{countryname,jdbcType=VARCHAR} , 
      #{languagecode,jdbcType=VARCHAR} , 
      #{password,jdbcType=VARCHAR} , 
      #{dutypaymenttype,jdbcType=VARCHAR} , 
-     #{addressline,jdbcType=LONGVARCHAR} , 
-     #{postalcode,jdbcType=LONGVARCHAR} , 
-     #{shipperaccountnumber,jdbcType=LONGVARCHAR} , 
-     #{city,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     ID , 
@@ -69,136 +69,136 @@
     SITEID , 
     COUNTRYCODE , 
     FEDERALTAXID , 
+    ADDRESSLINE , 
     OPERFLAG , 
+    POSTALCODE , 
     OPERTIME , 
+    SHIPPERACCOUNTNUMBER , 
+    CITY , 
     COUNTRYNAME , 
     LANGUAGECODE , 
     PASSWORD , 
     DUTYPAYMENTTYPE , 
-    ADDRESSLINE , 
-    POSTALCODE , 
-    SHIPPERACCOUNTNUMBER , 
-    CITY
   </sql>
   <sql id="Criteria">
     <if test="id != null">
-      ID = #{id,jdbcType=DECIMAL} and 
+      id = #{id,jdbcType=DECIMAL} and 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
+      oper = #{oper,jdbcType=VARCHAR} and 
     </if>
     <if test="phonenumber != null">
-      PHONENUMBER = #{phonenumber,jdbcType=VARCHAR} and 
+      phonenumber = #{phonenumber,jdbcType=VARCHAR} and 
     </if>
     <if test="shippingpaymenttype != null">
-      SHIPPINGPAYMENTTYPE = #{shippingpaymenttype,jdbcType=VARCHAR} and 
+      shippingpaymenttype = #{shippingpaymenttype,jdbcType=VARCHAR} and 
     </if>
     <if test="companyname != null">
-      COMPANYNAME = #{companyname,jdbcType=VARCHAR} and 
+      companyname = #{companyname,jdbcType=VARCHAR} and 
     </if>
     <if test="personname != null">
-      PERSONNAME = #{personname,jdbcType=VARCHAR} and 
+      personname = #{personname,jdbcType=VARCHAR} and 
     </if>
     <if test="siteid != null">
-      SITEID = #{siteid,jdbcType=VARCHAR} and 
+      siteid = #{siteid,jdbcType=VARCHAR} and 
     </if>
     <if test="countrycode != null">
-      COUNTRYCODE = #{countrycode,jdbcType=VARCHAR} and 
+      countrycode = #{countrycode,jdbcType=VARCHAR} and 
     </if>
     <if test="federaltaxid != null">
-      FEDERALTAXID = #{federaltaxid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="operflag != null">
-      OPERFLAG = #{operflag,jdbcType=DECIMAL} and 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="countryname != null">
-      COUNTRYNAME = #{countryname,jdbcType=VARCHAR} and 
-    </if>
-    <if test="languagecode != null">
-      LANGUAGECODE = #{languagecode,jdbcType=VARCHAR} and 
-    </if>
-    <if test="password != null">
-      PASSWORD = #{password,jdbcType=VARCHAR} and 
-    </if>
-    <if test="dutypaymenttype != null">
-      DUTYPAYMENTTYPE = #{dutypaymenttype,jdbcType=VARCHAR} and 
+      federaltaxid = #{federaltaxid,jdbcType=VARCHAR} and 
     </if>
     <if test="addressline != null">
-      ADDRESSLINE = #{addressline,jdbcType=LONGVARCHAR} and 
+      addressline = #{addressline,jdbcType=VARCHAR} and 
+    </if>
+    <if test="operflag != null">
+      operflag = #{operflag,jdbcType=DECIMAL} and 
     </if>
     <if test="postalcode != null">
-      POSTALCODE = #{postalcode,jdbcType=LONGVARCHAR} and 
+      postalcode = #{postalcode,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="shipperaccountnumber != null">
-      SHIPPERACCOUNTNUMBER = #{shipperaccountnumber,jdbcType=LONGVARCHAR} and 
+      shipperaccountnumber = #{shipperaccountnumber,jdbcType=VARCHAR} and 
     </if>
     <if test="city != null">
-      CITY = #{city,jdbcType=LONGVARCHAR}
+      city = #{city,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="countryname != null">
+      countryname = #{countryname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="languagecode != null">
+      languagecode = #{languagecode,jdbcType=VARCHAR} and 
+    </if>
+    <if test="password != null">
+      password = #{password,jdbcType=VARCHAR} and 
+    </if>
+    <if test="dutypaymenttype != null">
+      dutypaymenttype = #{dutypaymenttype,jdbcType=VARCHAR} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="id != null">
-      ID = #{id,jdbcType=DECIMAL} , 
+      id = #{id,jdbcType=DECIMAL} , 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
+      oper = #{oper,jdbcType=VARCHAR} , 
     </if>
     <if test="phonenumber != null">
-      PHONENUMBER = #{phonenumber,jdbcType=VARCHAR} , 
+      phonenumber = #{phonenumber,jdbcType=VARCHAR} , 
     </if>
     <if test="shippingpaymenttype != null">
-      SHIPPINGPAYMENTTYPE = #{shippingpaymenttype,jdbcType=VARCHAR} , 
+      shippingpaymenttype = #{shippingpaymenttype,jdbcType=VARCHAR} , 
     </if>
     <if test="companyname != null">
-      COMPANYNAME = #{companyname,jdbcType=VARCHAR} , 
+      companyname = #{companyname,jdbcType=VARCHAR} , 
     </if>
     <if test="personname != null">
-      PERSONNAME = #{personname,jdbcType=VARCHAR} , 
+      personname = #{personname,jdbcType=VARCHAR} , 
     </if>
     <if test="siteid != null">
-      SITEID = #{siteid,jdbcType=VARCHAR} , 
+      siteid = #{siteid,jdbcType=VARCHAR} , 
     </if>
     <if test="countrycode != null">
-      COUNTRYCODE = #{countrycode,jdbcType=VARCHAR} , 
+      countrycode = #{countrycode,jdbcType=VARCHAR} , 
     </if>
     <if test="federaltaxid != null">
-      FEDERALTAXID = #{federaltaxid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="operflag != null">
-      OPERFLAG = #{operflag,jdbcType=DECIMAL} , 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="countryname != null">
-      COUNTRYNAME = #{countryname,jdbcType=VARCHAR} , 
-    </if>
-    <if test="languagecode != null">
-      LANGUAGECODE = #{languagecode,jdbcType=VARCHAR} , 
-    </if>
-    <if test="password != null">
-      PASSWORD = #{password,jdbcType=VARCHAR} , 
-    </if>
-    <if test="dutypaymenttype != null">
-      DUTYPAYMENTTYPE = #{dutypaymenttype,jdbcType=VARCHAR} , 
+      federaltaxid = #{federaltaxid,jdbcType=VARCHAR} , 
     </if>
     <if test="addressline != null">
-      ADDRESSLINE = #{addressline,jdbcType=LONGVARCHAR} , 
+      addressline = #{addressline,jdbcType=VARCHAR} , 
+    </if>
+    <if test="operflag != null">
+      operflag = #{operflag,jdbcType=DECIMAL} , 
     </if>
     <if test="postalcode != null">
-      POSTALCODE = #{postalcode,jdbcType=LONGVARCHAR} , 
+      postalcode = #{postalcode,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="shipperaccountnumber != null">
-      SHIPPERACCOUNTNUMBER = #{shipperaccountnumber,jdbcType=LONGVARCHAR} , 
+      shipperaccountnumber = #{shipperaccountnumber,jdbcType=VARCHAR} , 
     </if>
     <if test="city != null">
-      CITY = #{city,jdbcType=LONGVARCHAR}
+      city = #{city,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="countryname != null">
+      countryname = #{countryname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="languagecode != null">
+      languagecode = #{languagecode,jdbcType=VARCHAR} , 
+    </if>
+    <if test="password != null">
+      password = #{password,jdbcType=VARCHAR} , 
+    </if>
+    <if test="dutypaymenttype != null">
+      dutypaymenttype = #{dutypaymenttype,jdbcType=VARCHAR} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbDhluser" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

@@ -6,151 +6,130 @@
     <result column="SPUID" jdbcType="VARCHAR" property="spuid" />
     <result column="SELLERID" jdbcType="VARCHAR" property="sellerid" />
     <result column="MABANGSKU" jdbcType="VARCHAR" property="mabangsku" />
+    <result column="IMGURL" jdbcType="VARCHAR" property="imgurl" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
     <result column="ALISKU" jdbcType="VARCHAR" property="alisku" />
+    <result column="PRODUCTLINK" jdbcType="VARCHAR" property="productlink" />
+    <result column="SKUINFO" jdbcType="VARCHAR" property="skuinfo" />
+    <result column="SINGLE" jdbcType="DECIMAL" property="single" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbAlisku">
-    <result column="IMGURL" jdbcType="LONGVARCHAR" property="imgurl" />
-    <result column="NAME" jdbcType="LONGVARCHAR" property="name" />
-    <result column="PRODUCTLINK" jdbcType="LONGVARCHAR" property="productlink" />
-    <result column="SKUINFO" jdbcType="LONGVARCHAR" property="skuinfo" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    SKUID, SPUID, SELLERID, MABANGSKU, ALISKU
-  </sql>
-  <sql id="Blob_Column_List">
-    IMGURL, 'NAME', PRODUCTLINK, SKUINFO
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from db_alisku
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SKUID, SPUID, SELLERID, MABANGSKU, IMGURL, NAME, ALISKU, PRODUCTLINK, SKUINFO, 
+    SINGLE
+    from DB_ALISKU
     where SKUID = #{skuid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_alisku
-    where SKUID = #{skuid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SKUID, SPUID, SELLERID, MABANGSKU, IMGURL, NAME, ALISKU, PRODUCTLINK, SKUINFO, 
+    SINGLE
+    from DB_ALISKU
+  </select>
+  <sql id="TableName">
+    DB_ALISKU
+  </sql>
+  <sql id="Values">
+     #{skuid,jdbcType=VARCHAR} , 
+     #{spuid,jdbcType=VARCHAR} , 
+     #{sellerid,jdbcType=VARCHAR} , 
+     #{mabangsku,jdbcType=VARCHAR} , 
+     #{imgurl,jdbcType=VARCHAR} , 
+     #{name,jdbcType=VARCHAR} , 
+     #{alisku,jdbcType=VARCHAR} , 
+     #{productlink,jdbcType=VARCHAR} , 
+     #{skuinfo,jdbcType=VARCHAR} , 
+     #{single,jdbcType=DECIMAL} , 
+  </sql>
+  <sql id="Columns">
+    SKUID , 
+    SPUID , 
+    SELLERID , 
+    MABANGSKU , 
+    IMGURL , 
+    NAME , 
+    ALISKU , 
+    PRODUCTLINK , 
+    SKUINFO , 
+    SINGLE , 
+  </sql>
+  <sql id="Criteria">
+    <if test="skuid != null">
+      skuid = #{skuid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="spuid != null">
+      spuid = #{spuid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sellerid != null">
+      sellerid = #{sellerid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="mabangsku != null">
+      mabangsku = #{mabangsku,jdbcType=VARCHAR} and 
+    </if>
+    <if test="imgurl != null">
+      imgurl = #{imgurl,jdbcType=VARCHAR} and 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} and 
+    </if>
+    <if test="alisku != null">
+      alisku = #{alisku,jdbcType=VARCHAR} and 
+    </if>
+    <if test="productlink != null">
+      productlink = #{productlink,jdbcType=VARCHAR} and 
+    </if>
+    <if test="skuinfo != null">
+      skuinfo = #{skuinfo,jdbcType=VARCHAR} and 
+    </if>
+    <if test="single != null">
+      single = #{single,jdbcType=DECIMAL} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="skuid != null">
+      skuid = #{skuid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="spuid != null">
+      spuid = #{spuid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sellerid != null">
+      sellerid = #{sellerid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="mabangsku != null">
+      mabangsku = #{mabangsku,jdbcType=VARCHAR} , 
+    </if>
+    <if test="imgurl != null">
+      imgurl = #{imgurl,jdbcType=VARCHAR} , 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} , 
+    </if>
+    <if test="alisku != null">
+      alisku = #{alisku,jdbcType=VARCHAR} , 
+    </if>
+    <if test="productlink != null">
+      productlink = #{productlink,jdbcType=VARCHAR} , 
+    </if>
+    <if test="skuinfo != null">
+      skuinfo = #{skuinfo,jdbcType=VARCHAR} , 
+    </if>
+    <if test="single != null">
+      single = #{single,jdbcType=DECIMAL} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbAlisku" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SKUID=#{SKUID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbAlisku">
-    insert into db_alisku (SKUID, SPUID, SELLERID, 
-      MABANGSKU, ALISKU, IMGURL, 
-      'NAME', PRODUCTLINK, SKUINFO
-      )
-    values (#{skuid,jdbcType=VARCHAR}, #{spuid,jdbcType=VARCHAR}, #{sellerid,jdbcType=VARCHAR}, 
-      #{mabangsku,jdbcType=VARCHAR}, #{alisku,jdbcType=VARCHAR}, #{imgurl,jdbcType=LONGVARCHAR}, 
-      #{name,jdbcType=LONGVARCHAR}, #{productlink,jdbcType=LONGVARCHAR}, #{skuinfo,jdbcType=LONGVARCHAR}
-      )
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbAlisku">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbAlisku">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbAlisku">
-    insert into db_alisku
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="skuid != null">
-        SKUID,
-      </if>
-      <if test="spuid != null">
-        SPUID,
-      </if>
-      <if test="sellerid != null">
-        SELLERID,
-      </if>
-      <if test="mabangsku != null">
-        MABANGSKU,
-      </if>
-      <if test="alisku != null">
-        ALISKU,
-      </if>
-      <if test="imgurl != null">
-        IMGURL,
-      </if>
-      <if test="name != null">
-        'NAME',
-      </if>
-      <if test="productlink != null">
-        PRODUCTLINK,
-      </if>
-      <if test="skuinfo != null">
-        SKUINFO,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="skuid != null">
-        #{skuid,jdbcType=VARCHAR},
-      </if>
-      <if test="spuid != null">
-        #{spuid,jdbcType=VARCHAR},
-      </if>
-      <if test="sellerid != null">
-        #{sellerid,jdbcType=VARCHAR},
-      </if>
-      <if test="mabangsku != null">
-        #{mabangsku,jdbcType=VARCHAR},
-      </if>
-      <if test="alisku != null">
-        #{alisku,jdbcType=VARCHAR},
-      </if>
-      <if test="imgurl != null">
-        #{imgurl,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="name != null">
-        #{name,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="productlink != null">
-        #{productlink,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="skuinfo != null">
-        #{skuinfo,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbAlisku">
-    update db_alisku
-    <set>
-      <if test="spuid != null">
-        SPUID = #{spuid,jdbcType=VARCHAR},
-      </if>
-      <if test="sellerid != null">
-        SELLERID = #{sellerid,jdbcType=VARCHAR},
-      </if>
-      <if test="mabangsku != null">
-        MABANGSKU = #{mabangsku,jdbcType=VARCHAR},
-      </if>
-      <if test="alisku != null">
-        ALISKU = #{alisku,jdbcType=VARCHAR},
-      </if>
-      <if test="imgurl != null">
-        IMGURL = #{imgurl,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="name != null">
-        'NAME' = #{name,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="productlink != null">
-        PRODUCTLINK = #{productlink,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="skuinfo != null">
-        SKUINFO = #{skuinfo,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where SKUID = #{skuid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbAlisku">
-    update db_alisku
-    set SPUID = #{spuid,jdbcType=VARCHAR},
-      SELLERID = #{sellerid,jdbcType=VARCHAR},
-      MABANGSKU = #{mabangsku,jdbcType=VARCHAR},
-      ALISKU = #{alisku,jdbcType=VARCHAR},
-      IMGURL = #{imgurl,jdbcType=LONGVARCHAR},
-      'NAME' = #{name,jdbcType=LONGVARCHAR},
-      PRODUCTLINK = #{productlink,jdbcType=LONGVARCHAR},
-      SKUINFO = #{skuinfo,jdbcType=LONGVARCHAR}
-    where SKUID = #{skuid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbAlisku">
-    update db_alisku
-    set SPUID = #{spuid,jdbcType=VARCHAR},
-      SELLERID = #{sellerid,jdbcType=VARCHAR},
-      MABANGSKU = #{mabangsku,jdbcType=VARCHAR},
-      ALISKU = #{alisku,jdbcType=VARCHAR}
-    where SKUID = #{skuid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbAlisku">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

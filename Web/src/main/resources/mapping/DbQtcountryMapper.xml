@@ -9,57 +9,57 @@
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select CODE2, CODE3, NAMECN, NAMEEN
-    from db_qtcountry
+    from DB_QTCOUNTRY
     where CODE2 = #{code2,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select CODE2, CODE3, NAMECN, NAMEEN
-    from db_qtcountry
+    from DB_QTCOUNTRY
   </select>
   <sql id="TableName">
-    db_qtcountry
+    DB_QTCOUNTRY
   </sql>
   <sql id="Values">
      #{code2,jdbcType=VARCHAR} , 
      #{code3,jdbcType=VARCHAR} , 
      #{namecn,jdbcType=VARCHAR} , 
-     #{nameen,jdbcType=VARCHAR}
+     #{nameen,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     CODE2 , 
     CODE3 , 
     NAMECN , 
-    NAMEEN
+    NAMEEN , 
   </sql>
   <sql id="Criteria">
     <if test="code2 != null">
-      CODE2 = #{code2,jdbcType=VARCHAR} and 
+      code2 = #{code2,jdbcType=VARCHAR} and 
     </if>
     <if test="code3 != null">
-      CODE3 = #{code3,jdbcType=VARCHAR} and 
+      code3 = #{code3,jdbcType=VARCHAR} and 
     </if>
     <if test="namecn != null">
-      NAMECN = #{namecn,jdbcType=VARCHAR} and 
+      namecn = #{namecn,jdbcType=VARCHAR} and 
     </if>
     <if test="nameen != null">
-      NAMEEN = #{nameen,jdbcType=VARCHAR}
+      nameen = #{nameen,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="code2 != null">
-      CODE2 = #{code2,jdbcType=VARCHAR} , 
+      code2 = #{code2,jdbcType=VARCHAR} , 
     </if>
     <if test="code3 != null">
-      CODE3 = #{code3,jdbcType=VARCHAR} , 
+      code3 = #{code3,jdbcType=VARCHAR} , 
     </if>
     <if test="namecn != null">
-      NAMECN = #{namecn,jdbcType=VARCHAR} , 
+      namecn = #{namecn,jdbcType=VARCHAR} , 
     </if>
     <if test="nameen != null">
-      NAMEEN = #{nameen,jdbcType=VARCHAR}
+      nameen = #{nameen,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbQtcountry" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

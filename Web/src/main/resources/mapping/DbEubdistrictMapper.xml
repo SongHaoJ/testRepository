@@ -11,15 +11,15 @@
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select DITID, DITNAME, CITID, CORPID, OPENFLAG, DITEN
-    from db_eubdistrict
+    from DB_EUBDISTRICT
     where DITID = #{ditid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select DITID, DITNAME, CITID, CORPID, OPENFLAG, DITEN
-    from db_eubdistrict
+    from DB_EUBDISTRICT
   </select>
   <sql id="TableName">
-    db_eubdistrict
+    DB_EUBDISTRICT
   </sql>
   <sql id="Values">
      #{ditid,jdbcType=VARCHAR} , 
@@ -27,7 +27,7 @@
      #{citid,jdbcType=VARCHAR} , 
      #{corpid,jdbcType=VARCHAR} , 
      #{openflag,jdbcType=VARCHAR} , 
-     #{diten,jdbcType=VARCHAR}
+     #{diten,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     DITID , 
@@ -35,49 +35,49 @@
     CITID , 
     CORPID , 
     OPENFLAG , 
-    DITEN
+    DITEN , 
   </sql>
   <sql id="Criteria">
     <if test="ditid != null">
-      DITID = #{ditid,jdbcType=VARCHAR} and 
+      ditid = #{ditid,jdbcType=VARCHAR} and 
     </if>
     <if test="ditname != null">
-      DITNAME = #{ditname,jdbcType=VARCHAR} and 
+      ditname = #{ditname,jdbcType=VARCHAR} and 
     </if>
     <if test="citid != null">
-      CITID = #{citid,jdbcType=VARCHAR} and 
+      citid = #{citid,jdbcType=VARCHAR} and 
     </if>
     <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} and 
+      corpid = #{corpid,jdbcType=VARCHAR} and 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
+      openflag = #{openflag,jdbcType=VARCHAR} and 
     </if>
     <if test="diten != null">
-      DITEN = #{diten,jdbcType=VARCHAR}
+      diten = #{diten,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="ditid != null">
-      DITID = #{ditid,jdbcType=VARCHAR} , 
+      ditid = #{ditid,jdbcType=VARCHAR} , 
     </if>
     <if test="ditname != null">
-      DITNAME = #{ditname,jdbcType=VARCHAR} , 
+      ditname = #{ditname,jdbcType=VARCHAR} , 
     </if>
     <if test="citid != null">
-      CITID = #{citid,jdbcType=VARCHAR} , 
+      citid = #{citid,jdbcType=VARCHAR} , 
     </if>
     <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} , 
+      corpid = #{corpid,jdbcType=VARCHAR} , 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
+      openflag = #{openflag,jdbcType=VARCHAR} , 
     </if>
     <if test="diten != null">
-      DITEN = #{diten,jdbcType=VARCHAR}
+      diten = #{diten,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbEubdistrict" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

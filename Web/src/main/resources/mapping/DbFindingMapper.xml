@@ -20,16 +20,16 @@
   <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
     select ID, OPER, CONTENT, OPENFLAG, CATEGORYNAME, RESERVE3, RESERVE2, CREATETIME, 
     RESERVE1, OPERTIME, TASKFLAG, LASTRUNTIME, FLAG, ITEMCOUNT
-    from db_finding
+    from DB_FINDING
     where ID = #{id,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select ID, OPER, CONTENT, OPENFLAG, CATEGORYNAME, RESERVE3, RESERVE2, CREATETIME, 
     RESERVE1, OPERTIME, TASKFLAG, LASTRUNTIME, FLAG, ITEMCOUNT
-    from db_finding
+    from DB_FINDING
   </select>
   <sql id="TableName">
-    db_finding
+    DB_FINDING
   </sql>
   <sql id="Values">
      #{id,jdbcType=DECIMAL} , 
@@ -45,7 +45,7 @@
      #{taskflag,jdbcType=DECIMAL} , 
      #{lastruntime,jdbcType=DECIMAL} , 
      #{flag,jdbcType=DECIMAL} , 
-     #{itemcount,jdbcType=DECIMAL}
+     #{itemcount,jdbcType=DECIMAL} , 
   </sql>
   <sql id="Columns">
     ID , 
@@ -61,97 +61,97 @@
     TASKFLAG , 
     LASTRUNTIME , 
     FLAG , 
-    ITEMCOUNT
+    ITEMCOUNT , 
   </sql>
   <sql id="Criteria">
     <if test="id != null">
-      ID = #{id,jdbcType=DECIMAL} and 
+      id = #{id,jdbcType=DECIMAL} and 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
+      oper = #{oper,jdbcType=VARCHAR} and 
     </if>
     <if test="content != null">
-      CONTENT = #{content,jdbcType=VARCHAR} and 
+      content = #{content,jdbcType=VARCHAR} and 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=DECIMAL} and 
+      openflag = #{openflag,jdbcType=DECIMAL} and 
     </if>
     <if test="categoryname != null">
-      CATEGORYNAME = #{categoryname,jdbcType=VARCHAR} and 
+      categoryname = #{categoryname,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR} and 
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
     </if>
     <if test="createtime != null">
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP} and 
+      createtime = #{createtime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="taskflag != null">
-      TASKFLAG = #{taskflag,jdbcType=DECIMAL} and 
+      taskflag = #{taskflag,jdbcType=DECIMAL} and 
     </if>
     <if test="lastruntime != null">
-      LASTRUNTIME = #{lastruntime,jdbcType=DECIMAL} and 
+      lastruntime = #{lastruntime,jdbcType=DECIMAL} and 
     </if>
     <if test="flag != null">
-      FLAG = #{flag,jdbcType=DECIMAL} and 
+      flag = #{flag,jdbcType=DECIMAL} and 
     </if>
     <if test="itemcount != null">
-      ITEMCOUNT = #{itemcount,jdbcType=DECIMAL}
+      itemcount = #{itemcount,jdbcType=DECIMAL} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="id != null">
-      ID = #{id,jdbcType=DECIMAL} , 
+      id = #{id,jdbcType=DECIMAL} , 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
+      oper = #{oper,jdbcType=VARCHAR} , 
     </if>
     <if test="content != null">
-      CONTENT = #{content,jdbcType=VARCHAR} , 
+      content = #{content,jdbcType=VARCHAR} , 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=DECIMAL} , 
+      openflag = #{openflag,jdbcType=DECIMAL} , 
     </if>
     <if test="categoryname != null">
-      CATEGORYNAME = #{categoryname,jdbcType=VARCHAR} , 
+      categoryname = #{categoryname,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR} , 
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
     </if>
     <if test="createtime != null">
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP} , 
+      createtime = #{createtime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="taskflag != null">
-      TASKFLAG = #{taskflag,jdbcType=DECIMAL} , 
+      taskflag = #{taskflag,jdbcType=DECIMAL} , 
     </if>
     <if test="lastruntime != null">
-      LASTRUNTIME = #{lastruntime,jdbcType=DECIMAL} , 
+      lastruntime = #{lastruntime,jdbcType=DECIMAL} , 
     </if>
     <if test="flag != null">
-      FLAG = #{flag,jdbcType=DECIMAL} , 
+      flag = #{flag,jdbcType=DECIMAL} , 
     </if>
     <if test="itemcount != null">
-      ITEMCOUNT = #{itemcount,jdbcType=DECIMAL}
+      itemcount = #{itemcount,jdbcType=DECIMAL} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbFinding" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

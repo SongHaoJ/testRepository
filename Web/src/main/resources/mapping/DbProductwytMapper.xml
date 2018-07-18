@@ -7,21 +7,23 @@
     <result column="MWAREHOUSEID" jdbcType="VARCHAR" property="mwarehouseid" />
     <result column="QTYONHAND" jdbcType="DECIMAL" property="qtyonhand" />
     <result column="QTYORDERED" jdbcType="DECIMAL" property="qtyordered" />
+    <result column="SPECIFICATION" jdbcType="VARCHAR" property="specification" />
     <result column="QTYAVAILABLE" jdbcType="DECIMAL" property="qtyavailable" />
     <result column="QTYSELL" jdbcType="DECIMAL" property="qtysell" />
-    <result column="SPECIFICATION" jdbcType="LONGVARCHAR" property="specification" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select SID, NAME, MWAREHOUSEID, QTYONHAND, QTYORDERED, QTYAVAILABLE, QTYSELL, SPECIFICATION
-    from db_productwyt
+    select SID, NAME, MWAREHOUSEID, QTYONHAND, QTYORDERED, SPECIFICATION, QTYAVAILABLE, 
+    QTYSELL
+    from DB_PRODUCTWYT
     where SID = #{sid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select SID, NAME, MWAREHOUSEID, QTYONHAND, QTYORDERED, QTYAVAILABLE, QTYSELL, SPECIFICATION
-    from db_productwyt
+    select SID, NAME, MWAREHOUSEID, QTYONHAND, QTYORDERED, SPECIFICATION, QTYAVAILABLE, 
+    QTYSELL
+    from DB_PRODUCTWYT
   </select>
   <sql id="TableName">
-    db_productwyt
+    DB_PRODUCTWYT
   </sql>
   <sql id="Values">
      #{sid,jdbcType=VARCHAR} , 
@@ -29,9 +31,9 @@
      #{mwarehouseid,jdbcType=VARCHAR} , 
      #{qtyonhand,jdbcType=DECIMAL} , 
      #{qtyordered,jdbcType=DECIMAL} , 
+     #{specification,jdbcType=VARCHAR} , 
      #{qtyavailable,jdbcType=DECIMAL} , 
      #{qtysell,jdbcType=DECIMAL} , 
-     #{specification,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     SID , 
@@ -39,63 +41,63 @@
     MWAREHOUSEID , 
     QTYONHAND , 
     QTYORDERED , 
+    SPECIFICATION , 
     QTYAVAILABLE , 
     QTYSELL , 
-    SPECIFICATION
   </sql>
   <sql id="Criteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} and 
+      sid = #{sid,jdbcType=VARCHAR} and 
     </if>
     <if test="name != null">
-      NAME = #{name,jdbcType=VARCHAR} and 
+      name = #{name,jdbcType=VARCHAR} and 
     </if>
     <if test="mwarehouseid != null">
-      MWAREHOUSEID = #{mwarehouseid,jdbcType=VARCHAR} and 
+      mwarehouseid = #{mwarehouseid,jdbcType=VARCHAR} and 
     </if>
     <if test="qtyonhand != null">
-      QTYONHAND = #{qtyonhand,jdbcType=DECIMAL} and 
+      qtyonhand = #{qtyonhand,jdbcType=DECIMAL} and 
     </if>
     <if test="qtyordered != null">
-      QTYORDERED = #{qtyordered,jdbcType=DECIMAL} and 
-    </if>
-    <if test="qtyavailable != null">
-      QTYAVAILABLE = #{qtyavailable,jdbcType=DECIMAL} and 
-    </if>
-    <if test="qtysell != null">
-      QTYSELL = #{qtysell,jdbcType=DECIMAL} and 
+      qtyordered = #{qtyordered,jdbcType=DECIMAL} and 
     </if>
     <if test="specification != null">
-      SPECIFICATION = #{specification,jdbcType=LONGVARCHAR}
+      specification = #{specification,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="qtyavailable != null">
+      qtyavailable = #{qtyavailable,jdbcType=DECIMAL} and 
+    </if>
+    <if test="qtysell != null">
+      qtysell = #{qtysell,jdbcType=DECIMAL} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} , 
+      sid = #{sid,jdbcType=VARCHAR} , 
     </if>
     <if test="name != null">
-      NAME = #{name,jdbcType=VARCHAR} , 
+      name = #{name,jdbcType=VARCHAR} , 
     </if>
     <if test="mwarehouseid != null">
-      MWAREHOUSEID = #{mwarehouseid,jdbcType=VARCHAR} , 
+      mwarehouseid = #{mwarehouseid,jdbcType=VARCHAR} , 
     </if>
     <if test="qtyonhand != null">
-      QTYONHAND = #{qtyonhand,jdbcType=DECIMAL} , 
+      qtyonhand = #{qtyonhand,jdbcType=DECIMAL} , 
     </if>
     <if test="qtyordered != null">
-      QTYORDERED = #{qtyordered,jdbcType=DECIMAL} , 
-    </if>
-    <if test="qtyavailable != null">
-      QTYAVAILABLE = #{qtyavailable,jdbcType=DECIMAL} , 
-    </if>
-    <if test="qtysell != null">
-      QTYSELL = #{qtysell,jdbcType=DECIMAL} , 
+      qtyordered = #{qtyordered,jdbcType=DECIMAL} , 
     </if>
     <if test="specification != null">
-      SPECIFICATION = #{specification,jdbcType=LONGVARCHAR}
+      specification = #{specification,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="qtyavailable != null">
+      qtyavailable = #{qtyavailable,jdbcType=DECIMAL} , 
+    </if>
+    <if test="qtysell != null">
+      qtysell = #{qtysell,jdbcType=DECIMAL} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbProductwyt" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

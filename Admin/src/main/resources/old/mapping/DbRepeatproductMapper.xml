@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbRepeatproductMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbRepeatproduct">
+    <id column="SEQUENCEID" jdbcType="DECIMAL" property="sequenceid" />
+    <result column="SALSEMONEY" jdbcType="VARCHAR" property="salsemoney" />
+    <result column="PUBLISNUM" jdbcType="VARCHAR" property="publisnum" />
+    <result column="CHANGERATE" jdbcType="VARCHAR" property="changerate" />
+    <result column="PRICEAVG" jdbcType="VARCHAR" property="priceavg" />
+    <result column="OFFER" jdbcType="VARCHAR" property="offer" />
+    <result column="TOPSALSENUM" jdbcType="DECIMAL" property="topsalsenum" />
+    <result column="TOPSALSEMONEY" jdbcType="DECIMAL" property="topsalsemoney" />
+    <result column="OPENFLAG" jdbcType="DECIMAL" property="openflag" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="CORPID" jdbcType="DECIMAL" property="corpid" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbRepeatproduct">
+    <result column="TITLE" jdbcType="LONGVARCHAR" property="title" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SEQUENCEID, SALSEMONEY, PUBLISNUM, CHANGERATE, PRICEAVG, OFFER, TOPSALSENUM, TOPSALSEMONEY, 
+    OPENFLAG, OPER, OPERTIME, CORPID
+  </sql>
+  <sql id="Blob_Column_List">
+    TITLE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from db_repeatproduct
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
+    delete from db_repeatproduct
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.bean.model.DbRepeatproduct">
+    insert into db_repeatproduct (SEQUENCEID, SALSEMONEY, PUBLISNUM, 
+      CHANGERATE, PRICEAVG, OFFER, 
+      TOPSALSENUM, TOPSALSEMONEY, OPENFLAG, 
+      OPER, OPERTIME, CORPID, 
+      TITLE)
+    values (#{sequenceid,jdbcType=DECIMAL}, #{salsemoney,jdbcType=VARCHAR}, #{publisnum,jdbcType=VARCHAR}, 
+      #{changerate,jdbcType=VARCHAR}, #{priceavg,jdbcType=VARCHAR}, #{offer,jdbcType=VARCHAR}, 
+      #{topsalsenum,jdbcType=DECIMAL}, #{topsalsemoney,jdbcType=DECIMAL}, #{openflag,jdbcType=DECIMAL}, 
+      #{oper,jdbcType=VARCHAR}, #{opertime,jdbcType=TIMESTAMP}, #{corpid,jdbcType=DECIMAL}, 
+      #{title,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbRepeatproduct">
+    insert into db_repeatproduct
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        SEQUENCEID,
+      </if>
+      <if test="salsemoney != null">
+        SALSEMONEY,
+      </if>
+      <if test="publisnum != null">
+        PUBLISNUM,
+      </if>
+      <if test="changerate != null">
+        CHANGERATE,
+      </if>
+      <if test="priceavg != null">
+        PRICEAVG,
+      </if>
+      <if test="offer != null">
+        OFFER,
+      </if>
+      <if test="topsalsenum != null">
+        TOPSALSENUM,
+      </if>
+      <if test="topsalsemoney != null">
+        TOPSALSEMONEY,
+      </if>
+      <if test="openflag != null">
+        OPENFLAG,
+      </if>
+      <if test="oper != null">
+        OPER,
+      </if>
+      <if test="opertime != null">
+        OPERTIME,
+      </if>
+      <if test="corpid != null">
+        CORPID,
+      </if>
+      <if test="title != null">
+        TITLE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        #{sequenceid,jdbcType=DECIMAL},
+      </if>
+      <if test="salsemoney != null">
+        #{salsemoney,jdbcType=VARCHAR},
+      </if>
+      <if test="publisnum != null">
+        #{publisnum,jdbcType=VARCHAR},
+      </if>
+      <if test="changerate != null">
+        #{changerate,jdbcType=VARCHAR},
+      </if>
+      <if test="priceavg != null">
+        #{priceavg,jdbcType=VARCHAR},
+      </if>
+      <if test="offer != null">
+        #{offer,jdbcType=VARCHAR},
+      </if>
+      <if test="topsalsenum != null">
+        #{topsalsenum,jdbcType=DECIMAL},
+      </if>
+      <if test="topsalsemoney != null">
+        #{topsalsemoney,jdbcType=DECIMAL},
+      </if>
+      <if test="openflag != null">
+        #{openflag,jdbcType=DECIMAL},
+      </if>
+      <if test="oper != null">
+        #{oper,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null">
+        #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="corpid != null">
+        #{corpid,jdbcType=DECIMAL},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbRepeatproduct">
+    update db_repeatproduct
+    <set>
+      <if test="salsemoney != null">
+        SALSEMONEY = #{salsemoney,jdbcType=VARCHAR},
+      </if>
+      <if test="publisnum != null">
+        PUBLISNUM = #{publisnum,jdbcType=VARCHAR},
+      </if>
+      <if test="changerate != null">
+        CHANGERATE = #{changerate,jdbcType=VARCHAR},
+      </if>
+      <if test="priceavg != null">
+        PRICEAVG = #{priceavg,jdbcType=VARCHAR},
+      </if>
+      <if test="offer != null">
+        OFFER = #{offer,jdbcType=VARCHAR},
+      </if>
+      <if test="topsalsenum != null">
+        TOPSALSENUM = #{topsalsenum,jdbcType=DECIMAL},
+      </if>
+      <if test="topsalsemoney != null">
+        TOPSALSEMONEY = #{topsalsemoney,jdbcType=DECIMAL},
+      </if>
+      <if test="openflag != null">
+        OPENFLAG = #{openflag,jdbcType=DECIMAL},
+      </if>
+      <if test="oper != null">
+        OPER = #{oper,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null">
+        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="corpid != null">
+        CORPID = #{corpid,jdbcType=DECIMAL},
+      </if>
+      <if test="title != null">
+        TITLE = #{title,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbRepeatproduct">
+    update db_repeatproduct
+    set SALSEMONEY = #{salsemoney,jdbcType=VARCHAR},
+      PUBLISNUM = #{publisnum,jdbcType=VARCHAR},
+      CHANGERATE = #{changerate,jdbcType=VARCHAR},
+      PRICEAVG = #{priceavg,jdbcType=VARCHAR},
+      OFFER = #{offer,jdbcType=VARCHAR},
+      TOPSALSENUM = #{topsalsenum,jdbcType=DECIMAL},
+      TOPSALSEMONEY = #{topsalsemoney,jdbcType=DECIMAL},
+      OPENFLAG = #{openflag,jdbcType=DECIMAL},
+      OPER = #{oper,jdbcType=VARCHAR},
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      CORPID = #{corpid,jdbcType=DECIMAL},
+      TITLE = #{title,jdbcType=LONGVARCHAR}
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbRepeatproduct">
+    update db_repeatproduct
+    set SALSEMONEY = #{salsemoney,jdbcType=VARCHAR},
+      PUBLISNUM = #{publisnum,jdbcType=VARCHAR},
+      CHANGERATE = #{changerate,jdbcType=VARCHAR},
+      PRICEAVG = #{priceavg,jdbcType=VARCHAR},
+      OFFER = #{offer,jdbcType=VARCHAR},
+      TOPSALSENUM = #{topsalsenum,jdbcType=DECIMAL},
+      TOPSALSEMONEY = #{topsalsemoney,jdbcType=DECIMAL},
+      OPENFLAG = #{openflag,jdbcType=DECIMAL},
+      OPER = #{oper,jdbcType=VARCHAR},
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      CORPID = #{corpid,jdbcType=DECIMAL}
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </update>
+</mapper>

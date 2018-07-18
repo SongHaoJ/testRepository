@@ -13,13 +13,13 @@ public class DbUnionlog implements Serializable {
 
     private String reserve1;
 
+    private String sourcesellid;
+
     private Date opertime;
 
     private String sourceorderid;
 
     private BigDecimal flag;
-
-    private String sourcesellid;
 
     private static final long serialVersionUID = 1L;
 
@@ -55,6 +55,14 @@ public class DbUnionlog implements Serializable {
         this.reserve1 = reserve1 == null ? null : reserve1.trim();
     }
 
+    public String getSourcesellid() {
+        return sourcesellid;
+    }
+
+    public void setSourcesellid(String sourcesellid) {
+        this.sourcesellid = sourcesellid == null ? null : sourcesellid.trim();
+    }
+
     public Date getOpertime() {
         return opertime;
     }
@@ -79,14 +87,6 @@ public class DbUnionlog implements Serializable {
         this.flag = flag;
     }
 
-    public String getSourcesellid() {
-        return sourcesellid;
-    }
-
-    public void setSourcesellid(String sourcesellid) {
-        this.sourcesellid = sourcesellid == null ? null : sourcesellid.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -103,10 +103,10 @@ public class DbUnionlog implements Serializable {
             && (this.getUnionorderid() == null ? other.getUnionorderid() == null : this.getUnionorderid().equals(other.getUnionorderid()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
+            && (this.getSourcesellid() == null ? other.getSourcesellid() == null : this.getSourcesellid().equals(other.getSourcesellid()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
             && (this.getSourceorderid() == null ? other.getSourceorderid() == null : this.getSourceorderid().equals(other.getSourceorderid()))
-            && (this.getFlag() == null ? other.getFlag() == null : this.getFlag().equals(other.getFlag()))
-            && (this.getSourcesellid() == null ? other.getSourcesellid() == null : this.getSourcesellid().equals(other.getSourcesellid()));
+            && (this.getFlag() == null ? other.getFlag() == null : this.getFlag().equals(other.getFlag()));
     }
 
     @Override
@@ -117,10 +117,10 @@ public class DbUnionlog implements Serializable {
         result = prime * result + ((getUnionorderid() == null) ? 0 : getUnionorderid().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
+        result = prime * result + ((getSourcesellid() == null) ? 0 : getSourcesellid().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getSourceorderid() == null) ? 0 : getSourceorderid().hashCode());
         result = prime * result + ((getFlag() == null) ? 0 : getFlag().hashCode());
-        result = prime * result + ((getSourcesellid() == null) ? 0 : getSourcesellid().hashCode());
         return result;
     }
 
@@ -134,10 +134,10 @@ public class DbUnionlog implements Serializable {
         sb.append(", unionorderid=").append(unionorderid);
         sb.append(", oper=").append(oper);
         sb.append(", reserve1=").append(reserve1);
+        sb.append(", sourcesellid=").append(sourcesellid);
         sb.append(", opertime=").append(opertime);
         sb.append(", sourceorderid=").append(sourceorderid);
         sb.append(", flag=").append(flag);
-        sb.append(", sourcesellid=").append(sourcesellid);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

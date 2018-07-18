@@ -13,6 +13,8 @@ public class DbPerformance implements Serializable {
 
     private Date createtime;
 
+    private String descr;
+
     private String corpid;
 
     private String openflag;
@@ -21,6 +23,8 @@ public class DbPerformance implements Serializable {
 
     private BigDecimal operid;
 
+    private String pointdescr;
+
     private String groupid;
 
     private String createoper;
@@ -28,10 +32,6 @@ public class DbPerformance implements Serializable {
     private Date opertime;
 
     private BigDecimal alertflag;
-
-    private String descr;
-
-    private String pointdescr;
 
     private static final long serialVersionUID = 1L;
 
@@ -67,6 +67,14 @@ public class DbPerformance implements Serializable {
         this.createtime = createtime;
     }
 
+    public String getDescr() {
+        return descr;
+    }
+
+    public void setDescr(String descr) {
+        this.descr = descr == null ? null : descr.trim();
+    }
+
     public String getCorpid() {
         return corpid;
     }
@@ -97,6 +105,14 @@ public class DbPerformance implements Serializable {
 
     public void setOperid(BigDecimal operid) {
         this.operid = operid;
+    }
+
+    public String getPointdescr() {
+        return pointdescr;
+    }
+
+    public void setPointdescr(String pointdescr) {
+        this.pointdescr = pointdescr == null ? null : pointdescr.trim();
     }
 
     public String getGroupid() {
@@ -131,22 +147,6 @@ public class DbPerformance implements Serializable {
         this.alertflag = alertflag;
     }
 
-    public String getDescr() {
-        return descr;
-    }
-
-    public void setDescr(String descr) {
-        this.descr = descr == null ? null : descr.trim();
-    }
-
-    public String getPointdescr() {
-        return pointdescr;
-    }
-
-    public void setPointdescr(String pointdescr) {
-        this.pointdescr = pointdescr == null ? null : pointdescr.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -163,16 +163,16 @@ public class DbPerformance implements Serializable {
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getPoint() == null ? other.getPoint() == null : this.getPoint().equals(other.getPoint()))
             && (this.getCreatetime() == null ? other.getCreatetime() == null : this.getCreatetime().equals(other.getCreatetime()))
+            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
             && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()))
             && (this.getOpenflag() == null ? other.getOpenflag() == null : this.getOpenflag().equals(other.getOpenflag()))
             && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
             && (this.getOperid() == null ? other.getOperid() == null : this.getOperid().equals(other.getOperid()))
+            && (this.getPointdescr() == null ? other.getPointdescr() == null : this.getPointdescr().equals(other.getPointdescr()))
             && (this.getGroupid() == null ? other.getGroupid() == null : this.getGroupid().equals(other.getGroupid()))
             && (this.getCreateoper() == null ? other.getCreateoper() == null : this.getCreateoper().equals(other.getCreateoper()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
-            && (this.getAlertflag() == null ? other.getAlertflag() == null : this.getAlertflag().equals(other.getAlertflag()))
-            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
-            && (this.getPointdescr() == null ? other.getPointdescr() == null : this.getPointdescr().equals(other.getPointdescr()));
+            && (this.getAlertflag() == null ? other.getAlertflag() == null : this.getAlertflag().equals(other.getAlertflag()));
     }
 
     @Override
@@ -183,16 +183,16 @@ public class DbPerformance implements Serializable {
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getPoint() == null) ? 0 : getPoint().hashCode());
         result = prime * result + ((getCreatetime() == null) ? 0 : getCreatetime().hashCode());
+        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
         result = prime * result + ((getCorpid() == null) ? 0 : getCorpid().hashCode());
         result = prime * result + ((getOpenflag() == null) ? 0 : getOpenflag().hashCode());
         result = prime * result + ((getStatus() == null) ? 0 : getStatus().hashCode());
         result = prime * result + ((getOperid() == null) ? 0 : getOperid().hashCode());
+        result = prime * result + ((getPointdescr() == null) ? 0 : getPointdescr().hashCode());
         result = prime * result + ((getGroupid() == null) ? 0 : getGroupid().hashCode());
         result = prime * result + ((getCreateoper() == null) ? 0 : getCreateoper().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getAlertflag() == null) ? 0 : getAlertflag().hashCode());
-        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
-        result = prime * result + ((getPointdescr() == null) ? 0 : getPointdescr().hashCode());
         return result;
     }
 
@@ -206,16 +206,16 @@ public class DbPerformance implements Serializable {
         sb.append(", oper=").append(oper);
         sb.append(", point=").append(point);
         sb.append(", createtime=").append(createtime);
+        sb.append(", descr=").append(descr);
         sb.append(", corpid=").append(corpid);
         sb.append(", openflag=").append(openflag);
         sb.append(", status=").append(status);
         sb.append(", operid=").append(operid);
+        sb.append(", pointdescr=").append(pointdescr);
         sb.append(", groupid=").append(groupid);
         sb.append(", createoper=").append(createoper);
         sb.append(", opertime=").append(opertime);
         sb.append(", alertflag=").append(alertflag);
-        sb.append(", descr=").append(descr);
-        sb.append(", pointdescr=").append(pointdescr);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

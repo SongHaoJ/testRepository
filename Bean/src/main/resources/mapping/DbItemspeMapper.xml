@@ -4,92 +4,76 @@
   <resultMap id="BaseResultMap" type="com.bean.model.DbItemspe">
     <id column="SID" jdbcType="VARCHAR" property="sid" />
     <result column="EBAYITEMID" jdbcType="VARCHAR" property="ebayitemid" />
+    <result column="EBAYITEMSPE" jdbcType="VARCHAR" property="ebayitemspe" />
     <result column="FLAG" jdbcType="VARCHAR" property="flag" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbItemspe">
-    <result column="EBAYITEMSPE" jdbcType="LONGVARCHAR" property="ebayitemspe" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    SID, EBAYITEMID, FLAG
-  </sql>
-  <sql id="Blob_Column_List">
-    EBAYITEMSPE
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from db_itemspe
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SID, EBAYITEMID, EBAYITEMSPE, FLAG
+    from DB_ITEMSPE
     where SID = #{sid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_itemspe
-    where SID = #{sid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, EBAYITEMID, EBAYITEMSPE, FLAG
+    from DB_ITEMSPE
+  </select>
+  <sql id="TableName">
+    DB_ITEMSPE
+  </sql>
+  <sql id="Values">
+     #{sid,jdbcType=VARCHAR} , 
+     #{ebayitemid,jdbcType=VARCHAR} , 
+     #{ebayitemspe,jdbcType=VARCHAR} , 
+     #{flag,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    SID , 
+    EBAYITEMID , 
+    EBAYITEMSPE , 
+    FLAG , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebayitemid != null">
+      ebayitemid = #{ebayitemid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ebayitemspe != null">
+      ebayitemspe = #{ebayitemspe,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebayitemid != null">
+      ebayitemid = #{ebayitemid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ebayitemspe != null">
+      ebayitemspe = #{ebayitemspe,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbItemspe" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SID=#{SID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbItemspe">
-    insert into db_itemspe (SID, EBAYITEMID, FLAG, 
-      EBAYITEMSPE)
-    values (#{sid,jdbcType=VARCHAR}, #{ebayitemid,jdbcType=VARCHAR}, #{flag,jdbcType=VARCHAR}, 
-      #{ebayitemspe,jdbcType=LONGVARCHAR})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbItemspe">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbItemspe">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbItemspe">
-    insert into db_itemspe
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        SID,
-      </if>
-      <if test="ebayitemid != null">
-        EBAYITEMID,
-      </if>
-      <if test="flag != null">
-        FLAG,
-      </if>
-      <if test="ebayitemspe != null">
-        EBAYITEMSPE,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        #{sid,jdbcType=VARCHAR},
-      </if>
-      <if test="ebayitemid != null">
-        #{ebayitemid,jdbcType=VARCHAR},
-      </if>
-      <if test="flag != null">
-        #{flag,jdbcType=VARCHAR},
-      </if>
-      <if test="ebayitemspe != null">
-        #{ebayitemspe,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbItemspe">
-    update db_itemspe
-    <set>
-      <if test="ebayitemid != null">
-        EBAYITEMID = #{ebayitemid,jdbcType=VARCHAR},
-      </if>
-      <if test="flag != null">
-        FLAG = #{flag,jdbcType=VARCHAR},
-      </if>
-      <if test="ebayitemspe != null">
-        EBAYITEMSPE = #{ebayitemspe,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where SID = #{sid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbItemspe">
-    update db_itemspe
-    set EBAYITEMID = #{ebayitemid,jdbcType=VARCHAR},
-      FLAG = #{flag,jdbcType=VARCHAR},
-      EBAYITEMSPE = #{ebayitemspe,jdbcType=LONGVARCHAR}
-    where SID = #{sid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbItemspe">
-    update db_itemspe
-    set EBAYITEMID = #{ebayitemid,jdbcType=VARCHAR},
-      FLAG = #{flag,jdbcType=VARCHAR}
-    where SID = #{sid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbItemspe">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

@@ -5,9 +5,9 @@ import java.io.Serializable;
 public class DbSpecialservicecode implements Serializable {
     private String servicecode;
 
-    private String servicename;
-
     private String servicegroupcode;
+
+    private String servicename;
 
     private String chargecodetypecode;
 
@@ -21,20 +21,20 @@ public class DbSpecialservicecode implements Serializable {
         this.servicecode = servicecode == null ? null : servicecode.trim();
     }
 
-    public String getServicename() {
-        return servicename;
-    }
-
-    public void setServicename(String servicename) {
-        this.servicename = servicename == null ? null : servicename.trim();
-    }
-
     public String getServicegroupcode() {
         return servicegroupcode;
     }
 
     public void setServicegroupcode(String servicegroupcode) {
         this.servicegroupcode = servicegroupcode == null ? null : servicegroupcode.trim();
+    }
+
+    public String getServicename() {
+        return servicename;
+    }
+
+    public void setServicename(String servicename) {
+        this.servicename = servicename == null ? null : servicename.trim();
     }
 
     public String getChargecodetypecode() {
@@ -58,8 +58,8 @@ public class DbSpecialservicecode implements Serializable {
         }
         DbSpecialservicecode other = (DbSpecialservicecode) that;
         return (this.getServicecode() == null ? other.getServicecode() == null : this.getServicecode().equals(other.getServicecode()))
-            && (this.getServicename() == null ? other.getServicename() == null : this.getServicename().equals(other.getServicename()))
             && (this.getServicegroupcode() == null ? other.getServicegroupcode() == null : this.getServicegroupcode().equals(other.getServicegroupcode()))
+            && (this.getServicename() == null ? other.getServicename() == null : this.getServicename().equals(other.getServicename()))
             && (this.getChargecodetypecode() == null ? other.getChargecodetypecode() == null : this.getChargecodetypecode().equals(other.getChargecodetypecode()));
     }
 
@@ -68,8 +68,8 @@ public class DbSpecialservicecode implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getServicecode() == null) ? 0 : getServicecode().hashCode());
-        result = prime * result + ((getServicename() == null) ? 0 : getServicename().hashCode());
         result = prime * result + ((getServicegroupcode() == null) ? 0 : getServicegroupcode().hashCode());
+        result = prime * result + ((getServicename() == null) ? 0 : getServicename().hashCode());
         result = prime * result + ((getChargecodetypecode() == null) ? 0 : getChargecodetypecode().hashCode());
         return result;
     }
@@ -81,8 +81,8 @@ public class DbSpecialservicecode implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", servicecode=").append(servicecode);
-        sb.append(", servicename=").append(servicename);
         sb.append(", servicegroupcode=").append(servicegroupcode);
+        sb.append(", servicename=").append(servicename);
         sb.append(", chargecodetypecode=").append(chargecodetypecode);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");

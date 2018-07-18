@@ -20,16 +20,16 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select ID, MLSKU, MABANGSKU, PRODUCTNAME, OPENFLAG, WEIGHT, LENGTH, WIDTH, HEIGHT, 
     PRICE, STOCK, RESERVE1, RESERVE2, RESERVE3
-    from db_muliproduct
+    from DB_MULIPRODUCT
     where ID = #{id,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select ID, MLSKU, MABANGSKU, PRODUCTNAME, OPENFLAG, WEIGHT, LENGTH, WIDTH, HEIGHT, 
     PRICE, STOCK, RESERVE1, RESERVE2, RESERVE3
-    from db_muliproduct
+    from DB_MULIPRODUCT
   </select>
   <sql id="TableName">
-    db_muliproduct
+    DB_MULIPRODUCT
   </sql>
   <sql id="Values">
      #{id,jdbcType=DECIMAL} , 
@@ -45,7 +45,7 @@
      #{stock,jdbcType=DECIMAL} , 
      #{reserve1,jdbcType=VARCHAR} , 
      #{reserve2,jdbcType=VARCHAR} , 
-     #{reserve3,jdbcType=VARCHAR}
+     #{reserve3,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     ID , 
@@ -61,97 +61,97 @@
     STOCK , 
     RESERVE1 , 
     RESERVE2 , 
-    RESERVE3
+    RESERVE3 , 
   </sql>
   <sql id="Criteria">
     <if test="id != null">
-      ID = #{id,jdbcType=DECIMAL} and 
+      id = #{id,jdbcType=DECIMAL} and 
     </if>
     <if test="mlsku != null">
-      MLSKU = #{mlsku,jdbcType=VARCHAR} and 
+      mlsku = #{mlsku,jdbcType=VARCHAR} and 
     </if>
     <if test="mabangsku != null">
-      MABANGSKU = #{mabangsku,jdbcType=VARCHAR} and 
+      mabangsku = #{mabangsku,jdbcType=VARCHAR} and 
     </if>
     <if test="productname != null">
-      PRODUCTNAME = #{productname,jdbcType=VARCHAR} and 
+      productname = #{productname,jdbcType=VARCHAR} and 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=DECIMAL} and 
+      openflag = #{openflag,jdbcType=DECIMAL} and 
     </if>
     <if test="weight != null">
-      WEIGHT = #{weight,jdbcType=DECIMAL} and 
+      weight = #{weight,jdbcType=DECIMAL} and 
     </if>
     <if test="length != null">
-      LENGTH = #{length,jdbcType=DECIMAL} and 
+      length = #{length,jdbcType=DECIMAL} and 
     </if>
     <if test="width != null">
-      WIDTH = #{width,jdbcType=DECIMAL} and 
+      width = #{width,jdbcType=DECIMAL} and 
     </if>
     <if test="height != null">
-      HEIGHT = #{height,jdbcType=DECIMAL} and 
+      height = #{height,jdbcType=DECIMAL} and 
     </if>
     <if test="price != null">
-      PRICE = #{price,jdbcType=DECIMAL} and 
+      price = #{price,jdbcType=DECIMAL} and 
     </if>
     <if test="stock != null">
-      STOCK = #{stock,jdbcType=DECIMAL} and 
+      stock = #{stock,jdbcType=DECIMAL} and 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR}
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="id != null">
-      ID = #{id,jdbcType=DECIMAL} , 
+      id = #{id,jdbcType=DECIMAL} , 
     </if>
     <if test="mlsku != null">
-      MLSKU = #{mlsku,jdbcType=VARCHAR} , 
+      mlsku = #{mlsku,jdbcType=VARCHAR} , 
     </if>
     <if test="mabangsku != null">
-      MABANGSKU = #{mabangsku,jdbcType=VARCHAR} , 
+      mabangsku = #{mabangsku,jdbcType=VARCHAR} , 
     </if>
     <if test="productname != null">
-      PRODUCTNAME = #{productname,jdbcType=VARCHAR} , 
+      productname = #{productname,jdbcType=VARCHAR} , 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=DECIMAL} , 
+      openflag = #{openflag,jdbcType=DECIMAL} , 
     </if>
     <if test="weight != null">
-      WEIGHT = #{weight,jdbcType=DECIMAL} , 
+      weight = #{weight,jdbcType=DECIMAL} , 
     </if>
     <if test="length != null">
-      LENGTH = #{length,jdbcType=DECIMAL} , 
+      length = #{length,jdbcType=DECIMAL} , 
     </if>
     <if test="width != null">
-      WIDTH = #{width,jdbcType=DECIMAL} , 
+      width = #{width,jdbcType=DECIMAL} , 
     </if>
     <if test="height != null">
-      HEIGHT = #{height,jdbcType=DECIMAL} , 
+      height = #{height,jdbcType=DECIMAL} , 
     </if>
     <if test="price != null">
-      PRICE = #{price,jdbcType=DECIMAL} , 
+      price = #{price,jdbcType=DECIMAL} , 
     </if>
     <if test="stock != null">
-      STOCK = #{stock,jdbcType=DECIMAL} , 
+      stock = #{stock,jdbcType=DECIMAL} , 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR}
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbMuliproduct" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

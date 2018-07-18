@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbMailcontent;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbMailcontentMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbMailcontent selectByCriteria(DbMailcontent DbMailcontent);
 
-    int insert(DbMailcontent record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbMailcontent record);
+    void deleteByCriteria(DbMailcontent DbMailcontent);
+
+    int insertByCriteria(DbMailcontent DbMailcontent);
+
+    int updateByCriteria(DbMailcontent DbMailcontent);
 
     DbMailcontent selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbMailcontent record);
-
-    int updateByPrimaryKeyWithBLOBs(DbMailcontent record);
-
-    int updateByPrimaryKey(DbMailcontent record);
+    List<DbMailcontent> selectAll();
 }

@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbMgtorderinfo;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbMgtorderinfoMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbMgtorderinfo selectByCriteria(DbMgtorderinfo DbMgtorderinfo);
 
-    int insert(DbMgtorderinfo record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbMgtorderinfo record);
+    void deleteByCriteria(DbMgtorderinfo DbMgtorderinfo);
+
+    int insertByCriteria(DbMgtorderinfo DbMgtorderinfo);
+
+    int updateByCriteria(DbMgtorderinfo DbMgtorderinfo);
 
     DbMgtorderinfo selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbMgtorderinfo record);
-
-    int updateByPrimaryKeyWithBLOBs(DbMgtorderinfo record);
-
-    int updateByPrimaryKey(DbMgtorderinfo record);
+    List<DbMgtorderinfo> selectAll();
 }

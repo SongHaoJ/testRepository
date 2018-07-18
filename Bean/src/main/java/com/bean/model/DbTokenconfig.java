@@ -25,6 +25,12 @@ public class DbTokenconfig implements Serializable {
 
     private String corpid;
 
+    private String reserve1;
+
+    private String reserve2;
+
+    private String reserve3;
+
     private BigDecimal reserve4;
 
     private BigDecimal reserve5;
@@ -34,6 +40,8 @@ public class DbTokenconfig implements Serializable {
     private String contact;
 
     private String compan;
+
+    private String street1;
 
     private String city;
 
@@ -48,14 +56,6 @@ public class DbTokenconfig implements Serializable {
     private String tel;
 
     private String fax;
-
-    private String reserve1;
-
-    private String reserve2;
-
-    private String reserve3;
-
-    private String street1;
 
     private static final long serialVersionUID = 1L;
 
@@ -139,6 +139,30 @@ public class DbTokenconfig implements Serializable {
         this.corpid = corpid == null ? null : corpid.trim();
     }
 
+    public String getReserve1() {
+        return reserve1;
+    }
+
+    public void setReserve1(String reserve1) {
+        this.reserve1 = reserve1 == null ? null : reserve1.trim();
+    }
+
+    public String getReserve2() {
+        return reserve2;
+    }
+
+    public void setReserve2(String reserve2) {
+        this.reserve2 = reserve2 == null ? null : reserve2.trim();
+    }
+
+    public String getReserve3() {
+        return reserve3;
+    }
+
+    public void setReserve3(String reserve3) {
+        this.reserve3 = reserve3 == null ? null : reserve3.trim();
+    }
+
     public BigDecimal getReserve4() {
         return reserve4;
     }
@@ -177,6 +201,14 @@ public class DbTokenconfig implements Serializable {
 
     public void setCompan(String compan) {
         this.compan = compan == null ? null : compan.trim();
+    }
+
+    public String getStreet1() {
+        return street1;
+    }
+
+    public void setStreet1(String street1) {
+        this.street1 = street1 == null ? null : street1.trim();
     }
 
     public String getCity() {
@@ -235,38 +267,6 @@ public class DbTokenconfig implements Serializable {
         this.fax = fax == null ? null : fax.trim();
     }
 
-    public String getReserve1() {
-        return reserve1;
-    }
-
-    public void setReserve1(String reserve1) {
-        this.reserve1 = reserve1 == null ? null : reserve1.trim();
-    }
-
-    public String getReserve2() {
-        return reserve2;
-    }
-
-    public void setReserve2(String reserve2) {
-        this.reserve2 = reserve2 == null ? null : reserve2.trim();
-    }
-
-    public String getReserve3() {
-        return reserve3;
-    }
-
-    public void setReserve3(String reserve3) {
-        this.reserve3 = reserve3 == null ? null : reserve3.trim();
-    }
-
-    public String getStreet1() {
-        return street1;
-    }
-
-    public void setStreet1(String street1) {
-        this.street1 = street1 == null ? null : street1.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -289,22 +289,22 @@ public class DbTokenconfig implements Serializable {
             && (this.getFlag() == null ? other.getFlag() == null : this.getFlag().equals(other.getFlag()))
             && (this.getOpenflag() == null ? other.getOpenflag() == null : this.getOpenflag().equals(other.getOpenflag()))
             && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()))
+            && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
+            && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
+            && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
             && (this.getReserve4() == null ? other.getReserve4() == null : this.getReserve4().equals(other.getReserve4()))
             && (this.getReserve5() == null ? other.getReserve5() == null : this.getReserve5().equals(other.getReserve5()))
             && (this.getReserve6() == null ? other.getReserve6() == null : this.getReserve6().equals(other.getReserve6()))
             && (this.getContact() == null ? other.getContact() == null : this.getContact().equals(other.getContact()))
             && (this.getCompan() == null ? other.getCompan() == null : this.getCompan().equals(other.getCompan()))
+            && (this.getStreet1() == null ? other.getStreet1() == null : this.getStreet1().equals(other.getStreet1()))
             && (this.getCity() == null ? other.getCity() == null : this.getCity().equals(other.getCity()))
             && (this.getProvince() == null ? other.getProvince() == null : this.getProvince().equals(other.getProvince()))
             && (this.getCountry() == null ? other.getCountry() == null : this.getCountry().equals(other.getCountry()))
             && (this.getPostcode() == null ? other.getPostcode() == null : this.getPostcode().equals(other.getPostcode()))
             && (this.getDistrict() == null ? other.getDistrict() == null : this.getDistrict().equals(other.getDistrict()))
             && (this.getTel() == null ? other.getTel() == null : this.getTel().equals(other.getTel()))
-            && (this.getFax() == null ? other.getFax() == null : this.getFax().equals(other.getFax()))
-            && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
-            && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
-            && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
-            && (this.getStreet1() == null ? other.getStreet1() == null : this.getStreet1().equals(other.getStreet1()));
+            && (this.getFax() == null ? other.getFax() == null : this.getFax().equals(other.getFax()));
     }
 
     @Override
@@ -321,11 +321,15 @@ public class DbTokenconfig implements Serializable {
         result = prime * result + ((getFlag() == null) ? 0 : getFlag().hashCode());
         result = prime * result + ((getOpenflag() == null) ? 0 : getOpenflag().hashCode());
         result = prime * result + ((getCorpid() == null) ? 0 : getCorpid().hashCode());
+        result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
+        result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
+        result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
         result = prime * result + ((getReserve4() == null) ? 0 : getReserve4().hashCode());
         result = prime * result + ((getReserve5() == null) ? 0 : getReserve5().hashCode());
         result = prime * result + ((getReserve6() == null) ? 0 : getReserve6().hashCode());
         result = prime * result + ((getContact() == null) ? 0 : getContact().hashCode());
         result = prime * result + ((getCompan() == null) ? 0 : getCompan().hashCode());
+        result = prime * result + ((getStreet1() == null) ? 0 : getStreet1().hashCode());
         result = prime * result + ((getCity() == null) ? 0 : getCity().hashCode());
         result = prime * result + ((getProvince() == null) ? 0 : getProvince().hashCode());
         result = prime * result + ((getCountry() == null) ? 0 : getCountry().hashCode());
@@ -333,10 +337,6 @@ public class DbTokenconfig implements Serializable {
         result = prime * result + ((getDistrict() == null) ? 0 : getDistrict().hashCode());
         result = prime * result + ((getTel() == null) ? 0 : getTel().hashCode());
         result = prime * result + ((getFax() == null) ? 0 : getFax().hashCode());
-        result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
-        result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
-        result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
-        result = prime * result + ((getStreet1() == null) ? 0 : getStreet1().hashCode());
         return result;
     }
 
@@ -356,11 +356,15 @@ public class DbTokenconfig implements Serializable {
         sb.append(", flag=").append(flag);
         sb.append(", openflag=").append(openflag);
         sb.append(", corpid=").append(corpid);
+        sb.append(", reserve1=").append(reserve1);
+        sb.append(", reserve2=").append(reserve2);
+        sb.append(", reserve3=").append(reserve3);
         sb.append(", reserve4=").append(reserve4);
         sb.append(", reserve5=").append(reserve5);
         sb.append(", reserve6=").append(reserve6);
         sb.append(", contact=").append(contact);
         sb.append(", compan=").append(compan);
+        sb.append(", street1=").append(street1);
         sb.append(", city=").append(city);
         sb.append(", province=").append(province);
         sb.append(", country=").append(country);
@@ -368,10 +372,6 @@ public class DbTokenconfig implements Serializable {
         sb.append(", district=").append(district);
         sb.append(", tel=").append(tel);
         sb.append(", fax=").append(fax);
-        sb.append(", reserve1=").append(reserve1);
-        sb.append(", reserve2=").append(reserve2);
-        sb.append(", reserve3=").append(reserve3);
-        sb.append(", street1=").append(street1);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbExpressconfig;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public interface DbExpressconfigMapper {
-    int deleteByPrimaryKey(Short id);
+    DbExpressconfig selectByCriteria(DbExpressconfig DbExpressconfig);
 
-    int insert(DbExpressconfig record);
+    void deleteByPrimaryKey(String ID);
 
-    int insertSelective(DbExpressconfig record);
+    void deleteByCriteria(DbExpressconfig DbExpressconfig);
+
+    int insertByCriteria(DbExpressconfig DbExpressconfig);
+
+    int updateByCriteria(DbExpressconfig DbExpressconfig);
 
     DbExpressconfig selectByPrimaryKey(Short id);
 
-    int updateByPrimaryKeySelective(DbExpressconfig record);
-
-    List<DbExpressconfig> selectConfigByOrderTYpes(String ordertypes);
+    List<DbExpressconfig> selectAll();
 }

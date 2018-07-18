@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbAlisupplier;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbAlisupplierMapper {
-    int deleteByPrimaryKey(String userid);
+    DbAlisupplier selectByCriteria(DbAlisupplier DbAlisupplier);
 
-    int insert(DbAlisupplier record);
+    void deleteByPrimaryKey(String USERID);
 
-    int insertSelective(DbAlisupplier record);
+    void deleteByCriteria(DbAlisupplier DbAlisupplier);
+
+    int insertByCriteria(DbAlisupplier DbAlisupplier);
+
+    int updateByCriteria(DbAlisupplier DbAlisupplier);
 
     DbAlisupplier selectByPrimaryKey(String userid);
 
-    int updateByPrimaryKeySelective(DbAlisupplier record);
-
-    int updateByPrimaryKeyWithBLOBs(DbAlisupplier record);
-
-    int updateByPrimaryKey(DbAlisupplier record);
+    List<DbAlisupplier> selectAll();
 }

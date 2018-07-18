@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbAutoaddsalenumlog;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbAutoaddsalenumlogMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbAutoaddsalenumlog selectByCriteria(DbAutoaddsalenumlog DbAutoaddsalenumlog);
 
-    int insert(DbAutoaddsalenumlog record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbAutoaddsalenumlog record);
+    void deleteByCriteria(DbAutoaddsalenumlog DbAutoaddsalenumlog);
+
+    int insertByCriteria(DbAutoaddsalenumlog DbAutoaddsalenumlog);
+
+    int updateByCriteria(DbAutoaddsalenumlog DbAutoaddsalenumlog);
 
     DbAutoaddsalenumlog selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbAutoaddsalenumlog record);
-
-    int updateByPrimaryKeyWithBLOBs(DbAutoaddsalenumlog record);
-
-    int updateByPrimaryKey(DbAutoaddsalenumlog record);
+    List<DbAutoaddsalenumlog> selectAll();
 }

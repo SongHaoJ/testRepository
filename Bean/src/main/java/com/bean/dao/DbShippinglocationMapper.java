@@ -1,18 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbShippinglocation;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbShippinglocationMapper {
-    int deleteByPrimaryKey(BigDecimal sid);
+    DbShippinglocation selectByCriteria(DbShippinglocation DbShippinglocation);
 
-    int insert(DbShippinglocation record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbShippinglocation record);
+    void deleteByCriteria(DbShippinglocation DbShippinglocation);
+
+    int insertByCriteria(DbShippinglocation DbShippinglocation);
+
+    int updateByCriteria(DbShippinglocation DbShippinglocation);
 
     DbShippinglocation selectByPrimaryKey(BigDecimal sid);
 
-    int updateByPrimaryKeySelective(DbShippinglocation record);
-
-    int updateByPrimaryKey(DbShippinglocation record);
+    List<DbShippinglocation> selectAll();
 }

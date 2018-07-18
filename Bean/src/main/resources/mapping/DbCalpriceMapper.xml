@@ -18,196 +18,165 @@
     <result column="PLATFROMNAME" jdbcType="VARCHAR" property="platfromname" />
     <result column="EXPRESSTYPE" jdbcType="VARCHAR" property="expresstype" />
   </resultMap>
-  <sql id="Base_Column_List">
-    SEQUENCEID, PRODUCTID, PRICE, TOCOUNTRY, CREATETIME, CORPID, OPENFLAG, PRICERMB, 
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SEQUENCEID, PRODUCTID, PRICE, TOCOUNTRY, CREATETIME, CORPID, OPENFLAG, PRICERMB, 
     MONERYRATE, CALCULATEALLID, CALCULATEALL, PLATFROMID, EXPRESSTYPEID, PLATFROMNAME, 
     EXPRESSTYPE
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from db_calprice
+    from DB_CALPRICE
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_calprice
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, PRODUCTID, PRICE, TOCOUNTRY, CREATETIME, CORPID, OPENFLAG, PRICERMB, 
+    MONERYRATE, CALCULATEALLID, CALCULATEALL, PLATFROMID, EXPRESSTYPEID, PLATFROMNAME, 
+    EXPRESSTYPE
+    from DB_CALPRICE
+  </select>
+  <sql id="TableName">
+    DB_CALPRICE
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=VARCHAR} , 
+     #{productid,jdbcType=VARCHAR} , 
+     #{price,jdbcType=DECIMAL} , 
+     #{tocountry,jdbcType=VARCHAR} , 
+     #{createtime,jdbcType=TIMESTAMP} , 
+     #{corpid,jdbcType=DECIMAL} , 
+     #{openflag,jdbcType=DECIMAL} , 
+     #{pricermb,jdbcType=DECIMAL} , 
+     #{moneryrate,jdbcType=VARCHAR} , 
+     #{calculateallid,jdbcType=VARCHAR} , 
+     #{calculateall,jdbcType=VARCHAR} , 
+     #{platfromid,jdbcType=DECIMAL} , 
+     #{expresstypeid,jdbcType=DECIMAL} , 
+     #{platfromname,jdbcType=VARCHAR} , 
+     #{expresstype,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    PRODUCTID , 
+    PRICE , 
+    TOCOUNTRY , 
+    CREATETIME , 
+    CORPID , 
+    OPENFLAG , 
+    PRICERMB , 
+    MONERYRATE , 
+    CALCULATEALLID , 
+    CALCULATEALL , 
+    PLATFROMID , 
+    EXPRESSTYPEID , 
+    PLATFROMNAME , 
+    EXPRESSTYPE , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="productid != null">
+      productid = #{productid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="price != null">
+      price = #{price,jdbcType=DECIMAL} and 
+    </if>
+    <if test="tocountry != null">
+      tocountry = #{tocountry,jdbcType=VARCHAR} and 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="pricermb != null">
+      pricermb = #{pricermb,jdbcType=DECIMAL} and 
+    </if>
+    <if test="moneryrate != null">
+      moneryrate = #{moneryrate,jdbcType=VARCHAR} and 
+    </if>
+    <if test="calculateallid != null">
+      calculateallid = #{calculateallid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="calculateall != null">
+      calculateall = #{calculateall,jdbcType=VARCHAR} and 
+    </if>
+    <if test="platfromid != null">
+      platfromid = #{platfromid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="expresstypeid != null">
+      expresstypeid = #{expresstypeid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="platfromname != null">
+      platfromname = #{platfromname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="expresstype != null">
+      expresstype = #{expresstype,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="productid != null">
+      productid = #{productid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="price != null">
+      price = #{price,jdbcType=DECIMAL} , 
+    </if>
+    <if test="tocountry != null">
+      tocountry = #{tocountry,jdbcType=VARCHAR} , 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="pricermb != null">
+      pricermb = #{pricermb,jdbcType=DECIMAL} , 
+    </if>
+    <if test="moneryrate != null">
+      moneryrate = #{moneryrate,jdbcType=VARCHAR} , 
+    </if>
+    <if test="calculateallid != null">
+      calculateallid = #{calculateallid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="calculateall != null">
+      calculateall = #{calculateall,jdbcType=VARCHAR} , 
+    </if>
+    <if test="platfromid != null">
+      platfromid = #{platfromid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="expresstypeid != null">
+      expresstypeid = #{expresstypeid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="platfromname != null">
+      platfromname = #{platfromname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="expresstype != null">
+      expresstype = #{expresstype,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbCalprice" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbCalprice">
-    insert into db_calprice (SEQUENCEID, PRODUCTID, PRICE, 
-      TOCOUNTRY, CREATETIME, CORPID, 
-      OPENFLAG, PRICERMB, MONERYRATE, 
-      CALCULATEALLID, CALCULATEALL, PLATFROMID, 
-      EXPRESSTYPEID, PLATFROMNAME, EXPRESSTYPE
-      )
-    values (#{sequenceid,jdbcType=VARCHAR}, #{productid,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, 
-      #{tocountry,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{corpid,jdbcType=DECIMAL}, 
-      #{openflag,jdbcType=DECIMAL}, #{pricermb,jdbcType=DECIMAL}, #{moneryrate,jdbcType=VARCHAR}, 
-      #{calculateallid,jdbcType=VARCHAR}, #{calculateall,jdbcType=VARCHAR}, #{platfromid,jdbcType=DECIMAL}, 
-      #{expresstypeid,jdbcType=DECIMAL}, #{platfromname,jdbcType=VARCHAR}, #{expresstype,jdbcType=VARCHAR}
-      )
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbCalprice">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbCalprice">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbCalprice">
-    insert into db_calprice
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        SEQUENCEID,
-      </if>
-      <if test="productid != null">
-        PRODUCTID,
-      </if>
-      <if test="price != null">
-        PRICE,
-      </if>
-      <if test="tocountry != null">
-        TOCOUNTRY,
-      </if>
-      <if test="createtime != null">
-        CREATETIME,
-      </if>
-      <if test="corpid != null">
-        CORPID,
-      </if>
-      <if test="openflag != null">
-        OPENFLAG,
-      </if>
-      <if test="pricermb != null">
-        PRICERMB,
-      </if>
-      <if test="moneryrate != null">
-        MONERYRATE,
-      </if>
-      <if test="calculateallid != null">
-        CALCULATEALLID,
-      </if>
-      <if test="calculateall != null">
-        CALCULATEALL,
-      </if>
-      <if test="platfromid != null">
-        PLATFROMID,
-      </if>
-      <if test="expresstypeid != null">
-        EXPRESSTYPEID,
-      </if>
-      <if test="platfromname != null">
-        PLATFROMNAME,
-      </if>
-      <if test="expresstype != null">
-        EXPRESSTYPE,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        #{sequenceid,jdbcType=VARCHAR},
-      </if>
-      <if test="productid != null">
-        #{productid,jdbcType=VARCHAR},
-      </if>
-      <if test="price != null">
-        #{price,jdbcType=DECIMAL},
-      </if>
-      <if test="tocountry != null">
-        #{tocountry,jdbcType=VARCHAR},
-      </if>
-      <if test="createtime != null">
-        #{createtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="corpid != null">
-        #{corpid,jdbcType=DECIMAL},
-      </if>
-      <if test="openflag != null">
-        #{openflag,jdbcType=DECIMAL},
-      </if>
-      <if test="pricermb != null">
-        #{pricermb,jdbcType=DECIMAL},
-      </if>
-      <if test="moneryrate != null">
-        #{moneryrate,jdbcType=VARCHAR},
-      </if>
-      <if test="calculateallid != null">
-        #{calculateallid,jdbcType=VARCHAR},
-      </if>
-      <if test="calculateall != null">
-        #{calculateall,jdbcType=VARCHAR},
-      </if>
-      <if test="platfromid != null">
-        #{platfromid,jdbcType=DECIMAL},
-      </if>
-      <if test="expresstypeid != null">
-        #{expresstypeid,jdbcType=DECIMAL},
-      </if>
-      <if test="platfromname != null">
-        #{platfromname,jdbcType=VARCHAR},
-      </if>
-      <if test="expresstype != null">
-        #{expresstype,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbCalprice">
-    update db_calprice
-    <set>
-      <if test="productid != null">
-        PRODUCTID = #{productid,jdbcType=VARCHAR},
-      </if>
-      <if test="price != null">
-        PRICE = #{price,jdbcType=DECIMAL},
-      </if>
-      <if test="tocountry != null">
-        TOCOUNTRY = #{tocountry,jdbcType=VARCHAR},
-      </if>
-      <if test="createtime != null">
-        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="corpid != null">
-        CORPID = #{corpid,jdbcType=DECIMAL},
-      </if>
-      <if test="openflag != null">
-        OPENFLAG = #{openflag,jdbcType=DECIMAL},
-      </if>
-      <if test="pricermb != null">
-        PRICERMB = #{pricermb,jdbcType=DECIMAL},
-      </if>
-      <if test="moneryrate != null">
-        MONERYRATE = #{moneryrate,jdbcType=VARCHAR},
-      </if>
-      <if test="calculateallid != null">
-        CALCULATEALLID = #{calculateallid,jdbcType=VARCHAR},
-      </if>
-      <if test="calculateall != null">
-        CALCULATEALL = #{calculateall,jdbcType=VARCHAR},
-      </if>
-      <if test="platfromid != null">
-        PLATFROMID = #{platfromid,jdbcType=DECIMAL},
-      </if>
-      <if test="expresstypeid != null">
-        EXPRESSTYPEID = #{expresstypeid,jdbcType=DECIMAL},
-      </if>
-      <if test="platfromname != null">
-        PLATFROMNAME = #{platfromname,jdbcType=VARCHAR},
-      </if>
-      <if test="expresstype != null">
-        EXPRESSTYPE = #{expresstype,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbCalprice">
-    update db_calprice
-    set PRODUCTID = #{productid,jdbcType=VARCHAR},
-      PRICE = #{price,jdbcType=DECIMAL},
-      TOCOUNTRY = #{tocountry,jdbcType=VARCHAR},
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
-      CORPID = #{corpid,jdbcType=DECIMAL},
-      OPENFLAG = #{openflag,jdbcType=DECIMAL},
-      PRICERMB = #{pricermb,jdbcType=DECIMAL},
-      MONERYRATE = #{moneryrate,jdbcType=VARCHAR},
-      CALCULATEALLID = #{calculateallid,jdbcType=VARCHAR},
-      CALCULATEALL = #{calculateall,jdbcType=VARCHAR},
-      PLATFROMID = #{platfromid,jdbcType=DECIMAL},
-      EXPRESSTYPEID = #{expresstypeid,jdbcType=DECIMAL},
-      PLATFROMNAME = #{platfromname,jdbcType=VARCHAR},
-      EXPRESSTYPE = #{expresstype,jdbcType=VARCHAR}
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbCalprice">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

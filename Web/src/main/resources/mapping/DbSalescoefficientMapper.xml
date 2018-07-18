@@ -22,16 +22,16 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select SEQUENCEID, RANK, RANGE1, RANGE2, OPER, OPERTIME, OPENFLAG, CORPID, FILED1, 
     FILED2, FILED3, FILED4, FILED5, ALERTNUM, PURCHASENUM, SORT
-    from db_salescoefficient
+    from DB_SALESCOEFFICIENT
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SEQUENCEID, RANK, RANGE1, RANGE2, OPER, OPERTIME, OPENFLAG, CORPID, FILED1, 
     FILED2, FILED3, FILED4, FILED5, ALERTNUM, PURCHASENUM, SORT
-    from db_salescoefficient
+    from DB_SALESCOEFFICIENT
   </select>
   <sql id="TableName">
-    db_salescoefficient
+    DB_SALESCOEFFICIENT
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=VARCHAR} , 
@@ -49,7 +49,7 @@
      #{filed5,jdbcType=DECIMAL} , 
      #{alertnum,jdbcType=DECIMAL} , 
      #{purchasenum,jdbcType=DECIMAL} , 
-     #{sort,jdbcType=DECIMAL}
+     #{sort,jdbcType=DECIMAL} , 
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
@@ -67,109 +67,109 @@
     FILED5 , 
     ALERTNUM , 
     PURCHASENUM , 
-    SORT
+    SORT , 
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
     </if>
     <if test="rank != null">
-      RANK = #{rank,jdbcType=VARCHAR} and 
+      rank = #{rank,jdbcType=VARCHAR} and 
     </if>
     <if test="range1 != null">
-      RANGE1 = #{range1,jdbcType=DECIMAL} and 
+      range1 = #{range1,jdbcType=DECIMAL} and 
     </if>
     <if test="range2 != null">
-      RANGE2 = #{range2,jdbcType=DECIMAL} and 
+      range2 = #{range2,jdbcType=DECIMAL} and 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
+      oper = #{oper,jdbcType=VARCHAR} and 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
+      openflag = #{openflag,jdbcType=VARCHAR} and 
     </if>
     <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} and 
+      corpid = #{corpid,jdbcType=VARCHAR} and 
     </if>
     <if test="filed1 != null">
-      FILED1 = #{filed1,jdbcType=VARCHAR} and 
+      filed1 = #{filed1,jdbcType=VARCHAR} and 
     </if>
     <if test="filed2 != null">
-      FILED2 = #{filed2,jdbcType=VARCHAR} and 
+      filed2 = #{filed2,jdbcType=VARCHAR} and 
     </if>
     <if test="filed3 != null">
-      FILED3 = #{filed3,jdbcType=DECIMAL} and 
+      filed3 = #{filed3,jdbcType=DECIMAL} and 
     </if>
     <if test="filed4 != null">
-      FILED4 = #{filed4,jdbcType=DECIMAL} and 
+      filed4 = #{filed4,jdbcType=DECIMAL} and 
     </if>
     <if test="filed5 != null">
-      FILED5 = #{filed5,jdbcType=DECIMAL} and 
+      filed5 = #{filed5,jdbcType=DECIMAL} and 
     </if>
     <if test="alertnum != null">
-      ALERTNUM = #{alertnum,jdbcType=DECIMAL} and 
+      alertnum = #{alertnum,jdbcType=DECIMAL} and 
     </if>
     <if test="purchasenum != null">
-      PURCHASENUM = #{purchasenum,jdbcType=DECIMAL} and 
+      purchasenum = #{purchasenum,jdbcType=DECIMAL} and 
     </if>
     <if test="sort != null">
-      SORT = #{sort,jdbcType=DECIMAL}
+      sort = #{sort,jdbcType=DECIMAL} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
     </if>
     <if test="rank != null">
-      RANK = #{rank,jdbcType=VARCHAR} , 
+      rank = #{rank,jdbcType=VARCHAR} , 
     </if>
     <if test="range1 != null">
-      RANGE1 = #{range1,jdbcType=DECIMAL} , 
+      range1 = #{range1,jdbcType=DECIMAL} , 
     </if>
     <if test="range2 != null">
-      RANGE2 = #{range2,jdbcType=DECIMAL} , 
+      range2 = #{range2,jdbcType=DECIMAL} , 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
+      oper = #{oper,jdbcType=VARCHAR} , 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
+      openflag = #{openflag,jdbcType=VARCHAR} , 
     </if>
     <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} , 
+      corpid = #{corpid,jdbcType=VARCHAR} , 
     </if>
     <if test="filed1 != null">
-      FILED1 = #{filed1,jdbcType=VARCHAR} , 
+      filed1 = #{filed1,jdbcType=VARCHAR} , 
     </if>
     <if test="filed2 != null">
-      FILED2 = #{filed2,jdbcType=VARCHAR} , 
+      filed2 = #{filed2,jdbcType=VARCHAR} , 
     </if>
     <if test="filed3 != null">
-      FILED3 = #{filed3,jdbcType=DECIMAL} , 
+      filed3 = #{filed3,jdbcType=DECIMAL} , 
     </if>
     <if test="filed4 != null">
-      FILED4 = #{filed4,jdbcType=DECIMAL} , 
+      filed4 = #{filed4,jdbcType=DECIMAL} , 
     </if>
     <if test="filed5 != null">
-      FILED5 = #{filed5,jdbcType=DECIMAL} , 
+      filed5 = #{filed5,jdbcType=DECIMAL} , 
     </if>
     <if test="alertnum != null">
-      ALERTNUM = #{alertnum,jdbcType=DECIMAL} , 
+      alertnum = #{alertnum,jdbcType=DECIMAL} , 
     </if>
     <if test="purchasenum != null">
-      PURCHASENUM = #{purchasenum,jdbcType=DECIMAL} , 
+      purchasenum = #{purchasenum,jdbcType=DECIMAL} , 
     </if>
     <if test="sort != null">
-      SORT = #{sort,jdbcType=DECIMAL}
+      sort = #{sort,jdbcType=DECIMAL} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbSalescoefficient" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

@@ -5,108 +5,108 @@
     <id column="SEQUENCEID" jdbcType="DECIMAL" property="sequenceid" />
     <result column="GROUPID" jdbcType="VARCHAR" property="groupid" />
     <result column="CUSTOMERID" jdbcType="VARCHAR" property="customerid" />
+    <result column="CONTENT" jdbcType="VARCHAR" property="content" />
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
     <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
     <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
     <result column="UPDATEFLAG" jdbcType="DECIMAL" property="updateflag" />
-    <result column="CONTENT" jdbcType="LONGVARCHAR" property="content" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
-    select SEQUENCEID, GROUPID, CUSTOMERID, OPER, OPERTIME, CORPID, OPENFLAG, UPDATEFLAG, 
-    CONTENT
-    from db_expstore
+    select SEQUENCEID, GROUPID, CUSTOMERID, CONTENT, OPER, OPERTIME, CORPID, OPENFLAG, 
+    UPDATEFLAG
+    from DB_EXPSTORE
     where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select SEQUENCEID, GROUPID, CUSTOMERID, OPER, OPERTIME, CORPID, OPENFLAG, UPDATEFLAG, 
-    CONTENT
-    from db_expstore
+    select SEQUENCEID, GROUPID, CUSTOMERID, CONTENT, OPER, OPERTIME, CORPID, OPENFLAG, 
+    UPDATEFLAG
+    from DB_EXPSTORE
   </select>
   <sql id="TableName">
-    db_expstore
+    DB_EXPSTORE
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=DECIMAL} , 
      #{groupid,jdbcType=VARCHAR} , 
      #{customerid,jdbcType=VARCHAR} , 
+     #{content,jdbcType=VARCHAR} , 
      #{oper,jdbcType=VARCHAR} , 
      #{opertime,jdbcType=TIMESTAMP} , 
      #{corpid,jdbcType=VARCHAR} , 
      #{openflag,jdbcType=VARCHAR} , 
      #{updateflag,jdbcType=DECIMAL} , 
-     #{content,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
     GROUPID , 
     CUSTOMERID , 
+    CONTENT , 
     OPER , 
     OPERTIME , 
     CORPID , 
     OPENFLAG , 
     UPDATEFLAG , 
-    CONTENT
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} and 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} and 
     </if>
     <if test="groupid != null">
-      GROUPID = #{groupid,jdbcType=VARCHAR} and 
+      groupid = #{groupid,jdbcType=VARCHAR} and 
     </if>
     <if test="customerid != null">
-      CUSTOMERID = #{customerid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="updateflag != null">
-      UPDATEFLAG = #{updateflag,jdbcType=DECIMAL} and 
+      customerid = #{customerid,jdbcType=VARCHAR} and 
     </if>
     <if test="content != null">
-      CONTENT = #{content,jdbcType=LONGVARCHAR}
+      content = #{content,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="updateflag != null">
+      updateflag = #{updateflag,jdbcType=DECIMAL} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} , 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} , 
     </if>
     <if test="groupid != null">
-      GROUPID = #{groupid,jdbcType=VARCHAR} , 
+      groupid = #{groupid,jdbcType=VARCHAR} , 
     </if>
     <if test="customerid != null">
-      CUSTOMERID = #{customerid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="updateflag != null">
-      UPDATEFLAG = #{updateflag,jdbcType=DECIMAL} , 
+      customerid = #{customerid,jdbcType=VARCHAR} , 
     </if>
     <if test="content != null">
-      CONTENT = #{content,jdbcType=LONGVARCHAR}
+      content = #{content,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="updateflag != null">
+      updateflag = #{updateflag,jdbcType=DECIMAL} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbExpstore" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

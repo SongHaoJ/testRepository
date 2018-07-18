@@ -23,9 +23,17 @@ public class DbDhluser implements Serializable {
 
     private String federaltaxid;
 
+    private String addressline;
+
     private BigDecimal operflag;
 
+    private String postalcode;
+
     private Date opertime;
+
+    private String shipperaccountnumber;
+
+    private String city;
 
     private String countryname;
 
@@ -34,14 +42,6 @@ public class DbDhluser implements Serializable {
     private String password;
 
     private String dutypaymenttype;
-
-    private String addressline;
-
-    private String postalcode;
-
-    private String shipperaccountnumber;
-
-    private String city;
 
     private static final long serialVersionUID = 1L;
 
@@ -117,6 +117,14 @@ public class DbDhluser implements Serializable {
         this.federaltaxid = federaltaxid == null ? null : federaltaxid.trim();
     }
 
+    public String getAddressline() {
+        return addressline;
+    }
+
+    public void setAddressline(String addressline) {
+        this.addressline = addressline == null ? null : addressline.trim();
+    }
+
     public BigDecimal getOperflag() {
         return operflag;
     }
@@ -125,12 +133,36 @@ public class DbDhluser implements Serializable {
         this.operflag = operflag;
     }
 
+    public String getPostalcode() {
+        return postalcode;
+    }
+
+    public void setPostalcode(String postalcode) {
+        this.postalcode = postalcode == null ? null : postalcode.trim();
+    }
+
     public Date getOpertime() {
         return opertime;
     }
 
     public void setOpertime(Date opertime) {
         this.opertime = opertime;
+    }
+
+    public String getShipperaccountnumber() {
+        return shipperaccountnumber;
+    }
+
+    public void setShipperaccountnumber(String shipperaccountnumber) {
+        this.shipperaccountnumber = shipperaccountnumber == null ? null : shipperaccountnumber.trim();
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city == null ? null : city.trim();
     }
 
     public String getCountryname() {
@@ -165,38 +197,6 @@ public class DbDhluser implements Serializable {
         this.dutypaymenttype = dutypaymenttype == null ? null : dutypaymenttype.trim();
     }
 
-    public String getAddressline() {
-        return addressline;
-    }
-
-    public void setAddressline(String addressline) {
-        this.addressline = addressline == null ? null : addressline.trim();
-    }
-
-    public String getPostalcode() {
-        return postalcode;
-    }
-
-    public void setPostalcode(String postalcode) {
-        this.postalcode = postalcode == null ? null : postalcode.trim();
-    }
-
-    public String getShipperaccountnumber() {
-        return shipperaccountnumber;
-    }
-
-    public void setShipperaccountnumber(String shipperaccountnumber) {
-        this.shipperaccountnumber = shipperaccountnumber == null ? null : shipperaccountnumber.trim();
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city == null ? null : city.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -218,16 +218,16 @@ public class DbDhluser implements Serializable {
             && (this.getSiteid() == null ? other.getSiteid() == null : this.getSiteid().equals(other.getSiteid()))
             && (this.getCountrycode() == null ? other.getCountrycode() == null : this.getCountrycode().equals(other.getCountrycode()))
             && (this.getFederaltaxid() == null ? other.getFederaltaxid() == null : this.getFederaltaxid().equals(other.getFederaltaxid()))
+            && (this.getAddressline() == null ? other.getAddressline() == null : this.getAddressline().equals(other.getAddressline()))
             && (this.getOperflag() == null ? other.getOperflag() == null : this.getOperflag().equals(other.getOperflag()))
+            && (this.getPostalcode() == null ? other.getPostalcode() == null : this.getPostalcode().equals(other.getPostalcode()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
+            && (this.getShipperaccountnumber() == null ? other.getShipperaccountnumber() == null : this.getShipperaccountnumber().equals(other.getShipperaccountnumber()))
+            && (this.getCity() == null ? other.getCity() == null : this.getCity().equals(other.getCity()))
             && (this.getCountryname() == null ? other.getCountryname() == null : this.getCountryname().equals(other.getCountryname()))
             && (this.getLanguagecode() == null ? other.getLanguagecode() == null : this.getLanguagecode().equals(other.getLanguagecode()))
             && (this.getPassword() == null ? other.getPassword() == null : this.getPassword().equals(other.getPassword()))
-            && (this.getDutypaymenttype() == null ? other.getDutypaymenttype() == null : this.getDutypaymenttype().equals(other.getDutypaymenttype()))
-            && (this.getAddressline() == null ? other.getAddressline() == null : this.getAddressline().equals(other.getAddressline()))
-            && (this.getPostalcode() == null ? other.getPostalcode() == null : this.getPostalcode().equals(other.getPostalcode()))
-            && (this.getShipperaccountnumber() == null ? other.getShipperaccountnumber() == null : this.getShipperaccountnumber().equals(other.getShipperaccountnumber()))
-            && (this.getCity() == null ? other.getCity() == null : this.getCity().equals(other.getCity()));
+            && (this.getDutypaymenttype() == null ? other.getDutypaymenttype() == null : this.getDutypaymenttype().equals(other.getDutypaymenttype()));
     }
 
     @Override
@@ -243,16 +243,16 @@ public class DbDhluser implements Serializable {
         result = prime * result + ((getSiteid() == null) ? 0 : getSiteid().hashCode());
         result = prime * result + ((getCountrycode() == null) ? 0 : getCountrycode().hashCode());
         result = prime * result + ((getFederaltaxid() == null) ? 0 : getFederaltaxid().hashCode());
+        result = prime * result + ((getAddressline() == null) ? 0 : getAddressline().hashCode());
         result = prime * result + ((getOperflag() == null) ? 0 : getOperflag().hashCode());
+        result = prime * result + ((getPostalcode() == null) ? 0 : getPostalcode().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
+        result = prime * result + ((getShipperaccountnumber() == null) ? 0 : getShipperaccountnumber().hashCode());
+        result = prime * result + ((getCity() == null) ? 0 : getCity().hashCode());
         result = prime * result + ((getCountryname() == null) ? 0 : getCountryname().hashCode());
         result = prime * result + ((getLanguagecode() == null) ? 0 : getLanguagecode().hashCode());
         result = prime * result + ((getPassword() == null) ? 0 : getPassword().hashCode());
         result = prime * result + ((getDutypaymenttype() == null) ? 0 : getDutypaymenttype().hashCode());
-        result = prime * result + ((getAddressline() == null) ? 0 : getAddressline().hashCode());
-        result = prime * result + ((getPostalcode() == null) ? 0 : getPostalcode().hashCode());
-        result = prime * result + ((getShipperaccountnumber() == null) ? 0 : getShipperaccountnumber().hashCode());
-        result = prime * result + ((getCity() == null) ? 0 : getCity().hashCode());
         return result;
     }
 
@@ -271,16 +271,16 @@ public class DbDhluser implements Serializable {
         sb.append(", siteid=").append(siteid);
         sb.append(", countrycode=").append(countrycode);
         sb.append(", federaltaxid=").append(federaltaxid);
+        sb.append(", addressline=").append(addressline);
         sb.append(", operflag=").append(operflag);
+        sb.append(", postalcode=").append(postalcode);
         sb.append(", opertime=").append(opertime);
+        sb.append(", shipperaccountnumber=").append(shipperaccountnumber);
+        sb.append(", city=").append(city);
         sb.append(", countryname=").append(countryname);
         sb.append(", languagecode=").append(languagecode);
         sb.append(", password=").append(password);
         sb.append(", dutypaymenttype=").append(dutypaymenttype);
-        sb.append(", addressline=").append(addressline);
-        sb.append(", postalcode=").append(postalcode);
-        sb.append(", shipperaccountnumber=").append(shipperaccountnumber);
-        sb.append(", city=").append(city);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

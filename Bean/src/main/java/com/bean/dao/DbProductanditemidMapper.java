@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbProductanditemid;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbProductanditemidMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbProductanditemid selectByCriteria(DbProductanditemid DbProductanditemid);
 
-    int insert(DbProductanditemid record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbProductanditemid record);
+    void deleteByCriteria(DbProductanditemid DbProductanditemid);
+
+    int insertByCriteria(DbProductanditemid DbProductanditemid);
+
+    int updateByCriteria(DbProductanditemid DbProductanditemid);
 
     DbProductanditemid selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbProductanditemid record);
-
-    int updateByPrimaryKey(DbProductanditemid record);
+    List<DbProductanditemid> selectAll();
 }

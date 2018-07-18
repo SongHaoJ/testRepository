@@ -15,6 +15,8 @@ public class DbProductinfo implements Serializable {
 
     private String categoryid;
 
+    private String producttype;
+
     private BigDecimal weight;
 
     private String attributeid;
@@ -24,8 +26,6 @@ public class DbProductinfo implements Serializable {
     private Date createtime;
 
     private Date modefiedtime;
-
-    private String producttype;
 
     private static final long serialVersionUID = 1L;
 
@@ -69,6 +69,14 @@ public class DbProductinfo implements Serializable {
         this.categoryid = categoryid == null ? null : categoryid.trim();
     }
 
+    public String getProducttype() {
+        return producttype;
+    }
+
+    public void setProducttype(String producttype) {
+        this.producttype = producttype == null ? null : producttype.trim();
+    }
+
     public BigDecimal getWeight() {
         return weight;
     }
@@ -109,14 +117,6 @@ public class DbProductinfo implements Serializable {
         this.modefiedtime = modefiedtime;
     }
 
-    public String getProducttype() {
-        return producttype;
-    }
-
-    public void setProducttype(String producttype) {
-        this.producttype = producttype == null ? null : producttype.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -134,12 +134,12 @@ public class DbProductinfo implements Serializable {
             && (this.getSku() == null ? other.getSku() == null : this.getSku().equals(other.getSku()))
             && (this.getSonsku() == null ? other.getSonsku() == null : this.getSonsku().equals(other.getSonsku()))
             && (this.getCategoryid() == null ? other.getCategoryid() == null : this.getCategoryid().equals(other.getCategoryid()))
+            && (this.getProducttype() == null ? other.getProducttype() == null : this.getProducttype().equals(other.getProducttype()))
             && (this.getWeight() == null ? other.getWeight() == null : this.getWeight().equals(other.getWeight()))
             && (this.getAttributeid() == null ? other.getAttributeid() == null : this.getAttributeid().equals(other.getAttributeid()))
             && (this.getAttributename() == null ? other.getAttributename() == null : this.getAttributename().equals(other.getAttributename()))
             && (this.getCreatetime() == null ? other.getCreatetime() == null : this.getCreatetime().equals(other.getCreatetime()))
-            && (this.getModefiedtime() == null ? other.getModefiedtime() == null : this.getModefiedtime().equals(other.getModefiedtime()))
-            && (this.getProducttype() == null ? other.getProducttype() == null : this.getProducttype().equals(other.getProducttype()));
+            && (this.getModefiedtime() == null ? other.getModefiedtime() == null : this.getModefiedtime().equals(other.getModefiedtime()));
     }
 
     @Override
@@ -151,12 +151,12 @@ public class DbProductinfo implements Serializable {
         result = prime * result + ((getSku() == null) ? 0 : getSku().hashCode());
         result = prime * result + ((getSonsku() == null) ? 0 : getSonsku().hashCode());
         result = prime * result + ((getCategoryid() == null) ? 0 : getCategoryid().hashCode());
+        result = prime * result + ((getProducttype() == null) ? 0 : getProducttype().hashCode());
         result = prime * result + ((getWeight() == null) ? 0 : getWeight().hashCode());
         result = prime * result + ((getAttributeid() == null) ? 0 : getAttributeid().hashCode());
         result = prime * result + ((getAttributename() == null) ? 0 : getAttributename().hashCode());
         result = prime * result + ((getCreatetime() == null) ? 0 : getCreatetime().hashCode());
         result = prime * result + ((getModefiedtime() == null) ? 0 : getModefiedtime().hashCode());
-        result = prime * result + ((getProducttype() == null) ? 0 : getProducttype().hashCode());
         return result;
     }
 
@@ -171,12 +171,12 @@ public class DbProductinfo implements Serializable {
         sb.append(", sku=").append(sku);
         sb.append(", sonsku=").append(sonsku);
         sb.append(", categoryid=").append(categoryid);
+        sb.append(", producttype=").append(producttype);
         sb.append(", weight=").append(weight);
         sb.append(", attributeid=").append(attributeid);
         sb.append(", attributename=").append(attributename);
         sb.append(", createtime=").append(createtime);
         sb.append(", modefiedtime=").append(modefiedtime);
-        sb.append(", producttype=").append(producttype);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

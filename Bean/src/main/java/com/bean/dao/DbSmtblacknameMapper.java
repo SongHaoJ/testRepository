@@ -1,20 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbSmtblackname;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbSmtblacknameMapper {
-    int deleteByPrimaryKey(BigDecimal sid);
+    DbSmtblackname selectByCriteria(DbSmtblackname DbSmtblackname);
 
-    int insert(DbSmtblackname record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbSmtblackname record);
+    void deleteByCriteria(DbSmtblackname DbSmtblackname);
+
+    int insertByCriteria(DbSmtblackname DbSmtblackname);
+
+    int updateByCriteria(DbSmtblackname DbSmtblackname);
 
     DbSmtblackname selectByPrimaryKey(BigDecimal sid);
 
-    int updateByPrimaryKeySelective(DbSmtblackname record);
-
-    int updateByPrimaryKeyWithBLOBs(DbSmtblackname record);
-
-    int updateByPrimaryKey(DbSmtblackname record);
+    List<DbSmtblackname> selectAll();
 }

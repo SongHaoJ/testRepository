@@ -76,10 +76,6 @@ public class StatProductdetilDaily implements Serializable {
 
     private BigDecimal productcostprice;
 
-    private String shoptype;
-
-    private String shoptypeid;
-
     private String reserve1;
 
     private String reserve2;
@@ -89,6 +85,10 @@ public class StatProductdetilDaily implements Serializable {
     private String reserve4;
 
     private String reserve5;
+
+    private String shoptype;
+
+    private String shoptypeid;
 
     private static final long serialVersionUID = 1L;
 
@@ -380,22 +380,6 @@ public class StatProductdetilDaily implements Serializable {
         this.productcostprice = productcostprice;
     }
 
-    public String getShoptype() {
-        return shoptype;
-    }
-
-    public void setShoptype(String shoptype) {
-        this.shoptype = shoptype == null ? null : shoptype.trim();
-    }
-
-    public String getShoptypeid() {
-        return shoptypeid;
-    }
-
-    public void setShoptypeid(String shoptypeid) {
-        this.shoptypeid = shoptypeid == null ? null : shoptypeid.trim();
-    }
-
     public String getReserve1() {
         return reserve1;
     }
@@ -434,6 +418,22 @@ public class StatProductdetilDaily implements Serializable {
 
     public void setReserve5(String reserve5) {
         this.reserve5 = reserve5 == null ? null : reserve5.trim();
+    }
+
+    public String getShoptype() {
+        return shoptype;
+    }
+
+    public void setShoptype(String shoptype) {
+        this.shoptype = shoptype == null ? null : shoptype.trim();
+    }
+
+    public String getShoptypeid() {
+        return shoptypeid;
+    }
+
+    public void setShoptypeid(String shoptypeid) {
+        this.shoptypeid = shoptypeid == null ? null : shoptypeid.trim();
     }
 
     @Override
@@ -484,13 +484,13 @@ public class StatProductdetilDaily implements Serializable {
             && (this.getProductstorage() == null ? other.getProductstorage() == null : this.getProductstorage().equals(other.getProductstorage()))
             && (this.getProductstatus() == null ? other.getProductstatus() == null : this.getProductstatus().equals(other.getProductstatus()))
             && (this.getProductcostprice() == null ? other.getProductcostprice() == null : this.getProductcostprice().equals(other.getProductcostprice()))
-            && (this.getShoptype() == null ? other.getShoptype() == null : this.getShoptype().equals(other.getShoptype()))
-            && (this.getShoptypeid() == null ? other.getShoptypeid() == null : this.getShoptypeid().equals(other.getShoptypeid()))
             && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
             && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
             && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
             && (this.getReserve4() == null ? other.getReserve4() == null : this.getReserve4().equals(other.getReserve4()))
-            && (this.getReserve5() == null ? other.getReserve5() == null : this.getReserve5().equals(other.getReserve5()));
+            && (this.getReserve5() == null ? other.getReserve5() == null : this.getReserve5().equals(other.getReserve5()))
+            && (this.getShoptype() == null ? other.getShoptype() == null : this.getShoptype().equals(other.getShoptype()))
+            && (this.getShoptypeid() == null ? other.getShoptypeid() == null : this.getShoptypeid().equals(other.getShoptypeid()));
     }
 
     @Override
@@ -533,13 +533,13 @@ public class StatProductdetilDaily implements Serializable {
         result = prime * result + ((getProductstorage() == null) ? 0 : getProductstorage().hashCode());
         result = prime * result + ((getProductstatus() == null) ? 0 : getProductstatus().hashCode());
         result = prime * result + ((getProductcostprice() == null) ? 0 : getProductcostprice().hashCode());
-        result = prime * result + ((getShoptype() == null) ? 0 : getShoptype().hashCode());
-        result = prime * result + ((getShoptypeid() == null) ? 0 : getShoptypeid().hashCode());
         result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
         result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
         result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
         result = prime * result + ((getReserve4() == null) ? 0 : getReserve4().hashCode());
         result = prime * result + ((getReserve5() == null) ? 0 : getReserve5().hashCode());
+        result = prime * result + ((getShoptype() == null) ? 0 : getShoptype().hashCode());
+        result = prime * result + ((getShoptypeid() == null) ? 0 : getShoptypeid().hashCode());
         return result;
     }
 
@@ -585,13 +585,13 @@ public class StatProductdetilDaily implements Serializable {
         sb.append(", productstorage=").append(productstorage);
         sb.append(", productstatus=").append(productstatus);
         sb.append(", productcostprice=").append(productcostprice);
-        sb.append(", shoptype=").append(shoptype);
-        sb.append(", shoptypeid=").append(shoptypeid);
         sb.append(", reserve1=").append(reserve1);
         sb.append(", reserve2=").append(reserve2);
         sb.append(", reserve3=").append(reserve3);
         sb.append(", reserve4=").append(reserve4);
         sb.append(", reserve5=").append(reserve5);
+        sb.append(", shoptype=").append(shoptype);
+        sb.append(", shoptypeid=").append(shoptypeid);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

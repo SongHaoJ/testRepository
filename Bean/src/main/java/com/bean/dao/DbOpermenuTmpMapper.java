@@ -2,8 +2,8 @@ package com.bean.dao;
 
 import com.bean.model.DbOpermenuTmp;
 
-public interface DbOpermenuTmpMapper {
-    int insert(DbOpermenuTmp record);
+import java.util.List;
 
-    int insertSelective(DbOpermenuTmp record);
+public interface DbOpermenuTmpMapper {
+    List<DbOpermenuTmp> selectAll();
 }

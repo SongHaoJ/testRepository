@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbMoneyratelog;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbMoneyratelogMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbMoneyratelog selectByCriteria(DbMoneyratelog DbMoneyratelog);
 
-    int insert(DbMoneyratelog record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbMoneyratelog record);
+    void deleteByCriteria(DbMoneyratelog DbMoneyratelog);
+
+    int insertByCriteria(DbMoneyratelog DbMoneyratelog);
+
+    int updateByCriteria(DbMoneyratelog DbMoneyratelog);
 
     DbMoneyratelog selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbMoneyratelog record);
-
-    int updateByPrimaryKeyWithBLOBs(DbMoneyratelog record);
-
-    int updateByPrimaryKey(DbMoneyratelog record);
+    List<DbMoneyratelog> selectAll();
 }

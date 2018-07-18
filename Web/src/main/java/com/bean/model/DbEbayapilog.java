@@ -11,6 +11,8 @@ public class DbEbayapilog implements Serializable {
 
     private String name;
 
+    private String descr;
+
     private String oper;
 
     private Date opertime;
@@ -43,8 +45,6 @@ public class DbEbayapilog implements Serializable {
 
     private String daytype;
 
-    private String descr;
-
     private static final long serialVersionUID = 1L;
 
     public String getSequenceid() {
@@ -69,6 +69,14 @@ public class DbEbayapilog implements Serializable {
 
     public void setName(String name) {
         this.name = name == null ? null : name.trim();
+    }
+
+    public String getDescr() {
+        return descr;
+    }
+
+    public void setDescr(String descr) {
+        this.descr = descr == null ? null : descr.trim();
     }
 
     public String getOper() {
@@ -199,14 +207,6 @@ public class DbEbayapilog implements Serializable {
         this.daytype = daytype == null ? null : daytype.trim();
     }
 
-    public String getDescr() {
-        return descr;
-    }
-
-    public void setDescr(String descr) {
-        this.descr = descr == null ? null : descr.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -222,6 +222,7 @@ public class DbEbayapilog implements Serializable {
         return (this.getSequenceid() == null ? other.getSequenceid() == null : this.getSequenceid().equals(other.getSequenceid()))
             && (this.getSid() == null ? other.getSid() == null : this.getSid().equals(other.getSid()))
             && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
+            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
             && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()))
@@ -237,8 +238,7 @@ public class DbEbayapilog implements Serializable {
             && (this.getReserve4() == null ? other.getReserve4() == null : this.getReserve4().equals(other.getReserve4()))
             && (this.getDaydiff() == null ? other.getDaydiff() == null : this.getDaydiff().equals(other.getDaydiff()))
             && (this.getApiflag() == null ? other.getApiflag() == null : this.getApiflag().equals(other.getApiflag()))
-            && (this.getDaytype() == null ? other.getDaytype() == null : this.getDaytype().equals(other.getDaytype()))
-            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()));
+            && (this.getDaytype() == null ? other.getDaytype() == null : this.getDaytype().equals(other.getDaytype()));
     }
 
     @Override
@@ -248,6 +248,7 @@ public class DbEbayapilog implements Serializable {
         result = prime * result + ((getSequenceid() == null) ? 0 : getSequenceid().hashCode());
         result = prime * result + ((getSid() == null) ? 0 : getSid().hashCode());
         result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
+        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getCorpid() == null) ? 0 : getCorpid().hashCode());
@@ -264,7 +265,6 @@ public class DbEbayapilog implements Serializable {
         result = prime * result + ((getDaydiff() == null) ? 0 : getDaydiff().hashCode());
         result = prime * result + ((getApiflag() == null) ? 0 : getApiflag().hashCode());
         result = prime * result + ((getDaytype() == null) ? 0 : getDaytype().hashCode());
-        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
         return result;
     }
 
@@ -277,6 +277,7 @@ public class DbEbayapilog implements Serializable {
         sb.append(", sequenceid=").append(sequenceid);
         sb.append(", sid=").append(sid);
         sb.append(", name=").append(name);
+        sb.append(", descr=").append(descr);
         sb.append(", oper=").append(oper);
         sb.append(", opertime=").append(opertime);
         sb.append(", corpid=").append(corpid);
@@ -293,7 +294,6 @@ public class DbEbayapilog implements Serializable {
         sb.append(", daydiff=").append(daydiff);
         sb.append(", apiflag=").append(apiflag);
         sb.append(", daytype=").append(daytype);
-        sb.append(", descr=").append(descr);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

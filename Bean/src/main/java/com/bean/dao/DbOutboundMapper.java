@@ -1,20 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbOutbound;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbOutboundMapper {
-    int deleteByPrimaryKey(BigDecimal sequenceid);
+    DbOutbound selectByCriteria(DbOutbound DbOutbound);
 
-    int insert(DbOutbound record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbOutbound record);
+    void deleteByCriteria(DbOutbound DbOutbound);
+
+    int insertByCriteria(DbOutbound DbOutbound);
+
+    int updateByCriteria(DbOutbound DbOutbound);
 
     DbOutbound selectByPrimaryKey(BigDecimal sequenceid);
 
-    int updateByPrimaryKeySelective(DbOutbound record);
-
-    int updateByPrimaryKeyWithBLOBs(DbOutbound record);
-
-    int updateByPrimaryKey(DbOutbound record);
+    List<DbOutbound> selectAll();
 }

@@ -17,17 +17,21 @@
     <result column="STOCKTIME" jdbcType="TIMESTAMP" property="stocktime" />
     <result column="SLEVEL" jdbcType="VARCHAR" property="slevel" />
     <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="DESCR" jdbcType="VARCHAR" property="descr" />
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
     <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
     <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
     <result column="RESERVE4" jdbcType="VARCHAR" property="reserve4" />
     <result column="RESERVE5" jdbcType="VARCHAR" property="reserve5" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
     <result column="SAVENUM" jdbcType="DECIMAL" property="savenum" />
     <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
     <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
     <result column="MANUFACTUREID" jdbcType="VARCHAR" property="manufactureid" />
     <result column="GROUPID" jdbcType="VARCHAR" property="groupid" />
+    <result column="REMARKS" jdbcType="VARCHAR" property="remarks" />
     <result column="RECEIVENUM" jdbcType="DECIMAL" property="receivenum" />
     <result column="RETURNNUM" jdbcType="DECIMAL" property="returnnum" />
     <result column="PAYFLAG" jdbcType="VARCHAR" property="payflag" />
@@ -48,8 +52,13 @@
     <result column="RESERVE8" jdbcType="DECIMAL" property="reserve8" />
     <result column="RESERVE9" jdbcType="DECIMAL" property="reserve9" />
     <result column="RESERVE10" jdbcType="VARCHAR" property="reserve10" />
+    <result column="RESERVE11" jdbcType="VARCHAR" property="reserve11" />
+    <result column="RESERVE12" jdbcType="VARCHAR" property="reserve12" />
+    <result column="RESERVE13" jdbcType="VARCHAR" property="reserve13" />
     <result column="RESERVE14" jdbcType="DECIMAL" property="reserve14" />
+    <result column="PRODUCTNAME" jdbcType="VARCHAR" property="productname" />
     <result column="PURCHASEINDEXID" jdbcType="DECIMAL" property="purchaseindexid" />
+    <result column="RESERVE15" jdbcType="VARCHAR" property="reserve15" />
     <result column="UNITEFLAG" jdbcType="VARCHAR" property="uniteflag" />
     <result column="PURCHASEFLAG" jdbcType="DECIMAL" property="purchaseflag" />
     <result column="SENDTIME" jdbcType="TIMESTAMP" property="sendtime" />
@@ -58,41 +67,34 @@
     <result column="PAYMENTID" jdbcType="DECIMAL" property="paymentid" />
     <result column="RECEIVEOPER" jdbcType="VARCHAR" property="receiveoper" />
     <result column="RECEIVETIME" jdbcType="TIMESTAMP" property="receivetime" />
-    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
-    <result column="RESERVE3" jdbcType="LONGVARCHAR" property="reserve3" />
-    <result column="NAME" jdbcType="LONGVARCHAR" property="name" />
-    <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
-    <result column="RESERVE11" jdbcType="LONGVARCHAR" property="reserve11" />
-    <result column="RESERVE12" jdbcType="LONGVARCHAR" property="reserve12" />
-    <result column="RESERVE13" jdbcType="LONGVARCHAR" property="reserve13" />
-    <result column="PRODUCTNAME" jdbcType="LONGVARCHAR" property="productname" />
-    <result column="RESERVE15" jdbcType="LONGVARCHAR" property="reserve15" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select SEQUENCEID, SID, PRODUCTID, MANUFACTURE, ORDERNUM, INPORTPRICE, AMOUNT, INPORTTIME, 
-    ACTUALNUM, ACTUALPRICE, ACTUALAMOUNT, STOCKOPER, STOCKTIME, SLEVEL, STATUS, OPER, 
-    OPERTIME, RESERVE1, RESERVE2, RESERVE4, RESERVE5, SAVENUM, CORPID, OPENFLAG, MANUFACTUREID, 
-    GROUPID, RECEIVENUM, RETURNNUM, PAYFLAG, DISCOUNT1, DISCOUNT2, DISCOUNT3, DISCOUNT4, 
-    HAVEPAYED, NOTPAYED, PAYMENTTYPE, SEVENNUM, THREENUM, NINENUM, CREATOPER, CREATDATE, 
-    RESERVE6, RESERVE7, RESERVE8, RESERVE9, RESERVE10, RESERVE14, PURCHASEINDEXID, UNITEFLAG, 
-    PURCHASEFLAG, SENDTIME, SHIPNUM, GIFTNUM, PAYMENTID, RECEIVEOPER, RECEIVETIME, DESCR, 
-    RESERVE3, NAME, REMARKS, RESERVE11, RESERVE12, RESERVE13, PRODUCTNAME, RESERVE15
-    from db_purchase
+    ACTUALNUM, ACTUALPRICE, ACTUALAMOUNT, STOCKOPER, STOCKTIME, SLEVEL, STATUS, DESCR, 
+    OPER, OPERTIME, RESERVE1, RESERVE2, RESERVE3, RESERVE4, RESERVE5, NAME, SAVENUM, 
+    CORPID, OPENFLAG, MANUFACTUREID, GROUPID, REMARKS, RECEIVENUM, RETURNNUM, PAYFLAG, 
+    DISCOUNT1, DISCOUNT2, DISCOUNT3, DISCOUNT4, HAVEPAYED, NOTPAYED, PAYMENTTYPE, SEVENNUM, 
+    THREENUM, NINENUM, CREATOPER, CREATDATE, RESERVE6, RESERVE7, RESERVE8, RESERVE9, 
+    RESERVE10, RESERVE11, RESERVE12, RESERVE13, RESERVE14, PRODUCTNAME, PURCHASEINDEXID, 
+    RESERVE15, UNITEFLAG, PURCHASEFLAG, SENDTIME, SHIPNUM, GIFTNUM, PAYMENTID, RECEIVEOPER, 
+    RECEIVETIME
+    from DB_PURCHASE
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SEQUENCEID, SID, PRODUCTID, MANUFACTURE, ORDERNUM, INPORTPRICE, AMOUNT, INPORTTIME, 
-    ACTUALNUM, ACTUALPRICE, ACTUALAMOUNT, STOCKOPER, STOCKTIME, SLEVEL, STATUS, OPER, 
-    OPERTIME, RESERVE1, RESERVE2, RESERVE4, RESERVE5, SAVENUM, CORPID, OPENFLAG, MANUFACTUREID, 
-    GROUPID, RECEIVENUM, RETURNNUM, PAYFLAG, DISCOUNT1, DISCOUNT2, DISCOUNT3, DISCOUNT4, 
-    HAVEPAYED, NOTPAYED, PAYMENTTYPE, SEVENNUM, THREENUM, NINENUM, CREATOPER, CREATDATE, 
-    RESERVE6, RESERVE7, RESERVE8, RESERVE9, RESERVE10, RESERVE14, PURCHASEINDEXID, UNITEFLAG, 
-    PURCHASEFLAG, SENDTIME, SHIPNUM, GIFTNUM, PAYMENTID, RECEIVEOPER, RECEIVETIME, DESCR, 
-    RESERVE3, NAME, REMARKS, RESERVE11, RESERVE12, RESERVE13, PRODUCTNAME, RESERVE15
-    from db_purchase
+    ACTUALNUM, ACTUALPRICE, ACTUALAMOUNT, STOCKOPER, STOCKTIME, SLEVEL, STATUS, DESCR, 
+    OPER, OPERTIME, RESERVE1, RESERVE2, RESERVE3, RESERVE4, RESERVE5, NAME, SAVENUM, 
+    CORPID, OPENFLAG, MANUFACTUREID, GROUPID, REMARKS, RECEIVENUM, RETURNNUM, PAYFLAG, 
+    DISCOUNT1, DISCOUNT2, DISCOUNT3, DISCOUNT4, HAVEPAYED, NOTPAYED, PAYMENTTYPE, SEVENNUM, 
+    THREENUM, NINENUM, CREATOPER, CREATDATE, RESERVE6, RESERVE7, RESERVE8, RESERVE9, 
+    RESERVE10, RESERVE11, RESERVE12, RESERVE13, RESERVE14, PRODUCTNAME, PURCHASEINDEXID, 
+    RESERVE15, UNITEFLAG, PURCHASEFLAG, SENDTIME, SHIPNUM, GIFTNUM, PAYMENTID, RECEIVEOPER, 
+    RECEIVETIME
+    from DB_PURCHASE
   </select>
   <sql id="TableName">
-    db_purchase
+    DB_PURCHASE
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=VARCHAR} , 
@@ -110,17 +112,21 @@
      #{stocktime,jdbcType=TIMESTAMP} , 
      #{slevel,jdbcType=VARCHAR} , 
      #{status,jdbcType=VARCHAR} , 
+     #{descr,jdbcType=VARCHAR} , 
      #{oper,jdbcType=VARCHAR} , 
      #{opertime,jdbcType=TIMESTAMP} , 
      #{reserve1,jdbcType=VARCHAR} , 
      #{reserve2,jdbcType=VARCHAR} , 
+     #{reserve3,jdbcType=VARCHAR} , 
      #{reserve4,jdbcType=VARCHAR} , 
      #{reserve5,jdbcType=VARCHAR} , 
+     #{name,jdbcType=VARCHAR} , 
      #{savenum,jdbcType=DECIMAL} , 
      #{corpid,jdbcType=VARCHAR} , 
      #{openflag,jdbcType=VARCHAR} , 
      #{manufactureid,jdbcType=VARCHAR} , 
      #{groupid,jdbcType=VARCHAR} , 
+     #{remarks,jdbcType=VARCHAR} , 
      #{receivenum,jdbcType=DECIMAL} , 
      #{returnnum,jdbcType=DECIMAL} , 
      #{payflag,jdbcType=VARCHAR} , 
@@ -141,8 +147,13 @@
      #{reserve8,jdbcType=DECIMAL} , 
      #{reserve9,jdbcType=DECIMAL} , 
      #{reserve10,jdbcType=VARCHAR} , 
+     #{reserve11,jdbcType=VARCHAR} , 
+     #{reserve12,jdbcType=VARCHAR} , 
+     #{reserve13,jdbcType=VARCHAR} , 
      #{reserve14,jdbcType=DECIMAL} , 
+     #{productname,jdbcType=VARCHAR} , 
      #{purchaseindexid,jdbcType=DECIMAL} , 
+     #{reserve15,jdbcType=VARCHAR} , 
      #{uniteflag,jdbcType=VARCHAR} , 
      #{purchaseflag,jdbcType=DECIMAL} , 
      #{sendtime,jdbcType=TIMESTAMP} , 
@@ -151,15 +162,6 @@
      #{paymentid,jdbcType=DECIMAL} , 
      #{receiveoper,jdbcType=VARCHAR} , 
      #{receivetime,jdbcType=TIMESTAMP} , 
-     #{descr,jdbcType=LONGVARCHAR} , 
-     #{reserve3,jdbcType=LONGVARCHAR} , 
-     #{name,jdbcType=LONGVARCHAR} , 
-     #{remarks,jdbcType=LONGVARCHAR} , 
-     #{reserve11,jdbcType=LONGVARCHAR} , 
-     #{reserve12,jdbcType=LONGVARCHAR} , 
-     #{reserve13,jdbcType=LONGVARCHAR} , 
-     #{productname,jdbcType=LONGVARCHAR} , 
-     #{reserve15,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
@@ -177,17 +179,21 @@
     STOCKTIME , 
     SLEVEL , 
     STATUS , 
+    DESCR , 
     OPER , 
     OPERTIME , 
     RESERVE1 , 
     RESERVE2 , 
+    RESERVE3 , 
     RESERVE4 , 
     RESERVE5 , 
+    NAME , 
     SAVENUM , 
     CORPID , 
     OPENFLAG , 
     MANUFACTUREID , 
     GROUPID , 
+    REMARKS , 
     RECEIVENUM , 
     RETURNNUM , 
     PAYFLAG , 
@@ -208,8 +214,13 @@
     RESERVE8 , 
     RESERVE9 , 
     RESERVE10 , 
+    RESERVE11 , 
+    RESERVE12 , 
+    RESERVE13 , 
     RESERVE14 , 
+    PRODUCTNAME , 
     PURCHASEINDEXID , 
+    RESERVE15 , 
     UNITEFLAG , 
     PURCHASEFLAG , 
     SENDTIME , 
@@ -218,411 +229,402 @@
     PAYMENTID , 
     RECEIVEOPER , 
     RECEIVETIME , 
-    DESCR , 
-    RESERVE3 , 
-    NAME , 
-    REMARKS , 
-    RESERVE11 , 
-    RESERVE12 , 
-    RESERVE13 , 
-    PRODUCTNAME , 
-    RESERVE15
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
     </if>
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} and 
+      sid = #{sid,jdbcType=VARCHAR} and 
     </if>
     <if test="productid != null">
-      PRODUCTID = #{productid,jdbcType=VARCHAR} and 
+      productid = #{productid,jdbcType=VARCHAR} and 
     </if>
     <if test="manufacture != null">
-      MANUFACTURE = #{manufacture,jdbcType=VARCHAR} and 
+      manufacture = #{manufacture,jdbcType=VARCHAR} and 
     </if>
     <if test="ordernum != null">
-      ORDERNUM = #{ordernum,jdbcType=DECIMAL} and 
+      ordernum = #{ordernum,jdbcType=DECIMAL} and 
     </if>
     <if test="inportprice != null">
-      INPORTPRICE = #{inportprice,jdbcType=DECIMAL} and 
+      inportprice = #{inportprice,jdbcType=DECIMAL} and 
     </if>
     <if test="amount != null">
-      AMOUNT = #{amount,jdbcType=DECIMAL} and 
+      amount = #{amount,jdbcType=DECIMAL} and 
     </if>
     <if test="inporttime != null">
-      INPORTTIME = #{inporttime,jdbcType=TIMESTAMP} and 
+      inporttime = #{inporttime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="actualnum != null">
-      ACTUALNUM = #{actualnum,jdbcType=DECIMAL} and 
+      actualnum = #{actualnum,jdbcType=DECIMAL} and 
     </if>
     <if test="actualprice != null">
-      ACTUALPRICE = #{actualprice,jdbcType=DECIMAL} and 
+      actualprice = #{actualprice,jdbcType=DECIMAL} and 
     </if>
     <if test="actualamount != null">
-      ACTUALAMOUNT = #{actualamount,jdbcType=DECIMAL} and 
+      actualamount = #{actualamount,jdbcType=DECIMAL} and 
     </if>
     <if test="stockoper != null">
-      STOCKOPER = #{stockoper,jdbcType=VARCHAR} and 
+      stockoper = #{stockoper,jdbcType=VARCHAR} and 
     </if>
     <if test="stocktime != null">
-      STOCKTIME = #{stocktime,jdbcType=TIMESTAMP} and 
+      stocktime = #{stocktime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="slevel != null">
-      SLEVEL = #{slevel,jdbcType=VARCHAR} and 
+      slevel = #{slevel,jdbcType=VARCHAR} and 
     </if>
     <if test="status != null">
-      STATUS = #{status,jdbcType=VARCHAR} and 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=VARCHAR} and 
-    </if>
-    <if test="savenum != null">
-      SAVENUM = #{savenum,jdbcType=DECIMAL} and 
-    </if>
-    <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="manufactureid != null">
-      MANUFACTUREID = #{manufactureid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="groupid != null">
-      GROUPID = #{groupid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="receivenum != null">
-      RECEIVENUM = #{receivenum,jdbcType=DECIMAL} and 
-    </if>
-    <if test="returnnum != null">
-      RETURNNUM = #{returnnum,jdbcType=DECIMAL} and 
-    </if>
-    <if test="payflag != null">
-      PAYFLAG = #{payflag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="discount1 != null">
-      DISCOUNT1 = #{discount1,jdbcType=DECIMAL} and 
-    </if>
-    <if test="discount2 != null">
-      DISCOUNT2 = #{discount2,jdbcType=DECIMAL} and 
-    </if>
-    <if test="discount3 != null">
-      DISCOUNT3 = #{discount3,jdbcType=DECIMAL} and 
-    </if>
-    <if test="discount4 != null">
-      DISCOUNT4 = #{discount4,jdbcType=DECIMAL} and 
-    </if>
-    <if test="havepayed != null">
-      HAVEPAYED = #{havepayed,jdbcType=DECIMAL} and 
-    </if>
-    <if test="notpayed != null">
-      NOTPAYED = #{notpayed,jdbcType=DECIMAL} and 
-    </if>
-    <if test="paymenttype != null">
-      PAYMENTTYPE = #{paymenttype,jdbcType=VARCHAR} and 
-    </if>
-    <if test="sevennum != null">
-      SEVENNUM = #{sevennum,jdbcType=DECIMAL} and 
-    </if>
-    <if test="threenum != null">
-      THREENUM = #{threenum,jdbcType=DECIMAL} and 
-    </if>
-    <if test="ninenum != null">
-      NINENUM = #{ninenum,jdbcType=DECIMAL} and 
-    </if>
-    <if test="creatoper != null">
-      CREATOPER = #{creatoper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="creatdate != null">
-      CREATDATE = #{creatdate,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="reserve6 != null">
-      RESERVE6 = #{reserve6,jdbcType=DECIMAL} and 
-    </if>
-    <if test="reserve7 != null">
-      RESERVE7 = #{reserve7,jdbcType=DECIMAL} and 
-    </if>
-    <if test="reserve8 != null">
-      RESERVE8 = #{reserve8,jdbcType=DECIMAL} and 
-    </if>
-    <if test="reserve9 != null">
-      RESERVE9 = #{reserve9,jdbcType=DECIMAL} and 
-    </if>
-    <if test="reserve10 != null">
-      RESERVE10 = #{reserve10,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve14 != null">
-      RESERVE14 = #{reserve14,jdbcType=DECIMAL} and 
-    </if>
-    <if test="purchaseindexid != null">
-      PURCHASEINDEXID = #{purchaseindexid,jdbcType=DECIMAL} and 
-    </if>
-    <if test="uniteflag != null">
-      UNITEFLAG = #{uniteflag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="purchaseflag != null">
-      PURCHASEFLAG = #{purchaseflag,jdbcType=DECIMAL} and 
-    </if>
-    <if test="sendtime != null">
-      SENDTIME = #{sendtime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="shipnum != null">
-      SHIPNUM = #{shipnum,jdbcType=VARCHAR} and 
-    </if>
-    <if test="giftnum != null">
-      GIFTNUM = #{giftnum,jdbcType=DECIMAL} and 
-    </if>
-    <if test="paymentid != null">
-      PAYMENTID = #{paymentid,jdbcType=DECIMAL} and 
-    </if>
-    <if test="receiveoper != null">
-      RECEIVEOPER = #{receiveoper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="receivetime != null">
-      RECEIVETIME = #{receivetime,jdbcType=TIMESTAMP} and 
+      status = #{status,jdbcType=VARCHAR} and 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR} and 
+      descr = #{descr,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR} and 
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=VARCHAR} and 
     </if>
     <if test="name != null">
-      NAME = #{name,jdbcType=LONGVARCHAR} and 
+      name = #{name,jdbcType=VARCHAR} and 
+    </if>
+    <if test="savenum != null">
+      savenum = #{savenum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="manufactureid != null">
+      manufactureid = #{manufactureid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="groupid != null">
+      groupid = #{groupid,jdbcType=VARCHAR} and 
     </if>
     <if test="remarks != null">
-      REMARKS = #{remarks,jdbcType=LONGVARCHAR} and 
+      remarks = #{remarks,jdbcType=VARCHAR} and 
+    </if>
+    <if test="receivenum != null">
+      receivenum = #{receivenum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="returnnum != null">
+      returnnum = #{returnnum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="payflag != null">
+      payflag = #{payflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="discount1 != null">
+      discount1 = #{discount1,jdbcType=DECIMAL} and 
+    </if>
+    <if test="discount2 != null">
+      discount2 = #{discount2,jdbcType=DECIMAL} and 
+    </if>
+    <if test="discount3 != null">
+      discount3 = #{discount3,jdbcType=DECIMAL} and 
+    </if>
+    <if test="discount4 != null">
+      discount4 = #{discount4,jdbcType=DECIMAL} and 
+    </if>
+    <if test="havepayed != null">
+      havepayed = #{havepayed,jdbcType=DECIMAL} and 
+    </if>
+    <if test="notpayed != null">
+      notpayed = #{notpayed,jdbcType=DECIMAL} and 
+    </if>
+    <if test="paymenttype != null">
+      paymenttype = #{paymenttype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sevennum != null">
+      sevennum = #{sevennum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="threenum != null">
+      threenum = #{threenum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="ninenum != null">
+      ninenum = #{ninenum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="creatoper != null">
+      creatoper = #{creatoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="creatdate != null">
+      creatdate = #{creatdate,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="reserve6 != null">
+      reserve6 = #{reserve6,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve7 != null">
+      reserve7 = #{reserve7,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve8 != null">
+      reserve8 = #{reserve8,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve9 != null">
+      reserve9 = #{reserve9,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve10 != null">
+      reserve10 = #{reserve10,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve11 != null">
-      RESERVE11 = #{reserve11,jdbcType=LONGVARCHAR} and 
+      reserve11 = #{reserve11,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve12 != null">
-      RESERVE12 = #{reserve12,jdbcType=LONGVARCHAR} and 
+      reserve12 = #{reserve12,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve13 != null">
-      RESERVE13 = #{reserve13,jdbcType=LONGVARCHAR} and 
+      reserve13 = #{reserve13,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve14 != null">
+      reserve14 = #{reserve14,jdbcType=DECIMAL} and 
     </if>
     <if test="productname != null">
-      PRODUCTNAME = #{productname,jdbcType=LONGVARCHAR} and 
+      productname = #{productname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="purchaseindexid != null">
+      purchaseindexid = #{purchaseindexid,jdbcType=DECIMAL} and 
     </if>
     <if test="reserve15 != null">
-      RESERVE15 = #{reserve15,jdbcType=LONGVARCHAR}
+      reserve15 = #{reserve15,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="uniteflag != null">
+      uniteflag = #{uniteflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="purchaseflag != null">
+      purchaseflag = #{purchaseflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sendtime != null">
+      sendtime = #{sendtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="shipnum != null">
+      shipnum = #{shipnum,jdbcType=VARCHAR} and 
+    </if>
+    <if test="giftnum != null">
+      giftnum = #{giftnum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="paymentid != null">
+      paymentid = #{paymentid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="receiveoper != null">
+      receiveoper = #{receiveoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="receivetime != null">
+      receivetime = #{receivetime,jdbcType=TIMESTAMP} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
     </if>
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} , 
+      sid = #{sid,jdbcType=VARCHAR} , 
     </if>
     <if test="productid != null">
-      PRODUCTID = #{productid,jdbcType=VARCHAR} , 
+      productid = #{productid,jdbcType=VARCHAR} , 
     </if>
     <if test="manufacture != null">
-      MANUFACTURE = #{manufacture,jdbcType=VARCHAR} , 
+      manufacture = #{manufacture,jdbcType=VARCHAR} , 
     </if>
     <if test="ordernum != null">
-      ORDERNUM = #{ordernum,jdbcType=DECIMAL} , 
+      ordernum = #{ordernum,jdbcType=DECIMAL} , 
     </if>
     <if test="inportprice != null">
-      INPORTPRICE = #{inportprice,jdbcType=DECIMAL} , 
+      inportprice = #{inportprice,jdbcType=DECIMAL} , 
     </if>
     <if test="amount != null">
-      AMOUNT = #{amount,jdbcType=DECIMAL} , 
+      amount = #{amount,jdbcType=DECIMAL} , 
     </if>
     <if test="inporttime != null">
-      INPORTTIME = #{inporttime,jdbcType=TIMESTAMP} , 
+      inporttime = #{inporttime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="actualnum != null">
-      ACTUALNUM = #{actualnum,jdbcType=DECIMAL} , 
+      actualnum = #{actualnum,jdbcType=DECIMAL} , 
     </if>
     <if test="actualprice != null">
-      ACTUALPRICE = #{actualprice,jdbcType=DECIMAL} , 
+      actualprice = #{actualprice,jdbcType=DECIMAL} , 
     </if>
     <if test="actualamount != null">
-      ACTUALAMOUNT = #{actualamount,jdbcType=DECIMAL} , 
+      actualamount = #{actualamount,jdbcType=DECIMAL} , 
     </if>
     <if test="stockoper != null">
-      STOCKOPER = #{stockoper,jdbcType=VARCHAR} , 
+      stockoper = #{stockoper,jdbcType=VARCHAR} , 
     </if>
     <if test="stocktime != null">
-      STOCKTIME = #{stocktime,jdbcType=TIMESTAMP} , 
+      stocktime = #{stocktime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="slevel != null">
-      SLEVEL = #{slevel,jdbcType=VARCHAR} , 
+      slevel = #{slevel,jdbcType=VARCHAR} , 
     </if>
     <if test="status != null">
-      STATUS = #{status,jdbcType=VARCHAR} , 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=VARCHAR} , 
-    </if>
-    <if test="savenum != null">
-      SAVENUM = #{savenum,jdbcType=DECIMAL} , 
-    </if>
-    <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="manufactureid != null">
-      MANUFACTUREID = #{manufactureid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="groupid != null">
-      GROUPID = #{groupid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="receivenum != null">
-      RECEIVENUM = #{receivenum,jdbcType=DECIMAL} , 
-    </if>
-    <if test="returnnum != null">
-      RETURNNUM = #{returnnum,jdbcType=DECIMAL} , 
-    </if>
-    <if test="payflag != null">
-      PAYFLAG = #{payflag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="discount1 != null">
-      DISCOUNT1 = #{discount1,jdbcType=DECIMAL} , 
-    </if>
-    <if test="discount2 != null">
-      DISCOUNT2 = #{discount2,jdbcType=DECIMAL} , 
-    </if>
-    <if test="discount3 != null">
-      DISCOUNT3 = #{discount3,jdbcType=DECIMAL} , 
-    </if>
-    <if test="discount4 != null">
-      DISCOUNT4 = #{discount4,jdbcType=DECIMAL} , 
-    </if>
-    <if test="havepayed != null">
-      HAVEPAYED = #{havepayed,jdbcType=DECIMAL} , 
-    </if>
-    <if test="notpayed != null">
-      NOTPAYED = #{notpayed,jdbcType=DECIMAL} , 
-    </if>
-    <if test="paymenttype != null">
-      PAYMENTTYPE = #{paymenttype,jdbcType=VARCHAR} , 
-    </if>
-    <if test="sevennum != null">
-      SEVENNUM = #{sevennum,jdbcType=DECIMAL} , 
-    </if>
-    <if test="threenum != null">
-      THREENUM = #{threenum,jdbcType=DECIMAL} , 
-    </if>
-    <if test="ninenum != null">
-      NINENUM = #{ninenum,jdbcType=DECIMAL} , 
-    </if>
-    <if test="creatoper != null">
-      CREATOPER = #{creatoper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="creatdate != null">
-      CREATDATE = #{creatdate,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="reserve6 != null">
-      RESERVE6 = #{reserve6,jdbcType=DECIMAL} , 
-    </if>
-    <if test="reserve7 != null">
-      RESERVE7 = #{reserve7,jdbcType=DECIMAL} , 
-    </if>
-    <if test="reserve8 != null">
-      RESERVE8 = #{reserve8,jdbcType=DECIMAL} , 
-    </if>
-    <if test="reserve9 != null">
-      RESERVE9 = #{reserve9,jdbcType=DECIMAL} , 
-    </if>
-    <if test="reserve10 != null">
-      RESERVE10 = #{reserve10,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve14 != null">
-      RESERVE14 = #{reserve14,jdbcType=DECIMAL} , 
-    </if>
-    <if test="purchaseindexid != null">
-      PURCHASEINDEXID = #{purchaseindexid,jdbcType=DECIMAL} , 
-    </if>
-    <if test="uniteflag != null">
-      UNITEFLAG = #{uniteflag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="purchaseflag != null">
-      PURCHASEFLAG = #{purchaseflag,jdbcType=DECIMAL} , 
-    </if>
-    <if test="sendtime != null">
-      SENDTIME = #{sendtime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="shipnum != null">
-      SHIPNUM = #{shipnum,jdbcType=VARCHAR} , 
-    </if>
-    <if test="giftnum != null">
-      GIFTNUM = #{giftnum,jdbcType=DECIMAL} , 
-    </if>
-    <if test="paymentid != null">
-      PAYMENTID = #{paymentid,jdbcType=DECIMAL} , 
-    </if>
-    <if test="receiveoper != null">
-      RECEIVEOPER = #{receiveoper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="receivetime != null">
-      RECEIVETIME = #{receivetime,jdbcType=TIMESTAMP} , 
+      status = #{status,jdbcType=VARCHAR} , 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR} , 
+      descr = #{descr,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR} , 
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=VARCHAR} , 
     </if>
     <if test="name != null">
-      NAME = #{name,jdbcType=LONGVARCHAR} , 
+      name = #{name,jdbcType=VARCHAR} , 
+    </if>
+    <if test="savenum != null">
+      savenum = #{savenum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="manufactureid != null">
+      manufactureid = #{manufactureid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="groupid != null">
+      groupid = #{groupid,jdbcType=VARCHAR} , 
     </if>
     <if test="remarks != null">
-      REMARKS = #{remarks,jdbcType=LONGVARCHAR} , 
+      remarks = #{remarks,jdbcType=VARCHAR} , 
+    </if>
+    <if test="receivenum != null">
+      receivenum = #{receivenum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="returnnum != null">
+      returnnum = #{returnnum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="payflag != null">
+      payflag = #{payflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="discount1 != null">
+      discount1 = #{discount1,jdbcType=DECIMAL} , 
+    </if>
+    <if test="discount2 != null">
+      discount2 = #{discount2,jdbcType=DECIMAL} , 
+    </if>
+    <if test="discount3 != null">
+      discount3 = #{discount3,jdbcType=DECIMAL} , 
+    </if>
+    <if test="discount4 != null">
+      discount4 = #{discount4,jdbcType=DECIMAL} , 
+    </if>
+    <if test="havepayed != null">
+      havepayed = #{havepayed,jdbcType=DECIMAL} , 
+    </if>
+    <if test="notpayed != null">
+      notpayed = #{notpayed,jdbcType=DECIMAL} , 
+    </if>
+    <if test="paymenttype != null">
+      paymenttype = #{paymenttype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sevennum != null">
+      sevennum = #{sevennum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="threenum != null">
+      threenum = #{threenum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="ninenum != null">
+      ninenum = #{ninenum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="creatoper != null">
+      creatoper = #{creatoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="creatdate != null">
+      creatdate = #{creatdate,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="reserve6 != null">
+      reserve6 = #{reserve6,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve7 != null">
+      reserve7 = #{reserve7,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve8 != null">
+      reserve8 = #{reserve8,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve9 != null">
+      reserve9 = #{reserve9,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve10 != null">
+      reserve10 = #{reserve10,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve11 != null">
-      RESERVE11 = #{reserve11,jdbcType=LONGVARCHAR} , 
+      reserve11 = #{reserve11,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve12 != null">
-      RESERVE12 = #{reserve12,jdbcType=LONGVARCHAR} , 
+      reserve12 = #{reserve12,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve13 != null">
-      RESERVE13 = #{reserve13,jdbcType=LONGVARCHAR} , 
+      reserve13 = #{reserve13,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve14 != null">
+      reserve14 = #{reserve14,jdbcType=DECIMAL} , 
     </if>
     <if test="productname != null">
-      PRODUCTNAME = #{productname,jdbcType=LONGVARCHAR} , 
+      productname = #{productname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="purchaseindexid != null">
+      purchaseindexid = #{purchaseindexid,jdbcType=DECIMAL} , 
     </if>
     <if test="reserve15 != null">
-      RESERVE15 = #{reserve15,jdbcType=LONGVARCHAR}
+      reserve15 = #{reserve15,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="uniteflag != null">
+      uniteflag = #{uniteflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="purchaseflag != null">
+      purchaseflag = #{purchaseflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sendtime != null">
+      sendtime = #{sendtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="shipnum != null">
+      shipnum = #{shipnum,jdbcType=VARCHAR} , 
+    </if>
+    <if test="giftnum != null">
+      giftnum = #{giftnum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="paymentid != null">
+      paymentid = #{paymentid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="receiveoper != null">
+      receiveoper = #{receiveoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="receivetime != null">
+      receivetime = #{receivetime,jdbcType=TIMESTAMP} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbPurchase" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

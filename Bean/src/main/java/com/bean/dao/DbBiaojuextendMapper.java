@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbBiaojuextend;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbBiaojuextendMapper {
-    int deleteByPrimaryKey(Integer id);
+    DbBiaojuextend selectByCriteria(DbBiaojuextend DbBiaojuextend);
 
-    int insert(DbBiaojuextend record);
+    void deleteByPrimaryKey(String ID);
 
-    int insertSelective(DbBiaojuextend record);
+    void deleteByCriteria(DbBiaojuextend DbBiaojuextend);
+
+    int insertByCriteria(DbBiaojuextend DbBiaojuextend);
+
+    int updateByCriteria(DbBiaojuextend DbBiaojuextend);
 
     DbBiaojuextend selectByPrimaryKey(Integer id);
 
-    int updateByPrimaryKeySelective(DbBiaojuextend record);
-
-    int updateByPrimaryKeyWithBLOBs(DbBiaojuextend record);
-
-    int updateByPrimaryKey(DbBiaojuextend record);
+    List<DbBiaojuextend> selectAll();
 }

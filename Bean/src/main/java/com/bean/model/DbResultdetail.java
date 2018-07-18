@@ -45,6 +45,10 @@ public class DbResultdetail implements Serializable {
 
     private String reserve2;
 
+    private String reserve3;
+
+    private String reserve4;
+
     private BigDecimal reserve5;
 
     private BigDecimal reserve6;
@@ -60,10 +64,6 @@ public class DbResultdetail implements Serializable {
     private Date firstdowntime;
 
     private BigDecimal itemflag;
-
-    private String reserve3;
-
-    private String reserve4;
 
     private static final long serialVersionUID = 1L;
 
@@ -227,6 +227,22 @@ public class DbResultdetail implements Serializable {
         this.reserve2 = reserve2 == null ? null : reserve2.trim();
     }
 
+    public String getReserve3() {
+        return reserve3;
+    }
+
+    public void setReserve3(String reserve3) {
+        this.reserve3 = reserve3 == null ? null : reserve3.trim();
+    }
+
+    public String getReserve4() {
+        return reserve4;
+    }
+
+    public void setReserve4(String reserve4) {
+        this.reserve4 = reserve4 == null ? null : reserve4.trim();
+    }
+
     public BigDecimal getReserve5() {
         return reserve5;
     }
@@ -291,22 +307,6 @@ public class DbResultdetail implements Serializable {
         this.itemflag = itemflag;
     }
 
-    public String getReserve3() {
-        return reserve3;
-    }
-
-    public void setReserve3(String reserve3) {
-        this.reserve3 = reserve3 == null ? null : reserve3.trim();
-    }
-
-    public String getReserve4() {
-        return reserve4;
-    }
-
-    public void setReserve4(String reserve4) {
-        this.reserve4 = reserve4 == null ? null : reserve4.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -339,6 +339,8 @@ public class DbResultdetail implements Serializable {
             && (this.getFlag() == null ? other.getFlag() == null : this.getFlag().equals(other.getFlag()))
             && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
             && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
+            && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
+            && (this.getReserve4() == null ? other.getReserve4() == null : this.getReserve4().equals(other.getReserve4()))
             && (this.getReserve5() == null ? other.getReserve5() == null : this.getReserve5().equals(other.getReserve5()))
             && (this.getReserve6() == null ? other.getReserve6() == null : this.getReserve6().equals(other.getReserve6()))
             && (this.getReserve7() == null ? other.getReserve7() == null : this.getReserve7().equals(other.getReserve7()))
@@ -346,9 +348,7 @@ public class DbResultdetail implements Serializable {
             && (this.getReserve9() == null ? other.getReserve9() == null : this.getReserve9().equals(other.getReserve9()))
             && (this.getReserve10() == null ? other.getReserve10() == null : this.getReserve10().equals(other.getReserve10()))
             && (this.getFirstdowntime() == null ? other.getFirstdowntime() == null : this.getFirstdowntime().equals(other.getFirstdowntime()))
-            && (this.getItemflag() == null ? other.getItemflag() == null : this.getItemflag().equals(other.getItemflag()))
-            && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
-            && (this.getReserve4() == null ? other.getReserve4() == null : this.getReserve4().equals(other.getReserve4()));
+            && (this.getItemflag() == null ? other.getItemflag() == null : this.getItemflag().equals(other.getItemflag()));
     }
 
     @Override
@@ -375,6 +375,8 @@ public class DbResultdetail implements Serializable {
         result = prime * result + ((getFlag() == null) ? 0 : getFlag().hashCode());
         result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
         result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
+        result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
+        result = prime * result + ((getReserve4() == null) ? 0 : getReserve4().hashCode());
         result = prime * result + ((getReserve5() == null) ? 0 : getReserve5().hashCode());
         result = prime * result + ((getReserve6() == null) ? 0 : getReserve6().hashCode());
         result = prime * result + ((getReserve7() == null) ? 0 : getReserve7().hashCode());
@@ -383,8 +385,6 @@ public class DbResultdetail implements Serializable {
         result = prime * result + ((getReserve10() == null) ? 0 : getReserve10().hashCode());
         result = prime * result + ((getFirstdowntime() == null) ? 0 : getFirstdowntime().hashCode());
         result = prime * result + ((getItemflag() == null) ? 0 : getItemflag().hashCode());
-        result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
-        result = prime * result + ((getReserve4() == null) ? 0 : getReserve4().hashCode());
         return result;
     }
 
@@ -414,6 +414,8 @@ public class DbResultdetail implements Serializable {
         sb.append(", flag=").append(flag);
         sb.append(", reserve1=").append(reserve1);
         sb.append(", reserve2=").append(reserve2);
+        sb.append(", reserve3=").append(reserve3);
+        sb.append(", reserve4=").append(reserve4);
         sb.append(", reserve5=").append(reserve5);
         sb.append(", reserve6=").append(reserve6);
         sb.append(", reserve7=").append(reserve7);
@@ -422,8 +424,6 @@ public class DbResultdetail implements Serializable {
         sb.append(", reserve10=").append(reserve10);
         sb.append(", firstdowntime=").append(firstdowntime);
         sb.append(", itemflag=").append(itemflag);
-        sb.append(", reserve3=").append(reserve3);
-        sb.append(", reserve4=").append(reserve4);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

@@ -101,6 +101,8 @@ public class DbShoppingitem implements Serializable {
 
     private Date endtime;
 
+    private String title;
+
     private BigDecimal quantitysold14;
 
     private BigDecimal feedbackrate;
@@ -124,8 +126,6 @@ public class DbShoppingitem implements Serializable {
     private BigDecimal shippingcost;
 
     private String listingstatus;
-
-    private String title;
 
     private static final long serialVersionUID = 1L;
 
@@ -513,6 +513,14 @@ public class DbShoppingitem implements Serializable {
         this.endtime = endtime;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title == null ? null : title.trim();
+    }
+
     public BigDecimal getQuantitysold14() {
         return quantitysold14;
     }
@@ -609,14 +617,6 @@ public class DbShoppingitem implements Serializable {
         this.listingstatus = listingstatus == null ? null : listingstatus.trim();
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title == null ? null : title.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -677,6 +677,7 @@ public class DbShoppingitem implements Serializable {
             && (this.getHitcount1() == null ? other.getHitcount1() == null : this.getHitcount1().equals(other.getHitcount1()))
             && (this.getHitcount56() == null ? other.getHitcount56() == null : this.getHitcount56().equals(other.getHitcount56()))
             && (this.getEndtime() == null ? other.getEndtime() == null : this.getEndtime().equals(other.getEndtime()))
+            && (this.getTitle() == null ? other.getTitle() == null : this.getTitle().equals(other.getTitle()))
             && (this.getQuantitysold14() == null ? other.getQuantitysold14() == null : this.getQuantitysold14().equals(other.getQuantitysold14()))
             && (this.getFeedbackrate() == null ? other.getFeedbackrate() == null : this.getFeedbackrate().equals(other.getFeedbackrate()))
             && (this.getBidcount() == null ? other.getBidcount() == null : this.getBidcount().equals(other.getBidcount()))
@@ -688,8 +689,7 @@ public class DbShoppingitem implements Serializable {
             && (this.getCountry() == null ? other.getCountry() == null : this.getCountry().equals(other.getCountry()))
             && (this.getStoreurl() == null ? other.getStoreurl() == null : this.getStoreurl().equals(other.getStoreurl()))
             && (this.getShippingcost() == null ? other.getShippingcost() == null : this.getShippingcost().equals(other.getShippingcost()))
-            && (this.getListingstatus() == null ? other.getListingstatus() == null : this.getListingstatus().equals(other.getListingstatus()))
-            && (this.getTitle() == null ? other.getTitle() == null : this.getTitle().equals(other.getTitle()));
+            && (this.getListingstatus() == null ? other.getListingstatus() == null : this.getListingstatus().equals(other.getListingstatus()));
     }
 
     @Override
@@ -744,6 +744,7 @@ public class DbShoppingitem implements Serializable {
         result = prime * result + ((getHitcount1() == null) ? 0 : getHitcount1().hashCode());
         result = prime * result + ((getHitcount56() == null) ? 0 : getHitcount56().hashCode());
         result = prime * result + ((getEndtime() == null) ? 0 : getEndtime().hashCode());
+        result = prime * result + ((getTitle() == null) ? 0 : getTitle().hashCode());
         result = prime * result + ((getQuantitysold14() == null) ? 0 : getQuantitysold14().hashCode());
         result = prime * result + ((getFeedbackrate() == null) ? 0 : getFeedbackrate().hashCode());
         result = prime * result + ((getBidcount() == null) ? 0 : getBidcount().hashCode());
@@ -756,7 +757,6 @@ public class DbShoppingitem implements Serializable {
         result = prime * result + ((getStoreurl() == null) ? 0 : getStoreurl().hashCode());
         result = prime * result + ((getShippingcost() == null) ? 0 : getShippingcost().hashCode());
         result = prime * result + ((getListingstatus() == null) ? 0 : getListingstatus().hashCode());
-        result = prime * result + ((getTitle() == null) ? 0 : getTitle().hashCode());
         return result;
     }
 
@@ -814,6 +814,7 @@ public class DbShoppingitem implements Serializable {
         sb.append(", hitcount1=").append(hitcount1);
         sb.append(", hitcount56=").append(hitcount56);
         sb.append(", endtime=").append(endtime);
+        sb.append(", title=").append(title);
         sb.append(", quantitysold14=").append(quantitysold14);
         sb.append(", feedbackrate=").append(feedbackrate);
         sb.append(", bidcount=").append(bidcount);
@@ -826,7 +827,6 @@ public class DbShoppingitem implements Serializable {
         sb.append(", storeurl=").append(storeurl);
         sb.append(", shippingcost=").append(shippingcost);
         sb.append(", listingstatus=").append(listingstatus);
-        sb.append(", title=").append(title);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

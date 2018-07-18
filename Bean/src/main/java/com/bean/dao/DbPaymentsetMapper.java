@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbPaymentset;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbPaymentsetMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbPaymentset selectByCriteria(DbPaymentset DbPaymentset);
 
-    int insert(DbPaymentset record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbPaymentset record);
+    void deleteByCriteria(DbPaymentset DbPaymentset);
+
+    int insertByCriteria(DbPaymentset DbPaymentset);
+
+    int updateByCriteria(DbPaymentset DbPaymentset);
 
     DbPaymentset selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbPaymentset record);
-
-    int updateByPrimaryKey(DbPaymentset record);
+    List<DbPaymentset> selectAll();
 }

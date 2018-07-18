@@ -5,7 +5,7 @@
     <id column="OPER" jdbcType="VARCHAR" property="oper" />
     <result column="NAME" jdbcType="VARCHAR" property="name" />
     <result column="MOBILE" jdbcType="VARCHAR" property="mobile" />
-    <result column="DBCLASS" jdbcType="VARCHAR" property="dbclass" />
+    <result column="CLASS" jdbcType="VARCHAR" property="dbClass" />
     <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
     <result column="LOGINFLAG" jdbcType="DECIMAL" property="loginflag" />
     <result column="LOGINIP" jdbcType="VARCHAR" property="loginip" />
@@ -29,32 +29,32 @@
     <result column="RESERVE4" jdbcType="VARCHAR" property="reserve4" />
     <result column="RESERVE5" jdbcType="VARCHAR" property="reserve5" />
     <result column="OPERID" jdbcType="DECIMAL" property="operid" />
+    <result column="MENUID" jdbcType="VARCHAR" property="menuid" />
     <result column="STORAGE" jdbcType="VARCHAR" property="storage" />
-    <result column="MENUID" jdbcType="LONGVARCHAR" property="menuid" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select OPER, NAME, MOBILE, DBCLASS, PASSWORD, LOGINFLAG, LOGINIP, LOGINTIME, TEAM, 
+    select OPER, NAME, MOBILE, CLASS, PASSWORD, LOGINFLAG, LOGINIP, LOGINTIME, TEAM, 
     GROUPID, AREA, MANAGERAREA, BIRTHDAY, IDENTIFYNUM, SEX, ACTIVEFLAG, LOCKED, TELEPHONE, 
     DEPART, POSITION, SPCODE, RESERVE1, RESERVE2, RESERVE3, RESERVE4, RESERVE5, OPERID, 
-    STORAGE, MENUID
-    from db_sysadmin
+    MENUID, STORAGE
+    from DB_SYSADMIN
     where OPER = #{oper,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select OPER, NAME, MOBILE, DBCLASS, PASSWORD, LOGINFLAG, LOGINIP, LOGINTIME, TEAM, 
+    select OPER, NAME, MOBILE, CLASS, PASSWORD, LOGINFLAG, LOGINIP, LOGINTIME, TEAM, 
     GROUPID, AREA, MANAGERAREA, BIRTHDAY, IDENTIFYNUM, SEX, ACTIVEFLAG, LOCKED, TELEPHONE, 
     DEPART, POSITION, SPCODE, RESERVE1, RESERVE2, RESERVE3, RESERVE4, RESERVE5, OPERID, 
-    STORAGE, MENUID
-    from db_sysadmin
+    MENUID, STORAGE
+    from DB_SYSADMIN
   </select>
   <sql id="TableName">
-    db_sysadmin
+    DB_SYSADMIN
   </sql>
   <sql id="Values">
      #{oper,jdbcType=VARCHAR} , 
      #{name,jdbcType=VARCHAR} , 
      #{mobile,jdbcType=VARCHAR} , 
-     #{dbclass,jdbcType=VARCHAR} , 
+     #{dbClass,jdbcType=VARCHAR} , 
      #{password,jdbcType=VARCHAR} , 
      #{loginflag,jdbcType=DECIMAL} , 
      #{loginip,jdbcType=VARCHAR} , 
@@ -78,14 +78,14 @@
      #{reserve4,jdbcType=VARCHAR} , 
      #{reserve5,jdbcType=VARCHAR} , 
      #{operid,jdbcType=DECIMAL} , 
+     #{menuid,jdbcType=VARCHAR} , 
      #{storage,jdbcType=VARCHAR} , 
-     #{menuid,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     OPER , 
     NAME , 
     MOBILE , 
-    DBCLASS , 
+    CLASS , 
     PASSWORD , 
     LOGINFLAG , 
     LOGINIP , 
@@ -109,188 +109,188 @@
     RESERVE4 , 
     RESERVE5 , 
     OPERID , 
+    MENUID , 
     STORAGE , 
-    MENUID
   </sql>
   <sql id="Criteria">
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
+      oper = #{oper,jdbcType=VARCHAR} and 
     </if>
     <if test="name != null">
-      NAME = #{name,jdbcType=VARCHAR} and 
+      name = #{name,jdbcType=VARCHAR} and 
     </if>
     <if test="mobile != null">
-      MOBILE = #{mobile,jdbcType=VARCHAR} and 
+      mobile = #{mobile,jdbcType=VARCHAR} and 
     </if>
-    <if test="dbclass != null">
-      DBCLASS = #{dbclass,jdbcType=VARCHAR} and 
+    <if test="dbClass != null">
+      class = #{dbClass,jdbcType=VARCHAR} and 
     </if>
     <if test="password != null">
-      PASSWORD = #{password,jdbcType=VARCHAR} and 
+      password = #{password,jdbcType=VARCHAR} and 
     </if>
     <if test="loginflag != null">
-      LOGINFLAG = #{loginflag,jdbcType=DECIMAL} and 
+      loginflag = #{loginflag,jdbcType=DECIMAL} and 
     </if>
     <if test="loginip != null">
-      LOGINIP = #{loginip,jdbcType=VARCHAR} and 
+      loginip = #{loginip,jdbcType=VARCHAR} and 
     </if>
     <if test="logintime != null">
-      LOGINTIME = #{logintime,jdbcType=TIMESTAMP} and 
+      logintime = #{logintime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="team != null">
-      TEAM = #{team,jdbcType=VARCHAR} and 
+      team = #{team,jdbcType=VARCHAR} and 
     </if>
     <if test="groupid != null">
-      GROUPID = #{groupid,jdbcType=VARCHAR} and 
+      groupid = #{groupid,jdbcType=VARCHAR} and 
     </if>
     <if test="area != null">
-      AREA = #{area,jdbcType=VARCHAR} and 
+      area = #{area,jdbcType=VARCHAR} and 
     </if>
     <if test="managerarea != null">
-      MANAGERAREA = #{managerarea,jdbcType=VARCHAR} and 
+      managerarea = #{managerarea,jdbcType=VARCHAR} and 
     </if>
     <if test="birthday != null">
-      BIRTHDAY = #{birthday,jdbcType=VARCHAR} and 
+      birthday = #{birthday,jdbcType=VARCHAR} and 
     </if>
     <if test="identifynum != null">
-      IDENTIFYNUM = #{identifynum,jdbcType=VARCHAR} and 
+      identifynum = #{identifynum,jdbcType=VARCHAR} and 
     </if>
     <if test="sex != null">
-      SEX = #{sex,jdbcType=VARCHAR} and 
+      sex = #{sex,jdbcType=VARCHAR} and 
     </if>
     <if test="activeflag != null">
-      ACTIVEFLAG = #{activeflag,jdbcType=DECIMAL} and 
+      activeflag = #{activeflag,jdbcType=DECIMAL} and 
     </if>
     <if test="locked != null">
-      LOCKED = #{locked,jdbcType=DECIMAL} and 
+      locked = #{locked,jdbcType=DECIMAL} and 
     </if>
     <if test="telephone != null">
-      TELEPHONE = #{telephone,jdbcType=VARCHAR} and 
+      telephone = #{telephone,jdbcType=VARCHAR} and 
     </if>
     <if test="depart != null">
-      DEPART = #{depart,jdbcType=VARCHAR} and 
+      depart = #{depart,jdbcType=VARCHAR} and 
     </if>
     <if test="position != null">
-      POSITION = #{position,jdbcType=VARCHAR} and 
+      position = #{position,jdbcType=VARCHAR} and 
     </if>
     <if test="spcode != null">
-      SPCODE = #{spcode,jdbcType=VARCHAR} and 
+      spcode = #{spcode,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR} and 
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=VARCHAR} and 
+      reserve4 = #{reserve4,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=VARCHAR} and 
+      reserve5 = #{reserve5,jdbcType=VARCHAR} and 
     </if>
     <if test="operid != null">
-      OPERID = #{operid,jdbcType=DECIMAL} and 
-    </if>
-    <if test="storage != null">
-      STORAGE = #{storage,jdbcType=VARCHAR} and 
+      operid = #{operid,jdbcType=DECIMAL} and 
     </if>
     <if test="menuid != null">
-      MENUID = #{menuid,jdbcType=LONGVARCHAR}
+      menuid = #{menuid,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="storage != null">
+      storage = #{storage,jdbcType=VARCHAR} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
+      oper = #{oper,jdbcType=VARCHAR} , 
     </if>
     <if test="name != null">
-      NAME = #{name,jdbcType=VARCHAR} , 
+      name = #{name,jdbcType=VARCHAR} , 
     </if>
     <if test="mobile != null">
-      MOBILE = #{mobile,jdbcType=VARCHAR} , 
+      mobile = #{mobile,jdbcType=VARCHAR} , 
     </if>
-    <if test="dbclass != null">
-      DBCLASS = #{dbclass,jdbcType=VARCHAR} , 
+    <if test="dbClass != null">
+      class = #{dbClass,jdbcType=VARCHAR} , 
     </if>
     <if test="password != null">
-      PASSWORD = #{password,jdbcType=VARCHAR} , 
+      password = #{password,jdbcType=VARCHAR} , 
     </if>
     <if test="loginflag != null">
-      LOGINFLAG = #{loginflag,jdbcType=DECIMAL} , 
+      loginflag = #{loginflag,jdbcType=DECIMAL} , 
     </if>
     <if test="loginip != null">
-      LOGINIP = #{loginip,jdbcType=VARCHAR} , 
+      loginip = #{loginip,jdbcType=VARCHAR} , 
     </if>
     <if test="logintime != null">
-      LOGINTIME = #{logintime,jdbcType=TIMESTAMP} , 
+      logintime = #{logintime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="team != null">
-      TEAM = #{team,jdbcType=VARCHAR} , 
+      team = #{team,jdbcType=VARCHAR} , 
     </if>
     <if test="groupid != null">
-      GROUPID = #{groupid,jdbcType=VARCHAR} , 
+      groupid = #{groupid,jdbcType=VARCHAR} , 
     </if>
     <if test="area != null">
-      AREA = #{area,jdbcType=VARCHAR} , 
+      area = #{area,jdbcType=VARCHAR} , 
     </if>
     <if test="managerarea != null">
-      MANAGERAREA = #{managerarea,jdbcType=VARCHAR} , 
+      managerarea = #{managerarea,jdbcType=VARCHAR} , 
     </if>
     <if test="birthday != null">
-      BIRTHDAY = #{birthday,jdbcType=VARCHAR} , 
+      birthday = #{birthday,jdbcType=VARCHAR} , 
     </if>
     <if test="identifynum != null">
-      IDENTIFYNUM = #{identifynum,jdbcType=VARCHAR} , 
+      identifynum = #{identifynum,jdbcType=VARCHAR} , 
     </if>
     <if test="sex != null">
-      SEX = #{sex,jdbcType=VARCHAR} , 
+      sex = #{sex,jdbcType=VARCHAR} , 
     </if>
     <if test="activeflag != null">
-      ACTIVEFLAG = #{activeflag,jdbcType=DECIMAL} , 
+      activeflag = #{activeflag,jdbcType=DECIMAL} , 
     </if>
     <if test="locked != null">
-      LOCKED = #{locked,jdbcType=DECIMAL} , 
+      locked = #{locked,jdbcType=DECIMAL} , 
     </if>
     <if test="telephone != null">
-      TELEPHONE = #{telephone,jdbcType=VARCHAR} , 
+      telephone = #{telephone,jdbcType=VARCHAR} , 
     </if>
     <if test="depart != null">
-      DEPART = #{depart,jdbcType=VARCHAR} , 
+      depart = #{depart,jdbcType=VARCHAR} , 
     </if>
     <if test="position != null">
-      POSITION = #{position,jdbcType=VARCHAR} , 
+      position = #{position,jdbcType=VARCHAR} , 
     </if>
     <if test="spcode != null">
-      SPCODE = #{spcode,jdbcType=VARCHAR} , 
+      spcode = #{spcode,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR} , 
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=VARCHAR} , 
+      reserve4 = #{reserve4,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=VARCHAR} , 
+      reserve5 = #{reserve5,jdbcType=VARCHAR} , 
     </if>
     <if test="operid != null">
-      OPERID = #{operid,jdbcType=DECIMAL} , 
-    </if>
-    <if test="storage != null">
-      STORAGE = #{storage,jdbcType=VARCHAR} , 
+      operid = #{operid,jdbcType=DECIMAL} , 
     </if>
     <if test="menuid != null">
-      MENUID = #{menuid,jdbcType=LONGVARCHAR}
+      menuid = #{menuid,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="storage != null">
+      storage = #{storage,jdbcType=VARCHAR} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbSysadmin" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

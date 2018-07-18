@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbLocation;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbLocationMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbLocation selectByCriteria(DbLocation DbLocation);
 
-    int insert(DbLocation record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbLocation record);
+    void deleteByCriteria(DbLocation DbLocation);
+
+    int insertByCriteria(DbLocation DbLocation);
+
+    int updateByCriteria(DbLocation DbLocation);
 
     DbLocation selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbLocation record);
-
-    int updateByPrimaryKeyWithBLOBs(DbLocation record);
-
-    int updateByPrimaryKey(DbLocation record);
+    List<DbLocation> selectAll();
 }

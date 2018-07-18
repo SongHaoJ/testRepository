@@ -8,49 +8,49 @@
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select SERVICEID, SERVICENAME, SERVICETYPE
-    from db_qtwmsservicetype
+    from DB_QTWMSSERVICETYPE
     where SERVICEID = #{serviceid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SERVICEID, SERVICENAME, SERVICETYPE
-    from db_qtwmsservicetype
+    from DB_QTWMSSERVICETYPE
   </select>
   <sql id="TableName">
-    db_qtwmsservicetype
+    DB_QTWMSSERVICETYPE
   </sql>
   <sql id="Values">
      #{serviceid,jdbcType=VARCHAR} , 
      #{servicename,jdbcType=VARCHAR} , 
-     #{servicetype,jdbcType=VARCHAR}
+     #{servicetype,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     SERVICEID , 
     SERVICENAME , 
-    SERVICETYPE
+    SERVICETYPE , 
   </sql>
   <sql id="Criteria">
     <if test="serviceid != null">
-      SERVICEID = #{serviceid,jdbcType=VARCHAR} and 
+      serviceid = #{serviceid,jdbcType=VARCHAR} and 
     </if>
     <if test="servicename != null">
-      SERVICENAME = #{servicename,jdbcType=VARCHAR} and 
+      servicename = #{servicename,jdbcType=VARCHAR} and 
     </if>
     <if test="servicetype != null">
-      SERVICETYPE = #{servicetype,jdbcType=VARCHAR}
+      servicetype = #{servicetype,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="serviceid != null">
-      SERVICEID = #{serviceid,jdbcType=VARCHAR} , 
+      serviceid = #{serviceid,jdbcType=VARCHAR} , 
     </if>
     <if test="servicename != null">
-      SERVICENAME = #{servicename,jdbcType=VARCHAR} , 
+      servicename = #{servicename,jdbcType=VARCHAR} , 
     </if>
     <if test="servicetype != null">
-      SERVICETYPE = #{servicetype,jdbcType=VARCHAR}
+      servicetype = #{servicetype,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbQtwmsservicetype" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

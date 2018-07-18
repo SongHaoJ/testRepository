@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbTokenconfig;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbTokenconfigMapper {
-    int deleteByPrimaryKey(String sid);
+    DbTokenconfig selectByCriteria(DbTokenconfig DbTokenconfig);
 
-    int insert(DbTokenconfig record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbTokenconfig record);
+    void deleteByCriteria(DbTokenconfig DbTokenconfig);
+
+    int insertByCriteria(DbTokenconfig DbTokenconfig);
+
+    int updateByCriteria(DbTokenconfig DbTokenconfig);
 
     DbTokenconfig selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbTokenconfig record);
-
-    int updateByPrimaryKeyWithBLOBs(DbTokenconfig record);
-
-    int updateByPrimaryKey(DbTokenconfig record);
+    List<DbTokenconfig> selectAll();
 }

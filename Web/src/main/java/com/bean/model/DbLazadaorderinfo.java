@@ -23,9 +23,19 @@ public class DbLazadaorderinfo implements Serializable {
 
     private String customerid;
 
+    private String customername;
+
+    private String firstname;
+
+    private String lastname;
+
     private String paymentmethod;
 
+    private String remarks;
+
     private String giftoption;
+
+    private String giftmessage;
 
     private Date createddate;
 
@@ -34,6 +44,12 @@ public class DbLazadaorderinfo implements Serializable {
     private String phone1;
 
     private String phone2;
+
+    private String address1;
+
+    private String address2;
+
+    private String address3;
 
     private String city;
 
@@ -92,22 +108,6 @@ public class DbLazadaorderinfo implements Serializable {
     private Integer checkflag;
 
     private String checkdescr;
-
-    private String customername;
-
-    private String firstname;
-
-    private String lastname;
-
-    private String remarks;
-
-    private String giftmessage;
-
-    private String address1;
-
-    private String address2;
-
-    private String address3;
 
     private static final long serialVersionUID = 1L;
 
@@ -183,6 +183,30 @@ public class DbLazadaorderinfo implements Serializable {
         this.customerid = customerid == null ? null : customerid.trim();
     }
 
+    public String getCustomername() {
+        return customername;
+    }
+
+    public void setCustomername(String customername) {
+        this.customername = customername == null ? null : customername.trim();
+    }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname == null ? null : firstname.trim();
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname == null ? null : lastname.trim();
+    }
+
     public String getPaymentmethod() {
         return paymentmethod;
     }
@@ -191,12 +215,28 @@ public class DbLazadaorderinfo implements Serializable {
         this.paymentmethod = paymentmethod == null ? null : paymentmethod.trim();
     }
 
+    public String getRemarks() {
+        return remarks;
+    }
+
+    public void setRemarks(String remarks) {
+        this.remarks = remarks == null ? null : remarks.trim();
+    }
+
     public String getGiftoption() {
         return giftoption;
     }
 
     public void setGiftoption(String giftoption) {
         this.giftoption = giftoption == null ? null : giftoption.trim();
+    }
+
+    public String getGiftmessage() {
+        return giftmessage;
+    }
+
+    public void setGiftmessage(String giftmessage) {
+        this.giftmessage = giftmessage == null ? null : giftmessage.trim();
     }
 
     public Date getCreateddate() {
@@ -229,6 +269,30 @@ public class DbLazadaorderinfo implements Serializable {
 
     public void setPhone2(String phone2) {
         this.phone2 = phone2 == null ? null : phone2.trim();
+    }
+
+    public String getAddress1() {
+        return address1;
+    }
+
+    public void setAddress1(String address1) {
+        this.address1 = address1 == null ? null : address1.trim();
+    }
+
+    public String getAddress2() {
+        return address2;
+    }
+
+    public void setAddress2(String address2) {
+        this.address2 = address2 == null ? null : address2.trim();
+    }
+
+    public String getAddress3() {
+        return address3;
+    }
+
+    public void setAddress3(String address3) {
+        this.address3 = address3 == null ? null : address3.trim();
     }
 
     public String getCity() {
@@ -463,70 +527,6 @@ public class DbLazadaorderinfo implements Serializable {
         this.checkdescr = checkdescr == null ? null : checkdescr.trim();
     }
 
-    public String getCustomername() {
-        return customername;
-    }
-
-    public void setCustomername(String customername) {
-        this.customername = customername == null ? null : customername.trim();
-    }
-
-    public String getFirstname() {
-        return firstname;
-    }
-
-    public void setFirstname(String firstname) {
-        this.firstname = firstname == null ? null : firstname.trim();
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname == null ? null : lastname.trim();
-    }
-
-    public String getRemarks() {
-        return remarks;
-    }
-
-    public void setRemarks(String remarks) {
-        this.remarks = remarks == null ? null : remarks.trim();
-    }
-
-    public String getGiftmessage() {
-        return giftmessage;
-    }
-
-    public void setGiftmessage(String giftmessage) {
-        this.giftmessage = giftmessage == null ? null : giftmessage.trim();
-    }
-
-    public String getAddress1() {
-        return address1;
-    }
-
-    public void setAddress1(String address1) {
-        this.address1 = address1 == null ? null : address1.trim();
-    }
-
-    public String getAddress2() {
-        return address2;
-    }
-
-    public void setAddress2(String address2) {
-        this.address2 = address2 == null ? null : address2.trim();
-    }
-
-    public String getAddress3() {
-        return address3;
-    }
-
-    public void setAddress3(String address3) {
-        this.address3 = address3 == null ? null : address3.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -548,12 +548,20 @@ public class DbLazadaorderinfo implements Serializable {
             && (this.getGroupid() == null ? other.getGroupid() == null : this.getGroupid().equals(other.getGroupid()))
             && (this.getCurrencyid() == null ? other.getCurrencyid() == null : this.getCurrencyid().equals(other.getCurrencyid()))
             && (this.getCustomerid() == null ? other.getCustomerid() == null : this.getCustomerid().equals(other.getCustomerid()))
+            && (this.getCustomername() == null ? other.getCustomername() == null : this.getCustomername().equals(other.getCustomername()))
+            && (this.getFirstname() == null ? other.getFirstname() == null : this.getFirstname().equals(other.getFirstname()))
+            && (this.getLastname() == null ? other.getLastname() == null : this.getLastname().equals(other.getLastname()))
             && (this.getPaymentmethod() == null ? other.getPaymentmethod() == null : this.getPaymentmethod().equals(other.getPaymentmethod()))
+            && (this.getRemarks() == null ? other.getRemarks() == null : this.getRemarks().equals(other.getRemarks()))
             && (this.getGiftoption() == null ? other.getGiftoption() == null : this.getGiftoption().equals(other.getGiftoption()))
+            && (this.getGiftmessage() == null ? other.getGiftmessage() == null : this.getGiftmessage().equals(other.getGiftmessage()))
             && (this.getCreateddate() == null ? other.getCreateddate() == null : this.getCreateddate().equals(other.getCreateddate()))
             && (this.getUpdateddate() == null ? other.getUpdateddate() == null : this.getUpdateddate().equals(other.getUpdateddate()))
             && (this.getPhone1() == null ? other.getPhone1() == null : this.getPhone1().equals(other.getPhone1()))
             && (this.getPhone2() == null ? other.getPhone2() == null : this.getPhone2().equals(other.getPhone2()))
+            && (this.getAddress1() == null ? other.getAddress1() == null : this.getAddress1().equals(other.getAddress1()))
+            && (this.getAddress2() == null ? other.getAddress2() == null : this.getAddress2().equals(other.getAddress2()))
+            && (this.getAddress3() == null ? other.getAddress3() == null : this.getAddress3().equals(other.getAddress3()))
             && (this.getCity() == null ? other.getCity() == null : this.getCity().equals(other.getCity()))
             && (this.getProvince() == null ? other.getProvince() == null : this.getProvince().equals(other.getProvince()))
             && (this.getWard() == null ? other.getWard() == null : this.getWard().equals(other.getWard()))
@@ -582,15 +590,7 @@ public class DbLazadaorderinfo implements Serializable {
             && (this.getPurchaseorderid() == null ? other.getPurchaseorderid() == null : this.getPurchaseorderid().equals(other.getPurchaseorderid()))
             && (this.getPurchaseordernumber() == null ? other.getPurchaseordernumber() == null : this.getPurchaseordernumber().equals(other.getPurchaseordernumber()))
             && (this.getCheckflag() == null ? other.getCheckflag() == null : this.getCheckflag().equals(other.getCheckflag()))
-            && (this.getCheckdescr() == null ? other.getCheckdescr() == null : this.getCheckdescr().equals(other.getCheckdescr()))
-            && (this.getCustomername() == null ? other.getCustomername() == null : this.getCustomername().equals(other.getCustomername()))
-            && (this.getFirstname() == null ? other.getFirstname() == null : this.getFirstname().equals(other.getFirstname()))
-            && (this.getLastname() == null ? other.getLastname() == null : this.getLastname().equals(other.getLastname()))
-            && (this.getRemarks() == null ? other.getRemarks() == null : this.getRemarks().equals(other.getRemarks()))
-            && (this.getGiftmessage() == null ? other.getGiftmessage() == null : this.getGiftmessage().equals(other.getGiftmessage()))
-            && (this.getAddress1() == null ? other.getAddress1() == null : this.getAddress1().equals(other.getAddress1()))
-            && (this.getAddress2() == null ? other.getAddress2() == null : this.getAddress2().equals(other.getAddress2()))
-            && (this.getAddress3() == null ? other.getAddress3() == null : this.getAddress3().equals(other.getAddress3()));
+            && (this.getCheckdescr() == null ? other.getCheckdescr() == null : this.getCheckdescr().equals(other.getCheckdescr()));
     }
 
     @Override
@@ -606,12 +606,20 @@ public class DbLazadaorderinfo implements Serializable {
         result = prime * result + ((getGroupid() == null) ? 0 : getGroupid().hashCode());
         result = prime * result + ((getCurrencyid() == null) ? 0 : getCurrencyid().hashCode());
         result = prime * result + ((getCustomerid() == null) ? 0 : getCustomerid().hashCode());
+        result = prime * result + ((getCustomername() == null) ? 0 : getCustomername().hashCode());
+        result = prime * result + ((getFirstname() == null) ? 0 : getFirstname().hashCode());
+        result = prime * result + ((getLastname() == null) ? 0 : getLastname().hashCode());
         result = prime * result + ((getPaymentmethod() == null) ? 0 : getPaymentmethod().hashCode());
+        result = prime * result + ((getRemarks() == null) ? 0 : getRemarks().hashCode());
         result = prime * result + ((getGiftoption() == null) ? 0 : getGiftoption().hashCode());
+        result = prime * result + ((getGiftmessage() == null) ? 0 : getGiftmessage().hashCode());
         result = prime * result + ((getCreateddate() == null) ? 0 : getCreateddate().hashCode());
         result = prime * result + ((getUpdateddate() == null) ? 0 : getUpdateddate().hashCode());
         result = prime * result + ((getPhone1() == null) ? 0 : getPhone1().hashCode());
         result = prime * result + ((getPhone2() == null) ? 0 : getPhone2().hashCode());
+        result = prime * result + ((getAddress1() == null) ? 0 : getAddress1().hashCode());
+        result = prime * result + ((getAddress2() == null) ? 0 : getAddress2().hashCode());
+        result = prime * result + ((getAddress3() == null) ? 0 : getAddress3().hashCode());
         result = prime * result + ((getCity() == null) ? 0 : getCity().hashCode());
         result = prime * result + ((getProvince() == null) ? 0 : getProvince().hashCode());
         result = prime * result + ((getWard() == null) ? 0 : getWard().hashCode());
@@ -641,14 +649,6 @@ public class DbLazadaorderinfo implements Serializable {
         result = prime * result + ((getPurchaseordernumber() == null) ? 0 : getPurchaseordernumber().hashCode());
         result = prime * result + ((getCheckflag() == null) ? 0 : getCheckflag().hashCode());
         result = prime * result + ((getCheckdescr() == null) ? 0 : getCheckdescr().hashCode());
-        result = prime * result + ((getCustomername() == null) ? 0 : getCustomername().hashCode());
-        result = prime * result + ((getFirstname() == null) ? 0 : getFirstname().hashCode());
-        result = prime * result + ((getLastname() == null) ? 0 : getLastname().hashCode());
-        result = prime * result + ((getRemarks() == null) ? 0 : getRemarks().hashCode());
-        result = prime * result + ((getGiftmessage() == null) ? 0 : getGiftmessage().hashCode());
-        result = prime * result + ((getAddress1() == null) ? 0 : getAddress1().hashCode());
-        result = prime * result + ((getAddress2() == null) ? 0 : getAddress2().hashCode());
-        result = prime * result + ((getAddress3() == null) ? 0 : getAddress3().hashCode());
         return result;
     }
 
@@ -667,12 +667,20 @@ public class DbLazadaorderinfo implements Serializable {
         sb.append(", groupid=").append(groupid);
         sb.append(", currencyid=").append(currencyid);
         sb.append(", customerid=").append(customerid);
+        sb.append(", customername=").append(customername);
+        sb.append(", firstname=").append(firstname);
+        sb.append(", lastname=").append(lastname);
         sb.append(", paymentmethod=").append(paymentmethod);
+        sb.append(", remarks=").append(remarks);
         sb.append(", giftoption=").append(giftoption);
+        sb.append(", giftmessage=").append(giftmessage);
         sb.append(", createddate=").append(createddate);
         sb.append(", updateddate=").append(updateddate);
         sb.append(", phone1=").append(phone1);
         sb.append(", phone2=").append(phone2);
+        sb.append(", address1=").append(address1);
+        sb.append(", address2=").append(address2);
+        sb.append(", address3=").append(address3);
         sb.append(", city=").append(city);
         sb.append(", province=").append(province);
         sb.append(", ward=").append(ward);
@@ -702,14 +710,6 @@ public class DbLazadaorderinfo implements Serializable {
         sb.append(", purchaseordernumber=").append(purchaseordernumber);
         sb.append(", checkflag=").append(checkflag);
         sb.append(", checkdescr=").append(checkdescr);
-        sb.append(", customername=").append(customername);
-        sb.append(", firstname=").append(firstname);
-        sb.append(", lastname=").append(lastname);
-        sb.append(", remarks=").append(remarks);
-        sb.append(", giftmessage=").append(giftmessage);
-        sb.append(", address1=").append(address1);
-        sb.append(", address2=").append(address2);
-        sb.append(", address3=").append(address3);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

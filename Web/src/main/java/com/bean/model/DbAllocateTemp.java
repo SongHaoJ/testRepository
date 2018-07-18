@@ -11,6 +11,8 @@ public class DbAllocateTemp implements Serializable {
 
     private Date inporttime;
 
+    private String title;
+
     private String orper;
 
     private Date opertime;
@@ -32,8 +34,6 @@ public class DbAllocateTemp implements Serializable {
     private BigDecimal weight;
 
     private String questionsid;
-
-    private String title;
 
     private String descr;
 
@@ -61,6 +61,14 @@ public class DbAllocateTemp implements Serializable {
 
     public void setInporttime(Date inporttime) {
         this.inporttime = inporttime;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title == null ? null : title.trim();
     }
 
     public String getOrper() {
@@ -151,14 +159,6 @@ public class DbAllocateTemp implements Serializable {
         this.questionsid = questionsid == null ? null : questionsid.trim();
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title == null ? null : title.trim();
-    }
-
     public String getDescr() {
         return descr;
     }
@@ -182,6 +182,7 @@ public class DbAllocateTemp implements Serializable {
         return (this.getSequenceid() == null ? other.getSequenceid() == null : this.getSequenceid().equals(other.getSequenceid()))
             && (this.getProductid() == null ? other.getProductid() == null : this.getProductid().equals(other.getProductid()))
             && (this.getInporttime() == null ? other.getInporttime() == null : this.getInporttime().equals(other.getInporttime()))
+            && (this.getTitle() == null ? other.getTitle() == null : this.getTitle().equals(other.getTitle()))
             && (this.getOrper() == null ? other.getOrper() == null : this.getOrper().equals(other.getOrper()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
             && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
@@ -193,7 +194,6 @@ public class DbAllocateTemp implements Serializable {
             && (this.getSonallocatenum() == null ? other.getSonallocatenum() == null : this.getSonallocatenum().equals(other.getSonallocatenum()))
             && (this.getWeight() == null ? other.getWeight() == null : this.getWeight().equals(other.getWeight()))
             && (this.getQuestionsid() == null ? other.getQuestionsid() == null : this.getQuestionsid().equals(other.getQuestionsid()))
-            && (this.getTitle() == null ? other.getTitle() == null : this.getTitle().equals(other.getTitle()))
             && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()));
     }
 
@@ -204,6 +204,7 @@ public class DbAllocateTemp implements Serializable {
         result = prime * result + ((getSequenceid() == null) ? 0 : getSequenceid().hashCode());
         result = prime * result + ((getProductid() == null) ? 0 : getProductid().hashCode());
         result = prime * result + ((getInporttime() == null) ? 0 : getInporttime().hashCode());
+        result = prime * result + ((getTitle() == null) ? 0 : getTitle().hashCode());
         result = prime * result + ((getOrper() == null) ? 0 : getOrper().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
@@ -215,7 +216,6 @@ public class DbAllocateTemp implements Serializable {
         result = prime * result + ((getSonallocatenum() == null) ? 0 : getSonallocatenum().hashCode());
         result = prime * result + ((getWeight() == null) ? 0 : getWeight().hashCode());
         result = prime * result + ((getQuestionsid() == null) ? 0 : getQuestionsid().hashCode());
-        result = prime * result + ((getTitle() == null) ? 0 : getTitle().hashCode());
         result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
         return result;
     }
@@ -229,6 +229,7 @@ public class DbAllocateTemp implements Serializable {
         sb.append(", sequenceid=").append(sequenceid);
         sb.append(", productid=").append(productid);
         sb.append(", inporttime=").append(inporttime);
+        sb.append(", title=").append(title);
         sb.append(", orper=").append(orper);
         sb.append(", opertime=").append(opertime);
         sb.append(", reserve1=").append(reserve1);
@@ -240,7 +241,6 @@ public class DbAllocateTemp implements Serializable {
         sb.append(", sonallocatenum=").append(sonallocatenum);
         sb.append(", weight=").append(weight);
         sb.append(", questionsid=").append(questionsid);
-        sb.append(", title=").append(title);
         sb.append(", descr=").append(descr);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");

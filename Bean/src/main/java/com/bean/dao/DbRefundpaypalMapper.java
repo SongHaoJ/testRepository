@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbRefundpaypal;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbRefundpaypalMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbRefundpaypal selectByCriteria(DbRefundpaypal DbRefundpaypal);
 
-    int insert(DbRefundpaypal record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbRefundpaypal record);
+    void deleteByCriteria(DbRefundpaypal DbRefundpaypal);
+
+    int insertByCriteria(DbRefundpaypal DbRefundpaypal);
+
+    int updateByCriteria(DbRefundpaypal DbRefundpaypal);
 
     DbRefundpaypal selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbRefundpaypal record);
-
-    int updateByPrimaryKeyWithBLOBs(DbRefundpaypal record);
-
-    int updateByPrimaryKey(DbRefundpaypal record);
+    List<DbRefundpaypal> selectAll();
 }

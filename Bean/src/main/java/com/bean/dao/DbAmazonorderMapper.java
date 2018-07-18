@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbAmazonorder;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbAmazonorderMapper {
-    int deleteByPrimaryKey(String orderid);
+    DbAmazonorder selectByCriteria(DbAmazonorder DbAmazonorder);
 
-    int insert(DbAmazonorder record);
+    void deleteByPrimaryKey(String ORDERID);
 
-    int insertSelective(DbAmazonorder record);
+    void deleteByCriteria(DbAmazonorder DbAmazonorder);
+
+    int insertByCriteria(DbAmazonorder DbAmazonorder);
+
+    int updateByCriteria(DbAmazonorder DbAmazonorder);
 
     DbAmazonorder selectByPrimaryKey(String orderid);
 
-    int updateByPrimaryKeySelective(DbAmazonorder record);
-
-    int updateByPrimaryKeyWithBLOBs(DbAmazonorder record);
-
-    int updateByPrimaryKey(DbAmazonorder record);
+    List<DbAmazonorder> selectAll();
 }

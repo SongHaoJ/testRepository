@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbTwodevelopmentproductlog;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbTwodevelopmentproductlogMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbTwodevelopmentproductlog selectByCriteria(DbTwodevelopmentproductlog DbTwodevelopmentproductlog);
 
-    int insert(DbTwodevelopmentproductlog record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbTwodevelopmentproductlog record);
+    void deleteByCriteria(DbTwodevelopmentproductlog DbTwodevelopmentproductlog);
+
+    int insertByCriteria(DbTwodevelopmentproductlog DbTwodevelopmentproductlog);
+
+    int updateByCriteria(DbTwodevelopmentproductlog DbTwodevelopmentproductlog);
 
     DbTwodevelopmentproductlog selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbTwodevelopmentproductlog record);
-
-    int updateByPrimaryKeyWithBLOBs(DbTwodevelopmentproductlog record);
-
-    int updateByPrimaryKey(DbTwodevelopmentproductlog record);
+    List<DbTwodevelopmentproductlog> selectAll();
 }

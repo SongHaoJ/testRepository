@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbPricelist;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbPricelistMapper {
-    int deleteByPrimaryKey(String sid);
+    DbPricelist selectByCriteria(DbPricelist DbPricelist);
 
-    int insert(DbPricelist record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbPricelist record);
+    void deleteByCriteria(DbPricelist DbPricelist);
+
+    int insertByCriteria(DbPricelist DbPricelist);
+
+    int updateByCriteria(DbPricelist DbPricelist);
 
     DbPricelist selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbPricelist record);
-
-    int updateByPrimaryKey(DbPricelist record);
+    List<DbPricelist> selectAll();
 }

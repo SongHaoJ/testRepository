@@ -5,6 +5,7 @@
     <id column="FUNID" jdbcType="VARCHAR" property="funid" />
     <result column="FUNNAME" jdbcType="VARCHAR" property="funname" />
     <result column="FUNDESC" jdbcType="VARCHAR" property="fundesc" />
+    <result column="URL" jdbcType="VARCHAR" property="url" />
     <result column="IFWINOPEN" jdbcType="DECIMAL" property="ifwinopen" />
     <result column="IFPARENT" jdbcType="DECIMAL" property="ifparent" />
     <result column="PARENTID" jdbcType="VARCHAR" property="parentid" />
@@ -15,26 +16,26 @@
     <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
     <result column="RESERVE4" jdbcType="VARCHAR" property="reserve4" />
     <result column="RESERVE5" jdbcType="VARCHAR" property="reserve5" />
-    <result column="URL" jdbcType="LONGVARCHAR" property="url" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select FUNID, FUNNAME, FUNDESC, IFWINOPEN, IFPARENT, PARENTID, SORT, TYPE, RESERVE1, 
-    RESERVE2, RESERVE3, RESERVE4, RESERVE5, URL
-    from db_menufunc
+    select FUNID, FUNNAME, FUNDESC, URL, IFWINOPEN, IFPARENT, PARENTID, SORT, TYPE, RESERVE1, 
+    RESERVE2, RESERVE3, RESERVE4, RESERVE5
+    from DB_MENUFUNC
     where FUNID = #{funid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select FUNID, FUNNAME, FUNDESC, IFWINOPEN, IFPARENT, PARENTID, SORT, TYPE, RESERVE1, 
-    RESERVE2, RESERVE3, RESERVE4, RESERVE5, URL
-    from db_menufunc
+    select FUNID, FUNNAME, FUNDESC, URL, IFWINOPEN, IFPARENT, PARENTID, SORT, TYPE, RESERVE1, 
+    RESERVE2, RESERVE3, RESERVE4, RESERVE5
+    from DB_MENUFUNC
   </select>
   <sql id="TableName">
-    db_menufunc
+    DB_MENUFUNC
   </sql>
   <sql id="Values">
      #{funid,jdbcType=VARCHAR} , 
      #{funname,jdbcType=VARCHAR} , 
      #{fundesc,jdbcType=VARCHAR} , 
+     #{url,jdbcType=VARCHAR} , 
      #{ifwinopen,jdbcType=DECIMAL} , 
      #{ifparent,jdbcType=DECIMAL} , 
      #{parentid,jdbcType=VARCHAR} , 
@@ -45,12 +46,12 @@
      #{reserve3,jdbcType=VARCHAR} , 
      #{reserve4,jdbcType=VARCHAR} , 
      #{reserve5,jdbcType=VARCHAR} , 
-     #{url,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     FUNID , 
     FUNNAME , 
     FUNDESC , 
+    URL , 
     IFWINOPEN , 
     IFPARENT , 
     PARENTID , 
@@ -61,97 +62,96 @@
     RESERVE3 , 
     RESERVE4 , 
     RESERVE5 , 
-    URL
   </sql>
   <sql id="Criteria">
     <if test="funid != null">
-      FUNID = #{funid,jdbcType=VARCHAR} and 
+      funid = #{funid,jdbcType=VARCHAR} and 
     </if>
     <if test="funname != null">
-      FUNNAME = #{funname,jdbcType=VARCHAR} and 
+      funname = #{funname,jdbcType=VARCHAR} and 
     </if>
     <if test="fundesc != null">
-      FUNDESC = #{fundesc,jdbcType=VARCHAR} and 
-    </if>
-    <if test="ifwinopen != null">
-      IFWINOPEN = #{ifwinopen,jdbcType=DECIMAL} and 
-    </if>
-    <if test="ifparent != null">
-      IFPARENT = #{ifparent,jdbcType=DECIMAL} and 
-    </if>
-    <if test="parentid != null">
-      PARENTID = #{parentid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="sort != null">
-      SORT = #{sort,jdbcType=DECIMAL} and 
-    </if>
-    <if test="type != null">
-      TYPE = #{type,jdbcType=DECIMAL} and 
-    </if>
-    <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=VARCHAR} and 
+      fundesc = #{fundesc,jdbcType=VARCHAR} and 
     </if>
     <if test="url != null">
-      URL = #{url,jdbcType=LONGVARCHAR}
+      url = #{url,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="ifwinopen != null">
+      ifwinopen = #{ifwinopen,jdbcType=DECIMAL} and 
+    </if>
+    <if test="ifparent != null">
+      ifparent = #{ifparent,jdbcType=DECIMAL} and 
+    </if>
+    <if test="parentid != null">
+      parentid = #{parentid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sort != null">
+      sort = #{sort,jdbcType=DECIMAL} and 
+    </if>
+    <if test="type != null">
+      type = #{type,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=VARCHAR} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="funid != null">
-      FUNID = #{funid,jdbcType=VARCHAR} , 
+      funid = #{funid,jdbcType=VARCHAR} , 
     </if>
     <if test="funname != null">
-      FUNNAME = #{funname,jdbcType=VARCHAR} , 
+      funname = #{funname,jdbcType=VARCHAR} , 
     </if>
     <if test="fundesc != null">
-      FUNDESC = #{fundesc,jdbcType=VARCHAR} , 
-    </if>
-    <if test="ifwinopen != null">
-      IFWINOPEN = #{ifwinopen,jdbcType=DECIMAL} , 
-    </if>
-    <if test="ifparent != null">
-      IFPARENT = #{ifparent,jdbcType=DECIMAL} , 
-    </if>
-    <if test="parentid != null">
-      PARENTID = #{parentid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="sort != null">
-      SORT = #{sort,jdbcType=DECIMAL} , 
-    </if>
-    <if test="type != null">
-      TYPE = #{type,jdbcType=DECIMAL} , 
-    </if>
-    <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=VARCHAR} , 
+      fundesc = #{fundesc,jdbcType=VARCHAR} , 
     </if>
     <if test="url != null">
-      URL = #{url,jdbcType=LONGVARCHAR}
+      url = #{url,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="ifwinopen != null">
+      ifwinopen = #{ifwinopen,jdbcType=DECIMAL} , 
+    </if>
+    <if test="ifparent != null">
+      ifparent = #{ifparent,jdbcType=DECIMAL} , 
+    </if>
+    <if test="parentid != null">
+      parentid = #{parentid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sort != null">
+      sort = #{sort,jdbcType=DECIMAL} , 
+    </if>
+    <if test="type != null">
+      type = #{type,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=VARCHAR} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbMenufunc" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

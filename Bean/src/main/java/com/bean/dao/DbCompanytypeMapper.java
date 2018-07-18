@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbCompanytype;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbCompanytypeMapper {
-    int deleteByPrimaryKey(String sid);
+    DbCompanytype selectByCriteria(DbCompanytype DbCompanytype);
 
-    int insert(DbCompanytype record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbCompanytype record);
+    void deleteByCriteria(DbCompanytype DbCompanytype);
+
+    int insertByCriteria(DbCompanytype DbCompanytype);
+
+    int updateByCriteria(DbCompanytype DbCompanytype);
 
     DbCompanytype selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbCompanytype record);
-
-    int updateByPrimaryKey(DbCompanytype record);
+    List<DbCompanytype> selectAll();
 }

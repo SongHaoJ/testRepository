@@ -3,9 +3,13 @@
 <mapper namespace="com.bean.dao.DbSpbaseMapper">
   <resultMap id="BaseResultMap" type="com.bean.model.DbSpbase">
     <id column="SPCODE" jdbcType="VARCHAR" property="spcode" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="RESERVE" jdbcType="VARCHAR" property="reserve" />
     <result column="SPNUMBER" jdbcType="VARCHAR" property="spnumber" />
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="SELLAREA" jdbcType="VARCHAR" property="sellarea" />
+    <result column="CONTACT1" jdbcType="VARCHAR" property="contact1" />
     <result column="PHONE1" jdbcType="VARCHAR" property="phone1" />
     <result column="STATE" jdbcType="DECIMAL" property="state" />
     <result column="CORPPROP" jdbcType="VARCHAR" property="corpprop" />
@@ -14,51 +18,51 @@
     <result column="TYPE" jdbcType="DECIMAL" property="type" />
     <result column="AGENTCOUNT" jdbcType="DECIMAL" property="agentcount" />
     <result column="DAYNUM" jdbcType="DECIMAL" property="daynum" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
     <result column="IVRCOUNT" jdbcType="DECIMAL" property="ivrcount" />
     <result column="FAXCOUNT" jdbcType="DECIMAL" property="faxcount" />
+    <result column="SERVICETYPE" jdbcType="VARCHAR" property="servicetype" />
     <result column="FEE" jdbcType="DECIMAL" property="fee" />
     <result column="SAVING" jdbcType="DECIMAL" property="saving" />
     <result column="RESERVE4" jdbcType="DECIMAL" property="reserve4" />
     <result column="RESERVE5" jdbcType="DECIMAL" property="reserve5" />
     <result column="ASSIGNFLAG" jdbcType="DECIMAL" property="assignflag" />
+    <result column="MANUFACTUREAREA" jdbcType="VARCHAR" property="manufacturearea" />
+    <result column="ADDRESS" jdbcType="VARCHAR" property="address" />
     <result column="LINKMAN" jdbcType="VARCHAR" property="linkman" />
     <result column="TEL" jdbcType="VARCHAR" property="tel" />
     <result column="EMAIL" jdbcType="VARCHAR" property="email" />
     <result column="LOGO" jdbcType="VARCHAR" property="logo" />
-    <result column="NAME" jdbcType="LONGVARCHAR" property="name" />
-    <result column="RESERVE" jdbcType="LONGVARCHAR" property="reserve" />
-    <result column="SELLAREA" jdbcType="LONGVARCHAR" property="sellarea" />
-    <result column="CONTACT1" jdbcType="LONGVARCHAR" property="contact1" />
-    <result column="RESERVE1" jdbcType="LONGVARCHAR" property="reserve1" />
-    <result column="RESERVE2" jdbcType="LONGVARCHAR" property="reserve2" />
-    <result column="RESERVE3" jdbcType="LONGVARCHAR" property="reserve3" />
-    <result column="SERVICETYPE" jdbcType="LONGVARCHAR" property="servicetype" />
-    <result column="MANUFACTUREAREA" jdbcType="LONGVARCHAR" property="manufacturearea" />
-    <result column="ADDRESS" jdbcType="LONGVARCHAR" property="address" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select SPCODE, SPNUMBER, OPER, OPERTIME, PHONE1, STATE, CORPPROP, WQYCODE, SPSTATUS, 
-    TYPE, AGENTCOUNT, DAYNUM, IVRCOUNT, FAXCOUNT, FEE, SAVING, RESERVE4, RESERVE5, ASSIGNFLAG, 
-    LINKMAN, TEL, EMAIL, LOGO, NAME, RESERVE, SELLAREA, CONTACT1, RESERVE1, RESERVE2, 
-    RESERVE3, SERVICETYPE, MANUFACTUREAREA, ADDRESS
-    from db_spbase
+    select SPCODE, NAME, RESERVE, SPNUMBER, OPER, OPERTIME, SELLAREA, CONTACT1, PHONE1, 
+    STATE, CORPPROP, WQYCODE, SPSTATUS, TYPE, AGENTCOUNT, DAYNUM, RESERVE1, RESERVE2, 
+    RESERVE3, IVRCOUNT, FAXCOUNT, SERVICETYPE, FEE, SAVING, RESERVE4, RESERVE5, ASSIGNFLAG, 
+    MANUFACTUREAREA, ADDRESS, LINKMAN, TEL, EMAIL, LOGO
+    from DB_SPBASE
     where SPCODE = #{spcode,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select SPCODE, SPNUMBER, OPER, OPERTIME, PHONE1, STATE, CORPPROP, WQYCODE, SPSTATUS, 
-    TYPE, AGENTCOUNT, DAYNUM, IVRCOUNT, FAXCOUNT, FEE, SAVING, RESERVE4, RESERVE5, ASSIGNFLAG, 
-    LINKMAN, TEL, EMAIL, LOGO, NAME, RESERVE, SELLAREA, CONTACT1, RESERVE1, RESERVE2, 
-    RESERVE3, SERVICETYPE, MANUFACTUREAREA, ADDRESS
-    from db_spbase
+    select SPCODE, NAME, RESERVE, SPNUMBER, OPER, OPERTIME, SELLAREA, CONTACT1, PHONE1, 
+    STATE, CORPPROP, WQYCODE, SPSTATUS, TYPE, AGENTCOUNT, DAYNUM, RESERVE1, RESERVE2, 
+    RESERVE3, IVRCOUNT, FAXCOUNT, SERVICETYPE, FEE, SAVING, RESERVE4, RESERVE5, ASSIGNFLAG, 
+    MANUFACTUREAREA, ADDRESS, LINKMAN, TEL, EMAIL, LOGO
+    from DB_SPBASE
   </select>
   <sql id="TableName">
-    db_spbase
+    DB_SPBASE
   </sql>
   <sql id="Values">
      #{spcode,jdbcType=VARCHAR} , 
+     #{name,jdbcType=VARCHAR} , 
+     #{reserve,jdbcType=VARCHAR} , 
      #{spnumber,jdbcType=VARCHAR} , 
      #{oper,jdbcType=VARCHAR} , 
      #{opertime,jdbcType=TIMESTAMP} , 
+     #{sellarea,jdbcType=VARCHAR} , 
+     #{contact1,jdbcType=VARCHAR} , 
      #{phone1,jdbcType=VARCHAR} , 
      #{state,jdbcType=DECIMAL} , 
      #{corpprop,jdbcType=VARCHAR} , 
@@ -67,33 +71,33 @@
      #{type,jdbcType=DECIMAL} , 
      #{agentcount,jdbcType=DECIMAL} , 
      #{daynum,jdbcType=DECIMAL} , 
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+     #{reserve3,jdbcType=VARCHAR} , 
      #{ivrcount,jdbcType=DECIMAL} , 
      #{faxcount,jdbcType=DECIMAL} , 
+     #{servicetype,jdbcType=VARCHAR} , 
      #{fee,jdbcType=DECIMAL} , 
      #{saving,jdbcType=DECIMAL} , 
      #{reserve4,jdbcType=DECIMAL} , 
      #{reserve5,jdbcType=DECIMAL} , 
      #{assignflag,jdbcType=DECIMAL} , 
+     #{manufacturearea,jdbcType=VARCHAR} , 
+     #{address,jdbcType=VARCHAR} , 
      #{linkman,jdbcType=VARCHAR} , 
      #{tel,jdbcType=VARCHAR} , 
      #{email,jdbcType=VARCHAR} , 
      #{logo,jdbcType=VARCHAR} , 
-     #{name,jdbcType=LONGVARCHAR} , 
-     #{reserve,jdbcType=LONGVARCHAR} , 
-     #{sellarea,jdbcType=LONGVARCHAR} , 
-     #{contact1,jdbcType=LONGVARCHAR} , 
-     #{reserve1,jdbcType=LONGVARCHAR} , 
-     #{reserve2,jdbcType=LONGVARCHAR} , 
-     #{reserve3,jdbcType=LONGVARCHAR} , 
-     #{servicetype,jdbcType=LONGVARCHAR} , 
-     #{manufacturearea,jdbcType=LONGVARCHAR} , 
-     #{address,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     SPCODE , 
+    NAME , 
+    RESERVE , 
     SPNUMBER , 
     OPER , 
     OPERTIME , 
+    SELLAREA , 
+    CONTACT1 , 
     PHONE1 , 
     STATE , 
     CORPPROP , 
@@ -102,231 +106,227 @@
     TYPE , 
     AGENTCOUNT , 
     DAYNUM , 
+    RESERVE1 , 
+    RESERVE2 , 
+    RESERVE3 , 
     IVRCOUNT , 
     FAXCOUNT , 
+    SERVICETYPE , 
     FEE , 
     SAVING , 
     RESERVE4 , 
     RESERVE5 , 
     ASSIGNFLAG , 
+    MANUFACTUREAREA , 
+    ADDRESS , 
     LINKMAN , 
     TEL , 
     EMAIL , 
     LOGO , 
-    NAME , 
-    RESERVE , 
-    SELLAREA , 
-    CONTACT1 , 
-    RESERVE1 , 
-    RESERVE2 , 
-    RESERVE3 , 
-    SERVICETYPE , 
-    MANUFACTUREAREA , 
-    ADDRESS
   </sql>
   <sql id="Criteria">
     <if test="spcode != null">
-      SPCODE = #{spcode,jdbcType=VARCHAR} and 
-    </if>
-    <if test="spnumber != null">
-      SPNUMBER = #{spnumber,jdbcType=VARCHAR} and 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="phone1 != null">
-      PHONE1 = #{phone1,jdbcType=VARCHAR} and 
-    </if>
-    <if test="state != null">
-      STATE = #{state,jdbcType=DECIMAL} and 
-    </if>
-    <if test="corpprop != null">
-      CORPPROP = #{corpprop,jdbcType=VARCHAR} and 
-    </if>
-    <if test="wqycode != null">
-      WQYCODE = #{wqycode,jdbcType=VARCHAR} and 
-    </if>
-    <if test="spstatus != null">
-      SPSTATUS = #{spstatus,jdbcType=DECIMAL} and 
-    </if>
-    <if test="type != null">
-      TYPE = #{type,jdbcType=DECIMAL} and 
-    </if>
-    <if test="agentcount != null">
-      AGENTCOUNT = #{agentcount,jdbcType=DECIMAL} and 
-    </if>
-    <if test="daynum != null">
-      DAYNUM = #{daynum,jdbcType=DECIMAL} and 
-    </if>
-    <if test="ivrcount != null">
-      IVRCOUNT = #{ivrcount,jdbcType=DECIMAL} and 
-    </if>
-    <if test="faxcount != null">
-      FAXCOUNT = #{faxcount,jdbcType=DECIMAL} and 
-    </if>
-    <if test="fee != null">
-      FEE = #{fee,jdbcType=DECIMAL} and 
-    </if>
-    <if test="saving != null">
-      SAVING = #{saving,jdbcType=DECIMAL} and 
-    </if>
-    <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=DECIMAL} and 
-    </if>
-    <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=DECIMAL} and 
-    </if>
-    <if test="assignflag != null">
-      ASSIGNFLAG = #{assignflag,jdbcType=DECIMAL} and 
-    </if>
-    <if test="linkman != null">
-      LINKMAN = #{linkman,jdbcType=VARCHAR} and 
-    </if>
-    <if test="tel != null">
-      TEL = #{tel,jdbcType=VARCHAR} and 
-    </if>
-    <if test="email != null">
-      EMAIL = #{email,jdbcType=VARCHAR} and 
-    </if>
-    <if test="logo != null">
-      LOGO = #{logo,jdbcType=VARCHAR} and 
+      spcode = #{spcode,jdbcType=VARCHAR} and 
     </if>
     <if test="name != null">
-      NAME = #{name,jdbcType=LONGVARCHAR} and 
+      name = #{name,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve != null">
-      RESERVE = #{reserve,jdbcType=LONGVARCHAR} and 
+      reserve = #{reserve,jdbcType=VARCHAR} and 
+    </if>
+    <if test="spnumber != null">
+      spnumber = #{spnumber,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="sellarea != null">
-      SELLAREA = #{sellarea,jdbcType=LONGVARCHAR} and 
+      sellarea = #{sellarea,jdbcType=VARCHAR} and 
     </if>
     <if test="contact1 != null">
-      CONTACT1 = #{contact1,jdbcType=LONGVARCHAR} and 
+      contact1 = #{contact1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="phone1 != null">
+      phone1 = #{phone1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="state != null">
+      state = #{state,jdbcType=DECIMAL} and 
+    </if>
+    <if test="corpprop != null">
+      corpprop = #{corpprop,jdbcType=VARCHAR} and 
+    </if>
+    <if test="wqycode != null">
+      wqycode = #{wqycode,jdbcType=VARCHAR} and 
+    </if>
+    <if test="spstatus != null">
+      spstatus = #{spstatus,jdbcType=DECIMAL} and 
+    </if>
+    <if test="type != null">
+      type = #{type,jdbcType=DECIMAL} and 
+    </if>
+    <if test="agentcount != null">
+      agentcount = #{agentcount,jdbcType=DECIMAL} and 
+    </if>
+    <if test="daynum != null">
+      daynum = #{daynum,jdbcType=DECIMAL} and 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR} and 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR} and 
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR} and 
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ivrcount != null">
+      ivrcount = #{ivrcount,jdbcType=DECIMAL} and 
+    </if>
+    <if test="faxcount != null">
+      faxcount = #{faxcount,jdbcType=DECIMAL} and 
     </if>
     <if test="servicetype != null">
-      SERVICETYPE = #{servicetype,jdbcType=LONGVARCHAR} and 
+      servicetype = #{servicetype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="fee != null">
+      fee = #{fee,jdbcType=DECIMAL} and 
+    </if>
+    <if test="saving != null">
+      saving = #{saving,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=DECIMAL} and 
+    </if>
+    <if test="assignflag != null">
+      assignflag = #{assignflag,jdbcType=DECIMAL} and 
     </if>
     <if test="manufacturearea != null">
-      MANUFACTUREAREA = #{manufacturearea,jdbcType=LONGVARCHAR} and 
+      manufacturearea = #{manufacturearea,jdbcType=VARCHAR} and 
     </if>
     <if test="address != null">
-      ADDRESS = #{address,jdbcType=LONGVARCHAR}
+      address = #{address,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="linkman != null">
+      linkman = #{linkman,jdbcType=VARCHAR} and 
+    </if>
+    <if test="tel != null">
+      tel = #{tel,jdbcType=VARCHAR} and 
+    </if>
+    <if test="email != null">
+      email = #{email,jdbcType=VARCHAR} and 
+    </if>
+    <if test="logo != null">
+      logo = #{logo,jdbcType=VARCHAR} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="spcode != null">
-      SPCODE = #{spcode,jdbcType=VARCHAR} , 
-    </if>
-    <if test="spnumber != null">
-      SPNUMBER = #{spnumber,jdbcType=VARCHAR} , 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="phone1 != null">
-      PHONE1 = #{phone1,jdbcType=VARCHAR} , 
-    </if>
-    <if test="state != null">
-      STATE = #{state,jdbcType=DECIMAL} , 
-    </if>
-    <if test="corpprop != null">
-      CORPPROP = #{corpprop,jdbcType=VARCHAR} , 
-    </if>
-    <if test="wqycode != null">
-      WQYCODE = #{wqycode,jdbcType=VARCHAR} , 
-    </if>
-    <if test="spstatus != null">
-      SPSTATUS = #{spstatus,jdbcType=DECIMAL} , 
-    </if>
-    <if test="type != null">
-      TYPE = #{type,jdbcType=DECIMAL} , 
-    </if>
-    <if test="agentcount != null">
-      AGENTCOUNT = #{agentcount,jdbcType=DECIMAL} , 
-    </if>
-    <if test="daynum != null">
-      DAYNUM = #{daynum,jdbcType=DECIMAL} , 
-    </if>
-    <if test="ivrcount != null">
-      IVRCOUNT = #{ivrcount,jdbcType=DECIMAL} , 
-    </if>
-    <if test="faxcount != null">
-      FAXCOUNT = #{faxcount,jdbcType=DECIMAL} , 
-    </if>
-    <if test="fee != null">
-      FEE = #{fee,jdbcType=DECIMAL} , 
-    </if>
-    <if test="saving != null">
-      SAVING = #{saving,jdbcType=DECIMAL} , 
-    </if>
-    <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=DECIMAL} , 
-    </if>
-    <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=DECIMAL} , 
-    </if>
-    <if test="assignflag != null">
-      ASSIGNFLAG = #{assignflag,jdbcType=DECIMAL} , 
-    </if>
-    <if test="linkman != null">
-      LINKMAN = #{linkman,jdbcType=VARCHAR} , 
-    </if>
-    <if test="tel != null">
-      TEL = #{tel,jdbcType=VARCHAR} , 
-    </if>
-    <if test="email != null">
-      EMAIL = #{email,jdbcType=VARCHAR} , 
-    </if>
-    <if test="logo != null">
-      LOGO = #{logo,jdbcType=VARCHAR} , 
+      spcode = #{spcode,jdbcType=VARCHAR} , 
     </if>
     <if test="name != null">
-      NAME = #{name,jdbcType=LONGVARCHAR} , 
+      name = #{name,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve != null">
-      RESERVE = #{reserve,jdbcType=LONGVARCHAR} , 
+      reserve = #{reserve,jdbcType=VARCHAR} , 
+    </if>
+    <if test="spnumber != null">
+      spnumber = #{spnumber,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="sellarea != null">
-      SELLAREA = #{sellarea,jdbcType=LONGVARCHAR} , 
+      sellarea = #{sellarea,jdbcType=VARCHAR} , 
     </if>
     <if test="contact1 != null">
-      CONTACT1 = #{contact1,jdbcType=LONGVARCHAR} , 
+      contact1 = #{contact1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="phone1 != null">
+      phone1 = #{phone1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="state != null">
+      state = #{state,jdbcType=DECIMAL} , 
+    </if>
+    <if test="corpprop != null">
+      corpprop = #{corpprop,jdbcType=VARCHAR} , 
+    </if>
+    <if test="wqycode != null">
+      wqycode = #{wqycode,jdbcType=VARCHAR} , 
+    </if>
+    <if test="spstatus != null">
+      spstatus = #{spstatus,jdbcType=DECIMAL} , 
+    </if>
+    <if test="type != null">
+      type = #{type,jdbcType=DECIMAL} , 
+    </if>
+    <if test="agentcount != null">
+      agentcount = #{agentcount,jdbcType=DECIMAL} , 
+    </if>
+    <if test="daynum != null">
+      daynum = #{daynum,jdbcType=DECIMAL} , 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR} , 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR} , 
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR} , 
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ivrcount != null">
+      ivrcount = #{ivrcount,jdbcType=DECIMAL} , 
+    </if>
+    <if test="faxcount != null">
+      faxcount = #{faxcount,jdbcType=DECIMAL} , 
     </if>
     <if test="servicetype != null">
-      SERVICETYPE = #{servicetype,jdbcType=LONGVARCHAR} , 
+      servicetype = #{servicetype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="fee != null">
+      fee = #{fee,jdbcType=DECIMAL} , 
+    </if>
+    <if test="saving != null">
+      saving = #{saving,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=DECIMAL} , 
+    </if>
+    <if test="assignflag != null">
+      assignflag = #{assignflag,jdbcType=DECIMAL} , 
     </if>
     <if test="manufacturearea != null">
-      MANUFACTUREAREA = #{manufacturearea,jdbcType=LONGVARCHAR} , 
+      manufacturearea = #{manufacturearea,jdbcType=VARCHAR} , 
     </if>
     <if test="address != null">
-      ADDRESS = #{address,jdbcType=LONGVARCHAR}
+      address = #{address,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="linkman != null">
+      linkman = #{linkman,jdbcType=VARCHAR} , 
+    </if>
+    <if test="tel != null">
+      tel = #{tel,jdbcType=VARCHAR} , 
+    </if>
+    <if test="email != null">
+      email = #{email,jdbcType=VARCHAR} , 
+    </if>
+    <if test="logo != null">
+      logo = #{logo,jdbcType=VARCHAR} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbSpbase" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

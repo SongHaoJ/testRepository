@@ -11,6 +11,8 @@ public class DbExpstore implements Serializable {
 
     private String customerid;
 
+    private String content;
+
     private String oper;
 
     private Date opertime;
@@ -20,8 +22,6 @@ public class DbExpstore implements Serializable {
     private String openflag;
 
     private BigDecimal updateflag;
-
-    private String content;
 
     private static final long serialVersionUID = 1L;
 
@@ -47,6 +47,14 @@ public class DbExpstore implements Serializable {
 
     public void setCustomerid(String customerid) {
         this.customerid = customerid == null ? null : customerid.trim();
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content == null ? null : content.trim();
     }
 
     public String getOper() {
@@ -89,14 +97,6 @@ public class DbExpstore implements Serializable {
         this.updateflag = updateflag;
     }
 
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content == null ? null : content.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -112,12 +112,12 @@ public class DbExpstore implements Serializable {
         return (this.getSequenceid() == null ? other.getSequenceid() == null : this.getSequenceid().equals(other.getSequenceid()))
             && (this.getGroupid() == null ? other.getGroupid() == null : this.getGroupid().equals(other.getGroupid()))
             && (this.getCustomerid() == null ? other.getCustomerid() == null : this.getCustomerid().equals(other.getCustomerid()))
+            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
             && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()))
             && (this.getOpenflag() == null ? other.getOpenflag() == null : this.getOpenflag().equals(other.getOpenflag()))
-            && (this.getUpdateflag() == null ? other.getUpdateflag() == null : this.getUpdateflag().equals(other.getUpdateflag()))
-            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()));
+            && (this.getUpdateflag() == null ? other.getUpdateflag() == null : this.getUpdateflag().equals(other.getUpdateflag()));
     }
 
     @Override
@@ -127,12 +127,12 @@ public class DbExpstore implements Serializable {
         result = prime * result + ((getSequenceid() == null) ? 0 : getSequenceid().hashCode());
         result = prime * result + ((getGroupid() == null) ? 0 : getGroupid().hashCode());
         result = prime * result + ((getCustomerid() == null) ? 0 : getCustomerid().hashCode());
+        result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getCorpid() == null) ? 0 : getCorpid().hashCode());
         result = prime * result + ((getOpenflag() == null) ? 0 : getOpenflag().hashCode());
         result = prime * result + ((getUpdateflag() == null) ? 0 : getUpdateflag().hashCode());
-        result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
         return result;
     }
 
@@ -145,12 +145,12 @@ public class DbExpstore implements Serializable {
         sb.append(", sequenceid=").append(sequenceid);
         sb.append(", groupid=").append(groupid);
         sb.append(", customerid=").append(customerid);
+        sb.append(", content=").append(content);
         sb.append(", oper=").append(oper);
         sb.append(", opertime=").append(opertime);
         sb.append(", corpid=").append(corpid);
         sb.append(", openflag=").append(openflag);
         sb.append(", updateflag=").append(updateflag);
-        sb.append(", content=").append(content);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

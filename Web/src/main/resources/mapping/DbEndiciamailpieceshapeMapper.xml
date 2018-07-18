@@ -7,41 +7,41 @@
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select SID, MAILPIECESHAPE
-    from db_endiciamailpieceshape
+    from DB_ENDICIAMAILPIECESHAPE
     where SID = #{sid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SID, MAILPIECESHAPE
-    from db_endiciamailpieceshape
+    from DB_ENDICIAMAILPIECESHAPE
   </select>
   <sql id="TableName">
-    db_endiciamailpieceshape
+    DB_ENDICIAMAILPIECESHAPE
   </sql>
   <sql id="Values">
      #{sid,jdbcType=VARCHAR} , 
-     #{mailpieceshape,jdbcType=VARCHAR}
+     #{mailpieceshape,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     SID , 
-    MAILPIECESHAPE
+    MAILPIECESHAPE , 
   </sql>
   <sql id="Criteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} and 
+      sid = #{sid,jdbcType=VARCHAR} and 
     </if>
     <if test="mailpieceshape != null">
-      MAILPIECESHAPE = #{mailpieceshape,jdbcType=VARCHAR}
+      mailpieceshape = #{mailpieceshape,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} , 
+      sid = #{sid,jdbcType=VARCHAR} , 
     </if>
     <if test="mailpieceshape != null">
-      MAILPIECESHAPE = #{mailpieceshape,jdbcType=VARCHAR}
+      mailpieceshape = #{mailpieceshape,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbEndiciamailpieceshape" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

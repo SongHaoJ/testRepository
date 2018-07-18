@@ -15,16 +15,16 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select SEQUENCEID, USERNAME, SHOPNAME, DAYONLINENUM, YESTERDAYONLINENUM, WEEKONLINENUM, 
     MONTHONLINENUM, CREATRTIME, UPDATETIME
-    from db_competitorlist
+    from DB_COMPETITORLIST
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SEQUENCEID, USERNAME, SHOPNAME, DAYONLINENUM, YESTERDAYONLINENUM, WEEKONLINENUM, 
     MONTHONLINENUM, CREATRTIME, UPDATETIME
-    from db_competitorlist
+    from DB_COMPETITORLIST
   </select>
   <sql id="TableName">
-    db_competitorlist
+    DB_COMPETITORLIST
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=VARCHAR} , 
@@ -35,7 +35,7 @@
      #{weekonlinenum,jdbcType=DECIMAL} , 
      #{monthonlinenum,jdbcType=DECIMAL} , 
      #{creatrtime,jdbcType=TIMESTAMP} , 
-     #{updatetime,jdbcType=TIMESTAMP}
+     #{updatetime,jdbcType=TIMESTAMP} , 
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
@@ -46,67 +46,67 @@
     WEEKONLINENUM , 
     MONTHONLINENUM , 
     CREATRTIME , 
-    UPDATETIME
+    UPDATETIME , 
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
     </if>
     <if test="username != null">
-      USERNAME = #{username,jdbcType=VARCHAR} and 
+      username = #{username,jdbcType=VARCHAR} and 
     </if>
     <if test="shopname != null">
-      SHOPNAME = #{shopname,jdbcType=VARCHAR} and 
+      shopname = #{shopname,jdbcType=VARCHAR} and 
     </if>
     <if test="dayonlinenum != null">
-      DAYONLINENUM = #{dayonlinenum,jdbcType=DECIMAL} and 
+      dayonlinenum = #{dayonlinenum,jdbcType=DECIMAL} and 
     </if>
     <if test="yesterdayonlinenum != null">
-      YESTERDAYONLINENUM = #{yesterdayonlinenum,jdbcType=DECIMAL} and 
+      yesterdayonlinenum = #{yesterdayonlinenum,jdbcType=DECIMAL} and 
     </if>
     <if test="weekonlinenum != null">
-      WEEKONLINENUM = #{weekonlinenum,jdbcType=DECIMAL} and 
+      weekonlinenum = #{weekonlinenum,jdbcType=DECIMAL} and 
     </if>
     <if test="monthonlinenum != null">
-      MONTHONLINENUM = #{monthonlinenum,jdbcType=DECIMAL} and 
+      monthonlinenum = #{monthonlinenum,jdbcType=DECIMAL} and 
     </if>
     <if test="creatrtime != null">
-      CREATRTIME = #{creatrtime,jdbcType=TIMESTAMP} and 
+      creatrtime = #{creatrtime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="updatetime != null">
-      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP}
+      updatetime = #{updatetime,jdbcType=TIMESTAMP} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
     </if>
     <if test="username != null">
-      USERNAME = #{username,jdbcType=VARCHAR} , 
+      username = #{username,jdbcType=VARCHAR} , 
     </if>
     <if test="shopname != null">
-      SHOPNAME = #{shopname,jdbcType=VARCHAR} , 
+      shopname = #{shopname,jdbcType=VARCHAR} , 
     </if>
     <if test="dayonlinenum != null">
-      DAYONLINENUM = #{dayonlinenum,jdbcType=DECIMAL} , 
+      dayonlinenum = #{dayonlinenum,jdbcType=DECIMAL} , 
     </if>
     <if test="yesterdayonlinenum != null">
-      YESTERDAYONLINENUM = #{yesterdayonlinenum,jdbcType=DECIMAL} , 
+      yesterdayonlinenum = #{yesterdayonlinenum,jdbcType=DECIMAL} , 
     </if>
     <if test="weekonlinenum != null">
-      WEEKONLINENUM = #{weekonlinenum,jdbcType=DECIMAL} , 
+      weekonlinenum = #{weekonlinenum,jdbcType=DECIMAL} , 
     </if>
     <if test="monthonlinenum != null">
-      MONTHONLINENUM = #{monthonlinenum,jdbcType=DECIMAL} , 
+      monthonlinenum = #{monthonlinenum,jdbcType=DECIMAL} , 
     </if>
     <if test="creatrtime != null">
-      CREATRTIME = #{creatrtime,jdbcType=TIMESTAMP} , 
+      creatrtime = #{creatrtime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="updatetime != null">
-      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP}
+      updatetime = #{updatetime,jdbcType=TIMESTAMP} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbCompetitorlist" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbFpxconfig;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbFpxconfigMapper {
-    int deleteByPrimaryKey(String sid);
+    DbFpxconfig selectByCriteria(DbFpxconfig DbFpxconfig);
 
-    int insert(DbFpxconfig record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbFpxconfig record);
+    void deleteByCriteria(DbFpxconfig DbFpxconfig);
+
+    int insertByCriteria(DbFpxconfig DbFpxconfig);
+
+    int updateByCriteria(DbFpxconfig DbFpxconfig);
 
     DbFpxconfig selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbFpxconfig record);
-
-    int updateByPrimaryKey(DbFpxconfig record);
+    List<DbFpxconfig> selectAll();
 }

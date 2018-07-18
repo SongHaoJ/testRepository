@@ -2,10 +2,8 @@ package com.bean.dao;
 
 import com.bean.model.DbItemadd;
 
+import java.util.List;
+
 public interface DbItemaddMapper {
-    int deleteByPrimaryKey(String itemid);
-
-    int insert(DbItemadd record);
-
-    int insertSelective(DbItemadd record);
+    List<DbItemadd> selectAll();
 }

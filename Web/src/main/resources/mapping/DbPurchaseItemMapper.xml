@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbPurchaseItemMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbPurchaseItem">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="ORDERID" jdbcType="DECIMAL" property="orderid" />
+    <result column="GROUPID" jdbcType="VARCHAR" property="groupid" />
+    <result column="PRODUCTID" jdbcType="VARCHAR" property="productid" />
+    <result column="PURCHASENUM" jdbcType="DECIMAL" property="purchasenum" />
+    <result column="PURCHASEPRICE" jdbcType="DECIMAL" property="purchaseprice" />
+    <result column="PURCHASETOTAL" jdbcType="DECIMAL" property="purchasetotal" />
+    <result column="PURCHASEPRICELAST" jdbcType="DECIMAL" property="purchasepricelast" />
+    <result column="RECOMMENDNUM" jdbcType="DECIMAL" property="recommendnum" />
+    <result column="ARRIVENUM" jdbcType="DECIMAL" property="arrivenum" />
+    <result column="STOCKNUM" jdbcType="DECIMAL" property="stocknum" />
+    <result column="DAMAGENUM" jdbcType="DECIMAL" property="damagenum" />
+    <result column="OVERNUM" jdbcType="DECIMAL" property="overnum" />
+    <result column="STATUS" jdbcType="DECIMAL" property="status" />
+    <result column="CONTENT" jdbcType="VARCHAR" property="content" />
+    <result column="CREATEOPER" jdbcType="VARCHAR" property="createoper" />
+    <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="CHECKOPER" jdbcType="VARCHAR" property="checkoper" />
+    <result column="CHECKTIME" jdbcType="TIMESTAMP" property="checktime" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select ID, ORDERID, GROUPID, PRODUCTID, PURCHASENUM, PURCHASEPRICE, PURCHASETOTAL, 
+    PURCHASEPRICELAST, RECOMMENDNUM, ARRIVENUM, STOCKNUM, DAMAGENUM, OVERNUM, STATUS, 
+    CONTENT, CREATEOPER, CREATETIME, CHECKOPER, CHECKTIME, OPER, OPERTIME
+    from DB_PURCHASE_ITEM
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ID, ORDERID, GROUPID, PRODUCTID, PURCHASENUM, PURCHASEPRICE, PURCHASETOTAL, 
+    PURCHASEPRICELAST, RECOMMENDNUM, ARRIVENUM, STOCKNUM, DAMAGENUM, OVERNUM, STATUS, 
+    CONTENT, CREATEOPER, CREATETIME, CHECKOPER, CHECKTIME, OPER, OPERTIME
+    from DB_PURCHASE_ITEM
+  </select>
+  <sql id="TableName">
+    DB_PURCHASE_ITEM
+  </sql>
+  <sql id="Values">
+     #{id,jdbcType=DECIMAL} , 
+     #{orderid,jdbcType=DECIMAL} , 
+     #{groupid,jdbcType=VARCHAR} , 
+     #{productid,jdbcType=VARCHAR} , 
+     #{purchasenum,jdbcType=DECIMAL} , 
+     #{purchaseprice,jdbcType=DECIMAL} , 
+     #{purchasetotal,jdbcType=DECIMAL} , 
+     #{purchasepricelast,jdbcType=DECIMAL} , 
+     #{recommendnum,jdbcType=DECIMAL} , 
+     #{arrivenum,jdbcType=DECIMAL} , 
+     #{stocknum,jdbcType=DECIMAL} , 
+     #{damagenum,jdbcType=DECIMAL} , 
+     #{overnum,jdbcType=DECIMAL} , 
+     #{status,jdbcType=DECIMAL} , 
+     #{content,jdbcType=VARCHAR} , 
+     #{createoper,jdbcType=VARCHAR} , 
+     #{createtime,jdbcType=TIMESTAMP} , 
+     #{checkoper,jdbcType=VARCHAR} , 
+     #{checktime,jdbcType=TIMESTAMP} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+  </sql>
+  <sql id="Columns">
+    ID , 
+    ORDERID , 
+    GROUPID , 
+    PRODUCTID , 
+    PURCHASENUM , 
+    PURCHASEPRICE , 
+    PURCHASETOTAL , 
+    PURCHASEPRICELAST , 
+    RECOMMENDNUM , 
+    ARRIVENUM , 
+    STOCKNUM , 
+    DAMAGENUM , 
+    OVERNUM , 
+    STATUS , 
+    CONTENT , 
+    CREATEOPER , 
+    CREATETIME , 
+    CHECKOPER , 
+    CHECKTIME , 
+    OPER , 
+    OPERTIME , 
+  </sql>
+  <sql id="Criteria">
+    <if test="id != null">
+      id = #{id,jdbcType=DECIMAL} and 
+    </if>
+    <if test="orderid != null">
+      orderid = #{orderid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="groupid != null">
+      groupid = #{groupid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="productid != null">
+      productid = #{productid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="purchasenum != null">
+      purchasenum = #{purchasenum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="purchaseprice != null">
+      purchaseprice = #{purchaseprice,jdbcType=DECIMAL} and 
+    </if>
+    <if test="purchasetotal != null">
+      purchasetotal = #{purchasetotal,jdbcType=DECIMAL} and 
+    </if>
+    <if test="purchasepricelast != null">
+      purchasepricelast = #{purchasepricelast,jdbcType=DECIMAL} and 
+    </if>
+    <if test="recommendnum != null">
+      recommendnum = #{recommendnum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="arrivenum != null">
+      arrivenum = #{arrivenum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="stocknum != null">
+      stocknum = #{stocknum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="damagenum != null">
+      damagenum = #{damagenum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="overnum != null">
+      overnum = #{overnum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="status != null">
+      status = #{status,jdbcType=DECIMAL} and 
+    </if>
+    <if test="content != null">
+      content = #{content,jdbcType=VARCHAR} and 
+    </if>
+    <if test="createoper != null">
+      createoper = #{createoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="checkoper != null">
+      checkoper = #{checkoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="checktime != null">
+      checktime = #{checktime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="id != null">
+      id = #{id,jdbcType=DECIMAL} , 
+    </if>
+    <if test="orderid != null">
+      orderid = #{orderid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="groupid != null">
+      groupid = #{groupid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="productid != null">
+      productid = #{productid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="purchasenum != null">
+      purchasenum = #{purchasenum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="purchaseprice != null">
+      purchaseprice = #{purchaseprice,jdbcType=DECIMAL} , 
+    </if>
+    <if test="purchasetotal != null">
+      purchasetotal = #{purchasetotal,jdbcType=DECIMAL} , 
+    </if>
+    <if test="purchasepricelast != null">
+      purchasepricelast = #{purchasepricelast,jdbcType=DECIMAL} , 
+    </if>
+    <if test="recommendnum != null">
+      recommendnum = #{recommendnum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="arrivenum != null">
+      arrivenum = #{arrivenum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="stocknum != null">
+      stocknum = #{stocknum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="damagenum != null">
+      damagenum = #{damagenum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="overnum != null">
+      overnum = #{overnum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="status != null">
+      status = #{status,jdbcType=DECIMAL} , 
+    </if>
+    <if test="content != null">
+      content = #{content,jdbcType=VARCHAR} , 
+    </if>
+    <if test="createoper != null">
+      createoper = #{createoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="checkoper != null">
+      checkoper = #{checkoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="checktime != null">
+      checktime = #{checktime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbPurchaseItem" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="Long">
+    delete from <include refid="TableName"/> where ID=#{ID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbPurchaseItem">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbPurchaseItem">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbPurchaseItem">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

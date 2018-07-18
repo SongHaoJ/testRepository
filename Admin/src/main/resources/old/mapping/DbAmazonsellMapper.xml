@@ -1,0 +1,716 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbAmazonsellMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbAmazonsell">
+    <id column="SID" jdbcType="VARCHAR" property="sid" />
+    <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
+    <result column="ORDERID" jdbcType="VARCHAR" property="orderid" />
+    <result column="PRODUCTID" jdbcType="VARCHAR" property="productid" />
+    <result column="PRODUCTNAME" jdbcType="VARCHAR" property="productname" />
+    <result column="ORDERNUM" jdbcType="DECIMAL" property="ordernum" />
+    <result column="COSTPRICE" jdbcType="DECIMAL" property="costprice" />
+    <result column="SELLPRICE" jdbcType="DECIMAL" property="sellprice" />
+    <result column="AMOUNT" jdbcType="DECIMAL" property="amount" />
+    <result column="CUSTOMERID" jdbcType="VARCHAR" property="customerid" />
+    <result column="ORDERTIME" jdbcType="TIMESTAMP" property="ordertime" />
+    <result column="STORAGEID" jdbcType="VARCHAR" property="storageid" />
+    <result column="STORAGE" jdbcType="VARCHAR" property="storage" />
+    <result column="LOCATIONID" jdbcType="VARCHAR" property="locationid" />
+    <result column="LOCATION" jdbcType="VARCHAR" property="location" />
+    <result column="ALERTFLAG" jdbcType="VARCHAR" property="alertflag" />
+    <result column="SHOPTYPE" jdbcType="VARCHAR" property="shoptype" />
+    <result column="UPDATEFLAG" jdbcType="VARCHAR" property="updateflag" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="FLAG" jdbcType="VARCHAR" property="flag" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
+    <result column="RESERVE4" jdbcType="VARCHAR" property="reserve4" />
+    <result column="RESERVE5" jdbcType="VARCHAR" property="reserve5" />
+    <result column="RESERVE6" jdbcType="VARCHAR" property="reserve6" />
+    <result column="RESERVE7" jdbcType="VARCHAR" property="reserve7" />
+    <result column="RESERVE8" jdbcType="VARCHAR" property="reserve8" />
+    <result column="RESERVE9" jdbcType="VARCHAR" property="reserve9" />
+    <result column="RESERVE10" jdbcType="VARCHAR" property="reserve10" />
+    <result column="PRODUCTSAVENUM" jdbcType="DECIMAL" property="productsavenum" />
+    <result column="PRODUCTORDERNUM" jdbcType="DECIMAL" property="productordernum" />
+    <result column="PRODUCTALERTNUM" jdbcType="DECIMAL" property="productalertnum" />
+    <result column="PRODUCTPIC1" jdbcType="VARCHAR" property="productpic1" />
+    <result column="TRADEID" jdbcType="VARCHAR" property="tradeid" />
+    <result column="TRANSACTIONID" jdbcType="VARCHAR" property="transactionid" />
+    <result column="ORIGINSELLPRICE" jdbcType="DECIMAL" property="originsellprice" />
+    <result column="MONEYTYPE" jdbcType="VARCHAR" property="moneytype" />
+    <result column="GROUPID" jdbcType="VARCHAR" property="groupid" />
+    <result column="WEIGHT" jdbcType="DECIMAL" property="weight" />
+    <result column="WEIGHTAMOUNT" jdbcType="DECIMAL" property="weightamount" />
+    <result column="FINALVALUEFEE" jdbcType="DECIMAL" property="finalvaluefee" />
+    <result column="ORIGINSELLMONEY" jdbcType="DECIMAL" property="originsellmoney" />
+    <result column="ORIGINEXPRESSMONEY" jdbcType="DECIMAL" property="originexpressmoney" />
+    <result column="ORIGINFINALVALUEFEE" jdbcType="DECIMAL" property="originfinalvaluefee" />
+    <result column="ORIGINGIFTMONEY" jdbcType="DECIMAL" property="origingiftmoney" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbAmazonsell">
+    <result column="DESCR1" jdbcType="LONGVARCHAR" property="descr1" />
+    <result column="DESCR2" jdbcType="LONGVARCHAR" property="descr2" />
+    <result column="DESCR3" jdbcType="LONGVARCHAR" property="descr3" />
+    <result column="SHOPTYPEID" jdbcType="LONGVARCHAR" property="shoptypeid" />
+    <result column="EBAYITEMID" jdbcType="LONGVARCHAR" property="ebayitemid" />
+    <result column="ENGLISHNAME" jdbcType="LONGVARCHAR" property="englishname" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SID, CORPID, ORDERID, PRODUCTID, PRODUCTNAME, ORDERNUM, COSTPRICE, SELLPRICE, AMOUNT, 
+    CUSTOMERID, ORDERTIME, STORAGEID, 'STORAGE', LOCATIONID, 'LOCATION', ALERTFLAG, SHOPTYPE, 
+    UPDATEFLAG, OPER, OPERTIME, FLAG, RESERVE1, RESERVE2, RESERVE3, RESERVE4, RESERVE5, 
+    RESERVE6, RESERVE7, RESERVE8, RESERVE9, RESERVE10, PRODUCTSAVENUM, PRODUCTORDERNUM, 
+    PRODUCTALERTNUM, PRODUCTPIC1, TRADEID, TRANSACTIONID, ORIGINSELLPRICE, MONEYTYPE, 
+    GROUPID, WEIGHT, WEIGHTAMOUNT, FINALVALUEFEE, ORIGINSELLMONEY, ORIGINEXPRESSMONEY, 
+    ORIGINFINALVALUEFEE, ORIGINGIFTMONEY
+  </sql>
+  <sql id="Blob_Column_List">
+    DESCR1, DESCR2, DESCR3, SHOPTYPEID, EBAYITEMID, ENGLISHNAME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from db_amazonsell
+    where SID = #{sid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from db_amazonsell
+    where SID = #{sid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bean.model.DbAmazonsell">
+    insert into db_amazonsell (SID, CORPID, ORDERID, 
+      PRODUCTID, PRODUCTNAME, ORDERNUM, 
+      COSTPRICE, SELLPRICE, AMOUNT, 
+      CUSTOMERID, ORDERTIME, STORAGEID, 
+      'STORAGE', LOCATIONID, 'LOCATION', 
+      ALERTFLAG, SHOPTYPE, UPDATEFLAG, 
+      OPER, OPERTIME, FLAG, 
+      RESERVE1, RESERVE2, RESERVE3, 
+      RESERVE4, RESERVE5, RESERVE6, 
+      RESERVE7, RESERVE8, RESERVE9, 
+      RESERVE10, PRODUCTSAVENUM, PRODUCTORDERNUM, 
+      PRODUCTALERTNUM, PRODUCTPIC1, TRADEID, 
+      TRANSACTIONID, ORIGINSELLPRICE, MONEYTYPE, 
+      GROUPID, WEIGHT, WEIGHTAMOUNT, 
+      FINALVALUEFEE, ORIGINSELLMONEY, ORIGINEXPRESSMONEY, 
+      ORIGINFINALVALUEFEE, ORIGINGIFTMONEY, DESCR1, 
+      DESCR2, DESCR3, SHOPTYPEID, 
+      EBAYITEMID, ENGLISHNAME)
+    values (#{sid,jdbcType=VARCHAR}, #{corpid,jdbcType=VARCHAR}, #{orderid,jdbcType=VARCHAR}, 
+      #{productid,jdbcType=VARCHAR}, #{productname,jdbcType=VARCHAR}, #{ordernum,jdbcType=DECIMAL}, 
+      #{costprice,jdbcType=DECIMAL}, #{sellprice,jdbcType=DECIMAL}, #{amount,jdbcType=DECIMAL}, 
+      #{customerid,jdbcType=VARCHAR}, #{ordertime,jdbcType=TIMESTAMP}, #{storageid,jdbcType=VARCHAR}, 
+      #{storage,jdbcType=VARCHAR}, #{locationid,jdbcType=VARCHAR}, #{location,jdbcType=VARCHAR}, 
+      #{alertflag,jdbcType=VARCHAR}, #{shoptype,jdbcType=VARCHAR}, #{updateflag,jdbcType=VARCHAR}, 
+      #{oper,jdbcType=VARCHAR}, #{opertime,jdbcType=TIMESTAMP}, #{flag,jdbcType=VARCHAR}, 
+      #{reserve1,jdbcType=VARCHAR}, #{reserve2,jdbcType=VARCHAR}, #{reserve3,jdbcType=VARCHAR}, 
+      #{reserve4,jdbcType=VARCHAR}, #{reserve5,jdbcType=VARCHAR}, #{reserve6,jdbcType=VARCHAR}, 
+      #{reserve7,jdbcType=VARCHAR}, #{reserve8,jdbcType=VARCHAR}, #{reserve9,jdbcType=VARCHAR}, 
+      #{reserve10,jdbcType=VARCHAR}, #{productsavenum,jdbcType=DECIMAL}, #{productordernum,jdbcType=DECIMAL}, 
+      #{productalertnum,jdbcType=DECIMAL}, #{productpic1,jdbcType=VARCHAR}, #{tradeid,jdbcType=VARCHAR}, 
+      #{transactionid,jdbcType=VARCHAR}, #{originsellprice,jdbcType=DECIMAL}, #{moneytype,jdbcType=VARCHAR}, 
+      #{groupid,jdbcType=VARCHAR}, #{weight,jdbcType=DECIMAL}, #{weightamount,jdbcType=DECIMAL}, 
+      #{finalvaluefee,jdbcType=DECIMAL}, #{originsellmoney,jdbcType=DECIMAL}, #{originexpressmoney,jdbcType=DECIMAL}, 
+      #{originfinalvaluefee,jdbcType=DECIMAL}, #{origingiftmoney,jdbcType=DECIMAL}, #{descr1,jdbcType=LONGVARCHAR}, 
+      #{descr2,jdbcType=LONGVARCHAR}, #{descr3,jdbcType=LONGVARCHAR}, #{shoptypeid,jdbcType=LONGVARCHAR}, 
+      #{ebayitemid,jdbcType=LONGVARCHAR}, #{englishname,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbAmazonsell">
+    insert into db_amazonsell
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        SID,
+      </if>
+      <if test="corpid != null">
+        CORPID,
+      </if>
+      <if test="orderid != null">
+        ORDERID,
+      </if>
+      <if test="productid != null">
+        PRODUCTID,
+      </if>
+      <if test="productname != null">
+        PRODUCTNAME,
+      </if>
+      <if test="ordernum != null">
+        ORDERNUM,
+      </if>
+      <if test="costprice != null">
+        COSTPRICE,
+      </if>
+      <if test="sellprice != null">
+        SELLPRICE,
+      </if>
+      <if test="amount != null">
+        AMOUNT,
+      </if>
+      <if test="customerid != null">
+        CUSTOMERID,
+      </if>
+      <if test="ordertime != null">
+        ORDERTIME,
+      </if>
+      <if test="storageid != null">
+        STORAGEID,
+      </if>
+      <if test="storage != null">
+        'STORAGE',
+      </if>
+      <if test="locationid != null">
+        LOCATIONID,
+      </if>
+      <if test="location != null">
+        'LOCATION',
+      </if>
+      <if test="alertflag != null">
+        ALERTFLAG,
+      </if>
+      <if test="shoptype != null">
+        SHOPTYPE,
+      </if>
+      <if test="updateflag != null">
+        UPDATEFLAG,
+      </if>
+      <if test="oper != null">
+        OPER,
+      </if>
+      <if test="opertime != null">
+        OPERTIME,
+      </if>
+      <if test="flag != null">
+        FLAG,
+      </if>
+      <if test="reserve1 != null">
+        RESERVE1,
+      </if>
+      <if test="reserve2 != null">
+        RESERVE2,
+      </if>
+      <if test="reserve3 != null">
+        RESERVE3,
+      </if>
+      <if test="reserve4 != null">
+        RESERVE4,
+      </if>
+      <if test="reserve5 != null">
+        RESERVE5,
+      </if>
+      <if test="reserve6 != null">
+        RESERVE6,
+      </if>
+      <if test="reserve7 != null">
+        RESERVE7,
+      </if>
+      <if test="reserve8 != null">
+        RESERVE8,
+      </if>
+      <if test="reserve9 != null">
+        RESERVE9,
+      </if>
+      <if test="reserve10 != null">
+        RESERVE10,
+      </if>
+      <if test="productsavenum != null">
+        PRODUCTSAVENUM,
+      </if>
+      <if test="productordernum != null">
+        PRODUCTORDERNUM,
+      </if>
+      <if test="productalertnum != null">
+        PRODUCTALERTNUM,
+      </if>
+      <if test="productpic1 != null">
+        PRODUCTPIC1,
+      </if>
+      <if test="tradeid != null">
+        TRADEID,
+      </if>
+      <if test="transactionid != null">
+        TRANSACTIONID,
+      </if>
+      <if test="originsellprice != null">
+        ORIGINSELLPRICE,
+      </if>
+      <if test="moneytype != null">
+        MONEYTYPE,
+      </if>
+      <if test="groupid != null">
+        GROUPID,
+      </if>
+      <if test="weight != null">
+        WEIGHT,
+      </if>
+      <if test="weightamount != null">
+        WEIGHTAMOUNT,
+      </if>
+      <if test="finalvaluefee != null">
+        FINALVALUEFEE,
+      </if>
+      <if test="originsellmoney != null">
+        ORIGINSELLMONEY,
+      </if>
+      <if test="originexpressmoney != null">
+        ORIGINEXPRESSMONEY,
+      </if>
+      <if test="originfinalvaluefee != null">
+        ORIGINFINALVALUEFEE,
+      </if>
+      <if test="origingiftmoney != null">
+        ORIGINGIFTMONEY,
+      </if>
+      <if test="descr1 != null">
+        DESCR1,
+      </if>
+      <if test="descr2 != null">
+        DESCR2,
+      </if>
+      <if test="descr3 != null">
+        DESCR3,
+      </if>
+      <if test="shoptypeid != null">
+        SHOPTYPEID,
+      </if>
+      <if test="ebayitemid != null">
+        EBAYITEMID,
+      </if>
+      <if test="englishname != null">
+        ENGLISHNAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        #{sid,jdbcType=VARCHAR},
+      </if>
+      <if test="corpid != null">
+        #{corpid,jdbcType=VARCHAR},
+      </if>
+      <if test="orderid != null">
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="productname != null">
+        #{productname,jdbcType=VARCHAR},
+      </if>
+      <if test="ordernum != null">
+        #{ordernum,jdbcType=DECIMAL},
+      </if>
+      <if test="costprice != null">
+        #{costprice,jdbcType=DECIMAL},
+      </if>
+      <if test="sellprice != null">
+        #{sellprice,jdbcType=DECIMAL},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="customerid != null">
+        #{customerid,jdbcType=VARCHAR},
+      </if>
+      <if test="ordertime != null">
+        #{ordertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="storageid != null">
+        #{storageid,jdbcType=VARCHAR},
+      </if>
+      <if test="storage != null">
+        #{storage,jdbcType=VARCHAR},
+      </if>
+      <if test="locationid != null">
+        #{locationid,jdbcType=VARCHAR},
+      </if>
+      <if test="location != null">
+        #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="alertflag != null">
+        #{alertflag,jdbcType=VARCHAR},
+      </if>
+      <if test="shoptype != null">
+        #{shoptype,jdbcType=VARCHAR},
+      </if>
+      <if test="updateflag != null">
+        #{updateflag,jdbcType=VARCHAR},
+      </if>
+      <if test="oper != null">
+        #{oper,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null">
+        #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve1 != null">
+        #{reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve2 != null">
+        #{reserve2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve3 != null">
+        #{reserve3,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve4 != null">
+        #{reserve4,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve5 != null">
+        #{reserve5,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve6 != null">
+        #{reserve6,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve7 != null">
+        #{reserve7,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve8 != null">
+        #{reserve8,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve9 != null">
+        #{reserve9,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve10 != null">
+        #{reserve10,jdbcType=VARCHAR},
+      </if>
+      <if test="productsavenum != null">
+        #{productsavenum,jdbcType=DECIMAL},
+      </if>
+      <if test="productordernum != null">
+        #{productordernum,jdbcType=DECIMAL},
+      </if>
+      <if test="productalertnum != null">
+        #{productalertnum,jdbcType=DECIMAL},
+      </if>
+      <if test="productpic1 != null">
+        #{productpic1,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeid != null">
+        #{tradeid,jdbcType=VARCHAR},
+      </if>
+      <if test="transactionid != null">
+        #{transactionid,jdbcType=VARCHAR},
+      </if>
+      <if test="originsellprice != null">
+        #{originsellprice,jdbcType=DECIMAL},
+      </if>
+      <if test="moneytype != null">
+        #{moneytype,jdbcType=VARCHAR},
+      </if>
+      <if test="groupid != null">
+        #{groupid,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null">
+        #{weight,jdbcType=DECIMAL},
+      </if>
+      <if test="weightamount != null">
+        #{weightamount,jdbcType=DECIMAL},
+      </if>
+      <if test="finalvaluefee != null">
+        #{finalvaluefee,jdbcType=DECIMAL},
+      </if>
+      <if test="originsellmoney != null">
+        #{originsellmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="originexpressmoney != null">
+        #{originexpressmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="originfinalvaluefee != null">
+        #{originfinalvaluefee,jdbcType=DECIMAL},
+      </if>
+      <if test="origingiftmoney != null">
+        #{origingiftmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="descr1 != null">
+        #{descr1,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="descr2 != null">
+        #{descr2,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="descr3 != null">
+        #{descr3,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="shoptypeid != null">
+        #{shoptypeid,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="ebayitemid != null">
+        #{ebayitemid,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="englishname != null">
+        #{englishname,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbAmazonsell">
+    update db_amazonsell
+    <set>
+      <if test="corpid != null">
+        CORPID = #{corpid,jdbcType=VARCHAR},
+      </if>
+      <if test="orderid != null">
+        ORDERID = #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="productid != null">
+        PRODUCTID = #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="productname != null">
+        PRODUCTNAME = #{productname,jdbcType=VARCHAR},
+      </if>
+      <if test="ordernum != null">
+        ORDERNUM = #{ordernum,jdbcType=DECIMAL},
+      </if>
+      <if test="costprice != null">
+        COSTPRICE = #{costprice,jdbcType=DECIMAL},
+      </if>
+      <if test="sellprice != null">
+        SELLPRICE = #{sellprice,jdbcType=DECIMAL},
+      </if>
+      <if test="amount != null">
+        AMOUNT = #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="customerid != null">
+        CUSTOMERID = #{customerid,jdbcType=VARCHAR},
+      </if>
+      <if test="ordertime != null">
+        ORDERTIME = #{ordertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="storageid != null">
+        STORAGEID = #{storageid,jdbcType=VARCHAR},
+      </if>
+      <if test="storage != null">
+        'STORAGE' = #{storage,jdbcType=VARCHAR},
+      </if>
+      <if test="locationid != null">
+        LOCATIONID = #{locationid,jdbcType=VARCHAR},
+      </if>
+      <if test="location != null">
+        'LOCATION' = #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="alertflag != null">
+        ALERTFLAG = #{alertflag,jdbcType=VARCHAR},
+      </if>
+      <if test="shoptype != null">
+        SHOPTYPE = #{shoptype,jdbcType=VARCHAR},
+      </if>
+      <if test="updateflag != null">
+        UPDATEFLAG = #{updateflag,jdbcType=VARCHAR},
+      </if>
+      <if test="oper != null">
+        OPER = #{oper,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null">
+        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="flag != null">
+        FLAG = #{flag,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve1 != null">
+        RESERVE1 = #{reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve2 != null">
+        RESERVE2 = #{reserve2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve3 != null">
+        RESERVE3 = #{reserve3,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve4 != null">
+        RESERVE4 = #{reserve4,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve5 != null">
+        RESERVE5 = #{reserve5,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve6 != null">
+        RESERVE6 = #{reserve6,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve7 != null">
+        RESERVE7 = #{reserve7,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve8 != null">
+        RESERVE8 = #{reserve8,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve9 != null">
+        RESERVE9 = #{reserve9,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve10 != null">
+        RESERVE10 = #{reserve10,jdbcType=VARCHAR},
+      </if>
+      <if test="productsavenum != null">
+        PRODUCTSAVENUM = #{productsavenum,jdbcType=DECIMAL},
+      </if>
+      <if test="productordernum != null">
+        PRODUCTORDERNUM = #{productordernum,jdbcType=DECIMAL},
+      </if>
+      <if test="productalertnum != null">
+        PRODUCTALERTNUM = #{productalertnum,jdbcType=DECIMAL},
+      </if>
+      <if test="productpic1 != null">
+        PRODUCTPIC1 = #{productpic1,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeid != null">
+        TRADEID = #{tradeid,jdbcType=VARCHAR},
+      </if>
+      <if test="transactionid != null">
+        TRANSACTIONID = #{transactionid,jdbcType=VARCHAR},
+      </if>
+      <if test="originsellprice != null">
+        ORIGINSELLPRICE = #{originsellprice,jdbcType=DECIMAL},
+      </if>
+      <if test="moneytype != null">
+        MONEYTYPE = #{moneytype,jdbcType=VARCHAR},
+      </if>
+      <if test="groupid != null">
+        GROUPID = #{groupid,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null">
+        WEIGHT = #{weight,jdbcType=DECIMAL},
+      </if>
+      <if test="weightamount != null">
+        WEIGHTAMOUNT = #{weightamount,jdbcType=DECIMAL},
+      </if>
+      <if test="finalvaluefee != null">
+        FINALVALUEFEE = #{finalvaluefee,jdbcType=DECIMAL},
+      </if>
+      <if test="originsellmoney != null">
+        ORIGINSELLMONEY = #{originsellmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="originexpressmoney != null">
+        ORIGINEXPRESSMONEY = #{originexpressmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="originfinalvaluefee != null">
+        ORIGINFINALVALUEFEE = #{originfinalvaluefee,jdbcType=DECIMAL},
+      </if>
+      <if test="origingiftmoney != null">
+        ORIGINGIFTMONEY = #{origingiftmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="descr1 != null">
+        DESCR1 = #{descr1,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="descr2 != null">
+        DESCR2 = #{descr2,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="descr3 != null">
+        DESCR3 = #{descr3,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="shoptypeid != null">
+        SHOPTYPEID = #{shoptypeid,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="ebayitemid != null">
+        EBAYITEMID = #{ebayitemid,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="englishname != null">
+        ENGLISHNAME = #{englishname,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where SID = #{sid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbAmazonsell">
+    update db_amazonsell
+    set CORPID = #{corpid,jdbcType=VARCHAR},
+      ORDERID = #{orderid,jdbcType=VARCHAR},
+      PRODUCTID = #{productid,jdbcType=VARCHAR},
+      PRODUCTNAME = #{productname,jdbcType=VARCHAR},
+      ORDERNUM = #{ordernum,jdbcType=DECIMAL},
+      COSTPRICE = #{costprice,jdbcType=DECIMAL},
+      SELLPRICE = #{sellprice,jdbcType=DECIMAL},
+      AMOUNT = #{amount,jdbcType=DECIMAL},
+      CUSTOMERID = #{customerid,jdbcType=VARCHAR},
+      ORDERTIME = #{ordertime,jdbcType=TIMESTAMP},
+      STORAGEID = #{storageid,jdbcType=VARCHAR},
+      'STORAGE' = #{storage,jdbcType=VARCHAR},
+      LOCATIONID = #{locationid,jdbcType=VARCHAR},
+      'LOCATION' = #{location,jdbcType=VARCHAR},
+      ALERTFLAG = #{alertflag,jdbcType=VARCHAR},
+      SHOPTYPE = #{shoptype,jdbcType=VARCHAR},
+      UPDATEFLAG = #{updateflag,jdbcType=VARCHAR},
+      OPER = #{oper,jdbcType=VARCHAR},
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      FLAG = #{flag,jdbcType=VARCHAR},
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR},
+      RESERVE3 = #{reserve3,jdbcType=VARCHAR},
+      RESERVE4 = #{reserve4,jdbcType=VARCHAR},
+      RESERVE5 = #{reserve5,jdbcType=VARCHAR},
+      RESERVE6 = #{reserve6,jdbcType=VARCHAR},
+      RESERVE7 = #{reserve7,jdbcType=VARCHAR},
+      RESERVE8 = #{reserve8,jdbcType=VARCHAR},
+      RESERVE9 = #{reserve9,jdbcType=VARCHAR},
+      RESERVE10 = #{reserve10,jdbcType=VARCHAR},
+      PRODUCTSAVENUM = #{productsavenum,jdbcType=DECIMAL},
+      PRODUCTORDERNUM = #{productordernum,jdbcType=DECIMAL},
+      PRODUCTALERTNUM = #{productalertnum,jdbcType=DECIMAL},
+      PRODUCTPIC1 = #{productpic1,jdbcType=VARCHAR},
+      TRADEID = #{tradeid,jdbcType=VARCHAR},
+      TRANSACTIONID = #{transactionid,jdbcType=VARCHAR},
+      ORIGINSELLPRICE = #{originsellprice,jdbcType=DECIMAL},
+      MONEYTYPE = #{moneytype,jdbcType=VARCHAR},
+      GROUPID = #{groupid,jdbcType=VARCHAR},
+      WEIGHT = #{weight,jdbcType=DECIMAL},
+      WEIGHTAMOUNT = #{weightamount,jdbcType=DECIMAL},
+      FINALVALUEFEE = #{finalvaluefee,jdbcType=DECIMAL},
+      ORIGINSELLMONEY = #{originsellmoney,jdbcType=DECIMAL},
+      ORIGINEXPRESSMONEY = #{originexpressmoney,jdbcType=DECIMAL},
+      ORIGINFINALVALUEFEE = #{originfinalvaluefee,jdbcType=DECIMAL},
+      ORIGINGIFTMONEY = #{origingiftmoney,jdbcType=DECIMAL},
+      DESCR1 = #{descr1,jdbcType=LONGVARCHAR},
+      DESCR2 = #{descr2,jdbcType=LONGVARCHAR},
+      DESCR3 = #{descr3,jdbcType=LONGVARCHAR},
+      SHOPTYPEID = #{shoptypeid,jdbcType=LONGVARCHAR},
+      EBAYITEMID = #{ebayitemid,jdbcType=LONGVARCHAR},
+      ENGLISHNAME = #{englishname,jdbcType=LONGVARCHAR}
+    where SID = #{sid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbAmazonsell">
+    update db_amazonsell
+    set CORPID = #{corpid,jdbcType=VARCHAR},
+      ORDERID = #{orderid,jdbcType=VARCHAR},
+      PRODUCTID = #{productid,jdbcType=VARCHAR},
+      PRODUCTNAME = #{productname,jdbcType=VARCHAR},
+      ORDERNUM = #{ordernum,jdbcType=DECIMAL},
+      COSTPRICE = #{costprice,jdbcType=DECIMAL},
+      SELLPRICE = #{sellprice,jdbcType=DECIMAL},
+      AMOUNT = #{amount,jdbcType=DECIMAL},
+      CUSTOMERID = #{customerid,jdbcType=VARCHAR},
+      ORDERTIME = #{ordertime,jdbcType=TIMESTAMP},
+      STORAGEID = #{storageid,jdbcType=VARCHAR},
+      'STORAGE' = #{storage,jdbcType=VARCHAR},
+      LOCATIONID = #{locationid,jdbcType=VARCHAR},
+      'LOCATION' = #{location,jdbcType=VARCHAR},
+      ALERTFLAG = #{alertflag,jdbcType=VARCHAR},
+      SHOPTYPE = #{shoptype,jdbcType=VARCHAR},
+      UPDATEFLAG = #{updateflag,jdbcType=VARCHAR},
+      OPER = #{oper,jdbcType=VARCHAR},
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      FLAG = #{flag,jdbcType=VARCHAR},
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR},
+      RESERVE3 = #{reserve3,jdbcType=VARCHAR},
+      RESERVE4 = #{reserve4,jdbcType=VARCHAR},
+      RESERVE5 = #{reserve5,jdbcType=VARCHAR},
+      RESERVE6 = #{reserve6,jdbcType=VARCHAR},
+      RESERVE7 = #{reserve7,jdbcType=VARCHAR},
+      RESERVE8 = #{reserve8,jdbcType=VARCHAR},
+      RESERVE9 = #{reserve9,jdbcType=VARCHAR},
+      RESERVE10 = #{reserve10,jdbcType=VARCHAR},
+      PRODUCTSAVENUM = #{productsavenum,jdbcType=DECIMAL},
+      PRODUCTORDERNUM = #{productordernum,jdbcType=DECIMAL},
+      PRODUCTALERTNUM = #{productalertnum,jdbcType=DECIMAL},
+      PRODUCTPIC1 = #{productpic1,jdbcType=VARCHAR},
+      TRADEID = #{tradeid,jdbcType=VARCHAR},
+      TRANSACTIONID = #{transactionid,jdbcType=VARCHAR},
+      ORIGINSELLPRICE = #{originsellprice,jdbcType=DECIMAL},
+      MONEYTYPE = #{moneytype,jdbcType=VARCHAR},
+      GROUPID = #{groupid,jdbcType=VARCHAR},
+      WEIGHT = #{weight,jdbcType=DECIMAL},
+      WEIGHTAMOUNT = #{weightamount,jdbcType=DECIMAL},
+      FINALVALUEFEE = #{finalvaluefee,jdbcType=DECIMAL},
+      ORIGINSELLMONEY = #{originsellmoney,jdbcType=DECIMAL},
+      ORIGINEXPRESSMONEY = #{originexpressmoney,jdbcType=DECIMAL},
+      ORIGINFINALVALUEFEE = #{originfinalvaluefee,jdbcType=DECIMAL},
+      ORIGINGIFTMONEY = #{origingiftmoney,jdbcType=DECIMAL}
+    where SID = #{sid,jdbcType=VARCHAR}
+  </update>
+</mapper>

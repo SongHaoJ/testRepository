@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbProductAvg;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbProductAvgMapper {
-    int deleteByPrimaryKey(String sku);
+    DbProductAvg selectByCriteria(DbProductAvg DbProductAvg);
 
-    int insert(DbProductAvg record);
+    void deleteByPrimaryKey(String SKU);
 
-    int insertSelective(DbProductAvg record);
+    void deleteByCriteria(DbProductAvg DbProductAvg);
+
+    int insertByCriteria(DbProductAvg DbProductAvg);
+
+    int updateByCriteria(DbProductAvg DbProductAvg);
 
     DbProductAvg selectByPrimaryKey(String sku);
 
-    int updateByPrimaryKeySelective(DbProductAvg record);
-
-    int updateByPrimaryKey(DbProductAvg record);
+    List<DbProductAvg> selectAll();
 }

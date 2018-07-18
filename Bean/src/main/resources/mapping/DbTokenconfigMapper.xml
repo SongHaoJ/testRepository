@@ -12,11 +12,15 @@
     <result column="FLAG" jdbcType="DECIMAL" property="flag" />
     <result column="OPENFLAG" jdbcType="DECIMAL" property="openflag" />
     <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
     <result column="RESERVE4" jdbcType="DECIMAL" property="reserve4" />
     <result column="RESERVE5" jdbcType="DECIMAL" property="reserve5" />
     <result column="RESERVE6" jdbcType="DECIMAL" property="reserve6" />
     <result column="CONTACT" jdbcType="VARCHAR" property="contact" />
     <result column="COMPAN" jdbcType="VARCHAR" property="compan" />
+    <result column="STREET1" jdbcType="VARCHAR" property="street1" />
     <result column="CITY" jdbcType="VARCHAR" property="city" />
     <result column="PROVINCE" jdbcType="VARCHAR" property="province" />
     <result column="COUNTRY" jdbcType="VARCHAR" property="country" />
@@ -25,348 +29,253 @@
     <result column="TEL" jdbcType="VARCHAR" property="tel" />
     <result column="FAX" jdbcType="VARCHAR" property="fax" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbTokenconfig">
-    <result column="RESERVE1" jdbcType="LONGVARCHAR" property="reserve1" />
-    <result column="RESERVE2" jdbcType="LONGVARCHAR" property="reserve2" />
-    <result column="RESERVE3" jdbcType="LONGVARCHAR" property="reserve3" />
-    <result column="STREET1" jdbcType="LONGVARCHAR" property="street1" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    SID, EXPRESSID, TOKENID, USERKEY, CUSTOMUSERKEY, OPER, OPERTIME, FLAG, OPENFLAG, 
-    CORPID, RESERVE4, RESERVE5, RESERVE6, CONTACT, COMPAN, CITY, PROVINCE, COUNTRY, POSTCODE, 
-    DISTRICT, TEL, FAX
-  </sql>
-  <sql id="Blob_Column_List">
-    RESERVE1, RESERVE2, RESERVE3, STREET1
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from db_tokenconfig
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SID, EXPRESSID, TOKENID, USERKEY, CUSTOMUSERKEY, OPER, OPERTIME, FLAG, OPENFLAG, 
+    CORPID, RESERVE1, RESERVE2, RESERVE3, RESERVE4, RESERVE5, RESERVE6, CONTACT, COMPAN, 
+    STREET1, CITY, PROVINCE, COUNTRY, POSTCODE, DISTRICT, TEL, FAX
+    from DB_TOKENCONFIG
     where SID = #{sid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_tokenconfig
-    where SID = #{sid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, EXPRESSID, TOKENID, USERKEY, CUSTOMUSERKEY, OPER, OPERTIME, FLAG, OPENFLAG, 
+    CORPID, RESERVE1, RESERVE2, RESERVE3, RESERVE4, RESERVE5, RESERVE6, CONTACT, COMPAN, 
+    STREET1, CITY, PROVINCE, COUNTRY, POSTCODE, DISTRICT, TEL, FAX
+    from DB_TOKENCONFIG
+  </select>
+  <sql id="TableName">
+    DB_TOKENCONFIG
+  </sql>
+  <sql id="Values">
+     #{sid,jdbcType=VARCHAR} , 
+     #{expressid,jdbcType=VARCHAR} , 
+     #{tokenid,jdbcType=VARCHAR} , 
+     #{userkey,jdbcType=VARCHAR} , 
+     #{customuserkey,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{flag,jdbcType=DECIMAL} , 
+     #{openflag,jdbcType=DECIMAL} , 
+     #{corpid,jdbcType=VARCHAR} , 
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+     #{reserve3,jdbcType=VARCHAR} , 
+     #{reserve4,jdbcType=DECIMAL} , 
+     #{reserve5,jdbcType=DECIMAL} , 
+     #{reserve6,jdbcType=DECIMAL} , 
+     #{contact,jdbcType=VARCHAR} , 
+     #{compan,jdbcType=VARCHAR} , 
+     #{street1,jdbcType=VARCHAR} , 
+     #{city,jdbcType=VARCHAR} , 
+     #{province,jdbcType=VARCHAR} , 
+     #{country,jdbcType=VARCHAR} , 
+     #{postcode,jdbcType=VARCHAR} , 
+     #{district,jdbcType=VARCHAR} , 
+     #{tel,jdbcType=VARCHAR} , 
+     #{fax,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    SID , 
+    EXPRESSID , 
+    TOKENID , 
+    USERKEY , 
+    CUSTOMUSERKEY , 
+    OPER , 
+    OPERTIME , 
+    FLAG , 
+    OPENFLAG , 
+    CORPID , 
+    RESERVE1 , 
+    RESERVE2 , 
+    RESERVE3 , 
+    RESERVE4 , 
+    RESERVE5 , 
+    RESERVE6 , 
+    CONTACT , 
+    COMPAN , 
+    STREET1 , 
+    CITY , 
+    PROVINCE , 
+    COUNTRY , 
+    POSTCODE , 
+    DISTRICT , 
+    TEL , 
+    FAX , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="expressid != null">
+      expressid = #{expressid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="tokenid != null">
+      tokenid = #{tokenid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="userkey != null">
+      userkey = #{userkey,jdbcType=VARCHAR} and 
+    </if>
+    <if test="customuserkey != null">
+      customuserkey = #{customuserkey,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve6 != null">
+      reserve6 = #{reserve6,jdbcType=DECIMAL} and 
+    </if>
+    <if test="contact != null">
+      contact = #{contact,jdbcType=VARCHAR} and 
+    </if>
+    <if test="compan != null">
+      compan = #{compan,jdbcType=VARCHAR} and 
+    </if>
+    <if test="street1 != null">
+      street1 = #{street1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="city != null">
+      city = #{city,jdbcType=VARCHAR} and 
+    </if>
+    <if test="province != null">
+      province = #{province,jdbcType=VARCHAR} and 
+    </if>
+    <if test="country != null">
+      country = #{country,jdbcType=VARCHAR} and 
+    </if>
+    <if test="postcode != null">
+      postcode = #{postcode,jdbcType=VARCHAR} and 
+    </if>
+    <if test="district != null">
+      district = #{district,jdbcType=VARCHAR} and 
+    </if>
+    <if test="tel != null">
+      tel = #{tel,jdbcType=VARCHAR} and 
+    </if>
+    <if test="fax != null">
+      fax = #{fax,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="expressid != null">
+      expressid = #{expressid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="tokenid != null">
+      tokenid = #{tokenid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="userkey != null">
+      userkey = #{userkey,jdbcType=VARCHAR} , 
+    </if>
+    <if test="customuserkey != null">
+      customuserkey = #{customuserkey,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve6 != null">
+      reserve6 = #{reserve6,jdbcType=DECIMAL} , 
+    </if>
+    <if test="contact != null">
+      contact = #{contact,jdbcType=VARCHAR} , 
+    </if>
+    <if test="compan != null">
+      compan = #{compan,jdbcType=VARCHAR} , 
+    </if>
+    <if test="street1 != null">
+      street1 = #{street1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="city != null">
+      city = #{city,jdbcType=VARCHAR} , 
+    </if>
+    <if test="province != null">
+      province = #{province,jdbcType=VARCHAR} , 
+    </if>
+    <if test="country != null">
+      country = #{country,jdbcType=VARCHAR} , 
+    </if>
+    <if test="postcode != null">
+      postcode = #{postcode,jdbcType=VARCHAR} , 
+    </if>
+    <if test="district != null">
+      district = #{district,jdbcType=VARCHAR} , 
+    </if>
+    <if test="tel != null">
+      tel = #{tel,jdbcType=VARCHAR} , 
+    </if>
+    <if test="fax != null">
+      fax = #{fax,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbTokenconfig" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SID=#{SID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbTokenconfig">
-    insert into db_tokenconfig (SID, EXPRESSID, TOKENID, 
-      USERKEY, CUSTOMUSERKEY, OPER, 
-      OPERTIME, FLAG, OPENFLAG, 
-      CORPID, RESERVE4, RESERVE5, 
-      RESERVE6, CONTACT, COMPAN, 
-      CITY, PROVINCE, COUNTRY, 
-      POSTCODE, DISTRICT, TEL, 
-      FAX, RESERVE1, RESERVE2, 
-      RESERVE3, STREET1)
-    values (#{sid,jdbcType=VARCHAR}, #{expressid,jdbcType=VARCHAR}, #{tokenid,jdbcType=VARCHAR}, 
-      #{userkey,jdbcType=VARCHAR}, #{customuserkey,jdbcType=VARCHAR}, #{oper,jdbcType=VARCHAR}, 
-      #{opertime,jdbcType=TIMESTAMP}, #{flag,jdbcType=DECIMAL}, #{openflag,jdbcType=DECIMAL}, 
-      #{corpid,jdbcType=VARCHAR}, #{reserve4,jdbcType=DECIMAL}, #{reserve5,jdbcType=DECIMAL}, 
-      #{reserve6,jdbcType=DECIMAL}, #{contact,jdbcType=VARCHAR}, #{compan,jdbcType=VARCHAR}, 
-      #{city,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, 
-      #{postcode,jdbcType=VARCHAR}, #{district,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, 
-      #{fax,jdbcType=VARCHAR}, #{reserve1,jdbcType=LONGVARCHAR}, #{reserve2,jdbcType=LONGVARCHAR}, 
-      #{reserve3,jdbcType=LONGVARCHAR}, #{street1,jdbcType=LONGVARCHAR})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbTokenconfig">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbTokenconfig">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbTokenconfig">
-    insert into db_tokenconfig
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        SID,
-      </if>
-      <if test="expressid != null">
-        EXPRESSID,
-      </if>
-      <if test="tokenid != null">
-        TOKENID,
-      </if>
-      <if test="userkey != null">
-        USERKEY,
-      </if>
-      <if test="customuserkey != null">
-        CUSTOMUSERKEY,
-      </if>
-      <if test="oper != null">
-        OPER,
-      </if>
-      <if test="opertime != null">
-        OPERTIME,
-      </if>
-      <if test="flag != null">
-        FLAG,
-      </if>
-      <if test="openflag != null">
-        OPENFLAG,
-      </if>
-      <if test="corpid != null">
-        CORPID,
-      </if>
-      <if test="reserve4 != null">
-        RESERVE4,
-      </if>
-      <if test="reserve5 != null">
-        RESERVE5,
-      </if>
-      <if test="reserve6 != null">
-        RESERVE6,
-      </if>
-      <if test="contact != null">
-        CONTACT,
-      </if>
-      <if test="compan != null">
-        COMPAN,
-      </if>
-      <if test="city != null">
-        CITY,
-      </if>
-      <if test="province != null">
-        PROVINCE,
-      </if>
-      <if test="country != null">
-        COUNTRY,
-      </if>
-      <if test="postcode != null">
-        POSTCODE,
-      </if>
-      <if test="district != null">
-        DISTRICT,
-      </if>
-      <if test="tel != null">
-        TEL,
-      </if>
-      <if test="fax != null">
-        FAX,
-      </if>
-      <if test="reserve1 != null">
-        RESERVE1,
-      </if>
-      <if test="reserve2 != null">
-        RESERVE2,
-      </if>
-      <if test="reserve3 != null">
-        RESERVE3,
-      </if>
-      <if test="street1 != null">
-        STREET1,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        #{sid,jdbcType=VARCHAR},
-      </if>
-      <if test="expressid != null">
-        #{expressid,jdbcType=VARCHAR},
-      </if>
-      <if test="tokenid != null">
-        #{tokenid,jdbcType=VARCHAR},
-      </if>
-      <if test="userkey != null">
-        #{userkey,jdbcType=VARCHAR},
-      </if>
-      <if test="customuserkey != null">
-        #{customuserkey,jdbcType=VARCHAR},
-      </if>
-      <if test="oper != null">
-        #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="flag != null">
-        #{flag,jdbcType=DECIMAL},
-      </if>
-      <if test="openflag != null">
-        #{openflag,jdbcType=DECIMAL},
-      </if>
-      <if test="corpid != null">
-        #{corpid,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve4 != null">
-        #{reserve4,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve5 != null">
-        #{reserve5,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve6 != null">
-        #{reserve6,jdbcType=DECIMAL},
-      </if>
-      <if test="contact != null">
-        #{contact,jdbcType=VARCHAR},
-      </if>
-      <if test="compan != null">
-        #{compan,jdbcType=VARCHAR},
-      </if>
-      <if test="city != null">
-        #{city,jdbcType=VARCHAR},
-      </if>
-      <if test="province != null">
-        #{province,jdbcType=VARCHAR},
-      </if>
-      <if test="country != null">
-        #{country,jdbcType=VARCHAR},
-      </if>
-      <if test="postcode != null">
-        #{postcode,jdbcType=VARCHAR},
-      </if>
-      <if test="district != null">
-        #{district,jdbcType=VARCHAR},
-      </if>
-      <if test="tel != null">
-        #{tel,jdbcType=VARCHAR},
-      </if>
-      <if test="fax != null">
-        #{fax,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve1 != null">
-        #{reserve1,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="reserve2 != null">
-        #{reserve2,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="reserve3 != null">
-        #{reserve3,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="street1 != null">
-        #{street1,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbTokenconfig">
-    update db_tokenconfig
-    <set>
-      <if test="expressid != null">
-        EXPRESSID = #{expressid,jdbcType=VARCHAR},
-      </if>
-      <if test="tokenid != null">
-        TOKENID = #{tokenid,jdbcType=VARCHAR},
-      </if>
-      <if test="userkey != null">
-        USERKEY = #{userkey,jdbcType=VARCHAR},
-      </if>
-      <if test="customuserkey != null">
-        CUSTOMUSERKEY = #{customuserkey,jdbcType=VARCHAR},
-      </if>
-      <if test="oper != null">
-        OPER = #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="flag != null">
-        FLAG = #{flag,jdbcType=DECIMAL},
-      </if>
-      <if test="openflag != null">
-        OPENFLAG = #{openflag,jdbcType=DECIMAL},
-      </if>
-      <if test="corpid != null">
-        CORPID = #{corpid,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve4 != null">
-        RESERVE4 = #{reserve4,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve5 != null">
-        RESERVE5 = #{reserve5,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve6 != null">
-        RESERVE6 = #{reserve6,jdbcType=DECIMAL},
-      </if>
-      <if test="contact != null">
-        CONTACT = #{contact,jdbcType=VARCHAR},
-      </if>
-      <if test="compan != null">
-        COMPAN = #{compan,jdbcType=VARCHAR},
-      </if>
-      <if test="city != null">
-        CITY = #{city,jdbcType=VARCHAR},
-      </if>
-      <if test="province != null">
-        PROVINCE = #{province,jdbcType=VARCHAR},
-      </if>
-      <if test="country != null">
-        COUNTRY = #{country,jdbcType=VARCHAR},
-      </if>
-      <if test="postcode != null">
-        POSTCODE = #{postcode,jdbcType=VARCHAR},
-      </if>
-      <if test="district != null">
-        DISTRICT = #{district,jdbcType=VARCHAR},
-      </if>
-      <if test="tel != null">
-        TEL = #{tel,jdbcType=VARCHAR},
-      </if>
-      <if test="fax != null">
-        FAX = #{fax,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve1 != null">
-        RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="reserve2 != null">
-        RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="reserve3 != null">
-        RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="street1 != null">
-        STREET1 = #{street1,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where SID = #{sid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbTokenconfig">
-    update db_tokenconfig
-    set EXPRESSID = #{expressid,jdbcType=VARCHAR},
-      TOKENID = #{tokenid,jdbcType=VARCHAR},
-      USERKEY = #{userkey,jdbcType=VARCHAR},
-      CUSTOMUSERKEY = #{customuserkey,jdbcType=VARCHAR},
-      OPER = #{oper,jdbcType=VARCHAR},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      FLAG = #{flag,jdbcType=DECIMAL},
-      OPENFLAG = #{openflag,jdbcType=DECIMAL},
-      CORPID = #{corpid,jdbcType=VARCHAR},
-      RESERVE4 = #{reserve4,jdbcType=DECIMAL},
-      RESERVE5 = #{reserve5,jdbcType=DECIMAL},
-      RESERVE6 = #{reserve6,jdbcType=DECIMAL},
-      CONTACT = #{contact,jdbcType=VARCHAR},
-      COMPAN = #{compan,jdbcType=VARCHAR},
-      CITY = #{city,jdbcType=VARCHAR},
-      PROVINCE = #{province,jdbcType=VARCHAR},
-      COUNTRY = #{country,jdbcType=VARCHAR},
-      POSTCODE = #{postcode,jdbcType=VARCHAR},
-      DISTRICT = #{district,jdbcType=VARCHAR},
-      TEL = #{tel,jdbcType=VARCHAR},
-      FAX = #{fax,jdbcType=VARCHAR},
-      RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR},
-      RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR},
-      RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR},
-      STREET1 = #{street1,jdbcType=LONGVARCHAR}
-    where SID = #{sid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbTokenconfig">
-    update db_tokenconfig
-    set EXPRESSID = #{expressid,jdbcType=VARCHAR},
-      TOKENID = #{tokenid,jdbcType=VARCHAR},
-      USERKEY = #{userkey,jdbcType=VARCHAR},
-      CUSTOMUSERKEY = #{customuserkey,jdbcType=VARCHAR},
-      OPER = #{oper,jdbcType=VARCHAR},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      FLAG = #{flag,jdbcType=DECIMAL},
-      OPENFLAG = #{openflag,jdbcType=DECIMAL},
-      CORPID = #{corpid,jdbcType=VARCHAR},
-      RESERVE4 = #{reserve4,jdbcType=DECIMAL},
-      RESERVE5 = #{reserve5,jdbcType=DECIMAL},
-      RESERVE6 = #{reserve6,jdbcType=DECIMAL},
-      CONTACT = #{contact,jdbcType=VARCHAR},
-      COMPAN = #{compan,jdbcType=VARCHAR},
-      CITY = #{city,jdbcType=VARCHAR},
-      PROVINCE = #{province,jdbcType=VARCHAR},
-      COUNTRY = #{country,jdbcType=VARCHAR},
-      POSTCODE = #{postcode,jdbcType=VARCHAR},
-      DISTRICT = #{district,jdbcType=VARCHAR},
-      TEL = #{tel,jdbcType=VARCHAR},
-      FAX = #{fax,jdbcType=VARCHAR}
-    where SID = #{sid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbTokenconfig">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbFpxcountry;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbFpxcountryMapper {
-    int deleteByPrimaryKey(String sid);
+    DbFpxcountry selectByCriteria(DbFpxcountry DbFpxcountry);
 
-    int insert(DbFpxcountry record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbFpxcountry record);
+    void deleteByCriteria(DbFpxcountry DbFpxcountry);
+
+    int insertByCriteria(DbFpxcountry DbFpxcountry);
+
+    int updateByCriteria(DbFpxcountry DbFpxcountry);
 
     DbFpxcountry selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbFpxcountry record);
-
-    int updateByPrimaryKey(DbFpxcountry record);
+    List<DbFpxcountry> selectAll();
 }

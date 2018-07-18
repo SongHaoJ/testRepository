@@ -7,41 +7,41 @@
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select CHAR1, CHAR2
-    from db_encode
+    from DB_ENCODE
     where CHAR1 = #{char1,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select CHAR1, CHAR2
-    from db_encode
+    from DB_ENCODE
   </select>
   <sql id="TableName">
-    db_encode
+    DB_ENCODE
   </sql>
   <sql id="Values">
      #{char1,jdbcType=VARCHAR} , 
-     #{char2,jdbcType=VARCHAR}
+     #{char2,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     CHAR1 , 
-    CHAR2
+    CHAR2 , 
   </sql>
   <sql id="Criteria">
     <if test="char1 != null">
-      CHAR1 = #{char1,jdbcType=VARCHAR} and 
+      char1 = #{char1,jdbcType=VARCHAR} and 
     </if>
     <if test="char2 != null">
-      CHAR2 = #{char2,jdbcType=VARCHAR}
+      char2 = #{char2,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="char1 != null">
-      CHAR1 = #{char1,jdbcType=VARCHAR} , 
+      char1 = #{char1,jdbcType=VARCHAR} , 
     </if>
     <if test="char2 != null">
-      CHAR2 = #{char2,jdbcType=VARCHAR}
+      char2 = #{char2,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbEncode" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

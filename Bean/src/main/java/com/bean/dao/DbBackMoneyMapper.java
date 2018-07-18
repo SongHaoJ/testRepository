@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbBackMoney;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbBackMoneyMapper {
-    int deleteByPrimaryKey(Integer sequenceid);
+    DbBackMoney selectByCriteria(DbBackMoney DbBackMoney);
 
-    int insert(DbBackMoney record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbBackMoney record);
+    void deleteByCriteria(DbBackMoney DbBackMoney);
+
+    int insertByCriteria(DbBackMoney DbBackMoney);
+
+    int updateByCriteria(DbBackMoney DbBackMoney);
 
     DbBackMoney selectByPrimaryKey(Integer sequenceid);
 
-    int updateByPrimaryKeySelective(DbBackMoney record);
-
-    int updateByPrimaryKey(DbBackMoney record);
+    List<DbBackMoney> selectAll();
 }

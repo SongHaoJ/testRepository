@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbBiaojuexpresstype;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbBiaojuexpresstypeMapper {
-    int deleteByPrimaryKey(Integer id);
+    DbBiaojuexpresstype selectByCriteria(DbBiaojuexpresstype DbBiaojuexpresstype);
 
-    int insert(DbBiaojuexpresstype record);
+    void deleteByPrimaryKey(String ID);
 
-    int insertSelective(DbBiaojuexpresstype record);
+    void deleteByCriteria(DbBiaojuexpresstype DbBiaojuexpresstype);
+
+    int insertByCriteria(DbBiaojuexpresstype DbBiaojuexpresstype);
+
+    int updateByCriteria(DbBiaojuexpresstype DbBiaojuexpresstype);
 
     DbBiaojuexpresstype selectByPrimaryKey(Integer id);
 
-    int updateByPrimaryKeySelective(DbBiaojuexpresstype record);
-
-    int updateByPrimaryKeyWithBLOBs(DbBiaojuexpresstype record);
-
-    int updateByPrimaryKey(DbBiaojuexpresstype record);
+    List<DbBiaojuexpresstype> selectAll();
 }

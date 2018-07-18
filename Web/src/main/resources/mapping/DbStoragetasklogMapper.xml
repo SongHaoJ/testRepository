@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbStoragetasklogMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbStoragetasklog">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="TASKID" jdbcType="DECIMAL" property="taskid" />
+    <result column="STOCKSKU" jdbcType="VARCHAR" property="stocksku" />
+    <result column="OPERTYPE" jdbcType="DECIMAL" property="opertype" />
+    <result column="CONTENT" jdbcType="VARCHAR" property="content" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select ID, TASKID, STOCKSKU, OPERTYPE, CONTENT, OPER, OPERTIME
+    from DB_STORAGETASKLOG
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ID, TASKID, STOCKSKU, OPERTYPE, CONTENT, OPER, OPERTIME
+    from DB_STORAGETASKLOG
+  </select>
+  <sql id="TableName">
+    DB_STORAGETASKLOG
+  </sql>
+  <sql id="Values">
+     #{id,jdbcType=DECIMAL} , 
+     #{taskid,jdbcType=DECIMAL} , 
+     #{stocksku,jdbcType=VARCHAR} , 
+     #{opertype,jdbcType=DECIMAL} , 
+     #{content,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+  </sql>
+  <sql id="Columns">
+    ID , 
+    TASKID , 
+    STOCKSKU , 
+    OPERTYPE , 
+    CONTENT , 
+    OPER , 
+    OPERTIME , 
+  </sql>
+  <sql id="Criteria">
+    <if test="id != null">
+      id = #{id,jdbcType=DECIMAL} and 
+    </if>
+    <if test="taskid != null">
+      taskid = #{taskid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="stocksku != null">
+      stocksku = #{stocksku,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertype != null">
+      opertype = #{opertype,jdbcType=DECIMAL} and 
+    </if>
+    <if test="content != null">
+      content = #{content,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="id != null">
+      id = #{id,jdbcType=DECIMAL} , 
+    </if>
+    <if test="taskid != null">
+      taskid = #{taskid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="stocksku != null">
+      stocksku = #{stocksku,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertype != null">
+      opertype = #{opertype,jdbcType=DECIMAL} , 
+    </if>
+    <if test="content != null">
+      content = #{content,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbStoragetasklog" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="BigDecimal">
+    delete from <include refid="TableName"/> where ID=#{ID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbStoragetasklog">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbStoragetasklog">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbStoragetasklog">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

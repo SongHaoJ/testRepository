@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbLazadaexpresstype;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
-@Repository
+import java.util.List;
+
+@Service
 public interface DbLazadaexpresstypeMapper {
-    int deleteByPrimaryKey(String sid);
+    DbLazadaexpresstype selectByCriteria(DbLazadaexpresstype DbLazadaexpresstype);
 
-    int insert(DbLazadaexpresstype record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbLazadaexpresstype record);
+    void deleteByCriteria(DbLazadaexpresstype DbLazadaexpresstype);
+
+    int insertByCriteria(DbLazadaexpresstype DbLazadaexpresstype);
+
+    int updateByCriteria(DbLazadaexpresstype DbLazadaexpresstype);
 
     DbLazadaexpresstype selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbLazadaexpresstype record);
-
-    int updateByPrimaryKey(DbLazadaexpresstype record);
+    List<DbLazadaexpresstype> selectAll();
 }

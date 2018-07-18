@@ -17,19 +17,19 @@ public class DbDepartmentapi implements Serializable {
 
     private String password;
 
+    private String reserve1;
+
+    private String reserve2;
+
     private String reserve3;
 
     private BigDecimal reserve4;
 
     private BigDecimal reserve5;
 
-    private Date opertime;
-
-    private String reserve1;
-
-    private String reserve2;
-
     private String oper;
+
+    private Date opertime;
 
     private static final long serialVersionUID = 1L;
 
@@ -81,6 +81,22 @@ public class DbDepartmentapi implements Serializable {
         this.password = password == null ? null : password.trim();
     }
 
+    public String getReserve1() {
+        return reserve1;
+    }
+
+    public void setReserve1(String reserve1) {
+        this.reserve1 = reserve1 == null ? null : reserve1.trim();
+    }
+
+    public String getReserve2() {
+        return reserve2;
+    }
+
+    public void setReserve2(String reserve2) {
+        this.reserve2 = reserve2 == null ? null : reserve2.trim();
+    }
+
     public String getReserve3() {
         return reserve3;
     }
@@ -105,36 +121,20 @@ public class DbDepartmentapi implements Serializable {
         this.reserve5 = reserve5;
     }
 
-    public Date getOpertime() {
-        return opertime;
-    }
-
-    public void setOpertime(Date opertime) {
-        this.opertime = opertime;
-    }
-
-    public String getReserve1() {
-        return reserve1;
-    }
-
-    public void setReserve1(String reserve1) {
-        this.reserve1 = reserve1 == null ? null : reserve1.trim();
-    }
-
-    public String getReserve2() {
-        return reserve2;
-    }
-
-    public void setReserve2(String reserve2) {
-        this.reserve2 = reserve2 == null ? null : reserve2.trim();
-    }
-
     public String getOper() {
         return oper;
     }
 
     public void setOper(String oper) {
         this.oper = oper == null ? null : oper.trim();
+    }
+
+    public Date getOpertime() {
+        return opertime;
+    }
+
+    public void setOpertime(Date opertime) {
+        this.opertime = opertime;
     }
 
     @Override
@@ -155,13 +155,13 @@ public class DbDepartmentapi implements Serializable {
             && (this.getUserkey() == null ? other.getUserkey() == null : this.getUserkey().equals(other.getUserkey()))
             && (this.getToken() == null ? other.getToken() == null : this.getToken().equals(other.getToken()))
             && (this.getPassword() == null ? other.getPassword() == null : this.getPassword().equals(other.getPassword()))
+            && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
+            && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
             && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
             && (this.getReserve4() == null ? other.getReserve4() == null : this.getReserve4().equals(other.getReserve4()))
             && (this.getReserve5() == null ? other.getReserve5() == null : this.getReserve5().equals(other.getReserve5()))
-            && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
-            && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
-            && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
-            && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()));
+            && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
+            && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()));
     }
 
     @Override
@@ -174,13 +174,13 @@ public class DbDepartmentapi implements Serializable {
         result = prime * result + ((getUserkey() == null) ? 0 : getUserkey().hashCode());
         result = prime * result + ((getToken() == null) ? 0 : getToken().hashCode());
         result = prime * result + ((getPassword() == null) ? 0 : getPassword().hashCode());
+        result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
+        result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
         result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
         result = prime * result + ((getReserve4() == null) ? 0 : getReserve4().hashCode());
         result = prime * result + ((getReserve5() == null) ? 0 : getReserve5().hashCode());
-        result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
-        result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
-        result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
+        result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         return result;
     }
 
@@ -196,13 +196,13 @@ public class DbDepartmentapi implements Serializable {
         sb.append(", userkey=").append(userkey);
         sb.append(", token=").append(token);
         sb.append(", password=").append(password);
+        sb.append(", reserve1=").append(reserve1);
+        sb.append(", reserve2=").append(reserve2);
         sb.append(", reserve3=").append(reserve3);
         sb.append(", reserve4=").append(reserve4);
         sb.append(", reserve5=").append(reserve5);
-        sb.append(", opertime=").append(opertime);
-        sb.append(", reserve1=").append(reserve1);
-        sb.append(", reserve2=").append(reserve2);
         sb.append(", oper=").append(oper);
+        sb.append(", opertime=").append(opertime);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

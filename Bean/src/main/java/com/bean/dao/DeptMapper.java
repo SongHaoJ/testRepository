@@ -2,8 +2,8 @@ package com.bean.dao;
 
 import com.bean.model.Dept;
 
-public interface DeptMapper {
-    int insert(Dept record);
+import java.util.List;
 
-    int insertSelective(Dept record);
+public interface DeptMapper {
+    List<Dept> selectAll();
 }

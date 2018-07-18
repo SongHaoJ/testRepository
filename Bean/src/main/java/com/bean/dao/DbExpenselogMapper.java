@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbExpenselog;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbExpenselogMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbExpenselog selectByCriteria(DbExpenselog DbExpenselog);
 
-    int insert(DbExpenselog record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbExpenselog record);
+    void deleteByCriteria(DbExpenselog DbExpenselog);
+
+    int insertByCriteria(DbExpenselog DbExpenselog);
+
+    int updateByCriteria(DbExpenselog DbExpenselog);
 
     DbExpenselog selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbExpenselog record);
-
-    int updateByPrimaryKeyWithBLOBs(DbExpenselog record);
-
-    int updateByPrimaryKey(DbExpenselog record);
+    List<DbExpenselog> selectAll();
 }

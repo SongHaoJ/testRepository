@@ -1,18 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbAntistopshop;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbAntistopshopMapper {
-    int deleteByPrimaryKey(BigDecimal sequenceid);
+    DbAntistopshop selectByCriteria(DbAntistopshop DbAntistopshop);
 
-    int insert(DbAntistopshop record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbAntistopshop record);
+    void deleteByCriteria(DbAntistopshop DbAntistopshop);
+
+    int insertByCriteria(DbAntistopshop DbAntistopshop);
+
+    int updateByCriteria(DbAntistopshop DbAntistopshop);
 
     DbAntistopshop selectByPrimaryKey(BigDecimal sequenceid);
 
-    int updateByPrimaryKeySelective(DbAntistopshop record);
-
-    int updateByPrimaryKey(DbAntistopshop record);
+    List<DbAntistopshop> selectAll();
 }

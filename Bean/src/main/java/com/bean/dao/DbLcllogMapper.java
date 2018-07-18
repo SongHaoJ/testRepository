@@ -1,20 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbLcllog;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbLcllogMapper {
-    int deleteByPrimaryKey(BigDecimal sequenceid);
+    DbLcllog selectByCriteria(DbLcllog DbLcllog);
 
-    int insert(DbLcllog record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbLcllog record);
+    void deleteByCriteria(DbLcllog DbLcllog);
+
+    int insertByCriteria(DbLcllog DbLcllog);
+
+    int updateByCriteria(DbLcllog DbLcllog);
 
     DbLcllog selectByPrimaryKey(BigDecimal sequenceid);
 
-    int updateByPrimaryKeySelective(DbLcllog record);
-
-    int updateByPrimaryKeyWithBLOBs(DbLcllog record);
-
-    int updateByPrimaryKey(DbLcllog record);
+    List<DbLcllog> selectAll();
 }

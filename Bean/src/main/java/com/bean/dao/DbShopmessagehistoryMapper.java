@@ -1,20 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbShopmessagehistory;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbShopmessagehistoryMapper {
-    int deleteByPrimaryKey(BigDecimal sequenceid);
+    DbShopmessagehistory selectByCriteria(DbShopmessagehistory DbShopmessagehistory);
 
-    int insert(DbShopmessagehistory record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbShopmessagehistory record);
+    void deleteByCriteria(DbShopmessagehistory DbShopmessagehistory);
+
+    int insertByCriteria(DbShopmessagehistory DbShopmessagehistory);
+
+    int updateByCriteria(DbShopmessagehistory DbShopmessagehistory);
 
     DbShopmessagehistory selectByPrimaryKey(BigDecimal sequenceid);
 
-    int updateByPrimaryKeySelective(DbShopmessagehistory record);
-
-    int updateByPrimaryKeyWithBLOBs(DbShopmessagehistory record);
-
-    int updateByPrimaryKey(DbShopmessagehistory record);
+    List<DbShopmessagehistory> selectAll();
 }

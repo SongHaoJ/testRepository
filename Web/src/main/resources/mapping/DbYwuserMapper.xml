@@ -4,107 +4,107 @@
   <resultMap id="BaseResultMap" type="com.bean.model.DbYwuser">
     <id column="SID" jdbcType="VARCHAR" property="sid" />
     <result column="USERID" jdbcType="VARCHAR" property="userid" />
+    <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
     <result column="NAME" jdbcType="VARCHAR" property="name" />
     <result column="FLAG" jdbcType="DECIMAL" property="flag" />
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
     <result column="APITOKEN" jdbcType="VARCHAR" property="apitoken" />
     <result column="LEVEL0" jdbcType="VARCHAR" property="level0" />
-    <result column="PASSWORD" jdbcType="LONGVARCHAR" property="password" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select SID, USERID, NAME, FLAG, OPER, OPERTIME, APITOKEN, LEVEL0, PASSWORD
-    from db_ywuser
+    select SID, USERID, PASSWORD, NAME, FLAG, OPER, OPERTIME, APITOKEN, LEVEL0
+    from DB_YWUSER
     where SID = #{sid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select SID, USERID, NAME, FLAG, OPER, OPERTIME, APITOKEN, LEVEL0, PASSWORD
-    from db_ywuser
+    select SID, USERID, PASSWORD, NAME, FLAG, OPER, OPERTIME, APITOKEN, LEVEL0
+    from DB_YWUSER
   </select>
   <sql id="TableName">
-    db_ywuser
+    DB_YWUSER
   </sql>
   <sql id="Values">
      #{sid,jdbcType=VARCHAR} , 
      #{userid,jdbcType=VARCHAR} , 
+     #{password,jdbcType=VARCHAR} , 
      #{name,jdbcType=VARCHAR} , 
      #{flag,jdbcType=DECIMAL} , 
      #{oper,jdbcType=VARCHAR} , 
      #{opertime,jdbcType=TIMESTAMP} , 
      #{apitoken,jdbcType=VARCHAR} , 
      #{level0,jdbcType=VARCHAR} , 
-     #{password,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     SID , 
     USERID , 
+    PASSWORD , 
     NAME , 
     FLAG , 
     OPER , 
     OPERTIME , 
     APITOKEN , 
     LEVEL0 , 
-    PASSWORD
   </sql>
   <sql id="Criteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} and 
+      sid = #{sid,jdbcType=VARCHAR} and 
     </if>
     <if test="userid != null">
-      USERID = #{userid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="name != null">
-      NAME = #{name,jdbcType=VARCHAR} and 
-    </if>
-    <if test="flag != null">
-      FLAG = #{flag,jdbcType=DECIMAL} and 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="apitoken != null">
-      APITOKEN = #{apitoken,jdbcType=VARCHAR} and 
-    </if>
-    <if test="level0 != null">
-      LEVEL0 = #{level0,jdbcType=VARCHAR} and 
+      userid = #{userid,jdbcType=VARCHAR} and 
     </if>
     <if test="password != null">
-      PASSWORD = #{password,jdbcType=LONGVARCHAR}
+      password = #{password,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="apitoken != null">
+      apitoken = #{apitoken,jdbcType=VARCHAR} and 
+    </if>
+    <if test="level0 != null">
+      level0 = #{level0,jdbcType=VARCHAR} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} , 
+      sid = #{sid,jdbcType=VARCHAR} , 
     </if>
     <if test="userid != null">
-      USERID = #{userid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="name != null">
-      NAME = #{name,jdbcType=VARCHAR} , 
-    </if>
-    <if test="flag != null">
-      FLAG = #{flag,jdbcType=DECIMAL} , 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="apitoken != null">
-      APITOKEN = #{apitoken,jdbcType=VARCHAR} , 
-    </if>
-    <if test="level0 != null">
-      LEVEL0 = #{level0,jdbcType=VARCHAR} , 
+      userid = #{userid,jdbcType=VARCHAR} , 
     </if>
     <if test="password != null">
-      PASSWORD = #{password,jdbcType=LONGVARCHAR}
+      password = #{password,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="apitoken != null">
+      apitoken = #{apitoken,jdbcType=VARCHAR} , 
+    </if>
+    <if test="level0 != null">
+      level0 = #{level0,jdbcType=VARCHAR} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbYwuser" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

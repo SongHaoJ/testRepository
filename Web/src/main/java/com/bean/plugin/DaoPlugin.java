@@ -64,7 +64,7 @@ public class DaoPlugin extends PluginAdapter {
     @Override
     public boolean sqlMapDocumentGenerated(Document document,
                                            IntrospectedTable introspectedTable) {
-        try{
+        try {
             //获取根节点
             XmlElement rootElement = document.getRootElement();
 
@@ -108,17 +108,24 @@ public class DaoPlugin extends PluginAdapter {
             criteria.addAttribute(new Attribute("id", "Criteria"));
             values.addAttribute(new Attribute("id", "Values"));
             updateCriteria.addAttribute(new Attribute("id", "UpdateCriteria"));
-            columns.addAttribute(new Attribute("id","Columns"));
+            columns.addAttribute(new Attribute("id", "Columns"));
             //获取对应表全部字段，迭代
             Iterator<IntrospectedColumn> iter = introspectedTable.getAllColumns().iterator();
             int i = 0;
             IntrospectedColumn first = null;
             while (iter.hasNext()) {
                 IntrospectedColumn column = iter.next();
-                if(first==null){
-                    first=column;
+                String javaName = column.getActualColumnName().toLowerCase();
+                if("package".equals(javaName)){
+                    javaName = "dbPackage";
                 }
-                String str = column.getActualColumnName().toLowerCase() + " != null";
+                if("class".equals(javaName)){
+                    javaName = "dbClass";
+                }
+                if (first == null) {
+                    first = column;
+                }
+                String str = javaName + " != null";
 
                 XmlElement xmlCriteria = new XmlElement("if");
                 XmlElement xmlUpdateCri = new XmlElement("if");
@@ -126,16 +133,16 @@ public class DaoPlugin extends PluginAdapter {
                 xmlCriteria.addAttribute(new Attribute("test", str));
                 xmlUpdateCri.addAttribute(new Attribute("test", str));
 
-                String strCriteria = column.getActualColumnName().toUpperCase() + " = #{" + column.getActualColumnName().toLowerCase() + ",jdbcType=" + column.getJdbcTypeName() + "}";
-                String strUpdateCri = column.getActualColumnName().toUpperCase() + " = #{" + column.getActualColumnName().toLowerCase() + ",jdbcType=" + column.getJdbcTypeName() + "}";
-                String strValues = " #{" + column.getActualColumnName().toLowerCase() + ",jdbcType=" + column.getJdbcTypeName() + "}";
+                String strCriteria = column.getActualColumnName().toLowerCase() + " = #{" + javaName + ",jdbcType=" + column.getJdbcTypeName() + "}";
+                String strUpdateCri = column.getActualColumnName().toLowerCase() + " = #{" + javaName + ",jdbcType=" + column.getJdbcTypeName() + "}";
+                String strValues = " #{" + javaName + ",jdbcType=" + column.getJdbcTypeName() + "}";
                 String strColumns = column.getActualColumnName().toUpperCase();
-                if (iter.hasNext()) {
-                    strCriteria += " and ";
-                    strUpdateCri += " , ";
-                    strValues += " , ";
-                    strColumns += " , ";
-                }
+
+                strCriteria += " and ";
+                strUpdateCri += " , ";
+                strValues += " , ";
+                strColumns += " , ";
+
 
                 xmlCriteria.addElement(new TextElement(strCriteria));
                 criteria.addElement(xmlCriteria);
@@ -144,21 +151,21 @@ public class DaoPlugin extends PluginAdapter {
                 values.addElement(new TextElement(strValues));
                 columns.addElement(new TextElement(strColumns));
             }
-
-            criteria.addElement(new TextElement(" and 1=1"));
-            updateCriteria.addElement(new TextElement(" , 1=1"));
+            //<where></where>之前有没去除最后的and的情况，加这个保险点
+            criteria.addElement(new TextElement(" 1=1"));
+            updateCriteria.addElement(new TextElement(" 1=1"));
 
             FullyQualifiedJavaType fqjt = new FullyQualifiedJavaType(
                     //应该是表生成的对应的model路径
                     introspectedTable.getBaseRecordType());
-            if(introspectedTable.getPrimaryKeyColumns().size()==0){
-                System.out.println("主键丢失："+ introspectedTable.getAliasedFullyQualifiedTableNameAtRuntime());
-                System.out.println("first:"+first.getActualColumnName());
+            if (introspectedTable.getPrimaryKeyColumns().size() == 0) {
+                System.out.println("主键丢失：" + introspectedTable.getAliasedFullyQualifiedTableNameAtRuntime());
+                System.out.println("first:" + first.getActualColumnName());
             }
             FullyQualifiedJavaType priName = new FullyQualifiedJavaType(
-                    introspectedTable.getPrimaryKeyColumns().size()==0?first.getActualColumnName():introspectedTable.getPrimaryKeyColumns().get(0).getActualColumnName()
+                    introspectedTable.getPrimaryKeyColumns().size() == 0 ? first.getActualColumnName() : introspectedTable.getPrimaryKeyColumns().get(0).getActualColumnName()
             );
-            FullyQualifiedJavaType priType = introspectedTable.getPrimaryKeyColumns().size()==0?first.getFullyQualifiedJavaType():introspectedTable.getPrimaryKeyColumns().get(0).getFullyQualifiedJavaType();
+            FullyQualifiedJavaType priType = introspectedTable.getPrimaryKeyColumns().size() == 0 ? first.getFullyQualifiedJavaType() : introspectedTable.getPrimaryKeyColumns().get(0).getFullyQualifiedJavaType();
 
             //语句
 
@@ -205,7 +212,7 @@ public class DaoPlugin extends PluginAdapter {
             rootElement.addElement(updateByCriteria);
             return super.sqlMapDocumentGenerated(document, introspectedTable);
 
-        }catch(Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
         return super.sqlMapDocumentGenerated(document, introspectedTable);
@@ -236,7 +243,7 @@ public class DaoPlugin extends PluginAdapter {
         //插入主键删除
         Method deleteByPri = new Method();
         deleteByPri.setName("deleteByPrimaryKey");
-        deleteByPri.addParameter(new Parameter(FullyQualifiedJavaType.getStringInstance(), introspectedTable.getPrimaryKeyColumns().size()==0?introspectedTable.getAllColumns().get(0).getActualColumnName():introspectedTable.getPrimaryKeyColumns().get(0).getActualColumnName()));
+        deleteByPri.addParameter(new Parameter(FullyQualifiedJavaType.getStringInstance(), introspectedTable.getPrimaryKeyColumns().size() == 0 ? introspectedTable.getAllColumns().get(0).getActualColumnName() : introspectedTable.getPrimaryKeyColumns().get(0).getActualColumnName()));
         //插入条件删除
         Method deleteByCriteria = new Method();
         deleteByCriteria.setName("deleteByCriteria");

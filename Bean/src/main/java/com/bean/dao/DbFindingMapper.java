@@ -1,18 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbFinding;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbFindingMapper {
-    int deleteByPrimaryKey(BigDecimal id);
+    DbFinding selectByCriteria(DbFinding DbFinding);
 
-    int insert(DbFinding record);
+    void deleteByPrimaryKey(String ID);
 
-    int insertSelective(DbFinding record);
+    void deleteByCriteria(DbFinding DbFinding);
+
+    int insertByCriteria(DbFinding DbFinding);
+
+    int updateByCriteria(DbFinding DbFinding);
 
     DbFinding selectByPrimaryKey(BigDecimal id);
 
-    int updateByPrimaryKeySelective(DbFinding record);
-
-    int updateByPrimaryKey(DbFinding record);
+    List<DbFinding> selectAll();
 }

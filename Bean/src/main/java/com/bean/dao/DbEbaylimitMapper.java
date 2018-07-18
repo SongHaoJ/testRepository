@@ -1,18 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbEbaylimit;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbEbaylimitMapper {
-    int deleteByPrimaryKey(BigDecimal sequenceid);
+    DbEbaylimit selectByCriteria(DbEbaylimit DbEbaylimit);
 
-    int insert(DbEbaylimit record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbEbaylimit record);
+    void deleteByCriteria(DbEbaylimit DbEbaylimit);
+
+    int insertByCriteria(DbEbaylimit DbEbaylimit);
+
+    int updateByCriteria(DbEbaylimit DbEbaylimit);
 
     DbEbaylimit selectByPrimaryKey(BigDecimal sequenceid);
 
-    int updateByPrimaryKeySelective(DbEbaylimit record);
-
-    int updateByPrimaryKey(DbEbaylimit record);
+    List<DbEbaylimit> selectAll();
 }

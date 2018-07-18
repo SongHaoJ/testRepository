@@ -3,45 +3,45 @@
 <mapper namespace="com.bean.dao.DbBullettypeMapper">
   <resultMap id="BaseResultMap" type="com.bean.model.DbBullettype">
     <id column="BULLETTYPE" jdbcType="DECIMAL" property="bullettype" />
-    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
+    <result column="DESCR" jdbcType="VARCHAR" property="descr" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
     select BULLETTYPE, DESCR
-    from db_bullettype
+    from DB_BULLETTYPE
     where BULLETTYPE = #{bullettype,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select BULLETTYPE, DESCR
-    from db_bullettype
+    from DB_BULLETTYPE
   </select>
   <sql id="TableName">
-    db_bullettype
+    DB_BULLETTYPE
   </sql>
   <sql id="Values">
      #{bullettype,jdbcType=DECIMAL} , 
-     #{descr,jdbcType=LONGVARCHAR}
+     #{descr,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     BULLETTYPE , 
-    DESCR
+    DESCR , 
   </sql>
   <sql id="Criteria">
     <if test="bullettype != null">
-      BULLETTYPE = #{bullettype,jdbcType=DECIMAL} and 
+      bullettype = #{bullettype,jdbcType=DECIMAL} and 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR}
+      descr = #{descr,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="bullettype != null">
-      BULLETTYPE = #{bullettype,jdbcType=DECIMAL} , 
+      bullettype = #{bullettype,jdbcType=DECIMAL} , 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR}
+      descr = #{descr,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbBullettype" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

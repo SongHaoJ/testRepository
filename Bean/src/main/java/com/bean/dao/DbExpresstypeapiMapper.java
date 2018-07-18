@@ -1,18 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbExpresstypeapi;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbExpresstypeapiMapper {
-    int deleteByPrimaryKey(BigDecimal id);
+    DbExpresstypeapi selectByCriteria(DbExpresstypeapi DbExpresstypeapi);
 
-    int insert(DbExpresstypeapi record);
+    void deleteByPrimaryKey(String ID);
 
-    int insertSelective(DbExpresstypeapi record);
+    void deleteByCriteria(DbExpresstypeapi DbExpresstypeapi);
+
+    int insertByCriteria(DbExpresstypeapi DbExpresstypeapi);
+
+    int updateByCriteria(DbExpresstypeapi DbExpresstypeapi);
 
     DbExpresstypeapi selectByPrimaryKey(BigDecimal id);
 
-    int updateByPrimaryKeySelective(DbExpresstypeapi record);
-
-    int updateByPrimaryKey(DbExpresstypeapi record);
+    List<DbExpresstypeapi> selectAll();
 }

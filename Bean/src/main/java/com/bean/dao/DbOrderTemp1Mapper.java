@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbOrderTemp1;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbOrderTemp1Mapper {
-    int deleteByPrimaryKey(String orderid);
+    DbOrderTemp1 selectByCriteria(DbOrderTemp1 DbOrderTemp1);
 
-    int insert(DbOrderTemp1 record);
+    void deleteByPrimaryKey(String ORDERID);
 
-    int insertSelective(DbOrderTemp1 record);
+    void deleteByCriteria(DbOrderTemp1 DbOrderTemp1);
+
+    int insertByCriteria(DbOrderTemp1 DbOrderTemp1);
+
+    int updateByCriteria(DbOrderTemp1 DbOrderTemp1);
 
     DbOrderTemp1 selectByPrimaryKey(String orderid);
 
-    int updateByPrimaryKeySelective(DbOrderTemp1 record);
-
-    int updateByPrimaryKeyWithBLOBs(DbOrderTemp1 record);
-
-    int updateByPrimaryKey(DbOrderTemp1 record);
+    List<DbOrderTemp1> selectAll();
 }

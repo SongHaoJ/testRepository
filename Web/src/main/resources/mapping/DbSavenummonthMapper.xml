@@ -22,16 +22,16 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select MONTH, FLAG1, FLAG2, FLAG3, FLAG4, FLAG5, FLAG6, FLAG7, FLAG8, FLAG9, FLAG10, 
     FLAG11, FLAG12, FLAG13, FLAG14, FLAG15
-    from db_savenummonth
+    from DB_SAVENUMMONTH
     where MONTH = #{month,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select MONTH, FLAG1, FLAG2, FLAG3, FLAG4, FLAG5, FLAG6, FLAG7, FLAG8, FLAG9, FLAG10, 
     FLAG11, FLAG12, FLAG13, FLAG14, FLAG15
-    from db_savenummonth
+    from DB_SAVENUMMONTH
   </select>
   <sql id="TableName">
-    db_savenummonth
+    DB_SAVENUMMONTH
   </sql>
   <sql id="Values">
      #{month,jdbcType=VARCHAR} , 
@@ -49,7 +49,7 @@
      #{flag12,jdbcType=VARCHAR} , 
      #{flag13,jdbcType=VARCHAR} , 
      #{flag14,jdbcType=VARCHAR} , 
-     #{flag15,jdbcType=VARCHAR}
+     #{flag15,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     MONTH , 
@@ -67,109 +67,109 @@
     FLAG12 , 
     FLAG13 , 
     FLAG14 , 
-    FLAG15
+    FLAG15 , 
   </sql>
   <sql id="Criteria">
     <if test="month != null">
-      MONTH = #{month,jdbcType=VARCHAR} and 
+      month = #{month,jdbcType=VARCHAR} and 
     </if>
     <if test="flag1 != null">
-      FLAG1 = #{flag1,jdbcType=VARCHAR} and 
+      flag1 = #{flag1,jdbcType=VARCHAR} and 
     </if>
     <if test="flag2 != null">
-      FLAG2 = #{flag2,jdbcType=VARCHAR} and 
+      flag2 = #{flag2,jdbcType=VARCHAR} and 
     </if>
     <if test="flag3 != null">
-      FLAG3 = #{flag3,jdbcType=VARCHAR} and 
+      flag3 = #{flag3,jdbcType=VARCHAR} and 
     </if>
     <if test="flag4 != null">
-      FLAG4 = #{flag4,jdbcType=VARCHAR} and 
+      flag4 = #{flag4,jdbcType=VARCHAR} and 
     </if>
     <if test="flag5 != null">
-      FLAG5 = #{flag5,jdbcType=VARCHAR} and 
+      flag5 = #{flag5,jdbcType=VARCHAR} and 
     </if>
     <if test="flag6 != null">
-      FLAG6 = #{flag6,jdbcType=VARCHAR} and 
+      flag6 = #{flag6,jdbcType=VARCHAR} and 
     </if>
     <if test="flag7 != null">
-      FLAG7 = #{flag7,jdbcType=VARCHAR} and 
+      flag7 = #{flag7,jdbcType=VARCHAR} and 
     </if>
     <if test="flag8 != null">
-      FLAG8 = #{flag8,jdbcType=VARCHAR} and 
+      flag8 = #{flag8,jdbcType=VARCHAR} and 
     </if>
     <if test="flag9 != null">
-      FLAG9 = #{flag9,jdbcType=VARCHAR} and 
+      flag9 = #{flag9,jdbcType=VARCHAR} and 
     </if>
     <if test="flag10 != null">
-      FLAG10 = #{flag10,jdbcType=VARCHAR} and 
+      flag10 = #{flag10,jdbcType=VARCHAR} and 
     </if>
     <if test="flag11 != null">
-      FLAG11 = #{flag11,jdbcType=VARCHAR} and 
+      flag11 = #{flag11,jdbcType=VARCHAR} and 
     </if>
     <if test="flag12 != null">
-      FLAG12 = #{flag12,jdbcType=VARCHAR} and 
+      flag12 = #{flag12,jdbcType=VARCHAR} and 
     </if>
     <if test="flag13 != null">
-      FLAG13 = #{flag13,jdbcType=VARCHAR} and 
+      flag13 = #{flag13,jdbcType=VARCHAR} and 
     </if>
     <if test="flag14 != null">
-      FLAG14 = #{flag14,jdbcType=VARCHAR} and 
+      flag14 = #{flag14,jdbcType=VARCHAR} and 
     </if>
     <if test="flag15 != null">
-      FLAG15 = #{flag15,jdbcType=VARCHAR}
+      flag15 = #{flag15,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="month != null">
-      MONTH = #{month,jdbcType=VARCHAR} , 
+      month = #{month,jdbcType=VARCHAR} , 
     </if>
     <if test="flag1 != null">
-      FLAG1 = #{flag1,jdbcType=VARCHAR} , 
+      flag1 = #{flag1,jdbcType=VARCHAR} , 
     </if>
     <if test="flag2 != null">
-      FLAG2 = #{flag2,jdbcType=VARCHAR} , 
+      flag2 = #{flag2,jdbcType=VARCHAR} , 
     </if>
     <if test="flag3 != null">
-      FLAG3 = #{flag3,jdbcType=VARCHAR} , 
+      flag3 = #{flag3,jdbcType=VARCHAR} , 
     </if>
     <if test="flag4 != null">
-      FLAG4 = #{flag4,jdbcType=VARCHAR} , 
+      flag4 = #{flag4,jdbcType=VARCHAR} , 
     </if>
     <if test="flag5 != null">
-      FLAG5 = #{flag5,jdbcType=VARCHAR} , 
+      flag5 = #{flag5,jdbcType=VARCHAR} , 
     </if>
     <if test="flag6 != null">
-      FLAG6 = #{flag6,jdbcType=VARCHAR} , 
+      flag6 = #{flag6,jdbcType=VARCHAR} , 
     </if>
     <if test="flag7 != null">
-      FLAG7 = #{flag7,jdbcType=VARCHAR} , 
+      flag7 = #{flag7,jdbcType=VARCHAR} , 
     </if>
     <if test="flag8 != null">
-      FLAG8 = #{flag8,jdbcType=VARCHAR} , 
+      flag8 = #{flag8,jdbcType=VARCHAR} , 
     </if>
     <if test="flag9 != null">
-      FLAG9 = #{flag9,jdbcType=VARCHAR} , 
+      flag9 = #{flag9,jdbcType=VARCHAR} , 
     </if>
     <if test="flag10 != null">
-      FLAG10 = #{flag10,jdbcType=VARCHAR} , 
+      flag10 = #{flag10,jdbcType=VARCHAR} , 
     </if>
     <if test="flag11 != null">
-      FLAG11 = #{flag11,jdbcType=VARCHAR} , 
+      flag11 = #{flag11,jdbcType=VARCHAR} , 
     </if>
     <if test="flag12 != null">
-      FLAG12 = #{flag12,jdbcType=VARCHAR} , 
+      flag12 = #{flag12,jdbcType=VARCHAR} , 
     </if>
     <if test="flag13 != null">
-      FLAG13 = #{flag13,jdbcType=VARCHAR} , 
+      flag13 = #{flag13,jdbcType=VARCHAR} , 
     </if>
     <if test="flag14 != null">
-      FLAG14 = #{flag14,jdbcType=VARCHAR} , 
+      flag14 = #{flag14,jdbcType=VARCHAR} , 
     </if>
     <if test="flag15 != null">
-      FLAG15 = #{flag15,jdbcType=VARCHAR}
+      flag15 = #{flag15,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbSavenummonth" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

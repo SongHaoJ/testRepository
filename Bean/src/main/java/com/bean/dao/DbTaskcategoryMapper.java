@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbTaskcategory;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbTaskcategoryMapper {
-    int deleteByPrimaryKey(String sid);
+    DbTaskcategory selectByCriteria(DbTaskcategory DbTaskcategory);
 
-    int insert(DbTaskcategory record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbTaskcategory record);
+    void deleteByCriteria(DbTaskcategory DbTaskcategory);
+
+    int insertByCriteria(DbTaskcategory DbTaskcategory);
+
+    int updateByCriteria(DbTaskcategory DbTaskcategory);
 
     DbTaskcategory selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbTaskcategory record);
-
-    int updateByPrimaryKeyWithBLOBs(DbTaskcategory record);
-
-    int updateByPrimaryKey(DbTaskcategory record);
+    List<DbTaskcategory> selectAll();
 }

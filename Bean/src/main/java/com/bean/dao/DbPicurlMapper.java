@@ -1,20 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbPicurl;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbPicurlMapper {
-    int deleteByPrimaryKey(BigDecimal sid);
+    DbPicurl selectByCriteria(DbPicurl DbPicurl);
 
-    int insert(DbPicurl record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbPicurl record);
+    void deleteByCriteria(DbPicurl DbPicurl);
+
+    int insertByCriteria(DbPicurl DbPicurl);
+
+    int updateByCriteria(DbPicurl DbPicurl);
 
     DbPicurl selectByPrimaryKey(BigDecimal sid);
 
-    int updateByPrimaryKeySelective(DbPicurl record);
-
-    int updateByPrimaryKeyWithBLOBs(DbPicurl record);
-
-    int updateByPrimaryKey(DbPicurl record);
+    List<DbPicurl> selectAll();
 }

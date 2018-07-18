@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 public interface DbAliaddressMapper {
     DbAliaddress selectByCriteria(DbAliaddress DbAliaddress);
 
-    void deleteByPrimaryKey(String db_order);
+    void deleteByPrimaryKey(String SID);
 
     void deleteByCriteria(DbAliaddress DbAliaddress);
 
@@ -16,7 +16,7 @@ public interface DbAliaddressMapper {
 
     int updateByCriteria(DbAliaddress DbAliaddress);
 
-    DbAliaddress selectByPrimaryKey(String dbOrder);
+    DbAliaddress selectByPrimaryKey(String sid);
 
     List<DbAliaddress> selectAll();
 }

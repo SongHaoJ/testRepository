@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbManufacturelog;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbManufacturelogMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbManufacturelog selectByCriteria(DbManufacturelog DbManufacturelog);
 
-    int insert(DbManufacturelog record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbManufacturelog record);
+    void deleteByCriteria(DbManufacturelog DbManufacturelog);
+
+    int insertByCriteria(DbManufacturelog DbManufacturelog);
+
+    int updateByCriteria(DbManufacturelog DbManufacturelog);
 
     DbManufacturelog selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbManufacturelog record);
-
-    int updateByPrimaryKeyWithBLOBs(DbManufacturelog record);
-
-    int updateByPrimaryKey(DbManufacturelog record);
+    List<DbManufacturelog> selectAll();
 }

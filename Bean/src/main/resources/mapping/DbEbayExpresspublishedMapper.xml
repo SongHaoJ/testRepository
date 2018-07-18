@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bean.dao.DbEbayExpresspublishedMapper">
   <resultMap id="BaseResultMap" type="com.bean.model.DbEbayExpresspublished">
-    <result column="SEQUENCEID" jdbcType="DECIMAL" property="sequenceid" />
+    <id column="SEQUENCEID" jdbcType="DECIMAL" property="sequenceid" />
     <result column="SHOPPINGSERVICEID" jdbcType="VARCHAR" property="shoppingserviceid" />
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
     <result column="SHOPPINGTIMEMIN" jdbcType="VARCHAR" property="shoppingtimemin" />
@@ -15,95 +15,139 @@
     <result column="INTERNATIONALSERVICE" jdbcType="VARCHAR" property="internationalservice" />
     <result column="WEIGHTREQUIRED" jdbcType="VARCHAR" property="weightrequired" />
   </resultMap>
-  <insert id="insert" parameterType="com.bean.model.DbEbayExpresspublished">
-    insert into db_ebay_expresspublished (SEQUENCEID, SHOPPINGSERVICEID, OPER, 
-      SHOPPINGTIMEMIN, OPENFLAG, EXPRESSTYPE, 
-      OPERTIME, SITE, SHOPPINGTIMEMAX, 
-      SHOPPINGSERVICE, INTERNATIONALSERVICE, 
-      WEIGHTREQUIRED)
-    values (#{sequenceid,jdbcType=DECIMAL}, #{shoppingserviceid,jdbcType=VARCHAR}, #{oper,jdbcType=VARCHAR}, 
-      #{shoppingtimemin,jdbcType=VARCHAR}, #{openflag,jdbcType=VARCHAR}, #{expresstype,jdbcType=VARCHAR}, 
-      #{opertime,jdbcType=TIMESTAMP}, #{site,jdbcType=VARCHAR}, #{shoppingtimemax,jdbcType=VARCHAR}, 
-      #{shoppingservice,jdbcType=VARCHAR}, #{internationalservice,jdbcType=VARCHAR}, 
-      #{weightrequired,jdbcType=VARCHAR})
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select SEQUENCEID, SHOPPINGSERVICEID, OPER, SHOPPINGTIMEMIN, OPENFLAG, EXPRESSTYPE, 
+    OPERTIME, SITE, SHOPPINGTIMEMAX, SHOPPINGSERVICE, INTERNATIONALSERVICE, WEIGHTREQUIRED
+    from DB_EBAY_EXPRESSPUBLISHED
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, SHOPPINGSERVICEID, OPER, SHOPPINGTIMEMIN, OPENFLAG, EXPRESSTYPE, 
+    OPERTIME, SITE, SHOPPINGTIMEMAX, SHOPPINGSERVICE, INTERNATIONALSERVICE, WEIGHTREQUIRED
+    from DB_EBAY_EXPRESSPUBLISHED
+  </select>
+  <sql id="TableName">
+    DB_EBAY_EXPRESSPUBLISHED
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=DECIMAL} , 
+     #{shoppingserviceid,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{shoppingtimemin,jdbcType=VARCHAR} , 
+     #{openflag,jdbcType=VARCHAR} , 
+     #{expresstype,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{site,jdbcType=VARCHAR} , 
+     #{shoppingtimemax,jdbcType=VARCHAR} , 
+     #{shoppingservice,jdbcType=VARCHAR} , 
+     #{internationalservice,jdbcType=VARCHAR} , 
+     #{weightrequired,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    SHOPPINGSERVICEID , 
+    OPER , 
+    SHOPPINGTIMEMIN , 
+    OPENFLAG , 
+    EXPRESSTYPE , 
+    OPERTIME , 
+    SITE , 
+    SHOPPINGTIMEMAX , 
+    SHOPPINGSERVICE , 
+    INTERNATIONALSERVICE , 
+    WEIGHTREQUIRED , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="shoppingserviceid != null">
+      shoppingserviceid = #{shoppingserviceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shoppingtimemin != null">
+      shoppingtimemin = #{shoppingtimemin,jdbcType=VARCHAR} and 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="expresstype != null">
+      expresstype = #{expresstype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="site != null">
+      site = #{site,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shoppingtimemax != null">
+      shoppingtimemax = #{shoppingtimemax,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shoppingservice != null">
+      shoppingservice = #{shoppingservice,jdbcType=VARCHAR} and 
+    </if>
+    <if test="internationalservice != null">
+      internationalservice = #{internationalservice,jdbcType=VARCHAR} and 
+    </if>
+    <if test="weightrequired != null">
+      weightrequired = #{weightrequired,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="shoppingserviceid != null">
+      shoppingserviceid = #{shoppingserviceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shoppingtimemin != null">
+      shoppingtimemin = #{shoppingtimemin,jdbcType=VARCHAR} , 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="expresstype != null">
+      expresstype = #{expresstype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="site != null">
+      site = #{site,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shoppingtimemax != null">
+      shoppingtimemax = #{shoppingtimemax,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shoppingservice != null">
+      shoppingservice = #{shoppingservice,jdbcType=VARCHAR} , 
+    </if>
+    <if test="internationalservice != null">
+      internationalservice = #{internationalservice,jdbcType=VARCHAR} , 
+    </if>
+    <if test="weightrequired != null">
+      weightrequired = #{weightrequired,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbEbayExpresspublished" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="BigDecimal">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbEbayExpresspublished">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbEbayExpresspublished">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbEbayExpresspublished">
-    insert into db_ebay_expresspublished
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        SEQUENCEID,
-      </if>
-      <if test="shoppingserviceid != null">
-        SHOPPINGSERVICEID,
-      </if>
-      <if test="oper != null">
-        OPER,
-      </if>
-      <if test="shoppingtimemin != null">
-        SHOPPINGTIMEMIN,
-      </if>
-      <if test="openflag != null">
-        OPENFLAG,
-      </if>
-      <if test="expresstype != null">
-        EXPRESSTYPE,
-      </if>
-      <if test="opertime != null">
-        OPERTIME,
-      </if>
-      <if test="site != null">
-        SITE,
-      </if>
-      <if test="shoppingtimemax != null">
-        SHOPPINGTIMEMAX,
-      </if>
-      <if test="shoppingservice != null">
-        SHOPPINGSERVICE,
-      </if>
-      <if test="internationalservice != null">
-        INTERNATIONALSERVICE,
-      </if>
-      <if test="weightrequired != null">
-        WEIGHTREQUIRED,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        #{sequenceid,jdbcType=DECIMAL},
-      </if>
-      <if test="shoppingserviceid != null">
-        #{shoppingserviceid,jdbcType=VARCHAR},
-      </if>
-      <if test="oper != null">
-        #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="shoppingtimemin != null">
-        #{shoppingtimemin,jdbcType=VARCHAR},
-      </if>
-      <if test="openflag != null">
-        #{openflag,jdbcType=VARCHAR},
-      </if>
-      <if test="expresstype != null">
-        #{expresstype,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="site != null">
-        #{site,jdbcType=VARCHAR},
-      </if>
-      <if test="shoppingtimemax != null">
-        #{shoppingtimemax,jdbcType=VARCHAR},
-      </if>
-      <if test="shoppingservice != null">
-        #{shoppingservice,jdbcType=VARCHAR},
-      </if>
-      <if test="internationalservice != null">
-        #{internationalservice,jdbcType=VARCHAR},
-      </if>
-      <if test="weightrequired != null">
-        #{weightrequired,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbEbayExpresspublished">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
 </mapper>

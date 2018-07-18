@@ -15,6 +15,7 @@
     <result column="MONEYNEEDPAY" jdbcType="DECIMAL" property="moneyneedpay" />
     <result column="MONEYNOTPAY" jdbcType="DECIMAL" property="moneynotpay" />
     <result column="SHIPNUM" jdbcType="VARCHAR" property="shipnum" />
+    <result column="CONTENT" jdbcType="VARCHAR" property="content" />
     <result column="PCMONEY" jdbcType="DECIMAL" property="pcmoney" />
     <result column="CHECKOPER" jdbcType="VARCHAR" property="checkoper" />
     <result column="EXPRESSMONEY" jdbcType="DECIMAL" property="expressmoney" />
@@ -27,25 +28,24 @@
     <result column="MANUFACTURE" jdbcType="VARCHAR" property="manufacture" />
     <result column="FLAG" jdbcType="VARCHAR" property="flag" />
     <result column="PAYTIME" jdbcType="TIMESTAMP" property="paytime" />
-    <result column="CONTENT" jdbcType="LONGVARCHAR" property="content" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select SID, SENDTIME, OPER, ACTIONMONEY, PURCHASETIME, PAYTYPE, PURCHASETIMESTR, 
-    EXPECTTIME, CREATEOPER, GROUPID, MONEYNEEDPAY, MONEYNOTPAY, SHIPNUM, PCMONEY, CHECKOPER, 
-    EXPRESSMONEY, MONEYPAIED, CHECKTIME, CREATETIME, MANUFACTUREID, RETURNMONEY, OPERTIME, 
-    MANUFACTURE, FLAG, PAYTIME, CONTENT
-    from db_purchasepayment
+    EXPECTTIME, CREATEOPER, GROUPID, MONEYNEEDPAY, MONEYNOTPAY, SHIPNUM, CONTENT, PCMONEY, 
+    CHECKOPER, EXPRESSMONEY, MONEYPAIED, CHECKTIME, CREATETIME, MANUFACTUREID, RETURNMONEY, 
+    OPERTIME, MANUFACTURE, FLAG, PAYTIME
+    from DB_PURCHASEPAYMENT
     where SID = #{sid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SID, SENDTIME, OPER, ACTIONMONEY, PURCHASETIME, PAYTYPE, PURCHASETIMESTR, 
-    EXPECTTIME, CREATEOPER, GROUPID, MONEYNEEDPAY, MONEYNOTPAY, SHIPNUM, PCMONEY, CHECKOPER, 
-    EXPRESSMONEY, MONEYPAIED, CHECKTIME, CREATETIME, MANUFACTUREID, RETURNMONEY, OPERTIME, 
-    MANUFACTURE, FLAG, PAYTIME, CONTENT
-    from db_purchasepayment
+    EXPECTTIME, CREATEOPER, GROUPID, MONEYNEEDPAY, MONEYNOTPAY, SHIPNUM, CONTENT, PCMONEY, 
+    CHECKOPER, EXPRESSMONEY, MONEYPAIED, CHECKTIME, CREATETIME, MANUFACTUREID, RETURNMONEY, 
+    OPERTIME, MANUFACTURE, FLAG, PAYTIME
+    from DB_PURCHASEPAYMENT
   </select>
   <sql id="TableName">
-    db_purchasepayment
+    DB_PURCHASEPAYMENT
   </sql>
   <sql id="Values">
      #{sid,jdbcType=VARCHAR} , 
@@ -61,6 +61,7 @@
      #{moneyneedpay,jdbcType=DECIMAL} , 
      #{moneynotpay,jdbcType=DECIMAL} , 
      #{shipnum,jdbcType=VARCHAR} , 
+     #{content,jdbcType=VARCHAR} , 
      #{pcmoney,jdbcType=DECIMAL} , 
      #{checkoper,jdbcType=VARCHAR} , 
      #{expressmoney,jdbcType=DECIMAL} , 
@@ -73,7 +74,6 @@
      #{manufacture,jdbcType=VARCHAR} , 
      #{flag,jdbcType=VARCHAR} , 
      #{paytime,jdbcType=TIMESTAMP} , 
-     #{content,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     SID , 
@@ -89,6 +89,7 @@
     MONEYNEEDPAY , 
     MONEYNOTPAY , 
     SHIPNUM , 
+    CONTENT , 
     PCMONEY , 
     CHECKOPER , 
     EXPRESSMONEY , 
@@ -101,169 +102,168 @@
     MANUFACTURE , 
     FLAG , 
     PAYTIME , 
-    CONTENT
   </sql>
   <sql id="Criteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} and 
+      sid = #{sid,jdbcType=VARCHAR} and 
     </if>
     <if test="sendtime != null">
-      SENDTIME = #{sendtime,jdbcType=TIMESTAMP} and 
+      sendtime = #{sendtime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
+      oper = #{oper,jdbcType=VARCHAR} and 
     </if>
     <if test="actionmoney != null">
-      ACTIONMONEY = #{actionmoney,jdbcType=DECIMAL} and 
+      actionmoney = #{actionmoney,jdbcType=DECIMAL} and 
     </if>
     <if test="purchasetime != null">
-      PURCHASETIME = #{purchasetime,jdbcType=TIMESTAMP} and 
+      purchasetime = #{purchasetime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="paytype != null">
-      PAYTYPE = #{paytype,jdbcType=VARCHAR} and 
+      paytype = #{paytype,jdbcType=VARCHAR} and 
     </if>
     <if test="purchasetimestr != null">
-      PURCHASETIMESTR = #{purchasetimestr,jdbcType=VARCHAR} and 
+      purchasetimestr = #{purchasetimestr,jdbcType=VARCHAR} and 
     </if>
     <if test="expecttime != null">
-      EXPECTTIME = #{expecttime,jdbcType=TIMESTAMP} and 
+      expecttime = #{expecttime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="createoper != null">
-      CREATEOPER = #{createoper,jdbcType=VARCHAR} and 
+      createoper = #{createoper,jdbcType=VARCHAR} and 
     </if>
     <if test="groupid != null">
-      GROUPID = #{groupid,jdbcType=VARCHAR} and 
+      groupid = #{groupid,jdbcType=VARCHAR} and 
     </if>
     <if test="moneyneedpay != null">
-      MONEYNEEDPAY = #{moneyneedpay,jdbcType=DECIMAL} and 
+      moneyneedpay = #{moneyneedpay,jdbcType=DECIMAL} and 
     </if>
     <if test="moneynotpay != null">
-      MONEYNOTPAY = #{moneynotpay,jdbcType=DECIMAL} and 
+      moneynotpay = #{moneynotpay,jdbcType=DECIMAL} and 
     </if>
     <if test="shipnum != null">
-      SHIPNUM = #{shipnum,jdbcType=VARCHAR} and 
-    </if>
-    <if test="pcmoney != null">
-      PCMONEY = #{pcmoney,jdbcType=DECIMAL} and 
-    </if>
-    <if test="checkoper != null">
-      CHECKOPER = #{checkoper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="expressmoney != null">
-      EXPRESSMONEY = #{expressmoney,jdbcType=DECIMAL} and 
-    </if>
-    <if test="moneypaied != null">
-      MONEYPAIED = #{moneypaied,jdbcType=DECIMAL} and 
-    </if>
-    <if test="checktime != null">
-      CHECKTIME = #{checktime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="createtime != null">
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="manufactureid != null">
-      MANUFACTUREID = #{manufactureid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="returnmoney != null">
-      RETURNMONEY = #{returnmoney,jdbcType=DECIMAL} and 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="manufacture != null">
-      MANUFACTURE = #{manufacture,jdbcType=VARCHAR} and 
-    </if>
-    <if test="flag != null">
-      FLAG = #{flag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="paytime != null">
-      PAYTIME = #{paytime,jdbcType=TIMESTAMP} and 
+      shipnum = #{shipnum,jdbcType=VARCHAR} and 
     </if>
     <if test="content != null">
-      CONTENT = #{content,jdbcType=LONGVARCHAR}
+      content = #{content,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="pcmoney != null">
+      pcmoney = #{pcmoney,jdbcType=DECIMAL} and 
+    </if>
+    <if test="checkoper != null">
+      checkoper = #{checkoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="expressmoney != null">
+      expressmoney = #{expressmoney,jdbcType=DECIMAL} and 
+    </if>
+    <if test="moneypaied != null">
+      moneypaied = #{moneypaied,jdbcType=DECIMAL} and 
+    </if>
+    <if test="checktime != null">
+      checktime = #{checktime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="manufactureid != null">
+      manufactureid = #{manufactureid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="returnmoney != null">
+      returnmoney = #{returnmoney,jdbcType=DECIMAL} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="manufacture != null">
+      manufacture = #{manufacture,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="paytime != null">
+      paytime = #{paytime,jdbcType=TIMESTAMP} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} , 
+      sid = #{sid,jdbcType=VARCHAR} , 
     </if>
     <if test="sendtime != null">
-      SENDTIME = #{sendtime,jdbcType=TIMESTAMP} , 
+      sendtime = #{sendtime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
+      oper = #{oper,jdbcType=VARCHAR} , 
     </if>
     <if test="actionmoney != null">
-      ACTIONMONEY = #{actionmoney,jdbcType=DECIMAL} , 
+      actionmoney = #{actionmoney,jdbcType=DECIMAL} , 
     </if>
     <if test="purchasetime != null">
-      PURCHASETIME = #{purchasetime,jdbcType=TIMESTAMP} , 
+      purchasetime = #{purchasetime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="paytype != null">
-      PAYTYPE = #{paytype,jdbcType=VARCHAR} , 
+      paytype = #{paytype,jdbcType=VARCHAR} , 
     </if>
     <if test="purchasetimestr != null">
-      PURCHASETIMESTR = #{purchasetimestr,jdbcType=VARCHAR} , 
+      purchasetimestr = #{purchasetimestr,jdbcType=VARCHAR} , 
     </if>
     <if test="expecttime != null">
-      EXPECTTIME = #{expecttime,jdbcType=TIMESTAMP} , 
+      expecttime = #{expecttime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="createoper != null">
-      CREATEOPER = #{createoper,jdbcType=VARCHAR} , 
+      createoper = #{createoper,jdbcType=VARCHAR} , 
     </if>
     <if test="groupid != null">
-      GROUPID = #{groupid,jdbcType=VARCHAR} , 
+      groupid = #{groupid,jdbcType=VARCHAR} , 
     </if>
     <if test="moneyneedpay != null">
-      MONEYNEEDPAY = #{moneyneedpay,jdbcType=DECIMAL} , 
+      moneyneedpay = #{moneyneedpay,jdbcType=DECIMAL} , 
     </if>
     <if test="moneynotpay != null">
-      MONEYNOTPAY = #{moneynotpay,jdbcType=DECIMAL} , 
+      moneynotpay = #{moneynotpay,jdbcType=DECIMAL} , 
     </if>
     <if test="shipnum != null">
-      SHIPNUM = #{shipnum,jdbcType=VARCHAR} , 
-    </if>
-    <if test="pcmoney != null">
-      PCMONEY = #{pcmoney,jdbcType=DECIMAL} , 
-    </if>
-    <if test="checkoper != null">
-      CHECKOPER = #{checkoper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="expressmoney != null">
-      EXPRESSMONEY = #{expressmoney,jdbcType=DECIMAL} , 
-    </if>
-    <if test="moneypaied != null">
-      MONEYPAIED = #{moneypaied,jdbcType=DECIMAL} , 
-    </if>
-    <if test="checktime != null">
-      CHECKTIME = #{checktime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="createtime != null">
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="manufactureid != null">
-      MANUFACTUREID = #{manufactureid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="returnmoney != null">
-      RETURNMONEY = #{returnmoney,jdbcType=DECIMAL} , 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="manufacture != null">
-      MANUFACTURE = #{manufacture,jdbcType=VARCHAR} , 
-    </if>
-    <if test="flag != null">
-      FLAG = #{flag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="paytime != null">
-      PAYTIME = #{paytime,jdbcType=TIMESTAMP} , 
+      shipnum = #{shipnum,jdbcType=VARCHAR} , 
     </if>
     <if test="content != null">
-      CONTENT = #{content,jdbcType=LONGVARCHAR}
+      content = #{content,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="pcmoney != null">
+      pcmoney = #{pcmoney,jdbcType=DECIMAL} , 
+    </if>
+    <if test="checkoper != null">
+      checkoper = #{checkoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="expressmoney != null">
+      expressmoney = #{expressmoney,jdbcType=DECIMAL} , 
+    </if>
+    <if test="moneypaied != null">
+      moneypaied = #{moneypaied,jdbcType=DECIMAL} , 
+    </if>
+    <if test="checktime != null">
+      checktime = #{checktime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="manufactureid != null">
+      manufactureid = #{manufactureid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="returnmoney != null">
+      returnmoney = #{returnmoney,jdbcType=DECIMAL} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="manufacture != null">
+      manufacture = #{manufacture,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="paytime != null">
+      paytime = #{paytime,jdbcType=TIMESTAMP} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbPurchasepayment" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

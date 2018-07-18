@@ -1,20 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbPicurlTemp;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbPicurlTempMapper {
-    int deleteByPrimaryKey(BigDecimal sid);
+    DbPicurlTemp selectByCriteria(DbPicurlTemp DbPicurlTemp);
 
-    int insert(DbPicurlTemp record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbPicurlTemp record);
+    void deleteByCriteria(DbPicurlTemp DbPicurlTemp);
+
+    int insertByCriteria(DbPicurlTemp DbPicurlTemp);
+
+    int updateByCriteria(DbPicurlTemp DbPicurlTemp);
 
     DbPicurlTemp selectByPrimaryKey(BigDecimal sid);
 
-    int updateByPrimaryKeySelective(DbPicurlTemp record);
-
-    int updateByPrimaryKeyWithBLOBs(DbPicurlTemp record);
-
-    int updateByPrimaryKey(DbPicurlTemp record);
+    List<DbPicurlTemp> selectAll();
 }

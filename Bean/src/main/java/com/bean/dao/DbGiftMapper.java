@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbGift;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbGiftMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbGift selectByCriteria(DbGift DbGift);
 
-    int insert(DbGift record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbGift record);
+    void deleteByCriteria(DbGift DbGift);
+
+    int insertByCriteria(DbGift DbGift);
+
+    int updateByCriteria(DbGift DbGift);
 
     DbGift selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbGift record);
-
-    int updateByPrimaryKeyWithBLOBs(DbGift record);
-
-    int updateByPrimaryKey(DbGift record);
+    List<DbGift> selectAll();
 }

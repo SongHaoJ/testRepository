@@ -3,6 +3,7 @@
 <mapper namespace="com.bean.dao.DbSendmessageMapper">
   <resultMap id="BaseResultMap" type="com.bean.model.DbSendmessage">
     <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
     <result column="GROUPID" jdbcType="VARCHAR" property="groupid" />
     <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
     <result column="CREATEOPER" jdbcType="VARCHAR" property="createoper" />
@@ -15,297 +16,221 @@
     <result column="SENDTIME" jdbcType="TIMESTAMP" property="sendtime" />
     <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
     <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
+    <result column="RESERVE4" jdbcType="VARCHAR" property="reserve4" />
     <result column="RESERVE5" jdbcType="DECIMAL" property="reserve5" />
     <result column="RESERVE6" jdbcType="DECIMAL" property="reserve6" />
     <result column="RESERVE7" jdbcType="DECIMAL" property="reserve7" />
     <result column="RESERVE8" jdbcType="DECIMAL" property="reserve8" />
     <result column="RETURNID" jdbcType="DECIMAL" property="returnid" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbSendmessage">
-    <result column="TITLE" jdbcType="LONGVARCHAR" property="title" />
-    <result column="RESERVE3" jdbcType="LONGVARCHAR" property="reserve3" />
-    <result column="RESERVE4" jdbcType="LONGVARCHAR" property="reserve4" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    SEQUENCEID, GROUPID, CREATETIME, CREATEOPER, 'STATUS', CHECKOPER, CHECKTIME, RECORDENUM, 
-    SUCCESSNUM, ERRORNUM, SENDTIME, RESERVE1, RESERVE2, RESERVE5, RESERVE6, RESERVE7, 
-    RESERVE8, RETURNID
-  </sql>
-  <sql id="Blob_Column_List">
-    TITLE, RESERVE3, RESERVE4
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from db_sendmessage
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SEQUENCEID, TITLE, GROUPID, CREATETIME, CREATEOPER, STATUS, CHECKOPER, CHECKTIME, 
+    RECORDENUM, SUCCESSNUM, ERRORNUM, SENDTIME, RESERVE1, RESERVE2, RESERVE3, RESERVE4, 
+    RESERVE5, RESERVE6, RESERVE7, RESERVE8, RETURNID
+    from DB_SENDMESSAGE
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_sendmessage
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, TITLE, GROUPID, CREATETIME, CREATEOPER, STATUS, CHECKOPER, CHECKTIME, 
+    RECORDENUM, SUCCESSNUM, ERRORNUM, SENDTIME, RESERVE1, RESERVE2, RESERVE3, RESERVE4, 
+    RESERVE5, RESERVE6, RESERVE7, RESERVE8, RETURNID
+    from DB_SENDMESSAGE
+  </select>
+  <sql id="TableName">
+    DB_SENDMESSAGE
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=VARCHAR} , 
+     #{title,jdbcType=VARCHAR} , 
+     #{groupid,jdbcType=VARCHAR} , 
+     #{createtime,jdbcType=TIMESTAMP} , 
+     #{createoper,jdbcType=VARCHAR} , 
+     #{status,jdbcType=VARCHAR} , 
+     #{checkoper,jdbcType=VARCHAR} , 
+     #{checktime,jdbcType=TIMESTAMP} , 
+     #{recordenum,jdbcType=DECIMAL} , 
+     #{successnum,jdbcType=DECIMAL} , 
+     #{errornum,jdbcType=DECIMAL} , 
+     #{sendtime,jdbcType=TIMESTAMP} , 
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+     #{reserve3,jdbcType=VARCHAR} , 
+     #{reserve4,jdbcType=VARCHAR} , 
+     #{reserve5,jdbcType=DECIMAL} , 
+     #{reserve6,jdbcType=DECIMAL} , 
+     #{reserve7,jdbcType=DECIMAL} , 
+     #{reserve8,jdbcType=DECIMAL} , 
+     #{returnid,jdbcType=DECIMAL} , 
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    TITLE , 
+    GROUPID , 
+    CREATETIME , 
+    CREATEOPER , 
+    STATUS , 
+    CHECKOPER , 
+    CHECKTIME , 
+    RECORDENUM , 
+    SUCCESSNUM , 
+    ERRORNUM , 
+    SENDTIME , 
+    RESERVE1 , 
+    RESERVE2 , 
+    RESERVE3 , 
+    RESERVE4 , 
+    RESERVE5 , 
+    RESERVE6 , 
+    RESERVE7 , 
+    RESERVE8 , 
+    RETURNID , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="title != null">
+      title = #{title,jdbcType=VARCHAR} and 
+    </if>
+    <if test="groupid != null">
+      groupid = #{groupid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="createoper != null">
+      createoper = #{createoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="status != null">
+      status = #{status,jdbcType=VARCHAR} and 
+    </if>
+    <if test="checkoper != null">
+      checkoper = #{checkoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="checktime != null">
+      checktime = #{checktime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="recordenum != null">
+      recordenum = #{recordenum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="successnum != null">
+      successnum = #{successnum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="errornum != null">
+      errornum = #{errornum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sendtime != null">
+      sendtime = #{sendtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve6 != null">
+      reserve6 = #{reserve6,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve7 != null">
+      reserve7 = #{reserve7,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve8 != null">
+      reserve8 = #{reserve8,jdbcType=DECIMAL} and 
+    </if>
+    <if test="returnid != null">
+      returnid = #{returnid,jdbcType=DECIMAL} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="title != null">
+      title = #{title,jdbcType=VARCHAR} , 
+    </if>
+    <if test="groupid != null">
+      groupid = #{groupid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="createoper != null">
+      createoper = #{createoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="status != null">
+      status = #{status,jdbcType=VARCHAR} , 
+    </if>
+    <if test="checkoper != null">
+      checkoper = #{checkoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="checktime != null">
+      checktime = #{checktime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="recordenum != null">
+      recordenum = #{recordenum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="successnum != null">
+      successnum = #{successnum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="errornum != null">
+      errornum = #{errornum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sendtime != null">
+      sendtime = #{sendtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve6 != null">
+      reserve6 = #{reserve6,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve7 != null">
+      reserve7 = #{reserve7,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve8 != null">
+      reserve8 = #{reserve8,jdbcType=DECIMAL} , 
+    </if>
+    <if test="returnid != null">
+      returnid = #{returnid,jdbcType=DECIMAL} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbSendmessage" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbSendmessage">
-    insert into db_sendmessage (SEQUENCEID, GROUPID, CREATETIME, 
-      CREATEOPER, 'STATUS', CHECKOPER, 
-      CHECKTIME, RECORDENUM, SUCCESSNUM, 
-      ERRORNUM, SENDTIME, RESERVE1, 
-      RESERVE2, RESERVE5, RESERVE6, 
-      RESERVE7, RESERVE8, RETURNID, 
-      TITLE, RESERVE3, RESERVE4
-      )
-    values (#{sequenceid,jdbcType=VARCHAR}, #{groupid,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
-      #{createoper,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{checkoper,jdbcType=VARCHAR}, 
-      #{checktime,jdbcType=TIMESTAMP}, #{recordenum,jdbcType=DECIMAL}, #{successnum,jdbcType=DECIMAL}, 
-      #{errornum,jdbcType=DECIMAL}, #{sendtime,jdbcType=TIMESTAMP}, #{reserve1,jdbcType=VARCHAR}, 
-      #{reserve2,jdbcType=VARCHAR}, #{reserve5,jdbcType=DECIMAL}, #{reserve6,jdbcType=DECIMAL}, 
-      #{reserve7,jdbcType=DECIMAL}, #{reserve8,jdbcType=DECIMAL}, #{returnid,jdbcType=DECIMAL}, 
-      #{title,jdbcType=LONGVARCHAR}, #{reserve3,jdbcType=LONGVARCHAR}, #{reserve4,jdbcType=LONGVARCHAR}
-      )
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbSendmessage">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbSendmessage">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbSendmessage">
-    insert into db_sendmessage
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        SEQUENCEID,
-      </if>
-      <if test="groupid != null">
-        GROUPID,
-      </if>
-      <if test="createtime != null">
-        CREATETIME,
-      </if>
-      <if test="createoper != null">
-        CREATEOPER,
-      </if>
-      <if test="status != null">
-        'STATUS',
-      </if>
-      <if test="checkoper != null">
-        CHECKOPER,
-      </if>
-      <if test="checktime != null">
-        CHECKTIME,
-      </if>
-      <if test="recordenum != null">
-        RECORDENUM,
-      </if>
-      <if test="successnum != null">
-        SUCCESSNUM,
-      </if>
-      <if test="errornum != null">
-        ERRORNUM,
-      </if>
-      <if test="sendtime != null">
-        SENDTIME,
-      </if>
-      <if test="reserve1 != null">
-        RESERVE1,
-      </if>
-      <if test="reserve2 != null">
-        RESERVE2,
-      </if>
-      <if test="reserve5 != null">
-        RESERVE5,
-      </if>
-      <if test="reserve6 != null">
-        RESERVE6,
-      </if>
-      <if test="reserve7 != null">
-        RESERVE7,
-      </if>
-      <if test="reserve8 != null">
-        RESERVE8,
-      </if>
-      <if test="returnid != null">
-        RETURNID,
-      </if>
-      <if test="title != null">
-        TITLE,
-      </if>
-      <if test="reserve3 != null">
-        RESERVE3,
-      </if>
-      <if test="reserve4 != null">
-        RESERVE4,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        #{sequenceid,jdbcType=VARCHAR},
-      </if>
-      <if test="groupid != null">
-        #{groupid,jdbcType=VARCHAR},
-      </if>
-      <if test="createtime != null">
-        #{createtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="createoper != null">
-        #{createoper,jdbcType=VARCHAR},
-      </if>
-      <if test="status != null">
-        #{status,jdbcType=VARCHAR},
-      </if>
-      <if test="checkoper != null">
-        #{checkoper,jdbcType=VARCHAR},
-      </if>
-      <if test="checktime != null">
-        #{checktime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="recordenum != null">
-        #{recordenum,jdbcType=DECIMAL},
-      </if>
-      <if test="successnum != null">
-        #{successnum,jdbcType=DECIMAL},
-      </if>
-      <if test="errornum != null">
-        #{errornum,jdbcType=DECIMAL},
-      </if>
-      <if test="sendtime != null">
-        #{sendtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="reserve1 != null">
-        #{reserve1,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve2 != null">
-        #{reserve2,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve5 != null">
-        #{reserve5,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve6 != null">
-        #{reserve6,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve7 != null">
-        #{reserve7,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve8 != null">
-        #{reserve8,jdbcType=DECIMAL},
-      </if>
-      <if test="returnid != null">
-        #{returnid,jdbcType=DECIMAL},
-      </if>
-      <if test="title != null">
-        #{title,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="reserve3 != null">
-        #{reserve3,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="reserve4 != null">
-        #{reserve4,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbSendmessage">
-    update db_sendmessage
-    <set>
-      <if test="groupid != null">
-        GROUPID = #{groupid,jdbcType=VARCHAR},
-      </if>
-      <if test="createtime != null">
-        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="createoper != null">
-        CREATEOPER = #{createoper,jdbcType=VARCHAR},
-      </if>
-      <if test="status != null">
-        'STATUS' = #{status,jdbcType=VARCHAR},
-      </if>
-      <if test="checkoper != null">
-        CHECKOPER = #{checkoper,jdbcType=VARCHAR},
-      </if>
-      <if test="checktime != null">
-        CHECKTIME = #{checktime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="recordenum != null">
-        RECORDENUM = #{recordenum,jdbcType=DECIMAL},
-      </if>
-      <if test="successnum != null">
-        SUCCESSNUM = #{successnum,jdbcType=DECIMAL},
-      </if>
-      <if test="errornum != null">
-        ERRORNUM = #{errornum,jdbcType=DECIMAL},
-      </if>
-      <if test="sendtime != null">
-        SENDTIME = #{sendtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="reserve1 != null">
-        RESERVE1 = #{reserve1,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve2 != null">
-        RESERVE2 = #{reserve2,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve5 != null">
-        RESERVE5 = #{reserve5,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve6 != null">
-        RESERVE6 = #{reserve6,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve7 != null">
-        RESERVE7 = #{reserve7,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve8 != null">
-        RESERVE8 = #{reserve8,jdbcType=DECIMAL},
-      </if>
-      <if test="returnid != null">
-        RETURNID = #{returnid,jdbcType=DECIMAL},
-      </if>
-      <if test="title != null">
-        TITLE = #{title,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="reserve3 != null">
-        RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="reserve4 != null">
-        RESERVE4 = #{reserve4,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbSendmessage">
-    update db_sendmessage
-    set GROUPID = #{groupid,jdbcType=VARCHAR},
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
-      CREATEOPER = #{createoper,jdbcType=VARCHAR},
-      'STATUS' = #{status,jdbcType=VARCHAR},
-      CHECKOPER = #{checkoper,jdbcType=VARCHAR},
-      CHECKTIME = #{checktime,jdbcType=TIMESTAMP},
-      RECORDENUM = #{recordenum,jdbcType=DECIMAL},
-      SUCCESSNUM = #{successnum,jdbcType=DECIMAL},
-      ERRORNUM = #{errornum,jdbcType=DECIMAL},
-      SENDTIME = #{sendtime,jdbcType=TIMESTAMP},
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR},
-      RESERVE5 = #{reserve5,jdbcType=DECIMAL},
-      RESERVE6 = #{reserve6,jdbcType=DECIMAL},
-      RESERVE7 = #{reserve7,jdbcType=DECIMAL},
-      RESERVE8 = #{reserve8,jdbcType=DECIMAL},
-      RETURNID = #{returnid,jdbcType=DECIMAL},
-      TITLE = #{title,jdbcType=LONGVARCHAR},
-      RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR},
-      RESERVE4 = #{reserve4,jdbcType=LONGVARCHAR}
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbSendmessage">
-    update db_sendmessage
-    set GROUPID = #{groupid,jdbcType=VARCHAR},
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
-      CREATEOPER = #{createoper,jdbcType=VARCHAR},
-      'STATUS' = #{status,jdbcType=VARCHAR},
-      CHECKOPER = #{checkoper,jdbcType=VARCHAR},
-      CHECKTIME = #{checktime,jdbcType=TIMESTAMP},
-      RECORDENUM = #{recordenum,jdbcType=DECIMAL},
-      SUCCESSNUM = #{successnum,jdbcType=DECIMAL},
-      ERRORNUM = #{errornum,jdbcType=DECIMAL},
-      SENDTIME = #{sendtime,jdbcType=TIMESTAMP},
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR},
-      RESERVE5 = #{reserve5,jdbcType=DECIMAL},
-      RESERVE6 = #{reserve6,jdbcType=DECIMAL},
-      RESERVE7 = #{reserve7,jdbcType=DECIMAL},
-      RESERVE8 = #{reserve8,jdbcType=DECIMAL},
-      RETURNID = #{returnid,jdbcType=DECIMAL}
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbSendmessage">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

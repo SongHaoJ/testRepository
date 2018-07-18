@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbEncode;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbEncodeMapper {
-    int deleteByPrimaryKey(String char1);
+    DbEncode selectByCriteria(DbEncode DbEncode);
 
-    int insert(DbEncode record);
+    void deleteByPrimaryKey(String CHAR1);
 
-    int insertSelective(DbEncode record);
+    void deleteByCriteria(DbEncode DbEncode);
+
+    int insertByCriteria(DbEncode DbEncode);
+
+    int updateByCriteria(DbEncode DbEncode);
 
     DbEncode selectByPrimaryKey(String char1);
 
-    int updateByPrimaryKeySelective(DbEncode record);
-
-    int updateByPrimaryKey(DbEncode record);
+    List<DbEncode> selectAll();
 }

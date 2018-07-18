@@ -1,24 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbBindlist;
-import com.gourpBean.BindListIncludeProduct;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Repository
+@Service
 public interface DbBindlistMapper {
-    int deleteByPrimaryKey(String sid);
+    DbBindlist selectByCriteria(DbBindlist DbBindlist);
 
-    int insert(DbBindlist record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbBindlist record);
+    void deleteByCriteria(DbBindlist DbBindlist);
+
+    int insertByCriteria(DbBindlist DbBindlist);
+
+    int updateByCriteria(DbBindlist DbBindlist);
 
     DbBindlist selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbBindlist record);
-
-    Integer calcByBindId(String bindid);
-
-    List<BindListIncludeProduct> selectIncludeProduct(String bindid);
+    List<DbBindlist> selectAll();
 }

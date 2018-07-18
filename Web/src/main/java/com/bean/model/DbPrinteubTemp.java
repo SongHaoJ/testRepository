@@ -9,6 +9,8 @@ public class DbPrinteubTemp implements Serializable {
 
     private String sendername;
 
+    private String senderadress;
+
     private String senderdist;
 
     private String sendercity;
@@ -31,29 +33,13 @@ public class DbPrinteubTemp implements Serializable {
 
     private String customertel;
 
+    private String sellinfo;
+
     private String countryflag;
 
     private String categoryname;
 
     private String categoryenglish;
-
-    private BigDecimal reserve4;
-
-    private BigDecimal reserve5;
-
-    private String customerprovince;
-
-    private BigDecimal moneyask;
-
-    private BigDecimal moneyexpressask;
-
-    private Date ordertime;
-
-    private BigDecimal orderweight;
-
-    private String senderadress;
-
-    private String sellinfo;
 
     private String reserve1;
 
@@ -61,7 +47,19 @@ public class DbPrinteubTemp implements Serializable {
 
     private String reserve3;
 
+    private BigDecimal reserve4;
+
+    private BigDecimal reserve5;
+
+    private String customerprovince;
+
     private String customermail;
+
+    private BigDecimal moneyask;
+
+    private BigDecimal moneyexpressask;
+
+    private Date ordertime;
 
     private String customerfax;
 
@@ -70,6 +68,8 @@ public class DbPrinteubTemp implements Serializable {
     private String payid;
 
     private String expresstype;
+
+    private BigDecimal orderweight;
 
     private String postageservice;
 
@@ -97,6 +97,14 @@ public class DbPrinteubTemp implements Serializable {
 
     public void setSendername(String sendername) {
         this.sendername = sendername == null ? null : sendername.trim();
+    }
+
+    public String getSenderadress() {
+        return senderadress;
+    }
+
+    public void setSenderadress(String senderadress) {
+        this.senderadress = senderadress == null ? null : senderadress.trim();
     }
 
     public String getSenderdist() {
@@ -187,6 +195,14 @@ public class DbPrinteubTemp implements Serializable {
         this.customertel = customertel == null ? null : customertel.trim();
     }
 
+    public String getSellinfo() {
+        return sellinfo;
+    }
+
+    public void setSellinfo(String sellinfo) {
+        this.sellinfo = sellinfo == null ? null : sellinfo.trim();
+    }
+
     public String getCountryflag() {
         return countryflag;
     }
@@ -209,78 +225,6 @@ public class DbPrinteubTemp implements Serializable {
 
     public void setCategoryenglish(String categoryenglish) {
         this.categoryenglish = categoryenglish == null ? null : categoryenglish.trim();
-    }
-
-    public BigDecimal getReserve4() {
-        return reserve4;
-    }
-
-    public void setReserve4(BigDecimal reserve4) {
-        this.reserve4 = reserve4;
-    }
-
-    public BigDecimal getReserve5() {
-        return reserve5;
-    }
-
-    public void setReserve5(BigDecimal reserve5) {
-        this.reserve5 = reserve5;
-    }
-
-    public String getCustomerprovince() {
-        return customerprovince;
-    }
-
-    public void setCustomerprovince(String customerprovince) {
-        this.customerprovince = customerprovince == null ? null : customerprovince.trim();
-    }
-
-    public BigDecimal getMoneyask() {
-        return moneyask;
-    }
-
-    public void setMoneyask(BigDecimal moneyask) {
-        this.moneyask = moneyask;
-    }
-
-    public BigDecimal getMoneyexpressask() {
-        return moneyexpressask;
-    }
-
-    public void setMoneyexpressask(BigDecimal moneyexpressask) {
-        this.moneyexpressask = moneyexpressask;
-    }
-
-    public Date getOrdertime() {
-        return ordertime;
-    }
-
-    public void setOrdertime(Date ordertime) {
-        this.ordertime = ordertime;
-    }
-
-    public BigDecimal getOrderweight() {
-        return orderweight;
-    }
-
-    public void setOrderweight(BigDecimal orderweight) {
-        this.orderweight = orderweight;
-    }
-
-    public String getSenderadress() {
-        return senderadress;
-    }
-
-    public void setSenderadress(String senderadress) {
-        this.senderadress = senderadress == null ? null : senderadress.trim();
-    }
-
-    public String getSellinfo() {
-        return sellinfo;
-    }
-
-    public void setSellinfo(String sellinfo) {
-        this.sellinfo = sellinfo == null ? null : sellinfo.trim();
     }
 
     public String getReserve1() {
@@ -307,12 +251,60 @@ public class DbPrinteubTemp implements Serializable {
         this.reserve3 = reserve3 == null ? null : reserve3.trim();
     }
 
+    public BigDecimal getReserve4() {
+        return reserve4;
+    }
+
+    public void setReserve4(BigDecimal reserve4) {
+        this.reserve4 = reserve4;
+    }
+
+    public BigDecimal getReserve5() {
+        return reserve5;
+    }
+
+    public void setReserve5(BigDecimal reserve5) {
+        this.reserve5 = reserve5;
+    }
+
+    public String getCustomerprovince() {
+        return customerprovince;
+    }
+
+    public void setCustomerprovince(String customerprovince) {
+        this.customerprovince = customerprovince == null ? null : customerprovince.trim();
+    }
+
     public String getCustomermail() {
         return customermail;
     }
 
     public void setCustomermail(String customermail) {
         this.customermail = customermail == null ? null : customermail.trim();
+    }
+
+    public BigDecimal getMoneyask() {
+        return moneyask;
+    }
+
+    public void setMoneyask(BigDecimal moneyask) {
+        this.moneyask = moneyask;
+    }
+
+    public BigDecimal getMoneyexpressask() {
+        return moneyexpressask;
+    }
+
+    public void setMoneyexpressask(BigDecimal moneyexpressask) {
+        this.moneyexpressask = moneyexpressask;
+    }
+
+    public Date getOrdertime() {
+        return ordertime;
+    }
+
+    public void setOrdertime(Date ordertime) {
+        this.ordertime = ordertime;
     }
 
     public String getCustomerfax() {
@@ -345,6 +337,14 @@ public class DbPrinteubTemp implements Serializable {
 
     public void setExpresstype(String expresstype) {
         this.expresstype = expresstype == null ? null : expresstype.trim();
+    }
+
+    public BigDecimal getOrderweight() {
+        return orderweight;
+    }
+
+    public void setOrderweight(BigDecimal orderweight) {
+        this.orderweight = orderweight;
     }
 
     public String getPostageservice() {
@@ -401,6 +401,7 @@ public class DbPrinteubTemp implements Serializable {
         DbPrinteubTemp other = (DbPrinteubTemp) that;
         return (this.getSequenceuid() == null ? other.getSequenceuid() == null : this.getSequenceuid().equals(other.getSequenceuid()))
             && (this.getSendername() == null ? other.getSendername() == null : this.getSendername().equals(other.getSendername()))
+            && (this.getSenderadress() == null ? other.getSenderadress() == null : this.getSenderadress().equals(other.getSenderadress()))
             && (this.getSenderdist() == null ? other.getSenderdist() == null : this.getSenderdist().equals(other.getSenderdist()))
             && (this.getSendercity() == null ? other.getSendercity() == null : this.getSendercity().equals(other.getSendercity()))
             && (this.getSenderprovince() == null ? other.getSenderprovince() == null : this.getSenderprovince().equals(other.getSenderprovince()))
@@ -412,26 +413,25 @@ public class DbPrinteubTemp implements Serializable {
             && (this.getCustomercountry() == null ? other.getCustomercountry() == null : this.getCustomercountry().equals(other.getCustomercountry()))
             && (this.getCustomerzip() == null ? other.getCustomerzip() == null : this.getCustomerzip().equals(other.getCustomerzip()))
             && (this.getCustomertel() == null ? other.getCustomertel() == null : this.getCustomertel().equals(other.getCustomertel()))
+            && (this.getSellinfo() == null ? other.getSellinfo() == null : this.getSellinfo().equals(other.getSellinfo()))
             && (this.getCountryflag() == null ? other.getCountryflag() == null : this.getCountryflag().equals(other.getCountryflag()))
             && (this.getCategoryname() == null ? other.getCategoryname() == null : this.getCategoryname().equals(other.getCategoryname()))
             && (this.getCategoryenglish() == null ? other.getCategoryenglish() == null : this.getCategoryenglish().equals(other.getCategoryenglish()))
-            && (this.getReserve4() == null ? other.getReserve4() == null : this.getReserve4().equals(other.getReserve4()))
-            && (this.getReserve5() == null ? other.getReserve5() == null : this.getReserve5().equals(other.getReserve5()))
-            && (this.getCustomerprovince() == null ? other.getCustomerprovince() == null : this.getCustomerprovince().equals(other.getCustomerprovince()))
-            && (this.getMoneyask() == null ? other.getMoneyask() == null : this.getMoneyask().equals(other.getMoneyask()))
-            && (this.getMoneyexpressask() == null ? other.getMoneyexpressask() == null : this.getMoneyexpressask().equals(other.getMoneyexpressask()))
-            && (this.getOrdertime() == null ? other.getOrdertime() == null : this.getOrdertime().equals(other.getOrdertime()))
-            && (this.getOrderweight() == null ? other.getOrderweight() == null : this.getOrderweight().equals(other.getOrderweight()))
-            && (this.getSenderadress() == null ? other.getSenderadress() == null : this.getSenderadress().equals(other.getSenderadress()))
-            && (this.getSellinfo() == null ? other.getSellinfo() == null : this.getSellinfo().equals(other.getSellinfo()))
             && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
             && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
             && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
+            && (this.getReserve4() == null ? other.getReserve4() == null : this.getReserve4().equals(other.getReserve4()))
+            && (this.getReserve5() == null ? other.getReserve5() == null : this.getReserve5().equals(other.getReserve5()))
+            && (this.getCustomerprovince() == null ? other.getCustomerprovince() == null : this.getCustomerprovince().equals(other.getCustomerprovince()))
             && (this.getCustomermail() == null ? other.getCustomermail() == null : this.getCustomermail().equals(other.getCustomermail()))
+            && (this.getMoneyask() == null ? other.getMoneyask() == null : this.getMoneyask().equals(other.getMoneyask()))
+            && (this.getMoneyexpressask() == null ? other.getMoneyexpressask() == null : this.getMoneyexpressask().equals(other.getMoneyexpressask()))
+            && (this.getOrdertime() == null ? other.getOrdertime() == null : this.getOrdertime().equals(other.getOrdertime()))
             && (this.getCustomerfax() == null ? other.getCustomerfax() == null : this.getCustomerfax().equals(other.getCustomerfax()))
             && (this.getShoptypeid() == null ? other.getShoptypeid() == null : this.getShoptypeid().equals(other.getShoptypeid()))
             && (this.getPayid() == null ? other.getPayid() == null : this.getPayid().equals(other.getPayid()))
             && (this.getExpresstype() == null ? other.getExpresstype() == null : this.getExpresstype().equals(other.getExpresstype()))
+            && (this.getOrderweight() == null ? other.getOrderweight() == null : this.getOrderweight().equals(other.getOrderweight()))
             && (this.getPostageservice() == null ? other.getPostageservice() == null : this.getPostageservice().equals(other.getPostageservice()))
             && (this.getPackagingname() == null ? other.getPackagingname() == null : this.getPackagingname().equals(other.getPackagingname()))
             && (this.getOper1() == null ? other.getOper1() == null : this.getOper1().equals(other.getOper1()))
@@ -445,6 +445,7 @@ public class DbPrinteubTemp implements Serializable {
         int result = 1;
         result = prime * result + ((getSequenceuid() == null) ? 0 : getSequenceuid().hashCode());
         result = prime * result + ((getSendername() == null) ? 0 : getSendername().hashCode());
+        result = prime * result + ((getSenderadress() == null) ? 0 : getSenderadress().hashCode());
         result = prime * result + ((getSenderdist() == null) ? 0 : getSenderdist().hashCode());
         result = prime * result + ((getSendercity() == null) ? 0 : getSendercity().hashCode());
         result = prime * result + ((getSenderprovince() == null) ? 0 : getSenderprovince().hashCode());
@@ -456,26 +457,25 @@ public class DbPrinteubTemp implements Serializable {
         result = prime * result + ((getCustomercountry() == null) ? 0 : getCustomercountry().hashCode());
         result = prime * result + ((getCustomerzip() == null) ? 0 : getCustomerzip().hashCode());
         result = prime * result + ((getCustomertel() == null) ? 0 : getCustomertel().hashCode());
+        result = prime * result + ((getSellinfo() == null) ? 0 : getSellinfo().hashCode());
         result = prime * result + ((getCountryflag() == null) ? 0 : getCountryflag().hashCode());
         result = prime * result + ((getCategoryname() == null) ? 0 : getCategoryname().hashCode());
         result = prime * result + ((getCategoryenglish() == null) ? 0 : getCategoryenglish().hashCode());
-        result = prime * result + ((getReserve4() == null) ? 0 : getReserve4().hashCode());
-        result = prime * result + ((getReserve5() == null) ? 0 : getReserve5().hashCode());
-        result = prime * result + ((getCustomerprovince() == null) ? 0 : getCustomerprovince().hashCode());
-        result = prime * result + ((getMoneyask() == null) ? 0 : getMoneyask().hashCode());
-        result = prime * result + ((getMoneyexpressask() == null) ? 0 : getMoneyexpressask().hashCode());
-        result = prime * result + ((getOrdertime() == null) ? 0 : getOrdertime().hashCode());
-        result = prime * result + ((getOrderweight() == null) ? 0 : getOrderweight().hashCode());
-        result = prime * result + ((getSenderadress() == null) ? 0 : getSenderadress().hashCode());
-        result = prime * result + ((getSellinfo() == null) ? 0 : getSellinfo().hashCode());
         result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
         result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
         result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
+        result = prime * result + ((getReserve4() == null) ? 0 : getReserve4().hashCode());
+        result = prime * result + ((getReserve5() == null) ? 0 : getReserve5().hashCode());
+        result = prime * result + ((getCustomerprovince() == null) ? 0 : getCustomerprovince().hashCode());
         result = prime * result + ((getCustomermail() == null) ? 0 : getCustomermail().hashCode());
+        result = prime * result + ((getMoneyask() == null) ? 0 : getMoneyask().hashCode());
+        result = prime * result + ((getMoneyexpressask() == null) ? 0 : getMoneyexpressask().hashCode());
+        result = prime * result + ((getOrdertime() == null) ? 0 : getOrdertime().hashCode());
         result = prime * result + ((getCustomerfax() == null) ? 0 : getCustomerfax().hashCode());
         result = prime * result + ((getShoptypeid() == null) ? 0 : getShoptypeid().hashCode());
         result = prime * result + ((getPayid() == null) ? 0 : getPayid().hashCode());
         result = prime * result + ((getExpresstype() == null) ? 0 : getExpresstype().hashCode());
+        result = prime * result + ((getOrderweight() == null) ? 0 : getOrderweight().hashCode());
         result = prime * result + ((getPostageservice() == null) ? 0 : getPostageservice().hashCode());
         result = prime * result + ((getPackagingname() == null) ? 0 : getPackagingname().hashCode());
         result = prime * result + ((getOper1() == null) ? 0 : getOper1().hashCode());
@@ -492,6 +492,7 @@ public class DbPrinteubTemp implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", sequenceuid=").append(sequenceuid);
         sb.append(", sendername=").append(sendername);
+        sb.append(", senderadress=").append(senderadress);
         sb.append(", senderdist=").append(senderdist);
         sb.append(", sendercity=").append(sendercity);
         sb.append(", senderprovince=").append(senderprovince);
@@ -503,26 +504,25 @@ public class DbPrinteubTemp implements Serializable {
         sb.append(", customercountry=").append(customercountry);
         sb.append(", customerzip=").append(customerzip);
         sb.append(", customertel=").append(customertel);
+        sb.append(", sellinfo=").append(sellinfo);
         sb.append(", countryflag=").append(countryflag);
         sb.append(", categoryname=").append(categoryname);
         sb.append(", categoryenglish=").append(categoryenglish);
-        sb.append(", reserve4=").append(reserve4);
-        sb.append(", reserve5=").append(reserve5);
-        sb.append(", customerprovince=").append(customerprovince);
-        sb.append(", moneyask=").append(moneyask);
-        sb.append(", moneyexpressask=").append(moneyexpressask);
-        sb.append(", ordertime=").append(ordertime);
-        sb.append(", orderweight=").append(orderweight);
-        sb.append(", senderadress=").append(senderadress);
-        sb.append(", sellinfo=").append(sellinfo);
         sb.append(", reserve1=").append(reserve1);
         sb.append(", reserve2=").append(reserve2);
         sb.append(", reserve3=").append(reserve3);
+        sb.append(", reserve4=").append(reserve4);
+        sb.append(", reserve5=").append(reserve5);
+        sb.append(", customerprovince=").append(customerprovince);
         sb.append(", customermail=").append(customermail);
+        sb.append(", moneyask=").append(moneyask);
+        sb.append(", moneyexpressask=").append(moneyexpressask);
+        sb.append(", ordertime=").append(ordertime);
         sb.append(", customerfax=").append(customerfax);
         sb.append(", shoptypeid=").append(shoptypeid);
         sb.append(", payid=").append(payid);
         sb.append(", expresstype=").append(expresstype);
+        sb.append(", orderweight=").append(orderweight);
         sb.append(", postageservice=").append(postageservice);
         sb.append(", packagingname=").append(packagingname);
         sb.append(", oper1=").append(oper1);

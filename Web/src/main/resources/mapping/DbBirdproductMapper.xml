@@ -4,80 +4,80 @@
   <resultMap id="BaseResultMap" type="com.bean.model.DbBirdproduct">
     <id column="SID" jdbcType="VARCHAR" property="sid" />
     <result column="BIRDNAME" jdbcType="VARCHAR" property="birdname" />
+    <result column="DESCR" jdbcType="VARCHAR" property="descr" />
     <result column="MABANGSKU" jdbcType="VARCHAR" property="mabangsku" />
     <result column="BIRDSKU" jdbcType="VARCHAR" property="birdsku" />
     <result column="MABANGNAME" jdbcType="VARCHAR" property="mabangname" />
-    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select SID, BIRDNAME, MABANGSKU, BIRDSKU, MABANGNAME, DESCR
-    from db_birdproduct
+    select SID, BIRDNAME, DESCR, MABANGSKU, BIRDSKU, MABANGNAME
+    from DB_BIRDPRODUCT
     where SID = #{sid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select SID, BIRDNAME, MABANGSKU, BIRDSKU, MABANGNAME, DESCR
-    from db_birdproduct
+    select SID, BIRDNAME, DESCR, MABANGSKU, BIRDSKU, MABANGNAME
+    from DB_BIRDPRODUCT
   </select>
   <sql id="TableName">
-    db_birdproduct
+    DB_BIRDPRODUCT
   </sql>
   <sql id="Values">
      #{sid,jdbcType=VARCHAR} , 
      #{birdname,jdbcType=VARCHAR} , 
+     #{descr,jdbcType=VARCHAR} , 
      #{mabangsku,jdbcType=VARCHAR} , 
      #{birdsku,jdbcType=VARCHAR} , 
      #{mabangname,jdbcType=VARCHAR} , 
-     #{descr,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     SID , 
     BIRDNAME , 
+    DESCR , 
     MABANGSKU , 
     BIRDSKU , 
     MABANGNAME , 
-    DESCR
   </sql>
   <sql id="Criteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} and 
+      sid = #{sid,jdbcType=VARCHAR} and 
     </if>
     <if test="birdname != null">
-      BIRDNAME = #{birdname,jdbcType=VARCHAR} and 
-    </if>
-    <if test="mabangsku != null">
-      MABANGSKU = #{mabangsku,jdbcType=VARCHAR} and 
-    </if>
-    <if test="birdsku != null">
-      BIRDSKU = #{birdsku,jdbcType=VARCHAR} and 
-    </if>
-    <if test="mabangname != null">
-      MABANGNAME = #{mabangname,jdbcType=VARCHAR} and 
+      birdname = #{birdname,jdbcType=VARCHAR} and 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR}
+      descr = #{descr,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="mabangsku != null">
+      mabangsku = #{mabangsku,jdbcType=VARCHAR} and 
+    </if>
+    <if test="birdsku != null">
+      birdsku = #{birdsku,jdbcType=VARCHAR} and 
+    </if>
+    <if test="mabangname != null">
+      mabangname = #{mabangname,jdbcType=VARCHAR} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} , 
+      sid = #{sid,jdbcType=VARCHAR} , 
     </if>
     <if test="birdname != null">
-      BIRDNAME = #{birdname,jdbcType=VARCHAR} , 
-    </if>
-    <if test="mabangsku != null">
-      MABANGSKU = #{mabangsku,jdbcType=VARCHAR} , 
-    </if>
-    <if test="birdsku != null">
-      BIRDSKU = #{birdsku,jdbcType=VARCHAR} , 
-    </if>
-    <if test="mabangname != null">
-      MABANGNAME = #{mabangname,jdbcType=VARCHAR} , 
+      birdname = #{birdname,jdbcType=VARCHAR} , 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR}
+      descr = #{descr,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="mabangsku != null">
+      mabangsku = #{mabangsku,jdbcType=VARCHAR} , 
+    </if>
+    <if test="birdsku != null">
+      birdsku = #{birdsku,jdbcType=VARCHAR} , 
+    </if>
+    <if test="mabangname != null">
+      mabangname = #{mabangname,jdbcType=VARCHAR} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbBirdproduct" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

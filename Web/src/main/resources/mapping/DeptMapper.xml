@@ -2,55 +2,50 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bean.dao.DeptMapper">
   <resultMap id="BaseResultMap" type="com.bean.model.Dept">
-    <id column="DID" jdbcType="VARCHAR" property="did" />
+    <result column="DID" jdbcType="VARCHAR" property="did" />
     <result column="DNAME" jdbcType="VARCHAR" property="dname" />
     <result column="DCITY" jdbcType="VARCHAR" property="dcity" />
   </resultMap>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select DID, DNAME, DCITY
-    from dept
-    where DID = #{did,jdbcType=VARCHAR}
-  </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select DID, DNAME, DCITY
-    from dept
+    from DEPT
   </select>
   <sql id="TableName">
-    dept
+    DEPT
   </sql>
   <sql id="Values">
      #{did,jdbcType=VARCHAR} , 
      #{dname,jdbcType=VARCHAR} , 
-     #{dcity,jdbcType=VARCHAR}
+     #{dcity,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     DID , 
     DNAME , 
-    DCITY
+    DCITY , 
   </sql>
   <sql id="Criteria">
     <if test="did != null">
-      DID = #{did,jdbcType=VARCHAR} and 
+      did = #{did,jdbcType=VARCHAR} and 
     </if>
     <if test="dname != null">
-      DNAME = #{dname,jdbcType=VARCHAR} and 
+      dname = #{dname,jdbcType=VARCHAR} and 
     </if>
     <if test="dcity != null">
-      DCITY = #{dcity,jdbcType=VARCHAR}
+      dcity = #{dcity,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="did != null">
-      DID = #{did,jdbcType=VARCHAR} , 
+      did = #{did,jdbcType=VARCHAR} , 
     </if>
     <if test="dname != null">
-      DNAME = #{dname,jdbcType=VARCHAR} , 
+      dname = #{dname,jdbcType=VARCHAR} , 
     </if>
     <if test="dcity != null">
-      DCITY = #{dcity,jdbcType=VARCHAR}
+      dcity = #{dcity,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.Dept" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

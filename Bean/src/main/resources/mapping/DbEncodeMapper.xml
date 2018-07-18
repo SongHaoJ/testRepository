@@ -5,54 +5,57 @@
     <id column="CHAR1" jdbcType="VARCHAR" property="char1" />
     <result column="CHAR2" jdbcType="VARCHAR" property="char2" />
   </resultMap>
-  <sql id="Base_Column_List">
-    CHAR1, CHAR2
-  </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from db_encode
+    select CHAR1, CHAR2
+    from DB_ENCODE
     where CHAR1 = #{char1,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_encode
-    where CHAR1 = #{char1,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select CHAR1, CHAR2
+    from DB_ENCODE
+  </select>
+  <sql id="TableName">
+    DB_ENCODE
+  </sql>
+  <sql id="Values">
+     #{char1,jdbcType=VARCHAR} , 
+     #{char2,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    CHAR1 , 
+    CHAR2 , 
+  </sql>
+  <sql id="Criteria">
+    <if test="char1 != null">
+      char1 = #{char1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="char2 != null">
+      char2 = #{char2,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="char1 != null">
+      char1 = #{char1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="char2 != null">
+      char2 = #{char2,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbEncode" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where CHAR1=#{CHAR1}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbEncode">
-    insert into db_encode (CHAR1, CHAR2)
-    values (#{char1,jdbcType=VARCHAR}, #{char2,jdbcType=VARCHAR})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbEncode">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbEncode">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbEncode">
-    insert into db_encode
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="char1 != null">
-        CHAR1,
-      </if>
-      <if test="char2 != null">
-        CHAR2,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="char1 != null">
-        #{char1,jdbcType=VARCHAR},
-      </if>
-      <if test="char2 != null">
-        #{char2,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbEncode">
-    update db_encode
-    <set>
-      <if test="char2 != null">
-        CHAR2 = #{char2,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where CHAR1 = #{char1,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbEncode">
-    update db_encode
-    set CHAR2 = #{char2,jdbcType=VARCHAR}
-    where CHAR1 = #{char1,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbEncode">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbYunfeiheduiMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbYunfeihedui">
+    <result column="YUNDANHAO" jdbcType="VARCHAR" property="yundanhao" />
+    <result column="KEZHONG" jdbcType="VARCHAR" property="kezhong" />
+    <result column="YUNFEI" jdbcType="VARCHAR" property="yunfei" />
+  </resultMap>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select YUNDANHAO, KEZHONG, YUNFEI
+    from DB_YUNFEIHEDUI
+  </select>
+  <sql id="TableName">
+    DB_YUNFEIHEDUI
+  </sql>
+  <sql id="Values">
+     #{yundanhao,jdbcType=VARCHAR} , 
+     #{kezhong,jdbcType=VARCHAR} , 
+     #{yunfei,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    YUNDANHAO , 
+    KEZHONG , 
+    YUNFEI , 
+  </sql>
+  <sql id="Criteria">
+    <if test="yundanhao != null">
+      yundanhao = #{yundanhao,jdbcType=VARCHAR} and 
+    </if>
+    <if test="kezhong != null">
+      kezhong = #{kezhong,jdbcType=VARCHAR} and 
+    </if>
+    <if test="yunfei != null">
+      yunfei = #{yunfei,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="yundanhao != null">
+      yundanhao = #{yundanhao,jdbcType=VARCHAR} , 
+    </if>
+    <if test="kezhong != null">
+      kezhong = #{kezhong,jdbcType=VARCHAR} , 
+    </if>
+    <if test="yunfei != null">
+      yunfei = #{yunfei,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbYunfeihedui" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where YUNDANHAO=#{YUNDANHAO}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbYunfeihedui">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbYunfeihedui">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbYunfeihedui">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

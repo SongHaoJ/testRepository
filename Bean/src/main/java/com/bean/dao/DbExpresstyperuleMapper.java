@@ -1,20 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbExpresstyperule;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbExpresstyperuleMapper {
-    int deleteByPrimaryKey(BigDecimal sid);
+    DbExpresstyperule selectByCriteria(DbExpresstyperule DbExpresstyperule);
 
-    int insert(DbExpresstyperule record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbExpresstyperule record);
+    void deleteByCriteria(DbExpresstyperule DbExpresstyperule);
+
+    int insertByCriteria(DbExpresstyperule DbExpresstyperule);
+
+    int updateByCriteria(DbExpresstyperule DbExpresstyperule);
 
     DbExpresstyperule selectByPrimaryKey(BigDecimal sid);
 
-    int updateByPrimaryKeySelective(DbExpresstyperule record);
-
-    int updateByPrimaryKeyWithBLOBs(DbExpresstyperule record);
-
-    int updateByPrimaryKey(DbExpresstyperule record);
+    List<DbExpresstyperule> selectAll();
 }

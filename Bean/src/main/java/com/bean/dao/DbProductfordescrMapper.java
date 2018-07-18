@@ -1,20 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbProductfordescr;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbProductfordescrMapper {
-    int deleteByPrimaryKey(BigDecimal sequenceid);
+    DbProductfordescr selectByCriteria(DbProductfordescr DbProductfordescr);
 
-    int insert(DbProductfordescr record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbProductfordescr record);
+    void deleteByCriteria(DbProductfordescr DbProductfordescr);
+
+    int insertByCriteria(DbProductfordescr DbProductfordescr);
+
+    int updateByCriteria(DbProductfordescr DbProductfordescr);
 
     DbProductfordescr selectByPrimaryKey(BigDecimal sequenceid);
 
-    int updateByPrimaryKeySelective(DbProductfordescr record);
-
-    int updateByPrimaryKeyWithBLOBs(DbProductfordescr record);
-
-    int updateByPrimaryKey(DbProductfordescr record);
+    List<DbProductfordescr> selectAll();
 }

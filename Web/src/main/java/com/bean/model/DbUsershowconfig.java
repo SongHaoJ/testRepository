@@ -25,9 +25,9 @@ public class DbUsershowconfig implements Serializable {
 
     private String content;
 
-    private String ordertype;
-
     private String value;
+
+    private String ordertype;
 
     private static final long serialVersionUID = 1L;
 
@@ -119,20 +119,20 @@ public class DbUsershowconfig implements Serializable {
         this.content = content == null ? null : content.trim();
     }
 
-    public String getOrdertype() {
-        return ordertype;
-    }
-
-    public void setOrdertype(String ordertype) {
-        this.ordertype = ordertype == null ? null : ordertype.trim();
-    }
-
     public String getValue() {
         return value;
     }
 
     public void setValue(String value) {
         this.value = value == null ? null : value.trim();
+    }
+
+    public String getOrdertype() {
+        return ordertype;
+    }
+
+    public void setOrdertype(String ordertype) {
+        this.ordertype = ordertype == null ? null : ordertype.trim();
     }
 
     @Override
@@ -158,8 +158,8 @@ public class DbUsershowconfig implements Serializable {
             && (this.getEmailflag() == null ? other.getEmailflag() == null : this.getEmailflag().equals(other.getEmailflag()))
             && (this.getTelflag() == null ? other.getTelflag() == null : this.getTelflag().equals(other.getTelflag()))
             && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
-            && (this.getOrdertype() == null ? other.getOrdertype() == null : this.getOrdertype().equals(other.getOrdertype()))
-            && (this.getValue() == null ? other.getValue() == null : this.getValue().equals(other.getValue()));
+            && (this.getValue() == null ? other.getValue() == null : this.getValue().equals(other.getValue()))
+            && (this.getOrdertype() == null ? other.getOrdertype() == null : this.getOrdertype().equals(other.getOrdertype()));
     }
 
     @Override
@@ -177,8 +177,8 @@ public class DbUsershowconfig implements Serializable {
         result = prime * result + ((getEmailflag() == null) ? 0 : getEmailflag().hashCode());
         result = prime * result + ((getTelflag() == null) ? 0 : getTelflag().hashCode());
         result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
-        result = prime * result + ((getOrdertype() == null) ? 0 : getOrdertype().hashCode());
         result = prime * result + ((getValue() == null) ? 0 : getValue().hashCode());
+        result = prime * result + ((getOrdertype() == null) ? 0 : getOrdertype().hashCode());
         return result;
     }
 
@@ -199,8 +199,8 @@ public class DbUsershowconfig implements Serializable {
         sb.append(", emailflag=").append(emailflag);
         sb.append(", telflag=").append(telflag);
         sb.append(", content=").append(content);
-        sb.append(", ordertype=").append(ordertype);
         sb.append(", value=").append(value);
+        sb.append(", ordertype=").append(ordertype);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

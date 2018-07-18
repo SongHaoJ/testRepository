@@ -9,57 +9,57 @@
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select INSURANCETYPE, NAME, CATEGORYID, EXPRESSID
-    from db_wytinsurancetype
+    from DB_WYTINSURANCETYPE
     where INSURANCETYPE = #{insurancetype,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select INSURANCETYPE, NAME, CATEGORYID, EXPRESSID
-    from db_wytinsurancetype
+    from DB_WYTINSURANCETYPE
   </select>
   <sql id="TableName">
-    db_wytinsurancetype
+    DB_WYTINSURANCETYPE
   </sql>
   <sql id="Values">
      #{insurancetype,jdbcType=VARCHAR} , 
      #{name,jdbcType=VARCHAR} , 
      #{categoryid,jdbcType=VARCHAR} , 
-     #{expressid,jdbcType=VARCHAR}
+     #{expressid,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     INSURANCETYPE , 
     NAME , 
     CATEGORYID , 
-    EXPRESSID
+    EXPRESSID , 
   </sql>
   <sql id="Criteria">
     <if test="insurancetype != null">
-      INSURANCETYPE = #{insurancetype,jdbcType=VARCHAR} and 
+      insurancetype = #{insurancetype,jdbcType=VARCHAR} and 
     </if>
     <if test="name != null">
-      NAME = #{name,jdbcType=VARCHAR} and 
+      name = #{name,jdbcType=VARCHAR} and 
     </if>
     <if test="categoryid != null">
-      CATEGORYID = #{categoryid,jdbcType=VARCHAR} and 
+      categoryid = #{categoryid,jdbcType=VARCHAR} and 
     </if>
     <if test="expressid != null">
-      EXPRESSID = #{expressid,jdbcType=VARCHAR}
+      expressid = #{expressid,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="insurancetype != null">
-      INSURANCETYPE = #{insurancetype,jdbcType=VARCHAR} , 
+      insurancetype = #{insurancetype,jdbcType=VARCHAR} , 
     </if>
     <if test="name != null">
-      NAME = #{name,jdbcType=VARCHAR} , 
+      name = #{name,jdbcType=VARCHAR} , 
     </if>
     <if test="categoryid != null">
-      CATEGORYID = #{categoryid,jdbcType=VARCHAR} , 
+      categoryid = #{categoryid,jdbcType=VARCHAR} , 
     </if>
     <if test="expressid != null">
-      EXPRESSID = #{expressid,jdbcType=VARCHAR}
+      expressid = #{expressid,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbWytinsurancetype" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

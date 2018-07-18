@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbItemidspc;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbItemidspcMapper {
-    int deleteByPrimaryKey(String sid);
+    DbItemidspc selectByCriteria(DbItemidspc DbItemidspc);
 
-    int insert(DbItemidspc record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbItemidspc record);
+    void deleteByCriteria(DbItemidspc DbItemidspc);
+
+    int insertByCriteria(DbItemidspc DbItemidspc);
+
+    int updateByCriteria(DbItemidspc DbItemidspc);
 
     DbItemidspc selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbItemidspc record);
-
-    int updateByPrimaryKeyWithBLOBs(DbItemidspc record);
-
-    int updateByPrimaryKey(DbItemidspc record);
+    List<DbItemidspc> selectAll();
 }

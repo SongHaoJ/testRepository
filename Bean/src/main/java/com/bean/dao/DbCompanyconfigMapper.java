@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbCompanyconfig;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbCompanyconfigMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbCompanyconfig selectByCriteria(DbCompanyconfig DbCompanyconfig);
 
-    int insert(DbCompanyconfig record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbCompanyconfig record);
+    void deleteByCriteria(DbCompanyconfig DbCompanyconfig);
+
+    int insertByCriteria(DbCompanyconfig DbCompanyconfig);
+
+    int updateByCriteria(DbCompanyconfig DbCompanyconfig);
 
     DbCompanyconfig selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbCompanyconfig record);
-
-    int updateByPrimaryKeyWithBLOBs(DbCompanyconfig record);
-
-    int updateByPrimaryKey(DbCompanyconfig record);
+    List<DbCompanyconfig> selectAll();
 }

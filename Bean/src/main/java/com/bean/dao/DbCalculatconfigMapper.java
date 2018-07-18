@@ -1,18 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbCalculatconfig;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbCalculatconfigMapper {
-    int deleteByPrimaryKey(BigDecimal id);
+    DbCalculatconfig selectByCriteria(DbCalculatconfig DbCalculatconfig);
 
-    int insert(DbCalculatconfig record);
+    void deleteByPrimaryKey(String ID);
 
-    int insertSelective(DbCalculatconfig record);
+    void deleteByCriteria(DbCalculatconfig DbCalculatconfig);
+
+    int insertByCriteria(DbCalculatconfig DbCalculatconfig);
+
+    int updateByCriteria(DbCalculatconfig DbCalculatconfig);
 
     DbCalculatconfig selectByPrimaryKey(BigDecimal id);
 
-    int updateByPrimaryKeySelective(DbCalculatconfig record);
-
-    int updateByPrimaryKey(DbCalculatconfig record);
+    List<DbCalculatconfig> selectAll();
 }

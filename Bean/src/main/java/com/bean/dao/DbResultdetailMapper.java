@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbResultdetail;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbResultdetailMapper {
-    int deleteByPrimaryKey(String sid);
+    DbResultdetail selectByCriteria(DbResultdetail DbResultdetail);
 
-    int insert(DbResultdetail record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbResultdetail record);
+    void deleteByCriteria(DbResultdetail DbResultdetail);
+
+    int insertByCriteria(DbResultdetail DbResultdetail);
+
+    int updateByCriteria(DbResultdetail DbResultdetail);
 
     DbResultdetail selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbResultdetail record);
-
-    int updateByPrimaryKeyWithBLOBs(DbResultdetail record);
-
-    int updateByPrimaryKey(DbResultdetail record);
+    List<DbResultdetail> selectAll();
 }

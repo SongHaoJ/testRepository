@@ -20,16 +20,16 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select SEQUENCEID, YYYY, YYYYMM, YYYYMMDD, SHOPID, SHOPNAME, AMOUNT, NUMBER1, NUMBER2, 
     NUMBER3, FIELD1, FIELD2, FIELD3, COUNTRY
-    from stat_country_daily
+    from STAT_COUNTRY_DAILY
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SEQUENCEID, YYYY, YYYYMM, YYYYMMDD, SHOPID, SHOPNAME, AMOUNT, NUMBER1, NUMBER2, 
     NUMBER3, FIELD1, FIELD2, FIELD3, COUNTRY
-    from stat_country_daily
+    from STAT_COUNTRY_DAILY
   </select>
   <sql id="TableName">
-    stat_country_daily
+    STAT_COUNTRY_DAILY
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=VARCHAR} , 
@@ -45,7 +45,7 @@
      #{field1,jdbcType=VARCHAR} , 
      #{field2,jdbcType=VARCHAR} , 
      #{field3,jdbcType=VARCHAR} , 
-     #{country,jdbcType=VARCHAR}
+     #{country,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
@@ -61,97 +61,97 @@
     FIELD1 , 
     FIELD2 , 
     FIELD3 , 
-    COUNTRY
+    COUNTRY , 
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
     </if>
     <if test="yyyy != null">
-      YYYY = #{yyyy,jdbcType=VARCHAR} and 
+      yyyy = #{yyyy,jdbcType=VARCHAR} and 
     </if>
     <if test="yyyymm != null">
-      YYYYMM = #{yyyymm,jdbcType=VARCHAR} and 
+      yyyymm = #{yyyymm,jdbcType=VARCHAR} and 
     </if>
     <if test="yyyymmdd != null">
-      YYYYMMDD = #{yyyymmdd,jdbcType=VARCHAR} and 
+      yyyymmdd = #{yyyymmdd,jdbcType=VARCHAR} and 
     </if>
     <if test="shopid != null">
-      SHOPID = #{shopid,jdbcType=VARCHAR} and 
+      shopid = #{shopid,jdbcType=VARCHAR} and 
     </if>
     <if test="shopname != null">
-      SHOPNAME = #{shopname,jdbcType=VARCHAR} and 
+      shopname = #{shopname,jdbcType=VARCHAR} and 
     </if>
     <if test="amount != null">
-      AMOUNT = #{amount,jdbcType=DECIMAL} and 
+      amount = #{amount,jdbcType=DECIMAL} and 
     </if>
     <if test="number1 != null">
-      NUMBER1 = #{number1,jdbcType=DECIMAL} and 
+      number1 = #{number1,jdbcType=DECIMAL} and 
     </if>
     <if test="number2 != null">
-      NUMBER2 = #{number2,jdbcType=DECIMAL} and 
+      number2 = #{number2,jdbcType=DECIMAL} and 
     </if>
     <if test="number3 != null">
-      NUMBER3 = #{number3,jdbcType=DECIMAL} and 
+      number3 = #{number3,jdbcType=DECIMAL} and 
     </if>
     <if test="field1 != null">
-      FIELD1 = #{field1,jdbcType=VARCHAR} and 
+      field1 = #{field1,jdbcType=VARCHAR} and 
     </if>
     <if test="field2 != null">
-      FIELD2 = #{field2,jdbcType=VARCHAR} and 
+      field2 = #{field2,jdbcType=VARCHAR} and 
     </if>
     <if test="field3 != null">
-      FIELD3 = #{field3,jdbcType=VARCHAR} and 
+      field3 = #{field3,jdbcType=VARCHAR} and 
     </if>
     <if test="country != null">
-      COUNTRY = #{country,jdbcType=VARCHAR}
+      country = #{country,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
     </if>
     <if test="yyyy != null">
-      YYYY = #{yyyy,jdbcType=VARCHAR} , 
+      yyyy = #{yyyy,jdbcType=VARCHAR} , 
     </if>
     <if test="yyyymm != null">
-      YYYYMM = #{yyyymm,jdbcType=VARCHAR} , 
+      yyyymm = #{yyyymm,jdbcType=VARCHAR} , 
     </if>
     <if test="yyyymmdd != null">
-      YYYYMMDD = #{yyyymmdd,jdbcType=VARCHAR} , 
+      yyyymmdd = #{yyyymmdd,jdbcType=VARCHAR} , 
     </if>
     <if test="shopid != null">
-      SHOPID = #{shopid,jdbcType=VARCHAR} , 
+      shopid = #{shopid,jdbcType=VARCHAR} , 
     </if>
     <if test="shopname != null">
-      SHOPNAME = #{shopname,jdbcType=VARCHAR} , 
+      shopname = #{shopname,jdbcType=VARCHAR} , 
     </if>
     <if test="amount != null">
-      AMOUNT = #{amount,jdbcType=DECIMAL} , 
+      amount = #{amount,jdbcType=DECIMAL} , 
     </if>
     <if test="number1 != null">
-      NUMBER1 = #{number1,jdbcType=DECIMAL} , 
+      number1 = #{number1,jdbcType=DECIMAL} , 
     </if>
     <if test="number2 != null">
-      NUMBER2 = #{number2,jdbcType=DECIMAL} , 
+      number2 = #{number2,jdbcType=DECIMAL} , 
     </if>
     <if test="number3 != null">
-      NUMBER3 = #{number3,jdbcType=DECIMAL} , 
+      number3 = #{number3,jdbcType=DECIMAL} , 
     </if>
     <if test="field1 != null">
-      FIELD1 = #{field1,jdbcType=VARCHAR} , 
+      field1 = #{field1,jdbcType=VARCHAR} , 
     </if>
     <if test="field2 != null">
-      FIELD2 = #{field2,jdbcType=VARCHAR} , 
+      field2 = #{field2,jdbcType=VARCHAR} , 
     </if>
     <if test="field3 != null">
-      FIELD3 = #{field3,jdbcType=VARCHAR} , 
+      field3 = #{field3,jdbcType=VARCHAR} , 
     </if>
     <if test="country != null">
-      COUNTRY = #{country,jdbcType=VARCHAR}
+      country = #{country,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.StatCountryDaily" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

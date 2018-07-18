@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbClobtest;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbClobtestMapper {
-    int deleteByPrimaryKey(String cid);
+    DbClobtest selectByCriteria(DbClobtest DbClobtest);
 
-    int insert(DbClobtest record);
+    void deleteByPrimaryKey(String CID);
 
-    int insertSelective(DbClobtest record);
+    void deleteByCriteria(DbClobtest DbClobtest);
+
+    int insertByCriteria(DbClobtest DbClobtest);
+
+    int updateByCriteria(DbClobtest DbClobtest);
 
     DbClobtest selectByPrimaryKey(String cid);
 
-    int updateByPrimaryKeySelective(DbClobtest record);
-
-    int updateByPrimaryKeyWithBLOBs(DbClobtest record);
+    List<DbClobtest> selectAll();
 }

@@ -1,9 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbProductdevelopnew;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbProductdevelopnewMapper {
-    int insert(DbProductdevelopnew record);
+    DbProductdevelopnew selectByCriteria(DbProductdevelopnew DbProductdevelopnew);
 
-    int insertSelective(DbProductdevelopnew record);
+    void deleteByPrimaryKey(String SKU);
+
+    void deleteByCriteria(DbProductdevelopnew DbProductdevelopnew);
+
+    int insertByCriteria(DbProductdevelopnew DbProductdevelopnew);
+
+    int updateByCriteria(DbProductdevelopnew DbProductdevelopnew);
+
+    DbProductdevelopnew selectByPrimaryKey(String sku);
+
+    List<DbProductdevelopnew> selectAll();
 }

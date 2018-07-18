@@ -4,8 +4,10 @@
   <resultMap id="BaseResultMap" type="com.bean.model.DbCompetitorsearch">
     <id column="SEQUENCEID" jdbcType="DECIMAL" property="sequenceid" />
     <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="DESCR" jdbcType="VARCHAR" property="descr" />
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="SQLFILTER" jdbcType="VARCHAR" property="sqlfilter" />
     <result column="DAYSELLNUM" jdbcType="DECIMAL" property="daysellnum" />
     <result column="TRANSLATRATE" jdbcType="DECIMAL" property="translatrate" />
     <result column="PUBLISHTIME" jdbcType="TIMESTAMP" property="publishtime" />
@@ -18,31 +20,31 @@
     <result column="TRANSLATRATE2" jdbcType="DECIMAL" property="translatrate2" />
     <result column="PUBLISHTIME2" jdbcType="TIMESTAMP" property="publishtime2" />
     <result column="ROVERLAPENUM2" jdbcType="DECIMAL" property="roverlapenum2" />
-    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
-    <result column="SQLFILTER" jdbcType="LONGVARCHAR" property="sqlfilter" />
-    <result column="JSONSTR" jdbcType="LONGVARCHAR" property="jsonstr" />
+    <result column="JSONSTR" jdbcType="VARCHAR" property="jsonstr" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
-    select SEQUENCEID, NAME, OPER, OPERTIME, DAYSELLNUM, TRANSLATRATE, PUBLISHTIME, SELLPRICESTART, 
-    SELLPRICEEND, ROVERLAPENUM, OPENFLAG, CORPID, DAYSELLNUM2, TRANSLATRATE2, PUBLISHTIME2, 
-    ROVERLAPENUM2, DESCR, SQLFILTER, JSONSTR
-    from db_competitorsearch
+    select SEQUENCEID, NAME, DESCR, OPER, OPERTIME, SQLFILTER, DAYSELLNUM, TRANSLATRATE, 
+    PUBLISHTIME, SELLPRICESTART, SELLPRICEEND, ROVERLAPENUM, OPENFLAG, CORPID, DAYSELLNUM2, 
+    TRANSLATRATE2, PUBLISHTIME2, ROVERLAPENUM2, JSONSTR
+    from DB_COMPETITORSEARCH
     where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select SEQUENCEID, NAME, OPER, OPERTIME, DAYSELLNUM, TRANSLATRATE, PUBLISHTIME, SELLPRICESTART, 
-    SELLPRICEEND, ROVERLAPENUM, OPENFLAG, CORPID, DAYSELLNUM2, TRANSLATRATE2, PUBLISHTIME2, 
-    ROVERLAPENUM2, DESCR, SQLFILTER, JSONSTR
-    from db_competitorsearch
+    select SEQUENCEID, NAME, DESCR, OPER, OPERTIME, SQLFILTER, DAYSELLNUM, TRANSLATRATE, 
+    PUBLISHTIME, SELLPRICESTART, SELLPRICEEND, ROVERLAPENUM, OPENFLAG, CORPID, DAYSELLNUM2, 
+    TRANSLATRATE2, PUBLISHTIME2, ROVERLAPENUM2, JSONSTR
+    from DB_COMPETITORSEARCH
   </select>
   <sql id="TableName">
-    db_competitorsearch
+    DB_COMPETITORSEARCH
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=DECIMAL} , 
      #{name,jdbcType=VARCHAR} , 
+     #{descr,jdbcType=VARCHAR} , 
      #{oper,jdbcType=VARCHAR} , 
      #{opertime,jdbcType=TIMESTAMP} , 
+     #{sqlfilter,jdbcType=VARCHAR} , 
      #{daysellnum,jdbcType=DECIMAL} , 
      #{translatrate,jdbcType=DECIMAL} , 
      #{publishtime,jdbcType=TIMESTAMP} , 
@@ -55,15 +57,15 @@
      #{translatrate2,jdbcType=DECIMAL} , 
      #{publishtime2,jdbcType=TIMESTAMP} , 
      #{roverlapenum2,jdbcType=DECIMAL} , 
-     #{descr,jdbcType=LONGVARCHAR} , 
-     #{sqlfilter,jdbcType=LONGVARCHAR} , 
-     #{jsonstr,jdbcType=LONGVARCHAR}
+     #{jsonstr,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
     NAME , 
+    DESCR , 
     OPER , 
     OPERTIME , 
+    SQLFILTER , 
     DAYSELLNUM , 
     TRANSLATRATE , 
     PUBLISHTIME , 
@@ -76,129 +78,127 @@
     TRANSLATRATE2 , 
     PUBLISHTIME2 , 
     ROVERLAPENUM2 , 
-    DESCR , 
-    SQLFILTER , 
-    JSONSTR
+    JSONSTR , 
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} and 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} and 
     </if>
     <if test="name != null">
-      NAME = #{name,jdbcType=VARCHAR} and 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="daysellnum != null">
-      DAYSELLNUM = #{daysellnum,jdbcType=DECIMAL} and 
-    </if>
-    <if test="translatrate != null">
-      TRANSLATRATE = #{translatrate,jdbcType=DECIMAL} and 
-    </if>
-    <if test="publishtime != null">
-      PUBLISHTIME = #{publishtime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="sellpricestart != null">
-      SELLPRICESTART = #{sellpricestart,jdbcType=DECIMAL} and 
-    </if>
-    <if test="sellpriceend != null">
-      SELLPRICEEND = #{sellpriceend,jdbcType=DECIMAL} and 
-    </if>
-    <if test="roverlapenum != null">
-      ROVERLAPENUM = #{roverlapenum,jdbcType=DECIMAL} and 
-    </if>
-    <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=DECIMAL} and 
-    </if>
-    <if test="daysellnum2 != null">
-      DAYSELLNUM2 = #{daysellnum2,jdbcType=DECIMAL} and 
-    </if>
-    <if test="translatrate2 != null">
-      TRANSLATRATE2 = #{translatrate2,jdbcType=DECIMAL} and 
-    </if>
-    <if test="publishtime2 != null">
-      PUBLISHTIME2 = #{publishtime2,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="roverlapenum2 != null">
-      ROVERLAPENUM2 = #{roverlapenum2,jdbcType=DECIMAL} and 
+      name = #{name,jdbcType=VARCHAR} and 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR} and 
+      descr = #{descr,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="sqlfilter != null">
-      SQLFILTER = #{sqlfilter,jdbcType=LONGVARCHAR} and 
+      sqlfilter = #{sqlfilter,jdbcType=VARCHAR} and 
+    </if>
+    <if test="daysellnum != null">
+      daysellnum = #{daysellnum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="translatrate != null">
+      translatrate = #{translatrate,jdbcType=DECIMAL} and 
+    </if>
+    <if test="publishtime != null">
+      publishtime = #{publishtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="sellpricestart != null">
+      sellpricestart = #{sellpricestart,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sellpriceend != null">
+      sellpriceend = #{sellpriceend,jdbcType=DECIMAL} and 
+    </if>
+    <if test="roverlapenum != null">
+      roverlapenum = #{roverlapenum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="daysellnum2 != null">
+      daysellnum2 = #{daysellnum2,jdbcType=DECIMAL} and 
+    </if>
+    <if test="translatrate2 != null">
+      translatrate2 = #{translatrate2,jdbcType=DECIMAL} and 
+    </if>
+    <if test="publishtime2 != null">
+      publishtime2 = #{publishtime2,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="roverlapenum2 != null">
+      roverlapenum2 = #{roverlapenum2,jdbcType=DECIMAL} and 
     </if>
     <if test="jsonstr != null">
-      JSONSTR = #{jsonstr,jdbcType=LONGVARCHAR}
+      jsonstr = #{jsonstr,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} , 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} , 
     </if>
     <if test="name != null">
-      NAME = #{name,jdbcType=VARCHAR} , 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="daysellnum != null">
-      DAYSELLNUM = #{daysellnum,jdbcType=DECIMAL} , 
-    </if>
-    <if test="translatrate != null">
-      TRANSLATRATE = #{translatrate,jdbcType=DECIMAL} , 
-    </if>
-    <if test="publishtime != null">
-      PUBLISHTIME = #{publishtime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="sellpricestart != null">
-      SELLPRICESTART = #{sellpricestart,jdbcType=DECIMAL} , 
-    </if>
-    <if test="sellpriceend != null">
-      SELLPRICEEND = #{sellpriceend,jdbcType=DECIMAL} , 
-    </if>
-    <if test="roverlapenum != null">
-      ROVERLAPENUM = #{roverlapenum,jdbcType=DECIMAL} , 
-    </if>
-    <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=DECIMAL} , 
-    </if>
-    <if test="daysellnum2 != null">
-      DAYSELLNUM2 = #{daysellnum2,jdbcType=DECIMAL} , 
-    </if>
-    <if test="translatrate2 != null">
-      TRANSLATRATE2 = #{translatrate2,jdbcType=DECIMAL} , 
-    </if>
-    <if test="publishtime2 != null">
-      PUBLISHTIME2 = #{publishtime2,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="roverlapenum2 != null">
-      ROVERLAPENUM2 = #{roverlapenum2,jdbcType=DECIMAL} , 
+      name = #{name,jdbcType=VARCHAR} , 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR} , 
+      descr = #{descr,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="sqlfilter != null">
-      SQLFILTER = #{sqlfilter,jdbcType=LONGVARCHAR} , 
+      sqlfilter = #{sqlfilter,jdbcType=VARCHAR} , 
+    </if>
+    <if test="daysellnum != null">
+      daysellnum = #{daysellnum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="translatrate != null">
+      translatrate = #{translatrate,jdbcType=DECIMAL} , 
+    </if>
+    <if test="publishtime != null">
+      publishtime = #{publishtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="sellpricestart != null">
+      sellpricestart = #{sellpricestart,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sellpriceend != null">
+      sellpriceend = #{sellpriceend,jdbcType=DECIMAL} , 
+    </if>
+    <if test="roverlapenum != null">
+      roverlapenum = #{roverlapenum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="daysellnum2 != null">
+      daysellnum2 = #{daysellnum2,jdbcType=DECIMAL} , 
+    </if>
+    <if test="translatrate2 != null">
+      translatrate2 = #{translatrate2,jdbcType=DECIMAL} , 
+    </if>
+    <if test="publishtime2 != null">
+      publishtime2 = #{publishtime2,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="roverlapenum2 != null">
+      roverlapenum2 = #{roverlapenum2,jdbcType=DECIMAL} , 
     </if>
     <if test="jsonstr != null">
-      JSONSTR = #{jsonstr,jdbcType=LONGVARCHAR}
+      jsonstr = #{jsonstr,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbCompetitorsearch" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

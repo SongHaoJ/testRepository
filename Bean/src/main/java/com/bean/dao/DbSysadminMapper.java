@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbSysadmin;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbSysadminMapper {
-    int deleteByPrimaryKey(String oper);
+    DbSysadmin selectByCriteria(DbSysadmin DbSysadmin);
 
-    int insert(DbSysadmin record);
+    void deleteByPrimaryKey(String OPER);
 
-    int insertSelective(DbSysadmin record);
+    void deleteByCriteria(DbSysadmin DbSysadmin);
+
+    int insertByCriteria(DbSysadmin DbSysadmin);
+
+    int updateByCriteria(DbSysadmin DbSysadmin);
 
     DbSysadmin selectByPrimaryKey(String oper);
 
-    int updateByPrimaryKeySelective(DbSysadmin record);
-
-    int updateByPrimaryKeyWithBLOBs(DbSysadmin record);
-
-    int updateByPrimaryKey(DbSysadmin record);
+    List<DbSysadmin> selectAll();
 }

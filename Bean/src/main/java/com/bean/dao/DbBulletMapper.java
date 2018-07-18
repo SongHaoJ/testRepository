@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbBullet;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbBulletMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbBullet selectByCriteria(DbBullet DbBullet);
 
-    int insert(DbBullet record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbBullet record);
+    void deleteByCriteria(DbBullet DbBullet);
+
+    int insertByCriteria(DbBullet DbBullet);
+
+    int updateByCriteria(DbBullet DbBullet);
 
     DbBullet selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbBullet record);
-
-    int updateByPrimaryKeyWithBLOBs(DbBullet record);
-
-    int updateByPrimaryKey(DbBullet record);
+    List<DbBullet> selectAll();
 }

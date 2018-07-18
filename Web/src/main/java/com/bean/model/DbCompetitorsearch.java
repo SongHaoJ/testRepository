@@ -9,9 +9,13 @@ public class DbCompetitorsearch implements Serializable {
 
     private String name;
 
+    private String descr;
+
     private String oper;
 
     private Date opertime;
+
+    private String sqlfilter;
 
     private BigDecimal daysellnum;
 
@@ -37,10 +41,6 @@ public class DbCompetitorsearch implements Serializable {
 
     private BigDecimal roverlapenum2;
 
-    private String descr;
-
-    private String sqlfilter;
-
     private String jsonstr;
 
     private static final long serialVersionUID = 1L;
@@ -61,6 +61,14 @@ public class DbCompetitorsearch implements Serializable {
         this.name = name == null ? null : name.trim();
     }
 
+    public String getDescr() {
+        return descr;
+    }
+
+    public void setDescr(String descr) {
+        this.descr = descr == null ? null : descr.trim();
+    }
+
     public String getOper() {
         return oper;
     }
@@ -75,6 +83,14 @@ public class DbCompetitorsearch implements Serializable {
 
     public void setOpertime(Date opertime) {
         this.opertime = opertime;
+    }
+
+    public String getSqlfilter() {
+        return sqlfilter;
+    }
+
+    public void setSqlfilter(String sqlfilter) {
+        this.sqlfilter = sqlfilter == null ? null : sqlfilter.trim();
     }
 
     public BigDecimal getDaysellnum() {
@@ -173,22 +189,6 @@ public class DbCompetitorsearch implements Serializable {
         this.roverlapenum2 = roverlapenum2;
     }
 
-    public String getDescr() {
-        return descr;
-    }
-
-    public void setDescr(String descr) {
-        this.descr = descr == null ? null : descr.trim();
-    }
-
-    public String getSqlfilter() {
-        return sqlfilter;
-    }
-
-    public void setSqlfilter(String sqlfilter) {
-        this.sqlfilter = sqlfilter == null ? null : sqlfilter.trim();
-    }
-
     public String getJsonstr() {
         return jsonstr;
     }
@@ -211,8 +211,10 @@ public class DbCompetitorsearch implements Serializable {
         DbCompetitorsearch other = (DbCompetitorsearch) that;
         return (this.getSequenceid() == null ? other.getSequenceid() == null : this.getSequenceid().equals(other.getSequenceid()))
             && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
+            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
+            && (this.getSqlfilter() == null ? other.getSqlfilter() == null : this.getSqlfilter().equals(other.getSqlfilter()))
             && (this.getDaysellnum() == null ? other.getDaysellnum() == null : this.getDaysellnum().equals(other.getDaysellnum()))
             && (this.getTranslatrate() == null ? other.getTranslatrate() == null : this.getTranslatrate().equals(other.getTranslatrate()))
             && (this.getPublishtime() == null ? other.getPublishtime() == null : this.getPublishtime().equals(other.getPublishtime()))
@@ -225,8 +227,6 @@ public class DbCompetitorsearch implements Serializable {
             && (this.getTranslatrate2() == null ? other.getTranslatrate2() == null : this.getTranslatrate2().equals(other.getTranslatrate2()))
             && (this.getPublishtime2() == null ? other.getPublishtime2() == null : this.getPublishtime2().equals(other.getPublishtime2()))
             && (this.getRoverlapenum2() == null ? other.getRoverlapenum2() == null : this.getRoverlapenum2().equals(other.getRoverlapenum2()))
-            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
-            && (this.getSqlfilter() == null ? other.getSqlfilter() == null : this.getSqlfilter().equals(other.getSqlfilter()))
             && (this.getJsonstr() == null ? other.getJsonstr() == null : this.getJsonstr().equals(other.getJsonstr()));
     }
 
@@ -236,8 +236,10 @@ public class DbCompetitorsearch implements Serializable {
         int result = 1;
         result = prime * result + ((getSequenceid() == null) ? 0 : getSequenceid().hashCode());
         result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
+        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
+        result = prime * result + ((getSqlfilter() == null) ? 0 : getSqlfilter().hashCode());
         result = prime * result + ((getDaysellnum() == null) ? 0 : getDaysellnum().hashCode());
         result = prime * result + ((getTranslatrate() == null) ? 0 : getTranslatrate().hashCode());
         result = prime * result + ((getPublishtime() == null) ? 0 : getPublishtime().hashCode());
@@ -250,8 +252,6 @@ public class DbCompetitorsearch implements Serializable {
         result = prime * result + ((getTranslatrate2() == null) ? 0 : getTranslatrate2().hashCode());
         result = prime * result + ((getPublishtime2() == null) ? 0 : getPublishtime2().hashCode());
         result = prime * result + ((getRoverlapenum2() == null) ? 0 : getRoverlapenum2().hashCode());
-        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
-        result = prime * result + ((getSqlfilter() == null) ? 0 : getSqlfilter().hashCode());
         result = prime * result + ((getJsonstr() == null) ? 0 : getJsonstr().hashCode());
         return result;
     }
@@ -264,8 +264,10 @@ public class DbCompetitorsearch implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", sequenceid=").append(sequenceid);
         sb.append(", name=").append(name);
+        sb.append(", descr=").append(descr);
         sb.append(", oper=").append(oper);
         sb.append(", opertime=").append(opertime);
+        sb.append(", sqlfilter=").append(sqlfilter);
         sb.append(", daysellnum=").append(daysellnum);
         sb.append(", translatrate=").append(translatrate);
         sb.append(", publishtime=").append(publishtime);
@@ -278,8 +280,6 @@ public class DbCompetitorsearch implements Serializable {
         sb.append(", translatrate2=").append(translatrate2);
         sb.append(", publishtime2=").append(publishtime2);
         sb.append(", roverlapenum2=").append(roverlapenum2);
-        sb.append(", descr=").append(descr);
-        sb.append(", sqlfilter=").append(sqlfilter);
         sb.append(", jsonstr=").append(jsonstr);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");

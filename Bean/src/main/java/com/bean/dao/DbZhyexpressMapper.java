@@ -1,20 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbZhyexpress;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbZhyexpressMapper {
-    int deleteByPrimaryKey(BigDecimal sequenceid);
+    DbZhyexpress selectByCriteria(DbZhyexpress DbZhyexpress);
 
-    int insert(DbZhyexpress record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbZhyexpress record);
+    void deleteByCriteria(DbZhyexpress DbZhyexpress);
+
+    int insertByCriteria(DbZhyexpress DbZhyexpress);
+
+    int updateByCriteria(DbZhyexpress DbZhyexpress);
 
     DbZhyexpress selectByPrimaryKey(BigDecimal sequenceid);
 
-    int updateByPrimaryKeySelective(DbZhyexpress record);
-
-    int updateByPrimaryKeyWithBLOBs(DbZhyexpress record);
-
-    int updateByPrimaryKey(DbZhyexpress record);
+    List<DbZhyexpress> selectAll();
 }

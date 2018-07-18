@@ -8,49 +8,49 @@
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select ITEMID, SHOPFLAG, CREATETIME
-    from db_onlinebanproduct
+    from DB_ONLINEBANPRODUCT
     where ITEMID = #{itemid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select ITEMID, SHOPFLAG, CREATETIME
-    from db_onlinebanproduct
+    from DB_ONLINEBANPRODUCT
   </select>
   <sql id="TableName">
-    db_onlinebanproduct
+    DB_ONLINEBANPRODUCT
   </sql>
   <sql id="Values">
      #{itemid,jdbcType=VARCHAR} , 
      #{shopflag,jdbcType=VARCHAR} , 
-     #{createtime,jdbcType=TIMESTAMP}
+     #{createtime,jdbcType=TIMESTAMP} , 
   </sql>
   <sql id="Columns">
     ITEMID , 
     SHOPFLAG , 
-    CREATETIME
+    CREATETIME , 
   </sql>
   <sql id="Criteria">
     <if test="itemid != null">
-      ITEMID = #{itemid,jdbcType=VARCHAR} and 
+      itemid = #{itemid,jdbcType=VARCHAR} and 
     </if>
     <if test="shopflag != null">
-      SHOPFLAG = #{shopflag,jdbcType=VARCHAR} and 
+      shopflag = #{shopflag,jdbcType=VARCHAR} and 
     </if>
     <if test="createtime != null">
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP}
+      createtime = #{createtime,jdbcType=TIMESTAMP} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="itemid != null">
-      ITEMID = #{itemid,jdbcType=VARCHAR} , 
+      itemid = #{itemid,jdbcType=VARCHAR} , 
     </if>
     <if test="shopflag != null">
-      SHOPFLAG = #{shopflag,jdbcType=VARCHAR} , 
+      shopflag = #{shopflag,jdbcType=VARCHAR} , 
     </if>
     <if test="createtime != null">
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP}
+      createtime = #{createtime,jdbcType=TIMESTAMP} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbOnlinebanproduct" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

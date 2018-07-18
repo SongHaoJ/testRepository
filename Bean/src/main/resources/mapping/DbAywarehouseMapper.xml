@@ -11,118 +11,105 @@
     <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
     <result column="ORDERTYPE" jdbcType="VARCHAR" property="ordertype" />
   </resultMap>
-  <sql id="Base_Column_List">
-    ID, CODE, NAMECN, NAMEEN, OPER, OPERTIME, OPENFLAG, ORDERTYPE
-  </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from db_aywarehouse
+    select ID, CODE, NAMECN, NAMEEN, OPER, OPERTIME, OPENFLAG, ORDERTYPE
+    from DB_AYWAREHOUSE
     where ID = #{id,jdbcType=DECIMAL}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from db_aywarehouse
-    where ID = #{id,jdbcType=DECIMAL}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ID, CODE, NAMECN, NAMEEN, OPER, OPERTIME, OPENFLAG, ORDERTYPE
+    from DB_AYWAREHOUSE
+  </select>
+  <sql id="TableName">
+    DB_AYWAREHOUSE
+  </sql>
+  <sql id="Values">
+     #{id,jdbcType=DECIMAL} , 
+     #{code,jdbcType=VARCHAR} , 
+     #{namecn,jdbcType=VARCHAR} , 
+     #{nameen,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{openflag,jdbcType=VARCHAR} , 
+     #{ordertype,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    ID , 
+    CODE , 
+    NAMECN , 
+    NAMEEN , 
+    OPER , 
+    OPERTIME , 
+    OPENFLAG , 
+    ORDERTYPE , 
+  </sql>
+  <sql id="Criteria">
+    <if test="id != null">
+      id = #{id,jdbcType=DECIMAL} and 
+    </if>
+    <if test="code != null">
+      code = #{code,jdbcType=VARCHAR} and 
+    </if>
+    <if test="namecn != null">
+      namecn = #{namecn,jdbcType=VARCHAR} and 
+    </if>
+    <if test="nameen != null">
+      nameen = #{nameen,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ordertype != null">
+      ordertype = #{ordertype,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="id != null">
+      id = #{id,jdbcType=DECIMAL} , 
+    </if>
+    <if test="code != null">
+      code = #{code,jdbcType=VARCHAR} , 
+    </if>
+    <if test="namecn != null">
+      namecn = #{namecn,jdbcType=VARCHAR} , 
+    </if>
+    <if test="nameen != null">
+      nameen = #{nameen,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ordertype != null">
+      ordertype = #{ordertype,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbAywarehouse" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="Long">
+    delete from <include refid="TableName"/> where ID=#{ID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbAywarehouse">
-    insert into db_aywarehouse (ID, CODE, NAMECN, 
-      NAMEEN, OPER, OPERTIME, 
-      OPENFLAG, ORDERTYPE)
-    values (#{id,jdbcType=DECIMAL}, #{code,jdbcType=VARCHAR}, #{namecn,jdbcType=VARCHAR}, 
-      #{nameen,jdbcType=VARCHAR}, #{oper,jdbcType=VARCHAR}, #{opertime,jdbcType=TIMESTAMP}, 
-      #{openflag,jdbcType=VARCHAR}, #{ordertype,jdbcType=VARCHAR})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbAywarehouse">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbAywarehouse">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbAywarehouse">
-    insert into db_aywarehouse
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        ID,
-      </if>
-      <if test="code != null">
-        CODE,
-      </if>
-      <if test="namecn != null">
-        NAMECN,
-      </if>
-      <if test="nameen != null">
-        NAMEEN,
-      </if>
-      <if test="oper != null">
-        OPER,
-      </if>
-      <if test="opertime != null">
-        OPERTIME,
-      </if>
-      <if test="openflag != null">
-        OPENFLAG,
-      </if>
-      <if test="ordertype != null">
-        ORDERTYPE,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=DECIMAL},
-      </if>
-      <if test="code != null">
-        #{code,jdbcType=VARCHAR},
-      </if>
-      <if test="namecn != null">
-        #{namecn,jdbcType=VARCHAR},
-      </if>
-      <if test="nameen != null">
-        #{nameen,jdbcType=VARCHAR},
-      </if>
-      <if test="oper != null">
-        #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="openflag != null">
-        #{openflag,jdbcType=VARCHAR},
-      </if>
-      <if test="ordertype != null">
-        #{ordertype,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbAywarehouse">
-    update db_aywarehouse
-    <set>
-      <if test="code != null">
-        CODE = #{code,jdbcType=VARCHAR},
-      </if>
-      <if test="namecn != null">
-        NAMECN = #{namecn,jdbcType=VARCHAR},
-      </if>
-      <if test="nameen != null">
-        NAMEEN = #{nameen,jdbcType=VARCHAR},
-      </if>
-      <if test="oper != null">
-        OPER = #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="openflag != null">
-        OPENFLAG = #{openflag,jdbcType=VARCHAR},
-      </if>
-      <if test="ordertype != null">
-        ORDERTYPE = #{ordertype,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where ID = #{id,jdbcType=DECIMAL}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbAywarehouse">
-    update db_aywarehouse
-    set CODE = #{code,jdbcType=VARCHAR},
-      NAMECN = #{namecn,jdbcType=VARCHAR},
-      NAMEEN = #{nameen,jdbcType=VARCHAR},
-      OPER = #{oper,jdbcType=VARCHAR},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      OPENFLAG = #{openflag,jdbcType=VARCHAR},
-      ORDERTYPE = #{ordertype,jdbcType=VARCHAR}
-    where ID = #{id,jdbcType=DECIMAL}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbAywarehouse">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

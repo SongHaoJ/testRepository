@@ -4,136 +4,136 @@
   <resultMap id="BaseResultMap" type="com.bean.model.DbPostmessage">
     <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
     <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="DESCR" jdbcType="VARCHAR" property="descr" />
     <result column="FROMOPER" jdbcType="VARCHAR" property="fromoper" />
     <result column="TOOPER" jdbcType="VARCHAR" property="tooper" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
     <result column="FLAG" jdbcType="DECIMAL" property="flag" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
     <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
     <result column="RESERVE4" jdbcType="VARCHAR" property="reserve4" />
     <result column="RESERVE5" jdbcType="VARCHAR" property="reserve5" />
-    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
-    <result column="RESERVE1" jdbcType="LONGVARCHAR" property="reserve1" />
-    <result column="RESERVE2" jdbcType="LONGVARCHAR" property="reserve2" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select SEQUENCEID, TITLE, FROMOPER, TOOPER, OPERTIME, FLAG, RESERVE3, RESERVE4, RESERVE5, 
-    DESCR, RESERVE1, RESERVE2
-    from db_postmessage
+    select SEQUENCEID, TITLE, DESCR, FROMOPER, TOOPER, OPERTIME, FLAG, RESERVE1, RESERVE2, 
+    RESERVE3, RESERVE4, RESERVE5
+    from DB_POSTMESSAGE
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select SEQUENCEID, TITLE, FROMOPER, TOOPER, OPERTIME, FLAG, RESERVE3, RESERVE4, RESERVE5, 
-    DESCR, RESERVE1, RESERVE2
-    from db_postmessage
+    select SEQUENCEID, TITLE, DESCR, FROMOPER, TOOPER, OPERTIME, FLAG, RESERVE1, RESERVE2, 
+    RESERVE3, RESERVE4, RESERVE5
+    from DB_POSTMESSAGE
   </select>
   <sql id="TableName">
-    db_postmessage
+    DB_POSTMESSAGE
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=VARCHAR} , 
      #{title,jdbcType=VARCHAR} , 
+     #{descr,jdbcType=VARCHAR} , 
      #{fromoper,jdbcType=VARCHAR} , 
      #{tooper,jdbcType=VARCHAR} , 
      #{opertime,jdbcType=TIMESTAMP} , 
      #{flag,jdbcType=DECIMAL} , 
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
      #{reserve3,jdbcType=VARCHAR} , 
      #{reserve4,jdbcType=VARCHAR} , 
      #{reserve5,jdbcType=VARCHAR} , 
-     #{descr,jdbcType=LONGVARCHAR} , 
-     #{reserve1,jdbcType=LONGVARCHAR} , 
-     #{reserve2,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
     TITLE , 
+    DESCR , 
     FROMOPER , 
     TOOPER , 
     OPERTIME , 
     FLAG , 
+    RESERVE1 , 
+    RESERVE2 , 
     RESERVE3 , 
     RESERVE4 , 
     RESERVE5 , 
-    DESCR , 
-    RESERVE1 , 
-    RESERVE2
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
     </if>
     <if test="title != null">
-      TITLE = #{title,jdbcType=VARCHAR} and 
-    </if>
-    <if test="fromoper != null">
-      FROMOPER = #{fromoper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="tooper != null">
-      TOOPER = #{tooper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="flag != null">
-      FLAG = #{flag,jdbcType=DECIMAL} and 
-    </if>
-    <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=VARCHAR} and 
+      title = #{title,jdbcType=VARCHAR} and 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR} and 
+      descr = #{descr,jdbcType=VARCHAR} and 
+    </if>
+    <if test="fromoper != null">
+      fromoper = #{fromoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="tooper != null">
+      tooper = #{tooper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=DECIMAL} and 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR} and 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR}
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=VARCHAR} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
     </if>
     <if test="title != null">
-      TITLE = #{title,jdbcType=VARCHAR} , 
-    </if>
-    <if test="fromoper != null">
-      FROMOPER = #{fromoper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="tooper != null">
-      TOOPER = #{tooper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="flag != null">
-      FLAG = #{flag,jdbcType=DECIMAL} , 
-    </if>
-    <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=VARCHAR} , 
+      title = #{title,jdbcType=VARCHAR} , 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR} , 
+      descr = #{descr,jdbcType=VARCHAR} , 
+    </if>
+    <if test="fromoper != null">
+      fromoper = #{fromoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="tooper != null">
+      tooper = #{tooper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=DECIMAL} , 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR} , 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR}
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=VARCHAR} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbPostmessage" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

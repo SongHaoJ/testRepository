@@ -17,16 +17,16 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select SEQUENCEID, CLASSNAME, AVGSELLNUM1, AVGSELLNUM2, OPER, OPERTIME, RESERVE1, 
     RESERVE2, RESERVE3, RESERVE4, RESERVE5
-    from db_productclass
+    from DB_PRODUCTCLASS
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SEQUENCEID, CLASSNAME, AVGSELLNUM1, AVGSELLNUM2, OPER, OPERTIME, RESERVE1, 
     RESERVE2, RESERVE3, RESERVE4, RESERVE5
-    from db_productclass
+    from DB_PRODUCTCLASS
   </select>
   <sql id="TableName">
-    db_productclass
+    DB_PRODUCTCLASS
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=VARCHAR} , 
@@ -39,7 +39,7 @@
      #{reserve2,jdbcType=VARCHAR} , 
      #{reserve3,jdbcType=VARCHAR} , 
      #{reserve4,jdbcType=DECIMAL} , 
-     #{reserve5,jdbcType=DECIMAL}
+     #{reserve5,jdbcType=DECIMAL} , 
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
@@ -52,79 +52,79 @@
     RESERVE2 , 
     RESERVE3 , 
     RESERVE4 , 
-    RESERVE5
+    RESERVE5 , 
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
     </if>
     <if test="classname != null">
-      CLASSNAME = #{classname,jdbcType=VARCHAR} and 
+      classname = #{classname,jdbcType=VARCHAR} and 
     </if>
     <if test="avgsellnum1 != null">
-      AVGSELLNUM1 = #{avgsellnum1,jdbcType=DECIMAL} and 
+      avgsellnum1 = #{avgsellnum1,jdbcType=DECIMAL} and 
     </if>
     <if test="avgsellnum2 != null">
-      AVGSELLNUM2 = #{avgsellnum2,jdbcType=DECIMAL} and 
+      avgsellnum2 = #{avgsellnum2,jdbcType=DECIMAL} and 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
+      oper = #{oper,jdbcType=VARCHAR} and 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR} and 
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=DECIMAL} and 
+      reserve4 = #{reserve4,jdbcType=DECIMAL} and 
     </if>
     <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=DECIMAL}
+      reserve5 = #{reserve5,jdbcType=DECIMAL} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
     </if>
     <if test="classname != null">
-      CLASSNAME = #{classname,jdbcType=VARCHAR} , 
+      classname = #{classname,jdbcType=VARCHAR} , 
     </if>
     <if test="avgsellnum1 != null">
-      AVGSELLNUM1 = #{avgsellnum1,jdbcType=DECIMAL} , 
+      avgsellnum1 = #{avgsellnum1,jdbcType=DECIMAL} , 
     </if>
     <if test="avgsellnum2 != null">
-      AVGSELLNUM2 = #{avgsellnum2,jdbcType=DECIMAL} , 
+      avgsellnum2 = #{avgsellnum2,jdbcType=DECIMAL} , 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
+      oper = #{oper,jdbcType=VARCHAR} , 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR} , 
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=DECIMAL} , 
+      reserve4 = #{reserve4,jdbcType=DECIMAL} , 
     </if>
     <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=DECIMAL}
+      reserve5 = #{reserve5,jdbcType=DECIMAL} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbProductclass" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

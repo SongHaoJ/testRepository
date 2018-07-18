@@ -13,141 +13,123 @@
     <result column="FIELD3" jdbcType="VARCHAR" property="field3" />
     <result column="CATEGORYID" jdbcType="VARCHAR" property="categoryid" />
   </resultMap>
-  <sql id="Base_Column_List">
-    SEQUENCEID, YYYY, YYYYMM, YYYYMMDD, ALLSAVENUM, ALLCOST, FIELD1, FIELD2, FIELD3, 
-    CATEGORYID
-  </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from db_product_daily
+    select SEQUENCEID, YYYY, YYYYMM, YYYYMMDD, ALLSAVENUM, ALLCOST, FIELD1, FIELD2, FIELD3, 
+    CATEGORYID
+    from DB_PRODUCT_DAILY
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_product_daily
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, YYYY, YYYYMM, YYYYMMDD, ALLSAVENUM, ALLCOST, FIELD1, FIELD2, FIELD3, 
+    CATEGORYID
+    from DB_PRODUCT_DAILY
+  </select>
+  <sql id="TableName">
+    DB_PRODUCT_DAILY
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=VARCHAR} , 
+     #{yyyy,jdbcType=VARCHAR} , 
+     #{yyyymm,jdbcType=VARCHAR} , 
+     #{yyyymmdd,jdbcType=VARCHAR} , 
+     #{allsavenum,jdbcType=DECIMAL} , 
+     #{allcost,jdbcType=DECIMAL} , 
+     #{field1,jdbcType=VARCHAR} , 
+     #{field2,jdbcType=VARCHAR} , 
+     #{field3,jdbcType=VARCHAR} , 
+     #{categoryid,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    YYYY , 
+    YYYYMM , 
+    YYYYMMDD , 
+    ALLSAVENUM , 
+    ALLCOST , 
+    FIELD1 , 
+    FIELD2 , 
+    FIELD3 , 
+    CATEGORYID , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="yyyy != null">
+      yyyy = #{yyyy,jdbcType=VARCHAR} and 
+    </if>
+    <if test="yyyymm != null">
+      yyyymm = #{yyyymm,jdbcType=VARCHAR} and 
+    </if>
+    <if test="yyyymmdd != null">
+      yyyymmdd = #{yyyymmdd,jdbcType=VARCHAR} and 
+    </if>
+    <if test="allsavenum != null">
+      allsavenum = #{allsavenum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="allcost != null">
+      allcost = #{allcost,jdbcType=DECIMAL} and 
+    </if>
+    <if test="field1 != null">
+      field1 = #{field1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="field2 != null">
+      field2 = #{field2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="field3 != null">
+      field3 = #{field3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="categoryid != null">
+      categoryid = #{categoryid,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="yyyy != null">
+      yyyy = #{yyyy,jdbcType=VARCHAR} , 
+    </if>
+    <if test="yyyymm != null">
+      yyyymm = #{yyyymm,jdbcType=VARCHAR} , 
+    </if>
+    <if test="yyyymmdd != null">
+      yyyymmdd = #{yyyymmdd,jdbcType=VARCHAR} , 
+    </if>
+    <if test="allsavenum != null">
+      allsavenum = #{allsavenum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="allcost != null">
+      allcost = #{allcost,jdbcType=DECIMAL} , 
+    </if>
+    <if test="field1 != null">
+      field1 = #{field1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="field2 != null">
+      field2 = #{field2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="field3 != null">
+      field3 = #{field3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="categoryid != null">
+      categoryid = #{categoryid,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbProductDaily" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbProductDaily">
-    insert into db_product_daily (SEQUENCEID, YYYY, YYYYMM, 
-      YYYYMMDD, ALLSAVENUM, ALLCOST, 
-      FIELD1, FIELD2, FIELD3, 
-      CATEGORYID)
-    values (#{sequenceid,jdbcType=VARCHAR}, #{yyyy,jdbcType=VARCHAR}, #{yyyymm,jdbcType=VARCHAR}, 
-      #{yyyymmdd,jdbcType=VARCHAR}, #{allsavenum,jdbcType=DECIMAL}, #{allcost,jdbcType=DECIMAL}, 
-      #{field1,jdbcType=VARCHAR}, #{field2,jdbcType=VARCHAR}, #{field3,jdbcType=VARCHAR}, 
-      #{categoryid,jdbcType=VARCHAR})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbProductDaily">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbProductDaily">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbProductDaily">
-    insert into db_product_daily
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        SEQUENCEID,
-      </if>
-      <if test="yyyy != null">
-        YYYY,
-      </if>
-      <if test="yyyymm != null">
-        YYYYMM,
-      </if>
-      <if test="yyyymmdd != null">
-        YYYYMMDD,
-      </if>
-      <if test="allsavenum != null">
-        ALLSAVENUM,
-      </if>
-      <if test="allcost != null">
-        ALLCOST,
-      </if>
-      <if test="field1 != null">
-        FIELD1,
-      </if>
-      <if test="field2 != null">
-        FIELD2,
-      </if>
-      <if test="field3 != null">
-        FIELD3,
-      </if>
-      <if test="categoryid != null">
-        CATEGORYID,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        #{sequenceid,jdbcType=VARCHAR},
-      </if>
-      <if test="yyyy != null">
-        #{yyyy,jdbcType=VARCHAR},
-      </if>
-      <if test="yyyymm != null">
-        #{yyyymm,jdbcType=VARCHAR},
-      </if>
-      <if test="yyyymmdd != null">
-        #{yyyymmdd,jdbcType=VARCHAR},
-      </if>
-      <if test="allsavenum != null">
-        #{allsavenum,jdbcType=DECIMAL},
-      </if>
-      <if test="allcost != null">
-        #{allcost,jdbcType=DECIMAL},
-      </if>
-      <if test="field1 != null">
-        #{field1,jdbcType=VARCHAR},
-      </if>
-      <if test="field2 != null">
-        #{field2,jdbcType=VARCHAR},
-      </if>
-      <if test="field3 != null">
-        #{field3,jdbcType=VARCHAR},
-      </if>
-      <if test="categoryid != null">
-        #{categoryid,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbProductDaily">
-    update db_product_daily
-    <set>
-      <if test="yyyy != null">
-        YYYY = #{yyyy,jdbcType=VARCHAR},
-      </if>
-      <if test="yyyymm != null">
-        YYYYMM = #{yyyymm,jdbcType=VARCHAR},
-      </if>
-      <if test="yyyymmdd != null">
-        YYYYMMDD = #{yyyymmdd,jdbcType=VARCHAR},
-      </if>
-      <if test="allsavenum != null">
-        ALLSAVENUM = #{allsavenum,jdbcType=DECIMAL},
-      </if>
-      <if test="allcost != null">
-        ALLCOST = #{allcost,jdbcType=DECIMAL},
-      </if>
-      <if test="field1 != null">
-        FIELD1 = #{field1,jdbcType=VARCHAR},
-      </if>
-      <if test="field2 != null">
-        FIELD2 = #{field2,jdbcType=VARCHAR},
-      </if>
-      <if test="field3 != null">
-        FIELD3 = #{field3,jdbcType=VARCHAR},
-      </if>
-      <if test="categoryid != null">
-        CATEGORYID = #{categoryid,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbProductDaily">
-    update db_product_daily
-    set YYYY = #{yyyy,jdbcType=VARCHAR},
-      YYYYMM = #{yyyymm,jdbcType=VARCHAR},
-      YYYYMMDD = #{yyyymmdd,jdbcType=VARCHAR},
-      ALLSAVENUM = #{allsavenum,jdbcType=DECIMAL},
-      ALLCOST = #{allcost,jdbcType=DECIMAL},
-      FIELD1 = #{field1,jdbcType=VARCHAR},
-      FIELD2 = #{field2,jdbcType=VARCHAR},
-      FIELD3 = #{field3,jdbcType=VARCHAR},
-      CATEGORYID = #{categoryid,jdbcType=VARCHAR}
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbProductDaily">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

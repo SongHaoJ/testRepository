@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbOrdermessagelog;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbOrdermessagelogMapper {
-    int deleteByPrimaryKey(String sid);
+    DbOrdermessagelog selectByCriteria(DbOrdermessagelog DbOrdermessagelog);
 
-    int insert(DbOrdermessagelog record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbOrdermessagelog record);
+    void deleteByCriteria(DbOrdermessagelog DbOrdermessagelog);
+
+    int insertByCriteria(DbOrdermessagelog DbOrdermessagelog);
+
+    int updateByCriteria(DbOrdermessagelog DbOrdermessagelog);
 
     DbOrdermessagelog selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbOrdermessagelog record);
-
-    int updateByPrimaryKeyWithBLOBs(DbOrdermessagelog record);
-
-    int updateByPrimaryKey(DbOrdermessagelog record);
+    List<DbOrdermessagelog> selectAll();
 }

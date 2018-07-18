@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbCkyskuconfig;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbCkyskuconfigMapper {
-    int deleteByPrimaryKey(String productid);
+    DbCkyskuconfig selectByCriteria(DbCkyskuconfig DbCkyskuconfig);
 
-    int insert(DbCkyskuconfig record);
+    void deleteByPrimaryKey(String PRODUCTID);
 
-    int insertSelective(DbCkyskuconfig record);
+    void deleteByCriteria(DbCkyskuconfig DbCkyskuconfig);
+
+    int insertByCriteria(DbCkyskuconfig DbCkyskuconfig);
+
+    int updateByCriteria(DbCkyskuconfig DbCkyskuconfig);
 
     DbCkyskuconfig selectByPrimaryKey(String productid);
 
-    int updateByPrimaryKeySelective(DbCkyskuconfig record);
-
-    int updateByPrimaryKeyWithBLOBs(DbCkyskuconfig record);
-
-    int updateByPrimaryKey(DbCkyskuconfig record);
+    List<DbCkyskuconfig> selectAll();
 }

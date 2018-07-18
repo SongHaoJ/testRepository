@@ -47,6 +47,12 @@ public class DbAmazonsell implements Serializable {
 
     private String flag;
 
+    private String descr1;
+
+    private String descr2;
+
+    private String descr3;
+
     private String reserve1;
 
     private String reserve2;
@@ -89,7 +95,13 @@ public class DbAmazonsell implements Serializable {
 
     private BigDecimal weightamount;
 
+    private String shoptypeid;
+
+    private String ebayitemid;
+
     private BigDecimal finalvaluefee;
+
+    private String englishname;
 
     private BigDecimal originsellmoney;
 
@@ -98,18 +110,6 @@ public class DbAmazonsell implements Serializable {
     private BigDecimal originfinalvaluefee;
 
     private BigDecimal origingiftmoney;
-
-    private String descr1;
-
-    private String descr2;
-
-    private String descr3;
-
-    private String shoptypeid;
-
-    private String ebayitemid;
-
-    private String englishname;
 
     private static final long serialVersionUID = 1L;
 
@@ -281,6 +281,30 @@ public class DbAmazonsell implements Serializable {
         this.flag = flag == null ? null : flag.trim();
     }
 
+    public String getDescr1() {
+        return descr1;
+    }
+
+    public void setDescr1(String descr1) {
+        this.descr1 = descr1 == null ? null : descr1.trim();
+    }
+
+    public String getDescr2() {
+        return descr2;
+    }
+
+    public void setDescr2(String descr2) {
+        this.descr2 = descr2 == null ? null : descr2.trim();
+    }
+
+    public String getDescr3() {
+        return descr3;
+    }
+
+    public void setDescr3(String descr3) {
+        this.descr3 = descr3 == null ? null : descr3.trim();
+    }
+
     public String getReserve1() {
         return reserve1;
     }
@@ -449,12 +473,36 @@ public class DbAmazonsell implements Serializable {
         this.weightamount = weightamount;
     }
 
+    public String getShoptypeid() {
+        return shoptypeid;
+    }
+
+    public void setShoptypeid(String shoptypeid) {
+        this.shoptypeid = shoptypeid == null ? null : shoptypeid.trim();
+    }
+
+    public String getEbayitemid() {
+        return ebayitemid;
+    }
+
+    public void setEbayitemid(String ebayitemid) {
+        this.ebayitemid = ebayitemid == null ? null : ebayitemid.trim();
+    }
+
     public BigDecimal getFinalvaluefee() {
         return finalvaluefee;
     }
 
     public void setFinalvaluefee(BigDecimal finalvaluefee) {
         this.finalvaluefee = finalvaluefee;
+    }
+
+    public String getEnglishname() {
+        return englishname;
+    }
+
+    public void setEnglishname(String englishname) {
+        this.englishname = englishname == null ? null : englishname.trim();
     }
 
     public BigDecimal getOriginsellmoney() {
@@ -487,54 +535,6 @@ public class DbAmazonsell implements Serializable {
 
     public void setOrigingiftmoney(BigDecimal origingiftmoney) {
         this.origingiftmoney = origingiftmoney;
-    }
-
-    public String getDescr1() {
-        return descr1;
-    }
-
-    public void setDescr1(String descr1) {
-        this.descr1 = descr1 == null ? null : descr1.trim();
-    }
-
-    public String getDescr2() {
-        return descr2;
-    }
-
-    public void setDescr2(String descr2) {
-        this.descr2 = descr2 == null ? null : descr2.trim();
-    }
-
-    public String getDescr3() {
-        return descr3;
-    }
-
-    public void setDescr3(String descr3) {
-        this.descr3 = descr3 == null ? null : descr3.trim();
-    }
-
-    public String getShoptypeid() {
-        return shoptypeid;
-    }
-
-    public void setShoptypeid(String shoptypeid) {
-        this.shoptypeid = shoptypeid == null ? null : shoptypeid.trim();
-    }
-
-    public String getEbayitemid() {
-        return ebayitemid;
-    }
-
-    public void setEbayitemid(String ebayitemid) {
-        this.ebayitemid = ebayitemid == null ? null : ebayitemid.trim();
-    }
-
-    public String getEnglishname() {
-        return englishname;
-    }
-
-    public void setEnglishname(String englishname) {
-        this.englishname = englishname == null ? null : englishname.trim();
     }
 
     @Override
@@ -570,6 +570,9 @@ public class DbAmazonsell implements Serializable {
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
             && (this.getFlag() == null ? other.getFlag() == null : this.getFlag().equals(other.getFlag()))
+            && (this.getDescr1() == null ? other.getDescr1() == null : this.getDescr1().equals(other.getDescr1()))
+            && (this.getDescr2() == null ? other.getDescr2() == null : this.getDescr2().equals(other.getDescr2()))
+            && (this.getDescr3() == null ? other.getDescr3() == null : this.getDescr3().equals(other.getDescr3()))
             && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
             && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
             && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
@@ -591,17 +594,14 @@ public class DbAmazonsell implements Serializable {
             && (this.getGroupid() == null ? other.getGroupid() == null : this.getGroupid().equals(other.getGroupid()))
             && (this.getWeight() == null ? other.getWeight() == null : this.getWeight().equals(other.getWeight()))
             && (this.getWeightamount() == null ? other.getWeightamount() == null : this.getWeightamount().equals(other.getWeightamount()))
+            && (this.getShoptypeid() == null ? other.getShoptypeid() == null : this.getShoptypeid().equals(other.getShoptypeid()))
+            && (this.getEbayitemid() == null ? other.getEbayitemid() == null : this.getEbayitemid().equals(other.getEbayitemid()))
             && (this.getFinalvaluefee() == null ? other.getFinalvaluefee() == null : this.getFinalvaluefee().equals(other.getFinalvaluefee()))
+            && (this.getEnglishname() == null ? other.getEnglishname() == null : this.getEnglishname().equals(other.getEnglishname()))
             && (this.getOriginsellmoney() == null ? other.getOriginsellmoney() == null : this.getOriginsellmoney().equals(other.getOriginsellmoney()))
             && (this.getOriginexpressmoney() == null ? other.getOriginexpressmoney() == null : this.getOriginexpressmoney().equals(other.getOriginexpressmoney()))
             && (this.getOriginfinalvaluefee() == null ? other.getOriginfinalvaluefee() == null : this.getOriginfinalvaluefee().equals(other.getOriginfinalvaluefee()))
-            && (this.getOrigingiftmoney() == null ? other.getOrigingiftmoney() == null : this.getOrigingiftmoney().equals(other.getOrigingiftmoney()))
-            && (this.getDescr1() == null ? other.getDescr1() == null : this.getDescr1().equals(other.getDescr1()))
-            && (this.getDescr2() == null ? other.getDescr2() == null : this.getDescr2().equals(other.getDescr2()))
-            && (this.getDescr3() == null ? other.getDescr3() == null : this.getDescr3().equals(other.getDescr3()))
-            && (this.getShoptypeid() == null ? other.getShoptypeid() == null : this.getShoptypeid().equals(other.getShoptypeid()))
-            && (this.getEbayitemid() == null ? other.getEbayitemid() == null : this.getEbayitemid().equals(other.getEbayitemid()))
-            && (this.getEnglishname() == null ? other.getEnglishname() == null : this.getEnglishname().equals(other.getEnglishname()));
+            && (this.getOrigingiftmoney() == null ? other.getOrigingiftmoney() == null : this.getOrigingiftmoney().equals(other.getOrigingiftmoney()));
     }
 
     @Override
@@ -629,6 +629,9 @@ public class DbAmazonsell implements Serializable {
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getFlag() == null) ? 0 : getFlag().hashCode());
+        result = prime * result + ((getDescr1() == null) ? 0 : getDescr1().hashCode());
+        result = prime * result + ((getDescr2() == null) ? 0 : getDescr2().hashCode());
+        result = prime * result + ((getDescr3() == null) ? 0 : getDescr3().hashCode());
         result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
         result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
         result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
@@ -650,17 +653,14 @@ public class DbAmazonsell implements Serializable {
         result = prime * result + ((getGroupid() == null) ? 0 : getGroupid().hashCode());
         result = prime * result + ((getWeight() == null) ? 0 : getWeight().hashCode());
         result = prime * result + ((getWeightamount() == null) ? 0 : getWeightamount().hashCode());
+        result = prime * result + ((getShoptypeid() == null) ? 0 : getShoptypeid().hashCode());
+        result = prime * result + ((getEbayitemid() == null) ? 0 : getEbayitemid().hashCode());
         result = prime * result + ((getFinalvaluefee() == null) ? 0 : getFinalvaluefee().hashCode());
+        result = prime * result + ((getEnglishname() == null) ? 0 : getEnglishname().hashCode());
         result = prime * result + ((getOriginsellmoney() == null) ? 0 : getOriginsellmoney().hashCode());
         result = prime * result + ((getOriginexpressmoney() == null) ? 0 : getOriginexpressmoney().hashCode());
         result = prime * result + ((getOriginfinalvaluefee() == null) ? 0 : getOriginfinalvaluefee().hashCode());
         result = prime * result + ((getOrigingiftmoney() == null) ? 0 : getOrigingiftmoney().hashCode());
-        result = prime * result + ((getDescr1() == null) ? 0 : getDescr1().hashCode());
-        result = prime * result + ((getDescr2() == null) ? 0 : getDescr2().hashCode());
-        result = prime * result + ((getDescr3() == null) ? 0 : getDescr3().hashCode());
-        result = prime * result + ((getShoptypeid() == null) ? 0 : getShoptypeid().hashCode());
-        result = prime * result + ((getEbayitemid() == null) ? 0 : getEbayitemid().hashCode());
-        result = prime * result + ((getEnglishname() == null) ? 0 : getEnglishname().hashCode());
         return result;
     }
 
@@ -691,6 +691,9 @@ public class DbAmazonsell implements Serializable {
         sb.append(", oper=").append(oper);
         sb.append(", opertime=").append(opertime);
         sb.append(", flag=").append(flag);
+        sb.append(", descr1=").append(descr1);
+        sb.append(", descr2=").append(descr2);
+        sb.append(", descr3=").append(descr3);
         sb.append(", reserve1=").append(reserve1);
         sb.append(", reserve2=").append(reserve2);
         sb.append(", reserve3=").append(reserve3);
@@ -712,17 +715,14 @@ public class DbAmazonsell implements Serializable {
         sb.append(", groupid=").append(groupid);
         sb.append(", weight=").append(weight);
         sb.append(", weightamount=").append(weightamount);
+        sb.append(", shoptypeid=").append(shoptypeid);
+        sb.append(", ebayitemid=").append(ebayitemid);
         sb.append(", finalvaluefee=").append(finalvaluefee);
+        sb.append(", englishname=").append(englishname);
         sb.append(", originsellmoney=").append(originsellmoney);
         sb.append(", originexpressmoney=").append(originexpressmoney);
         sb.append(", originfinalvaluefee=").append(originfinalvaluefee);
         sb.append(", origingiftmoney=").append(origingiftmoney);
-        sb.append(", descr1=").append(descr1);
-        sb.append(", descr2=").append(descr2);
-        sb.append(", descr3=").append(descr3);
-        sb.append(", shoptypeid=").append(shoptypeid);
-        sb.append(", ebayitemid=").append(ebayitemid);
-        sb.append(", englishname=").append(englishname);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

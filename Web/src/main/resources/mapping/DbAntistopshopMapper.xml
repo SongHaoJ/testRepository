@@ -25,17 +25,17 @@
     select SEQUENCEID, SITE, SORT, SELLSHOP, SELLMONEY, PUBLISHNUM, DEALNUM, SELLPRICE, 
     PRODUCT, AVGPRICE, SUBRATE, CORPID, OPENFLAG, OPER, OPERTIME, ANTISTOPID, RESULTFLAG, 
     SHOPFLAG
-    from db_antistopshop
+    from DB_ANTISTOPSHOP
     where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SEQUENCEID, SITE, SORT, SELLSHOP, SELLMONEY, PUBLISHNUM, DEALNUM, SELLPRICE, 
     PRODUCT, AVGPRICE, SUBRATE, CORPID, OPENFLAG, OPER, OPERTIME, ANTISTOPID, RESULTFLAG, 
     SHOPFLAG
-    from db_antistopshop
+    from DB_ANTISTOPSHOP
   </select>
   <sql id="TableName">
-    db_antistopshop
+    DB_ANTISTOPSHOP
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=DECIMAL} , 
@@ -55,7 +55,7 @@
      #{opertime,jdbcType=TIMESTAMP} , 
      #{antistopid,jdbcType=DECIMAL} , 
      #{resultflag,jdbcType=DECIMAL} , 
-     #{shopflag,jdbcType=DECIMAL}
+     #{shopflag,jdbcType=DECIMAL} , 
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
@@ -75,121 +75,121 @@
     OPERTIME , 
     ANTISTOPID , 
     RESULTFLAG , 
-    SHOPFLAG
+    SHOPFLAG , 
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} and 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} and 
     </if>
     <if test="site != null">
-      SITE = #{site,jdbcType=VARCHAR} and 
+      site = #{site,jdbcType=VARCHAR} and 
     </if>
     <if test="sort != null">
-      SORT = #{sort,jdbcType=DECIMAL} and 
+      sort = #{sort,jdbcType=DECIMAL} and 
     </if>
     <if test="sellshop != null">
-      SELLSHOP = #{sellshop,jdbcType=VARCHAR} and 
+      sellshop = #{sellshop,jdbcType=VARCHAR} and 
     </if>
     <if test="sellmoney != null">
-      SELLMONEY = #{sellmoney,jdbcType=DECIMAL} and 
+      sellmoney = #{sellmoney,jdbcType=DECIMAL} and 
     </if>
     <if test="publishnum != null">
-      PUBLISHNUM = #{publishnum,jdbcType=DECIMAL} and 
+      publishnum = #{publishnum,jdbcType=DECIMAL} and 
     </if>
     <if test="dealnum != null">
-      DEALNUM = #{dealnum,jdbcType=DECIMAL} and 
+      dealnum = #{dealnum,jdbcType=DECIMAL} and 
     </if>
     <if test="sellprice != null">
-      SELLPRICE = #{sellprice,jdbcType=DECIMAL} and 
+      sellprice = #{sellprice,jdbcType=DECIMAL} and 
     </if>
     <if test="product != null">
-      PRODUCT = #{product,jdbcType=DECIMAL} and 
+      product = #{product,jdbcType=DECIMAL} and 
     </if>
     <if test="avgprice != null">
-      AVGPRICE = #{avgprice,jdbcType=DECIMAL} and 
+      avgprice = #{avgprice,jdbcType=DECIMAL} and 
     </if>
     <if test="subrate != null">
-      SUBRATE = #{subrate,jdbcType=VARCHAR} and 
+      subrate = #{subrate,jdbcType=VARCHAR} and 
     </if>
     <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=DECIMAL} and 
+      corpid = #{corpid,jdbcType=DECIMAL} and 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=DECIMAL} and 
+      openflag = #{openflag,jdbcType=DECIMAL} and 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
+      oper = #{oper,jdbcType=VARCHAR} and 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="antistopid != null">
-      ANTISTOPID = #{antistopid,jdbcType=DECIMAL} and 
+      antistopid = #{antistopid,jdbcType=DECIMAL} and 
     </if>
     <if test="resultflag != null">
-      RESULTFLAG = #{resultflag,jdbcType=DECIMAL} and 
+      resultflag = #{resultflag,jdbcType=DECIMAL} and 
     </if>
     <if test="shopflag != null">
-      SHOPFLAG = #{shopflag,jdbcType=DECIMAL}
+      shopflag = #{shopflag,jdbcType=DECIMAL} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} , 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} , 
     </if>
     <if test="site != null">
-      SITE = #{site,jdbcType=VARCHAR} , 
+      site = #{site,jdbcType=VARCHAR} , 
     </if>
     <if test="sort != null">
-      SORT = #{sort,jdbcType=DECIMAL} , 
+      sort = #{sort,jdbcType=DECIMAL} , 
     </if>
     <if test="sellshop != null">
-      SELLSHOP = #{sellshop,jdbcType=VARCHAR} , 
+      sellshop = #{sellshop,jdbcType=VARCHAR} , 
     </if>
     <if test="sellmoney != null">
-      SELLMONEY = #{sellmoney,jdbcType=DECIMAL} , 
+      sellmoney = #{sellmoney,jdbcType=DECIMAL} , 
     </if>
     <if test="publishnum != null">
-      PUBLISHNUM = #{publishnum,jdbcType=DECIMAL} , 
+      publishnum = #{publishnum,jdbcType=DECIMAL} , 
     </if>
     <if test="dealnum != null">
-      DEALNUM = #{dealnum,jdbcType=DECIMAL} , 
+      dealnum = #{dealnum,jdbcType=DECIMAL} , 
     </if>
     <if test="sellprice != null">
-      SELLPRICE = #{sellprice,jdbcType=DECIMAL} , 
+      sellprice = #{sellprice,jdbcType=DECIMAL} , 
     </if>
     <if test="product != null">
-      PRODUCT = #{product,jdbcType=DECIMAL} , 
+      product = #{product,jdbcType=DECIMAL} , 
     </if>
     <if test="avgprice != null">
-      AVGPRICE = #{avgprice,jdbcType=DECIMAL} , 
+      avgprice = #{avgprice,jdbcType=DECIMAL} , 
     </if>
     <if test="subrate != null">
-      SUBRATE = #{subrate,jdbcType=VARCHAR} , 
+      subrate = #{subrate,jdbcType=VARCHAR} , 
     </if>
     <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=DECIMAL} , 
+      corpid = #{corpid,jdbcType=DECIMAL} , 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=DECIMAL} , 
+      openflag = #{openflag,jdbcType=DECIMAL} , 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
+      oper = #{oper,jdbcType=VARCHAR} , 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="antistopid != null">
-      ANTISTOPID = #{antistopid,jdbcType=DECIMAL} , 
+      antistopid = #{antistopid,jdbcType=DECIMAL} , 
     </if>
     <if test="resultflag != null">
-      RESULTFLAG = #{resultflag,jdbcType=DECIMAL} , 
+      resultflag = #{resultflag,jdbcType=DECIMAL} , 
     </if>
     <if test="shopflag != null">
-      SHOPFLAG = #{shopflag,jdbcType=DECIMAL}
+      shopflag = #{shopflag,jdbcType=DECIMAL} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbAntistopshop" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

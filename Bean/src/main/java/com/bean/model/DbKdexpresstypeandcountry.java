@@ -6,15 +6,15 @@ import java.util.Date;
 public class DbKdexpresstypeandcountry implements Serializable {
     private String sid;
 
-    private String countrystate;
-
-    private Date opertime;
-
     private String expresstype;
+
+    private String countrystate;
 
     private String country;
 
     private String expresstypetwo;
+
+    private Date opertime;
 
     private String oper;
 
@@ -32,28 +32,20 @@ public class DbKdexpresstypeandcountry implements Serializable {
         this.sid = sid == null ? null : sid.trim();
     }
 
-    public String getCountrystate() {
-        return countrystate;
-    }
-
-    public void setCountrystate(String countrystate) {
-        this.countrystate = countrystate == null ? null : countrystate.trim();
-    }
-
-    public Date getOpertime() {
-        return opertime;
-    }
-
-    public void setOpertime(Date opertime) {
-        this.opertime = opertime;
-    }
-
     public String getExpresstype() {
         return expresstype;
     }
 
     public void setExpresstype(String expresstype) {
         this.expresstype = expresstype == null ? null : expresstype.trim();
+    }
+
+    public String getCountrystate() {
+        return countrystate;
+    }
+
+    public void setCountrystate(String countrystate) {
+        this.countrystate = countrystate == null ? null : countrystate.trim();
     }
 
     public String getCountry() {
@@ -70,6 +62,14 @@ public class DbKdexpresstypeandcountry implements Serializable {
 
     public void setExpresstypetwo(String expresstypetwo) {
         this.expresstypetwo = expresstypetwo == null ? null : expresstypetwo.trim();
+    }
+
+    public Date getOpertime() {
+        return opertime;
+    }
+
+    public void setOpertime(Date opertime) {
+        this.opertime = opertime;
     }
 
     public String getOper() {
@@ -109,11 +109,11 @@ public class DbKdexpresstypeandcountry implements Serializable {
         }
         DbKdexpresstypeandcountry other = (DbKdexpresstypeandcountry) that;
         return (this.getSid() == null ? other.getSid() == null : this.getSid().equals(other.getSid()))
-            && (this.getCountrystate() == null ? other.getCountrystate() == null : this.getCountrystate().equals(other.getCountrystate()))
-            && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
             && (this.getExpresstype() == null ? other.getExpresstype() == null : this.getExpresstype().equals(other.getExpresstype()))
+            && (this.getCountrystate() == null ? other.getCountrystate() == null : this.getCountrystate().equals(other.getCountrystate()))
             && (this.getCountry() == null ? other.getCountry() == null : this.getCountry().equals(other.getCountry()))
             && (this.getExpresstypetwo() == null ? other.getExpresstypetwo() == null : this.getExpresstypetwo().equals(other.getExpresstypetwo()))
+            && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
             && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()));
@@ -124,11 +124,11 @@ public class DbKdexpresstypeandcountry implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getSid() == null) ? 0 : getSid().hashCode());
-        result = prime * result + ((getCountrystate() == null) ? 0 : getCountrystate().hashCode());
-        result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getExpresstype() == null) ? 0 : getExpresstype().hashCode());
+        result = prime * result + ((getCountrystate() == null) ? 0 : getCountrystate().hashCode());
         result = prime * result + ((getCountry() == null) ? 0 : getCountry().hashCode());
         result = prime * result + ((getExpresstypetwo() == null) ? 0 : getExpresstypetwo().hashCode());
+        result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
         result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
@@ -142,11 +142,11 @@ public class DbKdexpresstypeandcountry implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", sid=").append(sid);
-        sb.append(", countrystate=").append(countrystate);
-        sb.append(", opertime=").append(opertime);
         sb.append(", expresstype=").append(expresstype);
+        sb.append(", countrystate=").append(countrystate);
         sb.append(", country=").append(country);
         sb.append(", expresstypetwo=").append(expresstypetwo);
+        sb.append(", opertime=").append(opertime);
         sb.append(", oper=").append(oper);
         sb.append(", reserve1=").append(reserve1);
         sb.append(", reserve2=").append(reserve2);

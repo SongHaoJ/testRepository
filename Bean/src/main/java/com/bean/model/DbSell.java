@@ -1,12 +1,9 @@
 package com.bean.model;
 
-import lombok.Data;
-
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.List;
-@Data
+
 public class DbSell implements Serializable {
     private String sid;
 
@@ -16,6 +13,8 @@ public class DbSell implements Serializable {
 
     private String productid;
 
+    private String productname;
+
     private BigDecimal ordernum;
 
     private BigDecimal costprice;
@@ -23,6 +22,8 @@ public class DbSell implements Serializable {
     private BigDecimal sellprice;
 
     private BigDecimal amount;
+
+    private String customerid;
 
     private Date ordertime;
 
@@ -46,13 +47,25 @@ public class DbSell implements Serializable {
 
     private String flag;
 
+    private String descr1;
+
+    private String descr2;
+
+    private String descr3;
+
     private String reserve1;
 
     private String reserve2;
 
     private String reserve3;
 
+    private String reserve4;
+
+    private String reserve5;
+
     private String reserve6;
+
+    private String reserve7;
 
     private String reserve8;
 
@@ -65,6 +78,8 @@ public class DbSell implements Serializable {
     private BigDecimal productordernum;
 
     private BigDecimal productalertnum;
+
+    private String productpic1;
 
     private String tradeid;
 
@@ -86,6 +101,8 @@ public class DbSell implements Serializable {
 
     private BigDecimal packagingweight;
 
+    private String packagingclass;
+
     private String shoptypeid;
 
     private String ebayitemid;
@@ -97,6 +114,8 @@ public class DbSell implements Serializable {
     private String oper1;
 
     private String oper2;
+
+    private String englishname;
 
     private BigDecimal originordermoney;
 
@@ -144,35 +163,6 @@ public class DbSell implements Serializable {
 
     private String originsku;
 
-    private String productname;
-
-    private String customerid;
-
-    private String descr1;
-
-    private String descr2;
-
-    private String descr3;
-
-    private String reserve4;
-
-    private String reserve5;
-
-    private String reserve7;
-
-    private String productpic1;
-
-    private String packagingclass;
-
-    private String englishname;
-
-    //取订单详情用
-    private List<DbProduct> productList;
-
-
-
-
-
     private static final long serialVersionUID = 1L;
 
     public String getSid() {
@@ -207,6 +197,14 @@ public class DbSell implements Serializable {
         this.productid = productid == null ? null : productid.trim();
     }
 
+    public String getProductname() {
+        return productname;
+    }
+
+    public void setProductname(String productname) {
+        this.productname = productname == null ? null : productname.trim();
+    }
+
     public BigDecimal getOrdernum() {
         return ordernum;
     }
@@ -237,6 +235,14 @@ public class DbSell implements Serializable {
 
     public void setAmount(BigDecimal amount) {
         this.amount = amount;
+    }
+
+    public String getCustomerid() {
+        return customerid;
+    }
+
+    public void setCustomerid(String customerid) {
+        this.customerid = customerid == null ? null : customerid.trim();
     }
 
     public Date getOrdertime() {
@@ -327,6 +333,30 @@ public class DbSell implements Serializable {
         this.flag = flag == null ? null : flag.trim();
     }
 
+    public String getDescr1() {
+        return descr1;
+    }
+
+    public void setDescr1(String descr1) {
+        this.descr1 = descr1 == null ? null : descr1.trim();
+    }
+
+    public String getDescr2() {
+        return descr2;
+    }
+
+    public void setDescr2(String descr2) {
+        this.descr2 = descr2 == null ? null : descr2.trim();
+    }
+
+    public String getDescr3() {
+        return descr3;
+    }
+
+    public void setDescr3(String descr3) {
+        this.descr3 = descr3 == null ? null : descr3.trim();
+    }
+
     public String getReserve1() {
         return reserve1;
     }
@@ -351,12 +381,36 @@ public class DbSell implements Serializable {
         this.reserve3 = reserve3 == null ? null : reserve3.trim();
     }
 
+    public String getReserve4() {
+        return reserve4;
+    }
+
+    public void setReserve4(String reserve4) {
+        this.reserve4 = reserve4 == null ? null : reserve4.trim();
+    }
+
+    public String getReserve5() {
+        return reserve5;
+    }
+
+    public void setReserve5(String reserve5) {
+        this.reserve5 = reserve5 == null ? null : reserve5.trim();
+    }
+
     public String getReserve6() {
         return reserve6;
     }
 
     public void setReserve6(String reserve6) {
         this.reserve6 = reserve6 == null ? null : reserve6.trim();
+    }
+
+    public String getReserve7() {
+        return reserve7;
+    }
+
+    public void setReserve7(String reserve7) {
+        this.reserve7 = reserve7 == null ? null : reserve7.trim();
     }
 
     public String getReserve8() {
@@ -405,6 +459,14 @@ public class DbSell implements Serializable {
 
     public void setProductalertnum(BigDecimal productalertnum) {
         this.productalertnum = productalertnum;
+    }
+
+    public String getProductpic1() {
+        return productpic1;
+    }
+
+    public void setProductpic1(String productpic1) {
+        this.productpic1 = productpic1 == null ? null : productpic1.trim();
     }
 
     public String getTradeid() {
@@ -487,6 +549,14 @@ public class DbSell implements Serializable {
         this.packagingweight = packagingweight;
     }
 
+    public String getPackagingclass() {
+        return packagingclass;
+    }
+
+    public void setPackagingclass(String packagingclass) {
+        this.packagingclass = packagingclass == null ? null : packagingclass.trim();
+    }
+
     public String getShoptypeid() {
         return shoptypeid;
     }
@@ -533,6 +603,14 @@ public class DbSell implements Serializable {
 
     public void setOper2(String oper2) {
         this.oper2 = oper2 == null ? null : oper2.trim();
+    }
+
+    public String getEnglishname() {
+        return englishname;
+    }
+
+    public void setEnglishname(String englishname) {
+        this.englishname = englishname == null ? null : englishname.trim();
     }
 
     public BigDecimal getOriginordermoney() {
@@ -719,94 +797,6 @@ public class DbSell implements Serializable {
         this.originsku = originsku == null ? null : originsku.trim();
     }
 
-    public String getProductname() {
-        return productname;
-    }
-
-    public void setProductname(String productname) {
-        this.productname = productname == null ? null : productname.trim();
-    }
-
-    public String getCustomerid() {
-        return customerid;
-    }
-
-    public void setCustomerid(String customerid) {
-        this.customerid = customerid == null ? null : customerid.trim();
-    }
-
-    public String getDescr1() {
-        return descr1;
-    }
-
-    public void setDescr1(String descr1) {
-        this.descr1 = descr1 == null ? null : descr1.trim();
-    }
-
-    public String getDescr2() {
-        return descr2;
-    }
-
-    public void setDescr2(String descr2) {
-        this.descr2 = descr2 == null ? null : descr2.trim();
-    }
-
-    public String getDescr3() {
-        return descr3;
-    }
-
-    public void setDescr3(String descr3) {
-        this.descr3 = descr3 == null ? null : descr3.trim();
-    }
-
-    public String getReserve4() {
-        return reserve4;
-    }
-
-    public void setReserve4(String reserve4) {
-        this.reserve4 = reserve4 == null ? null : reserve4.trim();
-    }
-
-    public String getReserve5() {
-        return reserve5;
-    }
-
-    public void setReserve5(String reserve5) {
-        this.reserve5 = reserve5 == null ? null : reserve5.trim();
-    }
-
-    public String getReserve7() {
-        return reserve7;
-    }
-
-    public void setReserve7(String reserve7) {
-        this.reserve7 = reserve7 == null ? null : reserve7.trim();
-    }
-
-    public String getProductpic1() {
-        return productpic1;
-    }
-
-    public void setProductpic1(String productpic1) {
-        this.productpic1 = productpic1 == null ? null : productpic1.trim();
-    }
-
-    public String getPackagingclass() {
-        return packagingclass;
-    }
-
-    public void setPackagingclass(String packagingclass) {
-        this.packagingclass = packagingclass == null ? null : packagingclass.trim();
-    }
-
-    public String getEnglishname() {
-        return englishname;
-    }
-
-    public void setEnglishname(String englishname) {
-        this.englishname = englishname == null ? null : englishname.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -823,10 +813,12 @@ public class DbSell implements Serializable {
             && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()))
             && (this.getOrderid() == null ? other.getOrderid() == null : this.getOrderid().equals(other.getOrderid()))
             && (this.getProductid() == null ? other.getProductid() == null : this.getProductid().equals(other.getProductid()))
+            && (this.getProductname() == null ? other.getProductname() == null : this.getProductname().equals(other.getProductname()))
             && (this.getOrdernum() == null ? other.getOrdernum() == null : this.getOrdernum().equals(other.getOrdernum()))
             && (this.getCostprice() == null ? other.getCostprice() == null : this.getCostprice().equals(other.getCostprice()))
             && (this.getSellprice() == null ? other.getSellprice() == null : this.getSellprice().equals(other.getSellprice()))
             && (this.getAmount() == null ? other.getAmount() == null : this.getAmount().equals(other.getAmount()))
+            && (this.getCustomerid() == null ? other.getCustomerid() == null : this.getCustomerid().equals(other.getCustomerid()))
             && (this.getOrdertime() == null ? other.getOrdertime() == null : this.getOrdertime().equals(other.getOrdertime()))
             && (this.getStorageid() == null ? other.getStorageid() == null : this.getStorageid().equals(other.getStorageid()))
             && (this.getStorage() == null ? other.getStorage() == null : this.getStorage().equals(other.getStorage()))
@@ -838,16 +830,23 @@ public class DbSell implements Serializable {
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
             && (this.getFlag() == null ? other.getFlag() == null : this.getFlag().equals(other.getFlag()))
+            && (this.getDescr1() == null ? other.getDescr1() == null : this.getDescr1().equals(other.getDescr1()))
+            && (this.getDescr2() == null ? other.getDescr2() == null : this.getDescr2().equals(other.getDescr2()))
+            && (this.getDescr3() == null ? other.getDescr3() == null : this.getDescr3().equals(other.getDescr3()))
             && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
             && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
             && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
+            && (this.getReserve4() == null ? other.getReserve4() == null : this.getReserve4().equals(other.getReserve4()))
+            && (this.getReserve5() == null ? other.getReserve5() == null : this.getReserve5().equals(other.getReserve5()))
             && (this.getReserve6() == null ? other.getReserve6() == null : this.getReserve6().equals(other.getReserve6()))
+            && (this.getReserve7() == null ? other.getReserve7() == null : this.getReserve7().equals(other.getReserve7()))
             && (this.getReserve8() == null ? other.getReserve8() == null : this.getReserve8().equals(other.getReserve8()))
             && (this.getReserve9() == null ? other.getReserve9() == null : this.getReserve9().equals(other.getReserve9()))
             && (this.getReserve10() == null ? other.getReserve10() == null : this.getReserve10().equals(other.getReserve10()))
             && (this.getProductsavenum() == null ? other.getProductsavenum() == null : this.getProductsavenum().equals(other.getProductsavenum()))
             && (this.getProductordernum() == null ? other.getProductordernum() == null : this.getProductordernum().equals(other.getProductordernum()))
             && (this.getProductalertnum() == null ? other.getProductalertnum() == null : this.getProductalertnum().equals(other.getProductalertnum()))
+            && (this.getProductpic1() == null ? other.getProductpic1() == null : this.getProductpic1().equals(other.getProductpic1()))
             && (this.getTradeid() == null ? other.getTradeid() == null : this.getTradeid().equals(other.getTradeid()))
             && (this.getTransactionid() == null ? other.getTransactionid() == null : this.getTransactionid().equals(other.getTransactionid()))
             && (this.getOriginsellprice() == null ? other.getOriginsellprice() == null : this.getOriginsellprice().equals(other.getOriginsellprice()))
@@ -858,12 +857,14 @@ public class DbSell implements Serializable {
             && (this.getPackagingid() == null ? other.getPackagingid() == null : this.getPackagingid().equals(other.getPackagingid()))
             && (this.getPackagingname() == null ? other.getPackagingname() == null : this.getPackagingname().equals(other.getPackagingname()))
             && (this.getPackagingweight() == null ? other.getPackagingweight() == null : this.getPackagingweight().equals(other.getPackagingweight()))
+            && (this.getPackagingclass() == null ? other.getPackagingclass() == null : this.getPackagingclass().equals(other.getPackagingclass()))
             && (this.getShoptypeid() == null ? other.getShoptypeid() == null : this.getShoptypeid().equals(other.getShoptypeid()))
             && (this.getEbayitemid() == null ? other.getEbayitemid() == null : this.getEbayitemid().equals(other.getEbayitemid()))
             && (this.getFinalvaluefee() == null ? other.getFinalvaluefee() == null : this.getFinalvaluefee().equals(other.getFinalvaluefee()))
             && (this.getFeedback() == null ? other.getFeedback() == null : this.getFeedback().equals(other.getFeedback()))
             && (this.getOper1() == null ? other.getOper1() == null : this.getOper1().equals(other.getOper1()))
             && (this.getOper2() == null ? other.getOper2() == null : this.getOper2().equals(other.getOper2()))
+            && (this.getEnglishname() == null ? other.getEnglishname() == null : this.getEnglishname().equals(other.getEnglishname()))
             && (this.getOriginordermoney() == null ? other.getOriginordermoney() == null : this.getOriginordermoney().equals(other.getOriginordermoney()))
             && (this.getOriginexpressmoney() == null ? other.getOriginexpressmoney() == null : this.getOriginexpressmoney().equals(other.getOriginexpressmoney()))
             && (this.getOrigininsurance() == null ? other.getOrigininsurance() == null : this.getOrigininsurance().equals(other.getOrigininsurance()))
@@ -886,18 +887,7 @@ public class DbSell implements Serializable {
             && (this.getPackagingfee() == null ? other.getPackagingfee() == null : this.getPackagingfee().equals(other.getPackagingfee()))
             && (this.getSplitpackagingfee() == null ? other.getSplitpackagingfee() == null : this.getSplitpackagingfee().equals(other.getSplitpackagingfee()))
             && (this.getSelloper() == null ? other.getSelloper() == null : this.getSelloper().equals(other.getSelloper()))
-            && (this.getOriginsku() == null ? other.getOriginsku() == null : this.getOriginsku().equals(other.getOriginsku()))
-            && (this.getProductname() == null ? other.getProductname() == null : this.getProductname().equals(other.getProductname()))
-            && (this.getCustomerid() == null ? other.getCustomerid() == null : this.getCustomerid().equals(other.getCustomerid()))
-            && (this.getDescr1() == null ? other.getDescr1() == null : this.getDescr1().equals(other.getDescr1()))
-            && (this.getDescr2() == null ? other.getDescr2() == null : this.getDescr2().equals(other.getDescr2()))
-            && (this.getDescr3() == null ? other.getDescr3() == null : this.getDescr3().equals(other.getDescr3()))
-            && (this.getReserve4() == null ? other.getReserve4() == null : this.getReserve4().equals(other.getReserve4()))
-            && (this.getReserve5() == null ? other.getReserve5() == null : this.getReserve5().equals(other.getReserve5()))
-            && (this.getReserve7() == null ? other.getReserve7() == null : this.getReserve7().equals(other.getReserve7()))
-            && (this.getProductpic1() == null ? other.getProductpic1() == null : this.getProductpic1().equals(other.getProductpic1()))
-            && (this.getPackagingclass() == null ? other.getPackagingclass() == null : this.getPackagingclass().equals(other.getPackagingclass()))
-            && (this.getEnglishname() == null ? other.getEnglishname() == null : this.getEnglishname().equals(other.getEnglishname()));
+            && (this.getOriginsku() == null ? other.getOriginsku() == null : this.getOriginsku().equals(other.getOriginsku()));
     }
 
     @Override
@@ -908,10 +898,12 @@ public class DbSell implements Serializable {
         result = prime * result + ((getCorpid() == null) ? 0 : getCorpid().hashCode());
         result = prime * result + ((getOrderid() == null) ? 0 : getOrderid().hashCode());
         result = prime * result + ((getProductid() == null) ? 0 : getProductid().hashCode());
+        result = prime * result + ((getProductname() == null) ? 0 : getProductname().hashCode());
         result = prime * result + ((getOrdernum() == null) ? 0 : getOrdernum().hashCode());
         result = prime * result + ((getCostprice() == null) ? 0 : getCostprice().hashCode());
         result = prime * result + ((getSellprice() == null) ? 0 : getSellprice().hashCode());
         result = prime * result + ((getAmount() == null) ? 0 : getAmount().hashCode());
+        result = prime * result + ((getCustomerid() == null) ? 0 : getCustomerid().hashCode());
         result = prime * result + ((getOrdertime() == null) ? 0 : getOrdertime().hashCode());
         result = prime * result + ((getStorageid() == null) ? 0 : getStorageid().hashCode());
         result = prime * result + ((getStorage() == null) ? 0 : getStorage().hashCode());
@@ -923,16 +915,23 @@ public class DbSell implements Serializable {
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getFlag() == null) ? 0 : getFlag().hashCode());
+        result = prime * result + ((getDescr1() == null) ? 0 : getDescr1().hashCode());
+        result = prime * result + ((getDescr2() == null) ? 0 : getDescr2().hashCode());
+        result = prime * result + ((getDescr3() == null) ? 0 : getDescr3().hashCode());
         result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
         result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
         result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
+        result = prime * result + ((getReserve4() == null) ? 0 : getReserve4().hashCode());
+        result = prime * result + ((getReserve5() == null) ? 0 : getReserve5().hashCode());
         result = prime * result + ((getReserve6() == null) ? 0 : getReserve6().hashCode());
+        result = prime * result + ((getReserve7() == null) ? 0 : getReserve7().hashCode());
         result = prime * result + ((getReserve8() == null) ? 0 : getReserve8().hashCode());
         result = prime * result + ((getReserve9() == null) ? 0 : getReserve9().hashCode());
         result = prime * result + ((getReserve10() == null) ? 0 : getReserve10().hashCode());
         result = prime * result + ((getProductsavenum() == null) ? 0 : getProductsavenum().hashCode());
         result = prime * result + ((getProductordernum() == null) ? 0 : getProductordernum().hashCode());
         result = prime * result + ((getProductalertnum() == null) ? 0 : getProductalertnum().hashCode());
+        result = prime * result + ((getProductpic1() == null) ? 0 : getProductpic1().hashCode());
         result = prime * result + ((getTradeid() == null) ? 0 : getTradeid().hashCode());
         result = prime * result + ((getTransactionid() == null) ? 0 : getTransactionid().hashCode());
         result = prime * result + ((getOriginsellprice() == null) ? 0 : getOriginsellprice().hashCode());
@@ -943,12 +942,14 @@ public class DbSell implements Serializable {
         result = prime * result + ((getPackagingid() == null) ? 0 : getPackagingid().hashCode());
         result = prime * result + ((getPackagingname() == null) ? 0 : getPackagingname().hashCode());
         result = prime * result + ((getPackagingweight() == null) ? 0 : getPackagingweight().hashCode());
+        result = prime * result + ((getPackagingclass() == null) ? 0 : getPackagingclass().hashCode());
         result = prime * result + ((getShoptypeid() == null) ? 0 : getShoptypeid().hashCode());
         result = prime * result + ((getEbayitemid() == null) ? 0 : getEbayitemid().hashCode());
         result = prime * result + ((getFinalvaluefee() == null) ? 0 : getFinalvaluefee().hashCode());
         result = prime * result + ((getFeedback() == null) ? 0 : getFeedback().hashCode());
         result = prime * result + ((getOper1() == null) ? 0 : getOper1().hashCode());
         result = prime * result + ((getOper2() == null) ? 0 : getOper2().hashCode());
+        result = prime * result + ((getEnglishname() == null) ? 0 : getEnglishname().hashCode());
         result = prime * result + ((getOriginordermoney() == null) ? 0 : getOriginordermoney().hashCode());
         result = prime * result + ((getOriginexpressmoney() == null) ? 0 : getOriginexpressmoney().hashCode());
         result = prime * result + ((getOrigininsurance() == null) ? 0 : getOrigininsurance().hashCode());
@@ -972,17 +973,6 @@ public class DbSell implements Serializable {
         result = prime * result + ((getSplitpackagingfee() == null) ? 0 : getSplitpackagingfee().hashCode());
         result = prime * result + ((getSelloper() == null) ? 0 : getSelloper().hashCode());
         result = prime * result + ((getOriginsku() == null) ? 0 : getOriginsku().hashCode());
-        result = prime * result + ((getProductname() == null) ? 0 : getProductname().hashCode());
-        result = prime * result + ((getCustomerid() == null) ? 0 : getCustomerid().hashCode());
-        result = prime * result + ((getDescr1() == null) ? 0 : getDescr1().hashCode());
-        result = prime * result + ((getDescr2() == null) ? 0 : getDescr2().hashCode());
-        result = prime * result + ((getDescr3() == null) ? 0 : getDescr3().hashCode());
-        result = prime * result + ((getReserve4() == null) ? 0 : getReserve4().hashCode());
-        result = prime * result + ((getReserve5() == null) ? 0 : getReserve5().hashCode());
-        result = prime * result + ((getReserve7() == null) ? 0 : getReserve7().hashCode());
-        result = prime * result + ((getProductpic1() == null) ? 0 : getProductpic1().hashCode());
-        result = prime * result + ((getPackagingclass() == null) ? 0 : getPackagingclass().hashCode());
-        result = prime * result + ((getEnglishname() == null) ? 0 : getEnglishname().hashCode());
         return result;
     }
 
@@ -996,10 +986,12 @@ public class DbSell implements Serializable {
         sb.append(", corpid=").append(corpid);
         sb.append(", orderid=").append(orderid);
         sb.append(", productid=").append(productid);
+        sb.append(", productname=").append(productname);
         sb.append(", ordernum=").append(ordernum);
         sb.append(", costprice=").append(costprice);
         sb.append(", sellprice=").append(sellprice);
         sb.append(", amount=").append(amount);
+        sb.append(", customerid=").append(customerid);
         sb.append(", ordertime=").append(ordertime);
         sb.append(", storageid=").append(storageid);
         sb.append(", storage=").append(storage);
@@ -1011,16 +1003,23 @@ public class DbSell implements Serializable {
         sb.append(", oper=").append(oper);
         sb.append(", opertime=").append(opertime);
         sb.append(", flag=").append(flag);
+        sb.append(", descr1=").append(descr1);
+        sb.append(", descr2=").append(descr2);
+        sb.append(", descr3=").append(descr3);
         sb.append(", reserve1=").append(reserve1);
         sb.append(", reserve2=").append(reserve2);
         sb.append(", reserve3=").append(reserve3);
+        sb.append(", reserve4=").append(reserve4);
+        sb.append(", reserve5=").append(reserve5);
         sb.append(", reserve6=").append(reserve6);
+        sb.append(", reserve7=").append(reserve7);
         sb.append(", reserve8=").append(reserve8);
         sb.append(", reserve9=").append(reserve9);
         sb.append(", reserve10=").append(reserve10);
         sb.append(", productsavenum=").append(productsavenum);
         sb.append(", productordernum=").append(productordernum);
         sb.append(", productalertnum=").append(productalertnum);
+        sb.append(", productpic1=").append(productpic1);
         sb.append(", tradeid=").append(tradeid);
         sb.append(", transactionid=").append(transactionid);
         sb.append(", originsellprice=").append(originsellprice);
@@ -1031,12 +1030,14 @@ public class DbSell implements Serializable {
         sb.append(", packagingid=").append(packagingid);
         sb.append(", packagingname=").append(packagingname);
         sb.append(", packagingweight=").append(packagingweight);
+        sb.append(", packagingclass=").append(packagingclass);
         sb.append(", shoptypeid=").append(shoptypeid);
         sb.append(", ebayitemid=").append(ebayitemid);
         sb.append(", finalvaluefee=").append(finalvaluefee);
         sb.append(", feedback=").append(feedback);
         sb.append(", oper1=").append(oper1);
         sb.append(", oper2=").append(oper2);
+        sb.append(", englishname=").append(englishname);
         sb.append(", originordermoney=").append(originordermoney);
         sb.append(", originexpressmoney=").append(originexpressmoney);
         sb.append(", origininsurance=").append(origininsurance);
@@ -1060,17 +1061,6 @@ public class DbSell implements Serializable {
         sb.append(", splitpackagingfee=").append(splitpackagingfee);
         sb.append(", selloper=").append(selloper);
         sb.append(", originsku=").append(originsku);
-        sb.append(", productname=").append(productname);
-        sb.append(", customerid=").append(customerid);
-        sb.append(", descr1=").append(descr1);
-        sb.append(", descr2=").append(descr2);
-        sb.append(", descr3=").append(descr3);
-        sb.append(", reserve4=").append(reserve4);
-        sb.append(", reserve5=").append(reserve5);
-        sb.append(", reserve7=").append(reserve7);
-        sb.append(", productpic1=").append(productpic1);
-        sb.append(", packagingclass=").append(packagingclass);
-        sb.append(", englishname=").append(englishname);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

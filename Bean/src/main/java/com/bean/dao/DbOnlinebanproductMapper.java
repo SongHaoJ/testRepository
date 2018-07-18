@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbOnlinebanproduct;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbOnlinebanproductMapper {
-    int deleteByPrimaryKey(String itemid);
+    DbOnlinebanproduct selectByCriteria(DbOnlinebanproduct DbOnlinebanproduct);
 
-    int insert(DbOnlinebanproduct record);
+    void deleteByPrimaryKey(String ITEMID);
 
-    int insertSelective(DbOnlinebanproduct record);
+    void deleteByCriteria(DbOnlinebanproduct DbOnlinebanproduct);
+
+    int insertByCriteria(DbOnlinebanproduct DbOnlinebanproduct);
+
+    int updateByCriteria(DbOnlinebanproduct DbOnlinebanproduct);
 
     DbOnlinebanproduct selectByPrimaryKey(String itemid);
 
-    int updateByPrimaryKeySelective(DbOnlinebanproduct record);
-
-    int updateByPrimaryKey(DbOnlinebanproduct record);
+    List<DbOnlinebanproduct> selectAll();
 }

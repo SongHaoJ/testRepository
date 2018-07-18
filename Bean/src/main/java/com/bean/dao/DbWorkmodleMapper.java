@@ -1,20 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbWorkmodle;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbWorkmodleMapper {
-    int deleteByPrimaryKey(BigDecimal sequenceid);
+    DbWorkmodle selectByCriteria(DbWorkmodle DbWorkmodle);
 
-    int insert(DbWorkmodle record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbWorkmodle record);
+    void deleteByCriteria(DbWorkmodle DbWorkmodle);
+
+    int insertByCriteria(DbWorkmodle DbWorkmodle);
+
+    int updateByCriteria(DbWorkmodle DbWorkmodle);
 
     DbWorkmodle selectByPrimaryKey(BigDecimal sequenceid);
 
-    int updateByPrimaryKeySelective(DbWorkmodle record);
-
-    int updateByPrimaryKeyWithBLOBs(DbWorkmodle record);
-
-    int updateByPrimaryKey(DbWorkmodle record);
+    List<DbWorkmodle> selectAll();
 }

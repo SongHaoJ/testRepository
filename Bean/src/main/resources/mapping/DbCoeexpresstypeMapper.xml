@@ -9,98 +9,89 @@
     <result column="URL" jdbcType="VARCHAR" property="url" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
   </resultMap>
-  <sql id="Base_Column_List">
-    SID, 'NAME', 'TYPE', TYPENAME, URL, OPERTIME
-  </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from db_coeexpresstype
+    select SID, NAME, TYPE, TYPENAME, URL, OPERTIME
+    from DB_COEEXPRESSTYPE
     where SID = #{sid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_coeexpresstype
-    where SID = #{sid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, NAME, TYPE, TYPENAME, URL, OPERTIME
+    from DB_COEEXPRESSTYPE
+  </select>
+  <sql id="TableName">
+    DB_COEEXPRESSTYPE
+  </sql>
+  <sql id="Values">
+     #{sid,jdbcType=VARCHAR} , 
+     #{name,jdbcType=VARCHAR} , 
+     #{type,jdbcType=VARCHAR} , 
+     #{typename,jdbcType=VARCHAR} , 
+     #{url,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+  </sql>
+  <sql id="Columns">
+    SID , 
+    NAME , 
+    TYPE , 
+    TYPENAME , 
+    URL , 
+    OPERTIME , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} and 
+    </if>
+    <if test="type != null">
+      type = #{type,jdbcType=VARCHAR} and 
+    </if>
+    <if test="typename != null">
+      typename = #{typename,jdbcType=VARCHAR} and 
+    </if>
+    <if test="url != null">
+      url = #{url,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} , 
+    </if>
+    <if test="type != null">
+      type = #{type,jdbcType=VARCHAR} , 
+    </if>
+    <if test="typename != null">
+      typename = #{typename,jdbcType=VARCHAR} , 
+    </if>
+    <if test="url != null">
+      url = #{url,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbCoeexpresstype" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SID=#{SID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbCoeexpresstype">
-    insert into db_coeexpresstype (SID, 'NAME', 'TYPE', 
-      TYPENAME, URL, OPERTIME
-      )
-    values (#{sid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
-      #{typename,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, #{opertime,jdbcType=TIMESTAMP}
-      )
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbCoeexpresstype">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbCoeexpresstype">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbCoeexpresstype">
-    insert into db_coeexpresstype
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        SID,
-      </if>
-      <if test="name != null">
-        'NAME',
-      </if>
-      <if test="type != null">
-        'TYPE',
-      </if>
-      <if test="typename != null">
-        TYPENAME,
-      </if>
-      <if test="url != null">
-        URL,
-      </if>
-      <if test="opertime != null">
-        OPERTIME,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        #{sid,jdbcType=VARCHAR},
-      </if>
-      <if test="name != null">
-        #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="type != null">
-        #{type,jdbcType=VARCHAR},
-      </if>
-      <if test="typename != null">
-        #{typename,jdbcType=VARCHAR},
-      </if>
-      <if test="url != null">
-        #{url,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        #{opertime,jdbcType=TIMESTAMP},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbCoeexpresstype">
-    update db_coeexpresstype
-    <set>
-      <if test="name != null">
-        'NAME' = #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="type != null">
-        'TYPE' = #{type,jdbcType=VARCHAR},
-      </if>
-      <if test="typename != null">
-        TYPENAME = #{typename,jdbcType=VARCHAR},
-      </if>
-      <if test="url != null">
-        URL = #{url,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    where SID = #{sid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbCoeexpresstype">
-    update db_coeexpresstype
-    set 'NAME' = #{name,jdbcType=VARCHAR},
-      'TYPE' = #{type,jdbcType=VARCHAR},
-      TYPENAME = #{typename,jdbcType=VARCHAR},
-      URL = #{url,jdbcType=VARCHAR},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP}
-    where SID = #{sid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbCoeexpresstype">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

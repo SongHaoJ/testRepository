@@ -4,53 +4,53 @@
   <resultMap id="BaseResultMap" type="com.bean.model.DbDescription">
     <id column="ITEMID" jdbcType="DECIMAL" property="itemid" />
     <result column="FLAG" jdbcType="DECIMAL" property="flag" />
-    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
+    <result column="DESCR" jdbcType="CLOB" property="descr" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
     select ITEMID, FLAG, DESCR
-    from db_description
+    from DB_DESCRIPTION
     where ITEMID = #{itemid,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select ITEMID, FLAG, DESCR
-    from db_description
+    from DB_DESCRIPTION
   </select>
   <sql id="TableName">
-    db_description
+    DB_DESCRIPTION
   </sql>
   <sql id="Values">
      #{itemid,jdbcType=DECIMAL} , 
      #{flag,jdbcType=DECIMAL} , 
-     #{descr,jdbcType=LONGVARCHAR}
+     #{descr,jdbcType=CLOB} , 
   </sql>
   <sql id="Columns">
     ITEMID , 
     FLAG , 
-    DESCR
+    DESCR , 
   </sql>
   <sql id="Criteria">
     <if test="itemid != null">
-      ITEMID = #{itemid,jdbcType=DECIMAL} and 
+      itemid = #{itemid,jdbcType=DECIMAL} and 
     </if>
     <if test="flag != null">
-      FLAG = #{flag,jdbcType=DECIMAL} and 
+      flag = #{flag,jdbcType=DECIMAL} and 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR}
+      descr = #{descr,jdbcType=CLOB} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="itemid != null">
-      ITEMID = #{itemid,jdbcType=DECIMAL} , 
+      itemid = #{itemid,jdbcType=DECIMAL} , 
     </if>
     <if test="flag != null">
-      FLAG = #{flag,jdbcType=DECIMAL} , 
+      flag = #{flag,jdbcType=DECIMAL} , 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR}
+      descr = #{descr,jdbcType=CLOB} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbDescription" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

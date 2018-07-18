@@ -33,6 +33,8 @@ public class DbShopmessagehistory implements Serializable {
 
     private String operid;
 
+    private String viewitem;
+
     private String siteid;
 
     private String sitename;
@@ -60,8 +62,6 @@ public class DbShopmessagehistory implements Serializable {
     private String sales;
 
     private String moneytype;
-
-    private String viewitem;
 
     private static final long serialVersionUID = 1L;
 
@@ -177,6 +177,14 @@ public class DbShopmessagehistory implements Serializable {
         this.operid = operid == null ? null : operid.trim();
     }
 
+    public String getViewitem() {
+        return viewitem;
+    }
+
+    public void setViewitem(String viewitem) {
+        this.viewitem = viewitem == null ? null : viewitem.trim();
+    }
+
     public String getSiteid() {
         return siteid;
     }
@@ -289,14 +297,6 @@ public class DbShopmessagehistory implements Serializable {
         this.moneytype = moneytype == null ? null : moneytype.trim();
     }
 
-    public String getViewitem() {
-        return viewitem;
-    }
-
-    public void setViewitem(String viewitem) {
-        this.viewitem = viewitem == null ? null : viewitem.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -323,6 +323,7 @@ public class DbShopmessagehistory implements Serializable {
             && (this.getOpenflag() == null ? other.getOpenflag() == null : this.getOpenflag().equals(other.getOpenflag()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getOperid() == null ? other.getOperid() == null : this.getOperid().equals(other.getOperid()))
+            && (this.getViewitem() == null ? other.getViewitem() == null : this.getViewitem().equals(other.getViewitem()))
             && (this.getSiteid() == null ? other.getSiteid() == null : this.getSiteid().equals(other.getSiteid()))
             && (this.getSitename() == null ? other.getSitename() == null : this.getSitename().equals(other.getSitename()))
             && (this.getListingstart() == null ? other.getListingstart() == null : this.getListingstart().equals(other.getListingstart()))
@@ -336,8 +337,7 @@ public class DbShopmessagehistory implements Serializable {
             && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
             && (this.getWatchers() == null ? other.getWatchers() == null : this.getWatchers().equals(other.getWatchers()))
             && (this.getSales() == null ? other.getSales() == null : this.getSales().equals(other.getSales()))
-            && (this.getMoneytype() == null ? other.getMoneytype() == null : this.getMoneytype().equals(other.getMoneytype()))
-            && (this.getViewitem() == null ? other.getViewitem() == null : this.getViewitem().equals(other.getViewitem()));
+            && (this.getMoneytype() == null ? other.getMoneytype() == null : this.getMoneytype().equals(other.getMoneytype()));
     }
 
     @Override
@@ -358,6 +358,7 @@ public class DbShopmessagehistory implements Serializable {
         result = prime * result + ((getOpenflag() == null) ? 0 : getOpenflag().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getOperid() == null) ? 0 : getOperid().hashCode());
+        result = prime * result + ((getViewitem() == null) ? 0 : getViewitem().hashCode());
         result = prime * result + ((getSiteid() == null) ? 0 : getSiteid().hashCode());
         result = prime * result + ((getSitename() == null) ? 0 : getSitename().hashCode());
         result = prime * result + ((getListingstart() == null) ? 0 : getListingstart().hashCode());
@@ -372,7 +373,6 @@ public class DbShopmessagehistory implements Serializable {
         result = prime * result + ((getWatchers() == null) ? 0 : getWatchers().hashCode());
         result = prime * result + ((getSales() == null) ? 0 : getSales().hashCode());
         result = prime * result + ((getMoneytype() == null) ? 0 : getMoneytype().hashCode());
-        result = prime * result + ((getViewitem() == null) ? 0 : getViewitem().hashCode());
         return result;
     }
 
@@ -396,6 +396,7 @@ public class DbShopmessagehistory implements Serializable {
         sb.append(", openflag=").append(openflag);
         sb.append(", oper=").append(oper);
         sb.append(", operid=").append(operid);
+        sb.append(", viewitem=").append(viewitem);
         sb.append(", siteid=").append(siteid);
         sb.append(", sitename=").append(sitename);
         sb.append(", listingstart=").append(listingstart);
@@ -410,7 +411,6 @@ public class DbShopmessagehistory implements Serializable {
         sb.append(", watchers=").append(watchers);
         sb.append(", sales=").append(sales);
         sb.append(", moneytype=").append(moneytype);
-        sb.append(", viewitem=").append(viewitem);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

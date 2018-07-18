@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbManystoragebin;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbManystoragebinMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbManystoragebin selectByCriteria(DbManystoragebin DbManystoragebin);
 
-    int insert(DbManystoragebin record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbManystoragebin record);
+    void deleteByCriteria(DbManystoragebin DbManystoragebin);
+
+    int insertByCriteria(DbManystoragebin DbManystoragebin);
+
+    int updateByCriteria(DbManystoragebin DbManystoragebin);
 
     DbManystoragebin selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbManystoragebin record);
-
-    int updateByPrimaryKeyWithBLOBs(DbManystoragebin record);
-
-    int updateByPrimaryKey(DbManystoragebin record);
+    List<DbManystoragebin> selectAll();
 }

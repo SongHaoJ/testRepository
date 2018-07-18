@@ -6,13 +6,13 @@ import java.util.Date;
 public class DbWishexpresstype implements Serializable {
     private Short sid;
 
+    private String name;
+
     private String oper;
 
     private Date opertime;
 
     private String openflag;
-
-    private String name;
 
     private String reserve1;
 
@@ -26,6 +26,14 @@ public class DbWishexpresstype implements Serializable {
 
     public void setSid(Short sid) {
         this.sid = sid;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
     }
 
     public String getOper() {
@@ -50,14 +58,6 @@ public class DbWishexpresstype implements Serializable {
 
     public void setOpenflag(String openflag) {
         this.openflag = openflag == null ? null : openflag.trim();
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
     }
 
     public String getReserve1() {
@@ -89,10 +89,10 @@ public class DbWishexpresstype implements Serializable {
         }
         DbWishexpresstype other = (DbWishexpresstype) that;
         return (this.getSid() == null ? other.getSid() == null : this.getSid().equals(other.getSid()))
+            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
             && (this.getOpenflag() == null ? other.getOpenflag() == null : this.getOpenflag().equals(other.getOpenflag()))
-            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
             && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
             && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()));
     }
@@ -102,10 +102,10 @@ public class DbWishexpresstype implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getSid() == null) ? 0 : getSid().hashCode());
+        result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getOpenflag() == null) ? 0 : getOpenflag().hashCode());
-        result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
         result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
         result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
         return result;
@@ -118,10 +118,10 @@ public class DbWishexpresstype implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", sid=").append(sid);
+        sb.append(", name=").append(name);
         sb.append(", oper=").append(oper);
         sb.append(", opertime=").append(opertime);
         sb.append(", openflag=").append(openflag);
-        sb.append(", name=").append(name);
         sb.append(", reserve1=").append(reserve1);
         sb.append(", reserve2=").append(reserve2);
         sb.append(", serialVersionUID=").append(serialVersionUID);

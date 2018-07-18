@@ -3,6 +3,7 @@
 <mapper namespace="com.bean.dao.DbMytoolMapper">
   <resultMap id="BaseResultMap" type="com.bean.model.DbMytool">
     <id column="SEQUENCEID" jdbcType="DECIMAL" property="sequenceid" />
+    <result column="EPASSWD" jdbcType="VARCHAR" property="epasswd" />
     <result column="IFNUM" jdbcType="VARCHAR" property="ifnum" />
     <result column="PAYMENT" jdbcType="VARCHAR" property="payment" />
     <result column="ENDTIME" jdbcType="VARCHAR" property="endtime" />
@@ -12,160 +13,123 @@
     <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
     <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbMytool">
-    <result column="EPASSWD" jdbcType="LONGVARCHAR" property="epasswd" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    SEQUENCEID, IFNUM, PAYMENT, ENDTIME, NUM, 'NAME', RESERVE1, RESERVE2, CREATETIME
-  </sql>
-  <sql id="Blob_Column_List">
-    EPASSWD
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="ResultMapWithBLOBs">
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from db_mytool
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select SEQUENCEID, EPASSWD, IFNUM, PAYMENT, ENDTIME, NUM, NAME, RESERVE1, RESERVE2, 
+    CREATETIME
+    from DB_MYTOOL
     where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
-    delete from db_mytool
-    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, EPASSWD, IFNUM, PAYMENT, ENDTIME, NUM, NAME, RESERVE1, RESERVE2, 
+    CREATETIME
+    from DB_MYTOOL
+  </select>
+  <sql id="TableName">
+    DB_MYTOOL
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=DECIMAL} , 
+     #{epasswd,jdbcType=VARCHAR} , 
+     #{ifnum,jdbcType=VARCHAR} , 
+     #{payment,jdbcType=VARCHAR} , 
+     #{endtime,jdbcType=VARCHAR} , 
+     #{num,jdbcType=DECIMAL} , 
+     #{name,jdbcType=VARCHAR} , 
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+     #{createtime,jdbcType=TIMESTAMP} , 
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    EPASSWD , 
+    IFNUM , 
+    PAYMENT , 
+    ENDTIME , 
+    NUM , 
+    NAME , 
+    RESERVE1 , 
+    RESERVE2 , 
+    CREATETIME , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="epasswd != null">
+      epasswd = #{epasswd,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ifnum != null">
+      ifnum = #{ifnum,jdbcType=VARCHAR} and 
+    </if>
+    <if test="payment != null">
+      payment = #{payment,jdbcType=VARCHAR} and 
+    </if>
+    <if test="endtime != null">
+      endtime = #{endtime,jdbcType=VARCHAR} and 
+    </if>
+    <if test="num != null">
+      num = #{num,jdbcType=DECIMAL} and 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="epasswd != null">
+      epasswd = #{epasswd,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ifnum != null">
+      ifnum = #{ifnum,jdbcType=VARCHAR} , 
+    </if>
+    <if test="payment != null">
+      payment = #{payment,jdbcType=VARCHAR} , 
+    </if>
+    <if test="endtime != null">
+      endtime = #{endtime,jdbcType=VARCHAR} , 
+    </if>
+    <if test="num != null">
+      num = #{num,jdbcType=DECIMAL} , 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbMytool" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="BigDecimal">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbMytool">
-    insert into db_mytool (SEQUENCEID, IFNUM, PAYMENT, 
-      ENDTIME, NUM, 'NAME', 
-      RESERVE1, RESERVE2, CREATETIME, 
-      EPASSWD)
-    values (#{sequenceid,jdbcType=DECIMAL}, #{ifnum,jdbcType=VARCHAR}, #{payment,jdbcType=VARCHAR}, 
-      #{endtime,jdbcType=VARCHAR}, #{num,jdbcType=DECIMAL}, #{name,jdbcType=VARCHAR}, 
-      #{reserve1,jdbcType=VARCHAR}, #{reserve2,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
-      #{epasswd,jdbcType=LONGVARCHAR})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbMytool">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbMytool">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbMytool">
-    insert into db_mytool
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        SEQUENCEID,
-      </if>
-      <if test="ifnum != null">
-        IFNUM,
-      </if>
-      <if test="payment != null">
-        PAYMENT,
-      </if>
-      <if test="endtime != null">
-        ENDTIME,
-      </if>
-      <if test="num != null">
-        NUM,
-      </if>
-      <if test="name != null">
-        'NAME',
-      </if>
-      <if test="reserve1 != null">
-        RESERVE1,
-      </if>
-      <if test="reserve2 != null">
-        RESERVE2,
-      </if>
-      <if test="createtime != null">
-        CREATETIME,
-      </if>
-      <if test="epasswd != null">
-        EPASSWD,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        #{sequenceid,jdbcType=DECIMAL},
-      </if>
-      <if test="ifnum != null">
-        #{ifnum,jdbcType=VARCHAR},
-      </if>
-      <if test="payment != null">
-        #{payment,jdbcType=VARCHAR},
-      </if>
-      <if test="endtime != null">
-        #{endtime,jdbcType=VARCHAR},
-      </if>
-      <if test="num != null">
-        #{num,jdbcType=DECIMAL},
-      </if>
-      <if test="name != null">
-        #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve1 != null">
-        #{reserve1,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve2 != null">
-        #{reserve2,jdbcType=VARCHAR},
-      </if>
-      <if test="createtime != null">
-        #{createtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="epasswd != null">
-        #{epasswd,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbMytool">
-    update db_mytool
-    <set>
-      <if test="ifnum != null">
-        IFNUM = #{ifnum,jdbcType=VARCHAR},
-      </if>
-      <if test="payment != null">
-        PAYMENT = #{payment,jdbcType=VARCHAR},
-      </if>
-      <if test="endtime != null">
-        ENDTIME = #{endtime,jdbcType=VARCHAR},
-      </if>
-      <if test="num != null">
-        NUM = #{num,jdbcType=DECIMAL},
-      </if>
-      <if test="name != null">
-        'NAME' = #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve1 != null">
-        RESERVE1 = #{reserve1,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve2 != null">
-        RESERVE2 = #{reserve2,jdbcType=VARCHAR},
-      </if>
-      <if test="createtime != null">
-        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="epasswd != null">
-        EPASSWD = #{epasswd,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbMytool">
-    update db_mytool
-    set IFNUM = #{ifnum,jdbcType=VARCHAR},
-      PAYMENT = #{payment,jdbcType=VARCHAR},
-      ENDTIME = #{endtime,jdbcType=VARCHAR},
-      NUM = #{num,jdbcType=DECIMAL},
-      'NAME' = #{name,jdbcType=VARCHAR},
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR},
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
-      EPASSWD = #{epasswd,jdbcType=LONGVARCHAR}
-    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbMytool">
-    update db_mytool
-    set IFNUM = #{ifnum,jdbcType=VARCHAR},
-      PAYMENT = #{payment,jdbcType=VARCHAR},
-      ENDTIME = #{endtime,jdbcType=VARCHAR},
-      NUM = #{num,jdbcType=DECIMAL},
-      'NAME' = #{name,jdbcType=VARCHAR},
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR},
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP}
-    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbMytool">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

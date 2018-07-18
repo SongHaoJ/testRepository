@@ -15,163 +15,139 @@
     <result column="OPERIME" jdbcType="TIMESTAMP" property="operime" />
     <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
   </resultMap>
-  <sql id="Base_Column_List">
-    SEQUENCEID, ITEMID, BROWSECOUNT, HITCOUNT, HITRATE, BUYCOUNT, BUYRATE, CORPID, OPER, 
-    OPENFLAG, OPERIME, CREATETIME
-  </sql>
   <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from db_item_history
+    select SEQUENCEID, ITEMID, BROWSECOUNT, HITCOUNT, HITRATE, BUYCOUNT, BUYRATE, CORPID, 
+    OPER, OPENFLAG, OPERIME, CREATETIME
+    from DB_ITEM_HISTORY
     where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
-    delete from db_item_history
-    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, ITEMID, BROWSECOUNT, HITCOUNT, HITRATE, BUYCOUNT, BUYRATE, CORPID, 
+    OPER, OPENFLAG, OPERIME, CREATETIME
+    from DB_ITEM_HISTORY
+  </select>
+  <sql id="TableName">
+    DB_ITEM_HISTORY
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=DECIMAL} , 
+     #{itemid,jdbcType=VARCHAR} , 
+     #{browsecount,jdbcType=DECIMAL} , 
+     #{hitcount,jdbcType=DECIMAL} , 
+     #{hitrate,jdbcType=DECIMAL} , 
+     #{buycount,jdbcType=DECIMAL} , 
+     #{buyrate,jdbcType=DECIMAL} , 
+     #{corpid,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{openflag,jdbcType=VARCHAR} , 
+     #{operime,jdbcType=TIMESTAMP} , 
+     #{createtime,jdbcType=TIMESTAMP} , 
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    ITEMID , 
+    BROWSECOUNT , 
+    HITCOUNT , 
+    HITRATE , 
+    BUYCOUNT , 
+    BUYRATE , 
+    CORPID , 
+    OPER , 
+    OPENFLAG , 
+    OPERIME , 
+    CREATETIME , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="itemid != null">
+      itemid = #{itemid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="browsecount != null">
+      browsecount = #{browsecount,jdbcType=DECIMAL} and 
+    </if>
+    <if test="hitcount != null">
+      hitcount = #{hitcount,jdbcType=DECIMAL} and 
+    </if>
+    <if test="hitrate != null">
+      hitrate = #{hitrate,jdbcType=DECIMAL} and 
+    </if>
+    <if test="buycount != null">
+      buycount = #{buycount,jdbcType=DECIMAL} and 
+    </if>
+    <if test="buyrate != null">
+      buyrate = #{buyrate,jdbcType=DECIMAL} and 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="operime != null">
+      operime = #{operime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="itemid != null">
+      itemid = #{itemid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="browsecount != null">
+      browsecount = #{browsecount,jdbcType=DECIMAL} , 
+    </if>
+    <if test="hitcount != null">
+      hitcount = #{hitcount,jdbcType=DECIMAL} , 
+    </if>
+    <if test="hitrate != null">
+      hitrate = #{hitrate,jdbcType=DECIMAL} , 
+    </if>
+    <if test="buycount != null">
+      buycount = #{buycount,jdbcType=DECIMAL} , 
+    </if>
+    <if test="buyrate != null">
+      buyrate = #{buyrate,jdbcType=DECIMAL} , 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="operime != null">
+      operime = #{operime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbItemHistory" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="BigDecimal">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbItemHistory">
-    insert into db_item_history (SEQUENCEID, ITEMID, BROWSECOUNT, 
-      HITCOUNT, HITRATE, BUYCOUNT, 
-      BUYRATE, CORPID, OPER, 
-      OPENFLAG, OPERIME, CREATETIME
-      )
-    values (#{sequenceid,jdbcType=DECIMAL}, #{itemid,jdbcType=VARCHAR}, #{browsecount,jdbcType=DECIMAL}, 
-      #{hitcount,jdbcType=DECIMAL}, #{hitrate,jdbcType=DECIMAL}, #{buycount,jdbcType=DECIMAL}, 
-      #{buyrate,jdbcType=DECIMAL}, #{corpid,jdbcType=VARCHAR}, #{oper,jdbcType=VARCHAR}, 
-      #{openflag,jdbcType=VARCHAR}, #{operime,jdbcType=TIMESTAMP}, #{createtime,jdbcType=TIMESTAMP}
-      )
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbItemHistory">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbItemHistory">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbItemHistory">
-    insert into db_item_history
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        SEQUENCEID,
-      </if>
-      <if test="itemid != null">
-        ITEMID,
-      </if>
-      <if test="browsecount != null">
-        BROWSECOUNT,
-      </if>
-      <if test="hitcount != null">
-        HITCOUNT,
-      </if>
-      <if test="hitrate != null">
-        HITRATE,
-      </if>
-      <if test="buycount != null">
-        BUYCOUNT,
-      </if>
-      <if test="buyrate != null">
-        BUYRATE,
-      </if>
-      <if test="corpid != null">
-        CORPID,
-      </if>
-      <if test="oper != null">
-        OPER,
-      </if>
-      <if test="openflag != null">
-        OPENFLAG,
-      </if>
-      <if test="operime != null">
-        OPERIME,
-      </if>
-      <if test="createtime != null">
-        CREATETIME,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        #{sequenceid,jdbcType=DECIMAL},
-      </if>
-      <if test="itemid != null">
-        #{itemid,jdbcType=VARCHAR},
-      </if>
-      <if test="browsecount != null">
-        #{browsecount,jdbcType=DECIMAL},
-      </if>
-      <if test="hitcount != null">
-        #{hitcount,jdbcType=DECIMAL},
-      </if>
-      <if test="hitrate != null">
-        #{hitrate,jdbcType=DECIMAL},
-      </if>
-      <if test="buycount != null">
-        #{buycount,jdbcType=DECIMAL},
-      </if>
-      <if test="buyrate != null">
-        #{buyrate,jdbcType=DECIMAL},
-      </if>
-      <if test="corpid != null">
-        #{corpid,jdbcType=VARCHAR},
-      </if>
-      <if test="oper != null">
-        #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="openflag != null">
-        #{openflag,jdbcType=VARCHAR},
-      </if>
-      <if test="operime != null">
-        #{operime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="createtime != null">
-        #{createtime,jdbcType=TIMESTAMP},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbItemHistory">
-    update db_item_history
-    <set>
-      <if test="itemid != null">
-        ITEMID = #{itemid,jdbcType=VARCHAR},
-      </if>
-      <if test="browsecount != null">
-        BROWSECOUNT = #{browsecount,jdbcType=DECIMAL},
-      </if>
-      <if test="hitcount != null">
-        HITCOUNT = #{hitcount,jdbcType=DECIMAL},
-      </if>
-      <if test="hitrate != null">
-        HITRATE = #{hitrate,jdbcType=DECIMAL},
-      </if>
-      <if test="buycount != null">
-        BUYCOUNT = #{buycount,jdbcType=DECIMAL},
-      </if>
-      <if test="buyrate != null">
-        BUYRATE = #{buyrate,jdbcType=DECIMAL},
-      </if>
-      <if test="corpid != null">
-        CORPID = #{corpid,jdbcType=VARCHAR},
-      </if>
-      <if test="oper != null">
-        OPER = #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="openflag != null">
-        OPENFLAG = #{openflag,jdbcType=VARCHAR},
-      </if>
-      <if test="operime != null">
-        OPERIME = #{operime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="createtime != null">
-        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbItemHistory">
-    update db_item_history
-    set ITEMID = #{itemid,jdbcType=VARCHAR},
-      BROWSECOUNT = #{browsecount,jdbcType=DECIMAL},
-      HITCOUNT = #{hitcount,jdbcType=DECIMAL},
-      HITRATE = #{hitrate,jdbcType=DECIMAL},
-      BUYCOUNT = #{buycount,jdbcType=DECIMAL},
-      BUYRATE = #{buyrate,jdbcType=DECIMAL},
-      CORPID = #{corpid,jdbcType=VARCHAR},
-      OPER = #{oper,jdbcType=VARCHAR},
-      OPENFLAG = #{openflag,jdbcType=VARCHAR},
-      OPERIME = #{operime,jdbcType=TIMESTAMP},
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP}
-    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbItemHistory">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

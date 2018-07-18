@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbEdisaddress;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbEdisaddressMapper {
-    int deleteByPrimaryKey(String addressid);
+    DbEdisaddress selectByCriteria(DbEdisaddress DbEdisaddress);
 
-    int insert(DbEdisaddress record);
+    void deleteByPrimaryKey(String ADDRESSID);
 
-    int insertSelective(DbEdisaddress record);
+    void deleteByCriteria(DbEdisaddress DbEdisaddress);
+
+    int insertByCriteria(DbEdisaddress DbEdisaddress);
+
+    int updateByCriteria(DbEdisaddress DbEdisaddress);
 
     DbEdisaddress selectByPrimaryKey(String addressid);
 
-    int updateByPrimaryKeySelective(DbEdisaddress record);
-
-    int updateByPrimaryKey(DbEdisaddress record);
+    List<DbEdisaddress> selectAll();
 }

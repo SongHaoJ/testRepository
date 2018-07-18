@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbCustomlable;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbCustomlableMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbCustomlable selectByCriteria(DbCustomlable DbCustomlable);
 
-    int insert(DbCustomlable record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbCustomlable record);
+    void deleteByCriteria(DbCustomlable DbCustomlable);
+
+    int insertByCriteria(DbCustomlable DbCustomlable);
+
+    int updateByCriteria(DbCustomlable DbCustomlable);
 
     DbCustomlable selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbCustomlable record);
-
-    int updateByPrimaryKey(DbCustomlable record);
+    List<DbCustomlable> selectAll();
 }

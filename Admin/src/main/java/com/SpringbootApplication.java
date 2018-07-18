@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @MapperScan("com.bean.dao")
 @SpringBootApplication
 @EnableScheduling
-@EnableTransactionManagement
+/*@EnableTransactionManagement*/
 public class SpringbootApplication extends SpringBootServletInitializer {
 
     @Override

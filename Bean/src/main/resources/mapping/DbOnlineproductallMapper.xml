@@ -7,115 +7,91 @@
     <result column="ITEMID" jdbcType="VARCHAR" property="itemid" />
     <result column="FLAG" jdbcType="DECIMAL" property="flag" />
     <result column="SHOPID" jdbcType="VARCHAR" property="shopid" />
+    <result column="SHOPNAME" jdbcType="VARCHAR" property="shopname" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbOnlineproductall">
-    <result column="SHOPNAME" jdbcType="LONGVARCHAR" property="shopname" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    SID, SKU, ITEMID, FLAG, SHOPID
-  </sql>
-  <sql id="Blob_Column_List">
-    SHOPNAME
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from db_onlineproductall
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SID, SKU, ITEMID, FLAG, SHOPID, SHOPNAME
+    from DB_ONLINEPRODUCTALL
     where SID = #{sid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_onlineproductall
-    where SID = #{sid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, SKU, ITEMID, FLAG, SHOPID, SHOPNAME
+    from DB_ONLINEPRODUCTALL
+  </select>
+  <sql id="TableName">
+    DB_ONLINEPRODUCTALL
+  </sql>
+  <sql id="Values">
+     #{sid,jdbcType=VARCHAR} , 
+     #{sku,jdbcType=VARCHAR} , 
+     #{itemid,jdbcType=VARCHAR} , 
+     #{flag,jdbcType=DECIMAL} , 
+     #{shopid,jdbcType=VARCHAR} , 
+     #{shopname,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    SID , 
+    SKU , 
+    ITEMID , 
+    FLAG , 
+    SHOPID , 
+    SHOPNAME , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sku != null">
+      sku = #{sku,jdbcType=VARCHAR} and 
+    </if>
+    <if test="itemid != null">
+      itemid = #{itemid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="shopid != null">
+      shopid = #{shopid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shopname != null">
+      shopname = #{shopname,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sku != null">
+      sku = #{sku,jdbcType=VARCHAR} , 
+    </if>
+    <if test="itemid != null">
+      itemid = #{itemid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="shopid != null">
+      shopid = #{shopid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shopname != null">
+      shopname = #{shopname,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbOnlineproductall" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SID=#{SID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbOnlineproductall">
-    insert into db_onlineproductall (SID, SKU, ITEMID, 
-      FLAG, SHOPID, SHOPNAME
-      )
-    values (#{sid,jdbcType=VARCHAR}, #{sku,jdbcType=VARCHAR}, #{itemid,jdbcType=VARCHAR}, 
-      #{flag,jdbcType=DECIMAL}, #{shopid,jdbcType=VARCHAR}, #{shopname,jdbcType=LONGVARCHAR}
-      )
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbOnlineproductall">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbOnlineproductall">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbOnlineproductall">
-    insert into db_onlineproductall
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        SID,
-      </if>
-      <if test="sku != null">
-        SKU,
-      </if>
-      <if test="itemid != null">
-        ITEMID,
-      </if>
-      <if test="flag != null">
-        FLAG,
-      </if>
-      <if test="shopid != null">
-        SHOPID,
-      </if>
-      <if test="shopname != null">
-        SHOPNAME,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        #{sid,jdbcType=VARCHAR},
-      </if>
-      <if test="sku != null">
-        #{sku,jdbcType=VARCHAR},
-      </if>
-      <if test="itemid != null">
-        #{itemid,jdbcType=VARCHAR},
-      </if>
-      <if test="flag != null">
-        #{flag,jdbcType=DECIMAL},
-      </if>
-      <if test="shopid != null">
-        #{shopid,jdbcType=VARCHAR},
-      </if>
-      <if test="shopname != null">
-        #{shopname,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbOnlineproductall">
-    update db_onlineproductall
-    <set>
-      <if test="sku != null">
-        SKU = #{sku,jdbcType=VARCHAR},
-      </if>
-      <if test="itemid != null">
-        ITEMID = #{itemid,jdbcType=VARCHAR},
-      </if>
-      <if test="flag != null">
-        FLAG = #{flag,jdbcType=DECIMAL},
-      </if>
-      <if test="shopid != null">
-        SHOPID = #{shopid,jdbcType=VARCHAR},
-      </if>
-      <if test="shopname != null">
-        SHOPNAME = #{shopname,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where SID = #{sid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbOnlineproductall">
-    update db_onlineproductall
-    set SKU = #{sku,jdbcType=VARCHAR},
-      ITEMID = #{itemid,jdbcType=VARCHAR},
-      FLAG = #{flag,jdbcType=DECIMAL},
-      SHOPID = #{shopid,jdbcType=VARCHAR},
-      SHOPNAME = #{shopname,jdbcType=LONGVARCHAR}
-    where SID = #{sid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbOnlineproductall">
-    update db_onlineproductall
-    set SKU = #{sku,jdbcType=VARCHAR},
-      ITEMID = #{itemid,jdbcType=VARCHAR},
-      FLAG = #{flag,jdbcType=DECIMAL},
-      SHOPID = #{shopid,jdbcType=VARCHAR}
-    where SID = #{sid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbOnlineproductall">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

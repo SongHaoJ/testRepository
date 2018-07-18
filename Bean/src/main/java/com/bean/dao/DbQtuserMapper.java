@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbQtuser;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbQtuserMapper {
-    int deleteByPrimaryKey(String userid);
+    DbQtuser selectByCriteria(DbQtuser DbQtuser);
 
-    int insert(DbQtuser record);
+    void deleteByPrimaryKey(String USERID);
 
-    int insertSelective(DbQtuser record);
+    void deleteByCriteria(DbQtuser DbQtuser);
+
+    int insertByCriteria(DbQtuser DbQtuser);
+
+    int updateByCriteria(DbQtuser DbQtuser);
 
     DbQtuser selectByPrimaryKey(String userid);
 
-    int updateByPrimaryKeySelective(DbQtuser record);
-
-    int updateByPrimaryKeyWithBLOBs(DbQtuser record);
-
-    int updateByPrimaryKey(DbQtuser record);
+    List<DbQtuser> selectAll();
 }

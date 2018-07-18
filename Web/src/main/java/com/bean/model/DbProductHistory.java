@@ -149,9 +149,25 @@ public class DbProductHistory implements Serializable {
 
     private BigDecimal bid60day;
 
+    private String note1;
+
+    private String note2;
+
+    private String note3;
+
+    private String note4;
+
+    private String note5;
+
+    private String note6;
+
+    private String note7;
+
     private BigDecimal bidprice;
 
     private BigDecimal bargainrate;
+
+    private String advertisement;
 
     private Date opertime;
 
@@ -176,6 +192,14 @@ public class DbProductHistory implements Serializable {
     private BigDecimal ebayfixfee;
 
     private Date onlinetime;
+
+    private String sellnumdescrby7d;
+
+    private String sellnumdescrby7c;
+
+    private String sellnumdescrby7b;
+
+    private String sellnumdescrby7a;
 
     private BigDecimal sellnumby7d;
 
@@ -290,30 +314,6 @@ public class DbProductHistory implements Serializable {
     private BigDecimal tariff;
 
     private BigDecimal savenumstatus;
-
-    private String note1;
-
-    private String note2;
-
-    private String note3;
-
-    private String note4;
-
-    private String note5;
-
-    private String note6;
-
-    private String note7;
-
-    private String advertisement;
-
-    private String sellnumdescrby7d;
-
-    private String sellnumdescrby7c;
-
-    private String sellnumdescrby7b;
-
-    private String sellnumdescrby7a;
 
     private static final long serialVersionUID = 1L;
 
@@ -893,6 +893,62 @@ public class DbProductHistory implements Serializable {
         this.bid60day = bid60day;
     }
 
+    public String getNote1() {
+        return note1;
+    }
+
+    public void setNote1(String note1) {
+        this.note1 = note1 == null ? null : note1.trim();
+    }
+
+    public String getNote2() {
+        return note2;
+    }
+
+    public void setNote2(String note2) {
+        this.note2 = note2 == null ? null : note2.trim();
+    }
+
+    public String getNote3() {
+        return note3;
+    }
+
+    public void setNote3(String note3) {
+        this.note3 = note3 == null ? null : note3.trim();
+    }
+
+    public String getNote4() {
+        return note4;
+    }
+
+    public void setNote4(String note4) {
+        this.note4 = note4 == null ? null : note4.trim();
+    }
+
+    public String getNote5() {
+        return note5;
+    }
+
+    public void setNote5(String note5) {
+        this.note5 = note5 == null ? null : note5.trim();
+    }
+
+    public String getNote6() {
+        return note6;
+    }
+
+    public void setNote6(String note6) {
+        this.note6 = note6 == null ? null : note6.trim();
+    }
+
+    public String getNote7() {
+        return note7;
+    }
+
+    public void setNote7(String note7) {
+        this.note7 = note7 == null ? null : note7.trim();
+    }
+
     public BigDecimal getBidprice() {
         return bidprice;
     }
@@ -907,6 +963,14 @@ public class DbProductHistory implements Serializable {
 
     public void setBargainrate(BigDecimal bargainrate) {
         this.bargainrate = bargainrate;
+    }
+
+    public String getAdvertisement() {
+        return advertisement;
+    }
+
+    public void setAdvertisement(String advertisement) {
+        this.advertisement = advertisement == null ? null : advertisement.trim();
     }
 
     public Date getOpertime() {
@@ -1003,6 +1067,38 @@ public class DbProductHistory implements Serializable {
 
     public void setOnlinetime(Date onlinetime) {
         this.onlinetime = onlinetime;
+    }
+
+    public String getSellnumdescrby7d() {
+        return sellnumdescrby7d;
+    }
+
+    public void setSellnumdescrby7d(String sellnumdescrby7d) {
+        this.sellnumdescrby7d = sellnumdescrby7d == null ? null : sellnumdescrby7d.trim();
+    }
+
+    public String getSellnumdescrby7c() {
+        return sellnumdescrby7c;
+    }
+
+    public void setSellnumdescrby7c(String sellnumdescrby7c) {
+        this.sellnumdescrby7c = sellnumdescrby7c == null ? null : sellnumdescrby7c.trim();
+    }
+
+    public String getSellnumdescrby7b() {
+        return sellnumdescrby7b;
+    }
+
+    public void setSellnumdescrby7b(String sellnumdescrby7b) {
+        this.sellnumdescrby7b = sellnumdescrby7b == null ? null : sellnumdescrby7b.trim();
+    }
+
+    public String getSellnumdescrby7a() {
+        return sellnumdescrby7a;
+    }
+
+    public void setSellnumdescrby7a(String sellnumdescrby7a) {
+        this.sellnumdescrby7a = sellnumdescrby7a == null ? null : sellnumdescrby7a.trim();
     }
 
     public BigDecimal getSellnumby7d() {
@@ -1461,102 +1557,6 @@ public class DbProductHistory implements Serializable {
         this.savenumstatus = savenumstatus;
     }
 
-    public String getNote1() {
-        return note1;
-    }
-
-    public void setNote1(String note1) {
-        this.note1 = note1 == null ? null : note1.trim();
-    }
-
-    public String getNote2() {
-        return note2;
-    }
-
-    public void setNote2(String note2) {
-        this.note2 = note2 == null ? null : note2.trim();
-    }
-
-    public String getNote3() {
-        return note3;
-    }
-
-    public void setNote3(String note3) {
-        this.note3 = note3 == null ? null : note3.trim();
-    }
-
-    public String getNote4() {
-        return note4;
-    }
-
-    public void setNote4(String note4) {
-        this.note4 = note4 == null ? null : note4.trim();
-    }
-
-    public String getNote5() {
-        return note5;
-    }
-
-    public void setNote5(String note5) {
-        this.note5 = note5 == null ? null : note5.trim();
-    }
-
-    public String getNote6() {
-        return note6;
-    }
-
-    public void setNote6(String note6) {
-        this.note6 = note6 == null ? null : note6.trim();
-    }
-
-    public String getNote7() {
-        return note7;
-    }
-
-    public void setNote7(String note7) {
-        this.note7 = note7 == null ? null : note7.trim();
-    }
-
-    public String getAdvertisement() {
-        return advertisement;
-    }
-
-    public void setAdvertisement(String advertisement) {
-        this.advertisement = advertisement == null ? null : advertisement.trim();
-    }
-
-    public String getSellnumdescrby7d() {
-        return sellnumdescrby7d;
-    }
-
-    public void setSellnumdescrby7d(String sellnumdescrby7d) {
-        this.sellnumdescrby7d = sellnumdescrby7d == null ? null : sellnumdescrby7d.trim();
-    }
-
-    public String getSellnumdescrby7c() {
-        return sellnumdescrby7c;
-    }
-
-    public void setSellnumdescrby7c(String sellnumdescrby7c) {
-        this.sellnumdescrby7c = sellnumdescrby7c == null ? null : sellnumdescrby7c.trim();
-    }
-
-    public String getSellnumdescrby7b() {
-        return sellnumdescrby7b;
-    }
-
-    public void setSellnumdescrby7b(String sellnumdescrby7b) {
-        this.sellnumdescrby7b = sellnumdescrby7b == null ? null : sellnumdescrby7b.trim();
-    }
-
-    public String getSellnumdescrby7a() {
-        return sellnumdescrby7a;
-    }
-
-    public void setSellnumdescrby7a(String sellnumdescrby7a) {
-        this.sellnumdescrby7a = sellnumdescrby7a == null ? null : sellnumdescrby7a.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -1641,8 +1641,16 @@ public class DbProductHistory implements Serializable {
             && (this.getBid7day() == null ? other.getBid7day() == null : this.getBid7day().equals(other.getBid7day()))
             && (this.getBid30day() == null ? other.getBid30day() == null : this.getBid30day().equals(other.getBid30day()))
             && (this.getBid60day() == null ? other.getBid60day() == null : this.getBid60day().equals(other.getBid60day()))
+            && (this.getNote1() == null ? other.getNote1() == null : this.getNote1().equals(other.getNote1()))
+            && (this.getNote2() == null ? other.getNote2() == null : this.getNote2().equals(other.getNote2()))
+            && (this.getNote3() == null ? other.getNote3() == null : this.getNote3().equals(other.getNote3()))
+            && (this.getNote4() == null ? other.getNote4() == null : this.getNote4().equals(other.getNote4()))
+            && (this.getNote5() == null ? other.getNote5() == null : this.getNote5().equals(other.getNote5()))
+            && (this.getNote6() == null ? other.getNote6() == null : this.getNote6().equals(other.getNote6()))
+            && (this.getNote7() == null ? other.getNote7() == null : this.getNote7().equals(other.getNote7()))
             && (this.getBidprice() == null ? other.getBidprice() == null : this.getBidprice().equals(other.getBidprice()))
             && (this.getBargainrate() == null ? other.getBargainrate() == null : this.getBargainrate().equals(other.getBargainrate()))
+            && (this.getAdvertisement() == null ? other.getAdvertisement() == null : this.getAdvertisement().equals(other.getAdvertisement()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getUpdatetime() == null ? other.getUpdatetime() == null : this.getUpdatetime().equals(other.getUpdatetime()))
@@ -1655,6 +1663,10 @@ public class DbProductHistory implements Serializable {
             && (this.getEbaybidfee() == null ? other.getEbaybidfee() == null : this.getEbaybidfee().equals(other.getEbaybidfee()))
             && (this.getEbayfixfee() == null ? other.getEbayfixfee() == null : this.getEbayfixfee().equals(other.getEbayfixfee()))
             && (this.getOnlinetime() == null ? other.getOnlinetime() == null : this.getOnlinetime().equals(other.getOnlinetime()))
+            && (this.getSellnumdescrby7d() == null ? other.getSellnumdescrby7d() == null : this.getSellnumdescrby7d().equals(other.getSellnumdescrby7d()))
+            && (this.getSellnumdescrby7c() == null ? other.getSellnumdescrby7c() == null : this.getSellnumdescrby7c().equals(other.getSellnumdescrby7c()))
+            && (this.getSellnumdescrby7b() == null ? other.getSellnumdescrby7b() == null : this.getSellnumdescrby7b().equals(other.getSellnumdescrby7b()))
+            && (this.getSellnumdescrby7a() == null ? other.getSellnumdescrby7a() == null : this.getSellnumdescrby7a().equals(other.getSellnumdescrby7a()))
             && (this.getSellnumby7d() == null ? other.getSellnumby7d() == null : this.getSellnumby7d().equals(other.getSellnumby7d()))
             && (this.getSellnumby7c() == null ? other.getSellnumby7c() == null : this.getSellnumby7c().equals(other.getSellnumby7c()))
             && (this.getSellnumby7b() == null ? other.getSellnumby7b() == null : this.getSellnumby7b().equals(other.getSellnumby7b()))
@@ -1711,19 +1723,7 @@ public class DbProductHistory implements Serializable {
             && (this.getVolumeweight() == null ? other.getVolumeweight() == null : this.getVolumeweight().equals(other.getVolumeweight()))
             && (this.getGst() == null ? other.getGst() == null : this.getGst().equals(other.getGst()))
             && (this.getTariff() == null ? other.getTariff() == null : this.getTariff().equals(other.getTariff()))
-            && (this.getSavenumstatus() == null ? other.getSavenumstatus() == null : this.getSavenumstatus().equals(other.getSavenumstatus()))
-            && (this.getNote1() == null ? other.getNote1() == null : this.getNote1().equals(other.getNote1()))
-            && (this.getNote2() == null ? other.getNote2() == null : this.getNote2().equals(other.getNote2()))
-            && (this.getNote3() == null ? other.getNote3() == null : this.getNote3().equals(other.getNote3()))
-            && (this.getNote4() == null ? other.getNote4() == null : this.getNote4().equals(other.getNote4()))
-            && (this.getNote5() == null ? other.getNote5() == null : this.getNote5().equals(other.getNote5()))
-            && (this.getNote6() == null ? other.getNote6() == null : this.getNote6().equals(other.getNote6()))
-            && (this.getNote7() == null ? other.getNote7() == null : this.getNote7().equals(other.getNote7()))
-            && (this.getAdvertisement() == null ? other.getAdvertisement() == null : this.getAdvertisement().equals(other.getAdvertisement()))
-            && (this.getSellnumdescrby7d() == null ? other.getSellnumdescrby7d() == null : this.getSellnumdescrby7d().equals(other.getSellnumdescrby7d()))
-            && (this.getSellnumdescrby7c() == null ? other.getSellnumdescrby7c() == null : this.getSellnumdescrby7c().equals(other.getSellnumdescrby7c()))
-            && (this.getSellnumdescrby7b() == null ? other.getSellnumdescrby7b() == null : this.getSellnumdescrby7b().equals(other.getSellnumdescrby7b()))
-            && (this.getSellnumdescrby7a() == null ? other.getSellnumdescrby7a() == null : this.getSellnumdescrby7a().equals(other.getSellnumdescrby7a()));
+            && (this.getSavenumstatus() == null ? other.getSavenumstatus() == null : this.getSavenumstatus().equals(other.getSavenumstatus()));
     }
 
     @Override
@@ -1802,8 +1802,16 @@ public class DbProductHistory implements Serializable {
         result = prime * result + ((getBid7day() == null) ? 0 : getBid7day().hashCode());
         result = prime * result + ((getBid30day() == null) ? 0 : getBid30day().hashCode());
         result = prime * result + ((getBid60day() == null) ? 0 : getBid60day().hashCode());
+        result = prime * result + ((getNote1() == null) ? 0 : getNote1().hashCode());
+        result = prime * result + ((getNote2() == null) ? 0 : getNote2().hashCode());
+        result = prime * result + ((getNote3() == null) ? 0 : getNote3().hashCode());
+        result = prime * result + ((getNote4() == null) ? 0 : getNote4().hashCode());
+        result = prime * result + ((getNote5() == null) ? 0 : getNote5().hashCode());
+        result = prime * result + ((getNote6() == null) ? 0 : getNote6().hashCode());
+        result = prime * result + ((getNote7() == null) ? 0 : getNote7().hashCode());
         result = prime * result + ((getBidprice() == null) ? 0 : getBidprice().hashCode());
         result = prime * result + ((getBargainrate() == null) ? 0 : getBargainrate().hashCode());
+        result = prime * result + ((getAdvertisement() == null) ? 0 : getAdvertisement().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getUpdatetime() == null) ? 0 : getUpdatetime().hashCode());
@@ -1816,6 +1824,10 @@ public class DbProductHistory implements Serializable {
         result = prime * result + ((getEbaybidfee() == null) ? 0 : getEbaybidfee().hashCode());
         result = prime * result + ((getEbayfixfee() == null) ? 0 : getEbayfixfee().hashCode());
         result = prime * result + ((getOnlinetime() == null) ? 0 : getOnlinetime().hashCode());
+        result = prime * result + ((getSellnumdescrby7d() == null) ? 0 : getSellnumdescrby7d().hashCode());
+        result = prime * result + ((getSellnumdescrby7c() == null) ? 0 : getSellnumdescrby7c().hashCode());
+        result = prime * result + ((getSellnumdescrby7b() == null) ? 0 : getSellnumdescrby7b().hashCode());
+        result = prime * result + ((getSellnumdescrby7a() == null) ? 0 : getSellnumdescrby7a().hashCode());
         result = prime * result + ((getSellnumby7d() == null) ? 0 : getSellnumby7d().hashCode());
         result = prime * result + ((getSellnumby7c() == null) ? 0 : getSellnumby7c().hashCode());
         result = prime * result + ((getSellnumby7b() == null) ? 0 : getSellnumby7b().hashCode());
@@ -1873,18 +1885,6 @@ public class DbProductHistory implements Serializable {
         result = prime * result + ((getGst() == null) ? 0 : getGst().hashCode());
         result = prime * result + ((getTariff() == null) ? 0 : getTariff().hashCode());
         result = prime * result + ((getSavenumstatus() == null) ? 0 : getSavenumstatus().hashCode());
-        result = prime * result + ((getNote1() == null) ? 0 : getNote1().hashCode());
-        result = prime * result + ((getNote2() == null) ? 0 : getNote2().hashCode());
-        result = prime * result + ((getNote3() == null) ? 0 : getNote3().hashCode());
-        result = prime * result + ((getNote4() == null) ? 0 : getNote4().hashCode());
-        result = prime * result + ((getNote5() == null) ? 0 : getNote5().hashCode());
-        result = prime * result + ((getNote6() == null) ? 0 : getNote6().hashCode());
-        result = prime * result + ((getNote7() == null) ? 0 : getNote7().hashCode());
-        result = prime * result + ((getAdvertisement() == null) ? 0 : getAdvertisement().hashCode());
-        result = prime * result + ((getSellnumdescrby7d() == null) ? 0 : getSellnumdescrby7d().hashCode());
-        result = prime * result + ((getSellnumdescrby7c() == null) ? 0 : getSellnumdescrby7c().hashCode());
-        result = prime * result + ((getSellnumdescrby7b() == null) ? 0 : getSellnumdescrby7b().hashCode());
-        result = prime * result + ((getSellnumdescrby7a() == null) ? 0 : getSellnumdescrby7a().hashCode());
         return result;
     }
 
@@ -1966,8 +1966,16 @@ public class DbProductHistory implements Serializable {
         sb.append(", bid7day=").append(bid7day);
         sb.append(", bid30day=").append(bid30day);
         sb.append(", bid60day=").append(bid60day);
+        sb.append(", note1=").append(note1);
+        sb.append(", note2=").append(note2);
+        sb.append(", note3=").append(note3);
+        sb.append(", note4=").append(note4);
+        sb.append(", note5=").append(note5);
+        sb.append(", note6=").append(note6);
+        sb.append(", note7=").append(note7);
         sb.append(", bidprice=").append(bidprice);
         sb.append(", bargainrate=").append(bargainrate);
+        sb.append(", advertisement=").append(advertisement);
         sb.append(", opertime=").append(opertime);
         sb.append(", oper=").append(oper);
         sb.append(", updatetime=").append(updatetime);
@@ -1980,6 +1988,10 @@ public class DbProductHistory implements Serializable {
         sb.append(", ebaybidfee=").append(ebaybidfee);
         sb.append(", ebayfixfee=").append(ebayfixfee);
         sb.append(", onlinetime=").append(onlinetime);
+        sb.append(", sellnumdescrby7d=").append(sellnumdescrby7d);
+        sb.append(", sellnumdescrby7c=").append(sellnumdescrby7c);
+        sb.append(", sellnumdescrby7b=").append(sellnumdescrby7b);
+        sb.append(", sellnumdescrby7a=").append(sellnumdescrby7a);
         sb.append(", sellnumby7d=").append(sellnumby7d);
         sb.append(", sellnumby7c=").append(sellnumby7c);
         sb.append(", sellnumby7b=").append(sellnumby7b);
@@ -2037,18 +2049,6 @@ public class DbProductHistory implements Serializable {
         sb.append(", gst=").append(gst);
         sb.append(", tariff=").append(tariff);
         sb.append(", savenumstatus=").append(savenumstatus);
-        sb.append(", note1=").append(note1);
-        sb.append(", note2=").append(note2);
-        sb.append(", note3=").append(note3);
-        sb.append(", note4=").append(note4);
-        sb.append(", note5=").append(note5);
-        sb.append(", note6=").append(note6);
-        sb.append(", note7=").append(note7);
-        sb.append(", advertisement=").append(advertisement);
-        sb.append(", sellnumdescrby7d=").append(sellnumdescrby7d);
-        sb.append(", sellnumdescrby7c=").append(sellnumdescrby7c);
-        sb.append(", sellnumdescrby7b=").append(sellnumdescrby7b);
-        sb.append(", sellnumdescrby7a=").append(sellnumdescrby7a);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

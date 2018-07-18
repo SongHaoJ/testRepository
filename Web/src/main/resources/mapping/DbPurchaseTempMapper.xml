@@ -5,6 +5,7 @@
     <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
     <result column="PRODUCTID" jdbcType="VARCHAR" property="productid" />
     <result column="INPORTTIME" jdbcType="TIMESTAMP" property="inporttime" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
     <result column="ORPER" jdbcType="VARCHAR" property="orper" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
     <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
@@ -12,26 +13,26 @@
     <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
     <result column="RESERVE4" jdbcType="VARCHAR" property="reserve4" />
     <result column="RESERVE5" jdbcType="VARCHAR" property="reserve5" />
-    <result column="TITLE" jdbcType="LONGVARCHAR" property="title" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select SEQUENCEID, PRODUCTID, INPORTTIME, ORPER, OPERTIME, RESERVE1, RESERVE2, RESERVE3, 
-    RESERVE4, RESERVE5, TITLE
-    from db_purchase_temp
+    select SEQUENCEID, PRODUCTID, INPORTTIME, TITLE, ORPER, OPERTIME, RESERVE1, RESERVE2, 
+    RESERVE3, RESERVE4, RESERVE5
+    from DB_PURCHASE_TEMP
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select SEQUENCEID, PRODUCTID, INPORTTIME, ORPER, OPERTIME, RESERVE1, RESERVE2, RESERVE3, 
-    RESERVE4, RESERVE5, TITLE
-    from db_purchase_temp
+    select SEQUENCEID, PRODUCTID, INPORTTIME, TITLE, ORPER, OPERTIME, RESERVE1, RESERVE2, 
+    RESERVE3, RESERVE4, RESERVE5
+    from DB_PURCHASE_TEMP
   </select>
   <sql id="TableName">
-    db_purchase_temp
+    DB_PURCHASE_TEMP
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=VARCHAR} , 
      #{productid,jdbcType=VARCHAR} , 
      #{inporttime,jdbcType=TIMESTAMP} , 
+     #{title,jdbcType=VARCHAR} , 
      #{orper,jdbcType=VARCHAR} , 
      #{opertime,jdbcType=TIMESTAMP} , 
      #{reserve1,jdbcType=VARCHAR} , 
@@ -39,12 +40,12 @@
      #{reserve3,jdbcType=VARCHAR} , 
      #{reserve4,jdbcType=VARCHAR} , 
      #{reserve5,jdbcType=VARCHAR} , 
-     #{title,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
     PRODUCTID , 
     INPORTTIME , 
+    TITLE , 
     ORPER , 
     OPERTIME , 
     RESERVE1 , 
@@ -52,79 +53,78 @@
     RESERVE3 , 
     RESERVE4 , 
     RESERVE5 , 
-    TITLE
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
     </if>
     <if test="productid != null">
-      PRODUCTID = #{productid,jdbcType=VARCHAR} and 
+      productid = #{productid,jdbcType=VARCHAR} and 
     </if>
     <if test="inporttime != null">
-      INPORTTIME = #{inporttime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="orper != null">
-      ORPER = #{orper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=VARCHAR} and 
+      inporttime = #{inporttime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="title != null">
-      TITLE = #{title,jdbcType=LONGVARCHAR}
+      title = #{title,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="orper != null">
+      orper = #{orper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=VARCHAR} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
     </if>
     <if test="productid != null">
-      PRODUCTID = #{productid,jdbcType=VARCHAR} , 
+      productid = #{productid,jdbcType=VARCHAR} , 
     </if>
     <if test="inporttime != null">
-      INPORTTIME = #{inporttime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="orper != null">
-      ORPER = #{orper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=VARCHAR} , 
+      inporttime = #{inporttime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="title != null">
-      TITLE = #{title,jdbcType=LONGVARCHAR}
+      title = #{title,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="orper != null">
+      orper = #{orper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=VARCHAR} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbPurchaseTemp" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

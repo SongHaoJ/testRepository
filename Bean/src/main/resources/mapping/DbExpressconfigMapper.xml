@@ -6,94 +6,83 @@
     <result column="ORDERTYPE" jdbcType="VARCHAR" property="ordertype" />
     <result column="EXPRESSNAME" jdbcType="VARCHAR" property="expressname" />
     <result column="OPENFLAG" jdbcType="DECIMAL" property="openflag" />
+    <result column="CONFIG" jdbcType="VARCHAR" property="config" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbExpressconfig">
-    <result column="CONFIG" jdbcType="LONGVARCHAR" property="config" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    ID, ORDERTYPE, EXPRESSNAME, OPENFLAG
-  </sql>
-  <sql id="Blob_Column_List">
-    CONFIG
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="ResultMapWithBLOBs">
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from db_expressconfig
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select ID, ORDERTYPE, EXPRESSNAME, OPENFLAG, CONFIG
+    from DB_EXPRESSCONFIG
     where ID = #{id,jdbcType=DECIMAL}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
-    delete from db_expressconfig
-    where ID = #{id,jdbcType=DECIMAL}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ID, ORDERTYPE, EXPRESSNAME, OPENFLAG, CONFIG
+    from DB_EXPRESSCONFIG
+  </select>
+  <sql id="TableName">
+    DB_EXPRESSCONFIG
+  </sql>
+  <sql id="Values">
+     #{id,jdbcType=DECIMAL} , 
+     #{ordertype,jdbcType=VARCHAR} , 
+     #{expressname,jdbcType=VARCHAR} , 
+     #{openflag,jdbcType=DECIMAL} , 
+     #{config,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    ID , 
+    ORDERTYPE , 
+    EXPRESSNAME , 
+    OPENFLAG , 
+    CONFIG , 
+  </sql>
+  <sql id="Criteria">
+    <if test="id != null">
+      id = #{id,jdbcType=DECIMAL} and 
+    </if>
+    <if test="ordertype != null">
+      ordertype = #{ordertype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="expressname != null">
+      expressname = #{expressname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="config != null">
+      config = #{config,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="id != null">
+      id = #{id,jdbcType=DECIMAL} , 
+    </if>
+    <if test="ordertype != null">
+      ordertype = #{ordertype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="expressname != null">
+      expressname = #{expressname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="config != null">
+      config = #{config,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbExpressconfig" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="Short">
+    delete from <include refid="TableName"/> where ID=#{ID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbExpressconfig">
-    insert into db_expressconfig (ID, ORDERTYPE, EXPRESSNAME, 
-      OPENFLAG, CONFIG)
-    values (#{id,jdbcType=DECIMAL}, #{ordertype,jdbcType=VARCHAR}, #{expressname,jdbcType=VARCHAR}, 
-      #{openflag,jdbcType=DECIMAL}, #{config,jdbcType=LONGVARCHAR})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbExpressconfig">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbExpressconfig">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbExpressconfig">
-    insert into db_expressconfig
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        ID,
-      </if>
-      <if test="ordertype != null">
-        ORDERTYPE,
-      </if>
-      <if test="expressname != null">
-        EXPRESSNAME,
-      </if>
-      <if test="openflag != null">
-        OPENFLAG,
-      </if>
-      <if test="config != null">
-        CONFIG,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=DECIMAL},
-      </if>
-      <if test="ordertype != null">
-        #{ordertype,jdbcType=VARCHAR},
-      </if>
-      <if test="expressname != null">
-        #{expressname,jdbcType=VARCHAR},
-      </if>
-      <if test="openflag != null">
-        #{openflag,jdbcType=DECIMAL},
-      </if>
-      <if test="config != null">
-        #{config,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbExpressconfig">
-    update db_expressconfig
-    <set>
-      <if test="ordertype != null">
-        ORDERTYPE = #{ordertype,jdbcType=VARCHAR},
-      </if>
-      <if test="expressname != null">
-        EXPRESSNAME = #{expressname,jdbcType=VARCHAR},
-      </if>
-      <if test="openflag != null">
-        OPENFLAG = #{openflag,jdbcType=DECIMAL},
-      </if>
-      <if test="config != null">
-        CONFIG = #{config,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where ID = #{id,jdbcType=DECIMAL}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbExpressconfig">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
-  <select id="selectConfigByOrderTYpes" parameterType="string" resultMap="ResultMapWithBLOBs">
-    select <include refid="Base_Column_List"/>,<include refid="Blob_Column_List"/>
-    from db_expressconfig where ordertype in
-    (<foreach collection="ordertypes" item="ordertype" separator=",">
-    #{ordertype}
-  </foreach>)
-  </select>
 </mapper>

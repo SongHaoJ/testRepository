@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbOrderlableTransform;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbOrderlableTransformMapper {
-    int deleteByPrimaryKey(Long id);
+    DbOrderlableTransform selectByCriteria(DbOrderlableTransform DbOrderlableTransform);
 
-    int insert(DbOrderlableTransform record);
+    void deleteByPrimaryKey(String ID);
 
-    int insertSelective(DbOrderlableTransform record);
+    void deleteByCriteria(DbOrderlableTransform DbOrderlableTransform);
+
+    int insertByCriteria(DbOrderlableTransform DbOrderlableTransform);
+
+    int updateByCriteria(DbOrderlableTransform DbOrderlableTransform);
 
     DbOrderlableTransform selectByPrimaryKey(Long id);
 
-    int updateByPrimaryKeySelective(DbOrderlableTransform record);
-
-    int updateByPrimaryKeyWithBLOBs(DbOrderlableTransform record);
-
-    int updateByPrimaryKey(DbOrderlableTransform record);
+    List<DbOrderlableTransform> selectAll();
 }

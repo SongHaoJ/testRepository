@@ -4,62 +4,62 @@
   <resultMap id="BaseResultMap" type="com.bean.model.DbEbayidmanagehtmlsource">
     <id column="SEQUENCEID" jdbcType="DECIMAL" property="sequenceid" />
     <result column="EBAYIDMANAGEID" jdbcType="DECIMAL" property="ebayidmanageid" />
+    <result column="DESCR" jdbcType="VARCHAR" property="descr" />
     <result column="SORT" jdbcType="DECIMAL" property="sort" />
-    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
-    select SEQUENCEID, EBAYIDMANAGEID, SORT, DESCR
-    from db_ebayidmanagehtmlsource
+    select SEQUENCEID, EBAYIDMANAGEID, DESCR, SORT
+    from DB_EBAYIDMANAGEHTMLSOURCE
     where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select SEQUENCEID, EBAYIDMANAGEID, SORT, DESCR
-    from db_ebayidmanagehtmlsource
+    select SEQUENCEID, EBAYIDMANAGEID, DESCR, SORT
+    from DB_EBAYIDMANAGEHTMLSOURCE
   </select>
   <sql id="TableName">
-    db_ebayidmanagehtmlsource
+    DB_EBAYIDMANAGEHTMLSOURCE
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=DECIMAL} , 
      #{ebayidmanageid,jdbcType=DECIMAL} , 
+     #{descr,jdbcType=VARCHAR} , 
      #{sort,jdbcType=DECIMAL} , 
-     #{descr,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
     EBAYIDMANAGEID , 
+    DESCR , 
     SORT , 
-    DESCR
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} and 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} and 
     </if>
     <if test="ebayidmanageid != null">
-      EBAYIDMANAGEID = #{ebayidmanageid,jdbcType=DECIMAL} and 
-    </if>
-    <if test="sort != null">
-      SORT = #{sort,jdbcType=DECIMAL} and 
+      ebayidmanageid = #{ebayidmanageid,jdbcType=DECIMAL} and 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR}
+      descr = #{descr,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="sort != null">
+      sort = #{sort,jdbcType=DECIMAL} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} , 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} , 
     </if>
     <if test="ebayidmanageid != null">
-      EBAYIDMANAGEID = #{ebayidmanageid,jdbcType=DECIMAL} , 
-    </if>
-    <if test="sort != null">
-      SORT = #{sort,jdbcType=DECIMAL} , 
+      ebayidmanageid = #{ebayidmanageid,jdbcType=DECIMAL} , 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR}
+      descr = #{descr,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="sort != null">
+      sort = #{sort,jdbcType=DECIMAL} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbEbayidmanagehtmlsource" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

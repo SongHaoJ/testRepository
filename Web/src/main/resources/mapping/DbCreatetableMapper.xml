@@ -6,28 +6,28 @@
   </resultMap>
   <select id="selectAll" resultMap="BaseResultMap">
     select LASTRUNTIME
-    from db_createtable
+    from DB_CREATETABLE
   </select>
   <sql id="TableName">
-    db_createtable
+    DB_CREATETABLE
   </sql>
   <sql id="Values">
-     #{lastruntime,jdbcType=DECIMAL}
+     #{lastruntime,jdbcType=DECIMAL} , 
   </sql>
   <sql id="Columns">
-    LASTRUNTIME
+    LASTRUNTIME , 
   </sql>
   <sql id="Criteria">
     <if test="lastruntime != null">
-      LASTRUNTIME = #{lastruntime,jdbcType=DECIMAL}
+      lastruntime = #{lastruntime,jdbcType=DECIMAL} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="lastruntime != null">
-      LASTRUNTIME = #{lastruntime,jdbcType=DECIMAL}
+      lastruntime = #{lastruntime,jdbcType=DECIMAL} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbCreatetable" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

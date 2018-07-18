@@ -7,27 +7,27 @@
     <result column="OPENFLAG" jdbcType="DECIMAL" property="openflag" />
     <result column="TOKENFLAG" jdbcType="DECIMAL" property="tokenflag" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="FIELD1" jdbcType="VARCHAR" property="field1" />
+    <result column="FIELD2" jdbcType="VARCHAR" property="field2" />
+    <result column="FIELD3" jdbcType="VARCHAR" property="field3" />
+    <result column="FIELD4" jdbcType="VARCHAR" property="field4" />
+    <result column="FIELD5" jdbcType="VARCHAR" property="field5" />
+    <result column="FIELD6" jdbcType="VARCHAR" property="field6" />
     <result column="IFSETON" jdbcType="VARCHAR" property="ifseton" />
-    <result column="FIELD1" jdbcType="LONGVARCHAR" property="field1" />
-    <result column="FIELD2" jdbcType="LONGVARCHAR" property="field2" />
-    <result column="FIELD3" jdbcType="LONGVARCHAR" property="field3" />
-    <result column="FIELD4" jdbcType="LONGVARCHAR" property="field4" />
-    <result column="FIELD5" jdbcType="LONGVARCHAR" property="field5" />
-    <result column="FIELD6" jdbcType="LONGVARCHAR" property="field6" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select ID, SUPPLIERNAME, OPENFLAG, TOKENFLAG, OPERTIME, IFSETON, FIELD1, FIELD2, 
-    FIELD3, FIELD4, FIELD5, FIELD6
-    from db_biaoju
+    select ID, SUPPLIERNAME, OPENFLAG, TOKENFLAG, OPERTIME, FIELD1, FIELD2, FIELD3, FIELD4, 
+    FIELD5, FIELD6, IFSETON
+    from DB_BIAOJU
     where ID = #{id,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select ID, SUPPLIERNAME, OPENFLAG, TOKENFLAG, OPERTIME, IFSETON, FIELD1, FIELD2, 
-    FIELD3, FIELD4, FIELD5, FIELD6
-    from db_biaoju
+    select ID, SUPPLIERNAME, OPENFLAG, TOKENFLAG, OPERTIME, FIELD1, FIELD2, FIELD3, FIELD4, 
+    FIELD5, FIELD6, IFSETON
+    from DB_BIAOJU
   </select>
   <sql id="TableName">
-    db_biaoju
+    DB_BIAOJU
   </sql>
   <sql id="Values">
      #{id,jdbcType=DECIMAL} , 
@@ -35,13 +35,13 @@
      #{openflag,jdbcType=DECIMAL} , 
      #{tokenflag,jdbcType=DECIMAL} , 
      #{opertime,jdbcType=TIMESTAMP} , 
+     #{field1,jdbcType=VARCHAR} , 
+     #{field2,jdbcType=VARCHAR} , 
+     #{field3,jdbcType=VARCHAR} , 
+     #{field4,jdbcType=VARCHAR} , 
+     #{field5,jdbcType=VARCHAR} , 
+     #{field6,jdbcType=VARCHAR} , 
      #{ifseton,jdbcType=VARCHAR} , 
-     #{field1,jdbcType=LONGVARCHAR} , 
-     #{field2,jdbcType=LONGVARCHAR} , 
-     #{field3,jdbcType=LONGVARCHAR} , 
-     #{field4,jdbcType=LONGVARCHAR} , 
-     #{field5,jdbcType=LONGVARCHAR} , 
-     #{field6,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     ID , 
@@ -49,91 +49,91 @@
     OPENFLAG , 
     TOKENFLAG , 
     OPERTIME , 
-    IFSETON , 
     FIELD1 , 
     FIELD2 , 
     FIELD3 , 
     FIELD4 , 
     FIELD5 , 
-    FIELD6
+    FIELD6 , 
+    IFSETON , 
   </sql>
   <sql id="Criteria">
     <if test="id != null">
-      ID = #{id,jdbcType=DECIMAL} and 
+      id = #{id,jdbcType=DECIMAL} and 
     </if>
     <if test="suppliername != null">
-      SUPPLIERNAME = #{suppliername,jdbcType=VARCHAR} and 
+      suppliername = #{suppliername,jdbcType=VARCHAR} and 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=DECIMAL} and 
+      openflag = #{openflag,jdbcType=DECIMAL} and 
     </if>
     <if test="tokenflag != null">
-      TOKENFLAG = #{tokenflag,jdbcType=DECIMAL} and 
+      tokenflag = #{tokenflag,jdbcType=DECIMAL} and 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="ifseton != null">
-      IFSETON = #{ifseton,jdbcType=VARCHAR} and 
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="field1 != null">
-      FIELD1 = #{field1,jdbcType=LONGVARCHAR} and 
+      field1 = #{field1,jdbcType=VARCHAR} and 
     </if>
     <if test="field2 != null">
-      FIELD2 = #{field2,jdbcType=LONGVARCHAR} and 
+      field2 = #{field2,jdbcType=VARCHAR} and 
     </if>
     <if test="field3 != null">
-      FIELD3 = #{field3,jdbcType=LONGVARCHAR} and 
+      field3 = #{field3,jdbcType=VARCHAR} and 
     </if>
     <if test="field4 != null">
-      FIELD4 = #{field4,jdbcType=LONGVARCHAR} and 
+      field4 = #{field4,jdbcType=VARCHAR} and 
     </if>
     <if test="field5 != null">
-      FIELD5 = #{field5,jdbcType=LONGVARCHAR} and 
+      field5 = #{field5,jdbcType=VARCHAR} and 
     </if>
     <if test="field6 != null">
-      FIELD6 = #{field6,jdbcType=LONGVARCHAR}
+      field6 = #{field6,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="ifseton != null">
+      ifseton = #{ifseton,jdbcType=VARCHAR} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="id != null">
-      ID = #{id,jdbcType=DECIMAL} , 
+      id = #{id,jdbcType=DECIMAL} , 
     </if>
     <if test="suppliername != null">
-      SUPPLIERNAME = #{suppliername,jdbcType=VARCHAR} , 
+      suppliername = #{suppliername,jdbcType=VARCHAR} , 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=DECIMAL} , 
+      openflag = #{openflag,jdbcType=DECIMAL} , 
     </if>
     <if test="tokenflag != null">
-      TOKENFLAG = #{tokenflag,jdbcType=DECIMAL} , 
+      tokenflag = #{tokenflag,jdbcType=DECIMAL} , 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="ifseton != null">
-      IFSETON = #{ifseton,jdbcType=VARCHAR} , 
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="field1 != null">
-      FIELD1 = #{field1,jdbcType=LONGVARCHAR} , 
+      field1 = #{field1,jdbcType=VARCHAR} , 
     </if>
     <if test="field2 != null">
-      FIELD2 = #{field2,jdbcType=LONGVARCHAR} , 
+      field2 = #{field2,jdbcType=VARCHAR} , 
     </if>
     <if test="field3 != null">
-      FIELD3 = #{field3,jdbcType=LONGVARCHAR} , 
+      field3 = #{field3,jdbcType=VARCHAR} , 
     </if>
     <if test="field4 != null">
-      FIELD4 = #{field4,jdbcType=LONGVARCHAR} , 
+      field4 = #{field4,jdbcType=VARCHAR} , 
     </if>
     <if test="field5 != null">
-      FIELD5 = #{field5,jdbcType=LONGVARCHAR} , 
+      field5 = #{field5,jdbcType=VARCHAR} , 
     </if>
     <if test="field6 != null">
-      FIELD6 = #{field6,jdbcType=LONGVARCHAR}
+      field6 = #{field6,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="ifseton != null">
+      ifseton = #{ifseton,jdbcType=VARCHAR} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbBiaoju" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

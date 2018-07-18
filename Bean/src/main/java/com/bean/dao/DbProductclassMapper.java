@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbProductclass;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbProductclassMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbProductclass selectByCriteria(DbProductclass DbProductclass);
 
-    int insert(DbProductclass record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbProductclass record);
+    void deleteByCriteria(DbProductclass DbProductclass);
+
+    int insertByCriteria(DbProductclass DbProductclass);
+
+    int updateByCriteria(DbProductclass DbProductclass);
 
     DbProductclass selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbProductclass record);
-
-    int updateByPrimaryKey(DbProductclass record);
+    List<DbProductclass> selectAll();
 }

@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbLoginfree;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbLoginfreeMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbLoginfree selectByCriteria(DbLoginfree DbLoginfree);
 
-    int insert(DbLoginfree record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbLoginfree record);
+    void deleteByCriteria(DbLoginfree DbLoginfree);
+
+    int insertByCriteria(DbLoginfree DbLoginfree);
+
+    int updateByCriteria(DbLoginfree DbLoginfree);
 
     DbLoginfree selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbLoginfree record);
-
-    int updateByPrimaryKeyWithBLOBs(DbLoginfree record);
-
-    int updateByPrimaryKey(DbLoginfree record);
+    List<DbLoginfree> selectAll();
 }

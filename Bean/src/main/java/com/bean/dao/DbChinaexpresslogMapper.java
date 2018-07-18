@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbChinaexpresslog;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbChinaexpresslogMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbChinaexpresslog selectByCriteria(DbChinaexpresslog DbChinaexpresslog);
 
-    int insert(DbChinaexpresslog record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbChinaexpresslog record);
+    void deleteByCriteria(DbChinaexpresslog DbChinaexpresslog);
+
+    int insertByCriteria(DbChinaexpresslog DbChinaexpresslog);
+
+    int updateByCriteria(DbChinaexpresslog DbChinaexpresslog);
 
     DbChinaexpresslog selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbChinaexpresslog record);
-
-    int updateByPrimaryKeyWithBLOBs(DbChinaexpresslog record);
-
-    int updateByPrimaryKey(DbChinaexpresslog record);
+    List<DbChinaexpresslog> selectAll();
 }

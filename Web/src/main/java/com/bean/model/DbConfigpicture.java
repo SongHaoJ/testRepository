@@ -11,9 +11,9 @@ public class DbConfigpicture implements Serializable {
 
     private String postfix;
 
-    private Date opertime;
-
     private String pictureurl;
+
+    private Date opertime;
 
     private static final long serialVersionUID = 1L;
 
@@ -41,20 +41,20 @@ public class DbConfigpicture implements Serializable {
         this.postfix = postfix == null ? null : postfix.trim();
     }
 
-    public Date getOpertime() {
-        return opertime;
-    }
-
-    public void setOpertime(Date opertime) {
-        this.opertime = opertime;
-    }
-
     public String getPictureurl() {
         return pictureurl;
     }
 
     public void setPictureurl(String pictureurl) {
         this.pictureurl = pictureurl == null ? null : pictureurl.trim();
+    }
+
+    public Date getOpertime() {
+        return opertime;
+    }
+
+    public void setOpertime(Date opertime) {
+        this.opertime = opertime;
     }
 
     @Override
@@ -72,8 +72,8 @@ public class DbConfigpicture implements Serializable {
         return (this.getSequenceid() == null ? other.getSequenceid() == null : this.getSequenceid().equals(other.getSequenceid()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getPostfix() == null ? other.getPostfix() == null : this.getPostfix().equals(other.getPostfix()))
-            && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
-            && (this.getPictureurl() == null ? other.getPictureurl() == null : this.getPictureurl().equals(other.getPictureurl()));
+            && (this.getPictureurl() == null ? other.getPictureurl() == null : this.getPictureurl().equals(other.getPictureurl()))
+            && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()));
     }
 
     @Override
@@ -83,8 +83,8 @@ public class DbConfigpicture implements Serializable {
         result = prime * result + ((getSequenceid() == null) ? 0 : getSequenceid().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getPostfix() == null) ? 0 : getPostfix().hashCode());
-        result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getPictureurl() == null) ? 0 : getPictureurl().hashCode());
+        result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         return result;
     }
 
@@ -97,8 +97,8 @@ public class DbConfigpicture implements Serializable {
         sb.append(", sequenceid=").append(sequenceid);
         sb.append(", oper=").append(oper);
         sb.append(", postfix=").append(postfix);
-        sb.append(", opertime=").append(opertime);
         sb.append(", pictureurl=").append(pictureurl);
+        sb.append(", opertime=").append(opertime);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

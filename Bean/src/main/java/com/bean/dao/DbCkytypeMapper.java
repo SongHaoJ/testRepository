@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbCkytype;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbCkytypeMapper {
-    int deleteByPrimaryKey(String sid);
+    DbCkytype selectByCriteria(DbCkytype DbCkytype);
 
-    int insert(DbCkytype record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbCkytype record);
+    void deleteByCriteria(DbCkytype DbCkytype);
+
+    int insertByCriteria(DbCkytype DbCkytype);
+
+    int updateByCriteria(DbCkytype DbCkytype);
 
     DbCkytype selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbCkytype record);
-
-    int updateByPrimaryKeyWithBLOBs(DbCkytype record);
-
-    int updateByPrimaryKey(DbCkytype record);
+    List<DbCkytype> selectAll();
 }

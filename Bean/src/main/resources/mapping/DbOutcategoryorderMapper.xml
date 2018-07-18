@@ -8,313 +8,238 @@
     <result column="WAREHOUSEID" jdbcType="VARCHAR" property="warehouseid" />
     <result column="SELLERORDERNO" jdbcType="VARCHAR" property="sellerorderno" />
     <result column="RECORDID" jdbcType="VARCHAR" property="recordid" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
     <result column="PHONE" jdbcType="VARCHAR" property="phone" />
     <result column="POSTAL" jdbcType="VARCHAR" property="postal" />
     <result column="EMAIL" jdbcType="VARCHAR" property="email" />
     <result column="COUNTRYNAME" jdbcType="VARCHAR" property="countryname" />
+    <result column="REGIONNAME" jdbcType="VARCHAR" property="regionname" />
+    <result column="ADDRESS1" jdbcType="VARCHAR" property="address1" />
+    <result column="ADDRESS2" jdbcType="VARCHAR" property="address2" />
+    <result column="CITY" jdbcType="VARCHAR" property="city" />
     <result column="FLAG" jdbcType="DECIMAL" property="flag" />
     <result column="TRACKINGNUM" jdbcType="VARCHAR" property="trackingnum" />
     <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
     <result column="UPDATETIME" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="ERROR" jdbcType="VARCHAR" property="error" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbOutcategoryorder">
-    <result column="NAME" jdbcType="LONGVARCHAR" property="name" />
-    <result column="REGIONNAME" jdbcType="LONGVARCHAR" property="regionname" />
-    <result column="ADDRESS1" jdbcType="LONGVARCHAR" property="address1" />
-    <result column="ADDRESS2" jdbcType="LONGVARCHAR" property="address2" />
-    <result column="CITY" jdbcType="LONGVARCHAR" property="city" />
-    <result column="ERROR" jdbcType="LONGVARCHAR" property="error" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    EBAYORDERID, DELIVERYWAYID, DELIVERYINSURANCETYPEID, WAREHOUSEID, SELLERORDERNO, 
-    RECORDID, PHONE, POSTAL, EMAIL, COUNTRYNAME, FLAG, TRACKINGNUM, CREATETIME, OPERTIME, 
-    OPER, UPDATETIME
-  </sql>
-  <sql id="Blob_Column_List">
-    'NAME', REGIONNAME, ADDRESS1, ADDRESS2, CITY, ERROR
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from db_outcategoryorder
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select EBAYORDERID, DELIVERYWAYID, DELIVERYINSURANCETYPEID, WAREHOUSEID, SELLERORDERNO, 
+    RECORDID, NAME, PHONE, POSTAL, EMAIL, COUNTRYNAME, REGIONNAME, ADDRESS1, ADDRESS2, 
+    CITY, FLAG, TRACKINGNUM, CREATETIME, OPERTIME, OPER, UPDATETIME, ERROR
+    from DB_OUTCATEGORYORDER
     where EBAYORDERID = #{ebayorderid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_outcategoryorder
-    where EBAYORDERID = #{ebayorderid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select EBAYORDERID, DELIVERYWAYID, DELIVERYINSURANCETYPEID, WAREHOUSEID, SELLERORDERNO, 
+    RECORDID, NAME, PHONE, POSTAL, EMAIL, COUNTRYNAME, REGIONNAME, ADDRESS1, ADDRESS2, 
+    CITY, FLAG, TRACKINGNUM, CREATETIME, OPERTIME, OPER, UPDATETIME, ERROR
+    from DB_OUTCATEGORYORDER
+  </select>
+  <sql id="TableName">
+    DB_OUTCATEGORYORDER
+  </sql>
+  <sql id="Values">
+     #{ebayorderid,jdbcType=VARCHAR} , 
+     #{deliverywayid,jdbcType=VARCHAR} , 
+     #{deliveryinsurancetypeid,jdbcType=VARCHAR} , 
+     #{warehouseid,jdbcType=VARCHAR} , 
+     #{sellerorderno,jdbcType=VARCHAR} , 
+     #{recordid,jdbcType=VARCHAR} , 
+     #{name,jdbcType=VARCHAR} , 
+     #{phone,jdbcType=VARCHAR} , 
+     #{postal,jdbcType=VARCHAR} , 
+     #{email,jdbcType=VARCHAR} , 
+     #{countryname,jdbcType=VARCHAR} , 
+     #{regionname,jdbcType=VARCHAR} , 
+     #{address1,jdbcType=VARCHAR} , 
+     #{address2,jdbcType=VARCHAR} , 
+     #{city,jdbcType=VARCHAR} , 
+     #{flag,jdbcType=DECIMAL} , 
+     #{trackingnum,jdbcType=VARCHAR} , 
+     #{createtime,jdbcType=TIMESTAMP} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{updatetime,jdbcType=TIMESTAMP} , 
+     #{error,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    EBAYORDERID , 
+    DELIVERYWAYID , 
+    DELIVERYINSURANCETYPEID , 
+    WAREHOUSEID , 
+    SELLERORDERNO , 
+    RECORDID , 
+    NAME , 
+    PHONE , 
+    POSTAL , 
+    EMAIL , 
+    COUNTRYNAME , 
+    REGIONNAME , 
+    ADDRESS1 , 
+    ADDRESS2 , 
+    CITY , 
+    FLAG , 
+    TRACKINGNUM , 
+    CREATETIME , 
+    OPERTIME , 
+    OPER , 
+    UPDATETIME , 
+    ERROR , 
+  </sql>
+  <sql id="Criteria">
+    <if test="ebayorderid != null">
+      ebayorderid = #{ebayorderid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="deliverywayid != null">
+      deliverywayid = #{deliverywayid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="deliveryinsurancetypeid != null">
+      deliveryinsurancetypeid = #{deliveryinsurancetypeid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="warehouseid != null">
+      warehouseid = #{warehouseid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sellerorderno != null">
+      sellerorderno = #{sellerorderno,jdbcType=VARCHAR} and 
+    </if>
+    <if test="recordid != null">
+      recordid = #{recordid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} and 
+    </if>
+    <if test="phone != null">
+      phone = #{phone,jdbcType=VARCHAR} and 
+    </if>
+    <if test="postal != null">
+      postal = #{postal,jdbcType=VARCHAR} and 
+    </if>
+    <if test="email != null">
+      email = #{email,jdbcType=VARCHAR} and 
+    </if>
+    <if test="countryname != null">
+      countryname = #{countryname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="regionname != null">
+      regionname = #{regionname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="address1 != null">
+      address1 = #{address1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="address2 != null">
+      address2 = #{address2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="city != null">
+      city = #{city,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="trackingnum != null">
+      trackingnum = #{trackingnum,jdbcType=VARCHAR} and 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="updatetime != null">
+      updatetime = #{updatetime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="error != null">
+      error = #{error,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="ebayorderid != null">
+      ebayorderid = #{ebayorderid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="deliverywayid != null">
+      deliverywayid = #{deliverywayid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="deliveryinsurancetypeid != null">
+      deliveryinsurancetypeid = #{deliveryinsurancetypeid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="warehouseid != null">
+      warehouseid = #{warehouseid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sellerorderno != null">
+      sellerorderno = #{sellerorderno,jdbcType=VARCHAR} , 
+    </if>
+    <if test="recordid != null">
+      recordid = #{recordid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} , 
+    </if>
+    <if test="phone != null">
+      phone = #{phone,jdbcType=VARCHAR} , 
+    </if>
+    <if test="postal != null">
+      postal = #{postal,jdbcType=VARCHAR} , 
+    </if>
+    <if test="email != null">
+      email = #{email,jdbcType=VARCHAR} , 
+    </if>
+    <if test="countryname != null">
+      countryname = #{countryname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="regionname != null">
+      regionname = #{regionname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="address1 != null">
+      address1 = #{address1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="address2 != null">
+      address2 = #{address2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="city != null">
+      city = #{city,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="trackingnum != null">
+      trackingnum = #{trackingnum,jdbcType=VARCHAR} , 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="updatetime != null">
+      updatetime = #{updatetime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="error != null">
+      error = #{error,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbOutcategoryorder" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where EBAYORDERID=#{EBAYORDERID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbOutcategoryorder">
-    insert into db_outcategoryorder (EBAYORDERID, DELIVERYWAYID, DELIVERYINSURANCETYPEID, 
-      WAREHOUSEID, SELLERORDERNO, RECORDID, 
-      PHONE, POSTAL, EMAIL, 
-      COUNTRYNAME, FLAG, TRACKINGNUM, 
-      CREATETIME, OPERTIME, OPER, 
-      UPDATETIME, 'NAME', REGIONNAME, 
-      ADDRESS1, ADDRESS2, CITY, 
-      ERROR)
-    values (#{ebayorderid,jdbcType=VARCHAR}, #{deliverywayid,jdbcType=VARCHAR}, #{deliveryinsurancetypeid,jdbcType=VARCHAR}, 
-      #{warehouseid,jdbcType=VARCHAR}, #{sellerorderno,jdbcType=VARCHAR}, #{recordid,jdbcType=VARCHAR}, 
-      #{phone,jdbcType=VARCHAR}, #{postal,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
-      #{countryname,jdbcType=VARCHAR}, #{flag,jdbcType=DECIMAL}, #{trackingnum,jdbcType=VARCHAR}, 
-      #{createtime,jdbcType=TIMESTAMP}, #{opertime,jdbcType=TIMESTAMP}, #{oper,jdbcType=VARCHAR}, 
-      #{updatetime,jdbcType=TIMESTAMP}, #{name,jdbcType=LONGVARCHAR}, #{regionname,jdbcType=LONGVARCHAR}, 
-      #{address1,jdbcType=LONGVARCHAR}, #{address2,jdbcType=LONGVARCHAR}, #{city,jdbcType=LONGVARCHAR}, 
-      #{error,jdbcType=LONGVARCHAR})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbOutcategoryorder">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbOutcategoryorder">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbOutcategoryorder">
-    insert into db_outcategoryorder
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="ebayorderid != null">
-        EBAYORDERID,
-      </if>
-      <if test="deliverywayid != null">
-        DELIVERYWAYID,
-      </if>
-      <if test="deliveryinsurancetypeid != null">
-        DELIVERYINSURANCETYPEID,
-      </if>
-      <if test="warehouseid != null">
-        WAREHOUSEID,
-      </if>
-      <if test="sellerorderno != null">
-        SELLERORDERNO,
-      </if>
-      <if test="recordid != null">
-        RECORDID,
-      </if>
-      <if test="phone != null">
-        PHONE,
-      </if>
-      <if test="postal != null">
-        POSTAL,
-      </if>
-      <if test="email != null">
-        EMAIL,
-      </if>
-      <if test="countryname != null">
-        COUNTRYNAME,
-      </if>
-      <if test="flag != null">
-        FLAG,
-      </if>
-      <if test="trackingnum != null">
-        TRACKINGNUM,
-      </if>
-      <if test="createtime != null">
-        CREATETIME,
-      </if>
-      <if test="opertime != null">
-        OPERTIME,
-      </if>
-      <if test="oper != null">
-        OPER,
-      </if>
-      <if test="updatetime != null">
-        UPDATETIME,
-      </if>
-      <if test="name != null">
-        'NAME',
-      </if>
-      <if test="regionname != null">
-        REGIONNAME,
-      </if>
-      <if test="address1 != null">
-        ADDRESS1,
-      </if>
-      <if test="address2 != null">
-        ADDRESS2,
-      </if>
-      <if test="city != null">
-        CITY,
-      </if>
-      <if test="error != null">
-        ERROR,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="ebayorderid != null">
-        #{ebayorderid,jdbcType=VARCHAR},
-      </if>
-      <if test="deliverywayid != null">
-        #{deliverywayid,jdbcType=VARCHAR},
-      </if>
-      <if test="deliveryinsurancetypeid != null">
-        #{deliveryinsurancetypeid,jdbcType=VARCHAR},
-      </if>
-      <if test="warehouseid != null">
-        #{warehouseid,jdbcType=VARCHAR},
-      </if>
-      <if test="sellerorderno != null">
-        #{sellerorderno,jdbcType=VARCHAR},
-      </if>
-      <if test="recordid != null">
-        #{recordid,jdbcType=VARCHAR},
-      </if>
-      <if test="phone != null">
-        #{phone,jdbcType=VARCHAR},
-      </if>
-      <if test="postal != null">
-        #{postal,jdbcType=VARCHAR},
-      </if>
-      <if test="email != null">
-        #{email,jdbcType=VARCHAR},
-      </if>
-      <if test="countryname != null">
-        #{countryname,jdbcType=VARCHAR},
-      </if>
-      <if test="flag != null">
-        #{flag,jdbcType=DECIMAL},
-      </if>
-      <if test="trackingnum != null">
-        #{trackingnum,jdbcType=VARCHAR},
-      </if>
-      <if test="createtime != null">
-        #{createtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="opertime != null">
-        #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="oper != null">
-        #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="updatetime != null">
-        #{updatetime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="name != null">
-        #{name,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="regionname != null">
-        #{regionname,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="address1 != null">
-        #{address1,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="address2 != null">
-        #{address2,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="city != null">
-        #{city,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="error != null">
-        #{error,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbOutcategoryorder">
-    update db_outcategoryorder
-    <set>
-      <if test="deliverywayid != null">
-        DELIVERYWAYID = #{deliverywayid,jdbcType=VARCHAR},
-      </if>
-      <if test="deliveryinsurancetypeid != null">
-        DELIVERYINSURANCETYPEID = #{deliveryinsurancetypeid,jdbcType=VARCHAR},
-      </if>
-      <if test="warehouseid != null">
-        WAREHOUSEID = #{warehouseid,jdbcType=VARCHAR},
-      </if>
-      <if test="sellerorderno != null">
-        SELLERORDERNO = #{sellerorderno,jdbcType=VARCHAR},
-      </if>
-      <if test="recordid != null">
-        RECORDID = #{recordid,jdbcType=VARCHAR},
-      </if>
-      <if test="phone != null">
-        PHONE = #{phone,jdbcType=VARCHAR},
-      </if>
-      <if test="postal != null">
-        POSTAL = #{postal,jdbcType=VARCHAR},
-      </if>
-      <if test="email != null">
-        EMAIL = #{email,jdbcType=VARCHAR},
-      </if>
-      <if test="countryname != null">
-        COUNTRYNAME = #{countryname,jdbcType=VARCHAR},
-      </if>
-      <if test="flag != null">
-        FLAG = #{flag,jdbcType=DECIMAL},
-      </if>
-      <if test="trackingnum != null">
-        TRACKINGNUM = #{trackingnum,jdbcType=VARCHAR},
-      </if>
-      <if test="createtime != null">
-        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="opertime != null">
-        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="oper != null">
-        OPER = #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="updatetime != null">
-        UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="name != null">
-        'NAME' = #{name,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="regionname != null">
-        REGIONNAME = #{regionname,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="address1 != null">
-        ADDRESS1 = #{address1,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="address2 != null">
-        ADDRESS2 = #{address2,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="city != null">
-        CITY = #{city,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="error != null">
-        ERROR = #{error,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where EBAYORDERID = #{ebayorderid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbOutcategoryorder">
-    update db_outcategoryorder
-    set DELIVERYWAYID = #{deliverywayid,jdbcType=VARCHAR},
-      DELIVERYINSURANCETYPEID = #{deliveryinsurancetypeid,jdbcType=VARCHAR},
-      WAREHOUSEID = #{warehouseid,jdbcType=VARCHAR},
-      SELLERORDERNO = #{sellerorderno,jdbcType=VARCHAR},
-      RECORDID = #{recordid,jdbcType=VARCHAR},
-      PHONE = #{phone,jdbcType=VARCHAR},
-      POSTAL = #{postal,jdbcType=VARCHAR},
-      EMAIL = #{email,jdbcType=VARCHAR},
-      COUNTRYNAME = #{countryname,jdbcType=VARCHAR},
-      FLAG = #{flag,jdbcType=DECIMAL},
-      TRACKINGNUM = #{trackingnum,jdbcType=VARCHAR},
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      OPER = #{oper,jdbcType=VARCHAR},
-      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
-      'NAME' = #{name,jdbcType=LONGVARCHAR},
-      REGIONNAME = #{regionname,jdbcType=LONGVARCHAR},
-      ADDRESS1 = #{address1,jdbcType=LONGVARCHAR},
-      ADDRESS2 = #{address2,jdbcType=LONGVARCHAR},
-      CITY = #{city,jdbcType=LONGVARCHAR},
-      ERROR = #{error,jdbcType=LONGVARCHAR}
-    where EBAYORDERID = #{ebayorderid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbOutcategoryorder">
-    update db_outcategoryorder
-    set DELIVERYWAYID = #{deliverywayid,jdbcType=VARCHAR},
-      DELIVERYINSURANCETYPEID = #{deliveryinsurancetypeid,jdbcType=VARCHAR},
-      WAREHOUSEID = #{warehouseid,jdbcType=VARCHAR},
-      SELLERORDERNO = #{sellerorderno,jdbcType=VARCHAR},
-      RECORDID = #{recordid,jdbcType=VARCHAR},
-      PHONE = #{phone,jdbcType=VARCHAR},
-      POSTAL = #{postal,jdbcType=VARCHAR},
-      EMAIL = #{email,jdbcType=VARCHAR},
-      COUNTRYNAME = #{countryname,jdbcType=VARCHAR},
-      FLAG = #{flag,jdbcType=DECIMAL},
-      TRACKINGNUM = #{trackingnum,jdbcType=VARCHAR},
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      OPER = #{oper,jdbcType=VARCHAR},
-      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP}
-    where EBAYORDERID = #{ebayorderid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbOutcategoryorder">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

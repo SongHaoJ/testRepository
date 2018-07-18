@@ -14,8 +14,6 @@ public class DbBiaoju implements Serializable {
 
     private Date opertime;
 
-    private String ifseton;
-
     private String field1;
 
     private String field2;
@@ -27,6 +25,8 @@ public class DbBiaoju implements Serializable {
     private String field5;
 
     private String field6;
+
+    private String ifseton;
 
     private static final long serialVersionUID = 1L;
 
@@ -68,14 +68,6 @@ public class DbBiaoju implements Serializable {
 
     public void setOpertime(Date opertime) {
         this.opertime = opertime;
-    }
-
-    public String getIfseton() {
-        return ifseton;
-    }
-
-    public void setIfseton(String ifseton) {
-        this.ifseton = ifseton == null ? null : ifseton.trim();
     }
 
     public String getField1() {
@@ -126,6 +118,14 @@ public class DbBiaoju implements Serializable {
         this.field6 = field6 == null ? null : field6.trim();
     }
 
+    public String getIfseton() {
+        return ifseton;
+    }
+
+    public void setIfseton(String ifseton) {
+        this.ifseton = ifseton == null ? null : ifseton.trim();
+    }
+
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -143,13 +143,13 @@ public class DbBiaoju implements Serializable {
             && (this.getOpenflag() == null ? other.getOpenflag() == null : this.getOpenflag().equals(other.getOpenflag()))
             && (this.getTokenflag() == null ? other.getTokenflag() == null : this.getTokenflag().equals(other.getTokenflag()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
-            && (this.getIfseton() == null ? other.getIfseton() == null : this.getIfseton().equals(other.getIfseton()))
             && (this.getField1() == null ? other.getField1() == null : this.getField1().equals(other.getField1()))
             && (this.getField2() == null ? other.getField2() == null : this.getField2().equals(other.getField2()))
             && (this.getField3() == null ? other.getField3() == null : this.getField3().equals(other.getField3()))
             && (this.getField4() == null ? other.getField4() == null : this.getField4().equals(other.getField4()))
             && (this.getField5() == null ? other.getField5() == null : this.getField5().equals(other.getField5()))
-            && (this.getField6() == null ? other.getField6() == null : this.getField6().equals(other.getField6()));
+            && (this.getField6() == null ? other.getField6() == null : this.getField6().equals(other.getField6()))
+            && (this.getIfseton() == null ? other.getIfseton() == null : this.getIfseton().equals(other.getIfseton()));
     }
 
     @Override
@@ -161,13 +161,13 @@ public class DbBiaoju implements Serializable {
         result = prime * result + ((getOpenflag() == null) ? 0 : getOpenflag().hashCode());
         result = prime * result + ((getTokenflag() == null) ? 0 : getTokenflag().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
-        result = prime * result + ((getIfseton() == null) ? 0 : getIfseton().hashCode());
         result = prime * result + ((getField1() == null) ? 0 : getField1().hashCode());
         result = prime * result + ((getField2() == null) ? 0 : getField2().hashCode());
         result = prime * result + ((getField3() == null) ? 0 : getField3().hashCode());
         result = prime * result + ((getField4() == null) ? 0 : getField4().hashCode());
         result = prime * result + ((getField5() == null) ? 0 : getField5().hashCode());
         result = prime * result + ((getField6() == null) ? 0 : getField6().hashCode());
+        result = prime * result + ((getIfseton() == null) ? 0 : getIfseton().hashCode());
         return result;
     }
 
@@ -182,13 +182,13 @@ public class DbBiaoju implements Serializable {
         sb.append(", openflag=").append(openflag);
         sb.append(", tokenflag=").append(tokenflag);
         sb.append(", opertime=").append(opertime);
-        sb.append(", ifseton=").append(ifseton);
         sb.append(", field1=").append(field1);
         sb.append(", field2=").append(field2);
         sb.append(", field3=").append(field3);
         sb.append(", field4=").append(field4);
         sb.append(", field5=").append(field5);
         sb.append(", field6=").append(field6);
+        sb.append(", ifseton=").append(ifseton);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

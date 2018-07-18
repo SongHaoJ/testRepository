@@ -1,20 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbExpstore;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbExpstoreMapper {
-    int deleteByPrimaryKey(BigDecimal sequenceid);
+    DbExpstore selectByCriteria(DbExpstore DbExpstore);
 
-    int insert(DbExpstore record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbExpstore record);
+    void deleteByCriteria(DbExpstore DbExpstore);
+
+    int insertByCriteria(DbExpstore DbExpstore);
+
+    int updateByCriteria(DbExpstore DbExpstore);
 
     DbExpstore selectByPrimaryKey(BigDecimal sequenceid);
 
-    int updateByPrimaryKeySelective(DbExpstore record);
-
-    int updateByPrimaryKeyWithBLOBs(DbExpstore record);
-
-    int updateByPrimaryKey(DbExpstore record);
+    List<DbExpstore> selectAll();
 }

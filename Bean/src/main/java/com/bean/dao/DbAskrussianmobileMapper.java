@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbAskrussianmobile;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbAskrussianmobileMapper {
-    int deleteByPrimaryKey(String orderid);
+    DbAskrussianmobile selectByCriteria(DbAskrussianmobile DbAskrussianmobile);
 
-    int insert(DbAskrussianmobile record);
+    void deleteByPrimaryKey(String ORDERID);
 
-    int insertSelective(DbAskrussianmobile record);
+    void deleteByCriteria(DbAskrussianmobile DbAskrussianmobile);
+
+    int insertByCriteria(DbAskrussianmobile DbAskrussianmobile);
+
+    int updateByCriteria(DbAskrussianmobile DbAskrussianmobile);
 
     DbAskrussianmobile selectByPrimaryKey(String orderid);
 
-    int updateByPrimaryKeySelective(DbAskrussianmobile record);
-
-    int updateByPrimaryKeyWithBLOBs(DbAskrussianmobile record);
-
-    int updateByPrimaryKey(DbAskrussianmobile record);
+    List<DbAskrussianmobile> selectAll();
 }

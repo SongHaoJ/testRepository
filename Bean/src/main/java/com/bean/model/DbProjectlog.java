@@ -8,21 +8,21 @@ public class DbProjectlog implements Serializable {
 
     private String projectid;
 
-    private String opertype;
-
-    private String oper;
-
-    private Date opertime;
-
-    private String corpid;
-
     private String projectname;
 
     private String productid;
 
     private String productname;
 
+    private String opertype;
+
     private String content;
+
+    private String oper;
+
+    private Date opertime;
+
+    private String corpid;
 
     private String reserve1;
 
@@ -50,38 +50,6 @@ public class DbProjectlog implements Serializable {
         this.projectid = projectid == null ? null : projectid.trim();
     }
 
-    public String getOpertype() {
-        return opertype;
-    }
-
-    public void setOpertype(String opertype) {
-        this.opertype = opertype == null ? null : opertype.trim();
-    }
-
-    public String getOper() {
-        return oper;
-    }
-
-    public void setOper(String oper) {
-        this.oper = oper == null ? null : oper.trim();
-    }
-
-    public Date getOpertime() {
-        return opertime;
-    }
-
-    public void setOpertime(Date opertime) {
-        this.opertime = opertime;
-    }
-
-    public String getCorpid() {
-        return corpid;
-    }
-
-    public void setCorpid(String corpid) {
-        this.corpid = corpid == null ? null : corpid.trim();
-    }
-
     public String getProjectname() {
         return projectname;
     }
@@ -106,12 +74,44 @@ public class DbProjectlog implements Serializable {
         this.productname = productname == null ? null : productname.trim();
     }
 
+    public String getOpertype() {
+        return opertype;
+    }
+
+    public void setOpertype(String opertype) {
+        this.opertype = opertype == null ? null : opertype.trim();
+    }
+
     public String getContent() {
         return content;
     }
 
     public void setContent(String content) {
         this.content = content == null ? null : content.trim();
+    }
+
+    public String getOper() {
+        return oper;
+    }
+
+    public void setOper(String oper) {
+        this.oper = oper == null ? null : oper.trim();
+    }
+
+    public Date getOpertime() {
+        return opertime;
+    }
+
+    public void setOpertime(Date opertime) {
+        this.opertime = opertime;
+    }
+
+    public String getCorpid() {
+        return corpid;
+    }
+
+    public void setCorpid(String corpid) {
+        this.corpid = corpid == null ? null : corpid.trim();
     }
 
     public String getReserve1() {
@@ -160,14 +160,14 @@ public class DbProjectlog implements Serializable {
         DbProjectlog other = (DbProjectlog) that;
         return (this.getSequenceid() == null ? other.getSequenceid() == null : this.getSequenceid().equals(other.getSequenceid()))
             && (this.getProjectid() == null ? other.getProjectid() == null : this.getProjectid().equals(other.getProjectid()))
-            && (this.getOpertype() == null ? other.getOpertype() == null : this.getOpertype().equals(other.getOpertype()))
-            && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
-            && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
-            && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()))
             && (this.getProjectname() == null ? other.getProjectname() == null : this.getProjectname().equals(other.getProjectname()))
             && (this.getProductid() == null ? other.getProductid() == null : this.getProductid().equals(other.getProductid()))
             && (this.getProductname() == null ? other.getProductname() == null : this.getProductname().equals(other.getProductname()))
+            && (this.getOpertype() == null ? other.getOpertype() == null : this.getOpertype().equals(other.getOpertype()))
             && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
+            && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
+            && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
+            && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()))
             && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
             && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
             && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
@@ -180,14 +180,14 @@ public class DbProjectlog implements Serializable {
         int result = 1;
         result = prime * result + ((getSequenceid() == null) ? 0 : getSequenceid().hashCode());
         result = prime * result + ((getProjectid() == null) ? 0 : getProjectid().hashCode());
-        result = prime * result + ((getOpertype() == null) ? 0 : getOpertype().hashCode());
-        result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
-        result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
-        result = prime * result + ((getCorpid() == null) ? 0 : getCorpid().hashCode());
         result = prime * result + ((getProjectname() == null) ? 0 : getProjectname().hashCode());
         result = prime * result + ((getProductid() == null) ? 0 : getProductid().hashCode());
         result = prime * result + ((getProductname() == null) ? 0 : getProductname().hashCode());
+        result = prime * result + ((getOpertype() == null) ? 0 : getOpertype().hashCode());
         result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
+        result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
+        result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
+        result = prime * result + ((getCorpid() == null) ? 0 : getCorpid().hashCode());
         result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
         result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
         result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
@@ -203,14 +203,14 @@ public class DbProjectlog implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", sequenceid=").append(sequenceid);
         sb.append(", projectid=").append(projectid);
-        sb.append(", opertype=").append(opertype);
-        sb.append(", oper=").append(oper);
-        sb.append(", opertime=").append(opertime);
-        sb.append(", corpid=").append(corpid);
         sb.append(", projectname=").append(projectname);
         sb.append(", productid=").append(productid);
         sb.append(", productname=").append(productname);
+        sb.append(", opertype=").append(opertype);
         sb.append(", content=").append(content);
+        sb.append(", oper=").append(oper);
+        sb.append(", opertime=").append(opertime);
+        sb.append(", corpid=").append(corpid);
         sb.append(", reserve1=").append(reserve1);
         sb.append(", reserve2=").append(reserve2);
         sb.append(", reserve3=").append(reserve3);

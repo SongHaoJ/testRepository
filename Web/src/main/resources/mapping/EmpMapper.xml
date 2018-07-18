@@ -2,24 +2,19 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bean.dao.EmpMapper">
   <resultMap id="BaseResultMap" type="com.bean.model.Emp">
-    <id column="EID" jdbcType="VARCHAR" property="eid" />
+    <result column="EID" jdbcType="VARCHAR" property="eid" />
     <result column="CITY" jdbcType="VARCHAR" property="city" />
     <result column="ENAME" jdbcType="VARCHAR" property="ename" />
     <result column="BDATE" jdbcType="TIMESTAMP" property="bdate" />
     <result column="STATUS" jdbcType="VARCHAR" property="status" />
     <result column="SEX" jdbcType="VARCHAR" property="sex" />
   </resultMap>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select EID, CITY, ENAME, BDATE, STATUS, SEX
-    from emp
-    where EID = #{eid,jdbcType=VARCHAR}
-  </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select EID, CITY, ENAME, BDATE, STATUS, SEX
-    from emp
+    from EMP
   </select>
   <sql id="TableName">
-    emp
+    EMP
   </sql>
   <sql id="Values">
      #{eid,jdbcType=VARCHAR} , 
@@ -27,7 +22,7 @@
      #{ename,jdbcType=VARCHAR} , 
      #{bdate,jdbcType=TIMESTAMP} , 
      #{status,jdbcType=VARCHAR} , 
-     #{sex,jdbcType=VARCHAR}
+     #{sex,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     EID , 
@@ -35,49 +30,49 @@
     ENAME , 
     BDATE , 
     STATUS , 
-    SEX
+    SEX , 
   </sql>
   <sql id="Criteria">
     <if test="eid != null">
-      EID = #{eid,jdbcType=VARCHAR} and 
+      eid = #{eid,jdbcType=VARCHAR} and 
     </if>
     <if test="city != null">
-      CITY = #{city,jdbcType=VARCHAR} and 
+      city = #{city,jdbcType=VARCHAR} and 
     </if>
     <if test="ename != null">
-      ENAME = #{ename,jdbcType=VARCHAR} and 
+      ename = #{ename,jdbcType=VARCHAR} and 
     </if>
     <if test="bdate != null">
-      BDATE = #{bdate,jdbcType=TIMESTAMP} and 
+      bdate = #{bdate,jdbcType=TIMESTAMP} and 
     </if>
     <if test="status != null">
-      STATUS = #{status,jdbcType=VARCHAR} and 
+      status = #{status,jdbcType=VARCHAR} and 
     </if>
     <if test="sex != null">
-      SEX = #{sex,jdbcType=VARCHAR}
+      sex = #{sex,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="eid != null">
-      EID = #{eid,jdbcType=VARCHAR} , 
+      eid = #{eid,jdbcType=VARCHAR} , 
     </if>
     <if test="city != null">
-      CITY = #{city,jdbcType=VARCHAR} , 
+      city = #{city,jdbcType=VARCHAR} , 
     </if>
     <if test="ename != null">
-      ENAME = #{ename,jdbcType=VARCHAR} , 
+      ename = #{ename,jdbcType=VARCHAR} , 
     </if>
     <if test="bdate != null">
-      BDATE = #{bdate,jdbcType=TIMESTAMP} , 
+      bdate = #{bdate,jdbcType=TIMESTAMP} , 
     </if>
     <if test="status != null">
-      STATUS = #{status,jdbcType=VARCHAR} , 
+      status = #{status,jdbcType=VARCHAR} , 
     </if>
     <if test="sex != null">
-      SEX = #{sex,jdbcType=VARCHAR}
+      sex = #{sex,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.Emp" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

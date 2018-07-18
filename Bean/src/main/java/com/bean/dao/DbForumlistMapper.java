@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbForumlist;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbForumlistMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbForumlist selectByCriteria(DbForumlist DbForumlist);
 
-    int insert(DbForumlist record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbForumlist record);
+    void deleteByCriteria(DbForumlist DbForumlist);
+
+    int insertByCriteria(DbForumlist DbForumlist);
+
+    int updateByCriteria(DbForumlist DbForumlist);
 
     DbForumlist selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbForumlist record);
-
-    int updateByPrimaryKeyWithBLOBs(DbForumlist record);
-
-    int updateByPrimaryKey(DbForumlist record);
+    List<DbForumlist> selectAll();
 }

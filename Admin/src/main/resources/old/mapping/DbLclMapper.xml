@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbLclMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbLcl">
+    <id column="SEQUENCEID" jdbcType="DECIMAL" property="sequenceid" />
+    <result column="CONTAINERNUMBER" jdbcType="VARCHAR" property="containernumber" />
+    <result column="FTCBM" jdbcType="DECIMAL" property="ftcbm" />
+    <result column="ARRIVALPERIOD" jdbcType="DECIMAL" property="arrivalperiod" />
+    <result column="LCLTIME" jdbcType="TIMESTAMP" property="lcltime" />
+    <result column="OUTPORTTIME" jdbcType="TIMESTAMP" property="outporttime" />
+    <result column="TOWAREHOUSETIME" jdbcType="TIMESTAMP" property="towarehousetime" />
+    <result column="INWAREHOUSETIME" jdbcType="TIMESTAMP" property="inwarehousetime" />
+    <result column="CREATEDATE" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="CREATEOPER" jdbcType="VARCHAR" property="createoper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="PACKAGEINGLIST" jdbcType="VARCHAR" property="packageinglist" />
+    <result column="EXPRESSID" jdbcType="VARCHAR" property="expressid" />
+    <result column="CHECKTIME" jdbcType="TIMESTAMP" property="checktime" />
+    <result column="TOPURPOSEPORTTIME" jdbcType="TIMESTAMP" property="topurposeporttime" />
+    <result column="RECEIPT" jdbcType="VARCHAR" property="receipt" />
+    <result column="EXPRESSTYPE" jdbcType="VARCHAR" property="expresstype" />
+    <result column="TRANSPORTFARE" jdbcType="DECIMAL" property="transportfare" />
+    <result column="POSITION" jdbcType="VARCHAR" property="position" />
+    <result column="STATUS" jdbcType="DECIMAL" property="status" />
+    <result column="TOPORTTIME" jdbcType="TIMESTAMP" property="toporttime" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbLcl">
+    <result column="CONTAINERINFO" jdbcType="LONGVARCHAR" property="containerinfo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SEQUENCEID, CONTAINERNUMBER, FTCBM, ARRIVALPERIOD, LCLTIME, OUTPORTTIME, TOWAREHOUSETIME, 
+    INWAREHOUSETIME, CREATEDATE, CREATEOPER, OPERTIME, OPER, PACKAGEINGLIST, EXPRESSID, 
+    CHECKTIME, TOPURPOSEPORTTIME, RECEIPT, EXPRESSTYPE, TRANSPORTFARE, 'POSITION', 'STATUS', 
+    TOPORTTIME
+  </sql>
+  <sql id="Blob_Column_List">
+    CONTAINERINFO
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from db_lcl
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
+    delete from db_lcl
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.bean.model.DbLcl">
+    insert into db_lcl (SEQUENCEID, CONTAINERNUMBER, FTCBM, 
+      ARRIVALPERIOD, LCLTIME, OUTPORTTIME, 
+      TOWAREHOUSETIME, INWAREHOUSETIME, CREATEDATE, 
+      CREATEOPER, OPERTIME, OPER, 
+      PACKAGEINGLIST, EXPRESSID, CHECKTIME, 
+      TOPURPOSEPORTTIME, RECEIPT, EXPRESSTYPE, 
+      TRANSPORTFARE, 'POSITION', 'STATUS', 
+      TOPORTTIME, CONTAINERINFO)
+    values (#{sequenceid,jdbcType=DECIMAL}, #{containernumber,jdbcType=VARCHAR}, #{ftcbm,jdbcType=DECIMAL}, 
+      #{arrivalperiod,jdbcType=DECIMAL}, #{lcltime,jdbcType=TIMESTAMP}, #{outporttime,jdbcType=TIMESTAMP}, 
+      #{towarehousetime,jdbcType=TIMESTAMP}, #{inwarehousetime,jdbcType=TIMESTAMP}, #{createdate,jdbcType=TIMESTAMP}, 
+      #{createoper,jdbcType=VARCHAR}, #{opertime,jdbcType=TIMESTAMP}, #{oper,jdbcType=VARCHAR}, 
+      #{packageinglist,jdbcType=VARCHAR}, #{expressid,jdbcType=VARCHAR}, #{checktime,jdbcType=TIMESTAMP}, 
+      #{topurposeporttime,jdbcType=TIMESTAMP}, #{receipt,jdbcType=VARCHAR}, #{expresstype,jdbcType=VARCHAR}, 
+      #{transportfare,jdbcType=DECIMAL}, #{position,jdbcType=VARCHAR}, #{status,jdbcType=DECIMAL}, 
+      #{toporttime,jdbcType=TIMESTAMP}, #{containerinfo,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbLcl">
+    insert into db_lcl
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        SEQUENCEID,
+      </if>
+      <if test="containernumber != null">
+        CONTAINERNUMBER,
+      </if>
+      <if test="ftcbm != null">
+        FTCBM,
+      </if>
+      <if test="arrivalperiod != null">
+        ARRIVALPERIOD,
+      </if>
+      <if test="lcltime != null">
+        LCLTIME,
+      </if>
+      <if test="outporttime != null">
+        OUTPORTTIME,
+      </if>
+      <if test="towarehousetime != null">
+        TOWAREHOUSETIME,
+      </if>
+      <if test="inwarehousetime != null">
+        INWAREHOUSETIME,
+      </if>
+      <if test="createdate != null">
+        CREATEDATE,
+      </if>
+      <if test="createoper != null">
+        CREATEOPER,
+      </if>
+      <if test="opertime != null">
+        OPERTIME,
+      </if>
+      <if test="oper != null">
+        OPER,
+      </if>
+      <if test="packageinglist != null">
+        PACKAGEINGLIST,
+      </if>
+      <if test="expressid != null">
+        EXPRESSID,
+      </if>
+      <if test="checktime != null">
+        CHECKTIME,
+      </if>
+      <if test="topurposeporttime != null">
+        TOPURPOSEPORTTIME,
+      </if>
+      <if test="receipt != null">
+        RECEIPT,
+      </if>
+      <if test="expresstype != null">
+        EXPRESSTYPE,
+      </if>
+      <if test="transportfare != null">
+        TRANSPORTFARE,
+      </if>
+      <if test="position != null">
+        'POSITION',
+      </if>
+      <if test="status != null">
+        'STATUS',
+      </if>
+      <if test="toporttime != null">
+        TOPORTTIME,
+      </if>
+      <if test="containerinfo != null">
+        CONTAINERINFO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        #{sequenceid,jdbcType=DECIMAL},
+      </if>
+      <if test="containernumber != null">
+        #{containernumber,jdbcType=VARCHAR},
+      </if>
+      <if test="ftcbm != null">
+        #{ftcbm,jdbcType=DECIMAL},
+      </if>
+      <if test="arrivalperiod != null">
+        #{arrivalperiod,jdbcType=DECIMAL},
+      </if>
+      <if test="lcltime != null">
+        #{lcltime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="outporttime != null">
+        #{outporttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="towarehousetime != null">
+        #{towarehousetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inwarehousetime != null">
+        #{inwarehousetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdate != null">
+        #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createoper != null">
+        #{createoper,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null">
+        #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oper != null">
+        #{oper,jdbcType=VARCHAR},
+      </if>
+      <if test="packageinglist != null">
+        #{packageinglist,jdbcType=VARCHAR},
+      </if>
+      <if test="expressid != null">
+        #{expressid,jdbcType=VARCHAR},
+      </if>
+      <if test="checktime != null">
+        #{checktime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="topurposeporttime != null">
+        #{topurposeporttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="receipt != null">
+        #{receipt,jdbcType=VARCHAR},
+      </if>
+      <if test="expresstype != null">
+        #{expresstype,jdbcType=VARCHAR},
+      </if>
+      <if test="transportfare != null">
+        #{transportfare,jdbcType=DECIMAL},
+      </if>
+      <if test="position != null">
+        #{position,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="toporttime != null">
+        #{toporttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="containerinfo != null">
+        #{containerinfo,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbLcl">
+    update db_lcl
+    <set>
+      <if test="containernumber != null">
+        CONTAINERNUMBER = #{containernumber,jdbcType=VARCHAR},
+      </if>
+      <if test="ftcbm != null">
+        FTCBM = #{ftcbm,jdbcType=DECIMAL},
+      </if>
+      <if test="arrivalperiod != null">
+        ARRIVALPERIOD = #{arrivalperiod,jdbcType=DECIMAL},
+      </if>
+      <if test="lcltime != null">
+        LCLTIME = #{lcltime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="outporttime != null">
+        OUTPORTTIME = #{outporttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="towarehousetime != null">
+        TOWAREHOUSETIME = #{towarehousetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inwarehousetime != null">
+        INWAREHOUSETIME = #{inwarehousetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdate != null">
+        CREATEDATE = #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createoper != null">
+        CREATEOPER = #{createoper,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null">
+        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oper != null">
+        OPER = #{oper,jdbcType=VARCHAR},
+      </if>
+      <if test="packageinglist != null">
+        PACKAGEINGLIST = #{packageinglist,jdbcType=VARCHAR},
+      </if>
+      <if test="expressid != null">
+        EXPRESSID = #{expressid,jdbcType=VARCHAR},
+      </if>
+      <if test="checktime != null">
+        CHECKTIME = #{checktime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="topurposeporttime != null">
+        TOPURPOSEPORTTIME = #{topurposeporttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="receipt != null">
+        RECEIPT = #{receipt,jdbcType=VARCHAR},
+      </if>
+      <if test="expresstype != null">
+        EXPRESSTYPE = #{expresstype,jdbcType=VARCHAR},
+      </if>
+      <if test="transportfare != null">
+        TRANSPORTFARE = #{transportfare,jdbcType=DECIMAL},
+      </if>
+      <if test="position != null">
+        'POSITION' = #{position,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        'STATUS' = #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="toporttime != null">
+        TOPORTTIME = #{toporttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="containerinfo != null">
+        CONTAINERINFO = #{containerinfo,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbLcl">
+    update db_lcl
+    set CONTAINERNUMBER = #{containernumber,jdbcType=VARCHAR},
+      FTCBM = #{ftcbm,jdbcType=DECIMAL},
+      ARRIVALPERIOD = #{arrivalperiod,jdbcType=DECIMAL},
+      LCLTIME = #{lcltime,jdbcType=TIMESTAMP},
+      OUTPORTTIME = #{outporttime,jdbcType=TIMESTAMP},
+      TOWAREHOUSETIME = #{towarehousetime,jdbcType=TIMESTAMP},
+      INWAREHOUSETIME = #{inwarehousetime,jdbcType=TIMESTAMP},
+      CREATEDATE = #{createdate,jdbcType=TIMESTAMP},
+      CREATEOPER = #{createoper,jdbcType=VARCHAR},
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      OPER = #{oper,jdbcType=VARCHAR},
+      PACKAGEINGLIST = #{packageinglist,jdbcType=VARCHAR},
+      EXPRESSID = #{expressid,jdbcType=VARCHAR},
+      CHECKTIME = #{checktime,jdbcType=TIMESTAMP},
+      TOPURPOSEPORTTIME = #{topurposeporttime,jdbcType=TIMESTAMP},
+      RECEIPT = #{receipt,jdbcType=VARCHAR},
+      EXPRESSTYPE = #{expresstype,jdbcType=VARCHAR},
+      TRANSPORTFARE = #{transportfare,jdbcType=DECIMAL},
+      'POSITION' = #{position,jdbcType=VARCHAR},
+      'STATUS' = #{status,jdbcType=DECIMAL},
+      TOPORTTIME = #{toporttime,jdbcType=TIMESTAMP},
+      CONTAINERINFO = #{containerinfo,jdbcType=LONGVARCHAR}
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbLcl">
+    update db_lcl
+    set CONTAINERNUMBER = #{containernumber,jdbcType=VARCHAR},
+      FTCBM = #{ftcbm,jdbcType=DECIMAL},
+      ARRIVALPERIOD = #{arrivalperiod,jdbcType=DECIMAL},
+      LCLTIME = #{lcltime,jdbcType=TIMESTAMP},
+      OUTPORTTIME = #{outporttime,jdbcType=TIMESTAMP},
+      TOWAREHOUSETIME = #{towarehousetime,jdbcType=TIMESTAMP},
+      INWAREHOUSETIME = #{inwarehousetime,jdbcType=TIMESTAMP},
+      CREATEDATE = #{createdate,jdbcType=TIMESTAMP},
+      CREATEOPER = #{createoper,jdbcType=VARCHAR},
+      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
+      OPER = #{oper,jdbcType=VARCHAR},
+      PACKAGEINGLIST = #{packageinglist,jdbcType=VARCHAR},
+      EXPRESSID = #{expressid,jdbcType=VARCHAR},
+      CHECKTIME = #{checktime,jdbcType=TIMESTAMP},
+      TOPURPOSEPORTTIME = #{topurposeporttime,jdbcType=TIMESTAMP},
+      RECEIPT = #{receipt,jdbcType=VARCHAR},
+      EXPRESSTYPE = #{expresstype,jdbcType=VARCHAR},
+      TRANSPORTFARE = #{transportfare,jdbcType=DECIMAL},
+      'POSITION' = #{position,jdbcType=VARCHAR},
+      'STATUS' = #{status,jdbcType=DECIMAL},
+      TOPORTTIME = #{toporttime,jdbcType=TIMESTAMP}
+    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  </update>
+</mapper>

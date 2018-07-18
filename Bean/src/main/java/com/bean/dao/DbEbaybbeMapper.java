@@ -1,18 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbEbaybbe;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbEbaybbeMapper {
-    int deleteByPrimaryKey(BigDecimal sequenceid);
+    DbEbaybbe selectByCriteria(DbEbaybbe DbEbaybbe);
 
-    int insert(DbEbaybbe record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbEbaybbe record);
+    void deleteByCriteria(DbEbaybbe DbEbaybbe);
+
+    int insertByCriteria(DbEbaybbe DbEbaybbe);
+
+    int updateByCriteria(DbEbaybbe DbEbaybbe);
 
     DbEbaybbe selectByPrimaryKey(BigDecimal sequenceid);
 
-    int updateByPrimaryKeySelective(DbEbaybbe record);
-
-    int updateByPrimaryKey(DbEbaybbe record);
+    List<DbEbaybbe> selectAll();
 }

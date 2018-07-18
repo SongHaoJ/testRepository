@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbHuahanexpresstypeMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbHuahanexpresstype">
+    <result column="SEQUENCEID" jdbcType="DECIMAL" property="sequenceid" />
+    <result column="EXPRESSTYPE" jdbcType="VARCHAR" property="expresstype" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bean.model.DbHuahanexpresstype">
+    insert into db_huahanexpresstype (SEQUENCEID, EXPRESSTYPE)
+    values (#{sequenceid,jdbcType=DECIMAL}, #{expresstype,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.DbHuahanexpresstype">
+    insert into db_huahanexpresstype
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        SEQUENCEID,
+      </if>
+      <if test="expresstype != null">
+        EXPRESSTYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        #{sequenceid,jdbcType=DECIMAL},
+      </if>
+      <if test="expresstype != null">
+        #{expresstype,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

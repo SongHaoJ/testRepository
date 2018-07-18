@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbQtwmsservicetype;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbQtwmsservicetypeMapper {
-    int deleteByPrimaryKey(String serviceid);
+    DbQtwmsservicetype selectByCriteria(DbQtwmsservicetype DbQtwmsservicetype);
 
-    int insert(DbQtwmsservicetype record);
+    void deleteByPrimaryKey(String SERVICEID);
 
-    int insertSelective(DbQtwmsservicetype record);
+    void deleteByCriteria(DbQtwmsservicetype DbQtwmsservicetype);
+
+    int insertByCriteria(DbQtwmsservicetype DbQtwmsservicetype);
+
+    int updateByCriteria(DbQtwmsservicetype DbQtwmsservicetype);
 
     DbQtwmsservicetype selectByPrimaryKey(String serviceid);
 
-    int updateByPrimaryKeySelective(DbQtwmsservicetype record);
-
-    int updateByPrimaryKey(DbQtwmsservicetype record);
+    List<DbQtwmsservicetype> selectAll();
 }

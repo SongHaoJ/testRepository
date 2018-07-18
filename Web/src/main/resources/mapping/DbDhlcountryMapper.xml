@@ -13,16 +13,16 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select COUNTRYCODE, WEIGHTUNIT, COUNTRY, DIMENSIONALUNIT, CURRENCYNAME, CURRENCYCODE, 
     COUNTRYLOCATIONTYPE
-    from db_dhlcountry
+    from DB_DHLCOUNTRY
     where COUNTRYCODE = #{countrycode,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select COUNTRYCODE, WEIGHTUNIT, COUNTRY, DIMENSIONALUNIT, CURRENCYNAME, CURRENCYCODE, 
     COUNTRYLOCATIONTYPE
-    from db_dhlcountry
+    from DB_DHLCOUNTRY
   </select>
   <sql id="TableName">
-    db_dhlcountry
+    DB_DHLCOUNTRY
   </sql>
   <sql id="Values">
      #{countrycode,jdbcType=VARCHAR} , 
@@ -31,7 +31,7 @@
      #{dimensionalunit,jdbcType=VARCHAR} , 
      #{currencyname,jdbcType=VARCHAR} , 
      #{currencycode,jdbcType=VARCHAR} , 
-     #{countrylocationtype,jdbcType=VARCHAR}
+     #{countrylocationtype,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     COUNTRYCODE , 
@@ -40,55 +40,55 @@
     DIMENSIONALUNIT , 
     CURRENCYNAME , 
     CURRENCYCODE , 
-    COUNTRYLOCATIONTYPE
+    COUNTRYLOCATIONTYPE , 
   </sql>
   <sql id="Criteria">
     <if test="countrycode != null">
-      COUNTRYCODE = #{countrycode,jdbcType=VARCHAR} and 
+      countrycode = #{countrycode,jdbcType=VARCHAR} and 
     </if>
     <if test="weightunit != null">
-      WEIGHTUNIT = #{weightunit,jdbcType=VARCHAR} and 
+      weightunit = #{weightunit,jdbcType=VARCHAR} and 
     </if>
     <if test="country != null">
-      COUNTRY = #{country,jdbcType=VARCHAR} and 
+      country = #{country,jdbcType=VARCHAR} and 
     </if>
     <if test="dimensionalunit != null">
-      DIMENSIONALUNIT = #{dimensionalunit,jdbcType=VARCHAR} and 
+      dimensionalunit = #{dimensionalunit,jdbcType=VARCHAR} and 
     </if>
     <if test="currencyname != null">
-      CURRENCYNAME = #{currencyname,jdbcType=VARCHAR} and 
+      currencyname = #{currencyname,jdbcType=VARCHAR} and 
     </if>
     <if test="currencycode != null">
-      CURRENCYCODE = #{currencycode,jdbcType=VARCHAR} and 
+      currencycode = #{currencycode,jdbcType=VARCHAR} and 
     </if>
     <if test="countrylocationtype != null">
-      COUNTRYLOCATIONTYPE = #{countrylocationtype,jdbcType=VARCHAR}
+      countrylocationtype = #{countrylocationtype,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="countrycode != null">
-      COUNTRYCODE = #{countrycode,jdbcType=VARCHAR} , 
+      countrycode = #{countrycode,jdbcType=VARCHAR} , 
     </if>
     <if test="weightunit != null">
-      WEIGHTUNIT = #{weightunit,jdbcType=VARCHAR} , 
+      weightunit = #{weightunit,jdbcType=VARCHAR} , 
     </if>
     <if test="country != null">
-      COUNTRY = #{country,jdbcType=VARCHAR} , 
+      country = #{country,jdbcType=VARCHAR} , 
     </if>
     <if test="dimensionalunit != null">
-      DIMENSIONALUNIT = #{dimensionalunit,jdbcType=VARCHAR} , 
+      dimensionalunit = #{dimensionalunit,jdbcType=VARCHAR} , 
     </if>
     <if test="currencyname != null">
-      CURRENCYNAME = #{currencyname,jdbcType=VARCHAR} , 
+      currencyname = #{currencyname,jdbcType=VARCHAR} , 
     </if>
     <if test="currencycode != null">
-      CURRENCYCODE = #{currencycode,jdbcType=VARCHAR} , 
+      currencycode = #{currencycode,jdbcType=VARCHAR} , 
     </if>
     <if test="countrylocationtype != null">
-      COUNTRYLOCATIONTYPE = #{countrylocationtype,jdbcType=VARCHAR}
+      countrylocationtype = #{countrylocationtype,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbDhlcountry" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbConfig;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbConfigMapper {
-    int deleteByPrimaryKey(String sid);
+    DbConfig selectByCriteria(DbConfig DbConfig);
 
-    int insert(DbConfig record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbConfig record);
+    void deleteByCriteria(DbConfig DbConfig);
+
+    int insertByCriteria(DbConfig DbConfig);
+
+    int updateByCriteria(DbConfig DbConfig);
 
     DbConfig selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbConfig record);
-
-    int updateByPrimaryKeyWithBLOBs(DbConfig record);
-
-    int updateByPrimaryKey(DbConfig record);
+    List<DbConfig> selectAll();
 }

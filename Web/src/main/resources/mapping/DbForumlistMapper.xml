@@ -6,6 +6,7 @@
     <result column="FORUMNAME" jdbcType="VARCHAR" property="forumname" />
     <result column="IFPARENT" jdbcType="VARCHAR" property="ifparent" />
     <result column="PARENTID" jdbcType="VARCHAR" property="parentid" />
+    <result column="DESCR" jdbcType="VARCHAR" property="descr" />
     <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
@@ -14,27 +15,27 @@
     <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
     <result column="RESERVE4" jdbcType="VARCHAR" property="reserve4" />
     <result column="RESERVE5" jdbcType="VARCHAR" property="reserve5" />
-    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select SEQUENCEID, FORUMNAME, IFPARENT, PARENTID, OPENFLAG, OPER, OPERTIME, RESERVE1, 
-    RESERVE2, RESERVE3, RESERVE4, RESERVE5, DESCR
-    from db_forumlist
+    select SEQUENCEID, FORUMNAME, IFPARENT, PARENTID, DESCR, OPENFLAG, OPER, OPERTIME, 
+    RESERVE1, RESERVE2, RESERVE3, RESERVE4, RESERVE5
+    from DB_FORUMLIST
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select SEQUENCEID, FORUMNAME, IFPARENT, PARENTID, OPENFLAG, OPER, OPERTIME, RESERVE1, 
-    RESERVE2, RESERVE3, RESERVE4, RESERVE5, DESCR
-    from db_forumlist
+    select SEQUENCEID, FORUMNAME, IFPARENT, PARENTID, DESCR, OPENFLAG, OPER, OPERTIME, 
+    RESERVE1, RESERVE2, RESERVE3, RESERVE4, RESERVE5
+    from DB_FORUMLIST
   </select>
   <sql id="TableName">
-    db_forumlist
+    DB_FORUMLIST
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=VARCHAR} , 
      #{forumname,jdbcType=VARCHAR} , 
      #{ifparent,jdbcType=VARCHAR} , 
      #{parentid,jdbcType=VARCHAR} , 
+     #{descr,jdbcType=VARCHAR} , 
      #{openflag,jdbcType=VARCHAR} , 
      #{oper,jdbcType=VARCHAR} , 
      #{opertime,jdbcType=TIMESTAMP} , 
@@ -43,13 +44,13 @@
      #{reserve3,jdbcType=VARCHAR} , 
      #{reserve4,jdbcType=VARCHAR} , 
      #{reserve5,jdbcType=VARCHAR} , 
-     #{descr,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
     FORUMNAME , 
     IFPARENT , 
     PARENTID , 
+    DESCR , 
     OPENFLAG , 
     OPER , 
     OPERTIME , 
@@ -58,91 +59,90 @@
     RESERVE3 , 
     RESERVE4 , 
     RESERVE5 , 
-    DESCR
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
     </if>
     <if test="forumname != null">
-      FORUMNAME = #{forumname,jdbcType=VARCHAR} and 
+      forumname = #{forumname,jdbcType=VARCHAR} and 
     </if>
     <if test="ifparent != null">
-      IFPARENT = #{ifparent,jdbcType=VARCHAR} and 
+      ifparent = #{ifparent,jdbcType=VARCHAR} and 
     </if>
     <if test="parentid != null">
-      PARENTID = #{parentid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=VARCHAR} and 
+      parentid = #{parentid,jdbcType=VARCHAR} and 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR}
+      descr = #{descr,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=VARCHAR} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
     </if>
     <if test="forumname != null">
-      FORUMNAME = #{forumname,jdbcType=VARCHAR} , 
+      forumname = #{forumname,jdbcType=VARCHAR} , 
     </if>
     <if test="ifparent != null">
-      IFPARENT = #{ifparent,jdbcType=VARCHAR} , 
+      ifparent = #{ifparent,jdbcType=VARCHAR} , 
     </if>
     <if test="parentid != null">
-      PARENTID = #{parentid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=VARCHAR} , 
+      parentid = #{parentid,jdbcType=VARCHAR} , 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR}
+      descr = #{descr,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=VARCHAR} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbForumlist" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

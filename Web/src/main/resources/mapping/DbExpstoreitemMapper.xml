@@ -7,19 +7,19 @@
     <result column="SKU" jdbcType="VARCHAR" property="sku" />
     <result column="ORDERNUM" jdbcType="DECIMAL" property="ordernum" />
     <result column="PRICE" jdbcType="DECIMAL" property="price" />
-    <result column="SAVELOG" jdbcType="LONGVARCHAR" property="savelog" />
+    <result column="SAVELOG" jdbcType="VARCHAR" property="savelog" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
     select SEQUENCEID, EXPSTOREID, SKU, ORDERNUM, PRICE, SAVELOG
-    from db_expstoreitem
+    from DB_EXPSTOREITEM
     where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SEQUENCEID, EXPSTOREID, SKU, ORDERNUM, PRICE, SAVELOG
-    from db_expstoreitem
+    from DB_EXPSTOREITEM
   </select>
   <sql id="TableName">
-    db_expstoreitem
+    DB_EXPSTOREITEM
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=DECIMAL} , 
@@ -27,7 +27,7 @@
      #{sku,jdbcType=VARCHAR} , 
      #{ordernum,jdbcType=DECIMAL} , 
      #{price,jdbcType=DECIMAL} , 
-     #{savelog,jdbcType=LONGVARCHAR}
+     #{savelog,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
@@ -35,49 +35,49 @@
     SKU , 
     ORDERNUM , 
     PRICE , 
-    SAVELOG
+    SAVELOG , 
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} and 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} and 
     </if>
     <if test="expstoreid != null">
-      EXPSTOREID = #{expstoreid,jdbcType=DECIMAL} and 
+      expstoreid = #{expstoreid,jdbcType=DECIMAL} and 
     </if>
     <if test="sku != null">
-      SKU = #{sku,jdbcType=VARCHAR} and 
+      sku = #{sku,jdbcType=VARCHAR} and 
     </if>
     <if test="ordernum != null">
-      ORDERNUM = #{ordernum,jdbcType=DECIMAL} and 
+      ordernum = #{ordernum,jdbcType=DECIMAL} and 
     </if>
     <if test="price != null">
-      PRICE = #{price,jdbcType=DECIMAL} and 
+      price = #{price,jdbcType=DECIMAL} and 
     </if>
     <if test="savelog != null">
-      SAVELOG = #{savelog,jdbcType=LONGVARCHAR}
+      savelog = #{savelog,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} , 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} , 
     </if>
     <if test="expstoreid != null">
-      EXPSTOREID = #{expstoreid,jdbcType=DECIMAL} , 
+      expstoreid = #{expstoreid,jdbcType=DECIMAL} , 
     </if>
     <if test="sku != null">
-      SKU = #{sku,jdbcType=VARCHAR} , 
+      sku = #{sku,jdbcType=VARCHAR} , 
     </if>
     <if test="ordernum != null">
-      ORDERNUM = #{ordernum,jdbcType=DECIMAL} , 
+      ordernum = #{ordernum,jdbcType=DECIMAL} , 
     </if>
     <if test="price != null">
-      PRICE = #{price,jdbcType=DECIMAL} , 
+      price = #{price,jdbcType=DECIMAL} , 
     </if>
     <if test="savelog != null">
-      SAVELOG = #{savelog,jdbcType=LONGVARCHAR}
+      savelog = #{savelog,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbExpstoreitem" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

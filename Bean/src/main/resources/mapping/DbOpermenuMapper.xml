@@ -5,32 +5,52 @@
     <id column="OPER" jdbcType="VARCHAR" property="oper" />
     <id column="MENUID" jdbcType="VARCHAR" property="menuid" />
   </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="map">
-    delete from db_opermenu
-    where OPER = #{oper,jdbcType=VARCHAR}
-      and MENUID = #{menuid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select OPER, MENUID
+    from DB_OPERMENU
+  </select>
+  <sql id="TableName">
+    DB_OPERMENU
+  </sql>
+  <sql id="Values">
+     #{oper,jdbcType=VARCHAR} , 
+     #{menuid,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    OPER , 
+    MENUID , 
+  </sql>
+  <sql id="Criteria">
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="menuid != null">
+      menuid = #{menuid,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="menuid != null">
+      menuid = #{menuid,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbOpermenu" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where OPER=#{OPER}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbOpermenu">
-    insert into db_opermenu (OPER, MENUID)
-    values (#{oper,jdbcType=VARCHAR}, #{menuid,jdbcType=VARCHAR})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbOpermenu">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbOpermenu">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbOpermenu">
-    insert into db_opermenu
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="oper != null">
-        OPER,
-      </if>
-      <if test="menuid != null">
-        MENUID,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="oper != null">
-        #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="menuid != null">
-        #{menuid,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbOpermenu">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
 </mapper>

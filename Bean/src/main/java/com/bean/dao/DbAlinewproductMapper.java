@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbAlinewproduct;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbAlinewproductMapper {
-    int deleteByPrimaryKey(String aliitemid);
+    DbAlinewproduct selectByCriteria(DbAlinewproduct DbAlinewproduct);
 
-    int insert(DbAlinewproduct record);
+    void deleteByPrimaryKey(String ALIITEMID);
 
-    int insertSelective(DbAlinewproduct record);
+    void deleteByCriteria(DbAlinewproduct DbAlinewproduct);
+
+    int insertByCriteria(DbAlinewproduct DbAlinewproduct);
+
+    int updateByCriteria(DbAlinewproduct DbAlinewproduct);
 
     DbAlinewproduct selectByPrimaryKey(String aliitemid);
 
-    int updateByPrimaryKeySelective(DbAlinewproduct record);
-
-    int updateByPrimaryKey(DbAlinewproduct record);
+    List<DbAlinewproduct> selectAll();
 }

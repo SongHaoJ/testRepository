@@ -12,15 +12,15 @@
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select ALIITEMID, PRODUCTID, FLAG, DOWNTIME, UPDATETIME, SHOPID, GROUPID
-    from db_alinewproduct
+    from DB_ALINEWPRODUCT
     where ALIITEMID = #{aliitemid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select ALIITEMID, PRODUCTID, FLAG, DOWNTIME, UPDATETIME, SHOPID, GROUPID
-    from db_alinewproduct
+    from DB_ALINEWPRODUCT
   </select>
   <sql id="TableName">
-    db_alinewproduct
+    DB_ALINEWPRODUCT
   </sql>
   <sql id="Values">
      #{aliitemid,jdbcType=VARCHAR} , 
@@ -29,7 +29,7 @@
      #{downtime,jdbcType=TIMESTAMP} , 
      #{updatetime,jdbcType=TIMESTAMP} , 
      #{shopid,jdbcType=VARCHAR} , 
-     #{groupid,jdbcType=VARCHAR}
+     #{groupid,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     ALIITEMID , 
@@ -38,55 +38,55 @@
     DOWNTIME , 
     UPDATETIME , 
     SHOPID , 
-    GROUPID
+    GROUPID , 
   </sql>
   <sql id="Criteria">
     <if test="aliitemid != null">
-      ALIITEMID = #{aliitemid,jdbcType=VARCHAR} and 
+      aliitemid = #{aliitemid,jdbcType=VARCHAR} and 
     </if>
     <if test="productid != null">
-      PRODUCTID = #{productid,jdbcType=VARCHAR} and 
+      productid = #{productid,jdbcType=VARCHAR} and 
     </if>
     <if test="flag != null">
-      FLAG = #{flag,jdbcType=VARCHAR} and 
+      flag = #{flag,jdbcType=VARCHAR} and 
     </if>
     <if test="downtime != null">
-      DOWNTIME = #{downtime,jdbcType=TIMESTAMP} and 
+      downtime = #{downtime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="updatetime != null">
-      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP} and 
+      updatetime = #{updatetime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="shopid != null">
-      SHOPID = #{shopid,jdbcType=VARCHAR} and 
+      shopid = #{shopid,jdbcType=VARCHAR} and 
     </if>
     <if test="groupid != null">
-      GROUPID = #{groupid,jdbcType=VARCHAR}
+      groupid = #{groupid,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="aliitemid != null">
-      ALIITEMID = #{aliitemid,jdbcType=VARCHAR} , 
+      aliitemid = #{aliitemid,jdbcType=VARCHAR} , 
     </if>
     <if test="productid != null">
-      PRODUCTID = #{productid,jdbcType=VARCHAR} , 
+      productid = #{productid,jdbcType=VARCHAR} , 
     </if>
     <if test="flag != null">
-      FLAG = #{flag,jdbcType=VARCHAR} , 
+      flag = #{flag,jdbcType=VARCHAR} , 
     </if>
     <if test="downtime != null">
-      DOWNTIME = #{downtime,jdbcType=TIMESTAMP} , 
+      downtime = #{downtime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="updatetime != null">
-      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP} , 
+      updatetime = #{updatetime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="shopid != null">
-      SHOPID = #{shopid,jdbcType=VARCHAR} , 
+      shopid = #{shopid,jdbcType=VARCHAR} , 
     </if>
     <if test="groupid != null">
-      GROUPID = #{groupid,jdbcType=VARCHAR}
+      groupid = #{groupid,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbAlinewproduct" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbShopifyorderMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbShopifyorder">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="GROUPID" jdbcType="VARCHAR" property="groupid" />
+    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
+    <result column="CLOSED_AT" jdbcType="TIMESTAMP" property="closedAt" />
+    <result column="CREATED_AT" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="UPDATED_AT" jdbcType="TIMESTAMP" property="updatedAt" />
+    <result column="UK_NUMBER" jdbcType="DECIMAL" property="ukNumber" />
+    <result column="TOKEN" jdbcType="VARCHAR" property="token" />
+    <result column="NOTE" jdbcType="VARCHAR" property="note" />
+    <result column="GATEWAY" jdbcType="VARCHAR" property="gateway" />
+    <result column="TOTAL_PRICE" jdbcType="DECIMAL" property="totalPrice" />
+    <result column="SUBTOTAL_PRICE" jdbcType="DECIMAL" property="subtotalPrice" />
+    <result column="TOTAL_TAX" jdbcType="DECIMAL" property="totalTax" />
+    <result column="CURRENCY" jdbcType="VARCHAR" property="currency" />
+    <result column="FINANCIAL_STATUS" jdbcType="VARCHAR" property="financialStatus" />
+    <result column="FULFILLMENT_STATUS" jdbcType="VARCHAR" property="fulfillmentStatus" />
+    <result column="CONFIRMED" jdbcType="VARCHAR" property="confirmed" />
+    <result column="TOTAL_DISCOUNTS" jdbcType="DECIMAL" property="totalDiscounts" />
+    <result column="TOTAL_LINE_ITEMS_PRICE" jdbcType="DECIMAL" property="totalLineItemsPrice" />
+    <result column="CART_TOKEN" jdbcType="VARCHAR" property="cartToken" />
+    <result column="BUYER_ACCEPTS_MARKETING" jdbcType="VARCHAR" property="buyerAcceptsMarketing" />
+    <result column="TRADEID" jdbcType="VARCHAR" property="tradeid" />
+    <result column="REFERRING_SITE" jdbcType="VARCHAR" property="referringSite" />
+    <result column="LANDING_SITE" jdbcType="VARCHAR" property="landingSite" />
+    <result column="CANCELLED_AT" jdbcType="TIMESTAMP" property="cancelledAt" />
+    <result column="CANCEL_REASON" jdbcType="VARCHAR" property="cancelReason" />
+    <result column="TOTAL_PRICE_USD" jdbcType="DECIMAL" property="totalPriceUsd" />
+    <result column="CHECKOUT_TOKEN" jdbcType="VARCHAR" property="checkoutToken" />
+    <result column="PROCESSED_AT" jdbcType="TIMESTAMP" property="processedAt" />
+    <result column="ORDER_NUMBER" jdbcType="VARCHAR" property="orderNumber" />
+    <result column="PROCESSING_METHOD" jdbcType="VARCHAR" property="processingMethod" />
+    <result column="CHECKOUT_ID" jdbcType="VARCHAR" property="checkoutId" />
+    <result column="CONTACT_EMAIL" jdbcType="VARCHAR" property="contactEmail" />
+    <result column="ORDER_STATUS_URL" jdbcType="VARCHAR" property="orderStatusUrl" />
+    <result column="COUNTRY_CODE" jdbcType="VARCHAR" property="countryCode" />
+    <result column="PROVINCE_CODE" jdbcType="VARCHAR" property="provinceCode" />
+    <result column="BUYERNAME" jdbcType="VARCHAR" property="buyername" />
+    <result column="ADDRESS1" jdbcType="VARCHAR" property="address1" />
+    <result column="ADDRESS2" jdbcType="VARCHAR" property="address2" />
+    <result column="CITY" jdbcType="VARCHAR" property="city" />
+    <result column="ZIP" jdbcType="VARCHAR" property="zip" />
+    <result column="FIRST_NAME" jdbcType="VARCHAR" property="firstName" />
+    <result column="LAST_NAME" jdbcType="VARCHAR" property="lastName" />
+    <result column="PHONE" jdbcType="VARCHAR" property="phone" />
+    <result column="PROVINCE" jdbcType="VARCHAR" property="province" />
+    <result column="COUNTRY" jdbcType="VARCHAR" property="country" />
+    <result column="SHIPPING_LINES_TITLE" jdbcType="VARCHAR" property="shippingLinesTitle" />
+    <result column="SHIPPING_FEE" jdbcType="DECIMAL" property="shippingFee" />
+    <result column="SHOPID" jdbcType="VARCHAR" property="shopid" />
+    <result column="SHOPNAME" jdbcType="VARCHAR" property="shopname" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select ID, GROUPID, EMAIL, CLOSED_AT, CREATED_AT, UPDATED_AT, UK_NUMBER, TOKEN, NOTE, 
+    GATEWAY, TOTAL_PRICE, SUBTOTAL_PRICE, TOTAL_TAX, CURRENCY, FINANCIAL_STATUS, FULFILLMENT_STATUS, 
+    CONFIRMED, TOTAL_DISCOUNTS, TOTAL_LINE_ITEMS_PRICE, CART_TOKEN, BUYER_ACCEPTS_MARKETING, 
+    TRADEID, REFERRING_SITE, LANDING_SITE, CANCELLED_AT, CANCEL_REASON, TOTAL_PRICE_USD, 
+    CHECKOUT_TOKEN, PROCESSED_AT, ORDER_NUMBER, PROCESSING_METHOD, CHECKOUT_ID, CONTACT_EMAIL, 
+    ORDER_STATUS_URL, COUNTRY_CODE, PROVINCE_CODE, BUYERNAME, ADDRESS1, ADDRESS2, CITY, 
+    ZIP, FIRST_NAME, LAST_NAME, PHONE, PROVINCE, COUNTRY, SHIPPING_LINES_TITLE, SHIPPING_FEE, 
+    SHOPID, SHOPNAME
+    from DB_SHOPIFYORDER
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ID, GROUPID, EMAIL, CLOSED_AT, CREATED_AT, UPDATED_AT, UK_NUMBER, TOKEN, NOTE, 
+    GATEWAY, TOTAL_PRICE, SUBTOTAL_PRICE, TOTAL_TAX, CURRENCY, FINANCIAL_STATUS, FULFILLMENT_STATUS, 
+    CONFIRMED, TOTAL_DISCOUNTS, TOTAL_LINE_ITEMS_PRICE, CART_TOKEN, BUYER_ACCEPTS_MARKETING, 
+    TRADEID, REFERRING_SITE, LANDING_SITE, CANCELLED_AT, CANCEL_REASON, TOTAL_PRICE_USD, 
+    CHECKOUT_TOKEN, PROCESSED_AT, ORDER_NUMBER, PROCESSING_METHOD, CHECKOUT_ID, CONTACT_EMAIL, 
+    ORDER_STATUS_URL, COUNTRY_CODE, PROVINCE_CODE, BUYERNAME, ADDRESS1, ADDRESS2, CITY, 
+    ZIP, FIRST_NAME, LAST_NAME, PHONE, PROVINCE, COUNTRY, SHIPPING_LINES_TITLE, SHIPPING_FEE, 
+    SHOPID, SHOPNAME
+    from DB_SHOPIFYORDER
+  </select>
+  <sql id="TableName">
+    DB_SHOPIFYORDER
+  </sql>
+  <sql id="Values">
+     #{id,jdbcType=VARCHAR} , 
+     #{groupid,jdbcType=VARCHAR} , 
+     #{email,jdbcType=VARCHAR} , 
+     #{closed_at,jdbcType=TIMESTAMP} , 
+     #{created_at,jdbcType=TIMESTAMP} , 
+     #{updated_at,jdbcType=TIMESTAMP} , 
+     #{uk_number,jdbcType=DECIMAL} , 
+     #{token,jdbcType=VARCHAR} , 
+     #{note,jdbcType=VARCHAR} , 
+     #{gateway,jdbcType=VARCHAR} , 
+     #{total_price,jdbcType=DECIMAL} , 
+     #{subtotal_price,jdbcType=DECIMAL} , 
+     #{total_tax,jdbcType=DECIMAL} , 
+     #{currency,jdbcType=VARCHAR} , 
+     #{financial_status,jdbcType=VARCHAR} , 
+     #{fulfillment_status,jdbcType=VARCHAR} , 
+     #{confirmed,jdbcType=VARCHAR} , 
+     #{total_discounts,jdbcType=DECIMAL} , 
+     #{total_line_items_price,jdbcType=DECIMAL} , 
+     #{cart_token,jdbcType=VARCHAR} , 
+     #{buyer_accepts_marketing,jdbcType=VARCHAR} , 
+     #{tradeid,jdbcType=VARCHAR} , 
+     #{referring_site,jdbcType=VARCHAR} , 
+     #{landing_site,jdbcType=VARCHAR} , 
+     #{cancelled_at,jdbcType=TIMESTAMP} , 
+     #{cancel_reason,jdbcType=VARCHAR} , 
+     #{total_price_usd,jdbcType=DECIMAL} , 
+     #{checkout_token,jdbcType=VARCHAR} , 
+     #{processed_at,jdbcType=TIMESTAMP} , 
+     #{order_number,jdbcType=VARCHAR} , 
+     #{processing_method,jdbcType=VARCHAR} , 
+     #{checkout_id,jdbcType=VARCHAR} , 
+     #{contact_email,jdbcType=VARCHAR} , 
+     #{order_status_url,jdbcType=VARCHAR} , 
+     #{country_code,jdbcType=VARCHAR} , 
+     #{province_code,jdbcType=VARCHAR} , 
+     #{buyername,jdbcType=VARCHAR} , 
+     #{address1,jdbcType=VARCHAR} , 
+     #{address2,jdbcType=VARCHAR} , 
+     #{city,jdbcType=VARCHAR} , 
+     #{zip,jdbcType=VARCHAR} , 
+     #{first_name,jdbcType=VARCHAR} , 
+     #{last_name,jdbcType=VARCHAR} , 
+     #{phone,jdbcType=VARCHAR} , 
+     #{province,jdbcType=VARCHAR} , 
+     #{country,jdbcType=VARCHAR} , 
+     #{shipping_lines_title,jdbcType=VARCHAR} , 
+     #{shipping_fee,jdbcType=DECIMAL} , 
+     #{shopid,jdbcType=VARCHAR} , 
+     #{shopname,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    ID , 
+    GROUPID , 
+    EMAIL , 
+    CLOSED_AT , 
+    CREATED_AT , 
+    UPDATED_AT , 
+    UK_NUMBER , 
+    TOKEN , 
+    NOTE , 
+    GATEWAY , 
+    TOTAL_PRICE , 
+    SUBTOTAL_PRICE , 
+    TOTAL_TAX , 
+    CURRENCY , 
+    FINANCIAL_STATUS , 
+    FULFILLMENT_STATUS , 
+    CONFIRMED , 
+    TOTAL_DISCOUNTS , 
+    TOTAL_LINE_ITEMS_PRICE , 
+    CART_TOKEN , 
+    BUYER_ACCEPTS_MARKETING , 
+    TRADEID , 
+    REFERRING_SITE , 
+    LANDING_SITE , 
+    CANCELLED_AT , 
+    CANCEL_REASON , 
+    TOTAL_PRICE_USD , 
+    CHECKOUT_TOKEN , 
+    PROCESSED_AT , 
+    ORDER_NUMBER , 
+    PROCESSING_METHOD , 
+    CHECKOUT_ID , 
+    CONTACT_EMAIL , 
+    ORDER_STATUS_URL , 
+    COUNTRY_CODE , 
+    PROVINCE_CODE , 
+    BUYERNAME , 
+    ADDRESS1 , 
+    ADDRESS2 , 
+    CITY , 
+    ZIP , 
+    FIRST_NAME , 
+    LAST_NAME , 
+    PHONE , 
+    PROVINCE , 
+    COUNTRY , 
+    SHIPPING_LINES_TITLE , 
+    SHIPPING_FEE , 
+    SHOPID , 
+    SHOPNAME , 
+  </sql>
+  <sql id="Criteria">
+    <if test="id != null">
+      id = #{id,jdbcType=VARCHAR} and 
+    </if>
+    <if test="groupid != null">
+      groupid = #{groupid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="email != null">
+      email = #{email,jdbcType=VARCHAR} and 
+    </if>
+    <if test="closed_at != null">
+      closed_at = #{closed_at,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="created_at != null">
+      created_at = #{created_at,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="updated_at != null">
+      updated_at = #{updated_at,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="uk_number != null">
+      uk_number = #{uk_number,jdbcType=DECIMAL} and 
+    </if>
+    <if test="token != null">
+      token = #{token,jdbcType=VARCHAR} and 
+    </if>
+    <if test="note != null">
+      note = #{note,jdbcType=VARCHAR} and 
+    </if>
+    <if test="gateway != null">
+      gateway = #{gateway,jdbcType=VARCHAR} and 
+    </if>
+    <if test="total_price != null">
+      total_price = #{total_price,jdbcType=DECIMAL} and 
+    </if>
+    <if test="subtotal_price != null">
+      subtotal_price = #{subtotal_price,jdbcType=DECIMAL} and 
+    </if>
+    <if test="total_tax != null">
+      total_tax = #{total_tax,jdbcType=DECIMAL} and 
+    </if>
+    <if test="currency != null">
+      currency = #{currency,jdbcType=VARCHAR} and 
+    </if>
+    <if test="financial_status != null">
+      financial_status = #{financial_status,jdbcType=VARCHAR} and 
+    </if>
+    <if test="fulfillment_status != null">
+      fulfillment_status = #{fulfillment_status,jdbcType=VARCHAR} and 
+    </if>
+    <if test="confirmed != null">
+      confirmed = #{confirmed,jdbcType=VARCHAR} and 
+    </if>
+    <if test="total_discounts != null">
+      total_discounts = #{total_discounts,jdbcType=DECIMAL} and 
+    </if>
+    <if test="total_line_items_price != null">
+      total_line_items_price = #{total_line_items_price,jdbcType=DECIMAL} and 
+    </if>
+    <if test="cart_token != null">
+      cart_token = #{cart_token,jdbcType=VARCHAR} and 
+    </if>
+    <if test="buyer_accepts_marketing != null">
+      buyer_accepts_marketing = #{buyer_accepts_marketing,jdbcType=VARCHAR} and 
+    </if>
+    <if test="tradeid != null">
+      tradeid = #{tradeid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="referring_site != null">
+      referring_site = #{referring_site,jdbcType=VARCHAR} and 
+    </if>
+    <if test="landing_site != null">
+      landing_site = #{landing_site,jdbcType=VARCHAR} and 
+    </if>
+    <if test="cancelled_at != null">
+      cancelled_at = #{cancelled_at,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="cancel_reason != null">
+      cancel_reason = #{cancel_reason,jdbcType=VARCHAR} and 
+    </if>
+    <if test="total_price_usd != null">
+      total_price_usd = #{total_price_usd,jdbcType=DECIMAL} and 
+    </if>
+    <if test="checkout_token != null">
+      checkout_token = #{checkout_token,jdbcType=VARCHAR} and 
+    </if>
+    <if test="processed_at != null">
+      processed_at = #{processed_at,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="order_number != null">
+      order_number = #{order_number,jdbcType=VARCHAR} and 
+    </if>
+    <if test="processing_method != null">
+      processing_method = #{processing_method,jdbcType=VARCHAR} and 
+    </if>
+    <if test="checkout_id != null">
+      checkout_id = #{checkout_id,jdbcType=VARCHAR} and 
+    </if>
+    <if test="contact_email != null">
+      contact_email = #{contact_email,jdbcType=VARCHAR} and 
+    </if>
+    <if test="order_status_url != null">
+      order_status_url = #{order_status_url,jdbcType=VARCHAR} and 
+    </if>
+    <if test="country_code != null">
+      country_code = #{country_code,jdbcType=VARCHAR} and 
+    </if>
+    <if test="province_code != null">
+      province_code = #{province_code,jdbcType=VARCHAR} and 
+    </if>
+    <if test="buyername != null">
+      buyername = #{buyername,jdbcType=VARCHAR} and 
+    </if>
+    <if test="address1 != null">
+      address1 = #{address1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="address2 != null">
+      address2 = #{address2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="city != null">
+      city = #{city,jdbcType=VARCHAR} and 
+    </if>
+    <if test="zip != null">
+      zip = #{zip,jdbcType=VARCHAR} and 
+    </if>
+    <if test="first_name != null">
+      first_name = #{first_name,jdbcType=VARCHAR} and 
+    </if>
+    <if test="last_name != null">
+      last_name = #{last_name,jdbcType=VARCHAR} and 
+    </if>
+    <if test="phone != null">
+      phone = #{phone,jdbcType=VARCHAR} and 
+    </if>
+    <if test="province != null">
+      province = #{province,jdbcType=VARCHAR} and 
+    </if>
+    <if test="country != null">
+      country = #{country,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shipping_lines_title != null">
+      shipping_lines_title = #{shipping_lines_title,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shipping_fee != null">
+      shipping_fee = #{shipping_fee,jdbcType=DECIMAL} and 
+    </if>
+    <if test="shopid != null">
+      shopid = #{shopid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shopname != null">
+      shopname = #{shopname,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="id != null">
+      id = #{id,jdbcType=VARCHAR} , 
+    </if>
+    <if test="groupid != null">
+      groupid = #{groupid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="email != null">
+      email = #{email,jdbcType=VARCHAR} , 
+    </if>
+    <if test="closed_at != null">
+      closed_at = #{closed_at,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="created_at != null">
+      created_at = #{created_at,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="updated_at != null">
+      updated_at = #{updated_at,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="uk_number != null">
+      uk_number = #{uk_number,jdbcType=DECIMAL} , 
+    </if>
+    <if test="token != null">
+      token = #{token,jdbcType=VARCHAR} , 
+    </if>
+    <if test="note != null">
+      note = #{note,jdbcType=VARCHAR} , 
+    </if>
+    <if test="gateway != null">
+      gateway = #{gateway,jdbcType=VARCHAR} , 
+    </if>
+    <if test="total_price != null">
+      total_price = #{total_price,jdbcType=DECIMAL} , 
+    </if>
+    <if test="subtotal_price != null">
+      subtotal_price = #{subtotal_price,jdbcType=DECIMAL} , 
+    </if>
+    <if test="total_tax != null">
+      total_tax = #{total_tax,jdbcType=DECIMAL} , 
+    </if>
+    <if test="currency != null">
+      currency = #{currency,jdbcType=VARCHAR} , 
+    </if>
+    <if test="financial_status != null">
+      financial_status = #{financial_status,jdbcType=VARCHAR} , 
+    </if>
+    <if test="fulfillment_status != null">
+      fulfillment_status = #{fulfillment_status,jdbcType=VARCHAR} , 
+    </if>
+    <if test="confirmed != null">
+      confirmed = #{confirmed,jdbcType=VARCHAR} , 
+    </if>
+    <if test="total_discounts != null">
+      total_discounts = #{total_discounts,jdbcType=DECIMAL} , 
+    </if>
+    <if test="total_line_items_price != null">
+      total_line_items_price = #{total_line_items_price,jdbcType=DECIMAL} , 
+    </if>
+    <if test="cart_token != null">
+      cart_token = #{cart_token,jdbcType=VARCHAR} , 
+    </if>
+    <if test="buyer_accepts_marketing != null">
+      buyer_accepts_marketing = #{buyer_accepts_marketing,jdbcType=VARCHAR} , 
+    </if>
+    <if test="tradeid != null">
+      tradeid = #{tradeid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="referring_site != null">
+      referring_site = #{referring_site,jdbcType=VARCHAR} , 
+    </if>
+    <if test="landing_site != null">
+      landing_site = #{landing_site,jdbcType=VARCHAR} , 
+    </if>
+    <if test="cancelled_at != null">
+      cancelled_at = #{cancelled_at,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="cancel_reason != null">
+      cancel_reason = #{cancel_reason,jdbcType=VARCHAR} , 
+    </if>
+    <if test="total_price_usd != null">
+      total_price_usd = #{total_price_usd,jdbcType=DECIMAL} , 
+    </if>
+    <if test="checkout_token != null">
+      checkout_token = #{checkout_token,jdbcType=VARCHAR} , 
+    </if>
+    <if test="processed_at != null">
+      processed_at = #{processed_at,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="order_number != null">
+      order_number = #{order_number,jdbcType=VARCHAR} , 
+    </if>
+    <if test="processing_method != null">
+      processing_method = #{processing_method,jdbcType=VARCHAR} , 
+    </if>
+    <if test="checkout_id != null">
+      checkout_id = #{checkout_id,jdbcType=VARCHAR} , 
+    </if>
+    <if test="contact_email != null">
+      contact_email = #{contact_email,jdbcType=VARCHAR} , 
+    </if>
+    <if test="order_status_url != null">
+      order_status_url = #{order_status_url,jdbcType=VARCHAR} , 
+    </if>
+    <if test="country_code != null">
+      country_code = #{country_code,jdbcType=VARCHAR} , 
+    </if>
+    <if test="province_code != null">
+      province_code = #{province_code,jdbcType=VARCHAR} , 
+    </if>
+    <if test="buyername != null">
+      buyername = #{buyername,jdbcType=VARCHAR} , 
+    </if>
+    <if test="address1 != null">
+      address1 = #{address1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="address2 != null">
+      address2 = #{address2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="city != null">
+      city = #{city,jdbcType=VARCHAR} , 
+    </if>
+    <if test="zip != null">
+      zip = #{zip,jdbcType=VARCHAR} , 
+    </if>
+    <if test="first_name != null">
+      first_name = #{first_name,jdbcType=VARCHAR} , 
+    </if>
+    <if test="last_name != null">
+      last_name = #{last_name,jdbcType=VARCHAR} , 
+    </if>
+    <if test="phone != null">
+      phone = #{phone,jdbcType=VARCHAR} , 
+    </if>
+    <if test="province != null">
+      province = #{province,jdbcType=VARCHAR} , 
+    </if>
+    <if test="country != null">
+      country = #{country,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shipping_lines_title != null">
+      shipping_lines_title = #{shipping_lines_title,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shipping_fee != null">
+      shipping_fee = #{shipping_fee,jdbcType=DECIMAL} , 
+    </if>
+    <if test="shopid != null">
+      shopid = #{shopid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shopname != null">
+      shopname = #{shopname,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbShopifyorder" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where ID=#{ID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbShopifyorder">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbShopifyorder">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbShopifyorder">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

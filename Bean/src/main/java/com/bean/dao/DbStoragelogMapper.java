@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbStoragelog;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbStoragelogMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbStoragelog selectByCriteria(DbStoragelog DbStoragelog);
 
-    int insert(DbStoragelog record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbStoragelog record);
+    void deleteByCriteria(DbStoragelog DbStoragelog);
+
+    int insertByCriteria(DbStoragelog DbStoragelog);
+
+    int updateByCriteria(DbStoragelog DbStoragelog);
 
     DbStoragelog selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbStoragelog record);
-
-    int updateByPrimaryKeyWithBLOBs(DbStoragelog record);
-
-    int updateByPrimaryKey(DbStoragelog record);
+    List<DbStoragelog> selectAll();
 }

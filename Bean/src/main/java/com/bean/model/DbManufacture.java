@@ -9,35 +9,11 @@ public class DbManufacture implements Serializable {
 
     private String name;
 
+    private String descr;
+
     private String oper;
 
     private Date opertime;
-
-    private BigDecimal filed8;
-
-    private BigDecimal filed9;
-
-    private BigDecimal filed10;
-
-    private String corpid;
-
-    private String openflag;
-
-    private String skype;
-
-    private String takeoper;
-
-    private String district;
-
-    private BigDecimal arrivalcycle;
-
-    private String categoryid;
-
-    private String categoryname;
-
-    private String alisupplierid;
-
-    private String descr;
 
     private String filed1;
 
@@ -53,9 +29,23 @@ public class DbManufacture implements Serializable {
 
     private String filed7;
 
+    private BigDecimal filed8;
+
+    private BigDecimal filed9;
+
+    private BigDecimal filed10;
+
+    private String corpid;
+
+    private String openflag;
+
+    private String skype;
+
     private String takeoper1;
 
     private String takeoper2;
+
+    private String takeoper;
 
     private String manageproduct;
 
@@ -117,6 +107,16 @@ public class DbManufacture implements Serializable {
 
     private String transferbankaddress;
 
+    private String district;
+
+    private BigDecimal arrivalcycle;
+
+    private String categoryid;
+
+    private String categoryname;
+
+    private String alisupplierid;
+
     private static final long serialVersionUID = 1L;
 
     public String getSequenceid() {
@@ -135,6 +135,14 @@ public class DbManufacture implements Serializable {
         this.name = name == null ? null : name.trim();
     }
 
+    public String getDescr() {
+        return descr;
+    }
+
+    public void setDescr(String descr) {
+        this.descr = descr == null ? null : descr.trim();
+    }
+
     public String getOper() {
         return oper;
     }
@@ -149,110 +157,6 @@ public class DbManufacture implements Serializable {
 
     public void setOpertime(Date opertime) {
         this.opertime = opertime;
-    }
-
-    public BigDecimal getFiled8() {
-        return filed8;
-    }
-
-    public void setFiled8(BigDecimal filed8) {
-        this.filed8 = filed8;
-    }
-
-    public BigDecimal getFiled9() {
-        return filed9;
-    }
-
-    public void setFiled9(BigDecimal filed9) {
-        this.filed9 = filed9;
-    }
-
-    public BigDecimal getFiled10() {
-        return filed10;
-    }
-
-    public void setFiled10(BigDecimal filed10) {
-        this.filed10 = filed10;
-    }
-
-    public String getCorpid() {
-        return corpid;
-    }
-
-    public void setCorpid(String corpid) {
-        this.corpid = corpid == null ? null : corpid.trim();
-    }
-
-    public String getOpenflag() {
-        return openflag;
-    }
-
-    public void setOpenflag(String openflag) {
-        this.openflag = openflag == null ? null : openflag.trim();
-    }
-
-    public String getSkype() {
-        return skype;
-    }
-
-    public void setSkype(String skype) {
-        this.skype = skype == null ? null : skype.trim();
-    }
-
-    public String getTakeoper() {
-        return takeoper;
-    }
-
-    public void setTakeoper(String takeoper) {
-        this.takeoper = takeoper == null ? null : takeoper.trim();
-    }
-
-    public String getDistrict() {
-        return district;
-    }
-
-    public void setDistrict(String district) {
-        this.district = district == null ? null : district.trim();
-    }
-
-    public BigDecimal getArrivalcycle() {
-        return arrivalcycle;
-    }
-
-    public void setArrivalcycle(BigDecimal arrivalcycle) {
-        this.arrivalcycle = arrivalcycle;
-    }
-
-    public String getCategoryid() {
-        return categoryid;
-    }
-
-    public void setCategoryid(String categoryid) {
-        this.categoryid = categoryid == null ? null : categoryid.trim();
-    }
-
-    public String getCategoryname() {
-        return categoryname;
-    }
-
-    public void setCategoryname(String categoryname) {
-        this.categoryname = categoryname == null ? null : categoryname.trim();
-    }
-
-    public String getAlisupplierid() {
-        return alisupplierid;
-    }
-
-    public void setAlisupplierid(String alisupplierid) {
-        this.alisupplierid = alisupplierid == null ? null : alisupplierid.trim();
-    }
-
-    public String getDescr() {
-        return descr;
-    }
-
-    public void setDescr(String descr) {
-        this.descr = descr == null ? null : descr.trim();
     }
 
     public String getFiled1() {
@@ -311,6 +215,54 @@ public class DbManufacture implements Serializable {
         this.filed7 = filed7 == null ? null : filed7.trim();
     }
 
+    public BigDecimal getFiled8() {
+        return filed8;
+    }
+
+    public void setFiled8(BigDecimal filed8) {
+        this.filed8 = filed8;
+    }
+
+    public BigDecimal getFiled9() {
+        return filed9;
+    }
+
+    public void setFiled9(BigDecimal filed9) {
+        this.filed9 = filed9;
+    }
+
+    public BigDecimal getFiled10() {
+        return filed10;
+    }
+
+    public void setFiled10(BigDecimal filed10) {
+        this.filed10 = filed10;
+    }
+
+    public String getCorpid() {
+        return corpid;
+    }
+
+    public void setCorpid(String corpid) {
+        this.corpid = corpid == null ? null : corpid.trim();
+    }
+
+    public String getOpenflag() {
+        return openflag;
+    }
+
+    public void setOpenflag(String openflag) {
+        this.openflag = openflag == null ? null : openflag.trim();
+    }
+
+    public String getSkype() {
+        return skype;
+    }
+
+    public void setSkype(String skype) {
+        this.skype = skype == null ? null : skype.trim();
+    }
+
     public String getTakeoper1() {
         return takeoper1;
     }
@@ -325,6 +277,14 @@ public class DbManufacture implements Serializable {
 
     public void setTakeoper2(String takeoper2) {
         this.takeoper2 = takeoper2 == null ? null : takeoper2.trim();
+    }
+
+    public String getTakeoper() {
+        return takeoper;
+    }
+
+    public void setTakeoper(String takeoper) {
+        this.takeoper = takeoper == null ? null : takeoper.trim();
     }
 
     public String getManageproduct() {
@@ -567,6 +527,46 @@ public class DbManufacture implements Serializable {
         this.transferbankaddress = transferbankaddress == null ? null : transferbankaddress.trim();
     }
 
+    public String getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(String district) {
+        this.district = district == null ? null : district.trim();
+    }
+
+    public BigDecimal getArrivalcycle() {
+        return arrivalcycle;
+    }
+
+    public void setArrivalcycle(BigDecimal arrivalcycle) {
+        this.arrivalcycle = arrivalcycle;
+    }
+
+    public String getCategoryid() {
+        return categoryid;
+    }
+
+    public void setCategoryid(String categoryid) {
+        this.categoryid = categoryid == null ? null : categoryid.trim();
+    }
+
+    public String getCategoryname() {
+        return categoryname;
+    }
+
+    public void setCategoryname(String categoryname) {
+        this.categoryname = categoryname == null ? null : categoryname.trim();
+    }
+
+    public String getAlisupplierid() {
+        return alisupplierid;
+    }
+
+    public void setAlisupplierid(String alisupplierid) {
+        this.alisupplierid = alisupplierid == null ? null : alisupplierid.trim();
+    }
+
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -581,21 +581,9 @@ public class DbManufacture implements Serializable {
         DbManufacture other = (DbManufacture) that;
         return (this.getSequenceid() == null ? other.getSequenceid() == null : this.getSequenceid().equals(other.getSequenceid()))
             && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
+            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
-            && (this.getFiled8() == null ? other.getFiled8() == null : this.getFiled8().equals(other.getFiled8()))
-            && (this.getFiled9() == null ? other.getFiled9() == null : this.getFiled9().equals(other.getFiled9()))
-            && (this.getFiled10() == null ? other.getFiled10() == null : this.getFiled10().equals(other.getFiled10()))
-            && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()))
-            && (this.getOpenflag() == null ? other.getOpenflag() == null : this.getOpenflag().equals(other.getOpenflag()))
-            && (this.getSkype() == null ? other.getSkype() == null : this.getSkype().equals(other.getSkype()))
-            && (this.getTakeoper() == null ? other.getTakeoper() == null : this.getTakeoper().equals(other.getTakeoper()))
-            && (this.getDistrict() == null ? other.getDistrict() == null : this.getDistrict().equals(other.getDistrict()))
-            && (this.getArrivalcycle() == null ? other.getArrivalcycle() == null : this.getArrivalcycle().equals(other.getArrivalcycle()))
-            && (this.getCategoryid() == null ? other.getCategoryid() == null : this.getCategoryid().equals(other.getCategoryid()))
-            && (this.getCategoryname() == null ? other.getCategoryname() == null : this.getCategoryname().equals(other.getCategoryname()))
-            && (this.getAlisupplierid() == null ? other.getAlisupplierid() == null : this.getAlisupplierid().equals(other.getAlisupplierid()))
-            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
             && (this.getFiled1() == null ? other.getFiled1() == null : this.getFiled1().equals(other.getFiled1()))
             && (this.getFiled2() == null ? other.getFiled2() == null : this.getFiled2().equals(other.getFiled2()))
             && (this.getFiled3() == null ? other.getFiled3() == null : this.getFiled3().equals(other.getFiled3()))
@@ -603,8 +591,15 @@ public class DbManufacture implements Serializable {
             && (this.getFiled5() == null ? other.getFiled5() == null : this.getFiled5().equals(other.getFiled5()))
             && (this.getFiled6() == null ? other.getFiled6() == null : this.getFiled6().equals(other.getFiled6()))
             && (this.getFiled7() == null ? other.getFiled7() == null : this.getFiled7().equals(other.getFiled7()))
+            && (this.getFiled8() == null ? other.getFiled8() == null : this.getFiled8().equals(other.getFiled8()))
+            && (this.getFiled9() == null ? other.getFiled9() == null : this.getFiled9().equals(other.getFiled9()))
+            && (this.getFiled10() == null ? other.getFiled10() == null : this.getFiled10().equals(other.getFiled10()))
+            && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()))
+            && (this.getOpenflag() == null ? other.getOpenflag() == null : this.getOpenflag().equals(other.getOpenflag()))
+            && (this.getSkype() == null ? other.getSkype() == null : this.getSkype().equals(other.getSkype()))
             && (this.getTakeoper1() == null ? other.getTakeoper1() == null : this.getTakeoper1().equals(other.getTakeoper1()))
             && (this.getTakeoper2() == null ? other.getTakeoper2() == null : this.getTakeoper2().equals(other.getTakeoper2()))
+            && (this.getTakeoper() == null ? other.getTakeoper() == null : this.getTakeoper().equals(other.getTakeoper()))
             && (this.getManageproduct() == null ? other.getManageproduct() == null : this.getManageproduct().equals(other.getManageproduct()))
             && (this.getProductcategory() == null ? other.getProductcategory() == null : this.getProductcategory().equals(other.getProductcategory()))
             && (this.getManufacturer() == null ? other.getManufacturer() == null : this.getManufacturer().equals(other.getManufacturer()))
@@ -634,7 +629,12 @@ public class DbManufacture implements Serializable {
             && (this.getBankaddress() == null ? other.getBankaddress() == null : this.getBankaddress().equals(other.getBankaddress()))
             && (this.getTransferbankname() == null ? other.getTransferbankname() == null : this.getTransferbankname().equals(other.getTransferbankname()))
             && (this.getTransferswiftcode() == null ? other.getTransferswiftcode() == null : this.getTransferswiftcode().equals(other.getTransferswiftcode()))
-            && (this.getTransferbankaddress() == null ? other.getTransferbankaddress() == null : this.getTransferbankaddress().equals(other.getTransferbankaddress()));
+            && (this.getTransferbankaddress() == null ? other.getTransferbankaddress() == null : this.getTransferbankaddress().equals(other.getTransferbankaddress()))
+            && (this.getDistrict() == null ? other.getDistrict() == null : this.getDistrict().equals(other.getDistrict()))
+            && (this.getArrivalcycle() == null ? other.getArrivalcycle() == null : this.getArrivalcycle().equals(other.getArrivalcycle()))
+            && (this.getCategoryid() == null ? other.getCategoryid() == null : this.getCategoryid().equals(other.getCategoryid()))
+            && (this.getCategoryname() == null ? other.getCategoryname() == null : this.getCategoryname().equals(other.getCategoryname()))
+            && (this.getAlisupplierid() == null ? other.getAlisupplierid() == null : this.getAlisupplierid().equals(other.getAlisupplierid()));
     }
 
     @Override
@@ -643,21 +643,9 @@ public class DbManufacture implements Serializable {
         int result = 1;
         result = prime * result + ((getSequenceid() == null) ? 0 : getSequenceid().hashCode());
         result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
+        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
-        result = prime * result + ((getFiled8() == null) ? 0 : getFiled8().hashCode());
-        result = prime * result + ((getFiled9() == null) ? 0 : getFiled9().hashCode());
-        result = prime * result + ((getFiled10() == null) ? 0 : getFiled10().hashCode());
-        result = prime * result + ((getCorpid() == null) ? 0 : getCorpid().hashCode());
-        result = prime * result + ((getOpenflag() == null) ? 0 : getOpenflag().hashCode());
-        result = prime * result + ((getSkype() == null) ? 0 : getSkype().hashCode());
-        result = prime * result + ((getTakeoper() == null) ? 0 : getTakeoper().hashCode());
-        result = prime * result + ((getDistrict() == null) ? 0 : getDistrict().hashCode());
-        result = prime * result + ((getArrivalcycle() == null) ? 0 : getArrivalcycle().hashCode());
-        result = prime * result + ((getCategoryid() == null) ? 0 : getCategoryid().hashCode());
-        result = prime * result + ((getCategoryname() == null) ? 0 : getCategoryname().hashCode());
-        result = prime * result + ((getAlisupplierid() == null) ? 0 : getAlisupplierid().hashCode());
-        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
         result = prime * result + ((getFiled1() == null) ? 0 : getFiled1().hashCode());
         result = prime * result + ((getFiled2() == null) ? 0 : getFiled2().hashCode());
         result = prime * result + ((getFiled3() == null) ? 0 : getFiled3().hashCode());
@@ -665,8 +653,15 @@ public class DbManufacture implements Serializable {
         result = prime * result + ((getFiled5() == null) ? 0 : getFiled5().hashCode());
         result = prime * result + ((getFiled6() == null) ? 0 : getFiled6().hashCode());
         result = prime * result + ((getFiled7() == null) ? 0 : getFiled7().hashCode());
+        result = prime * result + ((getFiled8() == null) ? 0 : getFiled8().hashCode());
+        result = prime * result + ((getFiled9() == null) ? 0 : getFiled9().hashCode());
+        result = prime * result + ((getFiled10() == null) ? 0 : getFiled10().hashCode());
+        result = prime * result + ((getCorpid() == null) ? 0 : getCorpid().hashCode());
+        result = prime * result + ((getOpenflag() == null) ? 0 : getOpenflag().hashCode());
+        result = prime * result + ((getSkype() == null) ? 0 : getSkype().hashCode());
         result = prime * result + ((getTakeoper1() == null) ? 0 : getTakeoper1().hashCode());
         result = prime * result + ((getTakeoper2() == null) ? 0 : getTakeoper2().hashCode());
+        result = prime * result + ((getTakeoper() == null) ? 0 : getTakeoper().hashCode());
         result = prime * result + ((getManageproduct() == null) ? 0 : getManageproduct().hashCode());
         result = prime * result + ((getProductcategory() == null) ? 0 : getProductcategory().hashCode());
         result = prime * result + ((getManufacturer() == null) ? 0 : getManufacturer().hashCode());
@@ -697,6 +692,11 @@ public class DbManufacture implements Serializable {
         result = prime * result + ((getTransferbankname() == null) ? 0 : getTransferbankname().hashCode());
         result = prime * result + ((getTransferswiftcode() == null) ? 0 : getTransferswiftcode().hashCode());
         result = prime * result + ((getTransferbankaddress() == null) ? 0 : getTransferbankaddress().hashCode());
+        result = prime * result + ((getDistrict() == null) ? 0 : getDistrict().hashCode());
+        result = prime * result + ((getArrivalcycle() == null) ? 0 : getArrivalcycle().hashCode());
+        result = prime * result + ((getCategoryid() == null) ? 0 : getCategoryid().hashCode());
+        result = prime * result + ((getCategoryname() == null) ? 0 : getCategoryname().hashCode());
+        result = prime * result + ((getAlisupplierid() == null) ? 0 : getAlisupplierid().hashCode());
         return result;
     }
 
@@ -708,21 +708,9 @@ public class DbManufacture implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", sequenceid=").append(sequenceid);
         sb.append(", name=").append(name);
+        sb.append(", descr=").append(descr);
         sb.append(", oper=").append(oper);
         sb.append(", opertime=").append(opertime);
-        sb.append(", filed8=").append(filed8);
-        sb.append(", filed9=").append(filed9);
-        sb.append(", filed10=").append(filed10);
-        sb.append(", corpid=").append(corpid);
-        sb.append(", openflag=").append(openflag);
-        sb.append(", skype=").append(skype);
-        sb.append(", takeoper=").append(takeoper);
-        sb.append(", district=").append(district);
-        sb.append(", arrivalcycle=").append(arrivalcycle);
-        sb.append(", categoryid=").append(categoryid);
-        sb.append(", categoryname=").append(categoryname);
-        sb.append(", alisupplierid=").append(alisupplierid);
-        sb.append(", descr=").append(descr);
         sb.append(", filed1=").append(filed1);
         sb.append(", filed2=").append(filed2);
         sb.append(", filed3=").append(filed3);
@@ -730,8 +718,15 @@ public class DbManufacture implements Serializable {
         sb.append(", filed5=").append(filed5);
         sb.append(", filed6=").append(filed6);
         sb.append(", filed7=").append(filed7);
+        sb.append(", filed8=").append(filed8);
+        sb.append(", filed9=").append(filed9);
+        sb.append(", filed10=").append(filed10);
+        sb.append(", corpid=").append(corpid);
+        sb.append(", openflag=").append(openflag);
+        sb.append(", skype=").append(skype);
         sb.append(", takeoper1=").append(takeoper1);
         sb.append(", takeoper2=").append(takeoper2);
+        sb.append(", takeoper=").append(takeoper);
         sb.append(", manageproduct=").append(manageproduct);
         sb.append(", productcategory=").append(productcategory);
         sb.append(", manufacturer=").append(manufacturer);
@@ -762,6 +757,11 @@ public class DbManufacture implements Serializable {
         sb.append(", transferbankname=").append(transferbankname);
         sb.append(", transferswiftcode=").append(transferswiftcode);
         sb.append(", transferbankaddress=").append(transferbankaddress);
+        sb.append(", district=").append(district);
+        sb.append(", arrivalcycle=").append(arrivalcycle);
+        sb.append(", categoryid=").append(categoryid);
+        sb.append(", categoryname=").append(categoryname);
+        sb.append(", alisupplierid=").append(alisupplierid);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

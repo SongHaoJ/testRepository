@@ -8,201 +8,155 @@
     <result column="USERKEY" jdbcType="VARCHAR" property="userkey" />
     <result column="TOKEN" jdbcType="VARCHAR" property="token" />
     <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
     <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
     <result column="RESERVE4" jdbcType="DECIMAL" property="reserve4" />
     <result column="RESERVE5" jdbcType="DECIMAL" property="reserve5" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbDepartmentapi">
-    <result column="RESERVE1" jdbcType="LONGVARCHAR" property="reserve1" />
-    <result column="RESERVE2" jdbcType="LONGVARCHAR" property="reserve2" />
-    <result column="OPER" jdbcType="LONGVARCHAR" property="oper" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    SEQUENCEID, DEPARTMENT, USERNAME, USERKEY, TOKEN, 'PASSWORD', RESERVE3, RESERVE4, 
-    RESERVE5, OPERTIME
-  </sql>
-  <sql id="Blob_Column_List">
-    RESERVE1, RESERVE2, OPER
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from db_departmentapi
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SEQUENCEID, DEPARTMENT, USERNAME, USERKEY, TOKEN, PASSWORD, RESERVE1, RESERVE2, 
+    RESERVE3, RESERVE4, RESERVE5, OPER, OPERTIME
+    from DB_DEPARTMENTAPI
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_departmentapi
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, DEPARTMENT, USERNAME, USERKEY, TOKEN, PASSWORD, RESERVE1, RESERVE2, 
+    RESERVE3, RESERVE4, RESERVE5, OPER, OPERTIME
+    from DB_DEPARTMENTAPI
+  </select>
+  <sql id="TableName">
+    DB_DEPARTMENTAPI
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=VARCHAR} , 
+     #{department,jdbcType=VARCHAR} , 
+     #{username,jdbcType=VARCHAR} , 
+     #{userkey,jdbcType=VARCHAR} , 
+     #{token,jdbcType=VARCHAR} , 
+     #{password,jdbcType=VARCHAR} , 
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+     #{reserve3,jdbcType=VARCHAR} , 
+     #{reserve4,jdbcType=DECIMAL} , 
+     #{reserve5,jdbcType=DECIMAL} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    DEPARTMENT , 
+    USERNAME , 
+    USERKEY , 
+    TOKEN , 
+    PASSWORD , 
+    RESERVE1 , 
+    RESERVE2 , 
+    RESERVE3 , 
+    RESERVE4 , 
+    RESERVE5 , 
+    OPER , 
+    OPERTIME , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="department != null">
+      department = #{department,jdbcType=VARCHAR} and 
+    </if>
+    <if test="username != null">
+      username = #{username,jdbcType=VARCHAR} and 
+    </if>
+    <if test="userkey != null">
+      userkey = #{userkey,jdbcType=VARCHAR} and 
+    </if>
+    <if test="token != null">
+      token = #{token,jdbcType=VARCHAR} and 
+    </if>
+    <if test="password != null">
+      password = #{password,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=DECIMAL} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="department != null">
+      department = #{department,jdbcType=VARCHAR} , 
+    </if>
+    <if test="username != null">
+      username = #{username,jdbcType=VARCHAR} , 
+    </if>
+    <if test="userkey != null">
+      userkey = #{userkey,jdbcType=VARCHAR} , 
+    </if>
+    <if test="token != null">
+      token = #{token,jdbcType=VARCHAR} , 
+    </if>
+    <if test="password != null">
+      password = #{password,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=DECIMAL} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbDepartmentapi" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbDepartmentapi">
-    insert into db_departmentapi (SEQUENCEID, DEPARTMENT, USERNAME, 
-      USERKEY, TOKEN, 'PASSWORD', 
-      RESERVE3, RESERVE4, RESERVE5, 
-      OPERTIME, RESERVE1, RESERVE2, 
-      OPER)
-    values (#{sequenceid,jdbcType=VARCHAR}, #{department,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
-      #{userkey,jdbcType=VARCHAR}, #{token,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{reserve3,jdbcType=VARCHAR}, #{reserve4,jdbcType=DECIMAL}, #{reserve5,jdbcType=DECIMAL}, 
-      #{opertime,jdbcType=TIMESTAMP}, #{reserve1,jdbcType=LONGVARCHAR}, #{reserve2,jdbcType=LONGVARCHAR}, 
-      #{oper,jdbcType=LONGVARCHAR})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbDepartmentapi">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbDepartmentapi">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbDepartmentapi">
-    insert into db_departmentapi
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        SEQUENCEID,
-      </if>
-      <if test="department != null">
-        DEPARTMENT,
-      </if>
-      <if test="username != null">
-        USERNAME,
-      </if>
-      <if test="userkey != null">
-        USERKEY,
-      </if>
-      <if test="token != null">
-        TOKEN,
-      </if>
-      <if test="password != null">
-        'PASSWORD',
-      </if>
-      <if test="reserve3 != null">
-        RESERVE3,
-      </if>
-      <if test="reserve4 != null">
-        RESERVE4,
-      </if>
-      <if test="reserve5 != null">
-        RESERVE5,
-      </if>
-      <if test="opertime != null">
-        OPERTIME,
-      </if>
-      <if test="reserve1 != null">
-        RESERVE1,
-      </if>
-      <if test="reserve2 != null">
-        RESERVE2,
-      </if>
-      <if test="oper != null">
-        OPER,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        #{sequenceid,jdbcType=VARCHAR},
-      </if>
-      <if test="department != null">
-        #{department,jdbcType=VARCHAR},
-      </if>
-      <if test="username != null">
-        #{username,jdbcType=VARCHAR},
-      </if>
-      <if test="userkey != null">
-        #{userkey,jdbcType=VARCHAR},
-      </if>
-      <if test="token != null">
-        #{token,jdbcType=VARCHAR},
-      </if>
-      <if test="password != null">
-        #{password,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve3 != null">
-        #{reserve3,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve4 != null">
-        #{reserve4,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve5 != null">
-        #{reserve5,jdbcType=DECIMAL},
-      </if>
-      <if test="opertime != null">
-        #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="reserve1 != null">
-        #{reserve1,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="reserve2 != null">
-        #{reserve2,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="oper != null">
-        #{oper,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbDepartmentapi">
-    update db_departmentapi
-    <set>
-      <if test="department != null">
-        DEPARTMENT = #{department,jdbcType=VARCHAR},
-      </if>
-      <if test="username != null">
-        USERNAME = #{username,jdbcType=VARCHAR},
-      </if>
-      <if test="userkey != null">
-        USERKEY = #{userkey,jdbcType=VARCHAR},
-      </if>
-      <if test="token != null">
-        TOKEN = #{token,jdbcType=VARCHAR},
-      </if>
-      <if test="password != null">
-        'PASSWORD' = #{password,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve3 != null">
-        RESERVE3 = #{reserve3,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve4 != null">
-        RESERVE4 = #{reserve4,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve5 != null">
-        RESERVE5 = #{reserve5,jdbcType=DECIMAL},
-      </if>
-      <if test="opertime != null">
-        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="reserve1 != null">
-        RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="reserve2 != null">
-        RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="oper != null">
-        OPER = #{oper,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbDepartmentapi">
-    update db_departmentapi
-    set DEPARTMENT = #{department,jdbcType=VARCHAR},
-      USERNAME = #{username,jdbcType=VARCHAR},
-      USERKEY = #{userkey,jdbcType=VARCHAR},
-      TOKEN = #{token,jdbcType=VARCHAR},
-      'PASSWORD' = #{password,jdbcType=VARCHAR},
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR},
-      RESERVE4 = #{reserve4,jdbcType=DECIMAL},
-      RESERVE5 = #{reserve5,jdbcType=DECIMAL},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR},
-      RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR},
-      OPER = #{oper,jdbcType=LONGVARCHAR}
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbDepartmentapi">
-    update db_departmentapi
-    set DEPARTMENT = #{department,jdbcType=VARCHAR},
-      USERNAME = #{username,jdbcType=VARCHAR},
-      USERKEY = #{userkey,jdbcType=VARCHAR},
-      TOKEN = #{token,jdbcType=VARCHAR},
-      'PASSWORD' = #{password,jdbcType=VARCHAR},
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR},
-      RESERVE4 = #{reserve4,jdbcType=DECIMAL},
-      RESERVE5 = #{reserve5,jdbcType=DECIMAL},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP}
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbDepartmentapi">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

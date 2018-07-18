@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbSpbase;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbSpbaseMapper {
-    int deleteByPrimaryKey(String spcode);
+    DbSpbase selectByCriteria(DbSpbase DbSpbase);
 
-    int insert(DbSpbase record);
+    void deleteByPrimaryKey(String SPCODE);
 
-    int insertSelective(DbSpbase record);
+    void deleteByCriteria(DbSpbase DbSpbase);
+
+    int insertByCriteria(DbSpbase DbSpbase);
+
+    int updateByCriteria(DbSpbase DbSpbase);
 
     DbSpbase selectByPrimaryKey(String spcode);
 
-    int updateByPrimaryKeySelective(DbSpbase record);
-
-    int updateByPrimaryKeyWithBLOBs(DbSpbase record);
-
-    int updateByPrimaryKey(DbSpbase record);
+    List<DbSpbase> selectAll();
 }

@@ -6,8 +6,20 @@
     <result column="ORDERID" jdbcType="VARCHAR" property="orderid" />
     <result column="EXPRESSID" jdbcType="VARCHAR" property="expressid" />
     <result column="ERRFLAG" jdbcType="DECIMAL" property="errflag" />
+    <result column="ERRDESCR" jdbcType="VARCHAR" property="errdescr" />
+    <result column="PDFURL" jdbcType="VARCHAR" property="pdfurl" />
     <result column="EXPRESSTYPEID" jdbcType="VARCHAR" property="expresstypeid" />
     <result column="EXPRESSTYPE" jdbcType="VARCHAR" property="expresstype" />
+    <result column="FIELD1" jdbcType="VARCHAR" property="field1" />
+    <result column="FIELD2" jdbcType="VARCHAR" property="field2" />
+    <result column="FIELD3" jdbcType="VARCHAR" property="field3" />
+    <result column="FIELD4" jdbcType="VARCHAR" property="field4" />
+    <result column="FIELD5" jdbcType="VARCHAR" property="field5" />
+    <result column="FIELD6" jdbcType="VARCHAR" property="field6" />
+    <result column="FIELD7" jdbcType="VARCHAR" property="field7" />
+    <result column="FIELD8" jdbcType="VARCHAR" property="field8" />
+    <result column="FIELD9" jdbcType="VARCHAR" property="field9" />
+    <result column="FIELD10" jdbcType="VARCHAR" property="field10" />
     <result column="SHOPTYPEID" jdbcType="VARCHAR" property="shoptypeid" />
     <result column="SHOPTYPE" jdbcType="VARCHAR" property="shoptype" />
     <result column="ORDERTIME" jdbcType="TIMESTAMP" property="ordertime" />
@@ -15,54 +27,54 @@
     <result column="OPERTIME" jdbcType="VARCHAR" property="opertime" />
     <result column="CUSTOMERNAME" jdbcType="VARCHAR" property="customername" />
     <result column="CUSTOMERCOUNTRY" jdbcType="VARCHAR" property="customercountry" />
+    <result column="CUSTOMERPROVINCE" jdbcType="VARCHAR" property="customerprovince" />
+    <result column="CUSTOMERCITY" jdbcType="VARCHAR" property="customercity" />
+    <result column="CUSTOMERADDRESS" jdbcType="VARCHAR" property="customeraddress" />
     <result column="CUSTOMERZIPCODE" jdbcType="VARCHAR" property="customerzipcode" />
     <result column="CUSTOMERTEL1" jdbcType="VARCHAR" property="customertel1" />
     <result column="CUSTOMEREMAIL" jdbcType="VARCHAR" property="customeremail" />
     <result column="CUSTOMERID" jdbcType="VARCHAR" property="customerid" />
     <result column="ORDERTYPE" jdbcType="VARCHAR" property="ordertype" />
-    <result column="ERRDESCR" jdbcType="LONGVARCHAR" property="errdescr" />
-    <result column="PDFURL" jdbcType="LONGVARCHAR" property="pdfurl" />
-    <result column="FIELD1" jdbcType="LONGVARCHAR" property="field1" />
-    <result column="FIELD2" jdbcType="LONGVARCHAR" property="field2" />
-    <result column="FIELD3" jdbcType="LONGVARCHAR" property="field3" />
-    <result column="FIELD4" jdbcType="LONGVARCHAR" property="field4" />
-    <result column="FIELD5" jdbcType="LONGVARCHAR" property="field5" />
-    <result column="FIELD6" jdbcType="LONGVARCHAR" property="field6" />
-    <result column="FIELD7" jdbcType="LONGVARCHAR" property="field7" />
-    <result column="FIELD8" jdbcType="LONGVARCHAR" property="field8" />
-    <result column="FIELD9" jdbcType="LONGVARCHAR" property="field9" />
-    <result column="FIELD10" jdbcType="LONGVARCHAR" property="field10" />
-    <result column="CUSTOMERPROVINCE" jdbcType="LONGVARCHAR" property="customerprovince" />
-    <result column="CUSTOMERCITY" jdbcType="LONGVARCHAR" property="customercity" />
-    <result column="CUSTOMERADDRESS" jdbcType="LONGVARCHAR" property="customeraddress" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select SEQUENCEID, ORDERID, EXPRESSID, ERRFLAG, EXPRESSTYPEID, EXPRESSTYPE, SHOPTYPEID, 
-    SHOPTYPE, ORDERTIME, OPER, OPERTIME, CUSTOMERNAME, CUSTOMERCOUNTRY, CUSTOMERZIPCODE, 
-    CUSTOMERTEL1, CUSTOMEREMAIL, CUSTOMERID, ORDERTYPE, ERRDESCR, PDFURL, FIELD1, FIELD2, 
-    FIELD3, FIELD4, FIELD5, FIELD6, FIELD7, FIELD8, FIELD9, FIELD10, CUSTOMERPROVINCE, 
-    CUSTOMERCITY, CUSTOMERADDRESS
-    from db_asktradernumber
+    select SEQUENCEID, ORDERID, EXPRESSID, ERRFLAG, ERRDESCR, PDFURL, EXPRESSTYPEID, 
+    EXPRESSTYPE, FIELD1, FIELD2, FIELD3, FIELD4, FIELD5, FIELD6, FIELD7, FIELD8, FIELD9, 
+    FIELD10, SHOPTYPEID, SHOPTYPE, ORDERTIME, OPER, OPERTIME, CUSTOMERNAME, CUSTOMERCOUNTRY, 
+    CUSTOMERPROVINCE, CUSTOMERCITY, CUSTOMERADDRESS, CUSTOMERZIPCODE, CUSTOMERTEL1, CUSTOMEREMAIL, 
+    CUSTOMERID, ORDERTYPE
+    from DB_ASKTRADERNUMBER
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select SEQUENCEID, ORDERID, EXPRESSID, ERRFLAG, EXPRESSTYPEID, EXPRESSTYPE, SHOPTYPEID, 
-    SHOPTYPE, ORDERTIME, OPER, OPERTIME, CUSTOMERNAME, CUSTOMERCOUNTRY, CUSTOMERZIPCODE, 
-    CUSTOMERTEL1, CUSTOMEREMAIL, CUSTOMERID, ORDERTYPE, ERRDESCR, PDFURL, FIELD1, FIELD2, 
-    FIELD3, FIELD4, FIELD5, FIELD6, FIELD7, FIELD8, FIELD9, FIELD10, CUSTOMERPROVINCE, 
-    CUSTOMERCITY, CUSTOMERADDRESS
-    from db_asktradernumber
+    select SEQUENCEID, ORDERID, EXPRESSID, ERRFLAG, ERRDESCR, PDFURL, EXPRESSTYPEID, 
+    EXPRESSTYPE, FIELD1, FIELD2, FIELD3, FIELD4, FIELD5, FIELD6, FIELD7, FIELD8, FIELD9, 
+    FIELD10, SHOPTYPEID, SHOPTYPE, ORDERTIME, OPER, OPERTIME, CUSTOMERNAME, CUSTOMERCOUNTRY, 
+    CUSTOMERPROVINCE, CUSTOMERCITY, CUSTOMERADDRESS, CUSTOMERZIPCODE, CUSTOMERTEL1, CUSTOMEREMAIL, 
+    CUSTOMERID, ORDERTYPE
+    from DB_ASKTRADERNUMBER
   </select>
   <sql id="TableName">
-    db_asktradernumber
+    DB_ASKTRADERNUMBER
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=VARCHAR} , 
      #{orderid,jdbcType=VARCHAR} , 
      #{expressid,jdbcType=VARCHAR} , 
      #{errflag,jdbcType=DECIMAL} , 
+     #{errdescr,jdbcType=VARCHAR} , 
+     #{pdfurl,jdbcType=VARCHAR} , 
      #{expresstypeid,jdbcType=VARCHAR} , 
      #{expresstype,jdbcType=VARCHAR} , 
+     #{field1,jdbcType=VARCHAR} , 
+     #{field2,jdbcType=VARCHAR} , 
+     #{field3,jdbcType=VARCHAR} , 
+     #{field4,jdbcType=VARCHAR} , 
+     #{field5,jdbcType=VARCHAR} , 
+     #{field6,jdbcType=VARCHAR} , 
+     #{field7,jdbcType=VARCHAR} , 
+     #{field8,jdbcType=VARCHAR} , 
+     #{field9,jdbcType=VARCHAR} , 
+     #{field10,jdbcType=VARCHAR} , 
      #{shoptypeid,jdbcType=VARCHAR} , 
      #{shoptype,jdbcType=VARCHAR} , 
      #{ordertime,jdbcType=TIMESTAMP} , 
@@ -70,48 +82,24 @@
      #{opertime,jdbcType=VARCHAR} , 
      #{customername,jdbcType=VARCHAR} , 
      #{customercountry,jdbcType=VARCHAR} , 
+     #{customerprovince,jdbcType=VARCHAR} , 
+     #{customercity,jdbcType=VARCHAR} , 
+     #{customeraddress,jdbcType=VARCHAR} , 
      #{customerzipcode,jdbcType=VARCHAR} , 
      #{customertel1,jdbcType=VARCHAR} , 
      #{customeremail,jdbcType=VARCHAR} , 
      #{customerid,jdbcType=VARCHAR} , 
      #{ordertype,jdbcType=VARCHAR} , 
-     #{errdescr,jdbcType=LONGVARCHAR} , 
-     #{pdfurl,jdbcType=LONGVARCHAR} , 
-     #{field1,jdbcType=LONGVARCHAR} , 
-     #{field2,jdbcType=LONGVARCHAR} , 
-     #{field3,jdbcType=LONGVARCHAR} , 
-     #{field4,jdbcType=LONGVARCHAR} , 
-     #{field5,jdbcType=LONGVARCHAR} , 
-     #{field6,jdbcType=LONGVARCHAR} , 
-     #{field7,jdbcType=LONGVARCHAR} , 
-     #{field8,jdbcType=LONGVARCHAR} , 
-     #{field9,jdbcType=LONGVARCHAR} , 
-     #{field10,jdbcType=LONGVARCHAR} , 
-     #{customerprovince,jdbcType=LONGVARCHAR} , 
-     #{customercity,jdbcType=LONGVARCHAR} , 
-     #{customeraddress,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
     ORDERID , 
     EXPRESSID , 
     ERRFLAG , 
-    EXPRESSTYPEID , 
-    EXPRESSTYPE , 
-    SHOPTYPEID , 
-    SHOPTYPE , 
-    ORDERTIME , 
-    OPER , 
-    OPERTIME , 
-    CUSTOMERNAME , 
-    CUSTOMERCOUNTRY , 
-    CUSTOMERZIPCODE , 
-    CUSTOMERTEL1 , 
-    CUSTOMEREMAIL , 
-    CUSTOMERID , 
-    ORDERTYPE , 
     ERRDESCR , 
     PDFURL , 
+    EXPRESSTYPEID , 
+    EXPRESSTYPE , 
     FIELD1 , 
     FIELD2 , 
     FIELD3 , 
@@ -122,213 +110,225 @@
     FIELD8 , 
     FIELD9 , 
     FIELD10 , 
+    SHOPTYPEID , 
+    SHOPTYPE , 
+    ORDERTIME , 
+    OPER , 
+    OPERTIME , 
+    CUSTOMERNAME , 
+    CUSTOMERCOUNTRY , 
     CUSTOMERPROVINCE , 
     CUSTOMERCITY , 
-    CUSTOMERADDRESS
+    CUSTOMERADDRESS , 
+    CUSTOMERZIPCODE , 
+    CUSTOMERTEL1 , 
+    CUSTOMEREMAIL , 
+    CUSTOMERID , 
+    ORDERTYPE , 
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
     </if>
     <if test="orderid != null">
-      ORDERID = #{orderid,jdbcType=VARCHAR} and 
+      orderid = #{orderid,jdbcType=VARCHAR} and 
     </if>
     <if test="expressid != null">
-      EXPRESSID = #{expressid,jdbcType=VARCHAR} and 
+      expressid = #{expressid,jdbcType=VARCHAR} and 
     </if>
     <if test="errflag != null">
-      ERRFLAG = #{errflag,jdbcType=DECIMAL} and 
-    </if>
-    <if test="expresstypeid != null">
-      EXPRESSTYPEID = #{expresstypeid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="expresstype != null">
-      EXPRESSTYPE = #{expresstype,jdbcType=VARCHAR} and 
-    </if>
-    <if test="shoptypeid != null">
-      SHOPTYPEID = #{shoptypeid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="shoptype != null">
-      SHOPTYPE = #{shoptype,jdbcType=VARCHAR} and 
-    </if>
-    <if test="ordertime != null">
-      ORDERTIME = #{ordertime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=VARCHAR} and 
-    </if>
-    <if test="customername != null">
-      CUSTOMERNAME = #{customername,jdbcType=VARCHAR} and 
-    </if>
-    <if test="customercountry != null">
-      CUSTOMERCOUNTRY = #{customercountry,jdbcType=VARCHAR} and 
-    </if>
-    <if test="customerzipcode != null">
-      CUSTOMERZIPCODE = #{customerzipcode,jdbcType=VARCHAR} and 
-    </if>
-    <if test="customertel1 != null">
-      CUSTOMERTEL1 = #{customertel1,jdbcType=VARCHAR} and 
-    </if>
-    <if test="customeremail != null">
-      CUSTOMEREMAIL = #{customeremail,jdbcType=VARCHAR} and 
-    </if>
-    <if test="customerid != null">
-      CUSTOMERID = #{customerid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="ordertype != null">
-      ORDERTYPE = #{ordertype,jdbcType=VARCHAR} and 
+      errflag = #{errflag,jdbcType=DECIMAL} and 
     </if>
     <if test="errdescr != null">
-      ERRDESCR = #{errdescr,jdbcType=LONGVARCHAR} and 
+      errdescr = #{errdescr,jdbcType=VARCHAR} and 
     </if>
     <if test="pdfurl != null">
-      PDFURL = #{pdfurl,jdbcType=LONGVARCHAR} and 
+      pdfurl = #{pdfurl,jdbcType=VARCHAR} and 
+    </if>
+    <if test="expresstypeid != null">
+      expresstypeid = #{expresstypeid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="expresstype != null">
+      expresstype = #{expresstype,jdbcType=VARCHAR} and 
     </if>
     <if test="field1 != null">
-      FIELD1 = #{field1,jdbcType=LONGVARCHAR} and 
+      field1 = #{field1,jdbcType=VARCHAR} and 
     </if>
     <if test="field2 != null">
-      FIELD2 = #{field2,jdbcType=LONGVARCHAR} and 
+      field2 = #{field2,jdbcType=VARCHAR} and 
     </if>
     <if test="field3 != null">
-      FIELD3 = #{field3,jdbcType=LONGVARCHAR} and 
+      field3 = #{field3,jdbcType=VARCHAR} and 
     </if>
     <if test="field4 != null">
-      FIELD4 = #{field4,jdbcType=LONGVARCHAR} and 
+      field4 = #{field4,jdbcType=VARCHAR} and 
     </if>
     <if test="field5 != null">
-      FIELD5 = #{field5,jdbcType=LONGVARCHAR} and 
+      field5 = #{field5,jdbcType=VARCHAR} and 
     </if>
     <if test="field6 != null">
-      FIELD6 = #{field6,jdbcType=LONGVARCHAR} and 
+      field6 = #{field6,jdbcType=VARCHAR} and 
     </if>
     <if test="field7 != null">
-      FIELD7 = #{field7,jdbcType=LONGVARCHAR} and 
+      field7 = #{field7,jdbcType=VARCHAR} and 
     </if>
     <if test="field8 != null">
-      FIELD8 = #{field8,jdbcType=LONGVARCHAR} and 
+      field8 = #{field8,jdbcType=VARCHAR} and 
     </if>
     <if test="field9 != null">
-      FIELD9 = #{field9,jdbcType=LONGVARCHAR} and 
+      field9 = #{field9,jdbcType=VARCHAR} and 
     </if>
     <if test="field10 != null">
-      FIELD10 = #{field10,jdbcType=LONGVARCHAR} and 
+      field10 = #{field10,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shoptypeid != null">
+      shoptypeid = #{shoptypeid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shoptype != null">
+      shoptype = #{shoptype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ordertime != null">
+      ordertime = #{ordertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=VARCHAR} and 
+    </if>
+    <if test="customername != null">
+      customername = #{customername,jdbcType=VARCHAR} and 
+    </if>
+    <if test="customercountry != null">
+      customercountry = #{customercountry,jdbcType=VARCHAR} and 
     </if>
     <if test="customerprovince != null">
-      CUSTOMERPROVINCE = #{customerprovince,jdbcType=LONGVARCHAR} and 
+      customerprovince = #{customerprovince,jdbcType=VARCHAR} and 
     </if>
     <if test="customercity != null">
-      CUSTOMERCITY = #{customercity,jdbcType=LONGVARCHAR} and 
+      customercity = #{customercity,jdbcType=VARCHAR} and 
     </if>
     <if test="customeraddress != null">
-      CUSTOMERADDRESS = #{customeraddress,jdbcType=LONGVARCHAR}
+      customeraddress = #{customeraddress,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="customerzipcode != null">
+      customerzipcode = #{customerzipcode,jdbcType=VARCHAR} and 
+    </if>
+    <if test="customertel1 != null">
+      customertel1 = #{customertel1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="customeremail != null">
+      customeremail = #{customeremail,jdbcType=VARCHAR} and 
+    </if>
+    <if test="customerid != null">
+      customerid = #{customerid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ordertype != null">
+      ordertype = #{ordertype,jdbcType=VARCHAR} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
     </if>
     <if test="orderid != null">
-      ORDERID = #{orderid,jdbcType=VARCHAR} , 
+      orderid = #{orderid,jdbcType=VARCHAR} , 
     </if>
     <if test="expressid != null">
-      EXPRESSID = #{expressid,jdbcType=VARCHAR} , 
+      expressid = #{expressid,jdbcType=VARCHAR} , 
     </if>
     <if test="errflag != null">
-      ERRFLAG = #{errflag,jdbcType=DECIMAL} , 
-    </if>
-    <if test="expresstypeid != null">
-      EXPRESSTYPEID = #{expresstypeid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="expresstype != null">
-      EXPRESSTYPE = #{expresstype,jdbcType=VARCHAR} , 
-    </if>
-    <if test="shoptypeid != null">
-      SHOPTYPEID = #{shoptypeid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="shoptype != null">
-      SHOPTYPE = #{shoptype,jdbcType=VARCHAR} , 
-    </if>
-    <if test="ordertime != null">
-      ORDERTIME = #{ordertime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=VARCHAR} , 
-    </if>
-    <if test="customername != null">
-      CUSTOMERNAME = #{customername,jdbcType=VARCHAR} , 
-    </if>
-    <if test="customercountry != null">
-      CUSTOMERCOUNTRY = #{customercountry,jdbcType=VARCHAR} , 
-    </if>
-    <if test="customerzipcode != null">
-      CUSTOMERZIPCODE = #{customerzipcode,jdbcType=VARCHAR} , 
-    </if>
-    <if test="customertel1 != null">
-      CUSTOMERTEL1 = #{customertel1,jdbcType=VARCHAR} , 
-    </if>
-    <if test="customeremail != null">
-      CUSTOMEREMAIL = #{customeremail,jdbcType=VARCHAR} , 
-    </if>
-    <if test="customerid != null">
-      CUSTOMERID = #{customerid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="ordertype != null">
-      ORDERTYPE = #{ordertype,jdbcType=VARCHAR} , 
+      errflag = #{errflag,jdbcType=DECIMAL} , 
     </if>
     <if test="errdescr != null">
-      ERRDESCR = #{errdescr,jdbcType=LONGVARCHAR} , 
+      errdescr = #{errdescr,jdbcType=VARCHAR} , 
     </if>
     <if test="pdfurl != null">
-      PDFURL = #{pdfurl,jdbcType=LONGVARCHAR} , 
+      pdfurl = #{pdfurl,jdbcType=VARCHAR} , 
+    </if>
+    <if test="expresstypeid != null">
+      expresstypeid = #{expresstypeid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="expresstype != null">
+      expresstype = #{expresstype,jdbcType=VARCHAR} , 
     </if>
     <if test="field1 != null">
-      FIELD1 = #{field1,jdbcType=LONGVARCHAR} , 
+      field1 = #{field1,jdbcType=VARCHAR} , 
     </if>
     <if test="field2 != null">
-      FIELD2 = #{field2,jdbcType=LONGVARCHAR} , 
+      field2 = #{field2,jdbcType=VARCHAR} , 
     </if>
     <if test="field3 != null">
-      FIELD3 = #{field3,jdbcType=LONGVARCHAR} , 
+      field3 = #{field3,jdbcType=VARCHAR} , 
     </if>
     <if test="field4 != null">
-      FIELD4 = #{field4,jdbcType=LONGVARCHAR} , 
+      field4 = #{field4,jdbcType=VARCHAR} , 
     </if>
     <if test="field5 != null">
-      FIELD5 = #{field5,jdbcType=LONGVARCHAR} , 
+      field5 = #{field5,jdbcType=VARCHAR} , 
     </if>
     <if test="field6 != null">
-      FIELD6 = #{field6,jdbcType=LONGVARCHAR} , 
+      field6 = #{field6,jdbcType=VARCHAR} , 
     </if>
     <if test="field7 != null">
-      FIELD7 = #{field7,jdbcType=LONGVARCHAR} , 
+      field7 = #{field7,jdbcType=VARCHAR} , 
     </if>
     <if test="field8 != null">
-      FIELD8 = #{field8,jdbcType=LONGVARCHAR} , 
+      field8 = #{field8,jdbcType=VARCHAR} , 
     </if>
     <if test="field9 != null">
-      FIELD9 = #{field9,jdbcType=LONGVARCHAR} , 
+      field9 = #{field9,jdbcType=VARCHAR} , 
     </if>
     <if test="field10 != null">
-      FIELD10 = #{field10,jdbcType=LONGVARCHAR} , 
+      field10 = #{field10,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shoptypeid != null">
+      shoptypeid = #{shoptypeid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shoptype != null">
+      shoptype = #{shoptype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ordertime != null">
+      ordertime = #{ordertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=VARCHAR} , 
+    </if>
+    <if test="customername != null">
+      customername = #{customername,jdbcType=VARCHAR} , 
+    </if>
+    <if test="customercountry != null">
+      customercountry = #{customercountry,jdbcType=VARCHAR} , 
     </if>
     <if test="customerprovince != null">
-      CUSTOMERPROVINCE = #{customerprovince,jdbcType=LONGVARCHAR} , 
+      customerprovince = #{customerprovince,jdbcType=VARCHAR} , 
     </if>
     <if test="customercity != null">
-      CUSTOMERCITY = #{customercity,jdbcType=LONGVARCHAR} , 
+      customercity = #{customercity,jdbcType=VARCHAR} , 
     </if>
     <if test="customeraddress != null">
-      CUSTOMERADDRESS = #{customeraddress,jdbcType=LONGVARCHAR}
+      customeraddress = #{customeraddress,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="customerzipcode != null">
+      customerzipcode = #{customerzipcode,jdbcType=VARCHAR} , 
+    </if>
+    <if test="customertel1 != null">
+      customertel1 = #{customertel1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="customeremail != null">
+      customeremail = #{customeremail,jdbcType=VARCHAR} , 
+    </if>
+    <if test="customerid != null">
+      customerid = #{customerid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ordertype != null">
+      ordertype = #{ordertype,jdbcType=VARCHAR} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbAsktradernumber" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

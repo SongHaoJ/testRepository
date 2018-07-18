@@ -9,6 +9,12 @@ public class DbProductforsell implements Serializable {
 
     private String sellsku;
 
+    private String name;
+
+    private String enname;
+
+    private String title;
+
     private String oper;
 
     private Date opertime;
@@ -17,7 +23,11 @@ public class DbProductforsell implements Serializable {
 
     private String corpid;
 
+    private String reserve1;
+
     private String reserve2;
+
+    private String reserve3;
 
     private BigDecimal reserve4;
 
@@ -34,6 +44,8 @@ public class DbProductforsell implements Serializable {
     private String status;
 
     private String categoryid;
+
+    private String categoryname;
 
     private String selloper;
 
@@ -121,6 +133,8 @@ public class DbProductforsell implements Serializable {
 
     private BigDecimal rateofmargin;
 
+    private String picturestr;
+
     private String usitemid;
 
     private String ukitemid;
@@ -132,20 +146,6 @@ public class DbProductforsell implements Serializable {
     private String deitemid;
 
     private String pictureid;
-
-    private String name;
-
-    private String enname;
-
-    private String title;
-
-    private String reserve1;
-
-    private String reserve3;
-
-    private String categoryname;
-
-    private String picturestr;
 
     private static final long serialVersionUID = 1L;
 
@@ -163,6 +163,30 @@ public class DbProductforsell implements Serializable {
 
     public void setSellsku(String sellsku) {
         this.sellsku = sellsku == null ? null : sellsku.trim();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
+    }
+
+    public String getEnname() {
+        return enname;
+    }
+
+    public void setEnname(String enname) {
+        this.enname = enname == null ? null : enname.trim();
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title == null ? null : title.trim();
     }
 
     public String getOper() {
@@ -197,12 +221,28 @@ public class DbProductforsell implements Serializable {
         this.corpid = corpid == null ? null : corpid.trim();
     }
 
+    public String getReserve1() {
+        return reserve1;
+    }
+
+    public void setReserve1(String reserve1) {
+        this.reserve1 = reserve1 == null ? null : reserve1.trim();
+    }
+
     public String getReserve2() {
         return reserve2;
     }
 
     public void setReserve2(String reserve2) {
         this.reserve2 = reserve2 == null ? null : reserve2.trim();
+    }
+
+    public String getReserve3() {
+        return reserve3;
+    }
+
+    public void setReserve3(String reserve3) {
+        this.reserve3 = reserve3 == null ? null : reserve3.trim();
     }
 
     public BigDecimal getReserve4() {
@@ -267,6 +307,14 @@ public class DbProductforsell implements Serializable {
 
     public void setCategoryid(String categoryid) {
         this.categoryid = categoryid == null ? null : categoryid.trim();
+    }
+
+    public String getCategoryname() {
+        return categoryname;
+    }
+
+    public void setCategoryname(String categoryname) {
+        this.categoryname = categoryname == null ? null : categoryname.trim();
     }
 
     public String getSelloper() {
@@ -613,6 +661,14 @@ public class DbProductforsell implements Serializable {
         this.rateofmargin = rateofmargin;
     }
 
+    public String getPicturestr() {
+        return picturestr;
+    }
+
+    public void setPicturestr(String picturestr) {
+        this.picturestr = picturestr == null ? null : picturestr.trim();
+    }
+
     public String getUsitemid() {
         return usitemid;
     }
@@ -661,62 +717,6 @@ public class DbProductforsell implements Serializable {
         this.pictureid = pictureid == null ? null : pictureid.trim();
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
-    }
-
-    public String getEnname() {
-        return enname;
-    }
-
-    public void setEnname(String enname) {
-        this.enname = enname == null ? null : enname.trim();
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title == null ? null : title.trim();
-    }
-
-    public String getReserve1() {
-        return reserve1;
-    }
-
-    public void setReserve1(String reserve1) {
-        this.reserve1 = reserve1 == null ? null : reserve1.trim();
-    }
-
-    public String getReserve3() {
-        return reserve3;
-    }
-
-    public void setReserve3(String reserve3) {
-        this.reserve3 = reserve3 == null ? null : reserve3.trim();
-    }
-
-    public String getCategoryname() {
-        return categoryname;
-    }
-
-    public void setCategoryname(String categoryname) {
-        this.categoryname = categoryname == null ? null : categoryname.trim();
-    }
-
-    public String getPicturestr() {
-        return picturestr;
-    }
-
-    public void setPicturestr(String picturestr) {
-        this.picturestr = picturestr == null ? null : picturestr.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -731,11 +731,16 @@ public class DbProductforsell implements Serializable {
         DbProductforsell other = (DbProductforsell) that;
         return (this.getSequenceid() == null ? other.getSequenceid() == null : this.getSequenceid().equals(other.getSequenceid()))
             && (this.getSellsku() == null ? other.getSellsku() == null : this.getSellsku().equals(other.getSellsku()))
+            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
+            && (this.getEnname() == null ? other.getEnname() == null : this.getEnname().equals(other.getEnname()))
+            && (this.getTitle() == null ? other.getTitle() == null : this.getTitle().equals(other.getTitle()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
             && (this.getOpenflag() == null ? other.getOpenflag() == null : this.getOpenflag().equals(other.getOpenflag()))
             && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()))
+            && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
             && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
+            && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
             && (this.getReserve4() == null ? other.getReserve4() == null : this.getReserve4().equals(other.getReserve4()))
             && (this.getReserve5() == null ? other.getReserve5() == null : this.getReserve5().equals(other.getReserve5()))
             && (this.getReserve6() == null ? other.getReserve6() == null : this.getReserve6().equals(other.getReserve6()))
@@ -744,6 +749,7 @@ public class DbProductforsell implements Serializable {
             && (this.getCreatetime() == null ? other.getCreatetime() == null : this.getCreatetime().equals(other.getCreatetime()))
             && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
             && (this.getCategoryid() == null ? other.getCategoryid() == null : this.getCategoryid().equals(other.getCategoryid()))
+            && (this.getCategoryname() == null ? other.getCategoryname() == null : this.getCategoryname().equals(other.getCategoryname()))
             && (this.getSelloper() == null ? other.getSelloper() == null : this.getSelloper().equals(other.getSelloper()))
             && (this.getPurchaseoper() == null ? other.getPurchaseoper() == null : this.getPurchaseoper().equals(other.getPurchaseoper()))
             && (this.getNumforsku() == null ? other.getNumforsku() == null : this.getNumforsku().equals(other.getNumforsku()))
@@ -787,19 +793,13 @@ public class DbProductforsell implements Serializable {
             && (this.getReserve14() == null ? other.getReserve14() == null : this.getReserve14().equals(other.getReserve14()))
             && (this.getGrossprofit() == null ? other.getGrossprofit() == null : this.getGrossprofit().equals(other.getGrossprofit()))
             && (this.getRateofmargin() == null ? other.getRateofmargin() == null : this.getRateofmargin().equals(other.getRateofmargin()))
+            && (this.getPicturestr() == null ? other.getPicturestr() == null : this.getPicturestr().equals(other.getPicturestr()))
             && (this.getUsitemid() == null ? other.getUsitemid() == null : this.getUsitemid().equals(other.getUsitemid()))
             && (this.getUkitemid() == null ? other.getUkitemid() == null : this.getUkitemid().equals(other.getUkitemid()))
             && (this.getAuitemid() == null ? other.getAuitemid() == null : this.getAuitemid().equals(other.getAuitemid()))
             && (this.getCaitemid() == null ? other.getCaitemid() == null : this.getCaitemid().equals(other.getCaitemid()))
             && (this.getDeitemid() == null ? other.getDeitemid() == null : this.getDeitemid().equals(other.getDeitemid()))
-            && (this.getPictureid() == null ? other.getPictureid() == null : this.getPictureid().equals(other.getPictureid()))
-            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
-            && (this.getEnname() == null ? other.getEnname() == null : this.getEnname().equals(other.getEnname()))
-            && (this.getTitle() == null ? other.getTitle() == null : this.getTitle().equals(other.getTitle()))
-            && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
-            && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
-            && (this.getCategoryname() == null ? other.getCategoryname() == null : this.getCategoryname().equals(other.getCategoryname()))
-            && (this.getPicturestr() == null ? other.getPicturestr() == null : this.getPicturestr().equals(other.getPicturestr()));
+            && (this.getPictureid() == null ? other.getPictureid() == null : this.getPictureid().equals(other.getPictureid()));
     }
 
     @Override
@@ -808,11 +808,16 @@ public class DbProductforsell implements Serializable {
         int result = 1;
         result = prime * result + ((getSequenceid() == null) ? 0 : getSequenceid().hashCode());
         result = prime * result + ((getSellsku() == null) ? 0 : getSellsku().hashCode());
+        result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
+        result = prime * result + ((getEnname() == null) ? 0 : getEnname().hashCode());
+        result = prime * result + ((getTitle() == null) ? 0 : getTitle().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getOpenflag() == null) ? 0 : getOpenflag().hashCode());
         result = prime * result + ((getCorpid() == null) ? 0 : getCorpid().hashCode());
+        result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
         result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
+        result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
         result = prime * result + ((getReserve4() == null) ? 0 : getReserve4().hashCode());
         result = prime * result + ((getReserve5() == null) ? 0 : getReserve5().hashCode());
         result = prime * result + ((getReserve6() == null) ? 0 : getReserve6().hashCode());
@@ -821,6 +826,7 @@ public class DbProductforsell implements Serializable {
         result = prime * result + ((getCreatetime() == null) ? 0 : getCreatetime().hashCode());
         result = prime * result + ((getStatus() == null) ? 0 : getStatus().hashCode());
         result = prime * result + ((getCategoryid() == null) ? 0 : getCategoryid().hashCode());
+        result = prime * result + ((getCategoryname() == null) ? 0 : getCategoryname().hashCode());
         result = prime * result + ((getSelloper() == null) ? 0 : getSelloper().hashCode());
         result = prime * result + ((getPurchaseoper() == null) ? 0 : getPurchaseoper().hashCode());
         result = prime * result + ((getNumforsku() == null) ? 0 : getNumforsku().hashCode());
@@ -864,19 +870,13 @@ public class DbProductforsell implements Serializable {
         result = prime * result + ((getReserve14() == null) ? 0 : getReserve14().hashCode());
         result = prime * result + ((getGrossprofit() == null) ? 0 : getGrossprofit().hashCode());
         result = prime * result + ((getRateofmargin() == null) ? 0 : getRateofmargin().hashCode());
+        result = prime * result + ((getPicturestr() == null) ? 0 : getPicturestr().hashCode());
         result = prime * result + ((getUsitemid() == null) ? 0 : getUsitemid().hashCode());
         result = prime * result + ((getUkitemid() == null) ? 0 : getUkitemid().hashCode());
         result = prime * result + ((getAuitemid() == null) ? 0 : getAuitemid().hashCode());
         result = prime * result + ((getCaitemid() == null) ? 0 : getCaitemid().hashCode());
         result = prime * result + ((getDeitemid() == null) ? 0 : getDeitemid().hashCode());
         result = prime * result + ((getPictureid() == null) ? 0 : getPictureid().hashCode());
-        result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
-        result = prime * result + ((getEnname() == null) ? 0 : getEnname().hashCode());
-        result = prime * result + ((getTitle() == null) ? 0 : getTitle().hashCode());
-        result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
-        result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
-        result = prime * result + ((getCategoryname() == null) ? 0 : getCategoryname().hashCode());
-        result = prime * result + ((getPicturestr() == null) ? 0 : getPicturestr().hashCode());
         return result;
     }
 
@@ -888,11 +888,16 @@ public class DbProductforsell implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", sequenceid=").append(sequenceid);
         sb.append(", sellsku=").append(sellsku);
+        sb.append(", name=").append(name);
+        sb.append(", enname=").append(enname);
+        sb.append(", title=").append(title);
         sb.append(", oper=").append(oper);
         sb.append(", opertime=").append(opertime);
         sb.append(", openflag=").append(openflag);
         sb.append(", corpid=").append(corpid);
+        sb.append(", reserve1=").append(reserve1);
         sb.append(", reserve2=").append(reserve2);
+        sb.append(", reserve3=").append(reserve3);
         sb.append(", reserve4=").append(reserve4);
         sb.append(", reserve5=").append(reserve5);
         sb.append(", reserve6=").append(reserve6);
@@ -901,6 +906,7 @@ public class DbProductforsell implements Serializable {
         sb.append(", createtime=").append(createtime);
         sb.append(", status=").append(status);
         sb.append(", categoryid=").append(categoryid);
+        sb.append(", categoryname=").append(categoryname);
         sb.append(", selloper=").append(selloper);
         sb.append(", purchaseoper=").append(purchaseoper);
         sb.append(", numforsku=").append(numforsku);
@@ -944,19 +950,13 @@ public class DbProductforsell implements Serializable {
         sb.append(", reserve14=").append(reserve14);
         sb.append(", grossprofit=").append(grossprofit);
         sb.append(", rateofmargin=").append(rateofmargin);
+        sb.append(", picturestr=").append(picturestr);
         sb.append(", usitemid=").append(usitemid);
         sb.append(", ukitemid=").append(ukitemid);
         sb.append(", auitemid=").append(auitemid);
         sb.append(", caitemid=").append(caitemid);
         sb.append(", deitemid=").append(deitemid);
         sb.append(", pictureid=").append(pictureid);
-        sb.append(", name=").append(name);
-        sb.append(", enname=").append(enname);
-        sb.append(", title=").append(title);
-        sb.append(", reserve1=").append(reserve1);
-        sb.append(", reserve3=").append(reserve3);
-        sb.append(", categoryname=").append(categoryname);
-        sb.append(", picturestr=").append(picturestr);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

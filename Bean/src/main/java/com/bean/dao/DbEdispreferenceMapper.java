@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbEdispreference;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbEdispreferenceMapper {
-    int deleteByPrimaryKey(String consignpreferenceid);
+    DbEdispreference selectByCriteria(DbEdispreference DbEdispreference);
 
-    int insert(DbEdispreference record);
+    void deleteByPrimaryKey(String CONSIGNPREFERENCEID);
 
-    int insertSelective(DbEdispreference record);
+    void deleteByCriteria(DbEdispreference DbEdispreference);
+
+    int insertByCriteria(DbEdispreference DbEdispreference);
+
+    int updateByCriteria(DbEdispreference DbEdispreference);
 
     DbEdispreference selectByPrimaryKey(String consignpreferenceid);
 
-    int updateByPrimaryKeySelective(DbEdispreference record);
-
-    int updateByPrimaryKeyWithBLOBs(DbEdispreference record);
-
-    int updateByPrimaryKey(DbEdispreference record);
+    List<DbEdispreference> selectAll();
 }

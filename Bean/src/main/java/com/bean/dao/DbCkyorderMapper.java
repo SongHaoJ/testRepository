@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbCkyorder;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbCkyorderMapper {
-    int deleteByPrimaryKey(String sid);
+    DbCkyorder selectByCriteria(DbCkyorder DbCkyorder);
 
-    int insert(DbCkyorder record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbCkyorder record);
+    void deleteByCriteria(DbCkyorder DbCkyorder);
+
+    int insertByCriteria(DbCkyorder DbCkyorder);
+
+    int updateByCriteria(DbCkyorder DbCkyorder);
 
     DbCkyorder selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbCkyorder record);
-
-    int updateByPrimaryKey(DbCkyorder record);
+    List<DbCkyorder> selectAll();
 }

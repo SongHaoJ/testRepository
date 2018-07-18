@@ -25,15 +25,15 @@ public class DbEdispreference implements Serializable {
 
     private String district;
 
-    private String postcode;
-
-    private String mobile;
-
     private String street1;
 
     private String street2;
 
     private String street3;
+
+    private String postcode;
+
+    private String mobile;
 
     private static final long serialVersionUID = 1L;
 
@@ -125,22 +125,6 @@ public class DbEdispreference implements Serializable {
         this.district = district == null ? null : district.trim();
     }
 
-    public String getPostcode() {
-        return postcode;
-    }
-
-    public void setPostcode(String postcode) {
-        this.postcode = postcode == null ? null : postcode.trim();
-    }
-
-    public String getMobile() {
-        return mobile;
-    }
-
-    public void setMobile(String mobile) {
-        this.mobile = mobile == null ? null : mobile.trim();
-    }
-
     public String getStreet1() {
         return street1;
     }
@@ -163,6 +147,22 @@ public class DbEdispreference implements Serializable {
 
     public void setStreet3(String street3) {
         this.street3 = street3 == null ? null : street3.trim();
+    }
+
+    public String getPostcode() {
+        return postcode;
+    }
+
+    public void setPostcode(String postcode) {
+        this.postcode = postcode == null ? null : postcode.trim();
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile == null ? null : mobile.trim();
     }
 
     @Override
@@ -188,11 +188,11 @@ public class DbEdispreference implements Serializable {
             && (this.getProvince() == null ? other.getProvince() == null : this.getProvince().equals(other.getProvince()))
             && (this.getCity() == null ? other.getCity() == null : this.getCity().equals(other.getCity()))
             && (this.getDistrict() == null ? other.getDistrict() == null : this.getDistrict().equals(other.getDistrict()))
-            && (this.getPostcode() == null ? other.getPostcode() == null : this.getPostcode().equals(other.getPostcode()))
-            && (this.getMobile() == null ? other.getMobile() == null : this.getMobile().equals(other.getMobile()))
             && (this.getStreet1() == null ? other.getStreet1() == null : this.getStreet1().equals(other.getStreet1()))
             && (this.getStreet2() == null ? other.getStreet2() == null : this.getStreet2().equals(other.getStreet2()))
-            && (this.getStreet3() == null ? other.getStreet3() == null : this.getStreet3().equals(other.getStreet3()));
+            && (this.getStreet3() == null ? other.getStreet3() == null : this.getStreet3().equals(other.getStreet3()))
+            && (this.getPostcode() == null ? other.getPostcode() == null : this.getPostcode().equals(other.getPostcode()))
+            && (this.getMobile() == null ? other.getMobile() == null : this.getMobile().equals(other.getMobile()));
     }
 
     @Override
@@ -210,11 +210,11 @@ public class DbEdispreference implements Serializable {
         result = prime * result + ((getProvince() == null) ? 0 : getProvince().hashCode());
         result = prime * result + ((getCity() == null) ? 0 : getCity().hashCode());
         result = prime * result + ((getDistrict() == null) ? 0 : getDistrict().hashCode());
-        result = prime * result + ((getPostcode() == null) ? 0 : getPostcode().hashCode());
-        result = prime * result + ((getMobile() == null) ? 0 : getMobile().hashCode());
         result = prime * result + ((getStreet1() == null) ? 0 : getStreet1().hashCode());
         result = prime * result + ((getStreet2() == null) ? 0 : getStreet2().hashCode());
         result = prime * result + ((getStreet3() == null) ? 0 : getStreet3().hashCode());
+        result = prime * result + ((getPostcode() == null) ? 0 : getPostcode().hashCode());
+        result = prime * result + ((getMobile() == null) ? 0 : getMobile().hashCode());
         return result;
     }
 
@@ -235,11 +235,11 @@ public class DbEdispreference implements Serializable {
         sb.append(", province=").append(province);
         sb.append(", city=").append(city);
         sb.append(", district=").append(district);
-        sb.append(", postcode=").append(postcode);
-        sb.append(", mobile=").append(mobile);
         sb.append(", street1=").append(street1);
         sb.append(", street2=").append(street2);
         sb.append(", street3=").append(street3);
+        sb.append(", postcode=").append(postcode);
+        sb.append(", mobile=").append(mobile);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

@@ -1,20 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbItemresultHistory;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbItemresultHistoryMapper {
-    int deleteByPrimaryKey(BigDecimal sid);
+    DbItemresultHistory selectByCriteria(DbItemresultHistory DbItemresultHistory);
 
-    int insert(DbItemresultHistory record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbItemresultHistory record);
+    void deleteByCriteria(DbItemresultHistory DbItemresultHistory);
+
+    int insertByCriteria(DbItemresultHistory DbItemresultHistory);
+
+    int updateByCriteria(DbItemresultHistory DbItemresultHistory);
 
     DbItemresultHistory selectByPrimaryKey(BigDecimal sid);
 
-    int updateByPrimaryKeySelective(DbItemresultHistory record);
-
-    int updateByPrimaryKeyWithBLOBs(DbItemresultHistory record);
-
-    int updateByPrimaryKey(DbItemresultHistory record);
+    List<DbItemresultHistory> selectAll();
 }

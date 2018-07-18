@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbMoban;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbMobanMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbMoban selectByCriteria(DbMoban DbMoban);
 
-    int insert(DbMoban record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbMoban record);
+    void deleteByCriteria(DbMoban DbMoban);
+
+    int insertByCriteria(DbMoban DbMoban);
+
+    int updateByCriteria(DbMoban DbMoban);
 
     DbMoban selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbMoban record);
-
-    int updateByPrimaryKeyWithBLOBs(DbMoban record);
-
-    int updateByPrimaryKey(DbMoban record);
+    List<DbMoban> selectAll();
 }

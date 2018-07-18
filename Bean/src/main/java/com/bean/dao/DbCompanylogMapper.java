@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbCompanylog;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbCompanylogMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbCompanylog selectByCriteria(DbCompanylog DbCompanylog);
 
-    int insert(DbCompanylog record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbCompanylog record);
+    void deleteByCriteria(DbCompanylog DbCompanylog);
+
+    int insertByCriteria(DbCompanylog DbCompanylog);
+
+    int updateByCriteria(DbCompanylog DbCompanylog);
 
     DbCompanylog selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbCompanylog record);
-
-    int updateByPrimaryKeyWithBLOBs(DbCompanylog record);
-
-    int updateByPrimaryKey(DbCompanylog record);
+    List<DbCompanylog> selectAll();
 }

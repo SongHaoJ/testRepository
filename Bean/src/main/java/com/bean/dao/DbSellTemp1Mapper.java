@@ -2,8 +2,8 @@ package com.bean.dao;
 
 import com.bean.model.DbSellTemp1;
 
-public interface DbSellTemp1Mapper {
-    int insert(DbSellTemp1 record);
+import java.util.List;
 
-    int insertSelective(DbSellTemp1 record);
+public interface DbSellTemp1Mapper {
+    List<DbSellTemp1> selectAll();
 }

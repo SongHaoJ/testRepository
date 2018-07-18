@@ -2,113 +2,152 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bean.dao.DbPrintorderbyskuconfiginfoMapper">
   <resultMap id="BaseResultMap" type="com.bean.model.DbPrintorderbyskuconfiginfo">
-    <result column="SID" jdbcType="VARCHAR" property="sid" />
+    <id column="SID" jdbcType="VARCHAR" property="sid" />
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
     <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
     <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
     <result column="PSCID" jdbcType="VARCHAR" property="pscid" />
     <result column="EXPRESSTYPE" jdbcType="VARCHAR" property="expresstype" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="EXPRESSTYPEID" jdbcType="VARCHAR" property="expresstypeid" />
     <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
     <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="PRINTER" jdbcType="VARCHAR" property="printer" />
     <result column="LABELID" jdbcType="VARCHAR" property="labelid" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbPrintorderbyskuconfiginfo">
-    <result column="EXPRESSTYPEID" jdbcType="LONGVARCHAR" property="expresstypeid" />
-    <result column="PRINTER" jdbcType="LONGVARCHAR" property="printer" />
-  </resultMap>
-  <sql id="Blob_Column_List">
-    EXPRESSTYPEID, PRINTER
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SID, OPER, CORPID, RESERVE1, PSCID, EXPRESSTYPE, OPERTIME, EXPRESSTYPEID, 
+    RESERVE3, RESERVE2, PRINTER, LABELID
+    from DB_PRINTORDERBYSKUCONFIGINFO
+    where SID = #{sid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, OPER, CORPID, RESERVE1, PSCID, EXPRESSTYPE, OPERTIME, EXPRESSTYPEID, 
+    RESERVE3, RESERVE2, PRINTER, LABELID
+    from DB_PRINTORDERBYSKUCONFIGINFO
+  </select>
+  <sql id="TableName">
+    DB_PRINTORDERBYSKUCONFIGINFO
   </sql>
-  <insert id="insert" parameterType="com.bean.model.DbPrintorderbyskuconfiginfo">
-    insert into db_printorderbyskuconfiginfo (SID, OPER, CORPID, 
-      RESERVE1, PSCID, EXPRESSTYPE, 
-      OPERTIME, RESERVE3, RESERVE2, 
-      LABELID, EXPRESSTYPEID, PRINTER
-      )
-    values (#{sid,jdbcType=VARCHAR}, #{oper,jdbcType=VARCHAR}, #{corpid,jdbcType=VARCHAR}, 
-      #{reserve1,jdbcType=VARCHAR}, #{pscid,jdbcType=VARCHAR}, #{expresstype,jdbcType=VARCHAR}, 
-      #{opertime,jdbcType=TIMESTAMP}, #{reserve3,jdbcType=VARCHAR}, #{reserve2,jdbcType=VARCHAR}, 
-      #{labelid,jdbcType=VARCHAR}, #{expresstypeid,jdbcType=LONGVARCHAR}, #{printer,jdbcType=LONGVARCHAR}
-      )
+  <sql id="Values">
+     #{sid,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{corpid,jdbcType=VARCHAR} , 
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{pscid,jdbcType=VARCHAR} , 
+     #{expresstype,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{expresstypeid,jdbcType=VARCHAR} , 
+     #{reserve3,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+     #{printer,jdbcType=VARCHAR} , 
+     #{labelid,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    SID , 
+    OPER , 
+    CORPID , 
+    RESERVE1 , 
+    PSCID , 
+    EXPRESSTYPE , 
+    OPERTIME , 
+    EXPRESSTYPEID , 
+    RESERVE3 , 
+    RESERVE2 , 
+    PRINTER , 
+    LABELID , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="pscid != null">
+      pscid = #{pscid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="expresstype != null">
+      expresstype = #{expresstype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="expresstypeid != null">
+      expresstypeid = #{expresstypeid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="printer != null">
+      printer = #{printer,jdbcType=VARCHAR} and 
+    </if>
+    <if test="labelid != null">
+      labelid = #{labelid,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="pscid != null">
+      pscid = #{pscid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="expresstype != null">
+      expresstype = #{expresstype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="expresstypeid != null">
+      expresstypeid = #{expresstypeid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="printer != null">
+      printer = #{printer,jdbcType=VARCHAR} , 
+    </if>
+    <if test="labelid != null">
+      labelid = #{labelid,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbPrintorderbyskuconfiginfo" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SID=#{SID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbPrintorderbyskuconfiginfo">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbPrintorderbyskuconfiginfo">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbPrintorderbyskuconfiginfo">
-    insert into db_printorderbyskuconfiginfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        SID,
-      </if>
-      <if test="oper != null">
-        OPER,
-      </if>
-      <if test="corpid != null">
-        CORPID,
-      </if>
-      <if test="reserve1 != null">
-        RESERVE1,
-      </if>
-      <if test="pscid != null">
-        PSCID,
-      </if>
-      <if test="expresstype != null">
-        EXPRESSTYPE,
-      </if>
-      <if test="opertime != null">
-        OPERTIME,
-      </if>
-      <if test="reserve3 != null">
-        RESERVE3,
-      </if>
-      <if test="reserve2 != null">
-        RESERVE2,
-      </if>
-      <if test="labelid != null">
-        LABELID,
-      </if>
-      <if test="expresstypeid != null">
-        EXPRESSTYPEID,
-      </if>
-      <if test="printer != null">
-        PRINTER,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        #{sid,jdbcType=VARCHAR},
-      </if>
-      <if test="oper != null">
-        #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="corpid != null">
-        #{corpid,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve1 != null">
-        #{reserve1,jdbcType=VARCHAR},
-      </if>
-      <if test="pscid != null">
-        #{pscid,jdbcType=VARCHAR},
-      </if>
-      <if test="expresstype != null">
-        #{expresstype,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="reserve3 != null">
-        #{reserve3,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve2 != null">
-        #{reserve2,jdbcType=VARCHAR},
-      </if>
-      <if test="labelid != null">
-        #{labelid,jdbcType=VARCHAR},
-      </if>
-      <if test="expresstypeid != null">
-        #{expresstypeid,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="printer != null">
-        #{printer,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbPrintorderbyskuconfiginfo">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
 </mapper>

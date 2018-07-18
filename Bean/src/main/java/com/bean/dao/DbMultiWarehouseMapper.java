@@ -1,26 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbMultiWarehouse;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Map;
 
-@Repository
+@Service
 public interface DbMultiWarehouseMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbMultiWarehouse selectByCriteria(DbMultiWarehouse DbMultiWarehouse);
 
-    int insert(DbMultiWarehouse record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbMultiWarehouse record);
+    void deleteByCriteria(DbMultiWarehouse DbMultiWarehouse);
+
+    int insertByCriteria(DbMultiWarehouse DbMultiWarehouse);
+
+    int updateByCriteria(DbMultiWarehouse DbMultiWarehouse);
 
     DbMultiWarehouse selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbMultiWarehouse record);
-
-    List<String> selectDistinctMainSku();
-
-    List<String> selectByMainSku(Map<String,String> params);
-
-    List<String> selectMoreSkuByProductSku(Map<String,String> params);
+    List<DbMultiWarehouse> selectAll();
 }

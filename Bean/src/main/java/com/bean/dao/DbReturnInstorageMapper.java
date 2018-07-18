@@ -1,20 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbReturnInstorage;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbReturnInstorageMapper {
-    int deleteByPrimaryKey(BigDecimal sequenceid);
+    DbReturnInstorage selectByCriteria(DbReturnInstorage DbReturnInstorage);
 
-    int insert(DbReturnInstorage record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbReturnInstorage record);
+    void deleteByCriteria(DbReturnInstorage DbReturnInstorage);
+
+    int insertByCriteria(DbReturnInstorage DbReturnInstorage);
+
+    int updateByCriteria(DbReturnInstorage DbReturnInstorage);
 
     DbReturnInstorage selectByPrimaryKey(BigDecimal sequenceid);
 
-    int updateByPrimaryKeySelective(DbReturnInstorage record);
-
-    int updateByPrimaryKeyWithBLOBs(DbReturnInstorage record);
-
-    int updateByPrimaryKey(DbReturnInstorage record);
+    List<DbReturnInstorage> selectAll();
 }

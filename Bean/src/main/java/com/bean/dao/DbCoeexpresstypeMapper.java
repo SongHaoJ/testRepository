@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbCoeexpresstype;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbCoeexpresstypeMapper {
-    int deleteByPrimaryKey(String sid);
+    DbCoeexpresstype selectByCriteria(DbCoeexpresstype DbCoeexpresstype);
 
-    int insert(DbCoeexpresstype record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbCoeexpresstype record);
+    void deleteByCriteria(DbCoeexpresstype DbCoeexpresstype);
+
+    int insertByCriteria(DbCoeexpresstype DbCoeexpresstype);
+
+    int updateByCriteria(DbCoeexpresstype DbCoeexpresstype);
 
     DbCoeexpresstype selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbCoeexpresstype record);
-
-    int updateByPrimaryKey(DbCoeexpresstype record);
+    List<DbCoeexpresstype> selectAll();
 }

@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbAlibbporder;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbAlibbporderMapper {
-    int deleteByPrimaryKey(String orderid);
+    DbAlibbporder selectByCriteria(DbAlibbporder DbAlibbporder);
 
-    int insert(DbAlibbporder record);
+    void deleteByPrimaryKey(String ORDERID);
 
-    int insertSelective(DbAlibbporder record);
+    void deleteByCriteria(DbAlibbporder DbAlibbporder);
+
+    int insertByCriteria(DbAlibbporder DbAlibbporder);
+
+    int updateByCriteria(DbAlibbporder DbAlibbporder);
 
     DbAlibbporder selectByPrimaryKey(String orderid);
 
-    int updateByPrimaryKeySelective(DbAlibbporder record);
-
-    int updateByPrimaryKeyWithBLOBs(DbAlibbporder record);
-
-    int updateByPrimaryKey(DbAlibbporder record);
+    List<DbAlibbporder> selectAll();
 }

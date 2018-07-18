@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbEbaymessageorderconfiglog;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbEbaymessageorderconfiglogMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbEbaymessageorderconfiglog selectByCriteria(DbEbaymessageorderconfiglog DbEbaymessageorderconfiglog);
 
-    int insert(DbEbaymessageorderconfiglog record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbEbaymessageorderconfiglog record);
+    void deleteByCriteria(DbEbaymessageorderconfiglog DbEbaymessageorderconfiglog);
+
+    int insertByCriteria(DbEbaymessageorderconfiglog DbEbaymessageorderconfiglog);
+
+    int updateByCriteria(DbEbaymessageorderconfiglog DbEbaymessageorderconfiglog);
 
     DbEbaymessageorderconfiglog selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbEbaymessageorderconfiglog record);
-
-    int updateByPrimaryKeyWithBLOBs(DbEbaymessageorderconfiglog record);
-
-    int updateByPrimaryKey(DbEbaymessageorderconfiglog record);
+    List<DbEbaymessageorderconfiglog> selectAll();
 }

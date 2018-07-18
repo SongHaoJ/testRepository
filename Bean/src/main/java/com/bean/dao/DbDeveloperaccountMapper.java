@@ -2,8 +2,8 @@ package com.bean.dao;
 
 import com.bean.model.DbDeveloperaccount;
 
-public interface DbDeveloperaccountMapper {
-    int insert(DbDeveloperaccount record);
+import java.util.List;
 
-    int insertSelective(DbDeveloperaccount record);
+public interface DbDeveloperaccountMapper {
+    List<DbDeveloperaccount> selectAll();
 }

@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbSendmessage;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbSendmessageMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbSendmessage selectByCriteria(DbSendmessage DbSendmessage);
 
-    int insert(DbSendmessage record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbSendmessage record);
+    void deleteByCriteria(DbSendmessage DbSendmessage);
+
+    int insertByCriteria(DbSendmessage DbSendmessage);
+
+    int updateByCriteria(DbSendmessage DbSendmessage);
 
     DbSendmessage selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbSendmessage record);
-
-    int updateByPrimaryKeyWithBLOBs(DbSendmessage record);
-
-    int updateByPrimaryKey(DbSendmessage record);
+    List<DbSendmessage> selectAll();
 }

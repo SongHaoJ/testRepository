@@ -12,131 +12,115 @@
     <result column="CREATRTIME" jdbcType="TIMESTAMP" property="creatrtime" />
     <result column="UPDATETIME" jdbcType="TIMESTAMP" property="updatetime" />
   </resultMap>
-  <sql id="Base_Column_List">
-    SEQUENCEID, USERNAME, SHOPNAME, DAYONLINENUM, YESTERDAYONLINENUM, WEEKONLINENUM, 
-    MONTHONLINENUM, CREATRTIME, UPDATETIME
-  </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from db_competitorlist
+    select SEQUENCEID, USERNAME, SHOPNAME, DAYONLINENUM, YESTERDAYONLINENUM, WEEKONLINENUM, 
+    MONTHONLINENUM, CREATRTIME, UPDATETIME
+    from DB_COMPETITORLIST
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_competitorlist
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, USERNAME, SHOPNAME, DAYONLINENUM, YESTERDAYONLINENUM, WEEKONLINENUM, 
+    MONTHONLINENUM, CREATRTIME, UPDATETIME
+    from DB_COMPETITORLIST
+  </select>
+  <sql id="TableName">
+    DB_COMPETITORLIST
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=VARCHAR} , 
+     #{username,jdbcType=VARCHAR} , 
+     #{shopname,jdbcType=VARCHAR} , 
+     #{dayonlinenum,jdbcType=DECIMAL} , 
+     #{yesterdayonlinenum,jdbcType=DECIMAL} , 
+     #{weekonlinenum,jdbcType=DECIMAL} , 
+     #{monthonlinenum,jdbcType=DECIMAL} , 
+     #{creatrtime,jdbcType=TIMESTAMP} , 
+     #{updatetime,jdbcType=TIMESTAMP} , 
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    USERNAME , 
+    SHOPNAME , 
+    DAYONLINENUM , 
+    YESTERDAYONLINENUM , 
+    WEEKONLINENUM , 
+    MONTHONLINENUM , 
+    CREATRTIME , 
+    UPDATETIME , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="username != null">
+      username = #{username,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shopname != null">
+      shopname = #{shopname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="dayonlinenum != null">
+      dayonlinenum = #{dayonlinenum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="yesterdayonlinenum != null">
+      yesterdayonlinenum = #{yesterdayonlinenum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="weekonlinenum != null">
+      weekonlinenum = #{weekonlinenum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="monthonlinenum != null">
+      monthonlinenum = #{monthonlinenum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="creatrtime != null">
+      creatrtime = #{creatrtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="updatetime != null">
+      updatetime = #{updatetime,jdbcType=TIMESTAMP} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="username != null">
+      username = #{username,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shopname != null">
+      shopname = #{shopname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="dayonlinenum != null">
+      dayonlinenum = #{dayonlinenum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="yesterdayonlinenum != null">
+      yesterdayonlinenum = #{yesterdayonlinenum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="weekonlinenum != null">
+      weekonlinenum = #{weekonlinenum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="monthonlinenum != null">
+      monthonlinenum = #{monthonlinenum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="creatrtime != null">
+      creatrtime = #{creatrtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="updatetime != null">
+      updatetime = #{updatetime,jdbcType=TIMESTAMP} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbCompetitorlist" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbCompetitorlist">
-    insert into db_competitorlist (SEQUENCEID, USERNAME, SHOPNAME, 
-      DAYONLINENUM, YESTERDAYONLINENUM, WEEKONLINENUM, 
-      MONTHONLINENUM, CREATRTIME, UPDATETIME
-      )
-    values (#{sequenceid,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{shopname,jdbcType=VARCHAR}, 
-      #{dayonlinenum,jdbcType=DECIMAL}, #{yesterdayonlinenum,jdbcType=DECIMAL}, #{weekonlinenum,jdbcType=DECIMAL}, 
-      #{monthonlinenum,jdbcType=DECIMAL}, #{creatrtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}
-      )
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbCompetitorlist">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbCompetitorlist">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbCompetitorlist">
-    insert into db_competitorlist
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        SEQUENCEID,
-      </if>
-      <if test="username != null">
-        USERNAME,
-      </if>
-      <if test="shopname != null">
-        SHOPNAME,
-      </if>
-      <if test="dayonlinenum != null">
-        DAYONLINENUM,
-      </if>
-      <if test="yesterdayonlinenum != null">
-        YESTERDAYONLINENUM,
-      </if>
-      <if test="weekonlinenum != null">
-        WEEKONLINENUM,
-      </if>
-      <if test="monthonlinenum != null">
-        MONTHONLINENUM,
-      </if>
-      <if test="creatrtime != null">
-        CREATRTIME,
-      </if>
-      <if test="updatetime != null">
-        UPDATETIME,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        #{sequenceid,jdbcType=VARCHAR},
-      </if>
-      <if test="username != null">
-        #{username,jdbcType=VARCHAR},
-      </if>
-      <if test="shopname != null">
-        #{shopname,jdbcType=VARCHAR},
-      </if>
-      <if test="dayonlinenum != null">
-        #{dayonlinenum,jdbcType=DECIMAL},
-      </if>
-      <if test="yesterdayonlinenum != null">
-        #{yesterdayonlinenum,jdbcType=DECIMAL},
-      </if>
-      <if test="weekonlinenum != null">
-        #{weekonlinenum,jdbcType=DECIMAL},
-      </if>
-      <if test="monthonlinenum != null">
-        #{monthonlinenum,jdbcType=DECIMAL},
-      </if>
-      <if test="creatrtime != null">
-        #{creatrtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updatetime != null">
-        #{updatetime,jdbcType=TIMESTAMP},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbCompetitorlist">
-    update db_competitorlist
-    <set>
-      <if test="username != null">
-        USERNAME = #{username,jdbcType=VARCHAR},
-      </if>
-      <if test="shopname != null">
-        SHOPNAME = #{shopname,jdbcType=VARCHAR},
-      </if>
-      <if test="dayonlinenum != null">
-        DAYONLINENUM = #{dayonlinenum,jdbcType=DECIMAL},
-      </if>
-      <if test="yesterdayonlinenum != null">
-        YESTERDAYONLINENUM = #{yesterdayonlinenum,jdbcType=DECIMAL},
-      </if>
-      <if test="weekonlinenum != null">
-        WEEKONLINENUM = #{weekonlinenum,jdbcType=DECIMAL},
-      </if>
-      <if test="monthonlinenum != null">
-        MONTHONLINENUM = #{monthonlinenum,jdbcType=DECIMAL},
-      </if>
-      <if test="creatrtime != null">
-        CREATRTIME = #{creatrtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updatetime != null">
-        UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbCompetitorlist">
-    update db_competitorlist
-    set USERNAME = #{username,jdbcType=VARCHAR},
-      SHOPNAME = #{shopname,jdbcType=VARCHAR},
-      DAYONLINENUM = #{dayonlinenum,jdbcType=DECIMAL},
-      YESTERDAYONLINENUM = #{yesterdayonlinenum,jdbcType=DECIMAL},
-      WEEKONLINENUM = #{weekonlinenum,jdbcType=DECIMAL},
-      MONTHONLINENUM = #{monthonlinenum,jdbcType=DECIMAL},
-      CREATRTIME = #{creatrtime,jdbcType=TIMESTAMP},
-      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP}
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbCompetitorlist">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

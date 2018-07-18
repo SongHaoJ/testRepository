@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbQueryrobot;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbQueryrobotMapper {
-    int deleteByPrimaryKey(String orderid);
+    DbQueryrobot selectByCriteria(DbQueryrobot DbQueryrobot);
 
-    int insert(DbQueryrobot record);
+    void deleteByPrimaryKey(String ORDERID);
 
-    int insertSelective(DbQueryrobot record);
+    void deleteByCriteria(DbQueryrobot DbQueryrobot);
+
+    int insertByCriteria(DbQueryrobot DbQueryrobot);
+
+    int updateByCriteria(DbQueryrobot DbQueryrobot);
 
     DbQueryrobot selectByPrimaryKey(String orderid);
 
-    int updateByPrimaryKeySelective(DbQueryrobot record);
-
-    int updateByPrimaryKeyWithBLOBs(DbQueryrobot record);
-
-    int updateByPrimaryKey(DbQueryrobot record);
+    List<DbQueryrobot> selectAll();
 }

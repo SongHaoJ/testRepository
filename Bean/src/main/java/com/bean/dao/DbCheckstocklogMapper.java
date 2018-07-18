@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbCheckstocklog;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbCheckstocklogMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbCheckstocklog selectByCriteria(DbCheckstocklog DbCheckstocklog);
 
-    int insert(DbCheckstocklog record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbCheckstocklog record);
+    void deleteByCriteria(DbCheckstocklog DbCheckstocklog);
+
+    int insertByCriteria(DbCheckstocklog DbCheckstocklog);
+
+    int updateByCriteria(DbCheckstocklog DbCheckstocklog);
 
     DbCheckstocklog selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbCheckstocklog record);
-
-    int updateByPrimaryKeyWithBLOBs(DbCheckstocklog record);
-
-    int updateByPrimaryKey(DbCheckstocklog record);
+    List<DbCheckstocklog> selectAll();
 }

@@ -7,24 +7,22 @@
     <result column="SKU" jdbcType="VARCHAR" property="sku" />
     <result column="SKUTYPE" jdbcType="DECIMAL" property="skutype" />
     <result column="SID" jdbcType="VARCHAR" property="sid" />
+    <result column="IMGURL" jdbcType="VARCHAR" property="imgurl" />
     <result column="CHECKTIME" jdbcType="TIMESTAMP" property="checktime" />
     <result column="CHECKFLAG" jdbcType="DECIMAL" property="checkflag" />
     <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
-    <result column="IMGURL" jdbcType="LONGVARCHAR" property="imgurl" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
-    select SEQUENCEID, PROJECTID, SKU, SKUTYPE, SID, CHECKTIME, CHECKFLAG, CREATETIME, 
-    IMGURL
-    from db_projectsku
+    select SEQUENCEID, PROJECTID, SKU, SKUTYPE, SID, IMGURL, CHECKTIME, CHECKFLAG, CREATETIME
+    from DB_PROJECTSKU
     where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select SEQUENCEID, PROJECTID, SKU, SKUTYPE, SID, CHECKTIME, CHECKFLAG, CREATETIME, 
-    IMGURL
-    from db_projectsku
+    select SEQUENCEID, PROJECTID, SKU, SKUTYPE, SID, IMGURL, CHECKTIME, CHECKFLAG, CREATETIME
+    from DB_PROJECTSKU
   </select>
   <sql id="TableName">
-    db_projectsku
+    DB_PROJECTSKU
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=DECIMAL} , 
@@ -32,10 +30,10 @@
      #{sku,jdbcType=VARCHAR} , 
      #{skutype,jdbcType=DECIMAL} , 
      #{sid,jdbcType=VARCHAR} , 
+     #{imgurl,jdbcType=VARCHAR} , 
      #{checktime,jdbcType=TIMESTAMP} , 
      #{checkflag,jdbcType=DECIMAL} , 
      #{createtime,jdbcType=TIMESTAMP} , 
-     #{imgurl,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
@@ -43,70 +41,70 @@
     SKU , 
     SKUTYPE , 
     SID , 
+    IMGURL , 
     CHECKTIME , 
     CHECKFLAG , 
     CREATETIME , 
-    IMGURL
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} and 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} and 
     </if>
     <if test="projectid != null">
-      PROJECTID = #{projectid,jdbcType=DECIMAL} and 
+      projectid = #{projectid,jdbcType=DECIMAL} and 
     </if>
     <if test="sku != null">
-      SKU = #{sku,jdbcType=VARCHAR} and 
+      sku = #{sku,jdbcType=VARCHAR} and 
     </if>
     <if test="skutype != null">
-      SKUTYPE = #{skutype,jdbcType=DECIMAL} and 
+      skutype = #{skutype,jdbcType=DECIMAL} and 
     </if>
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="checktime != null">
-      CHECKTIME = #{checktime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="checkflag != null">
-      CHECKFLAG = #{checkflag,jdbcType=DECIMAL} and 
-    </if>
-    <if test="createtime != null">
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP} and 
+      sid = #{sid,jdbcType=VARCHAR} and 
     </if>
     <if test="imgurl != null">
-      IMGURL = #{imgurl,jdbcType=LONGVARCHAR}
+      imgurl = #{imgurl,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="checktime != null">
+      checktime = #{checktime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="checkflag != null">
+      checkflag = #{checkflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} , 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} , 
     </if>
     <if test="projectid != null">
-      PROJECTID = #{projectid,jdbcType=DECIMAL} , 
+      projectid = #{projectid,jdbcType=DECIMAL} , 
     </if>
     <if test="sku != null">
-      SKU = #{sku,jdbcType=VARCHAR} , 
+      sku = #{sku,jdbcType=VARCHAR} , 
     </if>
     <if test="skutype != null">
-      SKUTYPE = #{skutype,jdbcType=DECIMAL} , 
+      skutype = #{skutype,jdbcType=DECIMAL} , 
     </if>
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="checktime != null">
-      CHECKTIME = #{checktime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="checkflag != null">
-      CHECKFLAG = #{checkflag,jdbcType=DECIMAL} , 
-    </if>
-    <if test="createtime != null">
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP} , 
+      sid = #{sid,jdbcType=VARCHAR} , 
     </if>
     <if test="imgurl != null">
-      IMGURL = #{imgurl,jdbcType=LONGVARCHAR}
+      imgurl = #{imgurl,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="checktime != null">
+      checktime = #{checktime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="checkflag != null">
+      checkflag = #{checkflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbProjectsku" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

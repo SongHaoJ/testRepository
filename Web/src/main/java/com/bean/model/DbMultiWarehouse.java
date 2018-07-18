@@ -14,6 +14,8 @@ public class DbMultiWarehouse implements Serializable {
 
     private String storagename;
 
+    private String countryjc;
+
     private String openflag;
 
     private String defaultflag;
@@ -25,8 +27,6 @@ public class DbMultiWarehouse implements Serializable {
     private String reserve1;
 
     private String reserve2;
-
-    private String countryjc;
 
     private static final long serialVersionUID = 1L;
 
@@ -68,6 +68,14 @@ public class DbMultiWarehouse implements Serializable {
 
     public void setStoragename(String storagename) {
         this.storagename = storagename == null ? null : storagename.trim();
+    }
+
+    public String getCountryjc() {
+        return countryjc;
+    }
+
+    public void setCountryjc(String countryjc) {
+        this.countryjc = countryjc == null ? null : countryjc.trim();
     }
 
     public String getOpenflag() {
@@ -118,14 +126,6 @@ public class DbMultiWarehouse implements Serializable {
         this.reserve2 = reserve2 == null ? null : reserve2.trim();
     }
 
-    public String getCountryjc() {
-        return countryjc;
-    }
-
-    public void setCountryjc(String countryjc) {
-        this.countryjc = countryjc == null ? null : countryjc.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -143,13 +143,13 @@ public class DbMultiWarehouse implements Serializable {
             && (this.getProductid() == null ? other.getProductid() == null : this.getProductid().equals(other.getProductid()))
             && (this.getStorageid() == null ? other.getStorageid() == null : this.getStorageid().equals(other.getStorageid()))
             && (this.getStoragename() == null ? other.getStoragename() == null : this.getStoragename().equals(other.getStoragename()))
+            && (this.getCountryjc() == null ? other.getCountryjc() == null : this.getCountryjc().equals(other.getCountryjc()))
             && (this.getOpenflag() == null ? other.getOpenflag() == null : this.getOpenflag().equals(other.getOpenflag()))
             && (this.getDefaultflag() == null ? other.getDefaultflag() == null : this.getDefaultflag().equals(other.getDefaultflag()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
             && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
-            && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
-            && (this.getCountryjc() == null ? other.getCountryjc() == null : this.getCountryjc().equals(other.getCountryjc()));
+            && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()));
     }
 
     @Override
@@ -161,13 +161,13 @@ public class DbMultiWarehouse implements Serializable {
         result = prime * result + ((getProductid() == null) ? 0 : getProductid().hashCode());
         result = prime * result + ((getStorageid() == null) ? 0 : getStorageid().hashCode());
         result = prime * result + ((getStoragename() == null) ? 0 : getStoragename().hashCode());
+        result = prime * result + ((getCountryjc() == null) ? 0 : getCountryjc().hashCode());
         result = prime * result + ((getOpenflag() == null) ? 0 : getOpenflag().hashCode());
         result = prime * result + ((getDefaultflag() == null) ? 0 : getDefaultflag().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
         result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
-        result = prime * result + ((getCountryjc() == null) ? 0 : getCountryjc().hashCode());
         return result;
     }
 
@@ -182,13 +182,13 @@ public class DbMultiWarehouse implements Serializable {
         sb.append(", productid=").append(productid);
         sb.append(", storageid=").append(storageid);
         sb.append(", storagename=").append(storagename);
+        sb.append(", countryjc=").append(countryjc);
         sb.append(", openflag=").append(openflag);
         sb.append(", defaultflag=").append(defaultflag);
         sb.append(", oper=").append(oper);
         sb.append(", opertime=").append(opertime);
         sb.append(", reserve1=").append(reserve1);
         sb.append(", reserve2=").append(reserve2);
-        sb.append(", countryjc=").append(countryjc);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

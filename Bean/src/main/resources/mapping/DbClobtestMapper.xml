@@ -3,63 +3,59 @@
 <mapper namespace="com.bean.dao.DbClobtestMapper">
   <resultMap id="BaseResultMap" type="com.bean.model.DbClobtest">
     <id column="CID" jdbcType="VARCHAR" property="cid" />
+    <result column="CLOBVALUE" jdbcType="CLOB" property="clobvalue" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbClobtest">
-    <result column="CLOBVALUE" jdbcType="LONGVARCHAR" property="clobvalue" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    CID
-  </sql>
-  <sql id="Blob_Column_List">
-    CLOBVALUE
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from db_clobtest
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select CID, CLOBVALUE
+    from DB_CLOBTEST
     where CID = #{cid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_clobtest
-    where CID = #{cid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select CID, CLOBVALUE
+    from DB_CLOBTEST
+  </select>
+  <sql id="TableName">
+    DB_CLOBTEST
+  </sql>
+  <sql id="Values">
+     #{cid,jdbcType=VARCHAR} , 
+     #{clobvalue,jdbcType=CLOB} , 
+  </sql>
+  <sql id="Columns">
+    CID , 
+    CLOBVALUE , 
+  </sql>
+  <sql id="Criteria">
+    <if test="cid != null">
+      cid = #{cid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="clobvalue != null">
+      clobvalue = #{clobvalue,jdbcType=CLOB} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="cid != null">
+      cid = #{cid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="clobvalue != null">
+      clobvalue = #{clobvalue,jdbcType=CLOB} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbClobtest" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where CID=#{CID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbClobtest">
-    insert into db_clobtest (CID, CLOBVALUE)
-    values (#{cid,jdbcType=VARCHAR}, #{clobvalue,jdbcType=LONGVARCHAR})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbClobtest">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbClobtest">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbClobtest">
-    insert into db_clobtest
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="cid != null">
-        CID,
-      </if>
-      <if test="clobvalue != null">
-        CLOBVALUE,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="cid != null">
-        #{cid,jdbcType=VARCHAR},
-      </if>
-      <if test="clobvalue != null">
-        #{clobvalue,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbClobtest">
-    update db_clobtest
-    <set>
-      <if test="clobvalue != null">
-        CLOBVALUE = #{clobvalue,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where CID = #{cid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbClobtest">
-    update db_clobtest
-    set CLOBVALUE = #{clobvalue,jdbcType=LONGVARCHAR}
-    where CID = #{cid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbClobtest">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

@@ -1,20 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbShoppingpics;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbShoppingpicsMapper {
-    int deleteByPrimaryKey(BigDecimal id);
+    DbShoppingpics selectByCriteria(DbShoppingpics DbShoppingpics);
 
-    int insert(DbShoppingpics record);
+    void deleteByPrimaryKey(String ID);
 
-    int insertSelective(DbShoppingpics record);
+    void deleteByCriteria(DbShoppingpics DbShoppingpics);
+
+    int insertByCriteria(DbShoppingpics DbShoppingpics);
+
+    int updateByCriteria(DbShoppingpics DbShoppingpics);
 
     DbShoppingpics selectByPrimaryKey(BigDecimal id);
 
-    int updateByPrimaryKeySelective(DbShoppingpics record);
-
-    int updateByPrimaryKeyWithBLOBs(DbShoppingpics record);
-
-    int updateByPrimaryKey(DbShoppingpics record);
+    List<DbShoppingpics> selectAll();
 }

@@ -1,18 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbProjectcollaborative;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbProjectcollaborativeMapper {
-    int deleteByPrimaryKey(BigDecimal sequenceid);
+    DbProjectcollaborative selectByCriteria(DbProjectcollaborative DbProjectcollaborative);
 
-    int insert(DbProjectcollaborative record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbProjectcollaborative record);
+    void deleteByCriteria(DbProjectcollaborative DbProjectcollaborative);
+
+    int insertByCriteria(DbProjectcollaborative DbProjectcollaborative);
+
+    int updateByCriteria(DbProjectcollaborative DbProjectcollaborative);
 
     DbProjectcollaborative selectByPrimaryKey(BigDecimal sequenceid);
 
-    int updateByPrimaryKeySelective(DbProjectcollaborative record);
-
-    int updateByPrimaryKey(DbProjectcollaborative record);
+    List<DbProjectcollaborative> selectAll();
 }

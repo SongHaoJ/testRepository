@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbOrderExpress;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbOrderExpressMapper {
-    int deleteByPrimaryKey(String orderid);
+    DbOrderExpress selectByCriteria(DbOrderExpress DbOrderExpress);
 
-    int insert(DbOrderExpress record);
+    void deleteByPrimaryKey(String ORDERID);
 
-    int insertSelective(DbOrderExpress record);
+    void deleteByCriteria(DbOrderExpress DbOrderExpress);
+
+    int insertByCriteria(DbOrderExpress DbOrderExpress);
+
+    int updateByCriteria(DbOrderExpress DbOrderExpress);
 
     DbOrderExpress selectByPrimaryKey(String orderid);
 
-    int updateByPrimaryKeySelective(DbOrderExpress record);
-
-    int updateByPrimaryKey(DbOrderExpress record);
+    List<DbOrderExpress> selectAll();
 }

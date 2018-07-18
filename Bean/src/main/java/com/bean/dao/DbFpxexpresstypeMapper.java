@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbFpxexpresstype;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbFpxexpresstypeMapper {
-    int deleteByPrimaryKey(String sid);
+    DbFpxexpresstype selectByCriteria(DbFpxexpresstype DbFpxexpresstype);
 
-    int insert(DbFpxexpresstype record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbFpxexpresstype record);
+    void deleteByCriteria(DbFpxexpresstype DbFpxexpresstype);
+
+    int insertByCriteria(DbFpxexpresstype DbFpxexpresstype);
+
+    int updateByCriteria(DbFpxexpresstype DbFpxexpresstype);
 
     DbFpxexpresstype selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbFpxexpresstype record);
-
-    int updateByPrimaryKey(DbFpxexpresstype record);
+    List<DbFpxexpresstype> selectAll();
 }

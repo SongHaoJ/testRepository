@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbOutcategorysell;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbOutcategorysellMapper {
-    int deleteByPrimaryKey(String sid);
+    DbOutcategorysell selectByCriteria(DbOutcategorysell DbOutcategorysell);
 
-    int insert(DbOutcategorysell record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbOutcategorysell record);
+    void deleteByCriteria(DbOutcategorysell DbOutcategorysell);
+
+    int insertByCriteria(DbOutcategorysell DbOutcategorysell);
+
+    int updateByCriteria(DbOutcategorysell DbOutcategorysell);
 
     DbOutcategorysell selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbOutcategorysell record);
-
-    int updateByPrimaryKeyWithBLOBs(DbOutcategorysell record);
-
-    int updateByPrimaryKey(DbOutcategorysell record);
+    List<DbOutcategorysell> selectAll();
 }

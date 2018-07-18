@@ -2,8 +2,8 @@ package com.bean.dao;
 
 import com.bean.model.DbDhllanguagecode;
 
-public interface DbDhllanguagecodeMapper {
-    int insert(DbDhllanguagecode record);
+import java.util.List;
 
-    int insertSelective(DbDhllanguagecode record);
+public interface DbDhllanguagecodeMapper {
+    List<DbDhllanguagecode> selectAll();
 }

@@ -1,20 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbProjectsku;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbProjectskuMapper {
-    int deleteByPrimaryKey(BigDecimal sequenceid);
+    DbProjectsku selectByCriteria(DbProjectsku DbProjectsku);
 
-    int insert(DbProjectsku record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbProjectsku record);
+    void deleteByCriteria(DbProjectsku DbProjectsku);
+
+    int insertByCriteria(DbProjectsku DbProjectsku);
+
+    int updateByCriteria(DbProjectsku DbProjectsku);
 
     DbProjectsku selectByPrimaryKey(BigDecimal sequenceid);
 
-    int updateByPrimaryKeySelective(DbProjectsku record);
-
-    int updateByPrimaryKeyWithBLOBs(DbProjectsku record);
-
-    int updateByPrimaryKey(DbProjectsku record);
+    List<DbProjectsku> selectAll();
 }

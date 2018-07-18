@@ -5,6 +5,9 @@
     <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
     <result column="SID" jdbcType="VARCHAR" property="sid" />
     <result column="MESSAGEID" jdbcType="VARCHAR" property="messageid" />
+    <result column="SUBJECT" jdbcType="VARCHAR" property="subject" />
+    <result column="CONTENT" jdbcType="VARCHAR" property="content" />
+    <result column="DESCR" jdbcType="VARCHAR" property="descr" />
     <result column="SENDER" jdbcType="VARCHAR" property="sender" />
     <result column="ITEMID" jdbcType="VARCHAR" property="itemid" />
     <result column="FLAGED" jdbcType="VARCHAR" property="flaged" />
@@ -13,6 +16,7 @@
     <result column="RECEIVEDATE" jdbcType="TIMESTAMP" property="receivedate" />
     <result column="SENDTONAME" jdbcType="VARCHAR" property="sendtoname" />
     <result column="PRODUCTID" jdbcType="VARCHAR" property="productid" />
+    <result column="PRODUCTNAME" jdbcType="VARCHAR" property="productname" />
     <result column="STYPE" jdbcType="VARCHAR" property="stype" />
     <result column="SHOPTYPEID" jdbcType="VARCHAR" property="shoptypeid" />
     <result column="SHOPTYPENAME" jdbcType="VARCHAR" property="shoptypename" />
@@ -24,6 +28,7 @@
     <result column="FOLDERNAME" jdbcType="VARCHAR" property="foldername" />
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="ANSWER" jdbcType="VARCHAR" property="answer" />
     <result column="UPDATEFLAG" jdbcType="VARCHAR" property="updateflag" />
     <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
     <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
@@ -31,34 +36,32 @@
     <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
     <result column="RESERVE4" jdbcType="VARCHAR" property="reserve4" />
     <result column="OPERTYPE" jdbcType="VARCHAR" property="opertype" />
-    <result column="SUBJECT" jdbcType="LONGVARCHAR" property="subject" />
-    <result column="CONTENT" jdbcType="LONGVARCHAR" property="content" />
-    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
-    <result column="PRODUCTNAME" jdbcType="LONGVARCHAR" property="productname" />
-    <result column="ANSWER" jdbcType="LONGVARCHAR" property="answer" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select SEQUENCEID, SID, MESSAGEID, SENDER, ITEMID, FLAGED, IFREAD, CREATEDATE, RECEIVEDATE, 
-    SENDTONAME, PRODUCTID, STYPE, SHOPTYPEID, SHOPTYPENAME, CATEGORYID, CATEGORYNAME, 
-    ORDERID, STATUS, FOLDERID, FOLDERNAME, OPER, OPERTIME, UPDATEFLAG, OPENFLAG, RESERVE1, 
-    RESERVE2, RESERVE3, RESERVE4, OPERTYPE, SUBJECT, CONTENT, DESCR, PRODUCTNAME, ANSWER
-    from db_ebaymessagelog
+    select SEQUENCEID, SID, MESSAGEID, SUBJECT, CONTENT, DESCR, SENDER, ITEMID, FLAGED, 
+    IFREAD, CREATEDATE, RECEIVEDATE, SENDTONAME, PRODUCTID, PRODUCTNAME, STYPE, SHOPTYPEID, 
+    SHOPTYPENAME, CATEGORYID, CATEGORYNAME, ORDERID, STATUS, FOLDERID, FOLDERNAME, OPER, 
+    OPERTIME, ANSWER, UPDATEFLAG, OPENFLAG, RESERVE1, RESERVE2, RESERVE3, RESERVE4, OPERTYPE
+    from DB_EBAYMESSAGELOG
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select SEQUENCEID, SID, MESSAGEID, SENDER, ITEMID, FLAGED, IFREAD, CREATEDATE, RECEIVEDATE, 
-    SENDTONAME, PRODUCTID, STYPE, SHOPTYPEID, SHOPTYPENAME, CATEGORYID, CATEGORYNAME, 
-    ORDERID, STATUS, FOLDERID, FOLDERNAME, OPER, OPERTIME, UPDATEFLAG, OPENFLAG, RESERVE1, 
-    RESERVE2, RESERVE3, RESERVE4, OPERTYPE, SUBJECT, CONTENT, DESCR, PRODUCTNAME, ANSWER
-    from db_ebaymessagelog
+    select SEQUENCEID, SID, MESSAGEID, SUBJECT, CONTENT, DESCR, SENDER, ITEMID, FLAGED, 
+    IFREAD, CREATEDATE, RECEIVEDATE, SENDTONAME, PRODUCTID, PRODUCTNAME, STYPE, SHOPTYPEID, 
+    SHOPTYPENAME, CATEGORYID, CATEGORYNAME, ORDERID, STATUS, FOLDERID, FOLDERNAME, OPER, 
+    OPERTIME, ANSWER, UPDATEFLAG, OPENFLAG, RESERVE1, RESERVE2, RESERVE3, RESERVE4, OPERTYPE
+    from DB_EBAYMESSAGELOG
   </select>
   <sql id="TableName">
-    db_ebaymessagelog
+    DB_EBAYMESSAGELOG
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=VARCHAR} , 
      #{sid,jdbcType=VARCHAR} , 
      #{messageid,jdbcType=VARCHAR} , 
+     #{subject,jdbcType=VARCHAR} , 
+     #{content,jdbcType=VARCHAR} , 
+     #{descr,jdbcType=VARCHAR} , 
      #{sender,jdbcType=VARCHAR} , 
      #{itemid,jdbcType=VARCHAR} , 
      #{flaged,jdbcType=VARCHAR} , 
@@ -67,6 +70,7 @@
      #{receivedate,jdbcType=TIMESTAMP} , 
      #{sendtoname,jdbcType=VARCHAR} , 
      #{productid,jdbcType=VARCHAR} , 
+     #{productname,jdbcType=VARCHAR} , 
      #{stype,jdbcType=VARCHAR} , 
      #{shoptypeid,jdbcType=VARCHAR} , 
      #{shoptypename,jdbcType=VARCHAR} , 
@@ -78,6 +82,7 @@
      #{foldername,jdbcType=VARCHAR} , 
      #{oper,jdbcType=VARCHAR} , 
      #{opertime,jdbcType=TIMESTAMP} , 
+     #{answer,jdbcType=VARCHAR} , 
      #{updateflag,jdbcType=VARCHAR} , 
      #{openflag,jdbcType=VARCHAR} , 
      #{reserve1,jdbcType=VARCHAR} , 
@@ -85,16 +90,14 @@
      #{reserve3,jdbcType=VARCHAR} , 
      #{reserve4,jdbcType=VARCHAR} , 
      #{opertype,jdbcType=VARCHAR} , 
-     #{subject,jdbcType=LONGVARCHAR} , 
-     #{content,jdbcType=LONGVARCHAR} , 
-     #{descr,jdbcType=LONGVARCHAR} , 
-     #{productname,jdbcType=LONGVARCHAR} , 
-     #{answer,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
     SID , 
     MESSAGEID , 
+    SUBJECT , 
+    CONTENT , 
+    DESCR , 
     SENDER , 
     ITEMID , 
     FLAGED , 
@@ -103,6 +106,7 @@
     RECEIVEDATE , 
     SENDTONAME , 
     PRODUCTID , 
+    PRODUCTNAME , 
     STYPE , 
     SHOPTYPEID , 
     SHOPTYPENAME , 
@@ -114,6 +118,7 @@
     FOLDERNAME , 
     OPER , 
     OPERTIME , 
+    ANSWER , 
     UPDATEFLAG , 
     OPENFLAG , 
     RESERVE1 , 
@@ -121,221 +126,216 @@
     RESERVE3 , 
     RESERVE4 , 
     OPERTYPE , 
-    SUBJECT , 
-    CONTENT , 
-    DESCR , 
-    PRODUCTNAME , 
-    ANSWER
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
     </if>
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} and 
+      sid = #{sid,jdbcType=VARCHAR} and 
     </if>
     <if test="messageid != null">
-      MESSAGEID = #{messageid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="sender != null">
-      SENDER = #{sender,jdbcType=VARCHAR} and 
-    </if>
-    <if test="itemid != null">
-      ITEMID = #{itemid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="flaged != null">
-      FLAGED = #{flaged,jdbcType=VARCHAR} and 
-    </if>
-    <if test="ifread != null">
-      IFREAD = #{ifread,jdbcType=VARCHAR} and 
-    </if>
-    <if test="createdate != null">
-      CREATEDATE = #{createdate,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="receivedate != null">
-      RECEIVEDATE = #{receivedate,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="sendtoname != null">
-      SENDTONAME = #{sendtoname,jdbcType=VARCHAR} and 
-    </if>
-    <if test="productid != null">
-      PRODUCTID = #{productid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="stype != null">
-      STYPE = #{stype,jdbcType=VARCHAR} and 
-    </if>
-    <if test="shoptypeid != null">
-      SHOPTYPEID = #{shoptypeid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="shoptypename != null">
-      SHOPTYPENAME = #{shoptypename,jdbcType=VARCHAR} and 
-    </if>
-    <if test="categoryid != null">
-      CATEGORYID = #{categoryid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="categoryname != null">
-      CATEGORYNAME = #{categoryname,jdbcType=VARCHAR} and 
-    </if>
-    <if test="orderid != null">
-      ORDERID = #{orderid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="status != null">
-      STATUS = #{status,jdbcType=VARCHAR} and 
-    </if>
-    <if test="folderid != null">
-      FOLDERID = #{folderid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="foldername != null">
-      FOLDERNAME = #{foldername,jdbcType=VARCHAR} and 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="updateflag != null">
-      UPDATEFLAG = #{updateflag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=VARCHAR} and 
-    </if>
-    <if test="opertype != null">
-      OPERTYPE = #{opertype,jdbcType=VARCHAR} and 
+      messageid = #{messageid,jdbcType=VARCHAR} and 
     </if>
     <if test="subject != null">
-      SUBJECT = #{subject,jdbcType=LONGVARCHAR} and 
+      subject = #{subject,jdbcType=VARCHAR} and 
     </if>
     <if test="content != null">
-      CONTENT = #{content,jdbcType=LONGVARCHAR} and 
+      content = #{content,jdbcType=VARCHAR} and 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR} and 
+      descr = #{descr,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sender != null">
+      sender = #{sender,jdbcType=VARCHAR} and 
+    </if>
+    <if test="itemid != null">
+      itemid = #{itemid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flaged != null">
+      flaged = #{flaged,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ifread != null">
+      ifread = #{ifread,jdbcType=VARCHAR} and 
+    </if>
+    <if test="createdate != null">
+      createdate = #{createdate,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="receivedate != null">
+      receivedate = #{receivedate,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="sendtoname != null">
+      sendtoname = #{sendtoname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="productid != null">
+      productid = #{productid,jdbcType=VARCHAR} and 
     </if>
     <if test="productname != null">
-      PRODUCTNAME = #{productname,jdbcType=LONGVARCHAR} and 
+      productname = #{productname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="stype != null">
+      stype = #{stype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shoptypeid != null">
+      shoptypeid = #{shoptypeid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shoptypename != null">
+      shoptypename = #{shoptypename,jdbcType=VARCHAR} and 
+    </if>
+    <if test="categoryid != null">
+      categoryid = #{categoryid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="categoryname != null">
+      categoryname = #{categoryname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="orderid != null">
+      orderid = #{orderid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="status != null">
+      status = #{status,jdbcType=VARCHAR} and 
+    </if>
+    <if test="folderid != null">
+      folderid = #{folderid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="foldername != null">
+      foldername = #{foldername,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="answer != null">
-      ANSWER = #{answer,jdbcType=LONGVARCHAR}
+      answer = #{answer,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="updateflag != null">
+      updateflag = #{updateflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertype != null">
+      opertype = #{opertype,jdbcType=VARCHAR} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
     </if>
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} , 
+      sid = #{sid,jdbcType=VARCHAR} , 
     </if>
     <if test="messageid != null">
-      MESSAGEID = #{messageid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="sender != null">
-      SENDER = #{sender,jdbcType=VARCHAR} , 
-    </if>
-    <if test="itemid != null">
-      ITEMID = #{itemid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="flaged != null">
-      FLAGED = #{flaged,jdbcType=VARCHAR} , 
-    </if>
-    <if test="ifread != null">
-      IFREAD = #{ifread,jdbcType=VARCHAR} , 
-    </if>
-    <if test="createdate != null">
-      CREATEDATE = #{createdate,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="receivedate != null">
-      RECEIVEDATE = #{receivedate,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="sendtoname != null">
-      SENDTONAME = #{sendtoname,jdbcType=VARCHAR} , 
-    </if>
-    <if test="productid != null">
-      PRODUCTID = #{productid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="stype != null">
-      STYPE = #{stype,jdbcType=VARCHAR} , 
-    </if>
-    <if test="shoptypeid != null">
-      SHOPTYPEID = #{shoptypeid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="shoptypename != null">
-      SHOPTYPENAME = #{shoptypename,jdbcType=VARCHAR} , 
-    </if>
-    <if test="categoryid != null">
-      CATEGORYID = #{categoryid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="categoryname != null">
-      CATEGORYNAME = #{categoryname,jdbcType=VARCHAR} , 
-    </if>
-    <if test="orderid != null">
-      ORDERID = #{orderid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="status != null">
-      STATUS = #{status,jdbcType=VARCHAR} , 
-    </if>
-    <if test="folderid != null">
-      FOLDERID = #{folderid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="foldername != null">
-      FOLDERNAME = #{foldername,jdbcType=VARCHAR} , 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="updateflag != null">
-      UPDATEFLAG = #{updateflag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=VARCHAR} , 
-    </if>
-    <if test="opertype != null">
-      OPERTYPE = #{opertype,jdbcType=VARCHAR} , 
+      messageid = #{messageid,jdbcType=VARCHAR} , 
     </if>
     <if test="subject != null">
-      SUBJECT = #{subject,jdbcType=LONGVARCHAR} , 
+      subject = #{subject,jdbcType=VARCHAR} , 
     </if>
     <if test="content != null">
-      CONTENT = #{content,jdbcType=LONGVARCHAR} , 
+      content = #{content,jdbcType=VARCHAR} , 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR} , 
+      descr = #{descr,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sender != null">
+      sender = #{sender,jdbcType=VARCHAR} , 
+    </if>
+    <if test="itemid != null">
+      itemid = #{itemid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flaged != null">
+      flaged = #{flaged,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ifread != null">
+      ifread = #{ifread,jdbcType=VARCHAR} , 
+    </if>
+    <if test="createdate != null">
+      createdate = #{createdate,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="receivedate != null">
+      receivedate = #{receivedate,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="sendtoname != null">
+      sendtoname = #{sendtoname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="productid != null">
+      productid = #{productid,jdbcType=VARCHAR} , 
     </if>
     <if test="productname != null">
-      PRODUCTNAME = #{productname,jdbcType=LONGVARCHAR} , 
+      productname = #{productname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="stype != null">
+      stype = #{stype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shoptypeid != null">
+      shoptypeid = #{shoptypeid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shoptypename != null">
+      shoptypename = #{shoptypename,jdbcType=VARCHAR} , 
+    </if>
+    <if test="categoryid != null">
+      categoryid = #{categoryid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="categoryname != null">
+      categoryname = #{categoryname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="orderid != null">
+      orderid = #{orderid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="status != null">
+      status = #{status,jdbcType=VARCHAR} , 
+    </if>
+    <if test="folderid != null">
+      folderid = #{folderid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="foldername != null">
+      foldername = #{foldername,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="answer != null">
-      ANSWER = #{answer,jdbcType=LONGVARCHAR}
+      answer = #{answer,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="updateflag != null">
+      updateflag = #{updateflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertype != null">
+      opertype = #{opertype,jdbcType=VARCHAR} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbEbaymessagelog" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

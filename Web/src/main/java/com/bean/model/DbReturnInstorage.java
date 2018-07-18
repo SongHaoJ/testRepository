@@ -23,6 +23,8 @@ public class DbReturnInstorage implements Serializable {
 
     private Date opertime;
 
+    private String productname;
+
     private String flag;
 
     private String flagdescr;
@@ -31,13 +33,11 @@ public class DbReturnInstorage implements Serializable {
 
     private BigDecimal amount;
 
+    private String descr;
+
     private String manufactureid;
 
     private String manufacture;
-
-    private String productname;
-
-    private String descr;
 
     private static final long serialVersionUID = 1L;
 
@@ -113,6 +113,14 @@ public class DbReturnInstorage implements Serializable {
         this.opertime = opertime;
     }
 
+    public String getProductname() {
+        return productname;
+    }
+
+    public void setProductname(String productname) {
+        this.productname = productname == null ? null : productname.trim();
+    }
+
     public String getFlag() {
         return flag;
     }
@@ -145,6 +153,14 @@ public class DbReturnInstorage implements Serializable {
         this.amount = amount;
     }
 
+    public String getDescr() {
+        return descr;
+    }
+
+    public void setDescr(String descr) {
+        this.descr = descr == null ? null : descr.trim();
+    }
+
     public String getManufactureid() {
         return manufactureid;
     }
@@ -159,22 +175,6 @@ public class DbReturnInstorage implements Serializable {
 
     public void setManufacture(String manufacture) {
         this.manufacture = manufacture == null ? null : manufacture.trim();
-    }
-
-    public String getProductname() {
-        return productname;
-    }
-
-    public void setProductname(String productname) {
-        this.productname = productname == null ? null : productname.trim();
-    }
-
-    public String getDescr() {
-        return descr;
-    }
-
-    public void setDescr(String descr) {
-        this.descr = descr == null ? null : descr.trim();
     }
 
     @Override
@@ -198,14 +198,14 @@ public class DbReturnInstorage implements Serializable {
             && (this.getInnum() == null ? other.getInnum() == null : this.getInnum().equals(other.getInnum()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
+            && (this.getProductname() == null ? other.getProductname() == null : this.getProductname().equals(other.getProductname()))
             && (this.getFlag() == null ? other.getFlag() == null : this.getFlag().equals(other.getFlag()))
             && (this.getFlagdescr() == null ? other.getFlagdescr() == null : this.getFlagdescr().equals(other.getFlagdescr()))
             && (this.getCostprice() == null ? other.getCostprice() == null : this.getCostprice().equals(other.getCostprice()))
             && (this.getAmount() == null ? other.getAmount() == null : this.getAmount().equals(other.getAmount()))
+            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
             && (this.getManufactureid() == null ? other.getManufactureid() == null : this.getManufactureid().equals(other.getManufactureid()))
-            && (this.getManufacture() == null ? other.getManufacture() == null : this.getManufacture().equals(other.getManufacture()))
-            && (this.getProductname() == null ? other.getProductname() == null : this.getProductname().equals(other.getProductname()))
-            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()));
+            && (this.getManufacture() == null ? other.getManufacture() == null : this.getManufacture().equals(other.getManufacture()));
     }
 
     @Override
@@ -221,14 +221,14 @@ public class DbReturnInstorage implements Serializable {
         result = prime * result + ((getInnum() == null) ? 0 : getInnum().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
+        result = prime * result + ((getProductname() == null) ? 0 : getProductname().hashCode());
         result = prime * result + ((getFlag() == null) ? 0 : getFlag().hashCode());
         result = prime * result + ((getFlagdescr() == null) ? 0 : getFlagdescr().hashCode());
         result = prime * result + ((getCostprice() == null) ? 0 : getCostprice().hashCode());
         result = prime * result + ((getAmount() == null) ? 0 : getAmount().hashCode());
+        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
         result = prime * result + ((getManufactureid() == null) ? 0 : getManufactureid().hashCode());
         result = prime * result + ((getManufacture() == null) ? 0 : getManufacture().hashCode());
-        result = prime * result + ((getProductname() == null) ? 0 : getProductname().hashCode());
-        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
         return result;
     }
 
@@ -247,14 +247,14 @@ public class DbReturnInstorage implements Serializable {
         sb.append(", innum=").append(innum);
         sb.append(", oper=").append(oper);
         sb.append(", opertime=").append(opertime);
+        sb.append(", productname=").append(productname);
         sb.append(", flag=").append(flag);
         sb.append(", flagdescr=").append(flagdescr);
         sb.append(", costprice=").append(costprice);
         sb.append(", amount=").append(amount);
+        sb.append(", descr=").append(descr);
         sb.append(", manufactureid=").append(manufactureid);
         sb.append(", manufacture=").append(manufacture);
-        sb.append(", productname=").append(productname);
-        sb.append(", descr=").append(descr);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

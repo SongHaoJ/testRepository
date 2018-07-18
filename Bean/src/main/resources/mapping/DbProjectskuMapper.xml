@@ -7,153 +7,118 @@
     <result column="SKU" jdbcType="VARCHAR" property="sku" />
     <result column="SKUTYPE" jdbcType="DECIMAL" property="skutype" />
     <result column="SID" jdbcType="VARCHAR" property="sid" />
+    <result column="IMGURL" jdbcType="VARCHAR" property="imgurl" />
     <result column="CHECKTIME" jdbcType="TIMESTAMP" property="checktime" />
     <result column="CHECKFLAG" jdbcType="DECIMAL" property="checkflag" />
     <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbProjectsku">
-    <result column="IMGURL" jdbcType="LONGVARCHAR" property="imgurl" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    SEQUENCEID, PROJECTID, SKU, SKUTYPE, SID, CHECKTIME, CHECKFLAG, CREATETIME
-  </sql>
-  <sql id="Blob_Column_List">
-    IMGURL
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="ResultMapWithBLOBs">
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from db_projectsku
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select SEQUENCEID, PROJECTID, SKU, SKUTYPE, SID, IMGURL, CHECKTIME, CHECKFLAG, CREATETIME
+    from DB_PROJECTSKU
     where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
-    delete from db_projectsku
-    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, PROJECTID, SKU, SKUTYPE, SID, IMGURL, CHECKTIME, CHECKFLAG, CREATETIME
+    from DB_PROJECTSKU
+  </select>
+  <sql id="TableName">
+    DB_PROJECTSKU
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=DECIMAL} , 
+     #{projectid,jdbcType=DECIMAL} , 
+     #{sku,jdbcType=VARCHAR} , 
+     #{skutype,jdbcType=DECIMAL} , 
+     #{sid,jdbcType=VARCHAR} , 
+     #{imgurl,jdbcType=VARCHAR} , 
+     #{checktime,jdbcType=TIMESTAMP} , 
+     #{checkflag,jdbcType=DECIMAL} , 
+     #{createtime,jdbcType=TIMESTAMP} , 
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    PROJECTID , 
+    SKU , 
+    SKUTYPE , 
+    SID , 
+    IMGURL , 
+    CHECKTIME , 
+    CHECKFLAG , 
+    CREATETIME , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="projectid != null">
+      projectid = #{projectid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sku != null">
+      sku = #{sku,jdbcType=VARCHAR} and 
+    </if>
+    <if test="skutype != null">
+      skutype = #{skutype,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="imgurl != null">
+      imgurl = #{imgurl,jdbcType=VARCHAR} and 
+    </if>
+    <if test="checktime != null">
+      checktime = #{checktime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="checkflag != null">
+      checkflag = #{checkflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="projectid != null">
+      projectid = #{projectid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sku != null">
+      sku = #{sku,jdbcType=VARCHAR} , 
+    </if>
+    <if test="skutype != null">
+      skutype = #{skutype,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="imgurl != null">
+      imgurl = #{imgurl,jdbcType=VARCHAR} , 
+    </if>
+    <if test="checktime != null">
+      checktime = #{checktime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="checkflag != null">
+      checkflag = #{checkflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbProjectsku" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="BigDecimal">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbProjectsku">
-    insert into db_projectsku (SEQUENCEID, PROJECTID, SKU, 
-      SKUTYPE, SID, CHECKTIME, 
-      CHECKFLAG, CREATETIME, IMGURL
-      )
-    values (#{sequenceid,jdbcType=DECIMAL}, #{projectid,jdbcType=DECIMAL}, #{sku,jdbcType=VARCHAR}, 
-      #{skutype,jdbcType=DECIMAL}, #{sid,jdbcType=VARCHAR}, #{checktime,jdbcType=TIMESTAMP}, 
-      #{checkflag,jdbcType=DECIMAL}, #{createtime,jdbcType=TIMESTAMP}, #{imgurl,jdbcType=LONGVARCHAR}
-      )
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbProjectsku">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbProjectsku">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbProjectsku">
-    insert into db_projectsku
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        SEQUENCEID,
-      </if>
-      <if test="projectid != null">
-        PROJECTID,
-      </if>
-      <if test="sku != null">
-        SKU,
-      </if>
-      <if test="skutype != null">
-        SKUTYPE,
-      </if>
-      <if test="sid != null">
-        SID,
-      </if>
-      <if test="checktime != null">
-        CHECKTIME,
-      </if>
-      <if test="checkflag != null">
-        CHECKFLAG,
-      </if>
-      <if test="createtime != null">
-        CREATETIME,
-      </if>
-      <if test="imgurl != null">
-        IMGURL,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        #{sequenceid,jdbcType=DECIMAL},
-      </if>
-      <if test="projectid != null">
-        #{projectid,jdbcType=DECIMAL},
-      </if>
-      <if test="sku != null">
-        #{sku,jdbcType=VARCHAR},
-      </if>
-      <if test="skutype != null">
-        #{skutype,jdbcType=DECIMAL},
-      </if>
-      <if test="sid != null">
-        #{sid,jdbcType=VARCHAR},
-      </if>
-      <if test="checktime != null">
-        #{checktime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="checkflag != null">
-        #{checkflag,jdbcType=DECIMAL},
-      </if>
-      <if test="createtime != null">
-        #{createtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="imgurl != null">
-        #{imgurl,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbProjectsku">
-    update db_projectsku
-    <set>
-      <if test="projectid != null">
-        PROJECTID = #{projectid,jdbcType=DECIMAL},
-      </if>
-      <if test="sku != null">
-        SKU = #{sku,jdbcType=VARCHAR},
-      </if>
-      <if test="skutype != null">
-        SKUTYPE = #{skutype,jdbcType=DECIMAL},
-      </if>
-      <if test="sid != null">
-        SID = #{sid,jdbcType=VARCHAR},
-      </if>
-      <if test="checktime != null">
-        CHECKTIME = #{checktime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="checkflag != null">
-        CHECKFLAG = #{checkflag,jdbcType=DECIMAL},
-      </if>
-      <if test="createtime != null">
-        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="imgurl != null">
-        IMGURL = #{imgurl,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbProjectsku">
-    update db_projectsku
-    set PROJECTID = #{projectid,jdbcType=DECIMAL},
-      SKU = #{sku,jdbcType=VARCHAR},
-      SKUTYPE = #{skutype,jdbcType=DECIMAL},
-      SID = #{sid,jdbcType=VARCHAR},
-      CHECKTIME = #{checktime,jdbcType=TIMESTAMP},
-      CHECKFLAG = #{checkflag,jdbcType=DECIMAL},
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
-      IMGURL = #{imgurl,jdbcType=LONGVARCHAR}
-    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbProjectsku">
-    update db_projectsku
-    set PROJECTID = #{projectid,jdbcType=DECIMAL},
-      SKU = #{sku,jdbcType=VARCHAR},
-      SKUTYPE = #{skutype,jdbcType=DECIMAL},
-      SID = #{sid,jdbcType=VARCHAR},
-      CHECKTIME = #{checktime,jdbcType=TIMESTAMP},
-      CHECKFLAG = #{checkflag,jdbcType=DECIMAL},
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP}
-    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbProjectsku">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

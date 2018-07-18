@@ -16,16 +16,16 @@
   <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
     select SEQUENCEID, EBAYIDMANAGEID, BBENUM, BBEPERCENT, BBE2, BBE3, CORPID, OPENFLAG, 
     OPER, OPERTIME
-    from db_ebaybbe
+    from DB_EBAYBBE
     where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SEQUENCEID, EBAYIDMANAGEID, BBENUM, BBEPERCENT, BBE2, BBE3, CORPID, OPENFLAG, 
     OPER, OPERTIME
-    from db_ebaybbe
+    from DB_EBAYBBE
   </select>
   <sql id="TableName">
-    db_ebaybbe
+    DB_EBAYBBE
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=DECIMAL} , 
@@ -37,7 +37,7 @@
      #{corpid,jdbcType=VARCHAR} , 
      #{openflag,jdbcType=VARCHAR} , 
      #{oper,jdbcType=VARCHAR} , 
-     #{opertime,jdbcType=TIMESTAMP}
+     #{opertime,jdbcType=TIMESTAMP} , 
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
@@ -49,73 +49,73 @@
     CORPID , 
     OPENFLAG , 
     OPER , 
-    OPERTIME
+    OPERTIME , 
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} and 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} and 
     </if>
     <if test="ebayidmanageid != null">
-      EBAYIDMANAGEID = #{ebayidmanageid,jdbcType=DECIMAL} and 
+      ebayidmanageid = #{ebayidmanageid,jdbcType=DECIMAL} and 
     </if>
     <if test="bbenum != null">
-      BBENUM = #{bbenum,jdbcType=VARCHAR} and 
+      bbenum = #{bbenum,jdbcType=VARCHAR} and 
     </if>
     <if test="bbepercent != null">
-      BBEPERCENT = #{bbepercent,jdbcType=VARCHAR} and 
+      bbepercent = #{bbepercent,jdbcType=VARCHAR} and 
     </if>
     <if test="bbe2 != null">
-      BBE2 = #{bbe2,jdbcType=VARCHAR} and 
+      bbe2 = #{bbe2,jdbcType=VARCHAR} and 
     </if>
     <if test="bbe3 != null">
-      BBE3 = #{bbe3,jdbcType=VARCHAR} and 
+      bbe3 = #{bbe3,jdbcType=VARCHAR} and 
     </if>
     <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} and 
+      corpid = #{corpid,jdbcType=VARCHAR} and 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
+      openflag = #{openflag,jdbcType=VARCHAR} and 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
+      oper = #{oper,jdbcType=VARCHAR} and 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP}
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} , 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} , 
     </if>
     <if test="ebayidmanageid != null">
-      EBAYIDMANAGEID = #{ebayidmanageid,jdbcType=DECIMAL} , 
+      ebayidmanageid = #{ebayidmanageid,jdbcType=DECIMAL} , 
     </if>
     <if test="bbenum != null">
-      BBENUM = #{bbenum,jdbcType=VARCHAR} , 
+      bbenum = #{bbenum,jdbcType=VARCHAR} , 
     </if>
     <if test="bbepercent != null">
-      BBEPERCENT = #{bbepercent,jdbcType=VARCHAR} , 
+      bbepercent = #{bbepercent,jdbcType=VARCHAR} , 
     </if>
     <if test="bbe2 != null">
-      BBE2 = #{bbe2,jdbcType=VARCHAR} , 
+      bbe2 = #{bbe2,jdbcType=VARCHAR} , 
     </if>
     <if test="bbe3 != null">
-      BBE3 = #{bbe3,jdbcType=VARCHAR} , 
+      bbe3 = #{bbe3,jdbcType=VARCHAR} , 
     </if>
     <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} , 
+      corpid = #{corpid,jdbcType=VARCHAR} , 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
+      openflag = #{openflag,jdbcType=VARCHAR} , 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
+      oper = #{oper,jdbcType=VARCHAR} , 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP}
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbEbaybbe" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

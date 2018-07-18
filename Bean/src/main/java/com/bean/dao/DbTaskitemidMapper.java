@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbTaskitemid;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbTaskitemidMapper {
-    int deleteByPrimaryKey(String sid);
+    DbTaskitemid selectByCriteria(DbTaskitemid DbTaskitemid);
 
-    int insert(DbTaskitemid record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbTaskitemid record);
+    void deleteByCriteria(DbTaskitemid DbTaskitemid);
+
+    int insertByCriteria(DbTaskitemid DbTaskitemid);
+
+    int updateByCriteria(DbTaskitemid DbTaskitemid);
 
     DbTaskitemid selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbTaskitemid record);
-
-    int updateByPrimaryKeyWithBLOBs(DbTaskitemid record);
-
-    int updateByPrimaryKey(DbTaskitemid record);
+    List<DbTaskitemid> selectAll();
 }

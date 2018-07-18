@@ -5,128 +5,102 @@
     <id column="ORDERID" jdbcType="VARCHAR" property="orderid" />
     <result column="SHOPID" jdbcType="VARCHAR" property="shopid" />
     <result column="SHOPNAME" jdbcType="VARCHAR" property="shopname" />
+    <result column="CONTENT" jdbcType="VARCHAR" property="content" />
     <result column="ERRORFLAG" jdbcType="VARCHAR" property="errorflag" />
+    <result column="ERRORDESCR" jdbcType="VARCHAR" property="errordescr" />
     <result column="SENDTIME" jdbcType="TIMESTAMP" property="sendtime" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbAskrussianmobile">
-    <result column="CONTENT" jdbcType="LONGVARCHAR" property="content" />
-    <result column="ERRORDESCR" jdbcType="LONGVARCHAR" property="errordescr" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    ORDERID, SHOPID, SHOPNAME, ERRORFLAG, SENDTIME
-  </sql>
-  <sql id="Blob_Column_List">
-    CONTENT, ERRORDESCR
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from db_askrussianmobile
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select ORDERID, SHOPID, SHOPNAME, CONTENT, ERRORFLAG, ERRORDESCR, SENDTIME
+    from DB_ASKRUSSIANMOBILE
     where ORDERID = #{orderid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_askrussianmobile
-    where ORDERID = #{orderid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ORDERID, SHOPID, SHOPNAME, CONTENT, ERRORFLAG, ERRORDESCR, SENDTIME
+    from DB_ASKRUSSIANMOBILE
+  </select>
+  <sql id="TableName">
+    DB_ASKRUSSIANMOBILE
+  </sql>
+  <sql id="Values">
+     #{orderid,jdbcType=VARCHAR} , 
+     #{shopid,jdbcType=VARCHAR} , 
+     #{shopname,jdbcType=VARCHAR} , 
+     #{content,jdbcType=VARCHAR} , 
+     #{errorflag,jdbcType=VARCHAR} , 
+     #{errordescr,jdbcType=VARCHAR} , 
+     #{sendtime,jdbcType=TIMESTAMP} , 
+  </sql>
+  <sql id="Columns">
+    ORDERID , 
+    SHOPID , 
+    SHOPNAME , 
+    CONTENT , 
+    ERRORFLAG , 
+    ERRORDESCR , 
+    SENDTIME , 
+  </sql>
+  <sql id="Criteria">
+    <if test="orderid != null">
+      orderid = #{orderid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shopid != null">
+      shopid = #{shopid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shopname != null">
+      shopname = #{shopname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="content != null">
+      content = #{content,jdbcType=VARCHAR} and 
+    </if>
+    <if test="errorflag != null">
+      errorflag = #{errorflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="errordescr != null">
+      errordescr = #{errordescr,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sendtime != null">
+      sendtime = #{sendtime,jdbcType=TIMESTAMP} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="orderid != null">
+      orderid = #{orderid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shopid != null">
+      shopid = #{shopid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shopname != null">
+      shopname = #{shopname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="content != null">
+      content = #{content,jdbcType=VARCHAR} , 
+    </if>
+    <if test="errorflag != null">
+      errorflag = #{errorflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="errordescr != null">
+      errordescr = #{errordescr,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sendtime != null">
+      sendtime = #{sendtime,jdbcType=TIMESTAMP} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbAskrussianmobile" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where ORDERID=#{ORDERID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbAskrussianmobile">
-    insert into db_askrussianmobile (ORDERID, SHOPID, SHOPNAME, 
-      ERRORFLAG, SENDTIME, CONTENT, 
-      ERRORDESCR)
-    values (#{orderid,jdbcType=VARCHAR}, #{shopid,jdbcType=VARCHAR}, #{shopname,jdbcType=VARCHAR}, 
-      #{errorflag,jdbcType=VARCHAR}, #{sendtime,jdbcType=TIMESTAMP}, #{content,jdbcType=LONGVARCHAR}, 
-      #{errordescr,jdbcType=LONGVARCHAR})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbAskrussianmobile">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbAskrussianmobile">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbAskrussianmobile">
-    insert into db_askrussianmobile
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="orderid != null">
-        ORDERID,
-      </if>
-      <if test="shopid != null">
-        SHOPID,
-      </if>
-      <if test="shopname != null">
-        SHOPNAME,
-      </if>
-      <if test="errorflag != null">
-        ERRORFLAG,
-      </if>
-      <if test="sendtime != null">
-        SENDTIME,
-      </if>
-      <if test="content != null">
-        CONTENT,
-      </if>
-      <if test="errordescr != null">
-        ERRORDESCR,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="orderid != null">
-        #{orderid,jdbcType=VARCHAR},
-      </if>
-      <if test="shopid != null">
-        #{shopid,jdbcType=VARCHAR},
-      </if>
-      <if test="shopname != null">
-        #{shopname,jdbcType=VARCHAR},
-      </if>
-      <if test="errorflag != null">
-        #{errorflag,jdbcType=VARCHAR},
-      </if>
-      <if test="sendtime != null">
-        #{sendtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="content != null">
-        #{content,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="errordescr != null">
-        #{errordescr,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbAskrussianmobile">
-    update db_askrussianmobile
-    <set>
-      <if test="shopid != null">
-        SHOPID = #{shopid,jdbcType=VARCHAR},
-      </if>
-      <if test="shopname != null">
-        SHOPNAME = #{shopname,jdbcType=VARCHAR},
-      </if>
-      <if test="errorflag != null">
-        ERRORFLAG = #{errorflag,jdbcType=VARCHAR},
-      </if>
-      <if test="sendtime != null">
-        SENDTIME = #{sendtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="content != null">
-        CONTENT = #{content,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="errordescr != null">
-        ERRORDESCR = #{errordescr,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where ORDERID = #{orderid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbAskrussianmobile">
-    update db_askrussianmobile
-    set SHOPID = #{shopid,jdbcType=VARCHAR},
-      SHOPNAME = #{shopname,jdbcType=VARCHAR},
-      ERRORFLAG = #{errorflag,jdbcType=VARCHAR},
-      SENDTIME = #{sendtime,jdbcType=TIMESTAMP},
-      CONTENT = #{content,jdbcType=LONGVARCHAR},
-      ERRORDESCR = #{errordescr,jdbcType=LONGVARCHAR}
-    where ORDERID = #{orderid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbAskrussianmobile">
-    update db_askrussianmobile
-    set SHOPID = #{shopid,jdbcType=VARCHAR},
-      SHOPNAME = #{shopname,jdbcType=VARCHAR},
-      ERRORFLAG = #{errorflag,jdbcType=VARCHAR},
-      SENDTIME = #{sendtime,jdbcType=TIMESTAMP}
-    where ORDERID = #{orderid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbAskrussianmobile">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

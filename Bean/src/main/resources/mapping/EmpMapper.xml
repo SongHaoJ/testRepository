@@ -9,55 +9,84 @@
     <result column="STATUS" jdbcType="VARCHAR" property="status" />
     <result column="SEX" jdbcType="VARCHAR" property="sex" />
   </resultMap>
-  <insert id="insert" parameterType="com.bean.model.Emp">
-    insert into emp (EID, CITY, ENAME, 
-      BDATE, 'STATUS', SEX
-      )
-    values (#{eid,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{ename,jdbcType=VARCHAR}, 
-      #{bdate,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}
-      )
+  <select id="selectAll" resultMap="BaseResultMap">
+    select EID, CITY, ENAME, BDATE, STATUS, SEX
+    from EMP
+  </select>
+  <sql id="TableName">
+    EMP
+  </sql>
+  <sql id="Values">
+     #{eid,jdbcType=VARCHAR} , 
+     #{city,jdbcType=VARCHAR} , 
+     #{ename,jdbcType=VARCHAR} , 
+     #{bdate,jdbcType=TIMESTAMP} , 
+     #{status,jdbcType=VARCHAR} , 
+     #{sex,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    EID , 
+    CITY , 
+    ENAME , 
+    BDATE , 
+    STATUS , 
+    SEX , 
+  </sql>
+  <sql id="Criteria">
+    <if test="eid != null">
+      eid = #{eid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="city != null">
+      city = #{city,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ename != null">
+      ename = #{ename,jdbcType=VARCHAR} and 
+    </if>
+    <if test="bdate != null">
+      bdate = #{bdate,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="status != null">
+      status = #{status,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sex != null">
+      sex = #{sex,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="eid != null">
+      eid = #{eid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="city != null">
+      city = #{city,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ename != null">
+      ename = #{ename,jdbcType=VARCHAR} , 
+    </if>
+    <if test="bdate != null">
+      bdate = #{bdate,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="status != null">
+      status = #{status,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sex != null">
+      sex = #{sex,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.Emp" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where EID=#{EID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.Emp">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.Emp">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.Emp">
-    insert into emp
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="eid != null">
-        EID,
-      </if>
-      <if test="city != null">
-        CITY,
-      </if>
-      <if test="ename != null">
-        ENAME,
-      </if>
-      <if test="bdate != null">
-        BDATE,
-      </if>
-      <if test="status != null">
-        'STATUS',
-      </if>
-      <if test="sex != null">
-        SEX,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="eid != null">
-        #{eid,jdbcType=VARCHAR},
-      </if>
-      <if test="city != null">
-        #{city,jdbcType=VARCHAR},
-      </if>
-      <if test="ename != null">
-        #{ename,jdbcType=VARCHAR},
-      </if>
-      <if test="bdate != null">
-        #{bdate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="status != null">
-        #{status,jdbcType=VARCHAR},
-      </if>
-      <if test="sex != null">
-        #{sex,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.Emp">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
 </mapper>

@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbAlifeedbackorder;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbAlifeedbackorderMapper {
-    int deleteByPrimaryKey(String tradeid);
+    DbAlifeedbackorder selectByCriteria(DbAlifeedbackorder DbAlifeedbackorder);
 
-    int insert(DbAlifeedbackorder record);
+    void deleteByPrimaryKey(String TRADEID);
 
-    int insertSelective(DbAlifeedbackorder record);
+    void deleteByCriteria(DbAlifeedbackorder DbAlifeedbackorder);
+
+    int insertByCriteria(DbAlifeedbackorder DbAlifeedbackorder);
+
+    int updateByCriteria(DbAlifeedbackorder DbAlifeedbackorder);
 
     DbAlifeedbackorder selectByPrimaryKey(String tradeid);
 
-    int updateByPrimaryKeySelective(DbAlifeedbackorder record);
-
-    int updateByPrimaryKeyWithBLOBs(DbAlifeedbackorder record);
-
-    int updateByPrimaryKey(DbAlifeedbackorder record);
+    List<DbAlifeedbackorder> selectAll();
 }

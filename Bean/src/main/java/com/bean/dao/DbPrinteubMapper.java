@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbPrinteub;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbPrinteubMapper {
-    int deleteByPrimaryKey(String state);
+    DbPrinteub selectByCriteria(DbPrinteub DbPrinteub);
 
-    int insert(DbPrinteub record);
+    void deleteByPrimaryKey(String STATE);
 
-    int insertSelective(DbPrinteub record);
+    void deleteByCriteria(DbPrinteub DbPrinteub);
+
+    int insertByCriteria(DbPrinteub DbPrinteub);
+
+    int updateByCriteria(DbPrinteub DbPrinteub);
 
     DbPrinteub selectByPrimaryKey(String state);
 
-    int updateByPrimaryKeySelective(DbPrinteub record);
-
-    int updateByPrimaryKey(DbPrinteub record);
+    List<DbPrinteub> selectAll();
 }

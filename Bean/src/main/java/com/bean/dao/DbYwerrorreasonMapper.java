@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbYwerrorreason;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbYwerrorreasonMapper {
-    int deleteByPrimaryKey(String sid);
+    DbYwerrorreason selectByCriteria(DbYwerrorreason DbYwerrorreason);
 
-    int insert(DbYwerrorreason record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbYwerrorreason record);
+    void deleteByCriteria(DbYwerrorreason DbYwerrorreason);
+
+    int insertByCriteria(DbYwerrorreason DbYwerrorreason);
+
+    int updateByCriteria(DbYwerrorreason DbYwerrorreason);
 
     DbYwerrorreason selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbYwerrorreason record);
-
-    int updateByPrimaryKeyWithBLOBs(DbYwerrorreason record);
+    List<DbYwerrorreason> selectAll();
 }

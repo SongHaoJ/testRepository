@@ -14,15 +14,20 @@
     <result column="ORDERID" jdbcType="VARCHAR" property="orderid" />
     <result column="MESSAGEID" jdbcType="VARCHAR" property="messageid" />
     <result column="SHOPTYPEID" jdbcType="DECIMAL" property="shoptypeid" />
+    <result column="CUSTOMERNAME" jdbcType="VARCHAR" property="customername" />
+    <result column="CUSTOMERCOUNTRY" jdbcType="VARCHAR" property="customercountry" />
     <result column="SHOPTYPE" jdbcType="VARCHAR" property="shoptype" />
     <result column="ORDERSTATUS" jdbcType="VARCHAR" property="orderstatus" />
     <result column="ORDERSOURCE" jdbcType="VARCHAR" property="ordersource" />
     <result column="ORDERTIME" jdbcType="DECIMAL" property="ordertime" />
     <result column="CUSTOMERCOUNTRYID" jdbcType="VARCHAR" property="customercountryid" />
     <result column="CUSTOMERCOUNTRYEN" jdbcType="VARCHAR" property="customercountryen" />
+    <result column="CONTENT" jdbcType="VARCHAR" property="content" />
     <result column="DISPOSEFLAG" jdbcType="DECIMAL" property="disposeflag" />
     <result column="RETURNPROSTATUS" jdbcType="DECIMAL" property="returnprostatus" />
     <result column="RETURNMONEYSTATUS" jdbcType="DECIMAL" property="returnmoneystatus" />
+    <result column="REPLAYORDERID" jdbcType="VARCHAR" property="replayorderid" />
+    <result column="RETURNDESCR" jdbcType="VARCHAR" property="returndescr" />
     <result column="RETURNFLAG" jdbcType="DECIMAL" property="returnflag" />
     <result column="ACTUALSAVENUM" jdbcType="DECIMAL" property="actualsavenum" />
     <result column="KEYWORDS" jdbcType="VARCHAR" property="keywords" />
@@ -32,34 +37,29 @@
     <result column="ORIGINORDERTIME" jdbcType="TIMESTAMP" property="originordertime" />
     <result column="REASONID" jdbcType="DECIMAL" property="reasonid" />
     <result column="REASON" jdbcType="VARCHAR" property="reason" />
-    <result column="CUSTOMERNAME" jdbcType="LONGVARCHAR" property="customername" />
-    <result column="CUSTOMERCOUNTRY" jdbcType="LONGVARCHAR" property="customercountry" />
-    <result column="CONTENT" jdbcType="LONGVARCHAR" property="content" />
-    <result column="REPLAYORDERID" jdbcType="LONGVARCHAR" property="replayorderid" />
-    <result column="RETURNDESCR" jdbcType="LONGVARCHAR" property="returndescr" />
-    <result column="SKURESULT" jdbcType="LONGVARCHAR" property="skuresult" />
+    <result column="SKURESULT" jdbcType="VARCHAR" property="skuresult" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
     select SEQUENCEID, NAME, REPLAYSTATUS, OPENFLAG, CREATOPER, CREATTIME, OPER, OPERTIME, 
-    CONTENTID, ORDERID, MESSAGEID, SHOPTYPEID, SHOPTYPE, ORDERSTATUS, ORDERSOURCE, ORDERTIME, 
-    CUSTOMERCOUNTRYID, CUSTOMERCOUNTRYEN, DISPOSEFLAG, RETURNPROSTATUS, RETURNMONEYSTATUS, 
-    RETURNFLAG, ACTUALSAVENUM, KEYWORDS, CUSTOMERID, CUSTOMERTEL, EXPRESSID, ORIGINORDERTIME, 
-    REASONID, REASON, CUSTOMERNAME, CUSTOMERCOUNTRY, CONTENT, REPLAYORDERID, RETURNDESCR, 
-    SKURESULT
-    from db_returnmanagerment
+    CONTENTID, ORDERID, MESSAGEID, SHOPTYPEID, CUSTOMERNAME, CUSTOMERCOUNTRY, SHOPTYPE, 
+    ORDERSTATUS, ORDERSOURCE, ORDERTIME, CUSTOMERCOUNTRYID, CUSTOMERCOUNTRYEN, CONTENT, 
+    DISPOSEFLAG, RETURNPROSTATUS, RETURNMONEYSTATUS, REPLAYORDERID, RETURNDESCR, RETURNFLAG, 
+    ACTUALSAVENUM, KEYWORDS, CUSTOMERID, CUSTOMERTEL, EXPRESSID, ORIGINORDERTIME, REASONID, 
+    REASON, SKURESULT
+    from DB_RETURNMANAGERMENT
     where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SEQUENCEID, NAME, REPLAYSTATUS, OPENFLAG, CREATOPER, CREATTIME, OPER, OPERTIME, 
-    CONTENTID, ORDERID, MESSAGEID, SHOPTYPEID, SHOPTYPE, ORDERSTATUS, ORDERSOURCE, ORDERTIME, 
-    CUSTOMERCOUNTRYID, CUSTOMERCOUNTRYEN, DISPOSEFLAG, RETURNPROSTATUS, RETURNMONEYSTATUS, 
-    RETURNFLAG, ACTUALSAVENUM, KEYWORDS, CUSTOMERID, CUSTOMERTEL, EXPRESSID, ORIGINORDERTIME, 
-    REASONID, REASON, CUSTOMERNAME, CUSTOMERCOUNTRY, CONTENT, REPLAYORDERID, RETURNDESCR, 
-    SKURESULT
-    from db_returnmanagerment
+    CONTENTID, ORDERID, MESSAGEID, SHOPTYPEID, CUSTOMERNAME, CUSTOMERCOUNTRY, SHOPTYPE, 
+    ORDERSTATUS, ORDERSOURCE, ORDERTIME, CUSTOMERCOUNTRYID, CUSTOMERCOUNTRYEN, CONTENT, 
+    DISPOSEFLAG, RETURNPROSTATUS, RETURNMONEYSTATUS, REPLAYORDERID, RETURNDESCR, RETURNFLAG, 
+    ACTUALSAVENUM, KEYWORDS, CUSTOMERID, CUSTOMERTEL, EXPRESSID, ORIGINORDERTIME, REASONID, 
+    REASON, SKURESULT
+    from DB_RETURNMANAGERMENT
   </select>
   <sql id="TableName">
-    db_returnmanagerment
+    DB_RETURNMANAGERMENT
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=DECIMAL} , 
@@ -74,15 +74,20 @@
      #{orderid,jdbcType=VARCHAR} , 
      #{messageid,jdbcType=VARCHAR} , 
      #{shoptypeid,jdbcType=DECIMAL} , 
+     #{customername,jdbcType=VARCHAR} , 
+     #{customercountry,jdbcType=VARCHAR} , 
      #{shoptype,jdbcType=VARCHAR} , 
      #{orderstatus,jdbcType=VARCHAR} , 
      #{ordersource,jdbcType=VARCHAR} , 
      #{ordertime,jdbcType=DECIMAL} , 
      #{customercountryid,jdbcType=VARCHAR} , 
      #{customercountryen,jdbcType=VARCHAR} , 
+     #{content,jdbcType=VARCHAR} , 
      #{disposeflag,jdbcType=DECIMAL} , 
      #{returnprostatus,jdbcType=DECIMAL} , 
      #{returnmoneystatus,jdbcType=DECIMAL} , 
+     #{replayorderid,jdbcType=VARCHAR} , 
+     #{returndescr,jdbcType=VARCHAR} , 
      #{returnflag,jdbcType=DECIMAL} , 
      #{actualsavenum,jdbcType=DECIMAL} , 
      #{keywords,jdbcType=VARCHAR} , 
@@ -92,12 +97,7 @@
      #{originordertime,jdbcType=TIMESTAMP} , 
      #{reasonid,jdbcType=DECIMAL} , 
      #{reason,jdbcType=VARCHAR} , 
-     #{customername,jdbcType=LONGVARCHAR} , 
-     #{customercountry,jdbcType=LONGVARCHAR} , 
-     #{content,jdbcType=LONGVARCHAR} , 
-     #{replayorderid,jdbcType=LONGVARCHAR} , 
-     #{returndescr,jdbcType=LONGVARCHAR} , 
-     #{skuresult,jdbcType=LONGVARCHAR}
+     #{skuresult,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
@@ -112,15 +112,20 @@
     ORDERID , 
     MESSAGEID , 
     SHOPTYPEID , 
+    CUSTOMERNAME , 
+    CUSTOMERCOUNTRY , 
     SHOPTYPE , 
     ORDERSTATUS , 
     ORDERSOURCE , 
     ORDERTIME , 
     CUSTOMERCOUNTRYID , 
     CUSTOMERCOUNTRYEN , 
+    CONTENT , 
     DISPOSEFLAG , 
     RETURNPROSTATUS , 
     RETURNMONEYSTATUS , 
+    REPLAYORDERID , 
+    RETURNDESCR , 
     RETURNFLAG , 
     ACTUALSAVENUM , 
     KEYWORDS , 
@@ -130,234 +135,229 @@
     ORIGINORDERTIME , 
     REASONID , 
     REASON , 
-    CUSTOMERNAME , 
-    CUSTOMERCOUNTRY , 
-    CONTENT , 
-    REPLAYORDERID , 
-    RETURNDESCR , 
-    SKURESULT
+    SKURESULT , 
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} and 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} and 
     </if>
     <if test="name != null">
-      NAME = #{name,jdbcType=VARCHAR} and 
+      name = #{name,jdbcType=VARCHAR} and 
     </if>
     <if test="replaystatus != null">
-      REPLAYSTATUS = #{replaystatus,jdbcType=DECIMAL} and 
+      replaystatus = #{replaystatus,jdbcType=DECIMAL} and 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=DECIMAL} and 
+      openflag = #{openflag,jdbcType=DECIMAL} and 
     </if>
     <if test="creatoper != null">
-      CREATOPER = #{creatoper,jdbcType=VARCHAR} and 
+      creatoper = #{creatoper,jdbcType=VARCHAR} and 
     </if>
     <if test="creattime != null">
-      CREATTIME = #{creattime,jdbcType=TIMESTAMP} and 
+      creattime = #{creattime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
+      oper = #{oper,jdbcType=VARCHAR} and 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="contentid != null">
-      CONTENTID = #{contentid,jdbcType=DECIMAL} and 
+      contentid = #{contentid,jdbcType=DECIMAL} and 
     </if>
     <if test="orderid != null">
-      ORDERID = #{orderid,jdbcType=VARCHAR} and 
+      orderid = #{orderid,jdbcType=VARCHAR} and 
     </if>
     <if test="messageid != null">
-      MESSAGEID = #{messageid,jdbcType=VARCHAR} and 
+      messageid = #{messageid,jdbcType=VARCHAR} and 
     </if>
     <if test="shoptypeid != null">
-      SHOPTYPEID = #{shoptypeid,jdbcType=DECIMAL} and 
-    </if>
-    <if test="shoptype != null">
-      SHOPTYPE = #{shoptype,jdbcType=VARCHAR} and 
-    </if>
-    <if test="orderstatus != null">
-      ORDERSTATUS = #{orderstatus,jdbcType=VARCHAR} and 
-    </if>
-    <if test="ordersource != null">
-      ORDERSOURCE = #{ordersource,jdbcType=VARCHAR} and 
-    </if>
-    <if test="ordertime != null">
-      ORDERTIME = #{ordertime,jdbcType=DECIMAL} and 
-    </if>
-    <if test="customercountryid != null">
-      CUSTOMERCOUNTRYID = #{customercountryid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="customercountryen != null">
-      CUSTOMERCOUNTRYEN = #{customercountryen,jdbcType=VARCHAR} and 
-    </if>
-    <if test="disposeflag != null">
-      DISPOSEFLAG = #{disposeflag,jdbcType=DECIMAL} and 
-    </if>
-    <if test="returnprostatus != null">
-      RETURNPROSTATUS = #{returnprostatus,jdbcType=DECIMAL} and 
-    </if>
-    <if test="returnmoneystatus != null">
-      RETURNMONEYSTATUS = #{returnmoneystatus,jdbcType=DECIMAL} and 
-    </if>
-    <if test="returnflag != null">
-      RETURNFLAG = #{returnflag,jdbcType=DECIMAL} and 
-    </if>
-    <if test="actualsavenum != null">
-      ACTUALSAVENUM = #{actualsavenum,jdbcType=DECIMAL} and 
-    </if>
-    <if test="keywords != null">
-      KEYWORDS = #{keywords,jdbcType=VARCHAR} and 
-    </if>
-    <if test="customerid != null">
-      CUSTOMERID = #{customerid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="customertel != null">
-      CUSTOMERTEL = #{customertel,jdbcType=VARCHAR} and 
-    </if>
-    <if test="expressid != null">
-      EXPRESSID = #{expressid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="originordertime != null">
-      ORIGINORDERTIME = #{originordertime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="reasonid != null">
-      REASONID = #{reasonid,jdbcType=DECIMAL} and 
-    </if>
-    <if test="reason != null">
-      REASON = #{reason,jdbcType=VARCHAR} and 
+      shoptypeid = #{shoptypeid,jdbcType=DECIMAL} and 
     </if>
     <if test="customername != null">
-      CUSTOMERNAME = #{customername,jdbcType=LONGVARCHAR} and 
+      customername = #{customername,jdbcType=VARCHAR} and 
     </if>
     <if test="customercountry != null">
-      CUSTOMERCOUNTRY = #{customercountry,jdbcType=LONGVARCHAR} and 
+      customercountry = #{customercountry,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shoptype != null">
+      shoptype = #{shoptype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="orderstatus != null">
+      orderstatus = #{orderstatus,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ordersource != null">
+      ordersource = #{ordersource,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ordertime != null">
+      ordertime = #{ordertime,jdbcType=DECIMAL} and 
+    </if>
+    <if test="customercountryid != null">
+      customercountryid = #{customercountryid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="customercountryen != null">
+      customercountryen = #{customercountryen,jdbcType=VARCHAR} and 
     </if>
     <if test="content != null">
-      CONTENT = #{content,jdbcType=LONGVARCHAR} and 
+      content = #{content,jdbcType=VARCHAR} and 
+    </if>
+    <if test="disposeflag != null">
+      disposeflag = #{disposeflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="returnprostatus != null">
+      returnprostatus = #{returnprostatus,jdbcType=DECIMAL} and 
+    </if>
+    <if test="returnmoneystatus != null">
+      returnmoneystatus = #{returnmoneystatus,jdbcType=DECIMAL} and 
     </if>
     <if test="replayorderid != null">
-      REPLAYORDERID = #{replayorderid,jdbcType=LONGVARCHAR} and 
+      replayorderid = #{replayorderid,jdbcType=VARCHAR} and 
     </if>
     <if test="returndescr != null">
-      RETURNDESCR = #{returndescr,jdbcType=LONGVARCHAR} and 
+      returndescr = #{returndescr,jdbcType=VARCHAR} and 
+    </if>
+    <if test="returnflag != null">
+      returnflag = #{returnflag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="actualsavenum != null">
+      actualsavenum = #{actualsavenum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="keywords != null">
+      keywords = #{keywords,jdbcType=VARCHAR} and 
+    </if>
+    <if test="customerid != null">
+      customerid = #{customerid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="customertel != null">
+      customertel = #{customertel,jdbcType=VARCHAR} and 
+    </if>
+    <if test="expressid != null">
+      expressid = #{expressid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="originordertime != null">
+      originordertime = #{originordertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="reasonid != null">
+      reasonid = #{reasonid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reason != null">
+      reason = #{reason,jdbcType=VARCHAR} and 
     </if>
     <if test="skuresult != null">
-      SKURESULT = #{skuresult,jdbcType=LONGVARCHAR}
+      skuresult = #{skuresult,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=DECIMAL} , 
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} , 
     </if>
     <if test="name != null">
-      NAME = #{name,jdbcType=VARCHAR} , 
+      name = #{name,jdbcType=VARCHAR} , 
     </if>
     <if test="replaystatus != null">
-      REPLAYSTATUS = #{replaystatus,jdbcType=DECIMAL} , 
+      replaystatus = #{replaystatus,jdbcType=DECIMAL} , 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=DECIMAL} , 
+      openflag = #{openflag,jdbcType=DECIMAL} , 
     </if>
     <if test="creatoper != null">
-      CREATOPER = #{creatoper,jdbcType=VARCHAR} , 
+      creatoper = #{creatoper,jdbcType=VARCHAR} , 
     </if>
     <if test="creattime != null">
-      CREATTIME = #{creattime,jdbcType=TIMESTAMP} , 
+      creattime = #{creattime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
+      oper = #{oper,jdbcType=VARCHAR} , 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="contentid != null">
-      CONTENTID = #{contentid,jdbcType=DECIMAL} , 
+      contentid = #{contentid,jdbcType=DECIMAL} , 
     </if>
     <if test="orderid != null">
-      ORDERID = #{orderid,jdbcType=VARCHAR} , 
+      orderid = #{orderid,jdbcType=VARCHAR} , 
     </if>
     <if test="messageid != null">
-      MESSAGEID = #{messageid,jdbcType=VARCHAR} , 
+      messageid = #{messageid,jdbcType=VARCHAR} , 
     </if>
     <if test="shoptypeid != null">
-      SHOPTYPEID = #{shoptypeid,jdbcType=DECIMAL} , 
-    </if>
-    <if test="shoptype != null">
-      SHOPTYPE = #{shoptype,jdbcType=VARCHAR} , 
-    </if>
-    <if test="orderstatus != null">
-      ORDERSTATUS = #{orderstatus,jdbcType=VARCHAR} , 
-    </if>
-    <if test="ordersource != null">
-      ORDERSOURCE = #{ordersource,jdbcType=VARCHAR} , 
-    </if>
-    <if test="ordertime != null">
-      ORDERTIME = #{ordertime,jdbcType=DECIMAL} , 
-    </if>
-    <if test="customercountryid != null">
-      CUSTOMERCOUNTRYID = #{customercountryid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="customercountryen != null">
-      CUSTOMERCOUNTRYEN = #{customercountryen,jdbcType=VARCHAR} , 
-    </if>
-    <if test="disposeflag != null">
-      DISPOSEFLAG = #{disposeflag,jdbcType=DECIMAL} , 
-    </if>
-    <if test="returnprostatus != null">
-      RETURNPROSTATUS = #{returnprostatus,jdbcType=DECIMAL} , 
-    </if>
-    <if test="returnmoneystatus != null">
-      RETURNMONEYSTATUS = #{returnmoneystatus,jdbcType=DECIMAL} , 
-    </if>
-    <if test="returnflag != null">
-      RETURNFLAG = #{returnflag,jdbcType=DECIMAL} , 
-    </if>
-    <if test="actualsavenum != null">
-      ACTUALSAVENUM = #{actualsavenum,jdbcType=DECIMAL} , 
-    </if>
-    <if test="keywords != null">
-      KEYWORDS = #{keywords,jdbcType=VARCHAR} , 
-    </if>
-    <if test="customerid != null">
-      CUSTOMERID = #{customerid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="customertel != null">
-      CUSTOMERTEL = #{customertel,jdbcType=VARCHAR} , 
-    </if>
-    <if test="expressid != null">
-      EXPRESSID = #{expressid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="originordertime != null">
-      ORIGINORDERTIME = #{originordertime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="reasonid != null">
-      REASONID = #{reasonid,jdbcType=DECIMAL} , 
-    </if>
-    <if test="reason != null">
-      REASON = #{reason,jdbcType=VARCHAR} , 
+      shoptypeid = #{shoptypeid,jdbcType=DECIMAL} , 
     </if>
     <if test="customername != null">
-      CUSTOMERNAME = #{customername,jdbcType=LONGVARCHAR} , 
+      customername = #{customername,jdbcType=VARCHAR} , 
     </if>
     <if test="customercountry != null">
-      CUSTOMERCOUNTRY = #{customercountry,jdbcType=LONGVARCHAR} , 
+      customercountry = #{customercountry,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shoptype != null">
+      shoptype = #{shoptype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="orderstatus != null">
+      orderstatus = #{orderstatus,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ordersource != null">
+      ordersource = #{ordersource,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ordertime != null">
+      ordertime = #{ordertime,jdbcType=DECIMAL} , 
+    </if>
+    <if test="customercountryid != null">
+      customercountryid = #{customercountryid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="customercountryen != null">
+      customercountryen = #{customercountryen,jdbcType=VARCHAR} , 
     </if>
     <if test="content != null">
-      CONTENT = #{content,jdbcType=LONGVARCHAR} , 
+      content = #{content,jdbcType=VARCHAR} , 
+    </if>
+    <if test="disposeflag != null">
+      disposeflag = #{disposeflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="returnprostatus != null">
+      returnprostatus = #{returnprostatus,jdbcType=DECIMAL} , 
+    </if>
+    <if test="returnmoneystatus != null">
+      returnmoneystatus = #{returnmoneystatus,jdbcType=DECIMAL} , 
     </if>
     <if test="replayorderid != null">
-      REPLAYORDERID = #{replayorderid,jdbcType=LONGVARCHAR} , 
+      replayorderid = #{replayorderid,jdbcType=VARCHAR} , 
     </if>
     <if test="returndescr != null">
-      RETURNDESCR = #{returndescr,jdbcType=LONGVARCHAR} , 
+      returndescr = #{returndescr,jdbcType=VARCHAR} , 
+    </if>
+    <if test="returnflag != null">
+      returnflag = #{returnflag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="actualsavenum != null">
+      actualsavenum = #{actualsavenum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="keywords != null">
+      keywords = #{keywords,jdbcType=VARCHAR} , 
+    </if>
+    <if test="customerid != null">
+      customerid = #{customerid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="customertel != null">
+      customertel = #{customertel,jdbcType=VARCHAR} , 
+    </if>
+    <if test="expressid != null">
+      expressid = #{expressid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="originordertime != null">
+      originordertime = #{originordertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="reasonid != null">
+      reasonid = #{reasonid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reason != null">
+      reason = #{reason,jdbcType=VARCHAR} , 
     </if>
     <if test="skuresult != null">
-      SKURESULT = #{skuresult,jdbcType=LONGVARCHAR}
+      skuresult = #{skuresult,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbReturnmanagerment" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

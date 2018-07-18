@@ -19,7 +19,33 @@ public class DbEbayorderinfo implements Serializable {
 
     private String customerid;
 
+    private String customername;
+
+    private String customertype;
+
+    private String customertel1;
+
+    private String customertel2;
+
+    private String customeremail;
+
+    private String customercountry;
+
+    private String customerprovince;
+
+    private String customercity;
+
+    private String customeraddress;
+
     private String customerzipcode;
+
+    private String customerreserve1;
+
+    private String customerreserve2;
+
+    private String customerreserve3;
+
+    private String customerreserve4;
 
     private BigDecimal customerreserve5;
 
@@ -59,6 +85,8 @@ public class DbEbayorderinfo implements Serializable {
 
     private String sku;
 
+    private String productname;
+
     private BigDecimal ordernum;
 
     private BigDecimal costprice;
@@ -66,6 +94,8 @@ public class DbEbayorderinfo implements Serializable {
     private BigDecimal sellprice;
 
     private BigDecimal amount;
+
+    private String descr2;
 
     private BigDecimal originsellprice;
 
@@ -75,11 +105,21 @@ public class DbEbayorderinfo implements Serializable {
 
     private BigDecimal insurance;
 
+    private String shippingservice;
+
+    private String notetoyourself;
+
     private String ebayitemid;
 
     private String paypalemail;
 
     private String paypalid;
+
+    private String orderreserve1;
+
+    private String orderreserve2;
+
+    private String orderreserve3;
 
     private BigDecimal orderreserve4;
 
@@ -88,6 +128,16 @@ public class DbEbayorderinfo implements Serializable {
     private BigDecimal orderreserve6;
 
     private BigDecimal orderreserve7;
+
+    private String reserve1;
+
+    private String reserve2;
+
+    private String reserve3;
+
+    private String reserve4;
+
+    private String reserve5;
 
     private BigDecimal reserve6;
 
@@ -98,6 +148,8 @@ public class DbEbayorderinfo implements Serializable {
     private BigDecimal reserve9;
 
     private String errorflag;
+
+    private String errorinfo;
 
     private Date opertime;
 
@@ -112,58 +164,6 @@ public class DbEbayorderinfo implements Serializable {
     private BigDecimal origininsurance1;
 
     private BigDecimal originfinalvaluefee;
-
-    private String customername;
-
-    private String customertype;
-
-    private String customertel1;
-
-    private String customertel2;
-
-    private String customeremail;
-
-    private String customercountry;
-
-    private String customerprovince;
-
-    private String customercity;
-
-    private String customeraddress;
-
-    private String customerreserve1;
-
-    private String customerreserve2;
-
-    private String customerreserve3;
-
-    private String customerreserve4;
-
-    private String productname;
-
-    private String descr2;
-
-    private String shippingservice;
-
-    private String notetoyourself;
-
-    private String orderreserve1;
-
-    private String orderreserve2;
-
-    private String orderreserve3;
-
-    private String reserve1;
-
-    private String reserve2;
-
-    private String reserve3;
-
-    private String reserve4;
-
-    private String reserve5;
-
-    private String errorinfo;
 
     private String ebaycustomeraddress;
 
@@ -225,12 +225,116 @@ public class DbEbayorderinfo implements Serializable {
         this.customerid = customerid == null ? null : customerid.trim();
     }
 
+    public String getCustomername() {
+        return customername;
+    }
+
+    public void setCustomername(String customername) {
+        this.customername = customername == null ? null : customername.trim();
+    }
+
+    public String getCustomertype() {
+        return customertype;
+    }
+
+    public void setCustomertype(String customertype) {
+        this.customertype = customertype == null ? null : customertype.trim();
+    }
+
+    public String getCustomertel1() {
+        return customertel1;
+    }
+
+    public void setCustomertel1(String customertel1) {
+        this.customertel1 = customertel1 == null ? null : customertel1.trim();
+    }
+
+    public String getCustomertel2() {
+        return customertel2;
+    }
+
+    public void setCustomertel2(String customertel2) {
+        this.customertel2 = customertel2 == null ? null : customertel2.trim();
+    }
+
+    public String getCustomeremail() {
+        return customeremail;
+    }
+
+    public void setCustomeremail(String customeremail) {
+        this.customeremail = customeremail == null ? null : customeremail.trim();
+    }
+
+    public String getCustomercountry() {
+        return customercountry;
+    }
+
+    public void setCustomercountry(String customercountry) {
+        this.customercountry = customercountry == null ? null : customercountry.trim();
+    }
+
+    public String getCustomerprovince() {
+        return customerprovince;
+    }
+
+    public void setCustomerprovince(String customerprovince) {
+        this.customerprovince = customerprovince == null ? null : customerprovince.trim();
+    }
+
+    public String getCustomercity() {
+        return customercity;
+    }
+
+    public void setCustomercity(String customercity) {
+        this.customercity = customercity == null ? null : customercity.trim();
+    }
+
+    public String getCustomeraddress() {
+        return customeraddress;
+    }
+
+    public void setCustomeraddress(String customeraddress) {
+        this.customeraddress = customeraddress == null ? null : customeraddress.trim();
+    }
+
     public String getCustomerzipcode() {
         return customerzipcode;
     }
 
     public void setCustomerzipcode(String customerzipcode) {
         this.customerzipcode = customerzipcode == null ? null : customerzipcode.trim();
+    }
+
+    public String getCustomerreserve1() {
+        return customerreserve1;
+    }
+
+    public void setCustomerreserve1(String customerreserve1) {
+        this.customerreserve1 = customerreserve1 == null ? null : customerreserve1.trim();
+    }
+
+    public String getCustomerreserve2() {
+        return customerreserve2;
+    }
+
+    public void setCustomerreserve2(String customerreserve2) {
+        this.customerreserve2 = customerreserve2 == null ? null : customerreserve2.trim();
+    }
+
+    public String getCustomerreserve3() {
+        return customerreserve3;
+    }
+
+    public void setCustomerreserve3(String customerreserve3) {
+        this.customerreserve3 = customerreserve3 == null ? null : customerreserve3.trim();
+    }
+
+    public String getCustomerreserve4() {
+        return customerreserve4;
+    }
+
+    public void setCustomerreserve4(String customerreserve4) {
+        this.customerreserve4 = customerreserve4 == null ? null : customerreserve4.trim();
     }
 
     public BigDecimal getCustomerreserve5() {
@@ -385,6 +489,14 @@ public class DbEbayorderinfo implements Serializable {
         this.sku = sku == null ? null : sku.trim();
     }
 
+    public String getProductname() {
+        return productname;
+    }
+
+    public void setProductname(String productname) {
+        this.productname = productname == null ? null : productname.trim();
+    }
+
     public BigDecimal getOrdernum() {
         return ordernum;
     }
@@ -415,6 +527,14 @@ public class DbEbayorderinfo implements Serializable {
 
     public void setAmount(BigDecimal amount) {
         this.amount = amount;
+    }
+
+    public String getDescr2() {
+        return descr2;
+    }
+
+    public void setDescr2(String descr2) {
+        this.descr2 = descr2 == null ? null : descr2.trim();
     }
 
     public BigDecimal getOriginsellprice() {
@@ -449,6 +569,22 @@ public class DbEbayorderinfo implements Serializable {
         this.insurance = insurance;
     }
 
+    public String getShippingservice() {
+        return shippingservice;
+    }
+
+    public void setShippingservice(String shippingservice) {
+        this.shippingservice = shippingservice == null ? null : shippingservice.trim();
+    }
+
+    public String getNotetoyourself() {
+        return notetoyourself;
+    }
+
+    public void setNotetoyourself(String notetoyourself) {
+        this.notetoyourself = notetoyourself == null ? null : notetoyourself.trim();
+    }
+
     public String getEbayitemid() {
         return ebayitemid;
     }
@@ -471,6 +607,30 @@ public class DbEbayorderinfo implements Serializable {
 
     public void setPaypalid(String paypalid) {
         this.paypalid = paypalid == null ? null : paypalid.trim();
+    }
+
+    public String getOrderreserve1() {
+        return orderreserve1;
+    }
+
+    public void setOrderreserve1(String orderreserve1) {
+        this.orderreserve1 = orderreserve1 == null ? null : orderreserve1.trim();
+    }
+
+    public String getOrderreserve2() {
+        return orderreserve2;
+    }
+
+    public void setOrderreserve2(String orderreserve2) {
+        this.orderreserve2 = orderreserve2 == null ? null : orderreserve2.trim();
+    }
+
+    public String getOrderreserve3() {
+        return orderreserve3;
+    }
+
+    public void setOrderreserve3(String orderreserve3) {
+        this.orderreserve3 = orderreserve3 == null ? null : orderreserve3.trim();
     }
 
     public BigDecimal getOrderreserve4() {
@@ -503,6 +663,46 @@ public class DbEbayorderinfo implements Serializable {
 
     public void setOrderreserve7(BigDecimal orderreserve7) {
         this.orderreserve7 = orderreserve7;
+    }
+
+    public String getReserve1() {
+        return reserve1;
+    }
+
+    public void setReserve1(String reserve1) {
+        this.reserve1 = reserve1 == null ? null : reserve1.trim();
+    }
+
+    public String getReserve2() {
+        return reserve2;
+    }
+
+    public void setReserve2(String reserve2) {
+        this.reserve2 = reserve2 == null ? null : reserve2.trim();
+    }
+
+    public String getReserve3() {
+        return reserve3;
+    }
+
+    public void setReserve3(String reserve3) {
+        this.reserve3 = reserve3 == null ? null : reserve3.trim();
+    }
+
+    public String getReserve4() {
+        return reserve4;
+    }
+
+    public void setReserve4(String reserve4) {
+        this.reserve4 = reserve4 == null ? null : reserve4.trim();
+    }
+
+    public String getReserve5() {
+        return reserve5;
+    }
+
+    public void setReserve5(String reserve5) {
+        this.reserve5 = reserve5 == null ? null : reserve5.trim();
     }
 
     public BigDecimal getReserve6() {
@@ -543,6 +743,14 @@ public class DbEbayorderinfo implements Serializable {
 
     public void setErrorflag(String errorflag) {
         this.errorflag = errorflag == null ? null : errorflag.trim();
+    }
+
+    public String getErrorinfo() {
+        return errorinfo;
+    }
+
+    public void setErrorinfo(String errorinfo) {
+        this.errorinfo = errorinfo == null ? null : errorinfo.trim();
     }
 
     public Date getOpertime() {
@@ -601,214 +809,6 @@ public class DbEbayorderinfo implements Serializable {
         this.originfinalvaluefee = originfinalvaluefee;
     }
 
-    public String getCustomername() {
-        return customername;
-    }
-
-    public void setCustomername(String customername) {
-        this.customername = customername == null ? null : customername.trim();
-    }
-
-    public String getCustomertype() {
-        return customertype;
-    }
-
-    public void setCustomertype(String customertype) {
-        this.customertype = customertype == null ? null : customertype.trim();
-    }
-
-    public String getCustomertel1() {
-        return customertel1;
-    }
-
-    public void setCustomertel1(String customertel1) {
-        this.customertel1 = customertel1 == null ? null : customertel1.trim();
-    }
-
-    public String getCustomertel2() {
-        return customertel2;
-    }
-
-    public void setCustomertel2(String customertel2) {
-        this.customertel2 = customertel2 == null ? null : customertel2.trim();
-    }
-
-    public String getCustomeremail() {
-        return customeremail;
-    }
-
-    public void setCustomeremail(String customeremail) {
-        this.customeremail = customeremail == null ? null : customeremail.trim();
-    }
-
-    public String getCustomercountry() {
-        return customercountry;
-    }
-
-    public void setCustomercountry(String customercountry) {
-        this.customercountry = customercountry == null ? null : customercountry.trim();
-    }
-
-    public String getCustomerprovince() {
-        return customerprovince;
-    }
-
-    public void setCustomerprovince(String customerprovince) {
-        this.customerprovince = customerprovince == null ? null : customerprovince.trim();
-    }
-
-    public String getCustomercity() {
-        return customercity;
-    }
-
-    public void setCustomercity(String customercity) {
-        this.customercity = customercity == null ? null : customercity.trim();
-    }
-
-    public String getCustomeraddress() {
-        return customeraddress;
-    }
-
-    public void setCustomeraddress(String customeraddress) {
-        this.customeraddress = customeraddress == null ? null : customeraddress.trim();
-    }
-
-    public String getCustomerreserve1() {
-        return customerreserve1;
-    }
-
-    public void setCustomerreserve1(String customerreserve1) {
-        this.customerreserve1 = customerreserve1 == null ? null : customerreserve1.trim();
-    }
-
-    public String getCustomerreserve2() {
-        return customerreserve2;
-    }
-
-    public void setCustomerreserve2(String customerreserve2) {
-        this.customerreserve2 = customerreserve2 == null ? null : customerreserve2.trim();
-    }
-
-    public String getCustomerreserve3() {
-        return customerreserve3;
-    }
-
-    public void setCustomerreserve3(String customerreserve3) {
-        this.customerreserve3 = customerreserve3 == null ? null : customerreserve3.trim();
-    }
-
-    public String getCustomerreserve4() {
-        return customerreserve4;
-    }
-
-    public void setCustomerreserve4(String customerreserve4) {
-        this.customerreserve4 = customerreserve4 == null ? null : customerreserve4.trim();
-    }
-
-    public String getProductname() {
-        return productname;
-    }
-
-    public void setProductname(String productname) {
-        this.productname = productname == null ? null : productname.trim();
-    }
-
-    public String getDescr2() {
-        return descr2;
-    }
-
-    public void setDescr2(String descr2) {
-        this.descr2 = descr2 == null ? null : descr2.trim();
-    }
-
-    public String getShippingservice() {
-        return shippingservice;
-    }
-
-    public void setShippingservice(String shippingservice) {
-        this.shippingservice = shippingservice == null ? null : shippingservice.trim();
-    }
-
-    public String getNotetoyourself() {
-        return notetoyourself;
-    }
-
-    public void setNotetoyourself(String notetoyourself) {
-        this.notetoyourself = notetoyourself == null ? null : notetoyourself.trim();
-    }
-
-    public String getOrderreserve1() {
-        return orderreserve1;
-    }
-
-    public void setOrderreserve1(String orderreserve1) {
-        this.orderreserve1 = orderreserve1 == null ? null : orderreserve1.trim();
-    }
-
-    public String getOrderreserve2() {
-        return orderreserve2;
-    }
-
-    public void setOrderreserve2(String orderreserve2) {
-        this.orderreserve2 = orderreserve2 == null ? null : orderreserve2.trim();
-    }
-
-    public String getOrderreserve3() {
-        return orderreserve3;
-    }
-
-    public void setOrderreserve3(String orderreserve3) {
-        this.orderreserve3 = orderreserve3 == null ? null : orderreserve3.trim();
-    }
-
-    public String getReserve1() {
-        return reserve1;
-    }
-
-    public void setReserve1(String reserve1) {
-        this.reserve1 = reserve1 == null ? null : reserve1.trim();
-    }
-
-    public String getReserve2() {
-        return reserve2;
-    }
-
-    public void setReserve2(String reserve2) {
-        this.reserve2 = reserve2 == null ? null : reserve2.trim();
-    }
-
-    public String getReserve3() {
-        return reserve3;
-    }
-
-    public void setReserve3(String reserve3) {
-        this.reserve3 = reserve3 == null ? null : reserve3.trim();
-    }
-
-    public String getReserve4() {
-        return reserve4;
-    }
-
-    public void setReserve4(String reserve4) {
-        this.reserve4 = reserve4 == null ? null : reserve4.trim();
-    }
-
-    public String getReserve5() {
-        return reserve5;
-    }
-
-    public void setReserve5(String reserve5) {
-        this.reserve5 = reserve5 == null ? null : reserve5.trim();
-    }
-
-    public String getErrorinfo() {
-        return errorinfo;
-    }
-
-    public void setErrorinfo(String errorinfo) {
-        this.errorinfo = errorinfo == null ? null : errorinfo.trim();
-    }
-
     public String getEbaycustomeraddress() {
         return ebaycustomeraddress;
     }
@@ -836,7 +836,20 @@ public class DbEbayorderinfo implements Serializable {
             && (this.getOldtradeid() == null ? other.getOldtradeid() == null : this.getOldtradeid().equals(other.getOldtradeid()))
             && (this.getGroupid() == null ? other.getGroupid() == null : this.getGroupid().equals(other.getGroupid()))
             && (this.getCustomerid() == null ? other.getCustomerid() == null : this.getCustomerid().equals(other.getCustomerid()))
+            && (this.getCustomername() == null ? other.getCustomername() == null : this.getCustomername().equals(other.getCustomername()))
+            && (this.getCustomertype() == null ? other.getCustomertype() == null : this.getCustomertype().equals(other.getCustomertype()))
+            && (this.getCustomertel1() == null ? other.getCustomertel1() == null : this.getCustomertel1().equals(other.getCustomertel1()))
+            && (this.getCustomertel2() == null ? other.getCustomertel2() == null : this.getCustomertel2().equals(other.getCustomertel2()))
+            && (this.getCustomeremail() == null ? other.getCustomeremail() == null : this.getCustomeremail().equals(other.getCustomeremail()))
+            && (this.getCustomercountry() == null ? other.getCustomercountry() == null : this.getCustomercountry().equals(other.getCustomercountry()))
+            && (this.getCustomerprovince() == null ? other.getCustomerprovince() == null : this.getCustomerprovince().equals(other.getCustomerprovince()))
+            && (this.getCustomercity() == null ? other.getCustomercity() == null : this.getCustomercity().equals(other.getCustomercity()))
+            && (this.getCustomeraddress() == null ? other.getCustomeraddress() == null : this.getCustomeraddress().equals(other.getCustomeraddress()))
             && (this.getCustomerzipcode() == null ? other.getCustomerzipcode() == null : this.getCustomerzipcode().equals(other.getCustomerzipcode()))
+            && (this.getCustomerreserve1() == null ? other.getCustomerreserve1() == null : this.getCustomerreserve1().equals(other.getCustomerreserve1()))
+            && (this.getCustomerreserve2() == null ? other.getCustomerreserve2() == null : this.getCustomerreserve2().equals(other.getCustomerreserve2()))
+            && (this.getCustomerreserve3() == null ? other.getCustomerreserve3() == null : this.getCustomerreserve3().equals(other.getCustomerreserve3()))
+            && (this.getCustomerreserve4() == null ? other.getCustomerreserve4() == null : this.getCustomerreserve4().equals(other.getCustomerreserve4()))
             && (this.getCustomerreserve5() == null ? other.getCustomerreserve5() == null : this.getCustomerreserve5().equals(other.getCustomerreserve5()))
             && (this.getCustomerreserve6() == null ? other.getCustomerreserve6() == null : this.getCustomerreserve6().equals(other.getCustomerreserve6()))
             && (this.getCustomerreserve7() == null ? other.getCustomerreserve7() == null : this.getCustomerreserve7().equals(other.getCustomerreserve7()))
@@ -856,26 +869,39 @@ public class DbEbayorderinfo implements Serializable {
             && (this.getFinalvaluefee() == null ? other.getFinalvaluefee() == null : this.getFinalvaluefee().equals(other.getFinalvaluefee()))
             && (this.getTransactionid() == null ? other.getTransactionid() == null : this.getTransactionid().equals(other.getTransactionid()))
             && (this.getSku() == null ? other.getSku() == null : this.getSku().equals(other.getSku()))
+            && (this.getProductname() == null ? other.getProductname() == null : this.getProductname().equals(other.getProductname()))
             && (this.getOrdernum() == null ? other.getOrdernum() == null : this.getOrdernum().equals(other.getOrdernum()))
             && (this.getCostprice() == null ? other.getCostprice() == null : this.getCostprice().equals(other.getCostprice()))
             && (this.getSellprice() == null ? other.getSellprice() == null : this.getSellprice().equals(other.getSellprice()))
             && (this.getAmount() == null ? other.getAmount() == null : this.getAmount().equals(other.getAmount()))
+            && (this.getDescr2() == null ? other.getDescr2() == null : this.getDescr2().equals(other.getDescr2()))
             && (this.getOriginsellprice() == null ? other.getOriginsellprice() == null : this.getOriginsellprice().equals(other.getOriginsellprice()))
             && (this.getOriginexpress() == null ? other.getOriginexpress() == null : this.getOriginexpress().equals(other.getOriginexpress()))
             && (this.getOrigininsurance() == null ? other.getOrigininsurance() == null : this.getOrigininsurance().equals(other.getOrigininsurance()))
             && (this.getInsurance() == null ? other.getInsurance() == null : this.getInsurance().equals(other.getInsurance()))
+            && (this.getShippingservice() == null ? other.getShippingservice() == null : this.getShippingservice().equals(other.getShippingservice()))
+            && (this.getNotetoyourself() == null ? other.getNotetoyourself() == null : this.getNotetoyourself().equals(other.getNotetoyourself()))
             && (this.getEbayitemid() == null ? other.getEbayitemid() == null : this.getEbayitemid().equals(other.getEbayitemid()))
             && (this.getPaypalemail() == null ? other.getPaypalemail() == null : this.getPaypalemail().equals(other.getPaypalemail()))
             && (this.getPaypalid() == null ? other.getPaypalid() == null : this.getPaypalid().equals(other.getPaypalid()))
+            && (this.getOrderreserve1() == null ? other.getOrderreserve1() == null : this.getOrderreserve1().equals(other.getOrderreserve1()))
+            && (this.getOrderreserve2() == null ? other.getOrderreserve2() == null : this.getOrderreserve2().equals(other.getOrderreserve2()))
+            && (this.getOrderreserve3() == null ? other.getOrderreserve3() == null : this.getOrderreserve3().equals(other.getOrderreserve3()))
             && (this.getOrderreserve4() == null ? other.getOrderreserve4() == null : this.getOrderreserve4().equals(other.getOrderreserve4()))
             && (this.getOrderreserve5() == null ? other.getOrderreserve5() == null : this.getOrderreserve5().equals(other.getOrderreserve5()))
             && (this.getOrderreserve6() == null ? other.getOrderreserve6() == null : this.getOrderreserve6().equals(other.getOrderreserve6()))
             && (this.getOrderreserve7() == null ? other.getOrderreserve7() == null : this.getOrderreserve7().equals(other.getOrderreserve7()))
+            && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
+            && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
+            && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
+            && (this.getReserve4() == null ? other.getReserve4() == null : this.getReserve4().equals(other.getReserve4()))
+            && (this.getReserve5() == null ? other.getReserve5() == null : this.getReserve5().equals(other.getReserve5()))
             && (this.getReserve6() == null ? other.getReserve6() == null : this.getReserve6().equals(other.getReserve6()))
             && (this.getReserve7() == null ? other.getReserve7() == null : this.getReserve7().equals(other.getReserve7()))
             && (this.getReserve8() == null ? other.getReserve8() == null : this.getReserve8().equals(other.getReserve8()))
             && (this.getReserve9() == null ? other.getReserve9() == null : this.getReserve9().equals(other.getReserve9()))
             && (this.getErrorflag() == null ? other.getErrorflag() == null : this.getErrorflag().equals(other.getErrorflag()))
+            && (this.getErrorinfo() == null ? other.getErrorinfo() == null : this.getErrorinfo().equals(other.getErrorinfo()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
             && (this.getRecordnum() == null ? other.getRecordnum() == null : this.getRecordnum().equals(other.getRecordnum()))
             && (this.getMoneyrate() == null ? other.getMoneyrate() == null : this.getMoneyrate().equals(other.getMoneyrate()))
@@ -883,32 +909,6 @@ public class DbEbayorderinfo implements Serializable {
             && (this.getOriginexpressmoney() == null ? other.getOriginexpressmoney() == null : this.getOriginexpressmoney().equals(other.getOriginexpressmoney()))
             && (this.getOrigininsurance1() == null ? other.getOrigininsurance1() == null : this.getOrigininsurance1().equals(other.getOrigininsurance1()))
             && (this.getOriginfinalvaluefee() == null ? other.getOriginfinalvaluefee() == null : this.getOriginfinalvaluefee().equals(other.getOriginfinalvaluefee()))
-            && (this.getCustomername() == null ? other.getCustomername() == null : this.getCustomername().equals(other.getCustomername()))
-            && (this.getCustomertype() == null ? other.getCustomertype() == null : this.getCustomertype().equals(other.getCustomertype()))
-            && (this.getCustomertel1() == null ? other.getCustomertel1() == null : this.getCustomertel1().equals(other.getCustomertel1()))
-            && (this.getCustomertel2() == null ? other.getCustomertel2() == null : this.getCustomertel2().equals(other.getCustomertel2()))
-            && (this.getCustomeremail() == null ? other.getCustomeremail() == null : this.getCustomeremail().equals(other.getCustomeremail()))
-            && (this.getCustomercountry() == null ? other.getCustomercountry() == null : this.getCustomercountry().equals(other.getCustomercountry()))
-            && (this.getCustomerprovince() == null ? other.getCustomerprovince() == null : this.getCustomerprovince().equals(other.getCustomerprovince()))
-            && (this.getCustomercity() == null ? other.getCustomercity() == null : this.getCustomercity().equals(other.getCustomercity()))
-            && (this.getCustomeraddress() == null ? other.getCustomeraddress() == null : this.getCustomeraddress().equals(other.getCustomeraddress()))
-            && (this.getCustomerreserve1() == null ? other.getCustomerreserve1() == null : this.getCustomerreserve1().equals(other.getCustomerreserve1()))
-            && (this.getCustomerreserve2() == null ? other.getCustomerreserve2() == null : this.getCustomerreserve2().equals(other.getCustomerreserve2()))
-            && (this.getCustomerreserve3() == null ? other.getCustomerreserve3() == null : this.getCustomerreserve3().equals(other.getCustomerreserve3()))
-            && (this.getCustomerreserve4() == null ? other.getCustomerreserve4() == null : this.getCustomerreserve4().equals(other.getCustomerreserve4()))
-            && (this.getProductname() == null ? other.getProductname() == null : this.getProductname().equals(other.getProductname()))
-            && (this.getDescr2() == null ? other.getDescr2() == null : this.getDescr2().equals(other.getDescr2()))
-            && (this.getShippingservice() == null ? other.getShippingservice() == null : this.getShippingservice().equals(other.getShippingservice()))
-            && (this.getNotetoyourself() == null ? other.getNotetoyourself() == null : this.getNotetoyourself().equals(other.getNotetoyourself()))
-            && (this.getOrderreserve1() == null ? other.getOrderreserve1() == null : this.getOrderreserve1().equals(other.getOrderreserve1()))
-            && (this.getOrderreserve2() == null ? other.getOrderreserve2() == null : this.getOrderreserve2().equals(other.getOrderreserve2()))
-            && (this.getOrderreserve3() == null ? other.getOrderreserve3() == null : this.getOrderreserve3().equals(other.getOrderreserve3()))
-            && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
-            && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
-            && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
-            && (this.getReserve4() == null ? other.getReserve4() == null : this.getReserve4().equals(other.getReserve4()))
-            && (this.getReserve5() == null ? other.getReserve5() == null : this.getReserve5().equals(other.getReserve5()))
-            && (this.getErrorinfo() == null ? other.getErrorinfo() == null : this.getErrorinfo().equals(other.getErrorinfo()))
             && (this.getEbaycustomeraddress() == null ? other.getEbaycustomeraddress() == null : this.getEbaycustomeraddress().equals(other.getEbaycustomeraddress()));
     }
 
@@ -923,7 +923,20 @@ public class DbEbayorderinfo implements Serializable {
         result = prime * result + ((getOldtradeid() == null) ? 0 : getOldtradeid().hashCode());
         result = prime * result + ((getGroupid() == null) ? 0 : getGroupid().hashCode());
         result = prime * result + ((getCustomerid() == null) ? 0 : getCustomerid().hashCode());
+        result = prime * result + ((getCustomername() == null) ? 0 : getCustomername().hashCode());
+        result = prime * result + ((getCustomertype() == null) ? 0 : getCustomertype().hashCode());
+        result = prime * result + ((getCustomertel1() == null) ? 0 : getCustomertel1().hashCode());
+        result = prime * result + ((getCustomertel2() == null) ? 0 : getCustomertel2().hashCode());
+        result = prime * result + ((getCustomeremail() == null) ? 0 : getCustomeremail().hashCode());
+        result = prime * result + ((getCustomercountry() == null) ? 0 : getCustomercountry().hashCode());
+        result = prime * result + ((getCustomerprovince() == null) ? 0 : getCustomerprovince().hashCode());
+        result = prime * result + ((getCustomercity() == null) ? 0 : getCustomercity().hashCode());
+        result = prime * result + ((getCustomeraddress() == null) ? 0 : getCustomeraddress().hashCode());
         result = prime * result + ((getCustomerzipcode() == null) ? 0 : getCustomerzipcode().hashCode());
+        result = prime * result + ((getCustomerreserve1() == null) ? 0 : getCustomerreserve1().hashCode());
+        result = prime * result + ((getCustomerreserve2() == null) ? 0 : getCustomerreserve2().hashCode());
+        result = prime * result + ((getCustomerreserve3() == null) ? 0 : getCustomerreserve3().hashCode());
+        result = prime * result + ((getCustomerreserve4() == null) ? 0 : getCustomerreserve4().hashCode());
         result = prime * result + ((getCustomerreserve5() == null) ? 0 : getCustomerreserve5().hashCode());
         result = prime * result + ((getCustomerreserve6() == null) ? 0 : getCustomerreserve6().hashCode());
         result = prime * result + ((getCustomerreserve7() == null) ? 0 : getCustomerreserve7().hashCode());
@@ -943,26 +956,39 @@ public class DbEbayorderinfo implements Serializable {
         result = prime * result + ((getFinalvaluefee() == null) ? 0 : getFinalvaluefee().hashCode());
         result = prime * result + ((getTransactionid() == null) ? 0 : getTransactionid().hashCode());
         result = prime * result + ((getSku() == null) ? 0 : getSku().hashCode());
+        result = prime * result + ((getProductname() == null) ? 0 : getProductname().hashCode());
         result = prime * result + ((getOrdernum() == null) ? 0 : getOrdernum().hashCode());
         result = prime * result + ((getCostprice() == null) ? 0 : getCostprice().hashCode());
         result = prime * result + ((getSellprice() == null) ? 0 : getSellprice().hashCode());
         result = prime * result + ((getAmount() == null) ? 0 : getAmount().hashCode());
+        result = prime * result + ((getDescr2() == null) ? 0 : getDescr2().hashCode());
         result = prime * result + ((getOriginsellprice() == null) ? 0 : getOriginsellprice().hashCode());
         result = prime * result + ((getOriginexpress() == null) ? 0 : getOriginexpress().hashCode());
         result = prime * result + ((getOrigininsurance() == null) ? 0 : getOrigininsurance().hashCode());
         result = prime * result + ((getInsurance() == null) ? 0 : getInsurance().hashCode());
+        result = prime * result + ((getShippingservice() == null) ? 0 : getShippingservice().hashCode());
+        result = prime * result + ((getNotetoyourself() == null) ? 0 : getNotetoyourself().hashCode());
         result = prime * result + ((getEbayitemid() == null) ? 0 : getEbayitemid().hashCode());
         result = prime * result + ((getPaypalemail() == null) ? 0 : getPaypalemail().hashCode());
         result = prime * result + ((getPaypalid() == null) ? 0 : getPaypalid().hashCode());
+        result = prime * result + ((getOrderreserve1() == null) ? 0 : getOrderreserve1().hashCode());
+        result = prime * result + ((getOrderreserve2() == null) ? 0 : getOrderreserve2().hashCode());
+        result = prime * result + ((getOrderreserve3() == null) ? 0 : getOrderreserve3().hashCode());
         result = prime * result + ((getOrderreserve4() == null) ? 0 : getOrderreserve4().hashCode());
         result = prime * result + ((getOrderreserve5() == null) ? 0 : getOrderreserve5().hashCode());
         result = prime * result + ((getOrderreserve6() == null) ? 0 : getOrderreserve6().hashCode());
         result = prime * result + ((getOrderreserve7() == null) ? 0 : getOrderreserve7().hashCode());
+        result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
+        result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
+        result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
+        result = prime * result + ((getReserve4() == null) ? 0 : getReserve4().hashCode());
+        result = prime * result + ((getReserve5() == null) ? 0 : getReserve5().hashCode());
         result = prime * result + ((getReserve6() == null) ? 0 : getReserve6().hashCode());
         result = prime * result + ((getReserve7() == null) ? 0 : getReserve7().hashCode());
         result = prime * result + ((getReserve8() == null) ? 0 : getReserve8().hashCode());
         result = prime * result + ((getReserve9() == null) ? 0 : getReserve9().hashCode());
         result = prime * result + ((getErrorflag() == null) ? 0 : getErrorflag().hashCode());
+        result = prime * result + ((getErrorinfo() == null) ? 0 : getErrorinfo().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getRecordnum() == null) ? 0 : getRecordnum().hashCode());
         result = prime * result + ((getMoneyrate() == null) ? 0 : getMoneyrate().hashCode());
@@ -970,32 +996,6 @@ public class DbEbayorderinfo implements Serializable {
         result = prime * result + ((getOriginexpressmoney() == null) ? 0 : getOriginexpressmoney().hashCode());
         result = prime * result + ((getOrigininsurance1() == null) ? 0 : getOrigininsurance1().hashCode());
         result = prime * result + ((getOriginfinalvaluefee() == null) ? 0 : getOriginfinalvaluefee().hashCode());
-        result = prime * result + ((getCustomername() == null) ? 0 : getCustomername().hashCode());
-        result = prime * result + ((getCustomertype() == null) ? 0 : getCustomertype().hashCode());
-        result = prime * result + ((getCustomertel1() == null) ? 0 : getCustomertel1().hashCode());
-        result = prime * result + ((getCustomertel2() == null) ? 0 : getCustomertel2().hashCode());
-        result = prime * result + ((getCustomeremail() == null) ? 0 : getCustomeremail().hashCode());
-        result = prime * result + ((getCustomercountry() == null) ? 0 : getCustomercountry().hashCode());
-        result = prime * result + ((getCustomerprovince() == null) ? 0 : getCustomerprovince().hashCode());
-        result = prime * result + ((getCustomercity() == null) ? 0 : getCustomercity().hashCode());
-        result = prime * result + ((getCustomeraddress() == null) ? 0 : getCustomeraddress().hashCode());
-        result = prime * result + ((getCustomerreserve1() == null) ? 0 : getCustomerreserve1().hashCode());
-        result = prime * result + ((getCustomerreserve2() == null) ? 0 : getCustomerreserve2().hashCode());
-        result = prime * result + ((getCustomerreserve3() == null) ? 0 : getCustomerreserve3().hashCode());
-        result = prime * result + ((getCustomerreserve4() == null) ? 0 : getCustomerreserve4().hashCode());
-        result = prime * result + ((getProductname() == null) ? 0 : getProductname().hashCode());
-        result = prime * result + ((getDescr2() == null) ? 0 : getDescr2().hashCode());
-        result = prime * result + ((getShippingservice() == null) ? 0 : getShippingservice().hashCode());
-        result = prime * result + ((getNotetoyourself() == null) ? 0 : getNotetoyourself().hashCode());
-        result = prime * result + ((getOrderreserve1() == null) ? 0 : getOrderreserve1().hashCode());
-        result = prime * result + ((getOrderreserve2() == null) ? 0 : getOrderreserve2().hashCode());
-        result = prime * result + ((getOrderreserve3() == null) ? 0 : getOrderreserve3().hashCode());
-        result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
-        result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
-        result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
-        result = prime * result + ((getReserve4() == null) ? 0 : getReserve4().hashCode());
-        result = prime * result + ((getReserve5() == null) ? 0 : getReserve5().hashCode());
-        result = prime * result + ((getErrorinfo() == null) ? 0 : getErrorinfo().hashCode());
         result = prime * result + ((getEbaycustomeraddress() == null) ? 0 : getEbaycustomeraddress().hashCode());
         return result;
     }
@@ -1013,7 +1013,20 @@ public class DbEbayorderinfo implements Serializable {
         sb.append(", oldtradeid=").append(oldtradeid);
         sb.append(", groupid=").append(groupid);
         sb.append(", customerid=").append(customerid);
+        sb.append(", customername=").append(customername);
+        sb.append(", customertype=").append(customertype);
+        sb.append(", customertel1=").append(customertel1);
+        sb.append(", customertel2=").append(customertel2);
+        sb.append(", customeremail=").append(customeremail);
+        sb.append(", customercountry=").append(customercountry);
+        sb.append(", customerprovince=").append(customerprovince);
+        sb.append(", customercity=").append(customercity);
+        sb.append(", customeraddress=").append(customeraddress);
         sb.append(", customerzipcode=").append(customerzipcode);
+        sb.append(", customerreserve1=").append(customerreserve1);
+        sb.append(", customerreserve2=").append(customerreserve2);
+        sb.append(", customerreserve3=").append(customerreserve3);
+        sb.append(", customerreserve4=").append(customerreserve4);
         sb.append(", customerreserve5=").append(customerreserve5);
         sb.append(", customerreserve6=").append(customerreserve6);
         sb.append(", customerreserve7=").append(customerreserve7);
@@ -1033,26 +1046,39 @@ public class DbEbayorderinfo implements Serializable {
         sb.append(", finalvaluefee=").append(finalvaluefee);
         sb.append(", transactionid=").append(transactionid);
         sb.append(", sku=").append(sku);
+        sb.append(", productname=").append(productname);
         sb.append(", ordernum=").append(ordernum);
         sb.append(", costprice=").append(costprice);
         sb.append(", sellprice=").append(sellprice);
         sb.append(", amount=").append(amount);
+        sb.append(", descr2=").append(descr2);
         sb.append(", originsellprice=").append(originsellprice);
         sb.append(", originexpress=").append(originexpress);
         sb.append(", origininsurance=").append(origininsurance);
         sb.append(", insurance=").append(insurance);
+        sb.append(", shippingservice=").append(shippingservice);
+        sb.append(", notetoyourself=").append(notetoyourself);
         sb.append(", ebayitemid=").append(ebayitemid);
         sb.append(", paypalemail=").append(paypalemail);
         sb.append(", paypalid=").append(paypalid);
+        sb.append(", orderreserve1=").append(orderreserve1);
+        sb.append(", orderreserve2=").append(orderreserve2);
+        sb.append(", orderreserve3=").append(orderreserve3);
         sb.append(", orderreserve4=").append(orderreserve4);
         sb.append(", orderreserve5=").append(orderreserve5);
         sb.append(", orderreserve6=").append(orderreserve6);
         sb.append(", orderreserve7=").append(orderreserve7);
+        sb.append(", reserve1=").append(reserve1);
+        sb.append(", reserve2=").append(reserve2);
+        sb.append(", reserve3=").append(reserve3);
+        sb.append(", reserve4=").append(reserve4);
+        sb.append(", reserve5=").append(reserve5);
         sb.append(", reserve6=").append(reserve6);
         sb.append(", reserve7=").append(reserve7);
         sb.append(", reserve8=").append(reserve8);
         sb.append(", reserve9=").append(reserve9);
         sb.append(", errorflag=").append(errorflag);
+        sb.append(", errorinfo=").append(errorinfo);
         sb.append(", opertime=").append(opertime);
         sb.append(", recordnum=").append(recordnum);
         sb.append(", moneyrate=").append(moneyrate);
@@ -1060,32 +1086,6 @@ public class DbEbayorderinfo implements Serializable {
         sb.append(", originexpressmoney=").append(originexpressmoney);
         sb.append(", origininsurance1=").append(origininsurance1);
         sb.append(", originfinalvaluefee=").append(originfinalvaluefee);
-        sb.append(", customername=").append(customername);
-        sb.append(", customertype=").append(customertype);
-        sb.append(", customertel1=").append(customertel1);
-        sb.append(", customertel2=").append(customertel2);
-        sb.append(", customeremail=").append(customeremail);
-        sb.append(", customercountry=").append(customercountry);
-        sb.append(", customerprovince=").append(customerprovince);
-        sb.append(", customercity=").append(customercity);
-        sb.append(", customeraddress=").append(customeraddress);
-        sb.append(", customerreserve1=").append(customerreserve1);
-        sb.append(", customerreserve2=").append(customerreserve2);
-        sb.append(", customerreserve3=").append(customerreserve3);
-        sb.append(", customerreserve4=").append(customerreserve4);
-        sb.append(", productname=").append(productname);
-        sb.append(", descr2=").append(descr2);
-        sb.append(", shippingservice=").append(shippingservice);
-        sb.append(", notetoyourself=").append(notetoyourself);
-        sb.append(", orderreserve1=").append(orderreserve1);
-        sb.append(", orderreserve2=").append(orderreserve2);
-        sb.append(", orderreserve3=").append(orderreserve3);
-        sb.append(", reserve1=").append(reserve1);
-        sb.append(", reserve2=").append(reserve2);
-        sb.append(", reserve3=").append(reserve3);
-        sb.append(", reserve4=").append(reserve4);
-        sb.append(", reserve5=").append(reserve5);
-        sb.append(", errorinfo=").append(errorinfo);
         sb.append(", ebaycustomeraddress=").append(ebaycustomeraddress);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");

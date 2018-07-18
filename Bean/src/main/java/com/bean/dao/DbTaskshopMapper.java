@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbTaskshop;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbTaskshopMapper {
-    int deleteByPrimaryKey(String sid);
+    DbTaskshop selectByCriteria(DbTaskshop DbTaskshop);
 
-    int insert(DbTaskshop record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbTaskshop record);
+    void deleteByCriteria(DbTaskshop DbTaskshop);
+
+    int insertByCriteria(DbTaskshop DbTaskshop);
+
+    int updateByCriteria(DbTaskshop DbTaskshop);
 
     DbTaskshop selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbTaskshop record);
-
-    int updateByPrimaryKeyWithBLOBs(DbTaskshop record);
-
-    int updateByPrimaryKey(DbTaskshop record);
+    List<DbTaskshop> selectAll();
 }

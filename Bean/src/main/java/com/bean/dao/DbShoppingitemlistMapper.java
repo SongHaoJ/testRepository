@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbShoppingitemlist;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbShoppingitemlistMapper {
-    int deleteByPrimaryKey(String id);
+    DbShoppingitemlist selectByCriteria(DbShoppingitemlist DbShoppingitemlist);
 
-    int insert(DbShoppingitemlist record);
+    void deleteByPrimaryKey(String ID);
 
-    int insertSelective(DbShoppingitemlist record);
+    void deleteByCriteria(DbShoppingitemlist DbShoppingitemlist);
+
+    int insertByCriteria(DbShoppingitemlist DbShoppingitemlist);
+
+    int updateByCriteria(DbShoppingitemlist DbShoppingitemlist);
 
     DbShoppingitemlist selectByPrimaryKey(String id);
 
-    int updateByPrimaryKeySelective(DbShoppingitemlist record);
-
-    int updateByPrimaryKey(DbShoppingitemlist record);
+    List<DbShoppingitemlist> selectAll();
 }

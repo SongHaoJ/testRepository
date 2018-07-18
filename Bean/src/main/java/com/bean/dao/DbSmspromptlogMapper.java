@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbSmspromptlog;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbSmspromptlogMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbSmspromptlog selectByCriteria(DbSmspromptlog DbSmspromptlog);
 
-    int insert(DbSmspromptlog record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbSmspromptlog record);
+    void deleteByCriteria(DbSmspromptlog DbSmspromptlog);
+
+    int insertByCriteria(DbSmspromptlog DbSmspromptlog);
+
+    int updateByCriteria(DbSmspromptlog DbSmspromptlog);
 
     DbSmspromptlog selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbSmspromptlog record);
-
-    int updateByPrimaryKeyWithBLOBs(DbSmspromptlog record);
-
-    int updateByPrimaryKey(DbSmspromptlog record);
+    List<DbSmspromptlog> selectAll();
 }

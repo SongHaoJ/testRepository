@@ -11,6 +11,7 @@
     <result column="PRICE" jdbcType="DECIMAL" property="price" />
     <result column="SKU" jdbcType="VARCHAR" property="sku" />
     <result column="FLAG" jdbcType="DECIMAL" property="flag" />
+    <result column="ERROR" jdbcType="VARCHAR" property="error" />
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
     <result column="NEWITEMID" jdbcType="VARCHAR" property="newitemid" />
@@ -53,31 +54,30 @@
     <result column="DESCRFLAG" jdbcType="VARCHAR" property="descrflag" />
     <result column="EXPRESSTYPE6" jdbcType="DECIMAL" property="expresstype6" />
     <result column="ATTRIBUTESTATUSFLAG" jdbcType="VARCHAR" property="attributestatusflag" />
-    <result column="ERROR" jdbcType="LONGVARCHAR" property="error" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select SID, ITEMID, SHOPID, SHOPNAME, PRICETYPE, SITE, PRICE, SKU, FLAG, OPER, OPERTIME, 
-    NEWITEMID, OLDSKU, OLDSHOPID, OLDSHOPNAME, TEMPLATEID, STARTPRICE, ENDPRICE, PAYPALADDRESS, 
-    NEWTITLE, OLDTITLE, ADDRESSFLAG, PHOTONUM, PRICESELL, EXPRESSTYPE3, TITLEFLAG, SELLPRICEFLAG, 
-    CUSTOMFLAG, SAVENUMFLAG, CLEARANCEFLAG, EXPRESSFLAG, PIC, LISTINGDURATION, PRICEFLAG, 
-    EXPRESSTYPE4, RELISTFLAG, SAVENUM, EXPRESSTYPE5, EXPRESSTYPE, EXPRESSTYPE2, ITEMFLAG, 
-    SELLPRICE, SKUFLAG, FREIGHTID, PHOTOFLAG, GOODSFLAG, AUCTIONFLAG, EXPRESSTYPE1, DESCRFLAG, 
-    EXPRESSTYPE6, ATTRIBUTESTATUSFLAG, ERROR
-    from db_postitem
+    select SID, ITEMID, SHOPID, SHOPNAME, PRICETYPE, SITE, PRICE, SKU, FLAG, ERROR, OPER, 
+    OPERTIME, NEWITEMID, OLDSKU, OLDSHOPID, OLDSHOPNAME, TEMPLATEID, STARTPRICE, ENDPRICE, 
+    PAYPALADDRESS, NEWTITLE, OLDTITLE, ADDRESSFLAG, PHOTONUM, PRICESELL, EXPRESSTYPE3, 
+    TITLEFLAG, SELLPRICEFLAG, CUSTOMFLAG, SAVENUMFLAG, CLEARANCEFLAG, EXPRESSFLAG, PIC, 
+    LISTINGDURATION, PRICEFLAG, EXPRESSTYPE4, RELISTFLAG, SAVENUM, EXPRESSTYPE5, EXPRESSTYPE, 
+    EXPRESSTYPE2, ITEMFLAG, SELLPRICE, SKUFLAG, FREIGHTID, PHOTOFLAG, GOODSFLAG, AUCTIONFLAG, 
+    EXPRESSTYPE1, DESCRFLAG, EXPRESSTYPE6, ATTRIBUTESTATUSFLAG
+    from DB_POSTITEM
     where SID = #{sid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select SID, ITEMID, SHOPID, SHOPNAME, PRICETYPE, SITE, PRICE, SKU, FLAG, OPER, OPERTIME, 
-    NEWITEMID, OLDSKU, OLDSHOPID, OLDSHOPNAME, TEMPLATEID, STARTPRICE, ENDPRICE, PAYPALADDRESS, 
-    NEWTITLE, OLDTITLE, ADDRESSFLAG, PHOTONUM, PRICESELL, EXPRESSTYPE3, TITLEFLAG, SELLPRICEFLAG, 
-    CUSTOMFLAG, SAVENUMFLAG, CLEARANCEFLAG, EXPRESSFLAG, PIC, LISTINGDURATION, PRICEFLAG, 
-    EXPRESSTYPE4, RELISTFLAG, SAVENUM, EXPRESSTYPE5, EXPRESSTYPE, EXPRESSTYPE2, ITEMFLAG, 
-    SELLPRICE, SKUFLAG, FREIGHTID, PHOTOFLAG, GOODSFLAG, AUCTIONFLAG, EXPRESSTYPE1, DESCRFLAG, 
-    EXPRESSTYPE6, ATTRIBUTESTATUSFLAG, ERROR
-    from db_postitem
+    select SID, ITEMID, SHOPID, SHOPNAME, PRICETYPE, SITE, PRICE, SKU, FLAG, ERROR, OPER, 
+    OPERTIME, NEWITEMID, OLDSKU, OLDSHOPID, OLDSHOPNAME, TEMPLATEID, STARTPRICE, ENDPRICE, 
+    PAYPALADDRESS, NEWTITLE, OLDTITLE, ADDRESSFLAG, PHOTONUM, PRICESELL, EXPRESSTYPE3, 
+    TITLEFLAG, SELLPRICEFLAG, CUSTOMFLAG, SAVENUMFLAG, CLEARANCEFLAG, EXPRESSFLAG, PIC, 
+    LISTINGDURATION, PRICEFLAG, EXPRESSTYPE4, RELISTFLAG, SAVENUM, EXPRESSTYPE5, EXPRESSTYPE, 
+    EXPRESSTYPE2, ITEMFLAG, SELLPRICE, SKUFLAG, FREIGHTID, PHOTOFLAG, GOODSFLAG, AUCTIONFLAG, 
+    EXPRESSTYPE1, DESCRFLAG, EXPRESSTYPE6, ATTRIBUTESTATUSFLAG
+    from DB_POSTITEM
   </select>
   <sql id="TableName">
-    db_postitem
+    DB_POSTITEM
   </sql>
   <sql id="Values">
      #{sid,jdbcType=VARCHAR} , 
@@ -89,6 +89,7 @@
      #{price,jdbcType=DECIMAL} , 
      #{sku,jdbcType=VARCHAR} , 
      #{flag,jdbcType=DECIMAL} , 
+     #{error,jdbcType=VARCHAR} , 
      #{oper,jdbcType=VARCHAR} , 
      #{opertime,jdbcType=TIMESTAMP} , 
      #{newitemid,jdbcType=VARCHAR} , 
@@ -131,7 +132,6 @@
      #{descrflag,jdbcType=VARCHAR} , 
      #{expresstype6,jdbcType=DECIMAL} , 
      #{attributestatusflag,jdbcType=VARCHAR} , 
-     #{error,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     SID , 
@@ -143,6 +143,7 @@
     PRICE , 
     SKU , 
     FLAG , 
+    ERROR , 
     OPER , 
     OPERTIME , 
     NEWITEMID , 
@@ -185,325 +186,324 @@
     DESCRFLAG , 
     EXPRESSTYPE6 , 
     ATTRIBUTESTATUSFLAG , 
-    ERROR
   </sql>
   <sql id="Criteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} and 
+      sid = #{sid,jdbcType=VARCHAR} and 
     </if>
     <if test="itemid != null">
-      ITEMID = #{itemid,jdbcType=VARCHAR} and 
+      itemid = #{itemid,jdbcType=VARCHAR} and 
     </if>
     <if test="shopid != null">
-      SHOPID = #{shopid,jdbcType=VARCHAR} and 
+      shopid = #{shopid,jdbcType=VARCHAR} and 
     </if>
     <if test="shopname != null">
-      SHOPNAME = #{shopname,jdbcType=VARCHAR} and 
+      shopname = #{shopname,jdbcType=VARCHAR} and 
     </if>
     <if test="pricetype != null">
-      PRICETYPE = #{pricetype,jdbcType=DECIMAL} and 
+      pricetype = #{pricetype,jdbcType=DECIMAL} and 
     </if>
     <if test="site != null">
-      SITE = #{site,jdbcType=VARCHAR} and 
+      site = #{site,jdbcType=VARCHAR} and 
     </if>
     <if test="price != null">
-      PRICE = #{price,jdbcType=DECIMAL} and 
+      price = #{price,jdbcType=DECIMAL} and 
     </if>
     <if test="sku != null">
-      SKU = #{sku,jdbcType=VARCHAR} and 
+      sku = #{sku,jdbcType=VARCHAR} and 
     </if>
     <if test="flag != null">
-      FLAG = #{flag,jdbcType=DECIMAL} and 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="newitemid != null">
-      NEWITEMID = #{newitemid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="oldsku != null">
-      OLDSKU = #{oldsku,jdbcType=VARCHAR} and 
-    </if>
-    <if test="oldshopid != null">
-      OLDSHOPID = #{oldshopid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="oldshopname != null">
-      OLDSHOPNAME = #{oldshopname,jdbcType=VARCHAR} and 
-    </if>
-    <if test="templateid != null">
-      TEMPLATEID = #{templateid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="startprice != null">
-      STARTPRICE = #{startprice,jdbcType=DECIMAL} and 
-    </if>
-    <if test="endprice != null">
-      ENDPRICE = #{endprice,jdbcType=DECIMAL} and 
-    </if>
-    <if test="paypaladdress != null">
-      PAYPALADDRESS = #{paypaladdress,jdbcType=VARCHAR} and 
-    </if>
-    <if test="newtitle != null">
-      NEWTITLE = #{newtitle,jdbcType=VARCHAR} and 
-    </if>
-    <if test="oldtitle != null">
-      OLDTITLE = #{oldtitle,jdbcType=VARCHAR} and 
-    </if>
-    <if test="addressflag != null">
-      ADDRESSFLAG = #{addressflag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="photonum != null">
-      PHOTONUM = #{photonum,jdbcType=DECIMAL} and 
-    </if>
-    <if test="pricesell != null">
-      PRICESELL = #{pricesell,jdbcType=DECIMAL} and 
-    </if>
-    <if test="expresstype3 != null">
-      EXPRESSTYPE3 = #{expresstype3,jdbcType=DECIMAL} and 
-    </if>
-    <if test="titleflag != null">
-      TITLEFLAG = #{titleflag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="sellpriceflag != null">
-      SELLPRICEFLAG = #{sellpriceflag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="customflag != null">
-      CUSTOMFLAG = #{customflag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="savenumflag != null">
-      SAVENUMFLAG = #{savenumflag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="clearanceflag != null">
-      CLEARANCEFLAG = #{clearanceflag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="expressflag != null">
-      EXPRESSFLAG = #{expressflag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="pic != null">
-      PIC = #{pic,jdbcType=VARCHAR} and 
-    </if>
-    <if test="listingduration != null">
-      LISTINGDURATION = #{listingduration,jdbcType=DECIMAL} and 
-    </if>
-    <if test="priceflag != null">
-      PRICEFLAG = #{priceflag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="expresstype4 != null">
-      EXPRESSTYPE4 = #{expresstype4,jdbcType=DECIMAL} and 
-    </if>
-    <if test="relistflag != null">
-      RELISTFLAG = #{relistflag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="savenum != null">
-      SAVENUM = #{savenum,jdbcType=DECIMAL} and 
-    </if>
-    <if test="expresstype5 != null">
-      EXPRESSTYPE5 = #{expresstype5,jdbcType=DECIMAL} and 
-    </if>
-    <if test="expresstype != null">
-      EXPRESSTYPE = #{expresstype,jdbcType=VARCHAR} and 
-    </if>
-    <if test="expresstype2 != null">
-      EXPRESSTYPE2 = #{expresstype2,jdbcType=DECIMAL} and 
-    </if>
-    <if test="itemflag != null">
-      ITEMFLAG = #{itemflag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="sellprice != null">
-      SELLPRICE = #{sellprice,jdbcType=DECIMAL} and 
-    </if>
-    <if test="skuflag != null">
-      SKUFLAG = #{skuflag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="freightid != null">
-      FREIGHTID = #{freightid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="photoflag != null">
-      PHOTOFLAG = #{photoflag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="goodsflag != null">
-      GOODSFLAG = #{goodsflag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="auctionflag != null">
-      AUCTIONFLAG = #{auctionflag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="expresstype1 != null">
-      EXPRESSTYPE1 = #{expresstype1,jdbcType=DECIMAL} and 
-    </if>
-    <if test="descrflag != null">
-      DESCRFLAG = #{descrflag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="expresstype6 != null">
-      EXPRESSTYPE6 = #{expresstype6,jdbcType=DECIMAL} and 
-    </if>
-    <if test="attributestatusflag != null">
-      ATTRIBUTESTATUSFLAG = #{attributestatusflag,jdbcType=VARCHAR} and 
+      flag = #{flag,jdbcType=DECIMAL} and 
     </if>
     <if test="error != null">
-      ERROR = #{error,jdbcType=LONGVARCHAR}
+      error = #{error,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="newitemid != null">
+      newitemid = #{newitemid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oldsku != null">
+      oldsku = #{oldsku,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oldshopid != null">
+      oldshopid = #{oldshopid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oldshopname != null">
+      oldshopname = #{oldshopname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="templateid != null">
+      templateid = #{templateid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="startprice != null">
+      startprice = #{startprice,jdbcType=DECIMAL} and 
+    </if>
+    <if test="endprice != null">
+      endprice = #{endprice,jdbcType=DECIMAL} and 
+    </if>
+    <if test="paypaladdress != null">
+      paypaladdress = #{paypaladdress,jdbcType=VARCHAR} and 
+    </if>
+    <if test="newtitle != null">
+      newtitle = #{newtitle,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oldtitle != null">
+      oldtitle = #{oldtitle,jdbcType=VARCHAR} and 
+    </if>
+    <if test="addressflag != null">
+      addressflag = #{addressflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="photonum != null">
+      photonum = #{photonum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="pricesell != null">
+      pricesell = #{pricesell,jdbcType=DECIMAL} and 
+    </if>
+    <if test="expresstype3 != null">
+      expresstype3 = #{expresstype3,jdbcType=DECIMAL} and 
+    </if>
+    <if test="titleflag != null">
+      titleflag = #{titleflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sellpriceflag != null">
+      sellpriceflag = #{sellpriceflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="customflag != null">
+      customflag = #{customflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="savenumflag != null">
+      savenumflag = #{savenumflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="clearanceflag != null">
+      clearanceflag = #{clearanceflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="expressflag != null">
+      expressflag = #{expressflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="pic != null">
+      pic = #{pic,jdbcType=VARCHAR} and 
+    </if>
+    <if test="listingduration != null">
+      listingduration = #{listingduration,jdbcType=DECIMAL} and 
+    </if>
+    <if test="priceflag != null">
+      priceflag = #{priceflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="expresstype4 != null">
+      expresstype4 = #{expresstype4,jdbcType=DECIMAL} and 
+    </if>
+    <if test="relistflag != null">
+      relistflag = #{relistflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="savenum != null">
+      savenum = #{savenum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="expresstype5 != null">
+      expresstype5 = #{expresstype5,jdbcType=DECIMAL} and 
+    </if>
+    <if test="expresstype != null">
+      expresstype = #{expresstype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="expresstype2 != null">
+      expresstype2 = #{expresstype2,jdbcType=DECIMAL} and 
+    </if>
+    <if test="itemflag != null">
+      itemflag = #{itemflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sellprice != null">
+      sellprice = #{sellprice,jdbcType=DECIMAL} and 
+    </if>
+    <if test="skuflag != null">
+      skuflag = #{skuflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="freightid != null">
+      freightid = #{freightid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="photoflag != null">
+      photoflag = #{photoflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="goodsflag != null">
+      goodsflag = #{goodsflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="auctionflag != null">
+      auctionflag = #{auctionflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="expresstype1 != null">
+      expresstype1 = #{expresstype1,jdbcType=DECIMAL} and 
+    </if>
+    <if test="descrflag != null">
+      descrflag = #{descrflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="expresstype6 != null">
+      expresstype6 = #{expresstype6,jdbcType=DECIMAL} and 
+    </if>
+    <if test="attributestatusflag != null">
+      attributestatusflag = #{attributestatusflag,jdbcType=VARCHAR} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} , 
+      sid = #{sid,jdbcType=VARCHAR} , 
     </if>
     <if test="itemid != null">
-      ITEMID = #{itemid,jdbcType=VARCHAR} , 
+      itemid = #{itemid,jdbcType=VARCHAR} , 
     </if>
     <if test="shopid != null">
-      SHOPID = #{shopid,jdbcType=VARCHAR} , 
+      shopid = #{shopid,jdbcType=VARCHAR} , 
     </if>
     <if test="shopname != null">
-      SHOPNAME = #{shopname,jdbcType=VARCHAR} , 
+      shopname = #{shopname,jdbcType=VARCHAR} , 
     </if>
     <if test="pricetype != null">
-      PRICETYPE = #{pricetype,jdbcType=DECIMAL} , 
+      pricetype = #{pricetype,jdbcType=DECIMAL} , 
     </if>
     <if test="site != null">
-      SITE = #{site,jdbcType=VARCHAR} , 
+      site = #{site,jdbcType=VARCHAR} , 
     </if>
     <if test="price != null">
-      PRICE = #{price,jdbcType=DECIMAL} , 
+      price = #{price,jdbcType=DECIMAL} , 
     </if>
     <if test="sku != null">
-      SKU = #{sku,jdbcType=VARCHAR} , 
+      sku = #{sku,jdbcType=VARCHAR} , 
     </if>
     <if test="flag != null">
-      FLAG = #{flag,jdbcType=DECIMAL} , 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="newitemid != null">
-      NEWITEMID = #{newitemid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="oldsku != null">
-      OLDSKU = #{oldsku,jdbcType=VARCHAR} , 
-    </if>
-    <if test="oldshopid != null">
-      OLDSHOPID = #{oldshopid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="oldshopname != null">
-      OLDSHOPNAME = #{oldshopname,jdbcType=VARCHAR} , 
-    </if>
-    <if test="templateid != null">
-      TEMPLATEID = #{templateid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="startprice != null">
-      STARTPRICE = #{startprice,jdbcType=DECIMAL} , 
-    </if>
-    <if test="endprice != null">
-      ENDPRICE = #{endprice,jdbcType=DECIMAL} , 
-    </if>
-    <if test="paypaladdress != null">
-      PAYPALADDRESS = #{paypaladdress,jdbcType=VARCHAR} , 
-    </if>
-    <if test="newtitle != null">
-      NEWTITLE = #{newtitle,jdbcType=VARCHAR} , 
-    </if>
-    <if test="oldtitle != null">
-      OLDTITLE = #{oldtitle,jdbcType=VARCHAR} , 
-    </if>
-    <if test="addressflag != null">
-      ADDRESSFLAG = #{addressflag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="photonum != null">
-      PHOTONUM = #{photonum,jdbcType=DECIMAL} , 
-    </if>
-    <if test="pricesell != null">
-      PRICESELL = #{pricesell,jdbcType=DECIMAL} , 
-    </if>
-    <if test="expresstype3 != null">
-      EXPRESSTYPE3 = #{expresstype3,jdbcType=DECIMAL} , 
-    </if>
-    <if test="titleflag != null">
-      TITLEFLAG = #{titleflag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="sellpriceflag != null">
-      SELLPRICEFLAG = #{sellpriceflag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="customflag != null">
-      CUSTOMFLAG = #{customflag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="savenumflag != null">
-      SAVENUMFLAG = #{savenumflag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="clearanceflag != null">
-      CLEARANCEFLAG = #{clearanceflag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="expressflag != null">
-      EXPRESSFLAG = #{expressflag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="pic != null">
-      PIC = #{pic,jdbcType=VARCHAR} , 
-    </if>
-    <if test="listingduration != null">
-      LISTINGDURATION = #{listingduration,jdbcType=DECIMAL} , 
-    </if>
-    <if test="priceflag != null">
-      PRICEFLAG = #{priceflag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="expresstype4 != null">
-      EXPRESSTYPE4 = #{expresstype4,jdbcType=DECIMAL} , 
-    </if>
-    <if test="relistflag != null">
-      RELISTFLAG = #{relistflag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="savenum != null">
-      SAVENUM = #{savenum,jdbcType=DECIMAL} , 
-    </if>
-    <if test="expresstype5 != null">
-      EXPRESSTYPE5 = #{expresstype5,jdbcType=DECIMAL} , 
-    </if>
-    <if test="expresstype != null">
-      EXPRESSTYPE = #{expresstype,jdbcType=VARCHAR} , 
-    </if>
-    <if test="expresstype2 != null">
-      EXPRESSTYPE2 = #{expresstype2,jdbcType=DECIMAL} , 
-    </if>
-    <if test="itemflag != null">
-      ITEMFLAG = #{itemflag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="sellprice != null">
-      SELLPRICE = #{sellprice,jdbcType=DECIMAL} , 
-    </if>
-    <if test="skuflag != null">
-      SKUFLAG = #{skuflag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="freightid != null">
-      FREIGHTID = #{freightid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="photoflag != null">
-      PHOTOFLAG = #{photoflag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="goodsflag != null">
-      GOODSFLAG = #{goodsflag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="auctionflag != null">
-      AUCTIONFLAG = #{auctionflag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="expresstype1 != null">
-      EXPRESSTYPE1 = #{expresstype1,jdbcType=DECIMAL} , 
-    </if>
-    <if test="descrflag != null">
-      DESCRFLAG = #{descrflag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="expresstype6 != null">
-      EXPRESSTYPE6 = #{expresstype6,jdbcType=DECIMAL} , 
-    </if>
-    <if test="attributestatusflag != null">
-      ATTRIBUTESTATUSFLAG = #{attributestatusflag,jdbcType=VARCHAR} , 
+      flag = #{flag,jdbcType=DECIMAL} , 
     </if>
     <if test="error != null">
-      ERROR = #{error,jdbcType=LONGVARCHAR}
+      error = #{error,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="newitemid != null">
+      newitemid = #{newitemid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oldsku != null">
+      oldsku = #{oldsku,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oldshopid != null">
+      oldshopid = #{oldshopid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oldshopname != null">
+      oldshopname = #{oldshopname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="templateid != null">
+      templateid = #{templateid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="startprice != null">
+      startprice = #{startprice,jdbcType=DECIMAL} , 
+    </if>
+    <if test="endprice != null">
+      endprice = #{endprice,jdbcType=DECIMAL} , 
+    </if>
+    <if test="paypaladdress != null">
+      paypaladdress = #{paypaladdress,jdbcType=VARCHAR} , 
+    </if>
+    <if test="newtitle != null">
+      newtitle = #{newtitle,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oldtitle != null">
+      oldtitle = #{oldtitle,jdbcType=VARCHAR} , 
+    </if>
+    <if test="addressflag != null">
+      addressflag = #{addressflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="photonum != null">
+      photonum = #{photonum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="pricesell != null">
+      pricesell = #{pricesell,jdbcType=DECIMAL} , 
+    </if>
+    <if test="expresstype3 != null">
+      expresstype3 = #{expresstype3,jdbcType=DECIMAL} , 
+    </if>
+    <if test="titleflag != null">
+      titleflag = #{titleflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sellpriceflag != null">
+      sellpriceflag = #{sellpriceflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="customflag != null">
+      customflag = #{customflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="savenumflag != null">
+      savenumflag = #{savenumflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="clearanceflag != null">
+      clearanceflag = #{clearanceflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="expressflag != null">
+      expressflag = #{expressflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="pic != null">
+      pic = #{pic,jdbcType=VARCHAR} , 
+    </if>
+    <if test="listingduration != null">
+      listingduration = #{listingduration,jdbcType=DECIMAL} , 
+    </if>
+    <if test="priceflag != null">
+      priceflag = #{priceflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="expresstype4 != null">
+      expresstype4 = #{expresstype4,jdbcType=DECIMAL} , 
+    </if>
+    <if test="relistflag != null">
+      relistflag = #{relistflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="savenum != null">
+      savenum = #{savenum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="expresstype5 != null">
+      expresstype5 = #{expresstype5,jdbcType=DECIMAL} , 
+    </if>
+    <if test="expresstype != null">
+      expresstype = #{expresstype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="expresstype2 != null">
+      expresstype2 = #{expresstype2,jdbcType=DECIMAL} , 
+    </if>
+    <if test="itemflag != null">
+      itemflag = #{itemflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sellprice != null">
+      sellprice = #{sellprice,jdbcType=DECIMAL} , 
+    </if>
+    <if test="skuflag != null">
+      skuflag = #{skuflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="freightid != null">
+      freightid = #{freightid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="photoflag != null">
+      photoflag = #{photoflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="goodsflag != null">
+      goodsflag = #{goodsflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="auctionflag != null">
+      auctionflag = #{auctionflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="expresstype1 != null">
+      expresstype1 = #{expresstype1,jdbcType=DECIMAL} , 
+    </if>
+    <if test="descrflag != null">
+      descrflag = #{descrflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="expresstype6 != null">
+      expresstype6 = #{expresstype6,jdbcType=DECIMAL} , 
+    </if>
+    <if test="attributestatusflag != null">
+      attributestatusflag = #{attributestatusflag,jdbcType=VARCHAR} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbPostitem" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

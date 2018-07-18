@@ -22,17 +22,17 @@ public class DbManystoragebin implements Serializable {
 
     private String corpid;
 
-    private String name;
-
-    private String storagebinflag;
-
-    private String mainsku;
-
     private String productname;
 
     private String storagename;
 
     private String descr;
+
+    private String name;
+
+    private String storagebinflag;
+
+    private String mainsku;
 
     private static final long serialVersionUID = 1L;
 
@@ -108,30 +108,6 @@ public class DbManystoragebin implements Serializable {
         this.corpid = corpid == null ? null : corpid.trim();
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
-    }
-
-    public String getStoragebinflag() {
-        return storagebinflag;
-    }
-
-    public void setStoragebinflag(String storagebinflag) {
-        this.storagebinflag = storagebinflag == null ? null : storagebinflag.trim();
-    }
-
-    public String getMainsku() {
-        return mainsku;
-    }
-
-    public void setMainsku(String mainsku) {
-        this.mainsku = mainsku == null ? null : mainsku.trim();
-    }
-
     public String getProductname() {
         return productname;
     }
@@ -156,6 +132,30 @@ public class DbManystoragebin implements Serializable {
         this.descr = descr == null ? null : descr.trim();
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
+    }
+
+    public String getStoragebinflag() {
+        return storagebinflag;
+    }
+
+    public void setStoragebinflag(String storagebinflag) {
+        this.storagebinflag = storagebinflag == null ? null : storagebinflag.trim();
+    }
+
+    public String getMainsku() {
+        return mainsku;
+    }
+
+    public void setMainsku(String mainsku) {
+        this.mainsku = mainsku == null ? null : mainsku.trim();
+    }
+
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -177,12 +177,12 @@ public class DbManystoragebin implements Serializable {
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getOpenflag() == null ? other.getOpenflag() == null : this.getOpenflag().equals(other.getOpenflag()))
             && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()))
-            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
-            && (this.getStoragebinflag() == null ? other.getStoragebinflag() == null : this.getStoragebinflag().equals(other.getStoragebinflag()))
-            && (this.getMainsku() == null ? other.getMainsku() == null : this.getMainsku().equals(other.getMainsku()))
             && (this.getProductname() == null ? other.getProductname() == null : this.getProductname().equals(other.getProductname()))
             && (this.getStoragename() == null ? other.getStoragename() == null : this.getStoragename().equals(other.getStoragename()))
-            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()));
+            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
+            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
+            && (this.getStoragebinflag() == null ? other.getStoragebinflag() == null : this.getStoragebinflag().equals(other.getStoragebinflag()))
+            && (this.getMainsku() == null ? other.getMainsku() == null : this.getMainsku().equals(other.getMainsku()));
     }
 
     @Override
@@ -198,12 +198,12 @@ public class DbManystoragebin implements Serializable {
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getOpenflag() == null) ? 0 : getOpenflag().hashCode());
         result = prime * result + ((getCorpid() == null) ? 0 : getCorpid().hashCode());
-        result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
-        result = prime * result + ((getStoragebinflag() == null) ? 0 : getStoragebinflag().hashCode());
-        result = prime * result + ((getMainsku() == null) ? 0 : getMainsku().hashCode());
         result = prime * result + ((getProductname() == null) ? 0 : getProductname().hashCode());
         result = prime * result + ((getStoragename() == null) ? 0 : getStoragename().hashCode());
         result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
+        result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
+        result = prime * result + ((getStoragebinflag() == null) ? 0 : getStoragebinflag().hashCode());
+        result = prime * result + ((getMainsku() == null) ? 0 : getMainsku().hashCode());
         return result;
     }
 
@@ -222,12 +222,12 @@ public class DbManystoragebin implements Serializable {
         sb.append(", oper=").append(oper);
         sb.append(", openflag=").append(openflag);
         sb.append(", corpid=").append(corpid);
-        sb.append(", name=").append(name);
-        sb.append(", storagebinflag=").append(storagebinflag);
-        sb.append(", mainsku=").append(mainsku);
         sb.append(", productname=").append(productname);
         sb.append(", storagename=").append(storagename);
         sb.append(", descr=").append(descr);
+        sb.append(", name=").append(name);
+        sb.append(", storagebinflag=").append(storagebinflag);
+        sb.append(", mainsku=").append(mainsku);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

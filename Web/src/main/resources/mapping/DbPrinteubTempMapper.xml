@@ -4,6 +4,7 @@
   <resultMap id="BaseResultMap" type="com.bean.model.DbPrinteubTemp">
     <id column="SEQUENCEUID" jdbcType="VARCHAR" property="sequenceuid" />
     <result column="SENDERNAME" jdbcType="VARCHAR" property="sendername" />
+    <result column="SENDERADRESS" jdbcType="VARCHAR" property="senderadress" />
     <result column="SENDERDIST" jdbcType="VARCHAR" property="senderdist" />
     <result column="SENDERCITY" jdbcType="VARCHAR" property="sendercity" />
     <result column="SENDERPROVINCE" jdbcType="VARCHAR" property="senderprovince" />
@@ -15,57 +16,57 @@
     <result column="CUSTOMERCOUNTRY" jdbcType="VARCHAR" property="customercountry" />
     <result column="CUSTOMERZIP" jdbcType="VARCHAR" property="customerzip" />
     <result column="CUSTOMERTEL" jdbcType="VARCHAR" property="customertel" />
+    <result column="SELLINFO" jdbcType="VARCHAR" property="sellinfo" />
     <result column="COUNTRYFLAG" jdbcType="VARCHAR" property="countryflag" />
     <result column="CATEGORYNAME" jdbcType="VARCHAR" property="categoryname" />
     <result column="CATEGORYENGLISH" jdbcType="VARCHAR" property="categoryenglish" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
     <result column="RESERVE4" jdbcType="DECIMAL" property="reserve4" />
     <result column="RESERVE5" jdbcType="DECIMAL" property="reserve5" />
     <result column="CUSTOMERPROVINCE" jdbcType="VARCHAR" property="customerprovince" />
+    <result column="CUSTOMERMAIL" jdbcType="VARCHAR" property="customermail" />
     <result column="MONEYASK" jdbcType="DECIMAL" property="moneyask" />
     <result column="MONEYEXPRESSASK" jdbcType="DECIMAL" property="moneyexpressask" />
     <result column="ORDERTIME" jdbcType="TIMESTAMP" property="ordertime" />
+    <result column="CUSTOMERFAX" jdbcType="VARCHAR" property="customerfax" />
+    <result column="SHOPTYPEID" jdbcType="VARCHAR" property="shoptypeid" />
+    <result column="PAYID" jdbcType="VARCHAR" property="payid" />
+    <result column="EXPRESSTYPE" jdbcType="VARCHAR" property="expresstype" />
     <result column="ORDERWEIGHT" jdbcType="DECIMAL" property="orderweight" />
-    <result column="SENDERADRESS" jdbcType="LONGVARCHAR" property="senderadress" />
-    <result column="SELLINFO" jdbcType="LONGVARCHAR" property="sellinfo" />
-    <result column="RESERVE1" jdbcType="LONGVARCHAR" property="reserve1" />
-    <result column="RESERVE2" jdbcType="LONGVARCHAR" property="reserve2" />
-    <result column="RESERVE3" jdbcType="LONGVARCHAR" property="reserve3" />
-    <result column="CUSTOMERMAIL" jdbcType="LONGVARCHAR" property="customermail" />
-    <result column="CUSTOMERFAX" jdbcType="LONGVARCHAR" property="customerfax" />
-    <result column="SHOPTYPEID" jdbcType="LONGVARCHAR" property="shoptypeid" />
-    <result column="PAYID" jdbcType="LONGVARCHAR" property="payid" />
-    <result column="EXPRESSTYPE" jdbcType="LONGVARCHAR" property="expresstype" />
-    <result column="POSTAGESERVICE" jdbcType="LONGVARCHAR" property="postageservice" />
-    <result column="PACKAGINGNAME" jdbcType="LONGVARCHAR" property="packagingname" />
-    <result column="OPER1" jdbcType="LONGVARCHAR" property="oper1" />
-    <result column="STORAGE" jdbcType="LONGVARCHAR" property="storage" />
-    <result column="TRADEID" jdbcType="LONGVARCHAR" property="tradeid" />
+    <result column="POSTAGESERVICE" jdbcType="VARCHAR" property="postageservice" />
+    <result column="PACKAGINGNAME" jdbcType="VARCHAR" property="packagingname" />
+    <result column="OPER1" jdbcType="VARCHAR" property="oper1" />
+    <result column="STORAGE" jdbcType="VARCHAR" property="storage" />
+    <result column="TRADEID" jdbcType="VARCHAR" property="tradeid" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select SEQUENCEUID, SENDERNAME, SENDERDIST, SENDERCITY, SENDERPROVINCE, SENDERZIP, 
-    SENDERTEL, CUSTOMERNAME, CUSTOMERADDRESS, CUSTOMERCITY, CUSTOMERCOUNTRY, CUSTOMERZIP, 
-    CUSTOMERTEL, COUNTRYFLAG, CATEGORYNAME, CATEGORYENGLISH, RESERVE4, RESERVE5, CUSTOMERPROVINCE, 
-    MONEYASK, MONEYEXPRESSASK, ORDERTIME, ORDERWEIGHT, SENDERADRESS, SELLINFO, RESERVE1, 
-    RESERVE2, RESERVE3, CUSTOMERMAIL, CUSTOMERFAX, SHOPTYPEID, PAYID, EXPRESSTYPE, POSTAGESERVICE, 
-    PACKAGINGNAME, OPER1, STORAGE, TRADEID
-    from db_printeub_temp
+    select SEQUENCEUID, SENDERNAME, SENDERADRESS, SENDERDIST, SENDERCITY, SENDERPROVINCE, 
+    SENDERZIP, SENDERTEL, CUSTOMERNAME, CUSTOMERADDRESS, CUSTOMERCITY, CUSTOMERCOUNTRY, 
+    CUSTOMERZIP, CUSTOMERTEL, SELLINFO, COUNTRYFLAG, CATEGORYNAME, CATEGORYENGLISH, RESERVE1, 
+    RESERVE2, RESERVE3, RESERVE4, RESERVE5, CUSTOMERPROVINCE, CUSTOMERMAIL, MONEYASK, 
+    MONEYEXPRESSASK, ORDERTIME, CUSTOMERFAX, SHOPTYPEID, PAYID, EXPRESSTYPE, ORDERWEIGHT, 
+    POSTAGESERVICE, PACKAGINGNAME, OPER1, STORAGE, TRADEID
+    from DB_PRINTEUB_TEMP
     where SEQUENCEUID = #{sequenceuid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select SEQUENCEUID, SENDERNAME, SENDERDIST, SENDERCITY, SENDERPROVINCE, SENDERZIP, 
-    SENDERTEL, CUSTOMERNAME, CUSTOMERADDRESS, CUSTOMERCITY, CUSTOMERCOUNTRY, CUSTOMERZIP, 
-    CUSTOMERTEL, COUNTRYFLAG, CATEGORYNAME, CATEGORYENGLISH, RESERVE4, RESERVE5, CUSTOMERPROVINCE, 
-    MONEYASK, MONEYEXPRESSASK, ORDERTIME, ORDERWEIGHT, SENDERADRESS, SELLINFO, RESERVE1, 
-    RESERVE2, RESERVE3, CUSTOMERMAIL, CUSTOMERFAX, SHOPTYPEID, PAYID, EXPRESSTYPE, POSTAGESERVICE, 
-    PACKAGINGNAME, OPER1, STORAGE, TRADEID
-    from db_printeub_temp
+    select SEQUENCEUID, SENDERNAME, SENDERADRESS, SENDERDIST, SENDERCITY, SENDERPROVINCE, 
+    SENDERZIP, SENDERTEL, CUSTOMERNAME, CUSTOMERADDRESS, CUSTOMERCITY, CUSTOMERCOUNTRY, 
+    CUSTOMERZIP, CUSTOMERTEL, SELLINFO, COUNTRYFLAG, CATEGORYNAME, CATEGORYENGLISH, RESERVE1, 
+    RESERVE2, RESERVE3, RESERVE4, RESERVE5, CUSTOMERPROVINCE, CUSTOMERMAIL, MONEYASK, 
+    MONEYEXPRESSASK, ORDERTIME, CUSTOMERFAX, SHOPTYPEID, PAYID, EXPRESSTYPE, ORDERWEIGHT, 
+    POSTAGESERVICE, PACKAGINGNAME, OPER1, STORAGE, TRADEID
+    from DB_PRINTEUB_TEMP
   </select>
   <sql id="TableName">
-    db_printeub_temp
+    DB_PRINTEUB_TEMP
   </sql>
   <sql id="Values">
      #{sequenceuid,jdbcType=VARCHAR} , 
      #{sendername,jdbcType=VARCHAR} , 
+     #{senderadress,jdbcType=VARCHAR} , 
      #{senderdist,jdbcType=VARCHAR} , 
      #{sendercity,jdbcType=VARCHAR} , 
      #{senderprovince,jdbcType=VARCHAR} , 
@@ -77,35 +78,35 @@
      #{customercountry,jdbcType=VARCHAR} , 
      #{customerzip,jdbcType=VARCHAR} , 
      #{customertel,jdbcType=VARCHAR} , 
+     #{sellinfo,jdbcType=VARCHAR} , 
      #{countryflag,jdbcType=VARCHAR} , 
      #{categoryname,jdbcType=VARCHAR} , 
      #{categoryenglish,jdbcType=VARCHAR} , 
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+     #{reserve3,jdbcType=VARCHAR} , 
      #{reserve4,jdbcType=DECIMAL} , 
      #{reserve5,jdbcType=DECIMAL} , 
      #{customerprovince,jdbcType=VARCHAR} , 
+     #{customermail,jdbcType=VARCHAR} , 
      #{moneyask,jdbcType=DECIMAL} , 
      #{moneyexpressask,jdbcType=DECIMAL} , 
      #{ordertime,jdbcType=TIMESTAMP} , 
+     #{customerfax,jdbcType=VARCHAR} , 
+     #{shoptypeid,jdbcType=VARCHAR} , 
+     #{payid,jdbcType=VARCHAR} , 
+     #{expresstype,jdbcType=VARCHAR} , 
      #{orderweight,jdbcType=DECIMAL} , 
-     #{senderadress,jdbcType=LONGVARCHAR} , 
-     #{sellinfo,jdbcType=LONGVARCHAR} , 
-     #{reserve1,jdbcType=LONGVARCHAR} , 
-     #{reserve2,jdbcType=LONGVARCHAR} , 
-     #{reserve3,jdbcType=LONGVARCHAR} , 
-     #{customermail,jdbcType=LONGVARCHAR} , 
-     #{customerfax,jdbcType=LONGVARCHAR} , 
-     #{shoptypeid,jdbcType=LONGVARCHAR} , 
-     #{payid,jdbcType=LONGVARCHAR} , 
-     #{expresstype,jdbcType=LONGVARCHAR} , 
-     #{postageservice,jdbcType=LONGVARCHAR} , 
-     #{packagingname,jdbcType=LONGVARCHAR} , 
-     #{oper1,jdbcType=LONGVARCHAR} , 
-     #{storage,jdbcType=LONGVARCHAR} , 
-     #{tradeid,jdbcType=LONGVARCHAR}
+     #{postageservice,jdbcType=VARCHAR} , 
+     #{packagingname,jdbcType=VARCHAR} , 
+     #{oper1,jdbcType=VARCHAR} , 
+     #{storage,jdbcType=VARCHAR} , 
+     #{tradeid,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     SEQUENCEUID , 
     SENDERNAME , 
+    SENDERADRESS , 
     SENDERDIST , 
     SENDERCITY , 
     SENDERPROVINCE , 
@@ -117,265 +118,264 @@
     CUSTOMERCOUNTRY , 
     CUSTOMERZIP , 
     CUSTOMERTEL , 
+    SELLINFO , 
     COUNTRYFLAG , 
     CATEGORYNAME , 
     CATEGORYENGLISH , 
-    RESERVE4 , 
-    RESERVE5 , 
-    CUSTOMERPROVINCE , 
-    MONEYASK , 
-    MONEYEXPRESSASK , 
-    ORDERTIME , 
-    ORDERWEIGHT , 
-    SENDERADRESS , 
-    SELLINFO , 
     RESERVE1 , 
     RESERVE2 , 
     RESERVE3 , 
+    RESERVE4 , 
+    RESERVE5 , 
+    CUSTOMERPROVINCE , 
     CUSTOMERMAIL , 
+    MONEYASK , 
+    MONEYEXPRESSASK , 
+    ORDERTIME , 
     CUSTOMERFAX , 
     SHOPTYPEID , 
     PAYID , 
     EXPRESSTYPE , 
+    ORDERWEIGHT , 
     POSTAGESERVICE , 
     PACKAGINGNAME , 
     OPER1 , 
     STORAGE , 
-    TRADEID
+    TRADEID , 
   </sql>
   <sql id="Criteria">
     <if test="sequenceuid != null">
-      SEQUENCEUID = #{sequenceuid,jdbcType=VARCHAR} and 
+      sequenceuid = #{sequenceuid,jdbcType=VARCHAR} and 
     </if>
     <if test="sendername != null">
-      SENDERNAME = #{sendername,jdbcType=VARCHAR} and 
-    </if>
-    <if test="senderdist != null">
-      SENDERDIST = #{senderdist,jdbcType=VARCHAR} and 
-    </if>
-    <if test="sendercity != null">
-      SENDERCITY = #{sendercity,jdbcType=VARCHAR} and 
-    </if>
-    <if test="senderprovince != null">
-      SENDERPROVINCE = #{senderprovince,jdbcType=VARCHAR} and 
-    </if>
-    <if test="senderzip != null">
-      SENDERZIP = #{senderzip,jdbcType=VARCHAR} and 
-    </if>
-    <if test="sendertel != null">
-      SENDERTEL = #{sendertel,jdbcType=VARCHAR} and 
-    </if>
-    <if test="customername != null">
-      CUSTOMERNAME = #{customername,jdbcType=VARCHAR} and 
-    </if>
-    <if test="customeraddress != null">
-      CUSTOMERADDRESS = #{customeraddress,jdbcType=VARCHAR} and 
-    </if>
-    <if test="customercity != null">
-      CUSTOMERCITY = #{customercity,jdbcType=VARCHAR} and 
-    </if>
-    <if test="customercountry != null">
-      CUSTOMERCOUNTRY = #{customercountry,jdbcType=VARCHAR} and 
-    </if>
-    <if test="customerzip != null">
-      CUSTOMERZIP = #{customerzip,jdbcType=VARCHAR} and 
-    </if>
-    <if test="customertel != null">
-      CUSTOMERTEL = #{customertel,jdbcType=VARCHAR} and 
-    </if>
-    <if test="countryflag != null">
-      COUNTRYFLAG = #{countryflag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="categoryname != null">
-      CATEGORYNAME = #{categoryname,jdbcType=VARCHAR} and 
-    </if>
-    <if test="categoryenglish != null">
-      CATEGORYENGLISH = #{categoryenglish,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=DECIMAL} and 
-    </if>
-    <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=DECIMAL} and 
-    </if>
-    <if test="customerprovince != null">
-      CUSTOMERPROVINCE = #{customerprovince,jdbcType=VARCHAR} and 
-    </if>
-    <if test="moneyask != null">
-      MONEYASK = #{moneyask,jdbcType=DECIMAL} and 
-    </if>
-    <if test="moneyexpressask != null">
-      MONEYEXPRESSASK = #{moneyexpressask,jdbcType=DECIMAL} and 
-    </if>
-    <if test="ordertime != null">
-      ORDERTIME = #{ordertime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="orderweight != null">
-      ORDERWEIGHT = #{orderweight,jdbcType=DECIMAL} and 
+      sendername = #{sendername,jdbcType=VARCHAR} and 
     </if>
     <if test="senderadress != null">
-      SENDERADRESS = #{senderadress,jdbcType=LONGVARCHAR} and 
+      senderadress = #{senderadress,jdbcType=VARCHAR} and 
+    </if>
+    <if test="senderdist != null">
+      senderdist = #{senderdist,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sendercity != null">
+      sendercity = #{sendercity,jdbcType=VARCHAR} and 
+    </if>
+    <if test="senderprovince != null">
+      senderprovince = #{senderprovince,jdbcType=VARCHAR} and 
+    </if>
+    <if test="senderzip != null">
+      senderzip = #{senderzip,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sendertel != null">
+      sendertel = #{sendertel,jdbcType=VARCHAR} and 
+    </if>
+    <if test="customername != null">
+      customername = #{customername,jdbcType=VARCHAR} and 
+    </if>
+    <if test="customeraddress != null">
+      customeraddress = #{customeraddress,jdbcType=VARCHAR} and 
+    </if>
+    <if test="customercity != null">
+      customercity = #{customercity,jdbcType=VARCHAR} and 
+    </if>
+    <if test="customercountry != null">
+      customercountry = #{customercountry,jdbcType=VARCHAR} and 
+    </if>
+    <if test="customerzip != null">
+      customerzip = #{customerzip,jdbcType=VARCHAR} and 
+    </if>
+    <if test="customertel != null">
+      customertel = #{customertel,jdbcType=VARCHAR} and 
     </if>
     <if test="sellinfo != null">
-      SELLINFO = #{sellinfo,jdbcType=LONGVARCHAR} and 
+      sellinfo = #{sellinfo,jdbcType=VARCHAR} and 
+    </if>
+    <if test="countryflag != null">
+      countryflag = #{countryflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="categoryname != null">
+      categoryname = #{categoryname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="categoryenglish != null">
+      categoryenglish = #{categoryenglish,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR} and 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR} and 
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR} and 
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=DECIMAL} and 
+    </if>
+    <if test="customerprovince != null">
+      customerprovince = #{customerprovince,jdbcType=VARCHAR} and 
     </if>
     <if test="customermail != null">
-      CUSTOMERMAIL = #{customermail,jdbcType=LONGVARCHAR} and 
+      customermail = #{customermail,jdbcType=VARCHAR} and 
+    </if>
+    <if test="moneyask != null">
+      moneyask = #{moneyask,jdbcType=DECIMAL} and 
+    </if>
+    <if test="moneyexpressask != null">
+      moneyexpressask = #{moneyexpressask,jdbcType=DECIMAL} and 
+    </if>
+    <if test="ordertime != null">
+      ordertime = #{ordertime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="customerfax != null">
-      CUSTOMERFAX = #{customerfax,jdbcType=LONGVARCHAR} and 
+      customerfax = #{customerfax,jdbcType=VARCHAR} and 
     </if>
     <if test="shoptypeid != null">
-      SHOPTYPEID = #{shoptypeid,jdbcType=LONGVARCHAR} and 
+      shoptypeid = #{shoptypeid,jdbcType=VARCHAR} and 
     </if>
     <if test="payid != null">
-      PAYID = #{payid,jdbcType=LONGVARCHAR} and 
+      payid = #{payid,jdbcType=VARCHAR} and 
     </if>
     <if test="expresstype != null">
-      EXPRESSTYPE = #{expresstype,jdbcType=LONGVARCHAR} and 
+      expresstype = #{expresstype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="orderweight != null">
+      orderweight = #{orderweight,jdbcType=DECIMAL} and 
     </if>
     <if test="postageservice != null">
-      POSTAGESERVICE = #{postageservice,jdbcType=LONGVARCHAR} and 
+      postageservice = #{postageservice,jdbcType=VARCHAR} and 
     </if>
     <if test="packagingname != null">
-      PACKAGINGNAME = #{packagingname,jdbcType=LONGVARCHAR} and 
+      packagingname = #{packagingname,jdbcType=VARCHAR} and 
     </if>
     <if test="oper1 != null">
-      OPER1 = #{oper1,jdbcType=LONGVARCHAR} and 
+      oper1 = #{oper1,jdbcType=VARCHAR} and 
     </if>
     <if test="storage != null">
-      STORAGE = #{storage,jdbcType=LONGVARCHAR} and 
+      storage = #{storage,jdbcType=VARCHAR} and 
     </if>
     <if test="tradeid != null">
-      TRADEID = #{tradeid,jdbcType=LONGVARCHAR}
+      tradeid = #{tradeid,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceuid != null">
-      SEQUENCEUID = #{sequenceuid,jdbcType=VARCHAR} , 
+      sequenceuid = #{sequenceuid,jdbcType=VARCHAR} , 
     </if>
     <if test="sendername != null">
-      SENDERNAME = #{sendername,jdbcType=VARCHAR} , 
-    </if>
-    <if test="senderdist != null">
-      SENDERDIST = #{senderdist,jdbcType=VARCHAR} , 
-    </if>
-    <if test="sendercity != null">
-      SENDERCITY = #{sendercity,jdbcType=VARCHAR} , 
-    </if>
-    <if test="senderprovince != null">
-      SENDERPROVINCE = #{senderprovince,jdbcType=VARCHAR} , 
-    </if>
-    <if test="senderzip != null">
-      SENDERZIP = #{senderzip,jdbcType=VARCHAR} , 
-    </if>
-    <if test="sendertel != null">
-      SENDERTEL = #{sendertel,jdbcType=VARCHAR} , 
-    </if>
-    <if test="customername != null">
-      CUSTOMERNAME = #{customername,jdbcType=VARCHAR} , 
-    </if>
-    <if test="customeraddress != null">
-      CUSTOMERADDRESS = #{customeraddress,jdbcType=VARCHAR} , 
-    </if>
-    <if test="customercity != null">
-      CUSTOMERCITY = #{customercity,jdbcType=VARCHAR} , 
-    </if>
-    <if test="customercountry != null">
-      CUSTOMERCOUNTRY = #{customercountry,jdbcType=VARCHAR} , 
-    </if>
-    <if test="customerzip != null">
-      CUSTOMERZIP = #{customerzip,jdbcType=VARCHAR} , 
-    </if>
-    <if test="customertel != null">
-      CUSTOMERTEL = #{customertel,jdbcType=VARCHAR} , 
-    </if>
-    <if test="countryflag != null">
-      COUNTRYFLAG = #{countryflag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="categoryname != null">
-      CATEGORYNAME = #{categoryname,jdbcType=VARCHAR} , 
-    </if>
-    <if test="categoryenglish != null">
-      CATEGORYENGLISH = #{categoryenglish,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=DECIMAL} , 
-    </if>
-    <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=DECIMAL} , 
-    </if>
-    <if test="customerprovince != null">
-      CUSTOMERPROVINCE = #{customerprovince,jdbcType=VARCHAR} , 
-    </if>
-    <if test="moneyask != null">
-      MONEYASK = #{moneyask,jdbcType=DECIMAL} , 
-    </if>
-    <if test="moneyexpressask != null">
-      MONEYEXPRESSASK = #{moneyexpressask,jdbcType=DECIMAL} , 
-    </if>
-    <if test="ordertime != null">
-      ORDERTIME = #{ordertime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="orderweight != null">
-      ORDERWEIGHT = #{orderweight,jdbcType=DECIMAL} , 
+      sendername = #{sendername,jdbcType=VARCHAR} , 
     </if>
     <if test="senderadress != null">
-      SENDERADRESS = #{senderadress,jdbcType=LONGVARCHAR} , 
+      senderadress = #{senderadress,jdbcType=VARCHAR} , 
+    </if>
+    <if test="senderdist != null">
+      senderdist = #{senderdist,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sendercity != null">
+      sendercity = #{sendercity,jdbcType=VARCHAR} , 
+    </if>
+    <if test="senderprovince != null">
+      senderprovince = #{senderprovince,jdbcType=VARCHAR} , 
+    </if>
+    <if test="senderzip != null">
+      senderzip = #{senderzip,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sendertel != null">
+      sendertel = #{sendertel,jdbcType=VARCHAR} , 
+    </if>
+    <if test="customername != null">
+      customername = #{customername,jdbcType=VARCHAR} , 
+    </if>
+    <if test="customeraddress != null">
+      customeraddress = #{customeraddress,jdbcType=VARCHAR} , 
+    </if>
+    <if test="customercity != null">
+      customercity = #{customercity,jdbcType=VARCHAR} , 
+    </if>
+    <if test="customercountry != null">
+      customercountry = #{customercountry,jdbcType=VARCHAR} , 
+    </if>
+    <if test="customerzip != null">
+      customerzip = #{customerzip,jdbcType=VARCHAR} , 
+    </if>
+    <if test="customertel != null">
+      customertel = #{customertel,jdbcType=VARCHAR} , 
     </if>
     <if test="sellinfo != null">
-      SELLINFO = #{sellinfo,jdbcType=LONGVARCHAR} , 
+      sellinfo = #{sellinfo,jdbcType=VARCHAR} , 
+    </if>
+    <if test="countryflag != null">
+      countryflag = #{countryflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="categoryname != null">
+      categoryname = #{categoryname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="categoryenglish != null">
+      categoryenglish = #{categoryenglish,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=LONGVARCHAR} , 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=LONGVARCHAR} , 
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=LONGVARCHAR} , 
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=DECIMAL} , 
+    </if>
+    <if test="customerprovince != null">
+      customerprovince = #{customerprovince,jdbcType=VARCHAR} , 
     </if>
     <if test="customermail != null">
-      CUSTOMERMAIL = #{customermail,jdbcType=LONGVARCHAR} , 
+      customermail = #{customermail,jdbcType=VARCHAR} , 
+    </if>
+    <if test="moneyask != null">
+      moneyask = #{moneyask,jdbcType=DECIMAL} , 
+    </if>
+    <if test="moneyexpressask != null">
+      moneyexpressask = #{moneyexpressask,jdbcType=DECIMAL} , 
+    </if>
+    <if test="ordertime != null">
+      ordertime = #{ordertime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="customerfax != null">
-      CUSTOMERFAX = #{customerfax,jdbcType=LONGVARCHAR} , 
+      customerfax = #{customerfax,jdbcType=VARCHAR} , 
     </if>
     <if test="shoptypeid != null">
-      SHOPTYPEID = #{shoptypeid,jdbcType=LONGVARCHAR} , 
+      shoptypeid = #{shoptypeid,jdbcType=VARCHAR} , 
     </if>
     <if test="payid != null">
-      PAYID = #{payid,jdbcType=LONGVARCHAR} , 
+      payid = #{payid,jdbcType=VARCHAR} , 
     </if>
     <if test="expresstype != null">
-      EXPRESSTYPE = #{expresstype,jdbcType=LONGVARCHAR} , 
+      expresstype = #{expresstype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="orderweight != null">
+      orderweight = #{orderweight,jdbcType=DECIMAL} , 
     </if>
     <if test="postageservice != null">
-      POSTAGESERVICE = #{postageservice,jdbcType=LONGVARCHAR} , 
+      postageservice = #{postageservice,jdbcType=VARCHAR} , 
     </if>
     <if test="packagingname != null">
-      PACKAGINGNAME = #{packagingname,jdbcType=LONGVARCHAR} , 
+      packagingname = #{packagingname,jdbcType=VARCHAR} , 
     </if>
     <if test="oper1 != null">
-      OPER1 = #{oper1,jdbcType=LONGVARCHAR} , 
+      oper1 = #{oper1,jdbcType=VARCHAR} , 
     </if>
     <if test="storage != null">
-      STORAGE = #{storage,jdbcType=LONGVARCHAR} , 
+      storage = #{storage,jdbcType=VARCHAR} , 
     </if>
     <if test="tradeid != null">
-      TRADEID = #{tradeid,jdbcType=LONGVARCHAR}
+      tradeid = #{tradeid,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbPrinteubTemp" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

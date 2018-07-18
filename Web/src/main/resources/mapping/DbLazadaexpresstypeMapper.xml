@@ -17,16 +17,16 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select SID, NAME, SHOWNAME, SERVICENAME, OPER, OPERTIME, OPENFLAG, DESCR, RESERVE1, 
     RESERVE2, RESERVE3
-    from db_lazadaexpresstype
+    from DB_LAZADAEXPRESSTYPE
     where SID = #{sid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SID, NAME, SHOWNAME, SERVICENAME, OPER, OPERTIME, OPENFLAG, DESCR, RESERVE1, 
     RESERVE2, RESERVE3
-    from db_lazadaexpresstype
+    from DB_LAZADAEXPRESSTYPE
   </select>
   <sql id="TableName">
-    db_lazadaexpresstype
+    DB_LAZADAEXPRESSTYPE
   </sql>
   <sql id="Values">
      #{sid,jdbcType=VARCHAR} , 
@@ -39,7 +39,7 @@
      #{descr,jdbcType=VARCHAR} , 
      #{reserve1,jdbcType=VARCHAR} , 
      #{reserve2,jdbcType=VARCHAR} , 
-     #{reserve3,jdbcType=VARCHAR}
+     #{reserve3,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     SID , 
@@ -52,79 +52,79 @@
     DESCR , 
     RESERVE1 , 
     RESERVE2 , 
-    RESERVE3
+    RESERVE3 , 
   </sql>
   <sql id="Criteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} and 
+      sid = #{sid,jdbcType=VARCHAR} and 
     </if>
     <if test="name != null">
-      NAME = #{name,jdbcType=VARCHAR} and 
+      name = #{name,jdbcType=VARCHAR} and 
     </if>
     <if test="showname != null">
-      SHOWNAME = #{showname,jdbcType=VARCHAR} and 
+      showname = #{showname,jdbcType=VARCHAR} and 
     </if>
     <if test="servicename != null">
-      SERVICENAME = #{servicename,jdbcType=VARCHAR} and 
+      servicename = #{servicename,jdbcType=VARCHAR} and 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
+      oper = #{oper,jdbcType=VARCHAR} and 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
+      openflag = #{openflag,jdbcType=VARCHAR} and 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=VARCHAR} and 
+      descr = #{descr,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR}
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sid != null">
-      SID = #{sid,jdbcType=VARCHAR} , 
+      sid = #{sid,jdbcType=VARCHAR} , 
     </if>
     <if test="name != null">
-      NAME = #{name,jdbcType=VARCHAR} , 
+      name = #{name,jdbcType=VARCHAR} , 
     </if>
     <if test="showname != null">
-      SHOWNAME = #{showname,jdbcType=VARCHAR} , 
+      showname = #{showname,jdbcType=VARCHAR} , 
     </if>
     <if test="servicename != null">
-      SERVICENAME = #{servicename,jdbcType=VARCHAR} , 
+      servicename = #{servicename,jdbcType=VARCHAR} , 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
+      oper = #{oper,jdbcType=VARCHAR} , 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
+      openflag = #{openflag,jdbcType=VARCHAR} , 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=VARCHAR} , 
+      descr = #{descr,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR}
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbLazadaexpresstype" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

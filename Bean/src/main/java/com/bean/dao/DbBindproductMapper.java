@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbBindproduct;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbBindproductMapper {
-    int deleteByPrimaryKey(String sid);
+    DbBindproduct selectByCriteria(DbBindproduct DbBindproduct);
 
-    int insert(DbBindproduct record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbBindproduct record);
+    void deleteByCriteria(DbBindproduct DbBindproduct);
+
+    int insertByCriteria(DbBindproduct DbBindproduct);
+
+    int updateByCriteria(DbBindproduct DbBindproduct);
 
     DbBindproduct selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbBindproduct record);
-
-    int updateByPrimaryKeyWithBLOBs(DbBindproduct record);
-
-    int updateByPrimaryKey(DbBindproduct record);
+    List<DbBindproduct> selectAll();
 }

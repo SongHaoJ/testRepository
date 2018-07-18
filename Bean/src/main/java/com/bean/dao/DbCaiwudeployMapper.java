@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbCaiwudeploy;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbCaiwudeployMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbCaiwudeploy selectByCriteria(DbCaiwudeploy DbCaiwudeploy);
 
-    int insert(DbCaiwudeploy record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbCaiwudeploy record);
+    void deleteByCriteria(DbCaiwudeploy DbCaiwudeploy);
+
+    int insertByCriteria(DbCaiwudeploy DbCaiwudeploy);
+
+    int updateByCriteria(DbCaiwudeploy DbCaiwudeploy);
 
     DbCaiwudeploy selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbCaiwudeploy record);
-
-    int updateByPrimaryKey(DbCaiwudeploy record);
+    List<DbCaiwudeploy> selectAll();
 }

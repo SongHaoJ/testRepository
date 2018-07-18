@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbTaskkeyword;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbTaskkeywordMapper {
-    int deleteByPrimaryKey(String sid);
+    DbTaskkeyword selectByCriteria(DbTaskkeyword DbTaskkeyword);
 
-    int insert(DbTaskkeyword record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbTaskkeyword record);
+    void deleteByCriteria(DbTaskkeyword DbTaskkeyword);
+
+    int insertByCriteria(DbTaskkeyword DbTaskkeyword);
+
+    int updateByCriteria(DbTaskkeyword DbTaskkeyword);
 
     DbTaskkeyword selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbTaskkeyword record);
-
-    int updateByPrimaryKeyWithBLOBs(DbTaskkeyword record);
-
-    int updateByPrimaryKey(DbTaskkeyword record);
+    List<DbTaskkeyword> selectAll();
 }

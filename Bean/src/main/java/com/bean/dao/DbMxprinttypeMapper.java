@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbMxprinttype;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbMxprinttypeMapper {
-    int deleteByPrimaryKey(Integer id);
+    DbMxprinttype selectByCriteria(DbMxprinttype DbMxprinttype);
 
-    int insert(DbMxprinttype record);
+    void deleteByPrimaryKey(String ID);
 
-    int insertSelective(DbMxprinttype record);
+    void deleteByCriteria(DbMxprinttype DbMxprinttype);
+
+    int insertByCriteria(DbMxprinttype DbMxprinttype);
+
+    int updateByCriteria(DbMxprinttype DbMxprinttype);
 
     DbMxprinttype selectByPrimaryKey(Integer id);
 
-    int updateByPrimaryKeySelective(DbMxprinttype record);
-
-    int updateByPrimaryKey(DbMxprinttype record);
+    List<DbMxprinttype> selectAll();
 }

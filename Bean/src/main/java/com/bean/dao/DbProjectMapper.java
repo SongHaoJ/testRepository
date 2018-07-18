@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbProject;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbProjectMapper {
-    int deleteByPrimaryKey(String sid);
+    DbProject selectByCriteria(DbProject DbProject);
 
-    int insert(DbProject record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbProject record);
+    void deleteByCriteria(DbProject DbProject);
+
+    int insertByCriteria(DbProject DbProject);
+
+    int updateByCriteria(DbProject DbProject);
 
     DbProject selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbProject record);
-
-    int updateByPrimaryKeyWithBLOBs(DbProject record);
-
-    int updateByPrimaryKey(DbProject record);
+    List<DbProject> selectAll();
 }

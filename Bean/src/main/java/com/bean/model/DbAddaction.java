@@ -34,21 +34,21 @@ public class DbAddaction implements Serializable {
 
     private String function14;
 
+    private String sqlwhere;
+
     private String function1;
 
     private String function10;
 
     private String searchid;
 
+    private String descr;
+
     private String functionid;
 
     private String function15;
 
     private String function5;
-
-    private String sqlwhere;
-
-    private String descr;
 
     private static final long serialVersionUID = 1L;
 
@@ -172,6 +172,14 @@ public class DbAddaction implements Serializable {
         this.function14 = function14 == null ? null : function14.trim();
     }
 
+    public String getSqlwhere() {
+        return sqlwhere;
+    }
+
+    public void setSqlwhere(String sqlwhere) {
+        this.sqlwhere = sqlwhere == null ? null : sqlwhere.trim();
+    }
+
     public String getFunction1() {
         return function1;
     }
@@ -196,6 +204,14 @@ public class DbAddaction implements Serializable {
         this.searchid = searchid == null ? null : searchid.trim();
     }
 
+    public String getDescr() {
+        return descr;
+    }
+
+    public void setDescr(String descr) {
+        this.descr = descr == null ? null : descr.trim();
+    }
+
     public String getFunctionid() {
         return functionid;
     }
@@ -218,22 +234,6 @@ public class DbAddaction implements Serializable {
 
     public void setFunction5(String function5) {
         this.function5 = function5 == null ? null : function5.trim();
-    }
-
-    public String getSqlwhere() {
-        return sqlwhere;
-    }
-
-    public void setSqlwhere(String sqlwhere) {
-        this.sqlwhere = sqlwhere == null ? null : sqlwhere.trim();
-    }
-
-    public String getDescr() {
-        return descr;
-    }
-
-    public void setDescr(String descr) {
-        this.descr = descr == null ? null : descr.trim();
     }
 
     @Override
@@ -263,14 +263,14 @@ public class DbAddaction implements Serializable {
             && (this.getFunction2() == null ? other.getFunction2() == null : this.getFunction2().equals(other.getFunction2()))
             && (this.getFunction4() == null ? other.getFunction4() == null : this.getFunction4().equals(other.getFunction4()))
             && (this.getFunction14() == null ? other.getFunction14() == null : this.getFunction14().equals(other.getFunction14()))
+            && (this.getSqlwhere() == null ? other.getSqlwhere() == null : this.getSqlwhere().equals(other.getSqlwhere()))
             && (this.getFunction1() == null ? other.getFunction1() == null : this.getFunction1().equals(other.getFunction1()))
             && (this.getFunction10() == null ? other.getFunction10() == null : this.getFunction10().equals(other.getFunction10()))
             && (this.getSearchid() == null ? other.getSearchid() == null : this.getSearchid().equals(other.getSearchid()))
+            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
             && (this.getFunctionid() == null ? other.getFunctionid() == null : this.getFunctionid().equals(other.getFunctionid()))
             && (this.getFunction15() == null ? other.getFunction15() == null : this.getFunction15().equals(other.getFunction15()))
-            && (this.getFunction5() == null ? other.getFunction5() == null : this.getFunction5().equals(other.getFunction5()))
-            && (this.getSqlwhere() == null ? other.getSqlwhere() == null : this.getSqlwhere().equals(other.getSqlwhere()))
-            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()));
+            && (this.getFunction5() == null ? other.getFunction5() == null : this.getFunction5().equals(other.getFunction5()));
     }
 
     @Override
@@ -292,14 +292,14 @@ public class DbAddaction implements Serializable {
         result = prime * result + ((getFunction2() == null) ? 0 : getFunction2().hashCode());
         result = prime * result + ((getFunction4() == null) ? 0 : getFunction4().hashCode());
         result = prime * result + ((getFunction14() == null) ? 0 : getFunction14().hashCode());
+        result = prime * result + ((getSqlwhere() == null) ? 0 : getSqlwhere().hashCode());
         result = prime * result + ((getFunction1() == null) ? 0 : getFunction1().hashCode());
         result = prime * result + ((getFunction10() == null) ? 0 : getFunction10().hashCode());
         result = prime * result + ((getSearchid() == null) ? 0 : getSearchid().hashCode());
+        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
         result = prime * result + ((getFunctionid() == null) ? 0 : getFunctionid().hashCode());
         result = prime * result + ((getFunction15() == null) ? 0 : getFunction15().hashCode());
         result = prime * result + ((getFunction5() == null) ? 0 : getFunction5().hashCode());
-        result = prime * result + ((getSqlwhere() == null) ? 0 : getSqlwhere().hashCode());
-        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
         return result;
     }
 
@@ -324,14 +324,14 @@ public class DbAddaction implements Serializable {
         sb.append(", function2=").append(function2);
         sb.append(", function4=").append(function4);
         sb.append(", function14=").append(function14);
+        sb.append(", sqlwhere=").append(sqlwhere);
         sb.append(", function1=").append(function1);
         sb.append(", function10=").append(function10);
         sb.append(", searchid=").append(searchid);
+        sb.append(", descr=").append(descr);
         sb.append(", functionid=").append(functionid);
         sb.append(", function15=").append(function15);
         sb.append(", function5=").append(function5);
-        sb.append(", sqlwhere=").append(sqlwhere);
-        sb.append(", descr=").append(descr);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbShopifyitemMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbShopifyitem">
+    <id column="SID" jdbcType="DECIMAL" property="sid" />
+    <result column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="ORDERID" jdbcType="VARCHAR" property="orderid" />
+    <result column="VARIANT_ID" jdbcType="VARCHAR" property="variantId" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="QUANTITY" jdbcType="DECIMAL" property="quantity" />
+    <result column="PRICE" jdbcType="DECIMAL" property="price" />
+    <result column="SKU" jdbcType="VARCHAR" property="sku" />
+    <result column="VARIANT_TITLE" jdbcType="VARCHAR" property="variantTitle" />
+    <result column="FULFILLMENT_SERVICE" jdbcType="VARCHAR" property="fulfillmentService" />
+    <result column="PRODUCT_ID" jdbcType="VARCHAR" property="productId" />
+    <result column="REQUIRES_SHIPPING" jdbcType="VARCHAR" property="requiresShipping" />
+    <result column="GIFT_CARD" jdbcType="VARCHAR" property="giftCard" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="TOTAL_DISCOUNT" jdbcType="DECIMAL" property="totalDiscount" />
+    <result column="PICTURE_URL" jdbcType="VARCHAR" property="pictureUrl" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select SID, ID, ORDERID, VARIANT_ID, TITLE, QUANTITY, PRICE, SKU, VARIANT_TITLE, 
+    FULFILLMENT_SERVICE, PRODUCT_ID, REQUIRES_SHIPPING, GIFT_CARD, NAME, TOTAL_DISCOUNT, 
+    PICTURE_URL
+    from DB_SHOPIFYITEM
+    where SID = #{sid,jdbcType=DECIMAL}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, ID, ORDERID, VARIANT_ID, TITLE, QUANTITY, PRICE, SKU, VARIANT_TITLE, 
+    FULFILLMENT_SERVICE, PRODUCT_ID, REQUIRES_SHIPPING, GIFT_CARD, NAME, TOTAL_DISCOUNT, 
+    PICTURE_URL
+    from DB_SHOPIFYITEM
+  </select>
+  <sql id="TableName">
+    DB_SHOPIFYITEM
+  </sql>
+  <sql id="Values">
+     #{sid,jdbcType=DECIMAL} , 
+     #{id,jdbcType=DECIMAL} , 
+     #{orderid,jdbcType=VARCHAR} , 
+     #{variant_id,jdbcType=VARCHAR} , 
+     #{title,jdbcType=VARCHAR} , 
+     #{quantity,jdbcType=DECIMAL} , 
+     #{price,jdbcType=DECIMAL} , 
+     #{sku,jdbcType=VARCHAR} , 
+     #{variant_title,jdbcType=VARCHAR} , 
+     #{fulfillment_service,jdbcType=VARCHAR} , 
+     #{product_id,jdbcType=VARCHAR} , 
+     #{requires_shipping,jdbcType=VARCHAR} , 
+     #{gift_card,jdbcType=VARCHAR} , 
+     #{name,jdbcType=VARCHAR} , 
+     #{total_discount,jdbcType=DECIMAL} , 
+     #{picture_url,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    SID , 
+    ID , 
+    ORDERID , 
+    VARIANT_ID , 
+    TITLE , 
+    QUANTITY , 
+    PRICE , 
+    SKU , 
+    VARIANT_TITLE , 
+    FULFILLMENT_SERVICE , 
+    PRODUCT_ID , 
+    REQUIRES_SHIPPING , 
+    GIFT_CARD , 
+    NAME , 
+    TOTAL_DISCOUNT , 
+    PICTURE_URL , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="id != null">
+      id = #{id,jdbcType=DECIMAL} and 
+    </if>
+    <if test="orderid != null">
+      orderid = #{orderid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="variant_id != null">
+      variant_id = #{variant_id,jdbcType=VARCHAR} and 
+    </if>
+    <if test="title != null">
+      title = #{title,jdbcType=VARCHAR} and 
+    </if>
+    <if test="quantity != null">
+      quantity = #{quantity,jdbcType=DECIMAL} and 
+    </if>
+    <if test="price != null">
+      price = #{price,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sku != null">
+      sku = #{sku,jdbcType=VARCHAR} and 
+    </if>
+    <if test="variant_title != null">
+      variant_title = #{variant_title,jdbcType=VARCHAR} and 
+    </if>
+    <if test="fulfillment_service != null">
+      fulfillment_service = #{fulfillment_service,jdbcType=VARCHAR} and 
+    </if>
+    <if test="product_id != null">
+      product_id = #{product_id,jdbcType=VARCHAR} and 
+    </if>
+    <if test="requires_shipping != null">
+      requires_shipping = #{requires_shipping,jdbcType=VARCHAR} and 
+    </if>
+    <if test="gift_card != null">
+      gift_card = #{gift_card,jdbcType=VARCHAR} and 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} and 
+    </if>
+    <if test="total_discount != null">
+      total_discount = #{total_discount,jdbcType=DECIMAL} and 
+    </if>
+    <if test="picture_url != null">
+      picture_url = #{picture_url,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="id != null">
+      id = #{id,jdbcType=DECIMAL} , 
+    </if>
+    <if test="orderid != null">
+      orderid = #{orderid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="variant_id != null">
+      variant_id = #{variant_id,jdbcType=VARCHAR} , 
+    </if>
+    <if test="title != null">
+      title = #{title,jdbcType=VARCHAR} , 
+    </if>
+    <if test="quantity != null">
+      quantity = #{quantity,jdbcType=DECIMAL} , 
+    </if>
+    <if test="price != null">
+      price = #{price,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sku != null">
+      sku = #{sku,jdbcType=VARCHAR} , 
+    </if>
+    <if test="variant_title != null">
+      variant_title = #{variant_title,jdbcType=VARCHAR} , 
+    </if>
+    <if test="fulfillment_service != null">
+      fulfillment_service = #{fulfillment_service,jdbcType=VARCHAR} , 
+    </if>
+    <if test="product_id != null">
+      product_id = #{product_id,jdbcType=VARCHAR} , 
+    </if>
+    <if test="requires_shipping != null">
+      requires_shipping = #{requires_shipping,jdbcType=VARCHAR} , 
+    </if>
+    <if test="gift_card != null">
+      gift_card = #{gift_card,jdbcType=VARCHAR} , 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} , 
+    </if>
+    <if test="total_discount != null">
+      total_discount = #{total_discount,jdbcType=DECIMAL} , 
+    </if>
+    <if test="picture_url != null">
+      picture_url = #{picture_url,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbShopifyitem" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="Long">
+    delete from <include refid="TableName"/> where SID=#{SID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbShopifyitem">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbShopifyitem">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbShopifyitem">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

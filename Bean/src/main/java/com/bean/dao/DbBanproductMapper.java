@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbBanproduct;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbBanproductMapper {
-    int deleteByPrimaryKey(String sid);
+    DbBanproduct selectByCriteria(DbBanproduct DbBanproduct);
 
-    int insert(DbBanproduct record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbBanproduct record);
+    void deleteByCriteria(DbBanproduct DbBanproduct);
+
+    int insertByCriteria(DbBanproduct DbBanproduct);
+
+    int updateByCriteria(DbBanproduct DbBanproduct);
 
     DbBanproduct selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbBanproduct record);
-
-    int updateByPrimaryKeyWithBLOBs(DbBanproduct record);
-
-    int updateByPrimaryKey(DbBanproduct record);
+    List<DbBanproduct> selectAll();
 }

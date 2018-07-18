@@ -4,6 +4,7 @@
   <resultMap id="BaseResultMap" type="com.bean.model.DbPublishpicture">
     <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
     <result column="PRODUCTID" jdbcType="VARCHAR" property="productid" />
+    <result column="PICTUREURL" jdbcType="VARCHAR" property="pictureurl" />
     <result column="ATTRIBUTE" jdbcType="VARCHAR" property="attribute" />
     <result column="PLATFORMID" jdbcType="VARCHAR" property="platformid" />
     <result column="PLATFORMNAME" jdbcType="VARCHAR" property="platformname" />
@@ -19,27 +20,27 @@
     <result column="ATTRIBUTEID" jdbcType="VARCHAR" property="attributeid" />
     <result column="USEING" jdbcType="VARCHAR" property="useing" />
     <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
-    <result column="PICTUREURL" jdbcType="LONGVARCHAR" property="pictureurl" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select SEQUENCEID, PRODUCTID, ATTRIBUTE, PLATFORMID, PLATFORMNAME, FLAG, SHOPTYPEID, 
-    SHOPTYPENAME, CORPID, OPERNFLAG, OPER, OPERTIME, CREATEOPER, CREATETIME, ATTRIBUTEID, 
-    USEING, OPENFLAG, PICTUREURL
-    from db_publishpicture
+    select SEQUENCEID, PRODUCTID, PICTUREURL, ATTRIBUTE, PLATFORMID, PLATFORMNAME, FLAG, 
+    SHOPTYPEID, SHOPTYPENAME, CORPID, OPERNFLAG, OPER, OPERTIME, CREATEOPER, CREATETIME, 
+    ATTRIBUTEID, USEING, OPENFLAG
+    from DB_PUBLISHPICTURE
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select SEQUENCEID, PRODUCTID, ATTRIBUTE, PLATFORMID, PLATFORMNAME, FLAG, SHOPTYPEID, 
-    SHOPTYPENAME, CORPID, OPERNFLAG, OPER, OPERTIME, CREATEOPER, CREATETIME, ATTRIBUTEID, 
-    USEING, OPENFLAG, PICTUREURL
-    from db_publishpicture
+    select SEQUENCEID, PRODUCTID, PICTUREURL, ATTRIBUTE, PLATFORMID, PLATFORMNAME, FLAG, 
+    SHOPTYPEID, SHOPTYPENAME, CORPID, OPERNFLAG, OPER, OPERTIME, CREATEOPER, CREATETIME, 
+    ATTRIBUTEID, USEING, OPENFLAG
+    from DB_PUBLISHPICTURE
   </select>
   <sql id="TableName">
-    db_publishpicture
+    DB_PUBLISHPICTURE
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=VARCHAR} , 
      #{productid,jdbcType=VARCHAR} , 
+     #{pictureurl,jdbcType=VARCHAR} , 
      #{attribute,jdbcType=VARCHAR} , 
      #{platformid,jdbcType=VARCHAR} , 
      #{platformname,jdbcType=VARCHAR} , 
@@ -55,11 +56,11 @@
      #{attributeid,jdbcType=VARCHAR} , 
      #{useing,jdbcType=VARCHAR} , 
      #{openflag,jdbcType=VARCHAR} , 
-     #{pictureurl,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
     PRODUCTID , 
+    PICTUREURL , 
     ATTRIBUTE , 
     PLATFORMID , 
     PLATFORMNAME , 
@@ -75,121 +76,120 @@
     ATTRIBUTEID , 
     USEING , 
     OPENFLAG , 
-    PICTUREURL
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
     </if>
     <if test="productid != null">
-      PRODUCTID = #{productid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="attribute != null">
-      ATTRIBUTE = #{attribute,jdbcType=VARCHAR} and 
-    </if>
-    <if test="platformid != null">
-      PLATFORMID = #{platformid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="platformname != null">
-      PLATFORMNAME = #{platformname,jdbcType=VARCHAR} and 
-    </if>
-    <if test="flag != null">
-      FLAG = #{flag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="shoptypeid != null">
-      SHOPTYPEID = #{shoptypeid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="shoptypename != null">
-      SHOPTYPENAME = #{shoptypename,jdbcType=VARCHAR} and 
-    </if>
-    <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="opernflag != null">
-      OPERNFLAG = #{opernflag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="createoper != null">
-      CREATEOPER = #{createoper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="createtime != null">
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="attributeid != null">
-      ATTRIBUTEID = #{attributeid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="useing != null">
-      USEING = #{useing,jdbcType=VARCHAR} and 
-    </if>
-    <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
+      productid = #{productid,jdbcType=VARCHAR} and 
     </if>
     <if test="pictureurl != null">
-      PICTUREURL = #{pictureurl,jdbcType=LONGVARCHAR}
+      pictureurl = #{pictureurl,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="attribute != null">
+      attribute = #{attribute,jdbcType=VARCHAR} and 
+    </if>
+    <if test="platformid != null">
+      platformid = #{platformid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="platformname != null">
+      platformname = #{platformname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shoptypeid != null">
+      shoptypeid = #{shoptypeid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shoptypename != null">
+      shoptypename = #{shoptypename,jdbcType=VARCHAR} and 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opernflag != null">
+      opernflag = #{opernflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="createoper != null">
+      createoper = #{createoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="attributeid != null">
+      attributeid = #{attributeid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="useing != null">
+      useing = #{useing,jdbcType=VARCHAR} and 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
     </if>
     <if test="productid != null">
-      PRODUCTID = #{productid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="attribute != null">
-      ATTRIBUTE = #{attribute,jdbcType=VARCHAR} , 
-    </if>
-    <if test="platformid != null">
-      PLATFORMID = #{platformid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="platformname != null">
-      PLATFORMNAME = #{platformname,jdbcType=VARCHAR} , 
-    </if>
-    <if test="flag != null">
-      FLAG = #{flag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="shoptypeid != null">
-      SHOPTYPEID = #{shoptypeid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="shoptypename != null">
-      SHOPTYPENAME = #{shoptypename,jdbcType=VARCHAR} , 
-    </if>
-    <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="opernflag != null">
-      OPERNFLAG = #{opernflag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="createoper != null">
-      CREATEOPER = #{createoper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="createtime != null">
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="attributeid != null">
-      ATTRIBUTEID = #{attributeid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="useing != null">
-      USEING = #{useing,jdbcType=VARCHAR} , 
-    </if>
-    <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
+      productid = #{productid,jdbcType=VARCHAR} , 
     </if>
     <if test="pictureurl != null">
-      PICTUREURL = #{pictureurl,jdbcType=LONGVARCHAR}
+      pictureurl = #{pictureurl,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="attribute != null">
+      attribute = #{attribute,jdbcType=VARCHAR} , 
+    </if>
+    <if test="platformid != null">
+      platformid = #{platformid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="platformname != null">
+      platformname = #{platformname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shoptypeid != null">
+      shoptypeid = #{shoptypeid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shoptypename != null">
+      shoptypename = #{shoptypename,jdbcType=VARCHAR} , 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opernflag != null">
+      opernflag = #{opernflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="createoper != null">
+      createoper = #{createoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="attributeid != null">
+      attributeid = #{attributeid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="useing != null">
+      useing = #{useing,jdbcType=VARCHAR} , 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbPublishpicture" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

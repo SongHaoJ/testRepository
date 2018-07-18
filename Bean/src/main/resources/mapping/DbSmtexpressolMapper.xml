@@ -7,178 +7,138 @@
     <result column="NAMEEN" jdbcType="VARCHAR" property="nameen" />
     <result column="COUNTRY" jdbcType="VARCHAR" property="country" />
     <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
+    <result column="ADDRESS" jdbcType="VARCHAR" property="address" />
     <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
     <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
     <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
     <result column="WAREHOUSECODE" jdbcType="VARCHAR" property="warehousecode" />
     <result column="ORDERTYPE" jdbcType="VARCHAR" property="ordertype" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbSmtexpressol">
-    <result column="ADDRESS" jdbcType="LONGVARCHAR" property="address" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    CODE, NAMECN, NAMEEN, COUNTRY, OPENFLAG, RESERVE1, RESERVE2, RESERVE3, WAREHOUSECODE, 
-    ORDERTYPE
-  </sql>
-  <sql id="Blob_Column_List">
-    ADDRESS
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from db_smtexpressol
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select CODE, NAMECN, NAMEEN, COUNTRY, OPENFLAG, ADDRESS, RESERVE1, RESERVE2, RESERVE3, 
+    WAREHOUSECODE, ORDERTYPE
+    from DB_SMTEXPRESSOL
     where CODE = #{code,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_smtexpressol
-    where CODE = #{code,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select CODE, NAMECN, NAMEEN, COUNTRY, OPENFLAG, ADDRESS, RESERVE1, RESERVE2, RESERVE3, 
+    WAREHOUSECODE, ORDERTYPE
+    from DB_SMTEXPRESSOL
+  </select>
+  <sql id="TableName">
+    DB_SMTEXPRESSOL
+  </sql>
+  <sql id="Values">
+     #{code,jdbcType=VARCHAR} , 
+     #{namecn,jdbcType=VARCHAR} , 
+     #{nameen,jdbcType=VARCHAR} , 
+     #{country,jdbcType=VARCHAR} , 
+     #{openflag,jdbcType=VARCHAR} , 
+     #{address,jdbcType=VARCHAR} , 
+     #{reserve1,jdbcType=VARCHAR} , 
+     #{reserve2,jdbcType=VARCHAR} , 
+     #{reserve3,jdbcType=VARCHAR} , 
+     #{warehousecode,jdbcType=VARCHAR} , 
+     #{ordertype,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    CODE , 
+    NAMECN , 
+    NAMEEN , 
+    COUNTRY , 
+    OPENFLAG , 
+    ADDRESS , 
+    RESERVE1 , 
+    RESERVE2 , 
+    RESERVE3 , 
+    WAREHOUSECODE , 
+    ORDERTYPE , 
+  </sql>
+  <sql id="Criteria">
+    <if test="code != null">
+      code = #{code,jdbcType=VARCHAR} and 
+    </if>
+    <if test="namecn != null">
+      namecn = #{namecn,jdbcType=VARCHAR} and 
+    </if>
+    <if test="nameen != null">
+      nameen = #{nameen,jdbcType=VARCHAR} and 
+    </if>
+    <if test="country != null">
+      country = #{country,jdbcType=VARCHAR} and 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="address != null">
+      address = #{address,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="warehousecode != null">
+      warehousecode = #{warehousecode,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ordertype != null">
+      ordertype = #{ordertype,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="code != null">
+      code = #{code,jdbcType=VARCHAR} , 
+    </if>
+    <if test="namecn != null">
+      namecn = #{namecn,jdbcType=VARCHAR} , 
+    </if>
+    <if test="nameen != null">
+      nameen = #{nameen,jdbcType=VARCHAR} , 
+    </if>
+    <if test="country != null">
+      country = #{country,jdbcType=VARCHAR} , 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="address != null">
+      address = #{address,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="warehousecode != null">
+      warehousecode = #{warehousecode,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ordertype != null">
+      ordertype = #{ordertype,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbSmtexpressol" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where CODE=#{CODE}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbSmtexpressol">
-    insert into db_smtexpressol (CODE, NAMECN, NAMEEN, 
-      COUNTRY, OPENFLAG, RESERVE1, 
-      RESERVE2, RESERVE3, WAREHOUSECODE, 
-      ORDERTYPE, ADDRESS)
-    values (#{code,jdbcType=VARCHAR}, #{namecn,jdbcType=VARCHAR}, #{nameen,jdbcType=VARCHAR}, 
-      #{country,jdbcType=VARCHAR}, #{openflag,jdbcType=VARCHAR}, #{reserve1,jdbcType=VARCHAR}, 
-      #{reserve2,jdbcType=VARCHAR}, #{reserve3,jdbcType=VARCHAR}, #{warehousecode,jdbcType=VARCHAR}, 
-      #{ordertype,jdbcType=VARCHAR}, #{address,jdbcType=LONGVARCHAR})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbSmtexpressol">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbSmtexpressol">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbSmtexpressol">
-    insert into db_smtexpressol
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="code != null">
-        CODE,
-      </if>
-      <if test="namecn != null">
-        NAMECN,
-      </if>
-      <if test="nameen != null">
-        NAMEEN,
-      </if>
-      <if test="country != null">
-        COUNTRY,
-      </if>
-      <if test="openflag != null">
-        OPENFLAG,
-      </if>
-      <if test="reserve1 != null">
-        RESERVE1,
-      </if>
-      <if test="reserve2 != null">
-        RESERVE2,
-      </if>
-      <if test="reserve3 != null">
-        RESERVE3,
-      </if>
-      <if test="warehousecode != null">
-        WAREHOUSECODE,
-      </if>
-      <if test="ordertype != null">
-        ORDERTYPE,
-      </if>
-      <if test="address != null">
-        ADDRESS,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="code != null">
-        #{code,jdbcType=VARCHAR},
-      </if>
-      <if test="namecn != null">
-        #{namecn,jdbcType=VARCHAR},
-      </if>
-      <if test="nameen != null">
-        #{nameen,jdbcType=VARCHAR},
-      </if>
-      <if test="country != null">
-        #{country,jdbcType=VARCHAR},
-      </if>
-      <if test="openflag != null">
-        #{openflag,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve1 != null">
-        #{reserve1,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve2 != null">
-        #{reserve2,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve3 != null">
-        #{reserve3,jdbcType=VARCHAR},
-      </if>
-      <if test="warehousecode != null">
-        #{warehousecode,jdbcType=VARCHAR},
-      </if>
-      <if test="ordertype != null">
-        #{ordertype,jdbcType=VARCHAR},
-      </if>
-      <if test="address != null">
-        #{address,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbSmtexpressol">
-    update db_smtexpressol
-    <set>
-      <if test="namecn != null">
-        NAMECN = #{namecn,jdbcType=VARCHAR},
-      </if>
-      <if test="nameen != null">
-        NAMEEN = #{nameen,jdbcType=VARCHAR},
-      </if>
-      <if test="country != null">
-        COUNTRY = #{country,jdbcType=VARCHAR},
-      </if>
-      <if test="openflag != null">
-        OPENFLAG = #{openflag,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve1 != null">
-        RESERVE1 = #{reserve1,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve2 != null">
-        RESERVE2 = #{reserve2,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve3 != null">
-        RESERVE3 = #{reserve3,jdbcType=VARCHAR},
-      </if>
-      <if test="warehousecode != null">
-        WAREHOUSECODE = #{warehousecode,jdbcType=VARCHAR},
-      </if>
-      <if test="ordertype != null">
-        ORDERTYPE = #{ordertype,jdbcType=VARCHAR},
-      </if>
-      <if test="address != null">
-        ADDRESS = #{address,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where CODE = #{code,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbSmtexpressol">
-    update db_smtexpressol
-    set NAMECN = #{namecn,jdbcType=VARCHAR},
-      NAMEEN = #{nameen,jdbcType=VARCHAR},
-      COUNTRY = #{country,jdbcType=VARCHAR},
-      OPENFLAG = #{openflag,jdbcType=VARCHAR},
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR},
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR},
-      WAREHOUSECODE = #{warehousecode,jdbcType=VARCHAR},
-      ORDERTYPE = #{ordertype,jdbcType=VARCHAR},
-      ADDRESS = #{address,jdbcType=LONGVARCHAR}
-    where CODE = #{code,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbSmtexpressol">
-    update db_smtexpressol
-    set NAMECN = #{namecn,jdbcType=VARCHAR},
-      NAMEEN = #{nameen,jdbcType=VARCHAR},
-      COUNTRY = #{country,jdbcType=VARCHAR},
-      OPENFLAG = #{openflag,jdbcType=VARCHAR},
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR},
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR},
-      WAREHOUSECODE = #{warehousecode,jdbcType=VARCHAR},
-      ORDERTYPE = #{ordertype,jdbcType=VARCHAR}
-    where CODE = #{code,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbSmtexpressol">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

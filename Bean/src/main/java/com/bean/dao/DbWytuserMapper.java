@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbWytuser;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbWytuserMapper {
-    int deleteByPrimaryKey(String sid);
+    DbWytuser selectByCriteria(DbWytuser DbWytuser);
 
-    int insert(DbWytuser record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbWytuser record);
+    void deleteByCriteria(DbWytuser DbWytuser);
+
+    int insertByCriteria(DbWytuser DbWytuser);
+
+    int updateByCriteria(DbWytuser DbWytuser);
 
     DbWytuser selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbWytuser record);
-
-    int updateByPrimaryKeyWithBLOBs(DbWytuser record);
-
-    int updateByPrimaryKey(DbWytuser record);
+    List<DbWytuser> selectAll();
 }

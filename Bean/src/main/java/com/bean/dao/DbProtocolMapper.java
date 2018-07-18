@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbProtocol;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbProtocolMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbProtocol selectByCriteria(DbProtocol DbProtocol);
 
-    int insert(DbProtocol record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbProtocol record);
+    void deleteByCriteria(DbProtocol DbProtocol);
+
+    int insertByCriteria(DbProtocol DbProtocol);
+
+    int updateByCriteria(DbProtocol DbProtocol);
 
     DbProtocol selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbProtocol record);
-
-    int updateByPrimaryKeyWithBLOBs(DbProtocol record);
-
-    int updateByPrimaryKey(DbProtocol record);
+    List<DbProtocol> selectAll();
 }

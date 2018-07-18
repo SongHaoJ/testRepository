@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbMuliproduct;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbMuliproductMapper {
-    int deleteByPrimaryKey(Integer id);
+    DbMuliproduct selectByCriteria(DbMuliproduct DbMuliproduct);
 
-    int insert(DbMuliproduct record);
+    void deleteByPrimaryKey(String ID);
 
-    int insertSelective(DbMuliproduct record);
+    void deleteByCriteria(DbMuliproduct DbMuliproduct);
+
+    int insertByCriteria(DbMuliproduct DbMuliproduct);
+
+    int updateByCriteria(DbMuliproduct DbMuliproduct);
 
     DbMuliproduct selectByPrimaryKey(Integer id);
 
-    int updateByPrimaryKeySelective(DbMuliproduct record);
-
-    int updateByPrimaryKey(DbMuliproduct record);
+    List<DbMuliproduct> selectAll();
 }

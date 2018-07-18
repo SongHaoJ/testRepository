@@ -12,130 +12,115 @@
     <result column="CORPID" jdbcType="VARCHAR" property="corpid" />
     <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
   </resultMap>
-  <sql id="Base_Column_List">
-    SEQUENCEID, EBAYIDMANAGEID, ACTIVITY, ITEMS, AMOUNT, OPER, OPERTIME, CORPID, OPENFLAG
-  </sql>
   <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from db_ebaylimit
+    select SEQUENCEID, EBAYIDMANAGEID, ACTIVITY, ITEMS, AMOUNT, OPER, OPERTIME, CORPID, 
+    OPENFLAG
+    from DB_EBAYLIMIT
     where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
-    delete from db_ebaylimit
-    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SEQUENCEID, EBAYIDMANAGEID, ACTIVITY, ITEMS, AMOUNT, OPER, OPERTIME, CORPID, 
+    OPENFLAG
+    from DB_EBAYLIMIT
+  </select>
+  <sql id="TableName">
+    DB_EBAYLIMIT
+  </sql>
+  <sql id="Values">
+     #{sequenceid,jdbcType=DECIMAL} , 
+     #{ebayidmanageid,jdbcType=DECIMAL} , 
+     #{activity,jdbcType=VARCHAR} , 
+     #{items,jdbcType=VARCHAR} , 
+     #{amount,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{corpid,jdbcType=VARCHAR} , 
+     #{openflag,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    SEQUENCEID , 
+    EBAYIDMANAGEID , 
+    ACTIVITY , 
+    ITEMS , 
+    AMOUNT , 
+    OPER , 
+    OPERTIME , 
+    CORPID , 
+    OPENFLAG , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="ebayidmanageid != null">
+      ebayidmanageid = #{ebayidmanageid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="activity != null">
+      activity = #{activity,jdbcType=VARCHAR} and 
+    </if>
+    <if test="items != null">
+      items = #{items,jdbcType=VARCHAR} and 
+    </if>
+    <if test="amount != null">
+      amount = #{amount,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sequenceid != null">
+      sequenceid = #{sequenceid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="ebayidmanageid != null">
+      ebayidmanageid = #{ebayidmanageid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="activity != null">
+      activity = #{activity,jdbcType=VARCHAR} , 
+    </if>
+    <if test="items != null">
+      items = #{items,jdbcType=VARCHAR} , 
+    </if>
+    <if test="amount != null">
+      amount = #{amount,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="openflag != null">
+      openflag = #{openflag,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbEbaylimit" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="BigDecimal">
+    delete from <include refid="TableName"/> where SEQUENCEID=#{SEQUENCEID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbEbaylimit">
-    insert into db_ebaylimit (SEQUENCEID, EBAYIDMANAGEID, ACTIVITY, 
-      ITEMS, AMOUNT, OPER, 
-      OPERTIME, CORPID, OPENFLAG
-      )
-    values (#{sequenceid,jdbcType=DECIMAL}, #{ebayidmanageid,jdbcType=DECIMAL}, #{activity,jdbcType=VARCHAR}, 
-      #{items,jdbcType=VARCHAR}, #{amount,jdbcType=VARCHAR}, #{oper,jdbcType=VARCHAR}, 
-      #{opertime,jdbcType=TIMESTAMP}, #{corpid,jdbcType=VARCHAR}, #{openflag,jdbcType=VARCHAR}
-      )
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbEbaylimit">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbEbaylimit">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbEbaylimit">
-    insert into db_ebaylimit
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        SEQUENCEID,
-      </if>
-      <if test="ebayidmanageid != null">
-        EBAYIDMANAGEID,
-      </if>
-      <if test="activity != null">
-        ACTIVITY,
-      </if>
-      <if test="items != null">
-        ITEMS,
-      </if>
-      <if test="amount != null">
-        AMOUNT,
-      </if>
-      <if test="oper != null">
-        OPER,
-      </if>
-      <if test="opertime != null">
-        OPERTIME,
-      </if>
-      <if test="corpid != null">
-        CORPID,
-      </if>
-      <if test="openflag != null">
-        OPENFLAG,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sequenceid != null">
-        #{sequenceid,jdbcType=DECIMAL},
-      </if>
-      <if test="ebayidmanageid != null">
-        #{ebayidmanageid,jdbcType=DECIMAL},
-      </if>
-      <if test="activity != null">
-        #{activity,jdbcType=VARCHAR},
-      </if>
-      <if test="items != null">
-        #{items,jdbcType=VARCHAR},
-      </if>
-      <if test="amount != null">
-        #{amount,jdbcType=VARCHAR},
-      </if>
-      <if test="oper != null">
-        #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="corpid != null">
-        #{corpid,jdbcType=VARCHAR},
-      </if>
-      <if test="openflag != null">
-        #{openflag,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbEbaylimit">
-    update db_ebaylimit
-    <set>
-      <if test="ebayidmanageid != null">
-        EBAYIDMANAGEID = #{ebayidmanageid,jdbcType=DECIMAL},
-      </if>
-      <if test="activity != null">
-        ACTIVITY = #{activity,jdbcType=VARCHAR},
-      </if>
-      <if test="items != null">
-        ITEMS = #{items,jdbcType=VARCHAR},
-      </if>
-      <if test="amount != null">
-        AMOUNT = #{amount,jdbcType=VARCHAR},
-      </if>
-      <if test="oper != null">
-        OPER = #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="opertime != null">
-        OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="corpid != null">
-        CORPID = #{corpid,jdbcType=VARCHAR},
-      </if>
-      <if test="openflag != null">
-        OPENFLAG = #{openflag,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbEbaylimit">
-    update db_ebaylimit
-    set EBAYIDMANAGEID = #{ebayidmanageid,jdbcType=DECIMAL},
-      ACTIVITY = #{activity,jdbcType=VARCHAR},
-      ITEMS = #{items,jdbcType=VARCHAR},
-      AMOUNT = #{amount,jdbcType=VARCHAR},
-      OPER = #{oper,jdbcType=VARCHAR},
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP},
-      CORPID = #{corpid,jdbcType=VARCHAR},
-      OPENFLAG = #{openflag,jdbcType=VARCHAR}
-    where SEQUENCEID = #{sequenceid,jdbcType=DECIMAL}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbEbaylimit">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

@@ -1,9 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbProductdevelopgroupid;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbProductdevelopgroupidMapper {
-    int insert(DbProductdevelopgroupid record);
+    DbProductdevelopgroupid selectByCriteria(DbProductdevelopgroupid DbProductdevelopgroupid);
 
-    int insertSelective(DbProductdevelopgroupid record);
+    void deleteByPrimaryKey(String GROUPID);
+
+    void deleteByCriteria(DbProductdevelopgroupid DbProductdevelopgroupid);
+
+    int insertByCriteria(DbProductdevelopgroupid DbProductdevelopgroupid);
+
+    int updateByCriteria(DbProductdevelopgroupid DbProductdevelopgroupid);
+
+    DbProductdevelopgroupid selectByPrimaryKey(String groupid);
+
+    List<DbProductdevelopgroupid> selectAll();
 }

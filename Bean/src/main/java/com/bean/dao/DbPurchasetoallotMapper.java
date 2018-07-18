@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbPurchasetoallot;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbPurchasetoallotMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbPurchasetoallot selectByCriteria(DbPurchasetoallot DbPurchasetoallot);
 
-    int insert(DbPurchasetoallot record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbPurchasetoallot record);
+    void deleteByCriteria(DbPurchasetoallot DbPurchasetoallot);
+
+    int insertByCriteria(DbPurchasetoallot DbPurchasetoallot);
+
+    int updateByCriteria(DbPurchasetoallot DbPurchasetoallot);
 
     DbPurchasetoallot selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbPurchasetoallot record);
-
-    int updateByPrimaryKeyWithBLOBs(DbPurchasetoallot record);
-
-    int updateByPrimaryKey(DbPurchasetoallot record);
+    List<DbPurchasetoallot> selectAll();
 }

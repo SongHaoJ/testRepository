@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbWorkreportlog;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbWorkreportlogMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbWorkreportlog selectByCriteria(DbWorkreportlog DbWorkreportlog);
 
-    int insert(DbWorkreportlog record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbWorkreportlog record);
+    void deleteByCriteria(DbWorkreportlog DbWorkreportlog);
+
+    int insertByCriteria(DbWorkreportlog DbWorkreportlog);
+
+    int updateByCriteria(DbWorkreportlog DbWorkreportlog);
 
     DbWorkreportlog selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbWorkreportlog record);
-
-    int updateByPrimaryKeyWithBLOBs(DbWorkreportlog record);
-
-    int updateByPrimaryKey(DbWorkreportlog record);
+    List<DbWorkreportlog> selectAll();
 }

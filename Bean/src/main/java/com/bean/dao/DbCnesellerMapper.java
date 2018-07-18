@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbCneseller;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbCnesellerMapper {
-    int deleteByPrimaryKey(String sid);
+    DbCneseller selectByCriteria(DbCneseller DbCneseller);
 
-    int insert(DbCneseller record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbCneseller record);
+    void deleteByCriteria(DbCneseller DbCneseller);
+
+    int insertByCriteria(DbCneseller DbCneseller);
+
+    int updateByCriteria(DbCneseller DbCneseller);
 
     DbCneseller selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbCneseller record);
-
-    int updateByPrimaryKeyWithBLOBs(DbCneseller record);
-
-    int updateByPrimaryKey(DbCneseller record);
+    List<DbCneseller> selectAll();
 }

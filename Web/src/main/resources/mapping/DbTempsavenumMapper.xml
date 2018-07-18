@@ -2,8 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bean.dao.DbTempsavenumMapper">
   <resultMap id="BaseResultMap" type="com.bean.model.DbTempsavenum">
-    <id column="PRODUCTID" jdbcType="VARCHAR" property="productid" />
+    <result column="PRODUCTID" jdbcType="VARCHAR" property="productid" />
     <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="NEXTDESCR" jdbcType="VARCHAR" property="nextdescr" />
+    <result column="PURCHASEDESCR" jdbcType="VARCHAR" property="purchasedescr" />
     <result column="PURCHASEOPER" jdbcType="VARCHAR" property="purchaseoper" />
     <result column="NEXTOPER" jdbcType="VARCHAR" property="nextoper" />
     <result column="SAVENUM" jdbcType="DECIMAL" property="savenum" />
@@ -11,33 +13,26 @@
     <result column="NEXTNUM" jdbcType="VARCHAR" property="nextnum" />
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
     <result column="NEXTOPERTIME" jdbcType="TIMESTAMP" property="nextopertime" />
+    <result column="PRODUCTNAME" jdbcType="VARCHAR" property="productname" />
+    <result column="DESCR" jdbcType="VARCHAR" property="descr" />
     <result column="PURCHSEOPERTIME" jdbcType="TIMESTAMP" property="purchseopertime" />
     <result column="FLAG" jdbcType="VARCHAR" property="flag" />
     <result column="CHECKNUM" jdbcType="DECIMAL" property="checknum" />
-    <result column="NEXTDESCR" jdbcType="LONGVARCHAR" property="nextdescr" />
-    <result column="PURCHASEDESCR" jdbcType="LONGVARCHAR" property="purchasedescr" />
-    <result column="PRODUCTNAME" jdbcType="LONGVARCHAR" property="productname" />
-    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
   </resultMap>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select PRODUCTID, OPER, PURCHASEOPER, NEXTOPER, SAVENUM, PURCHASENUM, NEXTNUM, OPERTIME, 
-    NEXTOPERTIME, PURCHSEOPERTIME, FLAG, CHECKNUM, NEXTDESCR, PURCHASEDESCR, PRODUCTNAME, 
-    DESCR
-    from db_tempsavenum
-    where PRODUCTID = #{productid,jdbcType=VARCHAR}
-  </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select PRODUCTID, OPER, PURCHASEOPER, NEXTOPER, SAVENUM, PURCHASENUM, NEXTNUM, OPERTIME, 
-    NEXTOPERTIME, PURCHSEOPERTIME, FLAG, CHECKNUM, NEXTDESCR, PURCHASEDESCR, PRODUCTNAME, 
-    DESCR
-    from db_tempsavenum
+    select PRODUCTID, OPER, NEXTDESCR, PURCHASEDESCR, PURCHASEOPER, NEXTOPER, SAVENUM, 
+    PURCHASENUM, NEXTNUM, OPERTIME, NEXTOPERTIME, PRODUCTNAME, DESCR, PURCHSEOPERTIME, 
+    FLAG, CHECKNUM
+    from DB_TEMPSAVENUM
   </select>
   <sql id="TableName">
-    db_tempsavenum
+    DB_TEMPSAVENUM
   </sql>
   <sql id="Values">
      #{productid,jdbcType=VARCHAR} , 
      #{oper,jdbcType=VARCHAR} , 
+     #{nextdescr,jdbcType=VARCHAR} , 
+     #{purchasedescr,jdbcType=VARCHAR} , 
      #{purchaseoper,jdbcType=VARCHAR} , 
      #{nextoper,jdbcType=VARCHAR} , 
      #{savenum,jdbcType=DECIMAL} , 
@@ -45,17 +40,17 @@
      #{nextnum,jdbcType=VARCHAR} , 
      #{opertime,jdbcType=TIMESTAMP} , 
      #{nextopertime,jdbcType=TIMESTAMP} , 
+     #{productname,jdbcType=VARCHAR} , 
+     #{descr,jdbcType=VARCHAR} , 
      #{purchseopertime,jdbcType=TIMESTAMP} , 
      #{flag,jdbcType=VARCHAR} , 
      #{checknum,jdbcType=DECIMAL} , 
-     #{nextdescr,jdbcType=LONGVARCHAR} , 
-     #{purchasedescr,jdbcType=LONGVARCHAR} , 
-     #{productname,jdbcType=LONGVARCHAR} , 
-     #{descr,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     PRODUCTID , 
     OPER , 
+    NEXTDESCR , 
+    PURCHASEDESCR , 
     PURCHASEOPER , 
     NEXTOPER , 
     SAVENUM , 
@@ -63,115 +58,113 @@
     NEXTNUM , 
     OPERTIME , 
     NEXTOPERTIME , 
+    PRODUCTNAME , 
+    DESCR , 
     PURCHSEOPERTIME , 
     FLAG , 
     CHECKNUM , 
-    NEXTDESCR , 
-    PURCHASEDESCR , 
-    PRODUCTNAME , 
-    DESCR
   </sql>
   <sql id="Criteria">
     <if test="productid != null">
-      PRODUCTID = #{productid,jdbcType=VARCHAR} and 
+      productid = #{productid,jdbcType=VARCHAR} and 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="purchaseoper != null">
-      PURCHASEOPER = #{purchaseoper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="nextoper != null">
-      NEXTOPER = #{nextoper,jdbcType=VARCHAR} and 
-    </if>
-    <if test="savenum != null">
-      SAVENUM = #{savenum,jdbcType=DECIMAL} and 
-    </if>
-    <if test="purchasenum != null">
-      PURCHASENUM = #{purchasenum,jdbcType=DECIMAL} and 
-    </if>
-    <if test="nextnum != null">
-      NEXTNUM = #{nextnum,jdbcType=VARCHAR} and 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="nextopertime != null">
-      NEXTOPERTIME = #{nextopertime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="purchseopertime != null">
-      PURCHSEOPERTIME = #{purchseopertime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="flag != null">
-      FLAG = #{flag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="checknum != null">
-      CHECKNUM = #{checknum,jdbcType=DECIMAL} and 
+      oper = #{oper,jdbcType=VARCHAR} and 
     </if>
     <if test="nextdescr != null">
-      NEXTDESCR = #{nextdescr,jdbcType=LONGVARCHAR} and 
+      nextdescr = #{nextdescr,jdbcType=VARCHAR} and 
     </if>
     <if test="purchasedescr != null">
-      PURCHASEDESCR = #{purchasedescr,jdbcType=LONGVARCHAR} and 
+      purchasedescr = #{purchasedescr,jdbcType=VARCHAR} and 
+    </if>
+    <if test="purchaseoper != null">
+      purchaseoper = #{purchaseoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="nextoper != null">
+      nextoper = #{nextoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="savenum != null">
+      savenum = #{savenum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="purchasenum != null">
+      purchasenum = #{purchasenum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="nextnum != null">
+      nextnum = #{nextnum,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="nextopertime != null">
+      nextopertime = #{nextopertime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="productname != null">
-      PRODUCTNAME = #{productname,jdbcType=LONGVARCHAR} and 
+      productname = #{productname,jdbcType=VARCHAR} and 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR}
+      descr = #{descr,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="purchseopertime != null">
+      purchseopertime = #{purchseopertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=VARCHAR} and 
+    </if>
+    <if test="checknum != null">
+      checknum = #{checknum,jdbcType=DECIMAL} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="productid != null">
-      PRODUCTID = #{productid,jdbcType=VARCHAR} , 
+      productid = #{productid,jdbcType=VARCHAR} , 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="purchaseoper != null">
-      PURCHASEOPER = #{purchaseoper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="nextoper != null">
-      NEXTOPER = #{nextoper,jdbcType=VARCHAR} , 
-    </if>
-    <if test="savenum != null">
-      SAVENUM = #{savenum,jdbcType=DECIMAL} , 
-    </if>
-    <if test="purchasenum != null">
-      PURCHASENUM = #{purchasenum,jdbcType=DECIMAL} , 
-    </if>
-    <if test="nextnum != null">
-      NEXTNUM = #{nextnum,jdbcType=VARCHAR} , 
-    </if>
-    <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="nextopertime != null">
-      NEXTOPERTIME = #{nextopertime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="purchseopertime != null">
-      PURCHSEOPERTIME = #{purchseopertime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="flag != null">
-      FLAG = #{flag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="checknum != null">
-      CHECKNUM = #{checknum,jdbcType=DECIMAL} , 
+      oper = #{oper,jdbcType=VARCHAR} , 
     </if>
     <if test="nextdescr != null">
-      NEXTDESCR = #{nextdescr,jdbcType=LONGVARCHAR} , 
+      nextdescr = #{nextdescr,jdbcType=VARCHAR} , 
     </if>
     <if test="purchasedescr != null">
-      PURCHASEDESCR = #{purchasedescr,jdbcType=LONGVARCHAR} , 
+      purchasedescr = #{purchasedescr,jdbcType=VARCHAR} , 
+    </if>
+    <if test="purchaseoper != null">
+      purchaseoper = #{purchaseoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="nextoper != null">
+      nextoper = #{nextoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="savenum != null">
+      savenum = #{savenum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="purchasenum != null">
+      purchasenum = #{purchasenum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="nextnum != null">
+      nextnum = #{nextnum,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="nextopertime != null">
+      nextopertime = #{nextopertime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="productname != null">
-      PRODUCTNAME = #{productname,jdbcType=LONGVARCHAR} , 
+      productname = #{productname,jdbcType=VARCHAR} , 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR}
+      descr = #{descr,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="purchseopertime != null">
+      purchseopertime = #{purchseopertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=VARCHAR} , 
+    </if>
+    <if test="checknum != null">
+      checknum = #{checknum,jdbcType=DECIMAL} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbTempsavenum" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

@@ -8,86 +8,81 @@
     <result column="PRINTTYPE" jdbcType="VARCHAR" property="printtype" />
     <result column="FORMATNAME" jdbcType="VARCHAR" property="formatname" />
   </resultMap>
-  <sql id="Base_Column_List">
-    ID, FORMATID, FORMATPATH, PRINTTYPE, FORMATNAME
-  </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from db_mxprinttype
+    select ID, FORMATID, FORMATPATH, PRINTTYPE, FORMATNAME
+    from DB_MXPRINTTYPE
     where ID = #{id,jdbcType=DECIMAL}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from db_mxprinttype
-    where ID = #{id,jdbcType=DECIMAL}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ID, FORMATID, FORMATPATH, PRINTTYPE, FORMATNAME
+    from DB_MXPRINTTYPE
+  </select>
+  <sql id="TableName">
+    DB_MXPRINTTYPE
+  </sql>
+  <sql id="Values">
+     #{id,jdbcType=DECIMAL} , 
+     #{formatid,jdbcType=VARCHAR} , 
+     #{formatpath,jdbcType=VARCHAR} , 
+     #{printtype,jdbcType=VARCHAR} , 
+     #{formatname,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    ID , 
+    FORMATID , 
+    FORMATPATH , 
+    PRINTTYPE , 
+    FORMATNAME , 
+  </sql>
+  <sql id="Criteria">
+    <if test="id != null">
+      id = #{id,jdbcType=DECIMAL} and 
+    </if>
+    <if test="formatid != null">
+      formatid = #{formatid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="formatpath != null">
+      formatpath = #{formatpath,jdbcType=VARCHAR} and 
+    </if>
+    <if test="printtype != null">
+      printtype = #{printtype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="formatname != null">
+      formatname = #{formatname,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="id != null">
+      id = #{id,jdbcType=DECIMAL} , 
+    </if>
+    <if test="formatid != null">
+      formatid = #{formatid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="formatpath != null">
+      formatpath = #{formatpath,jdbcType=VARCHAR} , 
+    </if>
+    <if test="printtype != null">
+      printtype = #{printtype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="formatname != null">
+      formatname = #{formatname,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbMxprinttype" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="Integer">
+    delete from <include refid="TableName"/> where ID=#{ID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbMxprinttype">
-    insert into db_mxprinttype (ID, FORMATID, FORMATPATH, 
-      PRINTTYPE, FORMATNAME)
-    values (#{id,jdbcType=DECIMAL}, #{formatid,jdbcType=VARCHAR}, #{formatpath,jdbcType=VARCHAR}, 
-      #{printtype,jdbcType=VARCHAR}, #{formatname,jdbcType=VARCHAR})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbMxprinttype">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbMxprinttype">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbMxprinttype">
-    insert into db_mxprinttype
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        ID,
-      </if>
-      <if test="formatid != null">
-        FORMATID,
-      </if>
-      <if test="formatpath != null">
-        FORMATPATH,
-      </if>
-      <if test="printtype != null">
-        PRINTTYPE,
-      </if>
-      <if test="formatname != null">
-        FORMATNAME,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=DECIMAL},
-      </if>
-      <if test="formatid != null">
-        #{formatid,jdbcType=VARCHAR},
-      </if>
-      <if test="formatpath != null">
-        #{formatpath,jdbcType=VARCHAR},
-      </if>
-      <if test="printtype != null">
-        #{printtype,jdbcType=VARCHAR},
-      </if>
-      <if test="formatname != null">
-        #{formatname,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbMxprinttype">
-    update db_mxprinttype
-    <set>
-      <if test="formatid != null">
-        FORMATID = #{formatid,jdbcType=VARCHAR},
-      </if>
-      <if test="formatpath != null">
-        FORMATPATH = #{formatpath,jdbcType=VARCHAR},
-      </if>
-      <if test="printtype != null">
-        PRINTTYPE = #{printtype,jdbcType=VARCHAR},
-      </if>
-      <if test="formatname != null">
-        FORMATNAME = #{formatname,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where ID = #{id,jdbcType=DECIMAL}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbMxprinttype">
-    update db_mxprinttype
-    set FORMATID = #{formatid,jdbcType=VARCHAR},
-      FORMATPATH = #{formatpath,jdbcType=VARCHAR},
-      PRINTTYPE = #{printtype,jdbcType=VARCHAR},
-      FORMATNAME = #{formatname,jdbcType=VARCHAR}
-    where ID = #{id,jdbcType=DECIMAL}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbMxprinttype">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

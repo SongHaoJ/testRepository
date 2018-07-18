@@ -10,65 +10,65 @@
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select ID, FORMATID, FORMATPATH, PRINTTYPE, FORMATNAME
-    from db_mxprinttype
+    from DB_MXPRINTTYPE
     where ID = #{id,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select ID, FORMATID, FORMATPATH, PRINTTYPE, FORMATNAME
-    from db_mxprinttype
+    from DB_MXPRINTTYPE
   </select>
   <sql id="TableName">
-    db_mxprinttype
+    DB_MXPRINTTYPE
   </sql>
   <sql id="Values">
      #{id,jdbcType=DECIMAL} , 
      #{formatid,jdbcType=VARCHAR} , 
      #{formatpath,jdbcType=VARCHAR} , 
      #{printtype,jdbcType=VARCHAR} , 
-     #{formatname,jdbcType=VARCHAR}
+     #{formatname,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     ID , 
     FORMATID , 
     FORMATPATH , 
     PRINTTYPE , 
-    FORMATNAME
+    FORMATNAME , 
   </sql>
   <sql id="Criteria">
     <if test="id != null">
-      ID = #{id,jdbcType=DECIMAL} and 
+      id = #{id,jdbcType=DECIMAL} and 
     </if>
     <if test="formatid != null">
-      FORMATID = #{formatid,jdbcType=VARCHAR} and 
+      formatid = #{formatid,jdbcType=VARCHAR} and 
     </if>
     <if test="formatpath != null">
-      FORMATPATH = #{formatpath,jdbcType=VARCHAR} and 
+      formatpath = #{formatpath,jdbcType=VARCHAR} and 
     </if>
     <if test="printtype != null">
-      PRINTTYPE = #{printtype,jdbcType=VARCHAR} and 
+      printtype = #{printtype,jdbcType=VARCHAR} and 
     </if>
     <if test="formatname != null">
-      FORMATNAME = #{formatname,jdbcType=VARCHAR}
+      formatname = #{formatname,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="id != null">
-      ID = #{id,jdbcType=DECIMAL} , 
+      id = #{id,jdbcType=DECIMAL} , 
     </if>
     <if test="formatid != null">
-      FORMATID = #{formatid,jdbcType=VARCHAR} , 
+      formatid = #{formatid,jdbcType=VARCHAR} , 
     </if>
     <if test="formatpath != null">
-      FORMATPATH = #{formatpath,jdbcType=VARCHAR} , 
+      formatpath = #{formatpath,jdbcType=VARCHAR} , 
     </if>
     <if test="printtype != null">
-      PRINTTYPE = #{printtype,jdbcType=VARCHAR} , 
+      printtype = #{printtype,jdbcType=VARCHAR} , 
     </if>
     <if test="formatname != null">
-      FORMATNAME = #{formatname,jdbcType=VARCHAR}
+      formatname = #{formatname,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbMxprinttype" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

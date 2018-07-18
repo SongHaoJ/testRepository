@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.StatProductdetilDaily;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface StatProductdetilDailyMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    StatProductdetilDaily selectByCriteria(StatProductdetilDaily StatProductdetilDaily);
 
-    int insert(StatProductdetilDaily record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(StatProductdetilDaily record);
+    void deleteByCriteria(StatProductdetilDaily StatProductdetilDaily);
+
+    int insertByCriteria(StatProductdetilDaily StatProductdetilDaily);
+
+    int updateByCriteria(StatProductdetilDaily StatProductdetilDaily);
 
     StatProductdetilDaily selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(StatProductdetilDaily record);
-
-    int updateByPrimaryKeyWithBLOBs(StatProductdetilDaily record);
-
-    int updateByPrimaryKey(StatProductdetilDaily record);
+    List<StatProductdetilDaily> selectAll();
 }

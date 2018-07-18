@@ -1,20 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbCheckpaypaladdress;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbCheckpaypaladdressMapper {
-    int deleteByPrimaryKey(BigDecimal sid);
+    DbCheckpaypaladdress selectByCriteria(DbCheckpaypaladdress DbCheckpaypaladdress);
 
-    int insert(DbCheckpaypaladdress record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbCheckpaypaladdress record);
+    void deleteByCriteria(DbCheckpaypaladdress DbCheckpaypaladdress);
+
+    int insertByCriteria(DbCheckpaypaladdress DbCheckpaypaladdress);
+
+    int updateByCriteria(DbCheckpaypaladdress DbCheckpaypaladdress);
 
     DbCheckpaypaladdress selectByPrimaryKey(BigDecimal sid);
 
-    int updateByPrimaryKeySelective(DbCheckpaypaladdress record);
-
-    int updateByPrimaryKeyWithBLOBs(DbCheckpaypaladdress record);
-
-    int updateByPrimaryKey(DbCheckpaypaladdress record);
+    List<DbCheckpaypaladdress> selectAll();
 }

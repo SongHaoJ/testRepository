@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbSendlist;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbSendlistMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbSendlist selectByCriteria(DbSendlist DbSendlist);
 
-    int insert(DbSendlist record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbSendlist record);
+    void deleteByCriteria(DbSendlist DbSendlist);
+
+    int insertByCriteria(DbSendlist DbSendlist);
+
+    int updateByCriteria(DbSendlist DbSendlist);
 
     DbSendlist selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbSendlist record);
-
-    int updateByPrimaryKeyWithBLOBs(DbSendlist record);
-
-    int updateByPrimaryKey(DbSendlist record);
+    List<DbSendlist> selectAll();
 }

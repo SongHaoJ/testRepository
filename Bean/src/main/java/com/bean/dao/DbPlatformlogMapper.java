@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbPlatformlog;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbPlatformlogMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbPlatformlog selectByCriteria(DbPlatformlog DbPlatformlog);
 
-    int insert(DbPlatformlog record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbPlatformlog record);
+    void deleteByCriteria(DbPlatformlog DbPlatformlog);
+
+    int insertByCriteria(DbPlatformlog DbPlatformlog);
+
+    int updateByCriteria(DbPlatformlog DbPlatformlog);
 
     DbPlatformlog selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbPlatformlog record);
-
-    int updateByPrimaryKeyWithBLOBs(DbPlatformlog record);
-
-    int updateByPrimaryKey(DbPlatformlog record);
+    List<DbPlatformlog> selectAll();
 }

@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbSpaypallog;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbSpaypallogMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbSpaypallog selectByCriteria(DbSpaypallog DbSpaypallog);
 
-    int insert(DbSpaypallog record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbSpaypallog record);
+    void deleteByCriteria(DbSpaypallog DbSpaypallog);
+
+    int insertByCriteria(DbSpaypallog DbSpaypallog);
+
+    int updateByCriteria(DbSpaypallog DbSpaypallog);
 
     DbSpaypallog selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbSpaypallog record);
-
-    int updateByPrimaryKeyWithBLOBs(DbSpaypallog record);
-
-    int updateByPrimaryKey(DbSpaypallog record);
+    List<DbSpaypallog> selectAll();
 }

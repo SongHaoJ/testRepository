@@ -27,6 +27,8 @@ public class DbProductfortitle implements Serializable {
 
     private String title;
 
+    private String reserve1;
+
     private String reserve2;
 
     private String reserve3;
@@ -42,8 +44,6 @@ public class DbProductfortitle implements Serializable {
     private BigDecimal reserve8;
 
     private BigDecimal reserve9;
-
-    private String reserve1;
 
     private static final long serialVersionUID = 1L;
 
@@ -135,6 +135,14 @@ public class DbProductfortitle implements Serializable {
         this.title = title == null ? null : title.trim();
     }
 
+    public String getReserve1() {
+        return reserve1;
+    }
+
+    public void setReserve1(String reserve1) {
+        this.reserve1 = reserve1 == null ? null : reserve1.trim();
+    }
+
     public String getReserve2() {
         return reserve2;
     }
@@ -199,14 +207,6 @@ public class DbProductfortitle implements Serializable {
         this.reserve9 = reserve9;
     }
 
-    public String getReserve1() {
-        return reserve1;
-    }
-
-    public void setReserve1(String reserve1) {
-        this.reserve1 = reserve1 == null ? null : reserve1.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -230,6 +230,7 @@ public class DbProductfortitle implements Serializable {
             && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()))
             && (this.getOperflag() == null ? other.getOperflag() == null : this.getOperflag().equals(other.getOperflag()))
             && (this.getTitle() == null ? other.getTitle() == null : this.getTitle().equals(other.getTitle()))
+            && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
             && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
             && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
             && (this.getReserve4() == null ? other.getReserve4() == null : this.getReserve4().equals(other.getReserve4()))
@@ -237,8 +238,7 @@ public class DbProductfortitle implements Serializable {
             && (this.getReserve6() == null ? other.getReserve6() == null : this.getReserve6().equals(other.getReserve6()))
             && (this.getReserve7() == null ? other.getReserve7() == null : this.getReserve7().equals(other.getReserve7()))
             && (this.getReserve8() == null ? other.getReserve8() == null : this.getReserve8().equals(other.getReserve8()))
-            && (this.getReserve9() == null ? other.getReserve9() == null : this.getReserve9().equals(other.getReserve9()))
-            && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()));
+            && (this.getReserve9() == null ? other.getReserve9() == null : this.getReserve9().equals(other.getReserve9()));
     }
 
     @Override
@@ -256,6 +256,7 @@ public class DbProductfortitle implements Serializable {
         result = prime * result + ((getCorpid() == null) ? 0 : getCorpid().hashCode());
         result = prime * result + ((getOperflag() == null) ? 0 : getOperflag().hashCode());
         result = prime * result + ((getTitle() == null) ? 0 : getTitle().hashCode());
+        result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
         result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
         result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
         result = prime * result + ((getReserve4() == null) ? 0 : getReserve4().hashCode());
@@ -264,7 +265,6 @@ public class DbProductfortitle implements Serializable {
         result = prime * result + ((getReserve7() == null) ? 0 : getReserve7().hashCode());
         result = prime * result + ((getReserve8() == null) ? 0 : getReserve8().hashCode());
         result = prime * result + ((getReserve9() == null) ? 0 : getReserve9().hashCode());
-        result = prime * result + ((getReserve1() == null) ? 0 : getReserve1().hashCode());
         return result;
     }
 
@@ -285,6 +285,7 @@ public class DbProductfortitle implements Serializable {
         sb.append(", corpid=").append(corpid);
         sb.append(", operflag=").append(operflag);
         sb.append(", title=").append(title);
+        sb.append(", reserve1=").append(reserve1);
         sb.append(", reserve2=").append(reserve2);
         sb.append(", reserve3=").append(reserve3);
         sb.append(", reserve4=").append(reserve4);
@@ -293,7 +294,6 @@ public class DbProductfortitle implements Serializable {
         sb.append(", reserve7=").append(reserve7);
         sb.append(", reserve8=").append(reserve8);
         sb.append(", reserve9=").append(reserve9);
-        sb.append(", reserve1=").append(reserve1);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

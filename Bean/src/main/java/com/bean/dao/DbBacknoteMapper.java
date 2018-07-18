@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbBacknote;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbBacknoteMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbBacknote selectByCriteria(DbBacknote DbBacknote);
 
-    int insert(DbBacknote record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbBacknote record);
+    void deleteByCriteria(DbBacknote DbBacknote);
+
+    int insertByCriteria(DbBacknote DbBacknote);
+
+    int updateByCriteria(DbBacknote DbBacknote);
 
     DbBacknote selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbBacknote record);
-
-    int updateByPrimaryKeyWithBLOBs(DbBacknote record);
-
-    int updateByPrimaryKey(DbBacknote record);
+    List<DbBacknote> selectAll();
 }

@@ -7,139 +7,111 @@
     <result column="MWAREHOUSEID" jdbcType="VARCHAR" property="mwarehouseid" />
     <result column="QTYONHAND" jdbcType="DECIMAL" property="qtyonhand" />
     <result column="QTYORDERED" jdbcType="DECIMAL" property="qtyordered" />
+    <result column="SPECIFICATION" jdbcType="VARCHAR" property="specification" />
     <result column="QTYAVAILABLE" jdbcType="DECIMAL" property="qtyavailable" />
     <result column="QTYSELL" jdbcType="DECIMAL" property="qtysell" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bean.model.DbProductwyt">
-    <result column="SPECIFICATION" jdbcType="LONGVARCHAR" property="specification" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    SID, 'NAME', MWAREHOUSEID, QTYONHAND, QTYORDERED, QTYAVAILABLE, QTYSELL
-  </sql>
-  <sql id="Blob_Column_List">
-    SPECIFICATION
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from db_productwyt
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select SID, NAME, MWAREHOUSEID, QTYONHAND, QTYORDERED, SPECIFICATION, QTYAVAILABLE, 
+    QTYSELL
+    from DB_PRODUCTWYT
     where SID = #{sid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_productwyt
-    where SID = #{sid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, NAME, MWAREHOUSEID, QTYONHAND, QTYORDERED, SPECIFICATION, QTYAVAILABLE, 
+    QTYSELL
+    from DB_PRODUCTWYT
+  </select>
+  <sql id="TableName">
+    DB_PRODUCTWYT
+  </sql>
+  <sql id="Values">
+     #{sid,jdbcType=VARCHAR} , 
+     #{name,jdbcType=VARCHAR} , 
+     #{mwarehouseid,jdbcType=VARCHAR} , 
+     #{qtyonhand,jdbcType=DECIMAL} , 
+     #{qtyordered,jdbcType=DECIMAL} , 
+     #{specification,jdbcType=VARCHAR} , 
+     #{qtyavailable,jdbcType=DECIMAL} , 
+     #{qtysell,jdbcType=DECIMAL} , 
+  </sql>
+  <sql id="Columns">
+    SID , 
+    NAME , 
+    MWAREHOUSEID , 
+    QTYONHAND , 
+    QTYORDERED , 
+    SPECIFICATION , 
+    QTYAVAILABLE , 
+    QTYSELL , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} and 
+    </if>
+    <if test="mwarehouseid != null">
+      mwarehouseid = #{mwarehouseid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="qtyonhand != null">
+      qtyonhand = #{qtyonhand,jdbcType=DECIMAL} and 
+    </if>
+    <if test="qtyordered != null">
+      qtyordered = #{qtyordered,jdbcType=DECIMAL} and 
+    </if>
+    <if test="specification != null">
+      specification = #{specification,jdbcType=VARCHAR} and 
+    </if>
+    <if test="qtyavailable != null">
+      qtyavailable = #{qtyavailable,jdbcType=DECIMAL} and 
+    </if>
+    <if test="qtysell != null">
+      qtysell = #{qtysell,jdbcType=DECIMAL} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} , 
+    </if>
+    <if test="mwarehouseid != null">
+      mwarehouseid = #{mwarehouseid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="qtyonhand != null">
+      qtyonhand = #{qtyonhand,jdbcType=DECIMAL} , 
+    </if>
+    <if test="qtyordered != null">
+      qtyordered = #{qtyordered,jdbcType=DECIMAL} , 
+    </if>
+    <if test="specification != null">
+      specification = #{specification,jdbcType=VARCHAR} , 
+    </if>
+    <if test="qtyavailable != null">
+      qtyavailable = #{qtyavailable,jdbcType=DECIMAL} , 
+    </if>
+    <if test="qtysell != null">
+      qtysell = #{qtysell,jdbcType=DECIMAL} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbProductwyt" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where SID=#{SID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbProductwyt">
-    insert into db_productwyt (SID, 'NAME', MWAREHOUSEID, 
-      QTYONHAND, QTYORDERED, QTYAVAILABLE, 
-      QTYSELL, SPECIFICATION)
-    values (#{sid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{mwarehouseid,jdbcType=VARCHAR}, 
-      #{qtyonhand,jdbcType=DECIMAL}, #{qtyordered,jdbcType=DECIMAL}, #{qtyavailable,jdbcType=DECIMAL}, 
-      #{qtysell,jdbcType=DECIMAL}, #{specification,jdbcType=LONGVARCHAR})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbProductwyt">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbProductwyt">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbProductwyt">
-    insert into db_productwyt
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        SID,
-      </if>
-      <if test="name != null">
-        'NAME',
-      </if>
-      <if test="mwarehouseid != null">
-        MWAREHOUSEID,
-      </if>
-      <if test="qtyonhand != null">
-        QTYONHAND,
-      </if>
-      <if test="qtyordered != null">
-        QTYORDERED,
-      </if>
-      <if test="qtyavailable != null">
-        QTYAVAILABLE,
-      </if>
-      <if test="qtysell != null">
-        QTYSELL,
-      </if>
-      <if test="specification != null">
-        SPECIFICATION,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        #{sid,jdbcType=VARCHAR},
-      </if>
-      <if test="name != null">
-        #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="mwarehouseid != null">
-        #{mwarehouseid,jdbcType=VARCHAR},
-      </if>
-      <if test="qtyonhand != null">
-        #{qtyonhand,jdbcType=DECIMAL},
-      </if>
-      <if test="qtyordered != null">
-        #{qtyordered,jdbcType=DECIMAL},
-      </if>
-      <if test="qtyavailable != null">
-        #{qtyavailable,jdbcType=DECIMAL},
-      </if>
-      <if test="qtysell != null">
-        #{qtysell,jdbcType=DECIMAL},
-      </if>
-      <if test="specification != null">
-        #{specification,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbProductwyt">
-    update db_productwyt
-    <set>
-      <if test="name != null">
-        'NAME' = #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="mwarehouseid != null">
-        MWAREHOUSEID = #{mwarehouseid,jdbcType=VARCHAR},
-      </if>
-      <if test="qtyonhand != null">
-        QTYONHAND = #{qtyonhand,jdbcType=DECIMAL},
-      </if>
-      <if test="qtyordered != null">
-        QTYORDERED = #{qtyordered,jdbcType=DECIMAL},
-      </if>
-      <if test="qtyavailable != null">
-        QTYAVAILABLE = #{qtyavailable,jdbcType=DECIMAL},
-      </if>
-      <if test="qtysell != null">
-        QTYSELL = #{qtysell,jdbcType=DECIMAL},
-      </if>
-      <if test="specification != null">
-        SPECIFICATION = #{specification,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where SID = #{sid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.model.DbProductwyt">
-    update db_productwyt
-    set 'NAME' = #{name,jdbcType=VARCHAR},
-      MWAREHOUSEID = #{mwarehouseid,jdbcType=VARCHAR},
-      QTYONHAND = #{qtyonhand,jdbcType=DECIMAL},
-      QTYORDERED = #{qtyordered,jdbcType=DECIMAL},
-      QTYAVAILABLE = #{qtyavailable,jdbcType=DECIMAL},
-      QTYSELL = #{qtysell,jdbcType=DECIMAL},
-      SPECIFICATION = #{specification,jdbcType=LONGVARCHAR}
-    where SID = #{sid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbProductwyt">
-    update db_productwyt
-    set 'NAME' = #{name,jdbcType=VARCHAR},
-      MWAREHOUSEID = #{mwarehouseid,jdbcType=VARCHAR},
-      QTYONHAND = #{qtyonhand,jdbcType=DECIMAL},
-      QTYORDERED = #{qtyordered,jdbcType=DECIMAL},
-      QTYAVAILABLE = #{qtyavailable,jdbcType=DECIMAL},
-      QTYSELL = #{qtysell,jdbcType=DECIMAL}
-    where SID = #{sid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbProductwyt">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

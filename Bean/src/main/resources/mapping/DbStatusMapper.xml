@@ -11,118 +11,105 @@
     <result column="SORT" jdbcType="DECIMAL" property="sort" />
     <result column="CHECKFLAG" jdbcType="VARCHAR" property="checkflag" />
   </resultMap>
-  <sql id="Base_Column_List">
-    SID, 'NAME', OPER, CORPID, CREATETIME, FLAG, SORT, CHECKFLAG
-  </sql>
   <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from db_status
+    select SID, NAME, OPER, CORPID, CREATETIME, FLAG, SORT, CHECKFLAG
+    from DB_STATUS
     where SID = #{sid,jdbcType=DECIMAL}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
-    delete from db_status
-    where SID = #{sid,jdbcType=DECIMAL}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SID, NAME, OPER, CORPID, CREATETIME, FLAG, SORT, CHECKFLAG
+    from DB_STATUS
+  </select>
+  <sql id="TableName">
+    DB_STATUS
+  </sql>
+  <sql id="Values">
+     #{sid,jdbcType=DECIMAL} , 
+     #{name,jdbcType=VARCHAR} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{corpid,jdbcType=VARCHAR} , 
+     #{createtime,jdbcType=TIMESTAMP} , 
+     #{flag,jdbcType=DECIMAL} , 
+     #{sort,jdbcType=DECIMAL} , 
+     #{checkflag,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    SID , 
+    NAME , 
+    OPER , 
+    CORPID , 
+    CREATETIME , 
+    FLAG , 
+    SORT , 
+    CHECKFLAG , 
+  </sql>
+  <sql id="Criteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=DECIMAL} and 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="sort != null">
+      sort = #{sort,jdbcType=DECIMAL} and 
+    </if>
+    <if test="checkflag != null">
+      checkflag = #{checkflag,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="sid != null">
+      sid = #{sid,jdbcType=DECIMAL} , 
+    </if>
+    <if test="name != null">
+      name = #{name,jdbcType=VARCHAR} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="corpid != null">
+      corpid = #{corpid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="sort != null">
+      sort = #{sort,jdbcType=DECIMAL} , 
+    </if>
+    <if test="checkflag != null">
+      checkflag = #{checkflag,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbStatus" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="BigDecimal">
+    delete from <include refid="TableName"/> where SID=#{SID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbStatus">
-    insert into db_status (SID, 'NAME', OPER, 
-      CORPID, CREATETIME, FLAG, 
-      SORT, CHECKFLAG)
-    values (#{sid,jdbcType=DECIMAL}, #{name,jdbcType=VARCHAR}, #{oper,jdbcType=VARCHAR}, 
-      #{corpid,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{flag,jdbcType=DECIMAL}, 
-      #{sort,jdbcType=DECIMAL}, #{checkflag,jdbcType=VARCHAR})
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbStatus">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbStatus">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbStatus">
-    insert into db_status
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        SID,
-      </if>
-      <if test="name != null">
-        'NAME',
-      </if>
-      <if test="oper != null">
-        OPER,
-      </if>
-      <if test="corpid != null">
-        CORPID,
-      </if>
-      <if test="createtime != null">
-        CREATETIME,
-      </if>
-      <if test="flag != null">
-        FLAG,
-      </if>
-      <if test="sort != null">
-        SORT,
-      </if>
-      <if test="checkflag != null">
-        CHECKFLAG,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        #{sid,jdbcType=DECIMAL},
-      </if>
-      <if test="name != null">
-        #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="oper != null">
-        #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="corpid != null">
-        #{corpid,jdbcType=VARCHAR},
-      </if>
-      <if test="createtime != null">
-        #{createtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="flag != null">
-        #{flag,jdbcType=DECIMAL},
-      </if>
-      <if test="sort != null">
-        #{sort,jdbcType=DECIMAL},
-      </if>
-      <if test="checkflag != null">
-        #{checkflag,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbStatus">
-    update db_status
-    <set>
-      <if test="name != null">
-        'NAME' = #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="oper != null">
-        OPER = #{oper,jdbcType=VARCHAR},
-      </if>
-      <if test="corpid != null">
-        CORPID = #{corpid,jdbcType=VARCHAR},
-      </if>
-      <if test="createtime != null">
-        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="flag != null">
-        FLAG = #{flag,jdbcType=DECIMAL},
-      </if>
-      <if test="sort != null">
-        SORT = #{sort,jdbcType=DECIMAL},
-      </if>
-      <if test="checkflag != null">
-        CHECKFLAG = #{checkflag,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where SID = #{sid,jdbcType=DECIMAL}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbStatus">
-    update db_status
-    set 'NAME' = #{name,jdbcType=VARCHAR},
-      OPER = #{oper,jdbcType=VARCHAR},
-      CORPID = #{corpid,jdbcType=VARCHAR},
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
-      FLAG = #{flag,jdbcType=DECIMAL},
-      SORT = #{sort,jdbcType=DECIMAL},
-      CHECKFLAG = #{checkflag,jdbcType=VARCHAR}
-    where SID = #{sid,jdbcType=DECIMAL}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbStatus">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

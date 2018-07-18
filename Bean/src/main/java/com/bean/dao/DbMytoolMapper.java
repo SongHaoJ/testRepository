@@ -1,20 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbMytool;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbMytoolMapper {
-    int deleteByPrimaryKey(BigDecimal sequenceid);
+    DbMytool selectByCriteria(DbMytool DbMytool);
 
-    int insert(DbMytool record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbMytool record);
+    void deleteByCriteria(DbMytool DbMytool);
+
+    int insertByCriteria(DbMytool DbMytool);
+
+    int updateByCriteria(DbMytool DbMytool);
 
     DbMytool selectByPrimaryKey(BigDecimal sequenceid);
 
-    int updateByPrimaryKeySelective(DbMytool record);
-
-    int updateByPrimaryKeyWithBLOBs(DbMytool record);
-
-    int updateByPrimaryKey(DbMytool record);
+    List<DbMytool> selectAll();
 }

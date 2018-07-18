@@ -17,56 +17,56 @@
     <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
     <result column="RESERVE3" jdbcType="DECIMAL" property="reserve3" />
     <result column="RESERVE4" jdbcType="DECIMAL" property="reserve4" />
+    <result column="WANGWANG" jdbcType="VARCHAR" property="wangwang" />
     <result column="QQ" jdbcType="VARCHAR" property="qq" />
     <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
     <result column="TYPE" jdbcType="VARCHAR" property="type" />
     <result column="PRODUCTID" jdbcType="VARCHAR" property="productid" />
     <result column="MINNUM" jdbcType="DECIMAL" property="minnum" />
+    <result column="NOTE" jdbcType="VARCHAR" property="note" />
+    <result column="INFORMATION" jdbcType="VARCHAR" property="information" />
+    <result column="STYLE" jdbcType="VARCHAR" property="style" />
     <result column="REPAIRRATE" jdbcType="VARCHAR" property="repairrate" />
+    <result column="ATTESTATION" jdbcType="VARCHAR" property="attestation" />
     <result column="PACKAGING" jdbcType="VARCHAR" property="packaging" />
     <result column="IMPORTRIGHT" jdbcType="VARCHAR" property="importright" />
     <result column="SERVE" jdbcType="VARCHAR" property="serve" />
     <result column="EVALUATION" jdbcType="VARCHAR" property="evaluation" />
+    <result column="MANAGEPRODUCT" jdbcType="VARCHAR" property="manageproduct" />
     <result column="LINKMAN" jdbcType="VARCHAR" property="linkman" />
+    <result column="SURVEYTABLE" jdbcType="VARCHAR" property="surveytable" />
     <result column="PERSONNUM" jdbcType="DECIMAL" property="personnum" />
+    <result column="MAINMARKET" jdbcType="VARCHAR" property="mainmarket" />
     <result column="PROFESSIONAL" jdbcType="VARCHAR" property="professional" />
     <result column="PRICEFIXING" jdbcType="VARCHAR" property="pricefixing" />
+    <result column="RESTS" jdbcType="VARCHAR" property="rests" />
+    <result column="MANUFACTUREURL" jdbcType="VARCHAR" property="manufactureurl" />
     <result column="RESERVE5" jdbcType="VARCHAR" property="reserve5" />
     <result column="RESERVE6" jdbcType="VARCHAR" property="reserve6" />
     <result column="RESERVE7" jdbcType="VARCHAR" property="reserve7" />
     <result column="RESERVE8" jdbcType="VARCHAR" property="reserve8" />
-    <result column="WANGWANG" jdbcType="LONGVARCHAR" property="wangwang" />
-    <result column="NOTE" jdbcType="LONGVARCHAR" property="note" />
-    <result column="INFORMATION" jdbcType="LONGVARCHAR" property="information" />
-    <result column="STYLE" jdbcType="LONGVARCHAR" property="style" />
-    <result column="ATTESTATION" jdbcType="LONGVARCHAR" property="attestation" />
-    <result column="MANAGEPRODUCT" jdbcType="LONGVARCHAR" property="manageproduct" />
-    <result column="SURVEYTABLE" jdbcType="LONGVARCHAR" property="surveytable" />
-    <result column="MAINMARKET" jdbcType="LONGVARCHAR" property="mainmarket" />
-    <result column="RESTS" jdbcType="LONGVARCHAR" property="rests" />
-    <result column="MANUFACTUREURL" jdbcType="LONGVARCHAR" property="manufactureurl" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select SEQUENCEID, INDEXID, MANUFACTUREID, MANUFACTURENAME, QUOTE, OPER, CORPID, 
-    OPERTIME, OPENFLAG, ADDRESS, TEL, RESERVE1, RESERVE2, RESERVE3, RESERVE4, QQ, CREATETIME, 
-    TYPE, PRODUCTID, MINNUM, REPAIRRATE, PACKAGING, IMPORTRIGHT, SERVE, EVALUATION, LINKMAN, 
-    PERSONNUM, PROFESSIONAL, PRICEFIXING, RESERVE5, RESERVE6, RESERVE7, RESERVE8, WANGWANG, 
-    NOTE, INFORMATION, STYLE, ATTESTATION, MANAGEPRODUCT, SURVEYTABLE, MAINMARKET, RESTS, 
-    MANUFACTUREURL
-    from db_productandmanufacture
+    OPERTIME, OPENFLAG, ADDRESS, TEL, RESERVE1, RESERVE2, RESERVE3, RESERVE4, WANGWANG, 
+    QQ, CREATETIME, TYPE, PRODUCTID, MINNUM, NOTE, INFORMATION, STYLE, REPAIRRATE, ATTESTATION, 
+    PACKAGING, IMPORTRIGHT, SERVE, EVALUATION, MANAGEPRODUCT, LINKMAN, SURVEYTABLE, PERSONNUM, 
+    MAINMARKET, PROFESSIONAL, PRICEFIXING, RESTS, MANUFACTUREURL, RESERVE5, RESERVE6, 
+    RESERVE7, RESERVE8
+    from DB_PRODUCTANDMANUFACTURE
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SEQUENCEID, INDEXID, MANUFACTUREID, MANUFACTURENAME, QUOTE, OPER, CORPID, 
-    OPERTIME, OPENFLAG, ADDRESS, TEL, RESERVE1, RESERVE2, RESERVE3, RESERVE4, QQ, CREATETIME, 
-    TYPE, PRODUCTID, MINNUM, REPAIRRATE, PACKAGING, IMPORTRIGHT, SERVE, EVALUATION, LINKMAN, 
-    PERSONNUM, PROFESSIONAL, PRICEFIXING, RESERVE5, RESERVE6, RESERVE7, RESERVE8, WANGWANG, 
-    NOTE, INFORMATION, STYLE, ATTESTATION, MANAGEPRODUCT, SURVEYTABLE, MAINMARKET, RESTS, 
-    MANUFACTUREURL
-    from db_productandmanufacture
+    OPERTIME, OPENFLAG, ADDRESS, TEL, RESERVE1, RESERVE2, RESERVE3, RESERVE4, WANGWANG, 
+    QQ, CREATETIME, TYPE, PRODUCTID, MINNUM, NOTE, INFORMATION, STYLE, REPAIRRATE, ATTESTATION, 
+    PACKAGING, IMPORTRIGHT, SERVE, EVALUATION, MANAGEPRODUCT, LINKMAN, SURVEYTABLE, PERSONNUM, 
+    MAINMARKET, PROFESSIONAL, PRICEFIXING, RESTS, MANUFACTUREURL, RESERVE5, RESERVE6, 
+    RESERVE7, RESERVE8
+    from DB_PRODUCTANDMANUFACTURE
   </select>
   <sql id="TableName">
-    db_productandmanufacture
+    DB_PRODUCTANDMANUFACTURE
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=VARCHAR} , 
@@ -84,34 +84,34 @@
      #{reserve2,jdbcType=VARCHAR} , 
      #{reserve3,jdbcType=DECIMAL} , 
      #{reserve4,jdbcType=DECIMAL} , 
+     #{wangwang,jdbcType=VARCHAR} , 
      #{qq,jdbcType=VARCHAR} , 
      #{createtime,jdbcType=TIMESTAMP} , 
      #{type,jdbcType=VARCHAR} , 
      #{productid,jdbcType=VARCHAR} , 
      #{minnum,jdbcType=DECIMAL} , 
+     #{note,jdbcType=VARCHAR} , 
+     #{information,jdbcType=VARCHAR} , 
+     #{style,jdbcType=VARCHAR} , 
      #{repairrate,jdbcType=VARCHAR} , 
+     #{attestation,jdbcType=VARCHAR} , 
      #{packaging,jdbcType=VARCHAR} , 
      #{importright,jdbcType=VARCHAR} , 
      #{serve,jdbcType=VARCHAR} , 
      #{evaluation,jdbcType=VARCHAR} , 
+     #{manageproduct,jdbcType=VARCHAR} , 
      #{linkman,jdbcType=VARCHAR} , 
+     #{surveytable,jdbcType=VARCHAR} , 
      #{personnum,jdbcType=DECIMAL} , 
+     #{mainmarket,jdbcType=VARCHAR} , 
      #{professional,jdbcType=VARCHAR} , 
      #{pricefixing,jdbcType=VARCHAR} , 
+     #{rests,jdbcType=VARCHAR} , 
+     #{manufactureurl,jdbcType=VARCHAR} , 
      #{reserve5,jdbcType=VARCHAR} , 
      #{reserve6,jdbcType=VARCHAR} , 
      #{reserve7,jdbcType=VARCHAR} , 
      #{reserve8,jdbcType=VARCHAR} , 
-     #{wangwang,jdbcType=LONGVARCHAR} , 
-     #{note,jdbcType=LONGVARCHAR} , 
-     #{information,jdbcType=LONGVARCHAR} , 
-     #{style,jdbcType=LONGVARCHAR} , 
-     #{attestation,jdbcType=LONGVARCHAR} , 
-     #{manageproduct,jdbcType=LONGVARCHAR} , 
-     #{surveytable,jdbcType=LONGVARCHAR} , 
-     #{mainmarket,jdbcType=LONGVARCHAR} , 
-     #{rests,jdbcType=LONGVARCHAR} , 
-     #{manufactureurl,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
@@ -129,298 +129,298 @@
     RESERVE2 , 
     RESERVE3 , 
     RESERVE4 , 
+    WANGWANG , 
     QQ , 
     CREATETIME , 
     TYPE , 
     PRODUCTID , 
     MINNUM , 
+    NOTE , 
+    INFORMATION , 
+    STYLE , 
     REPAIRRATE , 
+    ATTESTATION , 
     PACKAGING , 
     IMPORTRIGHT , 
     SERVE , 
     EVALUATION , 
+    MANAGEPRODUCT , 
     LINKMAN , 
+    SURVEYTABLE , 
     PERSONNUM , 
+    MAINMARKET , 
     PROFESSIONAL , 
     PRICEFIXING , 
+    RESTS , 
+    MANUFACTUREURL , 
     RESERVE5 , 
     RESERVE6 , 
     RESERVE7 , 
     RESERVE8 , 
-    WANGWANG , 
-    NOTE , 
-    INFORMATION , 
-    STYLE , 
-    ATTESTATION , 
-    MANAGEPRODUCT , 
-    SURVEYTABLE , 
-    MAINMARKET , 
-    RESTS , 
-    MANUFACTUREURL
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
     </if>
     <if test="indexid != null">
-      INDEXID = #{indexid,jdbcType=VARCHAR} and 
+      indexid = #{indexid,jdbcType=VARCHAR} and 
     </if>
     <if test="manufactureid != null">
-      MANUFACTUREID = #{manufactureid,jdbcType=VARCHAR} and 
+      manufactureid = #{manufactureid,jdbcType=VARCHAR} and 
     </if>
     <if test="manufacturename != null">
-      MANUFACTURENAME = #{manufacturename,jdbcType=VARCHAR} and 
+      manufacturename = #{manufacturename,jdbcType=VARCHAR} and 
     </if>
     <if test="quote != null">
-      QUOTE = #{quote,jdbcType=DECIMAL} and 
+      quote = #{quote,jdbcType=DECIMAL} and 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
+      oper = #{oper,jdbcType=VARCHAR} and 
     </if>
     <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} and 
+      corpid = #{corpid,jdbcType=VARCHAR} and 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
+      openflag = #{openflag,jdbcType=VARCHAR} and 
     </if>
     <if test="address != null">
-      ADDRESS = #{address,jdbcType=VARCHAR} and 
+      address = #{address,jdbcType=VARCHAR} and 
     </if>
     <if test="tel != null">
-      TEL = #{tel,jdbcType=VARCHAR} and 
+      tel = #{tel,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=DECIMAL} and 
+      reserve3 = #{reserve3,jdbcType=DECIMAL} and 
     </if>
     <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=DECIMAL} and 
-    </if>
-    <if test="qq != null">
-      QQ = #{qq,jdbcType=VARCHAR} and 
-    </if>
-    <if test="createtime != null">
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="type != null">
-      TYPE = #{type,jdbcType=VARCHAR} and 
-    </if>
-    <if test="productid != null">
-      PRODUCTID = #{productid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="minnum != null">
-      MINNUM = #{minnum,jdbcType=DECIMAL} and 
-    </if>
-    <if test="repairrate != null">
-      REPAIRRATE = #{repairrate,jdbcType=VARCHAR} and 
-    </if>
-    <if test="packaging != null">
-      PACKAGING = #{packaging,jdbcType=VARCHAR} and 
-    </if>
-    <if test="importright != null">
-      IMPORTRIGHT = #{importright,jdbcType=VARCHAR} and 
-    </if>
-    <if test="serve != null">
-      SERVE = #{serve,jdbcType=VARCHAR} and 
-    </if>
-    <if test="evaluation != null">
-      EVALUATION = #{evaluation,jdbcType=VARCHAR} and 
-    </if>
-    <if test="linkman != null">
-      LINKMAN = #{linkman,jdbcType=VARCHAR} and 
-    </if>
-    <if test="personnum != null">
-      PERSONNUM = #{personnum,jdbcType=DECIMAL} and 
-    </if>
-    <if test="professional != null">
-      PROFESSIONAL = #{professional,jdbcType=VARCHAR} and 
-    </if>
-    <if test="pricefixing != null">
-      PRICEFIXING = #{pricefixing,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve6 != null">
-      RESERVE6 = #{reserve6,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve7 != null">
-      RESERVE7 = #{reserve7,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve8 != null">
-      RESERVE8 = #{reserve8,jdbcType=VARCHAR} and 
+      reserve4 = #{reserve4,jdbcType=DECIMAL} and 
     </if>
     <if test="wangwang != null">
-      WANGWANG = #{wangwang,jdbcType=LONGVARCHAR} and 
+      wangwang = #{wangwang,jdbcType=VARCHAR} and 
+    </if>
+    <if test="qq != null">
+      qq = #{qq,jdbcType=VARCHAR} and 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="type != null">
+      type = #{type,jdbcType=VARCHAR} and 
+    </if>
+    <if test="productid != null">
+      productid = #{productid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="minnum != null">
+      minnum = #{minnum,jdbcType=DECIMAL} and 
     </if>
     <if test="note != null">
-      NOTE = #{note,jdbcType=LONGVARCHAR} and 
+      note = #{note,jdbcType=VARCHAR} and 
     </if>
     <if test="information != null">
-      INFORMATION = #{information,jdbcType=LONGVARCHAR} and 
+      information = #{information,jdbcType=VARCHAR} and 
     </if>
     <if test="style != null">
-      STYLE = #{style,jdbcType=LONGVARCHAR} and 
+      style = #{style,jdbcType=VARCHAR} and 
+    </if>
+    <if test="repairrate != null">
+      repairrate = #{repairrate,jdbcType=VARCHAR} and 
     </if>
     <if test="attestation != null">
-      ATTESTATION = #{attestation,jdbcType=LONGVARCHAR} and 
+      attestation = #{attestation,jdbcType=VARCHAR} and 
+    </if>
+    <if test="packaging != null">
+      packaging = #{packaging,jdbcType=VARCHAR} and 
+    </if>
+    <if test="importright != null">
+      importright = #{importright,jdbcType=VARCHAR} and 
+    </if>
+    <if test="serve != null">
+      serve = #{serve,jdbcType=VARCHAR} and 
+    </if>
+    <if test="evaluation != null">
+      evaluation = #{evaluation,jdbcType=VARCHAR} and 
     </if>
     <if test="manageproduct != null">
-      MANAGEPRODUCT = #{manageproduct,jdbcType=LONGVARCHAR} and 
+      manageproduct = #{manageproduct,jdbcType=VARCHAR} and 
+    </if>
+    <if test="linkman != null">
+      linkman = #{linkman,jdbcType=VARCHAR} and 
     </if>
     <if test="surveytable != null">
-      SURVEYTABLE = #{surveytable,jdbcType=LONGVARCHAR} and 
+      surveytable = #{surveytable,jdbcType=VARCHAR} and 
+    </if>
+    <if test="personnum != null">
+      personnum = #{personnum,jdbcType=DECIMAL} and 
     </if>
     <if test="mainmarket != null">
-      MAINMARKET = #{mainmarket,jdbcType=LONGVARCHAR} and 
+      mainmarket = #{mainmarket,jdbcType=VARCHAR} and 
+    </if>
+    <if test="professional != null">
+      professional = #{professional,jdbcType=VARCHAR} and 
+    </if>
+    <if test="pricefixing != null">
+      pricefixing = #{pricefixing,jdbcType=VARCHAR} and 
     </if>
     <if test="rests != null">
-      RESTS = #{rests,jdbcType=LONGVARCHAR} and 
+      rests = #{rests,jdbcType=VARCHAR} and 
     </if>
     <if test="manufactureurl != null">
-      MANUFACTUREURL = #{manufactureurl,jdbcType=LONGVARCHAR}
+      manufactureurl = #{manufactureurl,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve6 != null">
+      reserve6 = #{reserve6,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve7 != null">
+      reserve7 = #{reserve7,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve8 != null">
+      reserve8 = #{reserve8,jdbcType=VARCHAR} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
     </if>
     <if test="indexid != null">
-      INDEXID = #{indexid,jdbcType=VARCHAR} , 
+      indexid = #{indexid,jdbcType=VARCHAR} , 
     </if>
     <if test="manufactureid != null">
-      MANUFACTUREID = #{manufactureid,jdbcType=VARCHAR} , 
+      manufactureid = #{manufactureid,jdbcType=VARCHAR} , 
     </if>
     <if test="manufacturename != null">
-      MANUFACTURENAME = #{manufacturename,jdbcType=VARCHAR} , 
+      manufacturename = #{manufacturename,jdbcType=VARCHAR} , 
     </if>
     <if test="quote != null">
-      QUOTE = #{quote,jdbcType=DECIMAL} , 
+      quote = #{quote,jdbcType=DECIMAL} , 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
+      oper = #{oper,jdbcType=VARCHAR} , 
     </if>
     <if test="corpid != null">
-      CORPID = #{corpid,jdbcType=VARCHAR} , 
+      corpid = #{corpid,jdbcType=VARCHAR} , 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
+      openflag = #{openflag,jdbcType=VARCHAR} , 
     </if>
     <if test="address != null">
-      ADDRESS = #{address,jdbcType=VARCHAR} , 
+      address = #{address,jdbcType=VARCHAR} , 
     </if>
     <if test="tel != null">
-      TEL = #{tel,jdbcType=VARCHAR} , 
+      tel = #{tel,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=DECIMAL} , 
+      reserve3 = #{reserve3,jdbcType=DECIMAL} , 
     </if>
     <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=DECIMAL} , 
-    </if>
-    <if test="qq != null">
-      QQ = #{qq,jdbcType=VARCHAR} , 
-    </if>
-    <if test="createtime != null">
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="type != null">
-      TYPE = #{type,jdbcType=VARCHAR} , 
-    </if>
-    <if test="productid != null">
-      PRODUCTID = #{productid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="minnum != null">
-      MINNUM = #{minnum,jdbcType=DECIMAL} , 
-    </if>
-    <if test="repairrate != null">
-      REPAIRRATE = #{repairrate,jdbcType=VARCHAR} , 
-    </if>
-    <if test="packaging != null">
-      PACKAGING = #{packaging,jdbcType=VARCHAR} , 
-    </if>
-    <if test="importright != null">
-      IMPORTRIGHT = #{importright,jdbcType=VARCHAR} , 
-    </if>
-    <if test="serve != null">
-      SERVE = #{serve,jdbcType=VARCHAR} , 
-    </if>
-    <if test="evaluation != null">
-      EVALUATION = #{evaluation,jdbcType=VARCHAR} , 
-    </if>
-    <if test="linkman != null">
-      LINKMAN = #{linkman,jdbcType=VARCHAR} , 
-    </if>
-    <if test="personnum != null">
-      PERSONNUM = #{personnum,jdbcType=DECIMAL} , 
-    </if>
-    <if test="professional != null">
-      PROFESSIONAL = #{professional,jdbcType=VARCHAR} , 
-    </if>
-    <if test="pricefixing != null">
-      PRICEFIXING = #{pricefixing,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve6 != null">
-      RESERVE6 = #{reserve6,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve7 != null">
-      RESERVE7 = #{reserve7,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve8 != null">
-      RESERVE8 = #{reserve8,jdbcType=VARCHAR} , 
+      reserve4 = #{reserve4,jdbcType=DECIMAL} , 
     </if>
     <if test="wangwang != null">
-      WANGWANG = #{wangwang,jdbcType=LONGVARCHAR} , 
+      wangwang = #{wangwang,jdbcType=VARCHAR} , 
+    </if>
+    <if test="qq != null">
+      qq = #{qq,jdbcType=VARCHAR} , 
+    </if>
+    <if test="createtime != null">
+      createtime = #{createtime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="type != null">
+      type = #{type,jdbcType=VARCHAR} , 
+    </if>
+    <if test="productid != null">
+      productid = #{productid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="minnum != null">
+      minnum = #{minnum,jdbcType=DECIMAL} , 
     </if>
     <if test="note != null">
-      NOTE = #{note,jdbcType=LONGVARCHAR} , 
+      note = #{note,jdbcType=VARCHAR} , 
     </if>
     <if test="information != null">
-      INFORMATION = #{information,jdbcType=LONGVARCHAR} , 
+      information = #{information,jdbcType=VARCHAR} , 
     </if>
     <if test="style != null">
-      STYLE = #{style,jdbcType=LONGVARCHAR} , 
+      style = #{style,jdbcType=VARCHAR} , 
+    </if>
+    <if test="repairrate != null">
+      repairrate = #{repairrate,jdbcType=VARCHAR} , 
     </if>
     <if test="attestation != null">
-      ATTESTATION = #{attestation,jdbcType=LONGVARCHAR} , 
+      attestation = #{attestation,jdbcType=VARCHAR} , 
+    </if>
+    <if test="packaging != null">
+      packaging = #{packaging,jdbcType=VARCHAR} , 
+    </if>
+    <if test="importright != null">
+      importright = #{importright,jdbcType=VARCHAR} , 
+    </if>
+    <if test="serve != null">
+      serve = #{serve,jdbcType=VARCHAR} , 
+    </if>
+    <if test="evaluation != null">
+      evaluation = #{evaluation,jdbcType=VARCHAR} , 
     </if>
     <if test="manageproduct != null">
-      MANAGEPRODUCT = #{manageproduct,jdbcType=LONGVARCHAR} , 
+      manageproduct = #{manageproduct,jdbcType=VARCHAR} , 
+    </if>
+    <if test="linkman != null">
+      linkman = #{linkman,jdbcType=VARCHAR} , 
     </if>
     <if test="surveytable != null">
-      SURVEYTABLE = #{surveytable,jdbcType=LONGVARCHAR} , 
+      surveytable = #{surveytable,jdbcType=VARCHAR} , 
+    </if>
+    <if test="personnum != null">
+      personnum = #{personnum,jdbcType=DECIMAL} , 
     </if>
     <if test="mainmarket != null">
-      MAINMARKET = #{mainmarket,jdbcType=LONGVARCHAR} , 
+      mainmarket = #{mainmarket,jdbcType=VARCHAR} , 
+    </if>
+    <if test="professional != null">
+      professional = #{professional,jdbcType=VARCHAR} , 
+    </if>
+    <if test="pricefixing != null">
+      pricefixing = #{pricefixing,jdbcType=VARCHAR} , 
     </if>
     <if test="rests != null">
-      RESTS = #{rests,jdbcType=LONGVARCHAR} , 
+      rests = #{rests,jdbcType=VARCHAR} , 
     </if>
     <if test="manufactureurl != null">
-      MANUFACTUREURL = #{manufactureurl,jdbcType=LONGVARCHAR}
+      manufactureurl = #{manufactureurl,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve6 != null">
+      reserve6 = #{reserve6,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve7 != null">
+      reserve7 = #{reserve7,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve8 != null">
+      reserve8 = #{reserve8,jdbcType=VARCHAR} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbProductandmanufacture" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

@@ -9,7 +9,11 @@ public class DbProjectproduct implements Serializable {
 
     private String projectid;
 
+    private String productname;
+
     private String productid;
+
+    private String descr;
 
     private String stype;
 
@@ -45,6 +49,10 @@ public class DbProjectproduct implements Serializable {
 
     private BigDecimal datediff;
 
+    private String shoptype;
+
+    private String salesource;
+
     private Date translatetime;
 
     private Date pricetime;
@@ -79,14 +87,6 @@ public class DbProjectproduct implements Serializable {
 
     private String corpid;
 
-    private String productname;
-
-    private String descr;
-
-    private String shoptype;
-
-    private String salesource;
-
     private static final long serialVersionUID = 1L;
 
     public String getSid() {
@@ -105,12 +105,28 @@ public class DbProjectproduct implements Serializable {
         this.projectid = projectid == null ? null : projectid.trim();
     }
 
+    public String getProductname() {
+        return productname;
+    }
+
+    public void setProductname(String productname) {
+        this.productname = productname == null ? null : productname.trim();
+    }
+
     public String getProductid() {
         return productid;
     }
 
     public void setProductid(String productid) {
         this.productid = productid == null ? null : productid.trim();
+    }
+
+    public String getDescr() {
+        return descr;
+    }
+
+    public void setDescr(String descr) {
+        this.descr = descr == null ? null : descr.trim();
     }
 
     public String getStype() {
@@ -249,6 +265,22 @@ public class DbProjectproduct implements Serializable {
         this.datediff = datediff;
     }
 
+    public String getShoptype() {
+        return shoptype;
+    }
+
+    public void setShoptype(String shoptype) {
+        this.shoptype = shoptype == null ? null : shoptype.trim();
+    }
+
+    public String getSalesource() {
+        return salesource;
+    }
+
+    public void setSalesource(String salesource) {
+        this.salesource = salesource == null ? null : salesource.trim();
+    }
+
     public Date getTranslatetime() {
         return translatetime;
     }
@@ -385,38 +417,6 @@ public class DbProjectproduct implements Serializable {
         this.corpid = corpid == null ? null : corpid.trim();
     }
 
-    public String getProductname() {
-        return productname;
-    }
-
-    public void setProductname(String productname) {
-        this.productname = productname == null ? null : productname.trim();
-    }
-
-    public String getDescr() {
-        return descr;
-    }
-
-    public void setDescr(String descr) {
-        this.descr = descr == null ? null : descr.trim();
-    }
-
-    public String getShoptype() {
-        return shoptype;
-    }
-
-    public void setShoptype(String shoptype) {
-        this.shoptype = shoptype == null ? null : shoptype.trim();
-    }
-
-    public String getSalesource() {
-        return salesource;
-    }
-
-    public void setSalesource(String salesource) {
-        this.salesource = salesource == null ? null : salesource.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -431,7 +431,9 @@ public class DbProjectproduct implements Serializable {
         DbProjectproduct other = (DbProjectproduct) that;
         return (this.getSid() == null ? other.getSid() == null : this.getSid().equals(other.getSid()))
             && (this.getProjectid() == null ? other.getProjectid() == null : this.getProjectid().equals(other.getProjectid()))
+            && (this.getProductname() == null ? other.getProductname() == null : this.getProductname().equals(other.getProductname()))
             && (this.getProductid() == null ? other.getProductid() == null : this.getProductid().equals(other.getProductid()))
+            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
             && (this.getStype() == null ? other.getStype() == null : this.getStype().equals(other.getStype()))
             && (this.getSlevel() == null ? other.getSlevel() == null : this.getSlevel().equals(other.getSlevel()))
             && (this.getFlag() == null ? other.getFlag() == null : this.getFlag().equals(other.getFlag()))
@@ -449,6 +451,8 @@ public class DbProjectproduct implements Serializable {
             && (this.getPublicoper() == null ? other.getPublicoper() == null : this.getPublicoper().equals(other.getPublicoper()))
             && (this.getEndtime() == null ? other.getEndtime() == null : this.getEndtime().equals(other.getEndtime()))
             && (this.getDatediff() == null ? other.getDatediff() == null : this.getDatediff().equals(other.getDatediff()))
+            && (this.getShoptype() == null ? other.getShoptype() == null : this.getShoptype().equals(other.getShoptype()))
+            && (this.getSalesource() == null ? other.getSalesource() == null : this.getSalesource().equals(other.getSalesource()))
             && (this.getTranslatetime() == null ? other.getTranslatetime() == null : this.getTranslatetime().equals(other.getTranslatetime()))
             && (this.getPricetime() == null ? other.getPricetime() == null : this.getPricetime().equals(other.getPricetime()))
             && (this.getContenttime() == null ? other.getContenttime() == null : this.getContenttime().equals(other.getContenttime()))
@@ -465,11 +469,7 @@ public class DbProjectproduct implements Serializable {
             && (this.getCheckflag() == null ? other.getCheckflag() == null : this.getCheckflag().equals(other.getCheckflag()))
             && (this.getCheckoper() == null ? other.getCheckoper() == null : this.getCheckoper().equals(other.getCheckoper()))
             && (this.getChecktime() == null ? other.getChecktime() == null : this.getChecktime().equals(other.getChecktime()))
-            && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()))
-            && (this.getProductname() == null ? other.getProductname() == null : this.getProductname().equals(other.getProductname()))
-            && (this.getDescr() == null ? other.getDescr() == null : this.getDescr().equals(other.getDescr()))
-            && (this.getShoptype() == null ? other.getShoptype() == null : this.getShoptype().equals(other.getShoptype()))
-            && (this.getSalesource() == null ? other.getSalesource() == null : this.getSalesource().equals(other.getSalesource()));
+            && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()));
     }
 
     @Override
@@ -478,7 +478,9 @@ public class DbProjectproduct implements Serializable {
         int result = 1;
         result = prime * result + ((getSid() == null) ? 0 : getSid().hashCode());
         result = prime * result + ((getProjectid() == null) ? 0 : getProjectid().hashCode());
+        result = prime * result + ((getProductname() == null) ? 0 : getProductname().hashCode());
         result = prime * result + ((getProductid() == null) ? 0 : getProductid().hashCode());
+        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
         result = prime * result + ((getStype() == null) ? 0 : getStype().hashCode());
         result = prime * result + ((getSlevel() == null) ? 0 : getSlevel().hashCode());
         result = prime * result + ((getFlag() == null) ? 0 : getFlag().hashCode());
@@ -496,6 +498,8 @@ public class DbProjectproduct implements Serializable {
         result = prime * result + ((getPublicoper() == null) ? 0 : getPublicoper().hashCode());
         result = prime * result + ((getEndtime() == null) ? 0 : getEndtime().hashCode());
         result = prime * result + ((getDatediff() == null) ? 0 : getDatediff().hashCode());
+        result = prime * result + ((getShoptype() == null) ? 0 : getShoptype().hashCode());
+        result = prime * result + ((getSalesource() == null) ? 0 : getSalesource().hashCode());
         result = prime * result + ((getTranslatetime() == null) ? 0 : getTranslatetime().hashCode());
         result = prime * result + ((getPricetime() == null) ? 0 : getPricetime().hashCode());
         result = prime * result + ((getContenttime() == null) ? 0 : getContenttime().hashCode());
@@ -513,10 +517,6 @@ public class DbProjectproduct implements Serializable {
         result = prime * result + ((getCheckoper() == null) ? 0 : getCheckoper().hashCode());
         result = prime * result + ((getChecktime() == null) ? 0 : getChecktime().hashCode());
         result = prime * result + ((getCorpid() == null) ? 0 : getCorpid().hashCode());
-        result = prime * result + ((getProductname() == null) ? 0 : getProductname().hashCode());
-        result = prime * result + ((getDescr() == null) ? 0 : getDescr().hashCode());
-        result = prime * result + ((getShoptype() == null) ? 0 : getShoptype().hashCode());
-        result = prime * result + ((getSalesource() == null) ? 0 : getSalesource().hashCode());
         return result;
     }
 
@@ -528,7 +528,9 @@ public class DbProjectproduct implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", sid=").append(sid);
         sb.append(", projectid=").append(projectid);
+        sb.append(", productname=").append(productname);
         sb.append(", productid=").append(productid);
+        sb.append(", descr=").append(descr);
         sb.append(", stype=").append(stype);
         sb.append(", slevel=").append(slevel);
         sb.append(", flag=").append(flag);
@@ -546,6 +548,8 @@ public class DbProjectproduct implements Serializable {
         sb.append(", publicoper=").append(publicoper);
         sb.append(", endtime=").append(endtime);
         sb.append(", datediff=").append(datediff);
+        sb.append(", shoptype=").append(shoptype);
+        sb.append(", salesource=").append(salesource);
         sb.append(", translatetime=").append(translatetime);
         sb.append(", pricetime=").append(pricetime);
         sb.append(", contenttime=").append(contenttime);
@@ -563,10 +567,6 @@ public class DbProjectproduct implements Serializable {
         sb.append(", checkoper=").append(checkoper);
         sb.append(", checktime=").append(checktime);
         sb.append(", corpid=").append(corpid);
-        sb.append(", productname=").append(productname);
-        sb.append(", descr=").append(descr);
-        sb.append(", shoptype=").append(shoptype);
-        sb.append(", salesource=").append(salesource);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

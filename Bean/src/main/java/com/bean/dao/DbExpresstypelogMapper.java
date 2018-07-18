@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbExpresstypelog;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbExpresstypelogMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbExpresstypelog selectByCriteria(DbExpresstypelog DbExpresstypelog);
 
-    int insert(DbExpresstypelog record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbExpresstypelog record);
+    void deleteByCriteria(DbExpresstypelog DbExpresstypelog);
+
+    int insertByCriteria(DbExpresstypelog DbExpresstypelog);
+
+    int updateByCriteria(DbExpresstypelog DbExpresstypelog);
 
     DbExpresstypelog selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbExpresstypelog record);
-
-    int updateByPrimaryKeyWithBLOBs(DbExpresstypelog record);
-
-    int updateByPrimaryKey(DbExpresstypelog record);
+    List<DbExpresstypelog> selectAll();
 }

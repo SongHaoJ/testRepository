@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.DbShiptaskMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.DbShiptask">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="ORDERID" jdbcType="VARCHAR" property="orderid" />
+    <result column="STORAGEID" jdbcType="VARCHAR" property="storageid" />
+    <result column="BASKET" jdbcType="VARCHAR" property="basket" />
+    <result column="RESOLVEBASKET" jdbcType="VARCHAR" property="resolvebasket" />
+    <result column="SHIPBASKETHEAD" jdbcType="VARCHAR" property="shipbaskethead" />
+    <result column="TYPE" jdbcType="DECIMAL" property="type" />
+    <result column="FLAG" jdbcType="DECIMAL" property="flag" />
+    <result column="CONTENT" jdbcType="VARCHAR" property="content" />
+    <result column="ORDERTIME" jdbcType="TIMESTAMP" property="ordertime" />
+    <result column="GROUPID" jdbcType="VARCHAR" property="groupid" />
+    <result column="PICKOPER" jdbcType="VARCHAR" property="pickoper" />
+    <result column="PICKTIME" jdbcType="TIMESTAMP" property="picktime" />
+    <result column="RESOLVEOPER" jdbcType="VARCHAR" property="resolveoper" />
+    <result column="RESOLVETIME" jdbcType="TIMESTAMP" property="resolvetime" />
+    <result column="SHIPOPER" jdbcType="VARCHAR" property="shipoper" />
+    <result column="SHIPTIME" jdbcType="TIMESTAMP" property="shiptime" />
+    <result column="CREATEOPER" jdbcType="VARCHAR" property="createoper" />
+    <result column="CREATTIME" jdbcType="TIMESTAMP" property="creattime" />
+    <result column="OPER" jdbcType="VARCHAR" property="oper" />
+    <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
+    <result column="PRODUCTID" jdbcType="VARCHAR" property="productid" />
+    <result column="PICKEDNUM" jdbcType="VARCHAR" property="pickednum" />
+    <result column="PRINTNUM" jdbcType="DECIMAL" property="printnum" />
+  </resultMap>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select ID, ORDERID, STORAGEID, BASKET, RESOLVEBASKET, SHIPBASKETHEAD, TYPE, FLAG, 
+    CONTENT, ORDERTIME, GROUPID, PICKOPER, PICKTIME, RESOLVEOPER, RESOLVETIME, SHIPOPER, 
+    SHIPTIME, CREATEOPER, CREATTIME, OPER, OPERTIME, PRODUCTID, PICKEDNUM, PRINTNUM
+    from DB_SHIPTASK
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ID, ORDERID, STORAGEID, BASKET, RESOLVEBASKET, SHIPBASKETHEAD, TYPE, FLAG, 
+    CONTENT, ORDERTIME, GROUPID, PICKOPER, PICKTIME, RESOLVEOPER, RESOLVETIME, SHIPOPER, 
+    SHIPTIME, CREATEOPER, CREATTIME, OPER, OPERTIME, PRODUCTID, PICKEDNUM, PRINTNUM
+    from DB_SHIPTASK
+  </select>
+  <sql id="TableName">
+    DB_SHIPTASK
+  </sql>
+  <sql id="Values">
+     #{id,jdbcType=DECIMAL} , 
+     #{orderid,jdbcType=VARCHAR} , 
+     #{storageid,jdbcType=VARCHAR} , 
+     #{basket,jdbcType=VARCHAR} , 
+     #{resolvebasket,jdbcType=VARCHAR} , 
+     #{shipbaskethead,jdbcType=VARCHAR} , 
+     #{type,jdbcType=DECIMAL} , 
+     #{flag,jdbcType=DECIMAL} , 
+     #{content,jdbcType=VARCHAR} , 
+     #{ordertime,jdbcType=TIMESTAMP} , 
+     #{groupid,jdbcType=VARCHAR} , 
+     #{pickoper,jdbcType=VARCHAR} , 
+     #{picktime,jdbcType=TIMESTAMP} , 
+     #{resolveoper,jdbcType=VARCHAR} , 
+     #{resolvetime,jdbcType=TIMESTAMP} , 
+     #{shipoper,jdbcType=VARCHAR} , 
+     #{shiptime,jdbcType=TIMESTAMP} , 
+     #{createoper,jdbcType=VARCHAR} , 
+     #{creattime,jdbcType=TIMESTAMP} , 
+     #{oper,jdbcType=VARCHAR} , 
+     #{opertime,jdbcType=TIMESTAMP} , 
+     #{productid,jdbcType=VARCHAR} , 
+     #{pickednum,jdbcType=VARCHAR} , 
+     #{printnum,jdbcType=DECIMAL} , 
+  </sql>
+  <sql id="Columns">
+    ID , 
+    ORDERID , 
+    STORAGEID , 
+    BASKET , 
+    RESOLVEBASKET , 
+    SHIPBASKETHEAD , 
+    TYPE , 
+    FLAG , 
+    CONTENT , 
+    ORDERTIME , 
+    GROUPID , 
+    PICKOPER , 
+    PICKTIME , 
+    RESOLVEOPER , 
+    RESOLVETIME , 
+    SHIPOPER , 
+    SHIPTIME , 
+    CREATEOPER , 
+    CREATTIME , 
+    OPER , 
+    OPERTIME , 
+    PRODUCTID , 
+    PICKEDNUM , 
+    PRINTNUM , 
+  </sql>
+  <sql id="Criteria">
+    <if test="id != null">
+      id = #{id,jdbcType=DECIMAL} and 
+    </if>
+    <if test="orderid != null">
+      orderid = #{orderid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="storageid != null">
+      storageid = #{storageid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="basket != null">
+      basket = #{basket,jdbcType=VARCHAR} and 
+    </if>
+    <if test="resolvebasket != null">
+      resolvebasket = #{resolvebasket,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shipbaskethead != null">
+      shipbaskethead = #{shipbaskethead,jdbcType=VARCHAR} and 
+    </if>
+    <if test="type != null">
+      type = #{type,jdbcType=DECIMAL} and 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=DECIMAL} and 
+    </if>
+    <if test="content != null">
+      content = #{content,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ordertime != null">
+      ordertime = #{ordertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="groupid != null">
+      groupid = #{groupid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="pickoper != null">
+      pickoper = #{pickoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="picktime != null">
+      picktime = #{picktime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="resolveoper != null">
+      resolveoper = #{resolveoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="resolvetime != null">
+      resolvetime = #{resolvetime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="shipoper != null">
+      shipoper = #{shipoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="shiptime != null">
+      shiptime = #{shiptime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="createoper != null">
+      createoper = #{createoper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="creattime != null">
+      creattime = #{creattime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} and 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
+    </if>
+    <if test="productid != null">
+      productid = #{productid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="pickednum != null">
+      pickednum = #{pickednum,jdbcType=VARCHAR} and 
+    </if>
+    <if test="printnum != null">
+      printnum = #{printnum,jdbcType=DECIMAL} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="id != null">
+      id = #{id,jdbcType=DECIMAL} , 
+    </if>
+    <if test="orderid != null">
+      orderid = #{orderid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="storageid != null">
+      storageid = #{storageid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="basket != null">
+      basket = #{basket,jdbcType=VARCHAR} , 
+    </if>
+    <if test="resolvebasket != null">
+      resolvebasket = #{resolvebasket,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shipbaskethead != null">
+      shipbaskethead = #{shipbaskethead,jdbcType=VARCHAR} , 
+    </if>
+    <if test="type != null">
+      type = #{type,jdbcType=DECIMAL} , 
+    </if>
+    <if test="flag != null">
+      flag = #{flag,jdbcType=DECIMAL} , 
+    </if>
+    <if test="content != null">
+      content = #{content,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ordertime != null">
+      ordertime = #{ordertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="groupid != null">
+      groupid = #{groupid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="pickoper != null">
+      pickoper = #{pickoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="picktime != null">
+      picktime = #{picktime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="resolveoper != null">
+      resolveoper = #{resolveoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="resolvetime != null">
+      resolvetime = #{resolvetime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="shipoper != null">
+      shipoper = #{shipoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="shiptime != null">
+      shiptime = #{shiptime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="createoper != null">
+      createoper = #{createoper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="creattime != null">
+      creattime = #{creattime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="oper != null">
+      oper = #{oper,jdbcType=VARCHAR} , 
+    </if>
+    <if test="opertime != null">
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
+    </if>
+    <if test="productid != null">
+      productid = #{productid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="pickednum != null">
+      pickednum = #{pickednum,jdbcType=VARCHAR} , 
+    </if>
+    <if test="printnum != null">
+      printnum = #{printnum,jdbcType=DECIMAL} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbShiptask" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="Long">
+    delete from <include refid="TableName"/> where ID=#{ID}
+  </delete>
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbShiptask">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbShiptask">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
+  </insert>
+  <update id="updateByCriteria" parameterType="com.bean.model.DbShiptask">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
+  </update>
+</mapper>

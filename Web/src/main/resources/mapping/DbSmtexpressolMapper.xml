@@ -7,26 +7,26 @@
     <result column="NAMEEN" jdbcType="VARCHAR" property="nameen" />
     <result column="COUNTRY" jdbcType="VARCHAR" property="country" />
     <result column="OPENFLAG" jdbcType="VARCHAR" property="openflag" />
+    <result column="ADDRESS" jdbcType="VARCHAR" property="address" />
     <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
     <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
     <result column="RESERVE3" jdbcType="VARCHAR" property="reserve3" />
     <result column="WAREHOUSECODE" jdbcType="VARCHAR" property="warehousecode" />
     <result column="ORDERTYPE" jdbcType="VARCHAR" property="ordertype" />
-    <result column="ADDRESS" jdbcType="LONGVARCHAR" property="address" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select CODE, NAMECN, NAMEEN, COUNTRY, OPENFLAG, RESERVE1, RESERVE2, RESERVE3, WAREHOUSECODE, 
-    ORDERTYPE, ADDRESS
-    from db_smtexpressol
+    select CODE, NAMECN, NAMEEN, COUNTRY, OPENFLAG, ADDRESS, RESERVE1, RESERVE2, RESERVE3, 
+    WAREHOUSECODE, ORDERTYPE
+    from DB_SMTEXPRESSOL
     where CODE = #{code,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select CODE, NAMECN, NAMEEN, COUNTRY, OPENFLAG, RESERVE1, RESERVE2, RESERVE3, WAREHOUSECODE, 
-    ORDERTYPE, ADDRESS
-    from db_smtexpressol
+    select CODE, NAMECN, NAMEEN, COUNTRY, OPENFLAG, ADDRESS, RESERVE1, RESERVE2, RESERVE3, 
+    WAREHOUSECODE, ORDERTYPE
+    from DB_SMTEXPRESSOL
   </select>
   <sql id="TableName">
-    db_smtexpressol
+    DB_SMTEXPRESSOL
   </sql>
   <sql id="Values">
      #{code,jdbcType=VARCHAR} , 
@@ -34,12 +34,12 @@
      #{nameen,jdbcType=VARCHAR} , 
      #{country,jdbcType=VARCHAR} , 
      #{openflag,jdbcType=VARCHAR} , 
+     #{address,jdbcType=VARCHAR} , 
      #{reserve1,jdbcType=VARCHAR} , 
      #{reserve2,jdbcType=VARCHAR} , 
      #{reserve3,jdbcType=VARCHAR} , 
      #{warehousecode,jdbcType=VARCHAR} , 
      #{ordertype,jdbcType=VARCHAR} , 
-     #{address,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     CODE , 
@@ -47,84 +47,84 @@
     NAMEEN , 
     COUNTRY , 
     OPENFLAG , 
+    ADDRESS , 
     RESERVE1 , 
     RESERVE2 , 
     RESERVE3 , 
     WAREHOUSECODE , 
     ORDERTYPE , 
-    ADDRESS
   </sql>
   <sql id="Criteria">
     <if test="code != null">
-      CODE = #{code,jdbcType=VARCHAR} and 
+      code = #{code,jdbcType=VARCHAR} and 
     </if>
     <if test="namecn != null">
-      NAMECN = #{namecn,jdbcType=VARCHAR} and 
+      namecn = #{namecn,jdbcType=VARCHAR} and 
     </if>
     <if test="nameen != null">
-      NAMEEN = #{nameen,jdbcType=VARCHAR} and 
+      nameen = #{nameen,jdbcType=VARCHAR} and 
     </if>
     <if test="country != null">
-      COUNTRY = #{country,jdbcType=VARCHAR} and 
+      country = #{country,jdbcType=VARCHAR} and 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR} and 
-    </if>
-    <if test="warehousecode != null">
-      WAREHOUSECODE = #{warehousecode,jdbcType=VARCHAR} and 
-    </if>
-    <if test="ordertype != null">
-      ORDERTYPE = #{ordertype,jdbcType=VARCHAR} and 
+      openflag = #{openflag,jdbcType=VARCHAR} and 
     </if>
     <if test="address != null">
-      ADDRESS = #{address,jdbcType=LONGVARCHAR}
+      address = #{address,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="warehousecode != null">
+      warehousecode = #{warehousecode,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ordertype != null">
+      ordertype = #{ordertype,jdbcType=VARCHAR} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="code != null">
-      CODE = #{code,jdbcType=VARCHAR} , 
+      code = #{code,jdbcType=VARCHAR} , 
     </if>
     <if test="namecn != null">
-      NAMECN = #{namecn,jdbcType=VARCHAR} , 
+      namecn = #{namecn,jdbcType=VARCHAR} , 
     </if>
     <if test="nameen != null">
-      NAMEEN = #{nameen,jdbcType=VARCHAR} , 
+      nameen = #{nameen,jdbcType=VARCHAR} , 
     </if>
     <if test="country != null">
-      COUNTRY = #{country,jdbcType=VARCHAR} , 
+      country = #{country,jdbcType=VARCHAR} , 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR} , 
-    </if>
-    <if test="warehousecode != null">
-      WAREHOUSECODE = #{warehousecode,jdbcType=VARCHAR} , 
-    </if>
-    <if test="ordertype != null">
-      ORDERTYPE = #{ordertype,jdbcType=VARCHAR} , 
+      openflag = #{openflag,jdbcType=VARCHAR} , 
     </if>
     <if test="address != null">
-      ADDRESS = #{address,jdbcType=LONGVARCHAR}
+      address = #{address,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="warehousecode != null">
+      warehousecode = #{warehousecode,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ordertype != null">
+      ordertype = #{ordertype,jdbcType=VARCHAR} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbSmtexpressol" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

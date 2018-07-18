@@ -23,6 +23,8 @@ public class DbPostitem implements Serializable {
 
     private BigDecimal flag;
 
+    private String error;
+
     private String oper;
 
     private Date opertime;
@@ -107,8 +109,6 @@ public class DbPostitem implements Serializable {
 
     private String attributestatusflag;
 
-    private String error;
-
     private static final long serialVersionUID = 1L;
 
     public String getSid() {
@@ -181,6 +181,14 @@ public class DbPostitem implements Serializable {
 
     public void setFlag(BigDecimal flag) {
         this.flag = flag;
+    }
+
+    public String getError() {
+        return error;
+    }
+
+    public void setError(String error) {
+        this.error = error == null ? null : error.trim();
     }
 
     public String getOper() {
@@ -519,14 +527,6 @@ public class DbPostitem implements Serializable {
         this.attributestatusflag = attributestatusflag == null ? null : attributestatusflag.trim();
     }
 
-    public String getError() {
-        return error;
-    }
-
-    public void setError(String error) {
-        this.error = error == null ? null : error.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -548,6 +548,7 @@ public class DbPostitem implements Serializable {
             && (this.getPrice() == null ? other.getPrice() == null : this.getPrice().equals(other.getPrice()))
             && (this.getSku() == null ? other.getSku() == null : this.getSku().equals(other.getSku()))
             && (this.getFlag() == null ? other.getFlag() == null : this.getFlag().equals(other.getFlag()))
+            && (this.getError() == null ? other.getError() == null : this.getError().equals(other.getError()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
             && (this.getNewitemid() == null ? other.getNewitemid() == null : this.getNewitemid().equals(other.getNewitemid()))
@@ -589,8 +590,7 @@ public class DbPostitem implements Serializable {
             && (this.getExpresstype1() == null ? other.getExpresstype1() == null : this.getExpresstype1().equals(other.getExpresstype1()))
             && (this.getDescrflag() == null ? other.getDescrflag() == null : this.getDescrflag().equals(other.getDescrflag()))
             && (this.getExpresstype6() == null ? other.getExpresstype6() == null : this.getExpresstype6().equals(other.getExpresstype6()))
-            && (this.getAttributestatusflag() == null ? other.getAttributestatusflag() == null : this.getAttributestatusflag().equals(other.getAttributestatusflag()))
-            && (this.getError() == null ? other.getError() == null : this.getError().equals(other.getError()));
+            && (this.getAttributestatusflag() == null ? other.getAttributestatusflag() == null : this.getAttributestatusflag().equals(other.getAttributestatusflag()));
     }
 
     @Override
@@ -606,6 +606,7 @@ public class DbPostitem implements Serializable {
         result = prime * result + ((getPrice() == null) ? 0 : getPrice().hashCode());
         result = prime * result + ((getSku() == null) ? 0 : getSku().hashCode());
         result = prime * result + ((getFlag() == null) ? 0 : getFlag().hashCode());
+        result = prime * result + ((getError() == null) ? 0 : getError().hashCode());
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getNewitemid() == null) ? 0 : getNewitemid().hashCode());
@@ -648,7 +649,6 @@ public class DbPostitem implements Serializable {
         result = prime * result + ((getDescrflag() == null) ? 0 : getDescrflag().hashCode());
         result = prime * result + ((getExpresstype6() == null) ? 0 : getExpresstype6().hashCode());
         result = prime * result + ((getAttributestatusflag() == null) ? 0 : getAttributestatusflag().hashCode());
-        result = prime * result + ((getError() == null) ? 0 : getError().hashCode());
         return result;
     }
 
@@ -667,6 +667,7 @@ public class DbPostitem implements Serializable {
         sb.append(", price=").append(price);
         sb.append(", sku=").append(sku);
         sb.append(", flag=").append(flag);
+        sb.append(", error=").append(error);
         sb.append(", oper=").append(oper);
         sb.append(", opertime=").append(opertime);
         sb.append(", newitemid=").append(newitemid);
@@ -709,7 +710,6 @@ public class DbPostitem implements Serializable {
         sb.append(", descrflag=").append(descrflag);
         sb.append(", expresstype6=").append(expresstype6);
         sb.append(", attributestatusflag=").append(attributestatusflag);
-        sb.append(", error=").append(error);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

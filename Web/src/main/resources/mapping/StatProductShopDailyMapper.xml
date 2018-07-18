@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bean.dao.StatProductShopDailyMapper">
   <resultMap id="BaseResultMap" type="com.bean.model.StatProductShopDaily">
-    <id column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
+    <result column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
     <result column="YYYY" jdbcType="VARCHAR" property="yyyy" />
     <result column="YYYYMM" jdbcType="VARCHAR" property="yyyymm" />
     <result column="YYYYMMDD" jdbcType="VARCHAR" property="yyyymmdd" />
@@ -21,19 +21,13 @@
     <result column="FIELD2" jdbcType="VARCHAR" property="field2" />
     <result column="FIELD3" jdbcType="VARCHAR" property="field3" />
   </resultMap>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select SEQUENCEID, YYYY, YYYYMM, YYYYMMDD, PRODUCTID, PRODUCTNAME, ORDERNUM, AMOUNT, 
-    COST, NUMBER1, NUMBER2, NUMBER3, COST1, COST2, COST3, FIELD1, FIELD2, FIELD3
-    from stat_product_shop_daily
-    where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
-  </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SEQUENCEID, YYYY, YYYYMM, YYYYMMDD, PRODUCTID, PRODUCTNAME, ORDERNUM, AMOUNT, 
     COST, NUMBER1, NUMBER2, NUMBER3, COST1, COST2, COST3, FIELD1, FIELD2, FIELD3
-    from stat_product_shop_daily
+    from STAT_PRODUCT_SHOP_DAILY
   </select>
   <sql id="TableName">
-    stat_product_shop_daily
+    STAT_PRODUCT_SHOP_DAILY
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=VARCHAR} , 
@@ -53,7 +47,7 @@
      #{cost3,jdbcType=DECIMAL} , 
      #{field1,jdbcType=VARCHAR} , 
      #{field2,jdbcType=VARCHAR} , 
-     #{field3,jdbcType=VARCHAR}
+     #{field3,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
@@ -73,121 +67,121 @@
     COST3 , 
     FIELD1 , 
     FIELD2 , 
-    FIELD3
+    FIELD3 , 
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
     </if>
     <if test="yyyy != null">
-      YYYY = #{yyyy,jdbcType=VARCHAR} and 
+      yyyy = #{yyyy,jdbcType=VARCHAR} and 
     </if>
     <if test="yyyymm != null">
-      YYYYMM = #{yyyymm,jdbcType=VARCHAR} and 
+      yyyymm = #{yyyymm,jdbcType=VARCHAR} and 
     </if>
     <if test="yyyymmdd != null">
-      YYYYMMDD = #{yyyymmdd,jdbcType=VARCHAR} and 
+      yyyymmdd = #{yyyymmdd,jdbcType=VARCHAR} and 
     </if>
     <if test="productid != null">
-      PRODUCTID = #{productid,jdbcType=VARCHAR} and 
+      productid = #{productid,jdbcType=VARCHAR} and 
     </if>
     <if test="productname != null">
-      PRODUCTNAME = #{productname,jdbcType=VARCHAR} and 
+      productname = #{productname,jdbcType=VARCHAR} and 
     </if>
     <if test="ordernum != null">
-      ORDERNUM = #{ordernum,jdbcType=DECIMAL} and 
+      ordernum = #{ordernum,jdbcType=DECIMAL} and 
     </if>
     <if test="amount != null">
-      AMOUNT = #{amount,jdbcType=DECIMAL} and 
+      amount = #{amount,jdbcType=DECIMAL} and 
     </if>
     <if test="cost != null">
-      COST = #{cost,jdbcType=DECIMAL} and 
+      cost = #{cost,jdbcType=DECIMAL} and 
     </if>
     <if test="number1 != null">
-      NUMBER1 = #{number1,jdbcType=DECIMAL} and 
+      number1 = #{number1,jdbcType=DECIMAL} and 
     </if>
     <if test="number2 != null">
-      NUMBER2 = #{number2,jdbcType=DECIMAL} and 
+      number2 = #{number2,jdbcType=DECIMAL} and 
     </if>
     <if test="number3 != null">
-      NUMBER3 = #{number3,jdbcType=DECIMAL} and 
+      number3 = #{number3,jdbcType=DECIMAL} and 
     </if>
     <if test="cost1 != null">
-      COST1 = #{cost1,jdbcType=DECIMAL} and 
+      cost1 = #{cost1,jdbcType=DECIMAL} and 
     </if>
     <if test="cost2 != null">
-      COST2 = #{cost2,jdbcType=DECIMAL} and 
+      cost2 = #{cost2,jdbcType=DECIMAL} and 
     </if>
     <if test="cost3 != null">
-      COST3 = #{cost3,jdbcType=DECIMAL} and 
+      cost3 = #{cost3,jdbcType=DECIMAL} and 
     </if>
     <if test="field1 != null">
-      FIELD1 = #{field1,jdbcType=VARCHAR} and 
+      field1 = #{field1,jdbcType=VARCHAR} and 
     </if>
     <if test="field2 != null">
-      FIELD2 = #{field2,jdbcType=VARCHAR} and 
+      field2 = #{field2,jdbcType=VARCHAR} and 
     </if>
     <if test="field3 != null">
-      FIELD3 = #{field3,jdbcType=VARCHAR}
+      field3 = #{field3,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
     </if>
     <if test="yyyy != null">
-      YYYY = #{yyyy,jdbcType=VARCHAR} , 
+      yyyy = #{yyyy,jdbcType=VARCHAR} , 
     </if>
     <if test="yyyymm != null">
-      YYYYMM = #{yyyymm,jdbcType=VARCHAR} , 
+      yyyymm = #{yyyymm,jdbcType=VARCHAR} , 
     </if>
     <if test="yyyymmdd != null">
-      YYYYMMDD = #{yyyymmdd,jdbcType=VARCHAR} , 
+      yyyymmdd = #{yyyymmdd,jdbcType=VARCHAR} , 
     </if>
     <if test="productid != null">
-      PRODUCTID = #{productid,jdbcType=VARCHAR} , 
+      productid = #{productid,jdbcType=VARCHAR} , 
     </if>
     <if test="productname != null">
-      PRODUCTNAME = #{productname,jdbcType=VARCHAR} , 
+      productname = #{productname,jdbcType=VARCHAR} , 
     </if>
     <if test="ordernum != null">
-      ORDERNUM = #{ordernum,jdbcType=DECIMAL} , 
+      ordernum = #{ordernum,jdbcType=DECIMAL} , 
     </if>
     <if test="amount != null">
-      AMOUNT = #{amount,jdbcType=DECIMAL} , 
+      amount = #{amount,jdbcType=DECIMAL} , 
     </if>
     <if test="cost != null">
-      COST = #{cost,jdbcType=DECIMAL} , 
+      cost = #{cost,jdbcType=DECIMAL} , 
     </if>
     <if test="number1 != null">
-      NUMBER1 = #{number1,jdbcType=DECIMAL} , 
+      number1 = #{number1,jdbcType=DECIMAL} , 
     </if>
     <if test="number2 != null">
-      NUMBER2 = #{number2,jdbcType=DECIMAL} , 
+      number2 = #{number2,jdbcType=DECIMAL} , 
     </if>
     <if test="number3 != null">
-      NUMBER3 = #{number3,jdbcType=DECIMAL} , 
+      number3 = #{number3,jdbcType=DECIMAL} , 
     </if>
     <if test="cost1 != null">
-      COST1 = #{cost1,jdbcType=DECIMAL} , 
+      cost1 = #{cost1,jdbcType=DECIMAL} , 
     </if>
     <if test="cost2 != null">
-      COST2 = #{cost2,jdbcType=DECIMAL} , 
+      cost2 = #{cost2,jdbcType=DECIMAL} , 
     </if>
     <if test="cost3 != null">
-      COST3 = #{cost3,jdbcType=DECIMAL} , 
+      cost3 = #{cost3,jdbcType=DECIMAL} , 
     </if>
     <if test="field1 != null">
-      FIELD1 = #{field1,jdbcType=VARCHAR} , 
+      field1 = #{field1,jdbcType=VARCHAR} , 
     </if>
     <if test="field2 != null">
-      FIELD2 = #{field2,jdbcType=VARCHAR} , 
+      field2 = #{field2,jdbcType=VARCHAR} , 
     </if>
     <if test="field3 != null">
-      FIELD3 = #{field3,jdbcType=VARCHAR}
+      field3 = #{field3,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.StatProductShopDaily" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

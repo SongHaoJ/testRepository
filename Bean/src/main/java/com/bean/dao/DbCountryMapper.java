@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbCountry;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbCountryMapper {
-    int deleteByPrimaryKey(String countryid);
+    DbCountry selectByCriteria(DbCountry DbCountry);
 
-    int insert(DbCountry record);
+    void deleteByPrimaryKey(String COUNTRYID);
 
-    int insertSelective(DbCountry record);
+    void deleteByCriteria(DbCountry DbCountry);
+
+    int insertByCriteria(DbCountry DbCountry);
+
+    int updateByCriteria(DbCountry DbCountry);
 
     DbCountry selectByPrimaryKey(String countryid);
 
-    int updateByPrimaryKeySelective(DbCountry record);
-
-    int updateByPrimaryKey(DbCountry record);
+    List<DbCountry> selectAll();
 }

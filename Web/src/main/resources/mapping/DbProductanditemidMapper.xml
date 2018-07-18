@@ -9,57 +9,57 @@
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select SEQUENCEID, PRODUCTINDEXID, ITEMID, ENMITYID
-    from db_productanditemid
+    from DB_PRODUCTANDITEMID
     where SEQUENCEID = #{sequenceid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select SEQUENCEID, PRODUCTINDEXID, ITEMID, ENMITYID
-    from db_productanditemid
+    from DB_PRODUCTANDITEMID
   </select>
   <sql id="TableName">
-    db_productanditemid
+    DB_PRODUCTANDITEMID
   </sql>
   <sql id="Values">
      #{sequenceid,jdbcType=VARCHAR} , 
      #{productindexid,jdbcType=VARCHAR} , 
      #{itemid,jdbcType=VARCHAR} , 
-     #{enmityid,jdbcType=VARCHAR}
+     #{enmityid,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     SEQUENCEID , 
     PRODUCTINDEXID , 
     ITEMID , 
-    ENMITYID
+    ENMITYID , 
   </sql>
   <sql id="Criteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} and 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} and 
     </if>
     <if test="productindexid != null">
-      PRODUCTINDEXID = #{productindexid,jdbcType=VARCHAR} and 
+      productindexid = #{productindexid,jdbcType=VARCHAR} and 
     </if>
     <if test="itemid != null">
-      ITEMID = #{itemid,jdbcType=VARCHAR} and 
+      itemid = #{itemid,jdbcType=VARCHAR} and 
     </if>
     <if test="enmityid != null">
-      ENMITYID = #{enmityid,jdbcType=VARCHAR}
+      enmityid = #{enmityid,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="sequenceid != null">
-      SEQUENCEID = #{sequenceid,jdbcType=VARCHAR} , 
+      sequenceid = #{sequenceid,jdbcType=VARCHAR} , 
     </if>
     <if test="productindexid != null">
-      PRODUCTINDEXID = #{productindexid,jdbcType=VARCHAR} , 
+      productindexid = #{productindexid,jdbcType=VARCHAR} , 
     </if>
     <if test="itemid != null">
-      ITEMID = #{itemid,jdbcType=VARCHAR} , 
+      itemid = #{itemid,jdbcType=VARCHAR} , 
     </if>
     <if test="enmityid != null">
-      ENMITYID = #{enmityid,jdbcType=VARCHAR}
+      enmityid = #{enmityid,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbProductanditemid" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

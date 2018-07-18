@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbExpressiddata;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbExpressiddataMapper {
-    int deleteByPrimaryKey(String sid);
+    DbExpressiddata selectByCriteria(DbExpressiddata DbExpressiddata);
 
-    int insert(DbExpressiddata record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbExpressiddata record);
+    void deleteByCriteria(DbExpressiddata DbExpressiddata);
+
+    int insertByCriteria(DbExpressiddata DbExpressiddata);
+
+    int updateByCriteria(DbExpressiddata DbExpressiddata);
 
     DbExpressiddata selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbExpressiddata record);
-
-    int updateByPrimaryKeyWithBLOBs(DbExpressiddata record);
-
-    int updateByPrimaryKey(DbExpressiddata record);
+    List<DbExpressiddata> selectAll();
 }

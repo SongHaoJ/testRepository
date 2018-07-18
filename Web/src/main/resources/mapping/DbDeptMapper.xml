@@ -8,49 +8,49 @@
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select DID, DNAME, DCITY
-    from db_dept
+    from DB_DEPT
     where DID = #{did,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select DID, DNAME, DCITY
-    from db_dept
+    from DB_DEPT
   </select>
   <sql id="TableName">
-    db_dept
+    DB_DEPT
   </sql>
   <sql id="Values">
      #{did,jdbcType=VARCHAR} , 
      #{dname,jdbcType=VARCHAR} , 
-     #{dcity,jdbcType=VARCHAR}
+     #{dcity,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     DID , 
     DNAME , 
-    DCITY
+    DCITY , 
   </sql>
   <sql id="Criteria">
     <if test="did != null">
-      DID = #{did,jdbcType=VARCHAR} and 
+      did = #{did,jdbcType=VARCHAR} and 
     </if>
     <if test="dname != null">
-      DNAME = #{dname,jdbcType=VARCHAR} and 
+      dname = #{dname,jdbcType=VARCHAR} and 
     </if>
     <if test="dcity != null">
-      DCITY = #{dcity,jdbcType=VARCHAR}
+      dcity = #{dcity,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="did != null">
-      DID = #{did,jdbcType=VARCHAR} , 
+      did = #{did,jdbcType=VARCHAR} , 
     </if>
     <if test="dname != null">
-      DNAME = #{dname,jdbcType=VARCHAR} , 
+      dname = #{dname,jdbcType=VARCHAR} , 
     </if>
     <if test="dcity != null">
-      DCITY = #{dcity,jdbcType=VARCHAR}
+      dcity = #{dcity,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbDept" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

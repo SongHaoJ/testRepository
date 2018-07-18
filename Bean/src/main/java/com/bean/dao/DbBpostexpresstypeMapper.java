@@ -1,17 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbBpostexpresstype;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbBpostexpresstypeMapper {
-    int deleteByPrimaryKey(String sid);
+    DbBpostexpresstype selectByCriteria(DbBpostexpresstype DbBpostexpresstype);
 
-    int insert(DbBpostexpresstype record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbBpostexpresstype record);
+    void deleteByCriteria(DbBpostexpresstype DbBpostexpresstype);
+
+    int insertByCriteria(DbBpostexpresstype DbBpostexpresstype);
+
+    int updateByCriteria(DbBpostexpresstype DbBpostexpresstype);
 
     DbBpostexpresstype selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbBpostexpresstype record);
-
-    int updateByPrimaryKey(DbBpostexpresstype record);
+    List<DbBpostexpresstype> selectAll();
 }

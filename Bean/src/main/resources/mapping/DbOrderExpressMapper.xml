@@ -36,390 +36,313 @@
     <result column="CHINAEXPRESSCOUNTRY" jdbcType="VARCHAR" property="chinaexpresscountry" />
     <result column="CHINAEXPRESSAREA" jdbcType="VARCHAR" property="chinaexpressarea" />
   </resultMap>
-  <sql id="Base_Column_List">
-    ORDERID, TRADEID, ORDERWEIGHT, EXPRESSID1, EXPRESSID2, EXPRESSID4, EXPRESSID3, EXPRESSID5, 
-    EXPRESSID6, EXPRESSID7, EXPRESSID8, EXPRESSID9, EXPRESSID10, EXPRESSID11, EXPRESSID12, 
-    EXPRESSID13, EXPRESSID14, EXPRESSID15, EXPRESSID16, EXPRESSID17, EXPRESSID18, EXPRESSID19, 
-    EXPRESSID20, MINEXPRESS, EXPRESSTYPEID, EXPRESSTYPE, RESERVE1, RESERVE2, RESERVE3, 
-    RESERVE4, CHINAEXPRESS, CHINAEXPRESSCOUNTRY, CHINAEXPRESSAREA
-  </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from db_order_express
+    select ORDERID, TRADEID, ORDERWEIGHT, EXPRESSID1, EXPRESSID2, EXPRESSID4, EXPRESSID3, 
+    EXPRESSID5, EXPRESSID6, EXPRESSID7, EXPRESSID8, EXPRESSID9, EXPRESSID10, EXPRESSID11, 
+    EXPRESSID12, EXPRESSID13, EXPRESSID14, EXPRESSID15, EXPRESSID16, EXPRESSID17, EXPRESSID18, 
+    EXPRESSID19, EXPRESSID20, MINEXPRESS, EXPRESSTYPEID, EXPRESSTYPE, RESERVE1, RESERVE2, 
+    RESERVE3, RESERVE4, CHINAEXPRESS, CHINAEXPRESSCOUNTRY, CHINAEXPRESSAREA
+    from DB_ORDER_EXPRESS
     where ORDERID = #{orderid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_order_express
-    where ORDERID = #{orderid,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ORDERID, TRADEID, ORDERWEIGHT, EXPRESSID1, EXPRESSID2, EXPRESSID4, EXPRESSID3, 
+    EXPRESSID5, EXPRESSID6, EXPRESSID7, EXPRESSID8, EXPRESSID9, EXPRESSID10, EXPRESSID11, 
+    EXPRESSID12, EXPRESSID13, EXPRESSID14, EXPRESSID15, EXPRESSID16, EXPRESSID17, EXPRESSID18, 
+    EXPRESSID19, EXPRESSID20, MINEXPRESS, EXPRESSTYPEID, EXPRESSTYPE, RESERVE1, RESERVE2, 
+    RESERVE3, RESERVE4, CHINAEXPRESS, CHINAEXPRESSCOUNTRY, CHINAEXPRESSAREA
+    from DB_ORDER_EXPRESS
+  </select>
+  <sql id="TableName">
+    DB_ORDER_EXPRESS
+  </sql>
+  <sql id="Values">
+     #{orderid,jdbcType=VARCHAR} , 
+     #{tradeid,jdbcType=VARCHAR} , 
+     #{orderweight,jdbcType=DECIMAL} , 
+     #{expressid1,jdbcType=DECIMAL} , 
+     #{expressid2,jdbcType=DECIMAL} , 
+     #{expressid4,jdbcType=DECIMAL} , 
+     #{expressid3,jdbcType=DECIMAL} , 
+     #{expressid5,jdbcType=DECIMAL} , 
+     #{expressid6,jdbcType=DECIMAL} , 
+     #{expressid7,jdbcType=DECIMAL} , 
+     #{expressid8,jdbcType=DECIMAL} , 
+     #{expressid9,jdbcType=DECIMAL} , 
+     #{expressid10,jdbcType=DECIMAL} , 
+     #{expressid11,jdbcType=DECIMAL} , 
+     #{expressid12,jdbcType=DECIMAL} , 
+     #{expressid13,jdbcType=DECIMAL} , 
+     #{expressid14,jdbcType=DECIMAL} , 
+     #{expressid15,jdbcType=DECIMAL} , 
+     #{expressid16,jdbcType=DECIMAL} , 
+     #{expressid17,jdbcType=DECIMAL} , 
+     #{expressid18,jdbcType=DECIMAL} , 
+     #{expressid19,jdbcType=DECIMAL} , 
+     #{expressid20,jdbcType=DECIMAL} , 
+     #{minexpress,jdbcType=DECIMAL} , 
+     #{expresstypeid,jdbcType=VARCHAR} , 
+     #{expresstype,jdbcType=VARCHAR} , 
+     #{reserve1,jdbcType=DECIMAL} , 
+     #{reserve2,jdbcType=DECIMAL} , 
+     #{reserve3,jdbcType=DECIMAL} , 
+     #{reserve4,jdbcType=DECIMAL} , 
+     #{chinaexpress,jdbcType=DECIMAL} , 
+     #{chinaexpresscountry,jdbcType=VARCHAR} , 
+     #{chinaexpressarea,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    ORDERID , 
+    TRADEID , 
+    ORDERWEIGHT , 
+    EXPRESSID1 , 
+    EXPRESSID2 , 
+    EXPRESSID4 , 
+    EXPRESSID3 , 
+    EXPRESSID5 , 
+    EXPRESSID6 , 
+    EXPRESSID7 , 
+    EXPRESSID8 , 
+    EXPRESSID9 , 
+    EXPRESSID10 , 
+    EXPRESSID11 , 
+    EXPRESSID12 , 
+    EXPRESSID13 , 
+    EXPRESSID14 , 
+    EXPRESSID15 , 
+    EXPRESSID16 , 
+    EXPRESSID17 , 
+    EXPRESSID18 , 
+    EXPRESSID19 , 
+    EXPRESSID20 , 
+    MINEXPRESS , 
+    EXPRESSTYPEID , 
+    EXPRESSTYPE , 
+    RESERVE1 , 
+    RESERVE2 , 
+    RESERVE3 , 
+    RESERVE4 , 
+    CHINAEXPRESS , 
+    CHINAEXPRESSCOUNTRY , 
+    CHINAEXPRESSAREA , 
+  </sql>
+  <sql id="Criteria">
+    <if test="orderid != null">
+      orderid = #{orderid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="tradeid != null">
+      tradeid = #{tradeid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="orderweight != null">
+      orderweight = #{orderweight,jdbcType=DECIMAL} and 
+    </if>
+    <if test="expressid1 != null">
+      expressid1 = #{expressid1,jdbcType=DECIMAL} and 
+    </if>
+    <if test="expressid2 != null">
+      expressid2 = #{expressid2,jdbcType=DECIMAL} and 
+    </if>
+    <if test="expressid4 != null">
+      expressid4 = #{expressid4,jdbcType=DECIMAL} and 
+    </if>
+    <if test="expressid3 != null">
+      expressid3 = #{expressid3,jdbcType=DECIMAL} and 
+    </if>
+    <if test="expressid5 != null">
+      expressid5 = #{expressid5,jdbcType=DECIMAL} and 
+    </if>
+    <if test="expressid6 != null">
+      expressid6 = #{expressid6,jdbcType=DECIMAL} and 
+    </if>
+    <if test="expressid7 != null">
+      expressid7 = #{expressid7,jdbcType=DECIMAL} and 
+    </if>
+    <if test="expressid8 != null">
+      expressid8 = #{expressid8,jdbcType=DECIMAL} and 
+    </if>
+    <if test="expressid9 != null">
+      expressid9 = #{expressid9,jdbcType=DECIMAL} and 
+    </if>
+    <if test="expressid10 != null">
+      expressid10 = #{expressid10,jdbcType=DECIMAL} and 
+    </if>
+    <if test="expressid11 != null">
+      expressid11 = #{expressid11,jdbcType=DECIMAL} and 
+    </if>
+    <if test="expressid12 != null">
+      expressid12 = #{expressid12,jdbcType=DECIMAL} and 
+    </if>
+    <if test="expressid13 != null">
+      expressid13 = #{expressid13,jdbcType=DECIMAL} and 
+    </if>
+    <if test="expressid14 != null">
+      expressid14 = #{expressid14,jdbcType=DECIMAL} and 
+    </if>
+    <if test="expressid15 != null">
+      expressid15 = #{expressid15,jdbcType=DECIMAL} and 
+    </if>
+    <if test="expressid16 != null">
+      expressid16 = #{expressid16,jdbcType=DECIMAL} and 
+    </if>
+    <if test="expressid17 != null">
+      expressid17 = #{expressid17,jdbcType=DECIMAL} and 
+    </if>
+    <if test="expressid18 != null">
+      expressid18 = #{expressid18,jdbcType=DECIMAL} and 
+    </if>
+    <if test="expressid19 != null">
+      expressid19 = #{expressid19,jdbcType=DECIMAL} and 
+    </if>
+    <if test="expressid20 != null">
+      expressid20 = #{expressid20,jdbcType=DECIMAL} and 
+    </if>
+    <if test="minexpress != null">
+      minexpress = #{minexpress,jdbcType=DECIMAL} and 
+    </if>
+    <if test="expresstypeid != null">
+      expresstypeid = #{expresstypeid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="expresstype != null">
+      expresstype = #{expresstype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=DECIMAL} and 
+    </if>
+    <if test="chinaexpress != null">
+      chinaexpress = #{chinaexpress,jdbcType=DECIMAL} and 
+    </if>
+    <if test="chinaexpresscountry != null">
+      chinaexpresscountry = #{chinaexpresscountry,jdbcType=VARCHAR} and 
+    </if>
+    <if test="chinaexpressarea != null">
+      chinaexpressarea = #{chinaexpressarea,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="orderid != null">
+      orderid = #{orderid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="tradeid != null">
+      tradeid = #{tradeid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="orderweight != null">
+      orderweight = #{orderweight,jdbcType=DECIMAL} , 
+    </if>
+    <if test="expressid1 != null">
+      expressid1 = #{expressid1,jdbcType=DECIMAL} , 
+    </if>
+    <if test="expressid2 != null">
+      expressid2 = #{expressid2,jdbcType=DECIMAL} , 
+    </if>
+    <if test="expressid4 != null">
+      expressid4 = #{expressid4,jdbcType=DECIMAL} , 
+    </if>
+    <if test="expressid3 != null">
+      expressid3 = #{expressid3,jdbcType=DECIMAL} , 
+    </if>
+    <if test="expressid5 != null">
+      expressid5 = #{expressid5,jdbcType=DECIMAL} , 
+    </if>
+    <if test="expressid6 != null">
+      expressid6 = #{expressid6,jdbcType=DECIMAL} , 
+    </if>
+    <if test="expressid7 != null">
+      expressid7 = #{expressid7,jdbcType=DECIMAL} , 
+    </if>
+    <if test="expressid8 != null">
+      expressid8 = #{expressid8,jdbcType=DECIMAL} , 
+    </if>
+    <if test="expressid9 != null">
+      expressid9 = #{expressid9,jdbcType=DECIMAL} , 
+    </if>
+    <if test="expressid10 != null">
+      expressid10 = #{expressid10,jdbcType=DECIMAL} , 
+    </if>
+    <if test="expressid11 != null">
+      expressid11 = #{expressid11,jdbcType=DECIMAL} , 
+    </if>
+    <if test="expressid12 != null">
+      expressid12 = #{expressid12,jdbcType=DECIMAL} , 
+    </if>
+    <if test="expressid13 != null">
+      expressid13 = #{expressid13,jdbcType=DECIMAL} , 
+    </if>
+    <if test="expressid14 != null">
+      expressid14 = #{expressid14,jdbcType=DECIMAL} , 
+    </if>
+    <if test="expressid15 != null">
+      expressid15 = #{expressid15,jdbcType=DECIMAL} , 
+    </if>
+    <if test="expressid16 != null">
+      expressid16 = #{expressid16,jdbcType=DECIMAL} , 
+    </if>
+    <if test="expressid17 != null">
+      expressid17 = #{expressid17,jdbcType=DECIMAL} , 
+    </if>
+    <if test="expressid18 != null">
+      expressid18 = #{expressid18,jdbcType=DECIMAL} , 
+    </if>
+    <if test="expressid19 != null">
+      expressid19 = #{expressid19,jdbcType=DECIMAL} , 
+    </if>
+    <if test="expressid20 != null">
+      expressid20 = #{expressid20,jdbcType=DECIMAL} , 
+    </if>
+    <if test="minexpress != null">
+      minexpress = #{minexpress,jdbcType=DECIMAL} , 
+    </if>
+    <if test="expresstypeid != null">
+      expresstypeid = #{expresstypeid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="expresstype != null">
+      expresstype = #{expresstype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=DECIMAL} , 
+    </if>
+    <if test="chinaexpress != null">
+      chinaexpress = #{chinaexpress,jdbcType=DECIMAL} , 
+    </if>
+    <if test="chinaexpresscountry != null">
+      chinaexpresscountry = #{chinaexpresscountry,jdbcType=VARCHAR} , 
+    </if>
+    <if test="chinaexpressarea != null">
+      chinaexpressarea = #{chinaexpressarea,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbOrderExpress" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where ORDERID=#{ORDERID}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbOrderExpress">
-    insert into db_order_express (ORDERID, TRADEID, ORDERWEIGHT, 
-      EXPRESSID1, EXPRESSID2, EXPRESSID4, 
-      EXPRESSID3, EXPRESSID5, EXPRESSID6, 
-      EXPRESSID7, EXPRESSID8, EXPRESSID9, 
-      EXPRESSID10, EXPRESSID11, EXPRESSID12, 
-      EXPRESSID13, EXPRESSID14, EXPRESSID15, 
-      EXPRESSID16, EXPRESSID17, EXPRESSID18, 
-      EXPRESSID19, EXPRESSID20, MINEXPRESS, 
-      EXPRESSTYPEID, EXPRESSTYPE, RESERVE1, 
-      RESERVE2, RESERVE3, RESERVE4, 
-      CHINAEXPRESS, CHINAEXPRESSCOUNTRY, CHINAEXPRESSAREA
-      )
-    values (#{orderid,jdbcType=VARCHAR}, #{tradeid,jdbcType=VARCHAR}, #{orderweight,jdbcType=DECIMAL}, 
-      #{expressid1,jdbcType=DECIMAL}, #{expressid2,jdbcType=DECIMAL}, #{expressid4,jdbcType=DECIMAL}, 
-      #{expressid3,jdbcType=DECIMAL}, #{expressid5,jdbcType=DECIMAL}, #{expressid6,jdbcType=DECIMAL}, 
-      #{expressid7,jdbcType=DECIMAL}, #{expressid8,jdbcType=DECIMAL}, #{expressid9,jdbcType=DECIMAL}, 
-      #{expressid10,jdbcType=DECIMAL}, #{expressid11,jdbcType=DECIMAL}, #{expressid12,jdbcType=DECIMAL}, 
-      #{expressid13,jdbcType=DECIMAL}, #{expressid14,jdbcType=DECIMAL}, #{expressid15,jdbcType=DECIMAL}, 
-      #{expressid16,jdbcType=DECIMAL}, #{expressid17,jdbcType=DECIMAL}, #{expressid18,jdbcType=DECIMAL}, 
-      #{expressid19,jdbcType=DECIMAL}, #{expressid20,jdbcType=DECIMAL}, #{minexpress,jdbcType=DECIMAL}, 
-      #{expresstypeid,jdbcType=VARCHAR}, #{expresstype,jdbcType=VARCHAR}, #{reserve1,jdbcType=DECIMAL}, 
-      #{reserve2,jdbcType=DECIMAL}, #{reserve3,jdbcType=DECIMAL}, #{reserve4,jdbcType=DECIMAL}, 
-      #{chinaexpress,jdbcType=DECIMAL}, #{chinaexpresscountry,jdbcType=VARCHAR}, #{chinaexpressarea,jdbcType=VARCHAR}
-      )
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbOrderExpress">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbOrderExpress">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbOrderExpress">
-    insert into db_order_express
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="orderid != null">
-        ORDERID,
-      </if>
-      <if test="tradeid != null">
-        TRADEID,
-      </if>
-      <if test="orderweight != null">
-        ORDERWEIGHT,
-      </if>
-      <if test="expressid1 != null">
-        EXPRESSID1,
-      </if>
-      <if test="expressid2 != null">
-        EXPRESSID2,
-      </if>
-      <if test="expressid4 != null">
-        EXPRESSID4,
-      </if>
-      <if test="expressid3 != null">
-        EXPRESSID3,
-      </if>
-      <if test="expressid5 != null">
-        EXPRESSID5,
-      </if>
-      <if test="expressid6 != null">
-        EXPRESSID6,
-      </if>
-      <if test="expressid7 != null">
-        EXPRESSID7,
-      </if>
-      <if test="expressid8 != null">
-        EXPRESSID8,
-      </if>
-      <if test="expressid9 != null">
-        EXPRESSID9,
-      </if>
-      <if test="expressid10 != null">
-        EXPRESSID10,
-      </if>
-      <if test="expressid11 != null">
-        EXPRESSID11,
-      </if>
-      <if test="expressid12 != null">
-        EXPRESSID12,
-      </if>
-      <if test="expressid13 != null">
-        EXPRESSID13,
-      </if>
-      <if test="expressid14 != null">
-        EXPRESSID14,
-      </if>
-      <if test="expressid15 != null">
-        EXPRESSID15,
-      </if>
-      <if test="expressid16 != null">
-        EXPRESSID16,
-      </if>
-      <if test="expressid17 != null">
-        EXPRESSID17,
-      </if>
-      <if test="expressid18 != null">
-        EXPRESSID18,
-      </if>
-      <if test="expressid19 != null">
-        EXPRESSID19,
-      </if>
-      <if test="expressid20 != null">
-        EXPRESSID20,
-      </if>
-      <if test="minexpress != null">
-        MINEXPRESS,
-      </if>
-      <if test="expresstypeid != null">
-        EXPRESSTYPEID,
-      </if>
-      <if test="expresstype != null">
-        EXPRESSTYPE,
-      </if>
-      <if test="reserve1 != null">
-        RESERVE1,
-      </if>
-      <if test="reserve2 != null">
-        RESERVE2,
-      </if>
-      <if test="reserve3 != null">
-        RESERVE3,
-      </if>
-      <if test="reserve4 != null">
-        RESERVE4,
-      </if>
-      <if test="chinaexpress != null">
-        CHINAEXPRESS,
-      </if>
-      <if test="chinaexpresscountry != null">
-        CHINAEXPRESSCOUNTRY,
-      </if>
-      <if test="chinaexpressarea != null">
-        CHINAEXPRESSAREA,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="orderid != null">
-        #{orderid,jdbcType=VARCHAR},
-      </if>
-      <if test="tradeid != null">
-        #{tradeid,jdbcType=VARCHAR},
-      </if>
-      <if test="orderweight != null">
-        #{orderweight,jdbcType=DECIMAL},
-      </if>
-      <if test="expressid1 != null">
-        #{expressid1,jdbcType=DECIMAL},
-      </if>
-      <if test="expressid2 != null">
-        #{expressid2,jdbcType=DECIMAL},
-      </if>
-      <if test="expressid4 != null">
-        #{expressid4,jdbcType=DECIMAL},
-      </if>
-      <if test="expressid3 != null">
-        #{expressid3,jdbcType=DECIMAL},
-      </if>
-      <if test="expressid5 != null">
-        #{expressid5,jdbcType=DECIMAL},
-      </if>
-      <if test="expressid6 != null">
-        #{expressid6,jdbcType=DECIMAL},
-      </if>
-      <if test="expressid7 != null">
-        #{expressid7,jdbcType=DECIMAL},
-      </if>
-      <if test="expressid8 != null">
-        #{expressid8,jdbcType=DECIMAL},
-      </if>
-      <if test="expressid9 != null">
-        #{expressid9,jdbcType=DECIMAL},
-      </if>
-      <if test="expressid10 != null">
-        #{expressid10,jdbcType=DECIMAL},
-      </if>
-      <if test="expressid11 != null">
-        #{expressid11,jdbcType=DECIMAL},
-      </if>
-      <if test="expressid12 != null">
-        #{expressid12,jdbcType=DECIMAL},
-      </if>
-      <if test="expressid13 != null">
-        #{expressid13,jdbcType=DECIMAL},
-      </if>
-      <if test="expressid14 != null">
-        #{expressid14,jdbcType=DECIMAL},
-      </if>
-      <if test="expressid15 != null">
-        #{expressid15,jdbcType=DECIMAL},
-      </if>
-      <if test="expressid16 != null">
-        #{expressid16,jdbcType=DECIMAL},
-      </if>
-      <if test="expressid17 != null">
-        #{expressid17,jdbcType=DECIMAL},
-      </if>
-      <if test="expressid18 != null">
-        #{expressid18,jdbcType=DECIMAL},
-      </if>
-      <if test="expressid19 != null">
-        #{expressid19,jdbcType=DECIMAL},
-      </if>
-      <if test="expressid20 != null">
-        #{expressid20,jdbcType=DECIMAL},
-      </if>
-      <if test="minexpress != null">
-        #{minexpress,jdbcType=DECIMAL},
-      </if>
-      <if test="expresstypeid != null">
-        #{expresstypeid,jdbcType=VARCHAR},
-      </if>
-      <if test="expresstype != null">
-        #{expresstype,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve1 != null">
-        #{reserve1,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve2 != null">
-        #{reserve2,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve3 != null">
-        #{reserve3,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve4 != null">
-        #{reserve4,jdbcType=DECIMAL},
-      </if>
-      <if test="chinaexpress != null">
-        #{chinaexpress,jdbcType=DECIMAL},
-      </if>
-      <if test="chinaexpresscountry != null">
-        #{chinaexpresscountry,jdbcType=VARCHAR},
-      </if>
-      <if test="chinaexpressarea != null">
-        #{chinaexpressarea,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbOrderExpress">
-    update db_order_express
-    <set>
-      <if test="tradeid != null">
-        TRADEID = #{tradeid,jdbcType=VARCHAR},
-      </if>
-      <if test="orderweight != null">
-        ORDERWEIGHT = #{orderweight,jdbcType=DECIMAL},
-      </if>
-      <if test="expressid1 != null">
-        EXPRESSID1 = #{expressid1,jdbcType=DECIMAL},
-      </if>
-      <if test="expressid2 != null">
-        EXPRESSID2 = #{expressid2,jdbcType=DECIMAL},
-      </if>
-      <if test="expressid4 != null">
-        EXPRESSID4 = #{expressid4,jdbcType=DECIMAL},
-      </if>
-      <if test="expressid3 != null">
-        EXPRESSID3 = #{expressid3,jdbcType=DECIMAL},
-      </if>
-      <if test="expressid5 != null">
-        EXPRESSID5 = #{expressid5,jdbcType=DECIMAL},
-      </if>
-      <if test="expressid6 != null">
-        EXPRESSID6 = #{expressid6,jdbcType=DECIMAL},
-      </if>
-      <if test="expressid7 != null">
-        EXPRESSID7 = #{expressid7,jdbcType=DECIMAL},
-      </if>
-      <if test="expressid8 != null">
-        EXPRESSID8 = #{expressid8,jdbcType=DECIMAL},
-      </if>
-      <if test="expressid9 != null">
-        EXPRESSID9 = #{expressid9,jdbcType=DECIMAL},
-      </if>
-      <if test="expressid10 != null">
-        EXPRESSID10 = #{expressid10,jdbcType=DECIMAL},
-      </if>
-      <if test="expressid11 != null">
-        EXPRESSID11 = #{expressid11,jdbcType=DECIMAL},
-      </if>
-      <if test="expressid12 != null">
-        EXPRESSID12 = #{expressid12,jdbcType=DECIMAL},
-      </if>
-      <if test="expressid13 != null">
-        EXPRESSID13 = #{expressid13,jdbcType=DECIMAL},
-      </if>
-      <if test="expressid14 != null">
-        EXPRESSID14 = #{expressid14,jdbcType=DECIMAL},
-      </if>
-      <if test="expressid15 != null">
-        EXPRESSID15 = #{expressid15,jdbcType=DECIMAL},
-      </if>
-      <if test="expressid16 != null">
-        EXPRESSID16 = #{expressid16,jdbcType=DECIMAL},
-      </if>
-      <if test="expressid17 != null">
-        EXPRESSID17 = #{expressid17,jdbcType=DECIMAL},
-      </if>
-      <if test="expressid18 != null">
-        EXPRESSID18 = #{expressid18,jdbcType=DECIMAL},
-      </if>
-      <if test="expressid19 != null">
-        EXPRESSID19 = #{expressid19,jdbcType=DECIMAL},
-      </if>
-      <if test="expressid20 != null">
-        EXPRESSID20 = #{expressid20,jdbcType=DECIMAL},
-      </if>
-      <if test="minexpress != null">
-        MINEXPRESS = #{minexpress,jdbcType=DECIMAL},
-      </if>
-      <if test="expresstypeid != null">
-        EXPRESSTYPEID = #{expresstypeid,jdbcType=VARCHAR},
-      </if>
-      <if test="expresstype != null">
-        EXPRESSTYPE = #{expresstype,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve1 != null">
-        RESERVE1 = #{reserve1,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve2 != null">
-        RESERVE2 = #{reserve2,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve3 != null">
-        RESERVE3 = #{reserve3,jdbcType=DECIMAL},
-      </if>
-      <if test="reserve4 != null">
-        RESERVE4 = #{reserve4,jdbcType=DECIMAL},
-      </if>
-      <if test="chinaexpress != null">
-        CHINAEXPRESS = #{chinaexpress,jdbcType=DECIMAL},
-      </if>
-      <if test="chinaexpresscountry != null">
-        CHINAEXPRESSCOUNTRY = #{chinaexpresscountry,jdbcType=VARCHAR},
-      </if>
-      <if test="chinaexpressarea != null">
-        CHINAEXPRESSAREA = #{chinaexpressarea,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where ORDERID = #{orderid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbOrderExpress">
-    update db_order_express
-    set TRADEID = #{tradeid,jdbcType=VARCHAR},
-      ORDERWEIGHT = #{orderweight,jdbcType=DECIMAL},
-      EXPRESSID1 = #{expressid1,jdbcType=DECIMAL},
-      EXPRESSID2 = #{expressid2,jdbcType=DECIMAL},
-      EXPRESSID4 = #{expressid4,jdbcType=DECIMAL},
-      EXPRESSID3 = #{expressid3,jdbcType=DECIMAL},
-      EXPRESSID5 = #{expressid5,jdbcType=DECIMAL},
-      EXPRESSID6 = #{expressid6,jdbcType=DECIMAL},
-      EXPRESSID7 = #{expressid7,jdbcType=DECIMAL},
-      EXPRESSID8 = #{expressid8,jdbcType=DECIMAL},
-      EXPRESSID9 = #{expressid9,jdbcType=DECIMAL},
-      EXPRESSID10 = #{expressid10,jdbcType=DECIMAL},
-      EXPRESSID11 = #{expressid11,jdbcType=DECIMAL},
-      EXPRESSID12 = #{expressid12,jdbcType=DECIMAL},
-      EXPRESSID13 = #{expressid13,jdbcType=DECIMAL},
-      EXPRESSID14 = #{expressid14,jdbcType=DECIMAL},
-      EXPRESSID15 = #{expressid15,jdbcType=DECIMAL},
-      EXPRESSID16 = #{expressid16,jdbcType=DECIMAL},
-      EXPRESSID17 = #{expressid17,jdbcType=DECIMAL},
-      EXPRESSID18 = #{expressid18,jdbcType=DECIMAL},
-      EXPRESSID19 = #{expressid19,jdbcType=DECIMAL},
-      EXPRESSID20 = #{expressid20,jdbcType=DECIMAL},
-      MINEXPRESS = #{minexpress,jdbcType=DECIMAL},
-      EXPRESSTYPEID = #{expresstypeid,jdbcType=VARCHAR},
-      EXPRESSTYPE = #{expresstype,jdbcType=VARCHAR},
-      RESERVE1 = #{reserve1,jdbcType=DECIMAL},
-      RESERVE2 = #{reserve2,jdbcType=DECIMAL},
-      RESERVE3 = #{reserve3,jdbcType=DECIMAL},
-      RESERVE4 = #{reserve4,jdbcType=DECIMAL},
-      CHINAEXPRESS = #{chinaexpress,jdbcType=DECIMAL},
-      CHINAEXPRESSCOUNTRY = #{chinaexpresscountry,jdbcType=VARCHAR},
-      CHINAEXPRESSAREA = #{chinaexpressarea,jdbcType=VARCHAR}
-    where ORDERID = #{orderid,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbOrderExpress">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

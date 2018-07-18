@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.dao.StatHotshopDailyMapper">
+  <resultMap id="BaseResultMap" type="com.bean.model.StatHotshopDaily">
+    <result column="SEQUENCEID" jdbcType="VARCHAR" property="sequenceid" />
+    <result column="YYYY" jdbcType="VARCHAR" property="yyyy" />
+    <result column="YYYYMM" jdbcType="VARCHAR" property="yyyymm" />
+    <result column="YYYYMMDD" jdbcType="VARCHAR" property="yyyymmdd" />
+    <result column="SHOPID" jdbcType="VARCHAR" property="shopid" />
+    <result column="SHOPNAME" jdbcType="VARCHAR" property="shopname" />
+    <result column="ORDERNUM" jdbcType="DECIMAL" property="ordernum" />
+    <result column="SELLNUM" jdbcType="DECIMAL" property="sellnum" />
+    <result column="AMOUNT" jdbcType="DECIMAL" property="amount" />
+    <result column="COST" jdbcType="DECIMAL" property="cost" />
+    <result column="BADCOST" jdbcType="DECIMAL" property="badcost" />
+    <result column="EXPRESSCOST" jdbcType="DECIMAL" property="expresscost" />
+    <result column="NUMBER1" jdbcType="DECIMAL" property="number1" />
+    <result column="NUMBER2" jdbcType="DECIMAL" property="number2" />
+    <result column="NUMBER3" jdbcType="DECIMAL" property="number3" />
+    <result column="COST1" jdbcType="DECIMAL" property="cost1" />
+    <result column="COST2" jdbcType="DECIMAL" property="cost2" />
+    <result column="COST3" jdbcType="DECIMAL" property="cost3" />
+    <result column="FIELD1" jdbcType="VARCHAR" property="field1" />
+    <result column="FIELD2" jdbcType="VARCHAR" property="field2" />
+    <result column="FIELD3" jdbcType="VARCHAR" property="field3" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bean.model.StatHotshopDaily">
+    insert into stat_hotshop_daily (SEQUENCEID, YYYY, YYYYMM, 
+      YYYYMMDD, SHOPID, SHOPNAME, 
+      ORDERNUM, SELLNUM, AMOUNT, 
+      COST, BADCOST, EXPRESSCOST, 
+      NUMBER1, NUMBER2, NUMBER3, 
+      COST1, COST2, COST3, 
+      FIELD1, FIELD2, FIELD3
+      )
+    values (#{sequenceid,jdbcType=VARCHAR}, #{yyyy,jdbcType=VARCHAR}, #{yyyymm,jdbcType=VARCHAR}, 
+      #{yyyymmdd,jdbcType=VARCHAR}, #{shopid,jdbcType=VARCHAR}, #{shopname,jdbcType=VARCHAR}, 
+      #{ordernum,jdbcType=DECIMAL}, #{sellnum,jdbcType=DECIMAL}, #{amount,jdbcType=DECIMAL}, 
+      #{cost,jdbcType=DECIMAL}, #{badcost,jdbcType=DECIMAL}, #{expresscost,jdbcType=DECIMAL}, 
+      #{number1,jdbcType=DECIMAL}, #{number2,jdbcType=DECIMAL}, #{number3,jdbcType=DECIMAL}, 
+      #{cost1,jdbcType=DECIMAL}, #{cost2,jdbcType=DECIMAL}, #{cost3,jdbcType=DECIMAL}, 
+      #{field1,jdbcType=VARCHAR}, #{field2,jdbcType=VARCHAR}, #{field3,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.model.StatHotshopDaily">
+    insert into stat_hotshop_daily
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        SEQUENCEID,
+      </if>
+      <if test="yyyy != null">
+        YYYY,
+      </if>
+      <if test="yyyymm != null">
+        YYYYMM,
+      </if>
+      <if test="yyyymmdd != null">
+        YYYYMMDD,
+      </if>
+      <if test="shopid != null">
+        SHOPID,
+      </if>
+      <if test="shopname != null">
+        SHOPNAME,
+      </if>
+      <if test="ordernum != null">
+        ORDERNUM,
+      </if>
+      <if test="sellnum != null">
+        SELLNUM,
+      </if>
+      <if test="amount != null">
+        AMOUNT,
+      </if>
+      <if test="cost != null">
+        COST,
+      </if>
+      <if test="badcost != null">
+        BADCOST,
+      </if>
+      <if test="expresscost != null">
+        EXPRESSCOST,
+      </if>
+      <if test="number1 != null">
+        NUMBER1,
+      </if>
+      <if test="number2 != null">
+        NUMBER2,
+      </if>
+      <if test="number3 != null">
+        NUMBER3,
+      </if>
+      <if test="cost1 != null">
+        COST1,
+      </if>
+      <if test="cost2 != null">
+        COST2,
+      </if>
+      <if test="cost3 != null">
+        COST3,
+      </if>
+      <if test="field1 != null">
+        FIELD1,
+      </if>
+      <if test="field2 != null">
+        FIELD2,
+      </if>
+      <if test="field3 != null">
+        FIELD3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sequenceid != null">
+        #{sequenceid,jdbcType=VARCHAR},
+      </if>
+      <if test="yyyy != null">
+        #{yyyy,jdbcType=VARCHAR},
+      </if>
+      <if test="yyyymm != null">
+        #{yyyymm,jdbcType=VARCHAR},
+      </if>
+      <if test="yyyymmdd != null">
+        #{yyyymmdd,jdbcType=VARCHAR},
+      </if>
+      <if test="shopid != null">
+        #{shopid,jdbcType=VARCHAR},
+      </if>
+      <if test="shopname != null">
+        #{shopname,jdbcType=VARCHAR},
+      </if>
+      <if test="ordernum != null">
+        #{ordernum,jdbcType=DECIMAL},
+      </if>
+      <if test="sellnum != null">
+        #{sellnum,jdbcType=DECIMAL},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="cost != null">
+        #{cost,jdbcType=DECIMAL},
+      </if>
+      <if test="badcost != null">
+        #{badcost,jdbcType=DECIMAL},
+      </if>
+      <if test="expresscost != null">
+        #{expresscost,jdbcType=DECIMAL},
+      </if>
+      <if test="number1 != null">
+        #{number1,jdbcType=DECIMAL},
+      </if>
+      <if test="number2 != null">
+        #{number2,jdbcType=DECIMAL},
+      </if>
+      <if test="number3 != null">
+        #{number3,jdbcType=DECIMAL},
+      </if>
+      <if test="cost1 != null">
+        #{cost1,jdbcType=DECIMAL},
+      </if>
+      <if test="cost2 != null">
+        #{cost2,jdbcType=DECIMAL},
+      </if>
+      <if test="cost3 != null">
+        #{cost3,jdbcType=DECIMAL},
+      </if>
+      <if test="field1 != null">
+        #{field1,jdbcType=VARCHAR},
+      </if>
+      <if test="field2 != null">
+        #{field2,jdbcType=VARCHAR},
+      </if>
+      <if test="field3 != null">
+        #{field3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbBirdproduct;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbBirdproductMapper {
-    int deleteByPrimaryKey(String sid);
+    DbBirdproduct selectByCriteria(DbBirdproduct DbBirdproduct);
 
-    int insert(DbBirdproduct record);
+    void deleteByPrimaryKey(String SID);
 
-    int insertSelective(DbBirdproduct record);
+    void deleteByCriteria(DbBirdproduct DbBirdproduct);
+
+    int insertByCriteria(DbBirdproduct DbBirdproduct);
+
+    int updateByCriteria(DbBirdproduct DbBirdproduct);
 
     DbBirdproduct selectByPrimaryKey(String sid);
 
-    int updateByPrimaryKeySelective(DbBirdproduct record);
-
-    int updateByPrimaryKeyWithBLOBs(DbBirdproduct record);
-
-    int updateByPrimaryKey(DbBirdproduct record);
+    List<DbBirdproduct> selectAll();
 }

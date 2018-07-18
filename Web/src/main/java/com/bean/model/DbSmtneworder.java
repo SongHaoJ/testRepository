@@ -17,6 +17,8 @@ public class DbSmtneworder implements Serializable {
 
     private String customerid;
 
+    private String customername;
+
     private String customertel1;
 
     private String customertel2;
@@ -32,6 +34,8 @@ public class DbSmtneworder implements Serializable {
     private String customerprovince;
 
     private String customercity;
+
+    private String customeraddress;
 
     private String customerzipcode;
 
@@ -77,11 +81,23 @@ public class DbSmtneworder implements Serializable {
 
     private String selloper;
 
+    private String sku;
+
+    private String product;
+
+    private String content;
+
+    private String noteinfo;
+
     private String openflag;
 
     private BigDecimal messagecount;
 
+    private String messagecontent;
+
     private BigDecimal updateflag;
+
+    private String updatedescr;
 
     private Date updatetime;
 
@@ -96,22 +112,6 @@ public class DbSmtneworder implements Serializable {
     private String reserve3;
 
     private String reserve4;
-
-    private String customername;
-
-    private String customeraddress;
-
-    private String sku;
-
-    private String product;
-
-    private String content;
-
-    private String noteinfo;
-
-    private String messagecontent;
-
-    private String updatedescr;
 
     private static final long serialVersionUID = 1L;
 
@@ -161,6 +161,14 @@ public class DbSmtneworder implements Serializable {
 
     public void setCustomerid(String customerid) {
         this.customerid = customerid == null ? null : customerid.trim();
+    }
+
+    public String getCustomername() {
+        return customername;
+    }
+
+    public void setCustomername(String customername) {
+        this.customername = customername == null ? null : customername.trim();
     }
 
     public String getCustomertel1() {
@@ -225,6 +233,14 @@ public class DbSmtneworder implements Serializable {
 
     public void setCustomercity(String customercity) {
         this.customercity = customercity == null ? null : customercity.trim();
+    }
+
+    public String getCustomeraddress() {
+        return customeraddress;
+    }
+
+    public void setCustomeraddress(String customeraddress) {
+        this.customeraddress = customeraddress == null ? null : customeraddress.trim();
     }
 
     public String getCustomerzipcode() {
@@ -403,6 +419,38 @@ public class DbSmtneworder implements Serializable {
         this.selloper = selloper == null ? null : selloper.trim();
     }
 
+    public String getSku() {
+        return sku;
+    }
+
+    public void setSku(String sku) {
+        this.sku = sku == null ? null : sku.trim();
+    }
+
+    public String getProduct() {
+        return product;
+    }
+
+    public void setProduct(String product) {
+        this.product = product == null ? null : product.trim();
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content == null ? null : content.trim();
+    }
+
+    public String getNoteinfo() {
+        return noteinfo;
+    }
+
+    public void setNoteinfo(String noteinfo) {
+        this.noteinfo = noteinfo == null ? null : noteinfo.trim();
+    }
+
     public String getOpenflag() {
         return openflag;
     }
@@ -419,12 +467,28 @@ public class DbSmtneworder implements Serializable {
         this.messagecount = messagecount;
     }
 
+    public String getMessagecontent() {
+        return messagecontent;
+    }
+
+    public void setMessagecontent(String messagecontent) {
+        this.messagecontent = messagecontent == null ? null : messagecontent.trim();
+    }
+
     public BigDecimal getUpdateflag() {
         return updateflag;
     }
 
     public void setUpdateflag(BigDecimal updateflag) {
         this.updateflag = updateflag;
+    }
+
+    public String getUpdatedescr() {
+        return updatedescr;
+    }
+
+    public void setUpdatedescr(String updatedescr) {
+        this.updatedescr = updatedescr == null ? null : updatedescr.trim();
     }
 
     public Date getUpdatetime() {
@@ -483,70 +547,6 @@ public class DbSmtneworder implements Serializable {
         this.reserve4 = reserve4 == null ? null : reserve4.trim();
     }
 
-    public String getCustomername() {
-        return customername;
-    }
-
-    public void setCustomername(String customername) {
-        this.customername = customername == null ? null : customername.trim();
-    }
-
-    public String getCustomeraddress() {
-        return customeraddress;
-    }
-
-    public void setCustomeraddress(String customeraddress) {
-        this.customeraddress = customeraddress == null ? null : customeraddress.trim();
-    }
-
-    public String getSku() {
-        return sku;
-    }
-
-    public void setSku(String sku) {
-        this.sku = sku == null ? null : sku.trim();
-    }
-
-    public String getProduct() {
-        return product;
-    }
-
-    public void setProduct(String product) {
-        this.product = product == null ? null : product.trim();
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content == null ? null : content.trim();
-    }
-
-    public String getNoteinfo() {
-        return noteinfo;
-    }
-
-    public void setNoteinfo(String noteinfo) {
-        this.noteinfo = noteinfo == null ? null : noteinfo.trim();
-    }
-
-    public String getMessagecontent() {
-        return messagecontent;
-    }
-
-    public void setMessagecontent(String messagecontent) {
-        this.messagecontent = messagecontent == null ? null : messagecontent.trim();
-    }
-
-    public String getUpdatedescr() {
-        return updatedescr;
-    }
-
-    public void setUpdatedescr(String updatedescr) {
-        this.updatedescr = updatedescr == null ? null : updatedescr.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -565,6 +565,7 @@ public class DbSmtneworder implements Serializable {
             && (this.getGroupid() == null ? other.getGroupid() == null : this.getGroupid().equals(other.getGroupid()))
             && (this.getBuyerid() == null ? other.getBuyerid() == null : this.getBuyerid().equals(other.getBuyerid()))
             && (this.getCustomerid() == null ? other.getCustomerid() == null : this.getCustomerid().equals(other.getCustomerid()))
+            && (this.getCustomername() == null ? other.getCustomername() == null : this.getCustomername().equals(other.getCustomername()))
             && (this.getCustomertel1() == null ? other.getCustomertel1() == null : this.getCustomertel1().equals(other.getCustomertel1()))
             && (this.getCustomertel2() == null ? other.getCustomertel2() == null : this.getCustomertel2().equals(other.getCustomertel2()))
             && (this.getCustomeremail() == null ? other.getCustomeremail() == null : this.getCustomeremail().equals(other.getCustomeremail()))
@@ -573,6 +574,7 @@ public class DbSmtneworder implements Serializable {
             && (this.getCustomercountryjc() == null ? other.getCustomercountryjc() == null : this.getCustomercountryjc().equals(other.getCustomercountryjc()))
             && (this.getCustomerprovince() == null ? other.getCustomerprovince() == null : this.getCustomerprovince().equals(other.getCustomerprovince()))
             && (this.getCustomercity() == null ? other.getCustomercity() == null : this.getCustomercity().equals(other.getCustomercity()))
+            && (this.getCustomeraddress() == null ? other.getCustomeraddress() == null : this.getCustomeraddress().equals(other.getCustomeraddress()))
             && (this.getCustomerzipcode() == null ? other.getCustomerzipcode() == null : this.getCustomerzipcode().equals(other.getCustomerzipcode()))
             && (this.getCustomerreserve1() == null ? other.getCustomerreserve1() == null : this.getCustomerreserve1().equals(other.getCustomerreserve1()))
             && (this.getCustomerreserve2() == null ? other.getCustomerreserve2() == null : this.getCustomerreserve2().equals(other.getCustomerreserve2()))
@@ -595,24 +597,22 @@ public class DbSmtneworder implements Serializable {
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
             && (this.getSelloper() == null ? other.getSelloper() == null : this.getSelloper().equals(other.getSelloper()))
+            && (this.getSku() == null ? other.getSku() == null : this.getSku().equals(other.getSku()))
+            && (this.getProduct() == null ? other.getProduct() == null : this.getProduct().equals(other.getProduct()))
+            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
+            && (this.getNoteinfo() == null ? other.getNoteinfo() == null : this.getNoteinfo().equals(other.getNoteinfo()))
             && (this.getOpenflag() == null ? other.getOpenflag() == null : this.getOpenflag().equals(other.getOpenflag()))
             && (this.getMessagecount() == null ? other.getMessagecount() == null : this.getMessagecount().equals(other.getMessagecount()))
+            && (this.getMessagecontent() == null ? other.getMessagecontent() == null : this.getMessagecontent().equals(other.getMessagecontent()))
             && (this.getUpdateflag() == null ? other.getUpdateflag() == null : this.getUpdateflag().equals(other.getUpdateflag()))
+            && (this.getUpdatedescr() == null ? other.getUpdatedescr() == null : this.getUpdatedescr().equals(other.getUpdatedescr()))
             && (this.getUpdatetime() == null ? other.getUpdatetime() == null : this.getUpdatetime().equals(other.getUpdatetime()))
             && (this.getFlag() == null ? other.getFlag() == null : this.getFlag().equals(other.getFlag()))
             && (this.getFlagdescr() == null ? other.getFlagdescr() == null : this.getFlagdescr().equals(other.getFlagdescr()))
             && (this.getReserve1() == null ? other.getReserve1() == null : this.getReserve1().equals(other.getReserve1()))
             && (this.getReserve2() == null ? other.getReserve2() == null : this.getReserve2().equals(other.getReserve2()))
             && (this.getReserve3() == null ? other.getReserve3() == null : this.getReserve3().equals(other.getReserve3()))
-            && (this.getReserve4() == null ? other.getReserve4() == null : this.getReserve4().equals(other.getReserve4()))
-            && (this.getCustomername() == null ? other.getCustomername() == null : this.getCustomername().equals(other.getCustomername()))
-            && (this.getCustomeraddress() == null ? other.getCustomeraddress() == null : this.getCustomeraddress().equals(other.getCustomeraddress()))
-            && (this.getSku() == null ? other.getSku() == null : this.getSku().equals(other.getSku()))
-            && (this.getProduct() == null ? other.getProduct() == null : this.getProduct().equals(other.getProduct()))
-            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
-            && (this.getNoteinfo() == null ? other.getNoteinfo() == null : this.getNoteinfo().equals(other.getNoteinfo()))
-            && (this.getMessagecontent() == null ? other.getMessagecontent() == null : this.getMessagecontent().equals(other.getMessagecontent()))
-            && (this.getUpdatedescr() == null ? other.getUpdatedescr() == null : this.getUpdatedescr().equals(other.getUpdatedescr()));
+            && (this.getReserve4() == null ? other.getReserve4() == null : this.getReserve4().equals(other.getReserve4()));
     }
 
     @Override
@@ -625,6 +625,7 @@ public class DbSmtneworder implements Serializable {
         result = prime * result + ((getGroupid() == null) ? 0 : getGroupid().hashCode());
         result = prime * result + ((getBuyerid() == null) ? 0 : getBuyerid().hashCode());
         result = prime * result + ((getCustomerid() == null) ? 0 : getCustomerid().hashCode());
+        result = prime * result + ((getCustomername() == null) ? 0 : getCustomername().hashCode());
         result = prime * result + ((getCustomertel1() == null) ? 0 : getCustomertel1().hashCode());
         result = prime * result + ((getCustomertel2() == null) ? 0 : getCustomertel2().hashCode());
         result = prime * result + ((getCustomeremail() == null) ? 0 : getCustomeremail().hashCode());
@@ -633,6 +634,7 @@ public class DbSmtneworder implements Serializable {
         result = prime * result + ((getCustomercountryjc() == null) ? 0 : getCustomercountryjc().hashCode());
         result = prime * result + ((getCustomerprovince() == null) ? 0 : getCustomerprovince().hashCode());
         result = prime * result + ((getCustomercity() == null) ? 0 : getCustomercity().hashCode());
+        result = prime * result + ((getCustomeraddress() == null) ? 0 : getCustomeraddress().hashCode());
         result = prime * result + ((getCustomerzipcode() == null) ? 0 : getCustomerzipcode().hashCode());
         result = prime * result + ((getCustomerreserve1() == null) ? 0 : getCustomerreserve1().hashCode());
         result = prime * result + ((getCustomerreserve2() == null) ? 0 : getCustomerreserve2().hashCode());
@@ -655,9 +657,15 @@ public class DbSmtneworder implements Serializable {
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getSelloper() == null) ? 0 : getSelloper().hashCode());
+        result = prime * result + ((getSku() == null) ? 0 : getSku().hashCode());
+        result = prime * result + ((getProduct() == null) ? 0 : getProduct().hashCode());
+        result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
+        result = prime * result + ((getNoteinfo() == null) ? 0 : getNoteinfo().hashCode());
         result = prime * result + ((getOpenflag() == null) ? 0 : getOpenflag().hashCode());
         result = prime * result + ((getMessagecount() == null) ? 0 : getMessagecount().hashCode());
+        result = prime * result + ((getMessagecontent() == null) ? 0 : getMessagecontent().hashCode());
         result = prime * result + ((getUpdateflag() == null) ? 0 : getUpdateflag().hashCode());
+        result = prime * result + ((getUpdatedescr() == null) ? 0 : getUpdatedescr().hashCode());
         result = prime * result + ((getUpdatetime() == null) ? 0 : getUpdatetime().hashCode());
         result = prime * result + ((getFlag() == null) ? 0 : getFlag().hashCode());
         result = prime * result + ((getFlagdescr() == null) ? 0 : getFlagdescr().hashCode());
@@ -665,14 +673,6 @@ public class DbSmtneworder implements Serializable {
         result = prime * result + ((getReserve2() == null) ? 0 : getReserve2().hashCode());
         result = prime * result + ((getReserve3() == null) ? 0 : getReserve3().hashCode());
         result = prime * result + ((getReserve4() == null) ? 0 : getReserve4().hashCode());
-        result = prime * result + ((getCustomername() == null) ? 0 : getCustomername().hashCode());
-        result = prime * result + ((getCustomeraddress() == null) ? 0 : getCustomeraddress().hashCode());
-        result = prime * result + ((getSku() == null) ? 0 : getSku().hashCode());
-        result = prime * result + ((getProduct() == null) ? 0 : getProduct().hashCode());
-        result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
-        result = prime * result + ((getNoteinfo() == null) ? 0 : getNoteinfo().hashCode());
-        result = prime * result + ((getMessagecontent() == null) ? 0 : getMessagecontent().hashCode());
-        result = prime * result + ((getUpdatedescr() == null) ? 0 : getUpdatedescr().hashCode());
         return result;
     }
 
@@ -688,6 +688,7 @@ public class DbSmtneworder implements Serializable {
         sb.append(", groupid=").append(groupid);
         sb.append(", buyerid=").append(buyerid);
         sb.append(", customerid=").append(customerid);
+        sb.append(", customername=").append(customername);
         sb.append(", customertel1=").append(customertel1);
         sb.append(", customertel2=").append(customertel2);
         sb.append(", customeremail=").append(customeremail);
@@ -696,6 +697,7 @@ public class DbSmtneworder implements Serializable {
         sb.append(", customercountryjc=").append(customercountryjc);
         sb.append(", customerprovince=").append(customerprovince);
         sb.append(", customercity=").append(customercity);
+        sb.append(", customeraddress=").append(customeraddress);
         sb.append(", customerzipcode=").append(customerzipcode);
         sb.append(", customerreserve1=").append(customerreserve1);
         sb.append(", customerreserve2=").append(customerreserve2);
@@ -718,9 +720,15 @@ public class DbSmtneworder implements Serializable {
         sb.append(", oper=").append(oper);
         sb.append(", opertime=").append(opertime);
         sb.append(", selloper=").append(selloper);
+        sb.append(", sku=").append(sku);
+        sb.append(", product=").append(product);
+        sb.append(", content=").append(content);
+        sb.append(", noteinfo=").append(noteinfo);
         sb.append(", openflag=").append(openflag);
         sb.append(", messagecount=").append(messagecount);
+        sb.append(", messagecontent=").append(messagecontent);
         sb.append(", updateflag=").append(updateflag);
+        sb.append(", updatedescr=").append(updatedescr);
         sb.append(", updatetime=").append(updatetime);
         sb.append(", flag=").append(flag);
         sb.append(", flagdescr=").append(flagdescr);
@@ -728,14 +736,6 @@ public class DbSmtneworder implements Serializable {
         sb.append(", reserve2=").append(reserve2);
         sb.append(", reserve3=").append(reserve3);
         sb.append(", reserve4=").append(reserve4);
-        sb.append(", customername=").append(customername);
-        sb.append(", customeraddress=").append(customeraddress);
-        sb.append(", sku=").append(sku);
-        sb.append(", product=").append(product);
-        sb.append(", content=").append(content);
-        sb.append(", noteinfo=").append(noteinfo);
-        sb.append(", messagecontent=").append(messagecontent);
-        sb.append(", updatedescr=").append(updatedescr);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

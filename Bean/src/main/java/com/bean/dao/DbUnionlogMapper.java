@@ -1,19 +1,23 @@
 package com.bean.dao;
 
 import com.bean.model.DbUnionlog;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface DbUnionlogMapper {
-    int deleteByPrimaryKey(String sequenceid);
+    DbUnionlog selectByCriteria(DbUnionlog DbUnionlog);
 
-    int insert(DbUnionlog record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbUnionlog record);
+    void deleteByCriteria(DbUnionlog DbUnionlog);
+
+    int insertByCriteria(DbUnionlog DbUnionlog);
+
+    int updateByCriteria(DbUnionlog DbUnionlog);
 
     DbUnionlog selectByPrimaryKey(String sequenceid);
 
-    int updateByPrimaryKeySelective(DbUnionlog record);
-
-    int updateByPrimaryKeyWithBLOBs(DbUnionlog record);
-
-    int updateByPrimaryKey(DbUnionlog record);
+    List<DbUnionlog> selectAll();
 }

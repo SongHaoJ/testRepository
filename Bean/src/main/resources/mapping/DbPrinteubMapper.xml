@@ -6,66 +6,65 @@
     <result column="COUNTRY" jdbcType="VARCHAR" property="country" />
     <result column="EUBFLAG" jdbcType="VARCHAR" property="eubflag" />
   </resultMap>
-  <sql id="Base_Column_List">
-    'STATE', COUNTRY, EUBFLAG
-  </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from db_printeub
-    where 'STATE' = #{state,jdbcType=VARCHAR}
+    select STATE, COUNTRY, EUBFLAG
+    from DB_PRINTEUB
+    where STATE = #{state,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from db_printeub
-    where 'STATE' = #{state,jdbcType=VARCHAR}
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STATE, COUNTRY, EUBFLAG
+    from DB_PRINTEUB
+  </select>
+  <sql id="TableName">
+    DB_PRINTEUB
+  </sql>
+  <sql id="Values">
+     #{state,jdbcType=VARCHAR} , 
+     #{country,jdbcType=VARCHAR} , 
+     #{eubflag,jdbcType=VARCHAR} , 
+  </sql>
+  <sql id="Columns">
+    STATE , 
+    COUNTRY , 
+    EUBFLAG , 
+  </sql>
+  <sql id="Criteria">
+    <if test="state != null">
+      state = #{state,jdbcType=VARCHAR} and 
+    </if>
+    <if test="country != null">
+      country = #{country,jdbcType=VARCHAR} and 
+    </if>
+    <if test="eubflag != null">
+      eubflag = #{eubflag,jdbcType=VARCHAR} and 
+    </if>
+     1=1
+  </sql>
+  <sql id="UpdateCriteria">
+    <if test="state != null">
+      state = #{state,jdbcType=VARCHAR} , 
+    </if>
+    <if test="country != null">
+      country = #{country,jdbcType=VARCHAR} , 
+    </if>
+    <if test="eubflag != null">
+      eubflag = #{eubflag,jdbcType=VARCHAR} , 
+    </if>
+     1=1
+  </sql>
+  <select id="selectByCriteria" parameterType="com.bean.model.DbPrinteub" resultMap="ResultMapWithBLOBs">
+    select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="String">
+    delete from <include refid="TableName"/> where STATE=#{STATE}
   </delete>
-  <insert id="insert" parameterType="com.bean.model.DbPrinteub">
-    insert into db_printeub ('STATE', COUNTRY, EUBFLAG
-      )
-    values (#{state,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, #{eubflag,jdbcType=VARCHAR}
-      )
+  <delete id="deleteByCriteria" parameterType="com.bean.model.DbPrinteub">
+    delete from <include refid="TableName"/> where <include refid="Criteria"/>
+  </delete>
+  <insert id="insertByCriteria" parameterType="com.bean.model.DbPrinteub">
+    insert into <include refid="TableName"/>(<include refid="Columns"/>) values(<include refid="Values"/>)
   </insert>
-  <insert id="insertSelective" parameterType="com.bean.model.DbPrinteub">
-    insert into db_printeub
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="state != null">
-        'STATE',
-      </if>
-      <if test="country != null">
-        COUNTRY,
-      </if>
-      <if test="eubflag != null">
-        EUBFLAG,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="state != null">
-        #{state,jdbcType=VARCHAR},
-      </if>
-      <if test="country != null">
-        #{country,jdbcType=VARCHAR},
-      </if>
-      <if test="eubflag != null">
-        #{eubflag,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.bean.model.DbPrinteub">
-    update db_printeub
-    <set>
-      <if test="country != null">
-        COUNTRY = #{country,jdbcType=VARCHAR},
-      </if>
-      <if test="eubflag != null">
-        EUBFLAG = #{eubflag,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where 'STATE' = #{state,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.bean.model.DbPrinteub">
-    update db_printeub
-    set COUNTRY = #{country,jdbcType=VARCHAR},
-      EUBFLAG = #{eubflag,jdbcType=VARCHAR}
-    where 'STATE' = #{state,jdbcType=VARCHAR}
+  <update id="updateByCriteria" parameterType="com.bean.model.DbPrinteub">
+    update <include refid="TableName"/> set <include refid="UpdateCriteria"/> where <include refid="Criteria"/>
   </update>
 </mapper>

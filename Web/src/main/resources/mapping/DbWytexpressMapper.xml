@@ -9,57 +9,57 @@
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select DELIVERYWAYID, NAME, CATEGROYID, CATEGORYID
-    from db_wytexpress
+    from DB_WYTEXPRESS
     where DELIVERYWAYID = #{deliverywayid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select DELIVERYWAYID, NAME, CATEGROYID, CATEGORYID
-    from db_wytexpress
+    from DB_WYTEXPRESS
   </select>
   <sql id="TableName">
-    db_wytexpress
+    DB_WYTEXPRESS
   </sql>
   <sql id="Values">
      #{deliverywayid,jdbcType=VARCHAR} , 
      #{name,jdbcType=VARCHAR} , 
      #{categroyid,jdbcType=VARCHAR} , 
-     #{categoryid,jdbcType=VARCHAR}
+     #{categoryid,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     DELIVERYWAYID , 
     NAME , 
     CATEGROYID , 
-    CATEGORYID
+    CATEGORYID , 
   </sql>
   <sql id="Criteria">
     <if test="deliverywayid != null">
-      DELIVERYWAYID = #{deliverywayid,jdbcType=VARCHAR} and 
+      deliverywayid = #{deliverywayid,jdbcType=VARCHAR} and 
     </if>
     <if test="name != null">
-      NAME = #{name,jdbcType=VARCHAR} and 
+      name = #{name,jdbcType=VARCHAR} and 
     </if>
     <if test="categroyid != null">
-      CATEGROYID = #{categroyid,jdbcType=VARCHAR} and 
+      categroyid = #{categroyid,jdbcType=VARCHAR} and 
     </if>
     <if test="categoryid != null">
-      CATEGORYID = #{categoryid,jdbcType=VARCHAR}
+      categoryid = #{categoryid,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="deliverywayid != null">
-      DELIVERYWAYID = #{deliverywayid,jdbcType=VARCHAR} , 
+      deliverywayid = #{deliverywayid,jdbcType=VARCHAR} , 
     </if>
     <if test="name != null">
-      NAME = #{name,jdbcType=VARCHAR} , 
+      name = #{name,jdbcType=VARCHAR} , 
     </if>
     <if test="categroyid != null">
-      CATEGROYID = #{categroyid,jdbcType=VARCHAR} , 
+      categroyid = #{categroyid,jdbcType=VARCHAR} , 
     </if>
     <if test="categoryid != null">
-      CATEGORYID = #{categoryid,jdbcType=VARCHAR}
+      categoryid = #{categoryid,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbWytexpress" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

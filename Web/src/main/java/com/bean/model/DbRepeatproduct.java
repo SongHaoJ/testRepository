@@ -7,6 +7,8 @@ import java.util.Date;
 public class DbRepeatproduct implements Serializable {
     private BigDecimal sequenceid;
 
+    private String title;
+
     private String salsemoney;
 
     private String publisnum;
@@ -29,8 +31,6 @@ public class DbRepeatproduct implements Serializable {
 
     private BigDecimal corpid;
 
-    private String title;
-
     private static final long serialVersionUID = 1L;
 
     public BigDecimal getSequenceid() {
@@ -39,6 +39,14 @@ public class DbRepeatproduct implements Serializable {
 
     public void setSequenceid(BigDecimal sequenceid) {
         this.sequenceid = sequenceid;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title == null ? null : title.trim();
     }
 
     public String getSalsemoney() {
@@ -129,14 +137,6 @@ public class DbRepeatproduct implements Serializable {
         this.corpid = corpid;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title == null ? null : title.trim();
-    }
-
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -150,6 +150,7 @@ public class DbRepeatproduct implements Serializable {
         }
         DbRepeatproduct other = (DbRepeatproduct) that;
         return (this.getSequenceid() == null ? other.getSequenceid() == null : this.getSequenceid().equals(other.getSequenceid()))
+            && (this.getTitle() == null ? other.getTitle() == null : this.getTitle().equals(other.getTitle()))
             && (this.getSalsemoney() == null ? other.getSalsemoney() == null : this.getSalsemoney().equals(other.getSalsemoney()))
             && (this.getPublisnum() == null ? other.getPublisnum() == null : this.getPublisnum().equals(other.getPublisnum()))
             && (this.getChangerate() == null ? other.getChangerate() == null : this.getChangerate().equals(other.getChangerate()))
@@ -160,8 +161,7 @@ public class DbRepeatproduct implements Serializable {
             && (this.getOpenflag() == null ? other.getOpenflag() == null : this.getOpenflag().equals(other.getOpenflag()))
             && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
-            && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()))
-            && (this.getTitle() == null ? other.getTitle() == null : this.getTitle().equals(other.getTitle()));
+            && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()));
     }
 
     @Override
@@ -169,6 +169,7 @@ public class DbRepeatproduct implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getSequenceid() == null) ? 0 : getSequenceid().hashCode());
+        result = prime * result + ((getTitle() == null) ? 0 : getTitle().hashCode());
         result = prime * result + ((getSalsemoney() == null) ? 0 : getSalsemoney().hashCode());
         result = prime * result + ((getPublisnum() == null) ? 0 : getPublisnum().hashCode());
         result = prime * result + ((getChangerate() == null) ? 0 : getChangerate().hashCode());
@@ -180,7 +181,6 @@ public class DbRepeatproduct implements Serializable {
         result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getCorpid() == null) ? 0 : getCorpid().hashCode());
-        result = prime * result + ((getTitle() == null) ? 0 : getTitle().hashCode());
         return result;
     }
 
@@ -191,6 +191,7 @@ public class DbRepeatproduct implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", sequenceid=").append(sequenceid);
+        sb.append(", title=").append(title);
         sb.append(", salsemoney=").append(salsemoney);
         sb.append(", publisnum=").append(publisnum);
         sb.append(", changerate=").append(changerate);
@@ -202,7 +203,6 @@ public class DbRepeatproduct implements Serializable {
         sb.append(", oper=").append(oper);
         sb.append(", opertime=").append(opertime);
         sb.append(", corpid=").append(corpid);
-        sb.append(", title=").append(title);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

@@ -9,6 +9,8 @@
     <result column="OPERTIME" jdbcType="TIMESTAMP" property="opertime" />
     <result column="CREATEOPER" jdbcType="VARCHAR" property="createoper" />
     <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="PRODUCTNAME" jdbcType="VARCHAR" property="productname" />
+    <result column="CKYPRODUCTNAME" jdbcType="VARCHAR" property="ckyproductname" />
     <result column="CKYSTATUS" jdbcType="VARCHAR" property="ckystatus" />
     <result column="CATEGORYID" jdbcType="VARCHAR" property="categoryid" />
     <result column="PRICE1" jdbcType="DECIMAL" property="price1" />
@@ -32,35 +34,33 @@
     <result column="RESERVE8" jdbcType="VARCHAR" property="reserve8" />
     <result column="RESERVE10" jdbcType="VARCHAR" property="reserve10" />
     <result column="RESERVE9" jdbcType="VARCHAR" property="reserve9" />
+    <result column="DESCR" jdbcType="VARCHAR" property="descr" />
     <result column="WAREHOUSE" jdbcType="VARCHAR" property="warehouse" />
     <result column="WEIGHT" jdbcType="VARCHAR" property="weight" />
     <result column="SELLNUM" jdbcType="VARCHAR" property="sellnum" />
     <result column="AVAILSTOCK" jdbcType="DECIMAL" property="availstock" />
     <result column="TPNSAVENUM" jdbcType="VARCHAR" property="tpnsavenum" />
     <result column="SHARESTOCK" jdbcType="DECIMAL" property="sharestock" />
-    <result column="PRODUCTNAME" jdbcType="LONGVARCHAR" property="productname" />
-    <result column="CKYPRODUCTNAME" jdbcType="LONGVARCHAR" property="ckyproductname" />
-    <result column="DESCR" jdbcType="LONGVARCHAR" property="descr" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select PRODUCTID, CKYPRODUCTID, OPENFLAG, OPER, OPERTIME, CREATEOPER, CREATETIME, 
-    CKYSTATUS, CATEGORYID, PRICE1, PRICE2, CKYSAVENUM, CKYORDERNUM, STATUS, LENGTH, WIDTH, 
-    HIGH, RESERVE1, RESERVE2, RESERVE3, RESERVE4, RESERVE5, RESERVE6, RESERVE7, PACKINGTYPE, 
-    SHARER, DECLAREDVALUE, RESERVE8, RESERVE10, RESERVE9, WAREHOUSE, WEIGHT, SELLNUM, 
-    AVAILSTOCK, TPNSAVENUM, SHARESTOCK, PRODUCTNAME, CKYPRODUCTNAME, DESCR
-    from db_ckyskuconfig
+    PRODUCTNAME, CKYPRODUCTNAME, CKYSTATUS, CATEGORYID, PRICE1, PRICE2, CKYSAVENUM, CKYORDERNUM, 
+    STATUS, LENGTH, WIDTH, HIGH, RESERVE1, RESERVE2, RESERVE3, RESERVE4, RESERVE5, RESERVE6, 
+    RESERVE7, PACKINGTYPE, SHARER, DECLAREDVALUE, RESERVE8, RESERVE10, RESERVE9, DESCR, 
+    WAREHOUSE, WEIGHT, SELLNUM, AVAILSTOCK, TPNSAVENUM, SHARESTOCK
+    from DB_CKYSKUCONFIG
     where PRODUCTID = #{productid,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select PRODUCTID, CKYPRODUCTID, OPENFLAG, OPER, OPERTIME, CREATEOPER, CREATETIME, 
-    CKYSTATUS, CATEGORYID, PRICE1, PRICE2, CKYSAVENUM, CKYORDERNUM, STATUS, LENGTH, WIDTH, 
-    HIGH, RESERVE1, RESERVE2, RESERVE3, RESERVE4, RESERVE5, RESERVE6, RESERVE7, PACKINGTYPE, 
-    SHARER, DECLAREDVALUE, RESERVE8, RESERVE10, RESERVE9, WAREHOUSE, WEIGHT, SELLNUM, 
-    AVAILSTOCK, TPNSAVENUM, SHARESTOCK, PRODUCTNAME, CKYPRODUCTNAME, DESCR
-    from db_ckyskuconfig
+    PRODUCTNAME, CKYPRODUCTNAME, CKYSTATUS, CATEGORYID, PRICE1, PRICE2, CKYSAVENUM, CKYORDERNUM, 
+    STATUS, LENGTH, WIDTH, HIGH, RESERVE1, RESERVE2, RESERVE3, RESERVE4, RESERVE5, RESERVE6, 
+    RESERVE7, PACKINGTYPE, SHARER, DECLAREDVALUE, RESERVE8, RESERVE10, RESERVE9, DESCR, 
+    WAREHOUSE, WEIGHT, SELLNUM, AVAILSTOCK, TPNSAVENUM, SHARESTOCK
+    from DB_CKYSKUCONFIG
   </select>
   <sql id="TableName">
-    db_ckyskuconfig
+    DB_CKYSKUCONFIG
   </sql>
   <sql id="Values">
      #{productid,jdbcType=VARCHAR} , 
@@ -70,6 +70,8 @@
      #{opertime,jdbcType=TIMESTAMP} , 
      #{createoper,jdbcType=VARCHAR} , 
      #{createtime,jdbcType=TIMESTAMP} , 
+     #{productname,jdbcType=VARCHAR} , 
+     #{ckyproductname,jdbcType=VARCHAR} , 
      #{ckystatus,jdbcType=VARCHAR} , 
      #{categoryid,jdbcType=VARCHAR} , 
      #{price1,jdbcType=DECIMAL} , 
@@ -93,15 +95,13 @@
      #{reserve8,jdbcType=VARCHAR} , 
      #{reserve10,jdbcType=VARCHAR} , 
      #{reserve9,jdbcType=VARCHAR} , 
+     #{descr,jdbcType=VARCHAR} , 
      #{warehouse,jdbcType=VARCHAR} , 
      #{weight,jdbcType=VARCHAR} , 
      #{sellnum,jdbcType=VARCHAR} , 
      #{availstock,jdbcType=DECIMAL} , 
      #{tpnsavenum,jdbcType=VARCHAR} , 
      #{sharestock,jdbcType=DECIMAL} , 
-     #{productname,jdbcType=LONGVARCHAR} , 
-     #{ckyproductname,jdbcType=LONGVARCHAR} , 
-     #{descr,jdbcType=LONGVARCHAR}
   </sql>
   <sql id="Columns">
     PRODUCTID , 
@@ -111,6 +111,8 @@
     OPERTIME , 
     CREATEOPER , 
     CREATETIME , 
+    PRODUCTNAME , 
+    CKYPRODUCTNAME , 
     CKYSTATUS , 
     CATEGORYID , 
     PRICE1 , 
@@ -134,255 +136,253 @@
     RESERVE8 , 
     RESERVE10 , 
     RESERVE9 , 
+    DESCR , 
     WAREHOUSE , 
     WEIGHT , 
     SELLNUM , 
     AVAILSTOCK , 
     TPNSAVENUM , 
     SHARESTOCK , 
-    PRODUCTNAME , 
-    CKYPRODUCTNAME , 
-    DESCR
   </sql>
   <sql id="Criteria">
     <if test="productid != null">
-      PRODUCTID = #{productid,jdbcType=VARCHAR} and 
+      productid = #{productid,jdbcType=VARCHAR} and 
     </if>
     <if test="ckyproductid != null">
-      CKYPRODUCTID = #{ckyproductid,jdbcType=VARCHAR} and 
+      ckyproductid = #{ckyproductid,jdbcType=VARCHAR} and 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=DECIMAL} and 
+      openflag = #{openflag,jdbcType=DECIMAL} and 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} and 
+      oper = #{oper,jdbcType=VARCHAR} and 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} and 
+      opertime = #{opertime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="createoper != null">
-      CREATEOPER = #{createoper,jdbcType=VARCHAR} and 
+      createoper = #{createoper,jdbcType=VARCHAR} and 
     </if>
     <if test="createtime != null">
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP} and 
-    </if>
-    <if test="ckystatus != null">
-      CKYSTATUS = #{ckystatus,jdbcType=VARCHAR} and 
-    </if>
-    <if test="categoryid != null">
-      CATEGORYID = #{categoryid,jdbcType=VARCHAR} and 
-    </if>
-    <if test="price1 != null">
-      PRICE1 = #{price1,jdbcType=DECIMAL} and 
-    </if>
-    <if test="price2 != null">
-      PRICE2 = #{price2,jdbcType=DECIMAL} and 
-    </if>
-    <if test="ckysavenum != null">
-      CKYSAVENUM = #{ckysavenum,jdbcType=DECIMAL} and 
-    </if>
-    <if test="ckyordernum != null">
-      CKYORDERNUM = #{ckyordernum,jdbcType=DECIMAL} and 
-    </if>
-    <if test="status != null">
-      STATUS = #{status,jdbcType=VARCHAR} and 
-    </if>
-    <if test="length != null">
-      LENGTH = #{length,jdbcType=DECIMAL} and 
-    </if>
-    <if test="width != null">
-      WIDTH = #{width,jdbcType=DECIMAL} and 
-    </if>
-    <if test="high != null">
-      HIGH = #{high,jdbcType=DECIMAL} and 
-    </if>
-    <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=DECIMAL} and 
-    </if>
-    <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=DECIMAL} and 
-    </if>
-    <if test="reserve6 != null">
-      RESERVE6 = #{reserve6,jdbcType=DECIMAL} and 
-    </if>
-    <if test="reserve7 != null">
-      RESERVE7 = #{reserve7,jdbcType=DECIMAL} and 
-    </if>
-    <if test="packingtype != null">
-      PACKINGTYPE = #{packingtype,jdbcType=VARCHAR} and 
-    </if>
-    <if test="sharer != null">
-      SHARER = #{sharer,jdbcType=VARCHAR} and 
-    </if>
-    <if test="declaredvalue != null">
-      DECLAREDVALUE = #{declaredvalue,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve8 != null">
-      RESERVE8 = #{reserve8,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve10 != null">
-      RESERVE10 = #{reserve10,jdbcType=VARCHAR} and 
-    </if>
-    <if test="reserve9 != null">
-      RESERVE9 = #{reserve9,jdbcType=VARCHAR} and 
-    </if>
-    <if test="warehouse != null">
-      WAREHOUSE = #{warehouse,jdbcType=VARCHAR} and 
-    </if>
-    <if test="weight != null">
-      WEIGHT = #{weight,jdbcType=VARCHAR} and 
-    </if>
-    <if test="sellnum != null">
-      SELLNUM = #{sellnum,jdbcType=VARCHAR} and 
-    </if>
-    <if test="availstock != null">
-      AVAILSTOCK = #{availstock,jdbcType=DECIMAL} and 
-    </if>
-    <if test="tpnsavenum != null">
-      TPNSAVENUM = #{tpnsavenum,jdbcType=VARCHAR} and 
-    </if>
-    <if test="sharestock != null">
-      SHARESTOCK = #{sharestock,jdbcType=DECIMAL} and 
+      createtime = #{createtime,jdbcType=TIMESTAMP} and 
     </if>
     <if test="productname != null">
-      PRODUCTNAME = #{productname,jdbcType=LONGVARCHAR} and 
+      productname = #{productname,jdbcType=VARCHAR} and 
     </if>
     <if test="ckyproductname != null">
-      CKYPRODUCTNAME = #{ckyproductname,jdbcType=LONGVARCHAR} and 
+      ckyproductname = #{ckyproductname,jdbcType=VARCHAR} and 
+    </if>
+    <if test="ckystatus != null">
+      ckystatus = #{ckystatus,jdbcType=VARCHAR} and 
+    </if>
+    <if test="categoryid != null">
+      categoryid = #{categoryid,jdbcType=VARCHAR} and 
+    </if>
+    <if test="price1 != null">
+      price1 = #{price1,jdbcType=DECIMAL} and 
+    </if>
+    <if test="price2 != null">
+      price2 = #{price2,jdbcType=DECIMAL} and 
+    </if>
+    <if test="ckysavenum != null">
+      ckysavenum = #{ckysavenum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="ckyordernum != null">
+      ckyordernum = #{ckyordernum,jdbcType=DECIMAL} and 
+    </if>
+    <if test="status != null">
+      status = #{status,jdbcType=VARCHAR} and 
+    </if>
+    <if test="length != null">
+      length = #{length,jdbcType=DECIMAL} and 
+    </if>
+    <if test="width != null">
+      width = #{width,jdbcType=DECIMAL} and 
+    </if>
+    <if test="high != null">
+      high = #{high,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve6 != null">
+      reserve6 = #{reserve6,jdbcType=DECIMAL} and 
+    </if>
+    <if test="reserve7 != null">
+      reserve7 = #{reserve7,jdbcType=DECIMAL} and 
+    </if>
+    <if test="packingtype != null">
+      packingtype = #{packingtype,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sharer != null">
+      sharer = #{sharer,jdbcType=VARCHAR} and 
+    </if>
+    <if test="declaredvalue != null">
+      declaredvalue = #{declaredvalue,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve8 != null">
+      reserve8 = #{reserve8,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve10 != null">
+      reserve10 = #{reserve10,jdbcType=VARCHAR} and 
+    </if>
+    <if test="reserve9 != null">
+      reserve9 = #{reserve9,jdbcType=VARCHAR} and 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR}
+      descr = #{descr,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+    <if test="warehouse != null">
+      warehouse = #{warehouse,jdbcType=VARCHAR} and 
+    </if>
+    <if test="weight != null">
+      weight = #{weight,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sellnum != null">
+      sellnum = #{sellnum,jdbcType=VARCHAR} and 
+    </if>
+    <if test="availstock != null">
+      availstock = #{availstock,jdbcType=DECIMAL} and 
+    </if>
+    <if test="tpnsavenum != null">
+      tpnsavenum = #{tpnsavenum,jdbcType=VARCHAR} and 
+    </if>
+    <if test="sharestock != null">
+      sharestock = #{sharestock,jdbcType=DECIMAL} and 
+    </if>
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="productid != null">
-      PRODUCTID = #{productid,jdbcType=VARCHAR} , 
+      productid = #{productid,jdbcType=VARCHAR} , 
     </if>
     <if test="ckyproductid != null">
-      CKYPRODUCTID = #{ckyproductid,jdbcType=VARCHAR} , 
+      ckyproductid = #{ckyproductid,jdbcType=VARCHAR} , 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=DECIMAL} , 
+      openflag = #{openflag,jdbcType=DECIMAL} , 
     </if>
     <if test="oper != null">
-      OPER = #{oper,jdbcType=VARCHAR} , 
+      oper = #{oper,jdbcType=VARCHAR} , 
     </if>
     <if test="opertime != null">
-      OPERTIME = #{opertime,jdbcType=TIMESTAMP} , 
+      opertime = #{opertime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="createoper != null">
-      CREATEOPER = #{createoper,jdbcType=VARCHAR} , 
+      createoper = #{createoper,jdbcType=VARCHAR} , 
     </if>
     <if test="createtime != null">
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP} , 
-    </if>
-    <if test="ckystatus != null">
-      CKYSTATUS = #{ckystatus,jdbcType=VARCHAR} , 
-    </if>
-    <if test="categoryid != null">
-      CATEGORYID = #{categoryid,jdbcType=VARCHAR} , 
-    </if>
-    <if test="price1 != null">
-      PRICE1 = #{price1,jdbcType=DECIMAL} , 
-    </if>
-    <if test="price2 != null">
-      PRICE2 = #{price2,jdbcType=DECIMAL} , 
-    </if>
-    <if test="ckysavenum != null">
-      CKYSAVENUM = #{ckysavenum,jdbcType=DECIMAL} , 
-    </if>
-    <if test="ckyordernum != null">
-      CKYORDERNUM = #{ckyordernum,jdbcType=DECIMAL} , 
-    </if>
-    <if test="status != null">
-      STATUS = #{status,jdbcType=VARCHAR} , 
-    </if>
-    <if test="length != null">
-      LENGTH = #{length,jdbcType=DECIMAL} , 
-    </if>
-    <if test="width != null">
-      WIDTH = #{width,jdbcType=DECIMAL} , 
-    </if>
-    <if test="high != null">
-      HIGH = #{high,jdbcType=DECIMAL} , 
-    </if>
-    <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve4 != null">
-      RESERVE4 = #{reserve4,jdbcType=DECIMAL} , 
-    </if>
-    <if test="reserve5 != null">
-      RESERVE5 = #{reserve5,jdbcType=DECIMAL} , 
-    </if>
-    <if test="reserve6 != null">
-      RESERVE6 = #{reserve6,jdbcType=DECIMAL} , 
-    </if>
-    <if test="reserve7 != null">
-      RESERVE7 = #{reserve7,jdbcType=DECIMAL} , 
-    </if>
-    <if test="packingtype != null">
-      PACKINGTYPE = #{packingtype,jdbcType=VARCHAR} , 
-    </if>
-    <if test="sharer != null">
-      SHARER = #{sharer,jdbcType=VARCHAR} , 
-    </if>
-    <if test="declaredvalue != null">
-      DECLAREDVALUE = #{declaredvalue,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve8 != null">
-      RESERVE8 = #{reserve8,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve10 != null">
-      RESERVE10 = #{reserve10,jdbcType=VARCHAR} , 
-    </if>
-    <if test="reserve9 != null">
-      RESERVE9 = #{reserve9,jdbcType=VARCHAR} , 
-    </if>
-    <if test="warehouse != null">
-      WAREHOUSE = #{warehouse,jdbcType=VARCHAR} , 
-    </if>
-    <if test="weight != null">
-      WEIGHT = #{weight,jdbcType=VARCHAR} , 
-    </if>
-    <if test="sellnum != null">
-      SELLNUM = #{sellnum,jdbcType=VARCHAR} , 
-    </if>
-    <if test="availstock != null">
-      AVAILSTOCK = #{availstock,jdbcType=DECIMAL} , 
-    </if>
-    <if test="tpnsavenum != null">
-      TPNSAVENUM = #{tpnsavenum,jdbcType=VARCHAR} , 
-    </if>
-    <if test="sharestock != null">
-      SHARESTOCK = #{sharestock,jdbcType=DECIMAL} , 
+      createtime = #{createtime,jdbcType=TIMESTAMP} , 
     </if>
     <if test="productname != null">
-      PRODUCTNAME = #{productname,jdbcType=LONGVARCHAR} , 
+      productname = #{productname,jdbcType=VARCHAR} , 
     </if>
     <if test="ckyproductname != null">
-      CKYPRODUCTNAME = #{ckyproductname,jdbcType=LONGVARCHAR} , 
+      ckyproductname = #{ckyproductname,jdbcType=VARCHAR} , 
+    </if>
+    <if test="ckystatus != null">
+      ckystatus = #{ckystatus,jdbcType=VARCHAR} , 
+    </if>
+    <if test="categoryid != null">
+      categoryid = #{categoryid,jdbcType=VARCHAR} , 
+    </if>
+    <if test="price1 != null">
+      price1 = #{price1,jdbcType=DECIMAL} , 
+    </if>
+    <if test="price2 != null">
+      price2 = #{price2,jdbcType=DECIMAL} , 
+    </if>
+    <if test="ckysavenum != null">
+      ckysavenum = #{ckysavenum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="ckyordernum != null">
+      ckyordernum = #{ckyordernum,jdbcType=DECIMAL} , 
+    </if>
+    <if test="status != null">
+      status = #{status,jdbcType=VARCHAR} , 
+    </if>
+    <if test="length != null">
+      length = #{length,jdbcType=DECIMAL} , 
+    </if>
+    <if test="width != null">
+      width = #{width,jdbcType=DECIMAL} , 
+    </if>
+    <if test="high != null">
+      high = #{high,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve1 != null">
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve2 != null">
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve3 != null">
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve4 != null">
+      reserve4 = #{reserve4,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve5 != null">
+      reserve5 = #{reserve5,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve6 != null">
+      reserve6 = #{reserve6,jdbcType=DECIMAL} , 
+    </if>
+    <if test="reserve7 != null">
+      reserve7 = #{reserve7,jdbcType=DECIMAL} , 
+    </if>
+    <if test="packingtype != null">
+      packingtype = #{packingtype,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sharer != null">
+      sharer = #{sharer,jdbcType=VARCHAR} , 
+    </if>
+    <if test="declaredvalue != null">
+      declaredvalue = #{declaredvalue,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve8 != null">
+      reserve8 = #{reserve8,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve10 != null">
+      reserve10 = #{reserve10,jdbcType=VARCHAR} , 
+    </if>
+    <if test="reserve9 != null">
+      reserve9 = #{reserve9,jdbcType=VARCHAR} , 
     </if>
     <if test="descr != null">
-      DESCR = #{descr,jdbcType=LONGVARCHAR}
+      descr = #{descr,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+    <if test="warehouse != null">
+      warehouse = #{warehouse,jdbcType=VARCHAR} , 
+    </if>
+    <if test="weight != null">
+      weight = #{weight,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sellnum != null">
+      sellnum = #{sellnum,jdbcType=VARCHAR} , 
+    </if>
+    <if test="availstock != null">
+      availstock = #{availstock,jdbcType=DECIMAL} , 
+    </if>
+    <if test="tpnsavenum != null">
+      tpnsavenum = #{tpnsavenum,jdbcType=VARCHAR} , 
+    </if>
+    <if test="sharestock != null">
+      sharestock = #{sharestock,jdbcType=DECIMAL} , 
+    </if>
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbCkyskuconfig" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

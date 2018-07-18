@@ -19,16 +19,16 @@
   <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
     select ID, PARENTID, WAREHOUSECODE, RESERVE1, COUNTRY, OPENFLAG, CODE, NAMECN, NAMEEN, 
     RESERVE3, RESERVE2, APIID, ORDERTYPE
-    from db_expresstypeapi
+    from DB_EXPRESSTYPEAPI
     where ID = #{id,jdbcType=DECIMAL}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select ID, PARENTID, WAREHOUSECODE, RESERVE1, COUNTRY, OPENFLAG, CODE, NAMECN, NAMEEN, 
     RESERVE3, RESERVE2, APIID, ORDERTYPE
-    from db_expresstypeapi
+    from DB_EXPRESSTYPEAPI
   </select>
   <sql id="TableName">
-    db_expresstypeapi
+    DB_EXPRESSTYPEAPI
   </sql>
   <sql id="Values">
      #{id,jdbcType=DECIMAL} , 
@@ -43,7 +43,7 @@
      #{reserve3,jdbcType=VARCHAR} , 
      #{reserve2,jdbcType=VARCHAR} , 
      #{apiid,jdbcType=DECIMAL} , 
-     #{ordertype,jdbcType=VARCHAR}
+     #{ordertype,jdbcType=VARCHAR} , 
   </sql>
   <sql id="Columns">
     ID , 
@@ -58,91 +58,91 @@
     RESERVE3 , 
     RESERVE2 , 
     APIID , 
-    ORDERTYPE
+    ORDERTYPE , 
   </sql>
   <sql id="Criteria">
     <if test="id != null">
-      ID = #{id,jdbcType=DECIMAL} and 
+      id = #{id,jdbcType=DECIMAL} and 
     </if>
     <if test="parentid != null">
-      PARENTID = #{parentid,jdbcType=DECIMAL} and 
+      parentid = #{parentid,jdbcType=DECIMAL} and 
     </if>
     <if test="warehousecode != null">
-      WAREHOUSECODE = #{warehousecode,jdbcType=VARCHAR} and 
+      warehousecode = #{warehousecode,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} and 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} and 
     </if>
     <if test="country != null">
-      COUNTRY = #{country,jdbcType=VARCHAR} and 
+      country = #{country,jdbcType=VARCHAR} and 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=DECIMAL} and 
+      openflag = #{openflag,jdbcType=DECIMAL} and 
     </if>
     <if test="code != null">
-      CODE = #{code,jdbcType=VARCHAR} and 
+      code = #{code,jdbcType=VARCHAR} and 
     </if>
     <if test="namecn != null">
-      NAMECN = #{namecn,jdbcType=VARCHAR} and 
+      namecn = #{namecn,jdbcType=VARCHAR} and 
     </if>
     <if test="nameen != null">
-      NAMEEN = #{nameen,jdbcType=VARCHAR} and 
+      nameen = #{nameen,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR} and 
+      reserve3 = #{reserve3,jdbcType=VARCHAR} and 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} and 
+      reserve2 = #{reserve2,jdbcType=VARCHAR} and 
     </if>
     <if test="apiid != null">
-      APIID = #{apiid,jdbcType=DECIMAL} and 
+      apiid = #{apiid,jdbcType=DECIMAL} and 
     </if>
     <if test="ordertype != null">
-      ORDERTYPE = #{ordertype,jdbcType=VARCHAR}
+      ordertype = #{ordertype,jdbcType=VARCHAR} and 
     </if>
-     and 1=1
+     1=1
   </sql>
   <sql id="UpdateCriteria">
     <if test="id != null">
-      ID = #{id,jdbcType=DECIMAL} , 
+      id = #{id,jdbcType=DECIMAL} , 
     </if>
     <if test="parentid != null">
-      PARENTID = #{parentid,jdbcType=DECIMAL} , 
+      parentid = #{parentid,jdbcType=DECIMAL} , 
     </if>
     <if test="warehousecode != null">
-      WAREHOUSECODE = #{warehousecode,jdbcType=VARCHAR} , 
+      warehousecode = #{warehousecode,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve1 != null">
-      RESERVE1 = #{reserve1,jdbcType=VARCHAR} , 
+      reserve1 = #{reserve1,jdbcType=VARCHAR} , 
     </if>
     <if test="country != null">
-      COUNTRY = #{country,jdbcType=VARCHAR} , 
+      country = #{country,jdbcType=VARCHAR} , 
     </if>
     <if test="openflag != null">
-      OPENFLAG = #{openflag,jdbcType=DECIMAL} , 
+      openflag = #{openflag,jdbcType=DECIMAL} , 
     </if>
     <if test="code != null">
-      CODE = #{code,jdbcType=VARCHAR} , 
+      code = #{code,jdbcType=VARCHAR} , 
     </if>
     <if test="namecn != null">
-      NAMECN = #{namecn,jdbcType=VARCHAR} , 
+      namecn = #{namecn,jdbcType=VARCHAR} , 
     </if>
     <if test="nameen != null">
-      NAMEEN = #{nameen,jdbcType=VARCHAR} , 
+      nameen = #{nameen,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve3 != null">
-      RESERVE3 = #{reserve3,jdbcType=VARCHAR} , 
+      reserve3 = #{reserve3,jdbcType=VARCHAR} , 
     </if>
     <if test="reserve2 != null">
-      RESERVE2 = #{reserve2,jdbcType=VARCHAR} , 
+      reserve2 = #{reserve2,jdbcType=VARCHAR} , 
     </if>
     <if test="apiid != null">
-      APIID = #{apiid,jdbcType=DECIMAL} , 
+      apiid = #{apiid,jdbcType=DECIMAL} , 
     </if>
     <if test="ordertype != null">
-      ORDERTYPE = #{ordertype,jdbcType=VARCHAR}
+      ordertype = #{ordertype,jdbcType=VARCHAR} , 
     </if>
-     , 1=1
+     1=1
   </sql>
   <select id="selectByCriteria" parameterType="com.bean.model.DbExpresstypeapi" resultMap="ResultMapWithBLOBs">
     select <include refid="Columns"/> from <include refid="TableName"/> where <include refid="Criteria"/> 

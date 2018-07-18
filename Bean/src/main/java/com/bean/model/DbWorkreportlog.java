@@ -7,35 +7,17 @@ import java.util.Date;
 public class DbWorkreportlog implements Serializable {
     private String sequenceid;
 
+    private String title;
+
     private BigDecimal workattributeid;
 
     private BigDecimal workmouldid;
 
+    private String workmould;
+
     private String createoper;
 
     private Date createtime;
-
-    private Date opertime;
-
-    private BigDecimal flag;
-
-    private String corpid;
-
-    private BigDecimal openflag;
-
-    private String oper;
-
-    private BigDecimal status;
-
-    private String protocoltime1;
-
-    private String protocoltime2;
-
-    private BigDecimal sid;
-
-    private String title;
-
-    private String workmould;
 
     private String work1;
 
@@ -49,11 +31,29 @@ public class DbWorkreportlog implements Serializable {
 
     private String work6;
 
+    private Date opertime;
+
     private String warmoper;
+
+    private BigDecimal flag;
+
+    private String corpid;
+
+    private BigDecimal openflag;
+
+    private String oper;
 
     private String content;
 
+    private BigDecimal status;
+
+    private String protocoltime1;
+
+    private String protocoltime2;
+
     private String updateflag;
+
+    private BigDecimal sid;
 
     private static final long serialVersionUID = 1L;
 
@@ -63,6 +63,14 @@ public class DbWorkreportlog implements Serializable {
 
     public void setSequenceid(String sequenceid) {
         this.sequenceid = sequenceid == null ? null : sequenceid.trim();
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title == null ? null : title.trim();
     }
 
     public BigDecimal getWorkattributeid() {
@@ -81,6 +89,14 @@ public class DbWorkreportlog implements Serializable {
         this.workmouldid = workmouldid;
     }
 
+    public String getWorkmould() {
+        return workmould;
+    }
+
+    public void setWorkmould(String workmould) {
+        this.workmould = workmould == null ? null : workmould.trim();
+    }
+
     public String getCreateoper() {
         return createoper;
     }
@@ -95,94 +111,6 @@ public class DbWorkreportlog implements Serializable {
 
     public void setCreatetime(Date createtime) {
         this.createtime = createtime;
-    }
-
-    public Date getOpertime() {
-        return opertime;
-    }
-
-    public void setOpertime(Date opertime) {
-        this.opertime = opertime;
-    }
-
-    public BigDecimal getFlag() {
-        return flag;
-    }
-
-    public void setFlag(BigDecimal flag) {
-        this.flag = flag;
-    }
-
-    public String getCorpid() {
-        return corpid;
-    }
-
-    public void setCorpid(String corpid) {
-        this.corpid = corpid == null ? null : corpid.trim();
-    }
-
-    public BigDecimal getOpenflag() {
-        return openflag;
-    }
-
-    public void setOpenflag(BigDecimal openflag) {
-        this.openflag = openflag;
-    }
-
-    public String getOper() {
-        return oper;
-    }
-
-    public void setOper(String oper) {
-        this.oper = oper == null ? null : oper.trim();
-    }
-
-    public BigDecimal getStatus() {
-        return status;
-    }
-
-    public void setStatus(BigDecimal status) {
-        this.status = status;
-    }
-
-    public String getProtocoltime1() {
-        return protocoltime1;
-    }
-
-    public void setProtocoltime1(String protocoltime1) {
-        this.protocoltime1 = protocoltime1 == null ? null : protocoltime1.trim();
-    }
-
-    public String getProtocoltime2() {
-        return protocoltime2;
-    }
-
-    public void setProtocoltime2(String protocoltime2) {
-        this.protocoltime2 = protocoltime2 == null ? null : protocoltime2.trim();
-    }
-
-    public BigDecimal getSid() {
-        return sid;
-    }
-
-    public void setSid(BigDecimal sid) {
-        this.sid = sid;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title == null ? null : title.trim();
-    }
-
-    public String getWorkmould() {
-        return workmould;
-    }
-
-    public void setWorkmould(String workmould) {
-        this.workmould = workmould == null ? null : workmould.trim();
     }
 
     public String getWork1() {
@@ -233,12 +161,52 @@ public class DbWorkreportlog implements Serializable {
         this.work6 = work6 == null ? null : work6.trim();
     }
 
+    public Date getOpertime() {
+        return opertime;
+    }
+
+    public void setOpertime(Date opertime) {
+        this.opertime = opertime;
+    }
+
     public String getWarmoper() {
         return warmoper;
     }
 
     public void setWarmoper(String warmoper) {
         this.warmoper = warmoper == null ? null : warmoper.trim();
+    }
+
+    public BigDecimal getFlag() {
+        return flag;
+    }
+
+    public void setFlag(BigDecimal flag) {
+        this.flag = flag;
+    }
+
+    public String getCorpid() {
+        return corpid;
+    }
+
+    public void setCorpid(String corpid) {
+        this.corpid = corpid == null ? null : corpid.trim();
+    }
+
+    public BigDecimal getOpenflag() {
+        return openflag;
+    }
+
+    public void setOpenflag(BigDecimal openflag) {
+        this.openflag = openflag;
+    }
+
+    public String getOper() {
+        return oper;
+    }
+
+    public void setOper(String oper) {
+        this.oper = oper == null ? null : oper.trim();
     }
 
     public String getContent() {
@@ -249,12 +217,44 @@ public class DbWorkreportlog implements Serializable {
         this.content = content == null ? null : content.trim();
     }
 
+    public BigDecimal getStatus() {
+        return status;
+    }
+
+    public void setStatus(BigDecimal status) {
+        this.status = status;
+    }
+
+    public String getProtocoltime1() {
+        return protocoltime1;
+    }
+
+    public void setProtocoltime1(String protocoltime1) {
+        this.protocoltime1 = protocoltime1 == null ? null : protocoltime1.trim();
+    }
+
+    public String getProtocoltime2() {
+        return protocoltime2;
+    }
+
+    public void setProtocoltime2(String protocoltime2) {
+        this.protocoltime2 = protocoltime2 == null ? null : protocoltime2.trim();
+    }
+
     public String getUpdateflag() {
         return updateflag;
     }
 
     public void setUpdateflag(String updateflag) {
         this.updateflag = updateflag == null ? null : updateflag.trim();
+    }
+
+    public BigDecimal getSid() {
+        return sid;
+    }
+
+    public void setSid(BigDecimal sid) {
+        this.sid = sid;
     }
 
     @Override
@@ -270,30 +270,30 @@ public class DbWorkreportlog implements Serializable {
         }
         DbWorkreportlog other = (DbWorkreportlog) that;
         return (this.getSequenceid() == null ? other.getSequenceid() == null : this.getSequenceid().equals(other.getSequenceid()))
+            && (this.getTitle() == null ? other.getTitle() == null : this.getTitle().equals(other.getTitle()))
             && (this.getWorkattributeid() == null ? other.getWorkattributeid() == null : this.getWorkattributeid().equals(other.getWorkattributeid()))
             && (this.getWorkmouldid() == null ? other.getWorkmouldid() == null : this.getWorkmouldid().equals(other.getWorkmouldid()))
+            && (this.getWorkmould() == null ? other.getWorkmould() == null : this.getWorkmould().equals(other.getWorkmould()))
             && (this.getCreateoper() == null ? other.getCreateoper() == null : this.getCreateoper().equals(other.getCreateoper()))
             && (this.getCreatetime() == null ? other.getCreatetime() == null : this.getCreatetime().equals(other.getCreatetime()))
-            && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
-            && (this.getFlag() == null ? other.getFlag() == null : this.getFlag().equals(other.getFlag()))
-            && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()))
-            && (this.getOpenflag() == null ? other.getOpenflag() == null : this.getOpenflag().equals(other.getOpenflag()))
-            && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
-            && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
-            && (this.getProtocoltime1() == null ? other.getProtocoltime1() == null : this.getProtocoltime1().equals(other.getProtocoltime1()))
-            && (this.getProtocoltime2() == null ? other.getProtocoltime2() == null : this.getProtocoltime2().equals(other.getProtocoltime2()))
-            && (this.getSid() == null ? other.getSid() == null : this.getSid().equals(other.getSid()))
-            && (this.getTitle() == null ? other.getTitle() == null : this.getTitle().equals(other.getTitle()))
-            && (this.getWorkmould() == null ? other.getWorkmould() == null : this.getWorkmould().equals(other.getWorkmould()))
             && (this.getWork1() == null ? other.getWork1() == null : this.getWork1().equals(other.getWork1()))
             && (this.getWork2() == null ? other.getWork2() == null : this.getWork2().equals(other.getWork2()))
             && (this.getWork3() == null ? other.getWork3() == null : this.getWork3().equals(other.getWork3()))
             && (this.getWork4() == null ? other.getWork4() == null : this.getWork4().equals(other.getWork4()))
             && (this.getWork5() == null ? other.getWork5() == null : this.getWork5().equals(other.getWork5()))
             && (this.getWork6() == null ? other.getWork6() == null : this.getWork6().equals(other.getWork6()))
+            && (this.getOpertime() == null ? other.getOpertime() == null : this.getOpertime().equals(other.getOpertime()))
             && (this.getWarmoper() == null ? other.getWarmoper() == null : this.getWarmoper().equals(other.getWarmoper()))
+            && (this.getFlag() == null ? other.getFlag() == null : this.getFlag().equals(other.getFlag()))
+            && (this.getCorpid() == null ? other.getCorpid() == null : this.getCorpid().equals(other.getCorpid()))
+            && (this.getOpenflag() == null ? other.getOpenflag() == null : this.getOpenflag().equals(other.getOpenflag()))
+            && (this.getOper() == null ? other.getOper() == null : this.getOper().equals(other.getOper()))
             && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
-            && (this.getUpdateflag() == null ? other.getUpdateflag() == null : this.getUpdateflag().equals(other.getUpdateflag()));
+            && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
+            && (this.getProtocoltime1() == null ? other.getProtocoltime1() == null : this.getProtocoltime1().equals(other.getProtocoltime1()))
+            && (this.getProtocoltime2() == null ? other.getProtocoltime2() == null : this.getProtocoltime2().equals(other.getProtocoltime2()))
+            && (this.getUpdateflag() == null ? other.getUpdateflag() == null : this.getUpdateflag().equals(other.getUpdateflag()))
+            && (this.getSid() == null ? other.getSid() == null : this.getSid().equals(other.getSid()));
     }
 
     @Override
@@ -301,30 +301,30 @@ public class DbWorkreportlog implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getSequenceid() == null) ? 0 : getSequenceid().hashCode());
+        result = prime * result + ((getTitle() == null) ? 0 : getTitle().hashCode());
         result = prime * result + ((getWorkattributeid() == null) ? 0 : getWorkattributeid().hashCode());
         result = prime * result + ((getWorkmouldid() == null) ? 0 : getWorkmouldid().hashCode());
+        result = prime * result + ((getWorkmould() == null) ? 0 : getWorkmould().hashCode());
         result = prime * result + ((getCreateoper() == null) ? 0 : getCreateoper().hashCode());
         result = prime * result + ((getCreatetime() == null) ? 0 : getCreatetime().hashCode());
-        result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
-        result = prime * result + ((getFlag() == null) ? 0 : getFlag().hashCode());
-        result = prime * result + ((getCorpid() == null) ? 0 : getCorpid().hashCode());
-        result = prime * result + ((getOpenflag() == null) ? 0 : getOpenflag().hashCode());
-        result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
-        result = prime * result + ((getStatus() == null) ? 0 : getStatus().hashCode());
-        result = prime * result + ((getProtocoltime1() == null) ? 0 : getProtocoltime1().hashCode());
-        result = prime * result + ((getProtocoltime2() == null) ? 0 : getProtocoltime2().hashCode());
-        result = prime * result + ((getSid() == null) ? 0 : getSid().hashCode());
-        result = prime * result + ((getTitle() == null) ? 0 : getTitle().hashCode());
-        result = prime * result + ((getWorkmould() == null) ? 0 : getWorkmould().hashCode());
         result = prime * result + ((getWork1() == null) ? 0 : getWork1().hashCode());
         result = prime * result + ((getWork2() == null) ? 0 : getWork2().hashCode());
         result = prime * result + ((getWork3() == null) ? 0 : getWork3().hashCode());
         result = prime * result + ((getWork4() == null) ? 0 : getWork4().hashCode());
         result = prime * result + ((getWork5() == null) ? 0 : getWork5().hashCode());
         result = prime * result + ((getWork6() == null) ? 0 : getWork6().hashCode());
+        result = prime * result + ((getOpertime() == null) ? 0 : getOpertime().hashCode());
         result = prime * result + ((getWarmoper() == null) ? 0 : getWarmoper().hashCode());
+        result = prime * result + ((getFlag() == null) ? 0 : getFlag().hashCode());
+        result = prime * result + ((getCorpid() == null) ? 0 : getCorpid().hashCode());
+        result = prime * result + ((getOpenflag() == null) ? 0 : getOpenflag().hashCode());
+        result = prime * result + ((getOper() == null) ? 0 : getOper().hashCode());
         result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
+        result = prime * result + ((getStatus() == null) ? 0 : getStatus().hashCode());
+        result = prime * result + ((getProtocoltime1() == null) ? 0 : getProtocoltime1().hashCode());
+        result = prime * result + ((getProtocoltime2() == null) ? 0 : getProtocoltime2().hashCode());
         result = prime * result + ((getUpdateflag() == null) ? 0 : getUpdateflag().hashCode());
+        result = prime * result + ((getSid() == null) ? 0 : getSid().hashCode());
         return result;
     }
 
@@ -335,30 +335,30 @@ public class DbWorkreportlog implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", sequenceid=").append(sequenceid);
+        sb.append(", title=").append(title);
         sb.append(", workattributeid=").append(workattributeid);
         sb.append(", workmouldid=").append(workmouldid);
+        sb.append(", workmould=").append(workmould);
         sb.append(", createoper=").append(createoper);
         sb.append(", createtime=").append(createtime);
-        sb.append(", opertime=").append(opertime);
-        sb.append(", flag=").append(flag);
-        sb.append(", corpid=").append(corpid);
-        sb.append(", openflag=").append(openflag);
-        sb.append(", oper=").append(oper);
-        sb.append(", status=").append(status);
-        sb.append(", protocoltime1=").append(protocoltime1);
-        sb.append(", protocoltime2=").append(protocoltime2);
-        sb.append(", sid=").append(sid);
-        sb.append(", title=").append(title);
-        sb.append(", workmould=").append(workmould);
         sb.append(", work1=").append(work1);
         sb.append(", work2=").append(work2);
         sb.append(", work3=").append(work3);
         sb.append(", work4=").append(work4);
         sb.append(", work5=").append(work5);
         sb.append(", work6=").append(work6);
+        sb.append(", opertime=").append(opertime);
         sb.append(", warmoper=").append(warmoper);
+        sb.append(", flag=").append(flag);
+        sb.append(", corpid=").append(corpid);
+        sb.append(", openflag=").append(openflag);
+        sb.append(", oper=").append(oper);
         sb.append(", content=").append(content);
+        sb.append(", status=").append(status);
+        sb.append(", protocoltime1=").append(protocoltime1);
+        sb.append(", protocoltime2=").append(protocoltime2);
         sb.append(", updateflag=").append(updateflag);
+        sb.append(", sid=").append(sid);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

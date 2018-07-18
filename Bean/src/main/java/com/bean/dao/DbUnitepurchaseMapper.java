@@ -1,18 +1,24 @@
 package com.bean.dao;
 
 import com.bean.model.DbUnitepurchase;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.util.List;
 
+@Service
 public interface DbUnitepurchaseMapper {
-    int deleteByPrimaryKey(BigDecimal sequenceid);
+    DbUnitepurchase selectByCriteria(DbUnitepurchase DbUnitepurchase);
 
-    int insert(DbUnitepurchase record);
+    void deleteByPrimaryKey(String SEQUENCEID);
 
-    int insertSelective(DbUnitepurchase record);
+    void deleteByCriteria(DbUnitepurchase DbUnitepurchase);
+
+    int insertByCriteria(DbUnitepurchase DbUnitepurchase);
+
+    int updateByCriteria(DbUnitepurchase DbUnitepurchase);
 
     DbUnitepurchase selectByPrimaryKey(BigDecimal sequenceid);
 
-    int updateByPrimaryKeySelective(DbUnitepurchase record);
-
-    int updateByPrimaryKey(DbUnitepurchase record);
+    List<DbUnitepurchase> selectAll();
 }
