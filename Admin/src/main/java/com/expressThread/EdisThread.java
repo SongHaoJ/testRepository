@@ -1,19 +1,17 @@
 package com.expressThread;
 
 import com.bean.yml.EdisYml;
-import com.service.EdisEbayService;
-import com.service.GetExpressService;
 import com.threadModel.ThreadModel;
 
 public class EdisThread extends ThreadModel {
 
-    private EdisEbayService service;
+/*    private EdisEbayService service;*/
 
     private EdisYml yml;
 
     {
-        service = GetExpressService.getService();
-        yml = GetExpressService.getEdisYml();
+       /* service = GetExpressService.getService();
+        yml = GetExpressService.getEdisYml();*/
     }
 
     /**
@@ -30,7 +28,7 @@ public class EdisThread extends ThreadModel {
     @Override
     public void run() {
 
-        service.getChannel();
+       /* service.getChannel();*/
     }
 
 

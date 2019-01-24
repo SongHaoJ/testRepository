@@ -28,7 +28,7 @@ public class SpringbootApplication extends SpringBootServletInitializer {
     public static void main(String args[]) {
         logger.debug("SpringBootWeb开始启动");
         SpringApplication.run(SpringbootApplication.class, args);
-        runGenerator();
+        /*runGenerator();*/
     }
 
 

@@ -1,3 +1,4 @@
+/*
 package com.gourpBean;
 
 import com.bean.model.DbAsktradernumber;
@@ -14,3 +15,4 @@ public class ExpressInfo {
 
     private DbExpressapiuser apiuser;
 }
+*/

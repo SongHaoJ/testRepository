@@ -1,4 +1,4 @@
-package com.start.Controller;
+package com.start.controller;
 
 
 import org.slf4j.Logger;

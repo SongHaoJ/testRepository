@@ -1,3 +1,4 @@
+/*
 package com.gourpBean;
 
 import com.bean.model.DbOrder;
@@ -12,3 +13,4 @@ public class OrderInfo {
     private List<DbSell> sellList;
 
 }
+*/

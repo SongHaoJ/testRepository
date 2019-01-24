@@ -1,17 +1,9 @@
 package com.orderThread;
 
-import com.bean.model.DbShop;
-import com.bean.util.RetCode;
-import com.bean.util.Sys;
 import com.bean.yml.LazadaYml;
-import com.controller.Priority;
-import com.service.GetOrderService;
-import com.service.LazadaService;
 import com.threadModel.ThreadModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.ArrayList;
 
 //lazada订单下载线程
 public class LazadaOrderThread extends ThreadModel {
@@ -21,15 +13,15 @@ public class LazadaOrderThread extends ThreadModel {
     private int calcuOrderDiff = 4;//计算缺货计间隔
     private int calcuCount = 0;//计算缺货计数器
 
-    private LazadaService service;
+    /*private LazadaService service;*/
 
     private LazadaYml yml;
 
     /*    private static List<Map<String,String>> skuMap;//多仓sku暂存
         private static boolean refreshSku;//多仓sku刷新标志*/
     {
-        service = GetOrderService.getLazadaService();
-        yml = GetOrderService.getLazadaYml();
+      /*  service = GetOrderService.getLazadaService();
+        yml = GetOrderService.getLazadaYml();*/
     }
 
     /**
@@ -59,7 +51,7 @@ public class LazadaOrderThread extends ThreadModel {
     }
 
     @Override
-    public void run() {
+    public void run() {/*
         log.info("lazadaStart！");
         Priority.changePriority(this);
 
@@ -73,7 +65,7 @@ public class LazadaOrderThread extends ThreadModel {
                     // 遍历
                     ArrayList<DbShop> list = (ArrayList<DbShop>) rt.getObj();
                     log.info("已找到店铺数量：" + list.size());
-                    /*int i = 0;*/
+                    *//*int i = 0;*//*
                     String shopIds = "";
                     for (DbShop o : list) {
                         log.info("更新店铺：" + o.getName() + "令牌、物流信息");
@@ -87,7 +79,7 @@ public class LazadaOrderThread extends ThreadModel {
                                 service.GetShipmentProviders(o);
                             }
 
-                            /*  i++;*/
+                            *//*  i++;*//*
                             // 获取完一个店铺休眠1秒,继续下一店铺
                             sleep(1000);
                         } catch (Exception e) {
@@ -151,7 +143,7 @@ public class LazadaOrderThread extends ThreadModel {
             service.setManyStorageSku(manyStorageSku);
             ArrayList<DbShop> list = (ArrayList<DbShop>) rt.getObj();
             // 遍历店铺,获取订单
-            /*int i = 0;*/
+            *//*int i = 0;*//*
             for (DbShop o : list) {
                 log.info("下载店铺："+o.getName()+"的订单");
                 calcuCount++;
@@ -171,7 +163,7 @@ public class LazadaOrderThread extends ThreadModel {
                 if (calcuCount % calcuOrderDiff == 0) {
                     //TODO 计算缺货
                 }
-                /*   i++;*/
+                *//*   i++;*//*
                 // 获取完一个店铺休眠20秒,继续下一店铺
                 log.info("店铺" + o.getName()+"下载完毕");
             }
@@ -188,6 +180,6 @@ public class LazadaOrderThread extends ThreadModel {
             } catch (Exception e) {
 
             }
-        }
+        }*/
     }
 }

@@ -1,3 +1,4 @@
+/*
 package com.bean.util;
 
 import java.security.MessageDigest;
@@ -829,12 +830,14 @@ public class Sys {
         }
     }
 
-    /**
+    */
+/**
      * 添加日志内容
      * @param content 为栏目名称
      * @param operType 为日志类型　１：新增；　２：删除；３修改；４查询
      * @return　
-     */
+     *//*
+
     public static String getSysLogContent(String content, Long operType) {
 
         StringBuffer buf = new StringBuffer();
@@ -886,12 +889,14 @@ public class Sys {
         String mm = "";
         if(m < 10) mm += "0";
         mm += String.valueOf(m);
-        /*
+        */
+/*
         int d = dt.get(Calendar.DAY_OF_MONTH);
         String dd = "";
         if(d < 10) dd += "0";
         dd += String.valueOf(d);
-        */
+        *//*
+
         //时分秒都用默认的
         return tmp + mm;
     }
@@ -1748,9 +1753,11 @@ public class Sys {
     }
 
 
-    /**
+    */
+/**
      * @param args
-     */
+     *//*
+
     public static void main(String[] args) {
         //		System.out.print(Sys.str2YMD("200703201430") + "\n");
         //		System.out.print(Sys.str2YM("20070") + "\n");
@@ -1818,4 +1825,4 @@ public class Sys {
         now.set(Calendar.MINUTE, now.get(Calendar.MINUTE) - min);
         return now.getTime();
     }
-}
+}*/

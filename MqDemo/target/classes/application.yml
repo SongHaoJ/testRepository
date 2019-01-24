@@ -1,0 +1,33 @@
+server:
+  port: 8066
+  servlet:
+    context-path: /pro
+spring:
+  datasource:
+    name: bean
+    url: jdbc:mysql://127.0.0.1:3306/shop
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+  activemq:
+    user: admin
+    password: admin
+    broker-url: tcp://127.0.0.1:61616
+    pool:
+      enabled: true
+      max-connections: 10
+  application:
+    name: kafka-user
+  kafka:
+    bootstrap-servers: 127.0.0.1:9092
+    producer:
+      retries: 0
+      batch-size: 16384
+      buffer-memory: 33554432
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+
+queueName: publish.queue
+topicName: publish.topic
+queue2Name: publish.que

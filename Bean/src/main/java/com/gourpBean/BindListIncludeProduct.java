@@ -1,3 +1,4 @@
+/*
 package com.gourpBean;
 
 import com.bean.model.DbBindlist;
@@ -29,3 +30,4 @@ public class BindListIncludeProduct extends DbBindlist {
 
 
 }
+*/

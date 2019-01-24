@@ -6,8 +6,8 @@ server:
 spring:
     datasource:
         name: bean
-        url: jdbc:mysql://127.0.0.1:3306/db1
-        username: sh1
+        url: jdbc:mysql://127.0.0.1:3306/shop
+        username: root
         password: 123456
         driver-class-name: com.mysql.jdbc.Driver
 #    redis:
@@ -19,8 +19,28 @@ spring:
 #        max-idle: 8
 #        min-idle: 0
     session:
-      store-type: none
+        store-type: none
+    activemq:
+      user: admin
+      password: admin
+      broker-url: tcp://127.0.0.1:61616
+      pool:
+        enabled: true
+        max-connections: 10
+    application:
+      name: kafka-user
+    kafka:
+      bootstrap-servers: 127.0.0.1:9092
 
+      consumer:
+        group-id: user-log-group
+        auto-offset-reset: earliest
+        enable-auto-commit: true
+        auto-commit-interval: 100
+        key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+        value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+queueName: publish.que
+topicName: publish.topic
 
 logging:
   path: log/logging.log

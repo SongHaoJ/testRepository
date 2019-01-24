@@ -1,3 +1,4 @@
+/*
 package com.gourpBean;
 
 import com.bean.model.DbOrder;
@@ -25,3 +26,4 @@ public class BaseOrderIncludeSellBean extends DbOrder {
     }
 
 }
+*/
