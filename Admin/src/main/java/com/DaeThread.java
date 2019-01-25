@@ -10,7 +10,6 @@ public class DaeThread extends Thread {
     private static DaeThread daeThread = new DaeThread();
     private static final Logger log = LoggerFactory.getLogger(DaeThread.class);
 
-
     static{
         daeThread.setDaemon(true);
         daeThread.start();
