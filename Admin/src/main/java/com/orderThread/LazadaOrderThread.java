@@ -5,15 +5,20 @@ import com.threadModel.ThreadModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-//lazada订单下载线程
+/**
+ * lazada订单下载线程
+ * @author songhao
+ */
 public class LazadaOrderThread extends ThreadModel {
 
     private static final Logger log = LoggerFactory.getLogger(LazadaOrderThread.class);
     private Boolean freshShop = true;
-    private int calcuOrderDiff = 4;//计算缺货计间隔
-    private int calcuCount = 0;//计算缺货计数器
+    //计算缺货计间隔
+    private int calcuOrderDiff = 4;
+    //计算缺货计数器
+    private int calcuCount = 0;
 
-    /*private LazadaService service;*/
+    //private LazadaService service;
 
     private LazadaYml yml;
 

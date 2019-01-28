@@ -12,7 +12,7 @@ import org.springframework.jms.config.JmsListenerContainerFactory;
 import javax.jms.Queue;
 import javax.jms.Topic;
 
-@Configuration
+/*@Configuration*/
 public class ActiveMQConfig {
     @Value("${queueName}")
     private String queueName;

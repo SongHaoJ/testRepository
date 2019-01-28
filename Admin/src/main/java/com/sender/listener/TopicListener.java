@@ -3,7 +3,7 @@ package com.sender.listener;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
 
-@Component
+/*@Component*/
 public class TopicListener {
 
     @JmsListener(destination = "publish.topic", containerFactory = "jmsListenerContainerTopic")

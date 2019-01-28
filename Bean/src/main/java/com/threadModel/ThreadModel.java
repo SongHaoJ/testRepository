@@ -1,8 +1,13 @@
 package com.threadModel;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
+/**
+ * @author songhao
+ */
 @Data
+@EqualsAndHashCode(callSuper=true)
 public abstract class ThreadModel extends Thread{
     //线程类型（order：下载线程）
     private String threadType;
